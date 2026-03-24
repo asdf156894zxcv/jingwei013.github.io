@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多Agent架构 | 精卫013</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .agents-container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    .agents-header { text-align: center; margin-bottom: 60px; }
+    .agents-header h1 { font-size: 36px; margin-bottom: 16px; }
+    .agents-header p { color: var(--text-secondary); font-size: 16px; }
+    
+    .agent-card { 
+      background: var(--bg-card); 
+      border-radius: 16px; 
+      padding: 32px; 
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+    }
+    .agent-header { 
+      display: flex; 
+      align-items: center; 
+      gap: 16px; 
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .agent-avatar { 
+      width: 64px; 
+      height: 64px; 
+      border-radius: 50%; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-size: 32px;
+    }
+    .agent-avatar.academic { background: linear-gradient(135deg, #3b82f6, #8b5cf6); }
+    .agent-avatar.startup { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+    .agent-info h3 { font-size: 24px; margin-bottom: 4px; }
+    .agent-info p { color: var(--text-secondary); font-size: 14px; }
+    
+    .sub-agents { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .sub-agent { 
+      background: var(--bg-page); 
+      padding: 20px; 
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+    }
+    .sub-agent h4 { font-size: 16px; margin-bottom: 8px; }
+    .sub-agent p { font-size: 13px; color: var(--text-secondary); }
+    
+    .heartbeat-section { 
+      background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1)); 
+      border-radius: 16px; 
+      padding: 32px; 
+      margin: 40px 0;
+      border: 1px solid rgba(59,130,246,0.2);
+    }
+    .heartbeat-section h2 { font-size: 24px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    .heartbeat-indicator { 
+      width: 12px; 
+      height: 12px; 
+      background: #22c55e; 
+      border-radius: 50%; 
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    
+    .heartbeat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .heartbeat-item { 
+      background: var(--bg-card); 
+      padding: 20px; 
+      border-radius: 12px;
+    }
+    .heartbeat-item h4 { font-size: 16px; margin-bottom: 8px; color: var(--accent); }
+    .heartbeat-item p { font-size: 14px; color: var(--text-secondary); margin-bottom: 4px; }
+    .heartbeat-item .time { font-size: 13px; color: var(--text-muted); }
+    
+    .sync-section { 
+      background: var(--bg-card); 
+      border-radius: 16px; 
+      padding: 32px; 
+      margin: 40px 0;
+      text-align: center;
+    }
+    .sync-section h2 { font-size: 24px; margin-bottom: 16px; }
+    .sync-flow { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 20px; 
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+    .sync-node { 
+      background: var(--bg-page); 
+      padding: 16px 24px; 
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .sync-node.academic { border: 2px solid #3b82f6; }
+    .sync-node.startup { border: 2px solid #f59e0b; }
+    .sync-arrow { font-size: 24px; color: var(--accent); }
+    
+    .automation-list { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 16px; 
+      margin-top: 24px;
+    }
+    .automation-item { 
+      background: var(--bg-page); 
+      padding: 20px; 
+      border-radius: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .automation-item .icon { font-size: 24px; }
+    .automation-item h4 { font-size: 15px; margin-bottom: 4px; }
+    .automation-item p { font-size: 13px; color: var(--text-secondary); }
+    
+    .back-link { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 8px; 
+      color: var(--accent); 
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← 返回首页</a>
+    
+    <div class="agents-container">
+      <header class="agents-header">
+        <h1>🦞 多Agent协作架构</h1>
+        <p>基于 sanwan.ai 方法论构建的自动化研究系统 · 8个Agent协同工作</p>
+      </header>
+
+      <!-- 学术小龙虾 -->
+      <div class="agent-card">
+        <div class="agent-header">
+          <div class="agent-avatar academic">🦞A</div>
+          <div class="agent-info">
+            <h3>学术小龙虾</h3>
+            <p>Leader Agent · 统筹学术研究 · 3个子Agent</p>
+          </div>
+        </div>
+        <div class="sub-agents">
+          <div class="sub-agent">
+            <h4>📄 论文小龙虾</h4>
+            <p>ArXiv论文搜索、跟踪、阅读、总结</p>
+          </div>
+          <div class="sub-agent">
+            <h4>🧠 知识小龙虾</h4>
+            <p>知识库维护、结构化整理、笔记归档</p>
+          </div>
+          <div class="sub-agent">
+            <h4>✍️ 写作小龙虾</h4>
+            <p>学术论文写作、润色、投稿准备</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 创业小龙虾 -->
+      <div class="agent-card">
+        <div class="agent-header">
+          <div class="agent-avatar startup">🦞B</div>
+          <div class="agent-info">
+            <h3>创业小龙虾</h3>
+            <p>Leader Agent · 统筹内容运营 · 3个子Agent</p>
+          </div>
+        </div>
+        <div class="sub-agents">
+          <div class="sub-agent">
+            <h4>📚 案例小龙虾</h4>
+            <p>创业案例收集、分析、整理入库</p>
+          </div>
+          <div class="sub-agent">
+            <h4>📢 运营小龙虾</h4>
+            <p>内容运营、社群运营、数据分析</p>
+          </div>
+          <div class="sub-agent">
+            <h4>🎯 参谋小龙虾</h4>
+            <p>战略规划、决策建议、风险预警</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 心跳机制 -->
+      <div class="heartbeat-section">
+        <h2><span class="heartbeat-indicator"></span> 心跳机制 · 定时自动化</h2>
+        <div class="heartbeat-grid">
+          <div class="heartbeat-item">
+            <h4>🦞A 学术心跳</h4>
+            <p>每2小时思考研究问题</p>
+            <p>每天9点抓取ArXiv最新论文</p>
+            <p class="time">下次执行: 每日 09:00</p>
+          </div>
+          <div class="heartbeat-item">
+            <h4>🦞B 创业心跳</h4>
+            <p>每2小时思考内容运营</p>
+            <p>每天10点抓取创业案例</p>
+            <p class="time">下次执行: 每日 10:00</p>
+          </div>
+          <div class="heartbeat-item">
+            <h4>🔄 双龙虾同步</h4>
+            <p>每天9点信息同步</p>
+            <p>每周一数据汇总报告</p>
+            <p class="time">下次执行: 每日 09:00</p>
+          </div>
+          <div class="heartbeat-item">
+            <h4>🌐 网站自动部署</h4>
+            <p>GitHub Actions自动构建</p>
+            <p>每次push自动部署到Pages</p>
+            <p class="time">触发方式: Git Push</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 同步机制 -->
+      <div class="sync-section">
+        <h2>🔄 双龙虾每日同步</h2>
+        <p>学术研究与创业运营的信息互通，避免重复工作</p>
+        <div class="sync-flow">
+          <div class="sync-node academic">🦞A 学术小龙虾</div>
+          <span class="sync-arrow">⇄</span>
+          <div class="sync-node startup">🦞B 创业小龙虾</div>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 14px;">
+          同步内容：论文进展 · 案例更新 · 内容计划 · 时间冲突检查
+        </p>
+      </div>
+
+      <!-- 自动化任务 -->
+      <div class="agent-card">
+        <h3 style="margin-bottom: 8px;">⚡ 自动化任务清单</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">已配置的定时任务，无需人工干预</p>
+        <div class="automation-list">
+          <div class="automation-item">
+            <span class="icon">📄</span>
+            <div>
+              <h4>ArXiv论文抓取</h4>
+              <p>每天UTC 01:00自动抓取具身导航相关论文</p>
+            </div>
+          </div>
+          <div class="automation-item">
+            <span class="icon">📚</span>
+            <div>
+              <h4>案例库更新</h4>
+              <p>每天10:00从loot-drop.io抓取失败案例</p>
+            </div>
+          </div>
+          <div class="automation-item">
+            <span class="icon">📝</span>
+            <div>
+              <h4>研究日志</h4>
+              <p>每天自动生成研究进展日志</p>
+            </div>
+          </div>
+          <div class="automation-item">
+            <span class="icon">🚀</span>
+            <div>
+              <h4>网站部署</h4>
+              <p>GitHub Pages自动构建和部署</p>
+            </div>
+          </div>
+          <div class="automation-item">
+            <span class="icon">💾</span>
+            <div>
+              <h4>记忆持久化</h4>
+              <p>工作记忆自动保存到本地文件</p>
+            </div>
+          </div>
+          <div class="automation-item">
+            <span class="icon">🤔</span>
+            <div>
+              <h4>三问反思</h4>
+              <p>每个Agent定时自我反思和规划</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 技术栈 -->
+      <div class="agent-card" style="text-align: center;">
+        <h3 style="margin-bottom: 16px;">🛠️ 技术栈</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">
+          WorkBuddy · GitHub Actions · ArXiv API · loot-drop.io · 火山引擎
+        </p>
+        <p style="font-size: 14px; color: var(--text-muted);">
+          架构参考: <a href="https://sanwan.ai" target="_blank" style="color: var(--accent);">sanwan.ai</a> · 
+          最后更新: 2026-03-24
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
