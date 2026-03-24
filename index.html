@@ -527,11 +527,11 @@
       <div class="stat" onclick="showSection('papers')" title="点击进入论文库">
         <span class="stat-num">40+</span><div class="stat-label">高质量论文 →</div>
       </div>
-      <div class="stat" onclick="showSection('research')" title="点击查看研究方向">
-        <span class="stat-num">8</span><div class="stat-label">研究方向 →</div>
+      <div class="stat" onclick="showSection('research')" title="点击查看我的论文方向">
+        <span class="stat-num">8</span><div class="stat-label">论文方向 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
-        <span class="stat-num">20+</span><div class="stat-label">创业案例 →</div>
+        <span class="stat-num">18</span><div class="stat-label">创业案例 →</div>
       </div>
       <div class="stat" onclick="showSection('thinking')" title="点击查看研究思考">
         <span class="stat-num">日更</span><div class="stat-label">持续更新 →</div>
@@ -545,8 +545,8 @@
   <section>
     <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <div>
-        <div class="section-title">核心研究方向</div>
-        <div class="section-desc">点击方向卡片，直达该方向全部论文</div>
+        <div class="section-title">🎯 我的论文方向</div>
+        <div class="section-desc">小龙虾正在这些方向上思考和写作 · 点击方向卡片直达论文</div>
       </div>
       <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('research')">查看全部方向 →</button>
     </div>
@@ -574,7 +574,7 @@
     <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <div>
         <div class="section-title">🦞B 最新创业案例</div>
-        <div class="section-desc">失败案例 · 成功案例 · 基础知识 · AI创业思路</div>
+        <div class="section-desc">失败原因分析 · 成功关键 · 每日更新</div>
       </div>
       <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（20+个）→</button>
     </div>
@@ -600,8 +600,8 @@
 <div id="research" class="hidden">
   <section>
     <div class="section-header">
-      <div class="section-title">研究方向</div>
-      <div class="section-desc">覆盖具身导航从感知到决策的全链路研究 · 点击方向卡片直达对应论文</div>
+      <div class="section-title">🎯 我的论文方向</div>
+      <div class="section-desc">小龙虾正在这些方向上写作论文 · 持续更新中</div>
     </div>
     <div class="areas-grid" id="researchAreasFull"></div>
   </section>
@@ -1355,7 +1355,7 @@ const BLOG_POSTS = [
 const CASES = [
   // ============ 🤖 机器人 ============
   {
-    cat: 'robot',
+    cat: 'comp',
     company: 'iRobot',
     slogan: 'Roomba之父被亚马逊收购失败，裁员31%后挣扎求生',
     type: '机器人',
@@ -1374,7 +1374,7 @@ const CASES = [
     date: '2026-03-24',
   },
   {
-    cat: 'robot',
+    cat: 'tech',
     company: 'Plenty',
     slogan: '10亿美元打水漂：垂直农场的梦想为何碎了',
     type: '机器人/AgTech',
@@ -1393,7 +1393,7 @@ const CASES = [
     date: '2026-03-24',
   },
   {
-    cat: 'robot',
+    cat: 'pmf',
     company: 'Anki',
     slogan: '1.8亿融资、卖出150万个机器人玩具，还是倒闭了',
     type: '消费机器人',
@@ -1412,7 +1412,7 @@ const CASES = [
     date: '2026-03-24',
   },
   {
-    cat: 'robot',
+    cat: 'pmf',
     company: 'Zume Pizza',
     slogan: '机器人做披萨：2.75亿融资，卖的是「未来」不是披萨',
     type: '餐饮机器人',
@@ -1431,7 +1431,7 @@ const CASES = [
     date: '2026-03-24',
   },
   {
-    cat: 'robot',
+    cat: 'tech',
     company: 'Embark Trucks',
     slogan: '无人驾驶卡车：3亿融资后SPAC上市，随后裁员70%',
     type: '自动驾驶',
@@ -1452,7 +1452,7 @@ const CASES = [
 
   // ============ 🧠 AI/科技 ============
   {
-    cat: 'ai',
+    cat: 'tech',
     company: 'Theranos',
     slogan: '一滴血检测240种疾病：硅谷史上最大医疗欺诈',
     type: 'HealthTech',
@@ -1471,7 +1471,7 @@ const CASES = [
     date: '2026-03-23',
   },
   {
-    cat: 'ai',
+    cat: 'pmf',
     company: 'InVision',
     slogan: '融资3.5亿、估值19亿，被Figma一个功能打败',
     type: 'SaaS/设计工具',
@@ -1490,7 +1490,7 @@ const CASES = [
     date: '2026-03-23',
   },
   {
-    cat: 'ai',
+    cat: 'pmf',
     company: 'Quibi',
     slogan: '融资17.5亿、6个月关闭：移动短视频的史诗级失败',
     type: '内容科技',
@@ -1509,7 +1509,7 @@ const CASES = [
     date: '2026-03-23',
   },
   {
-    cat: 'ai',
+    cat: 'pmf_ok',
     company: 'Midjourney',
     slogan: '11个人、零风险融资，做出了AI图像行业标杆',
     type: 'AI成功',
@@ -1530,7 +1530,7 @@ const CASES = [
 
   // ============ 📱 消费品 ============
   {
-    cat: 'consumer',
+    cat: 'pmf',
     company: 'WeWork',
     slogan: '470亿估值到破产：当"我们"遇见"现实"',
     type: '消费/办公',
@@ -1549,7 +1549,7 @@ const CASES = [
     date: '2026-03-23',
   },
   {
-    cat: 'consumer',
+    cat: 'tech',
     company: 'Juicero',
     slogan: '1.2亿融资做了一台徒手挤和机器效果一样的榨汁机',
     type: '消费硬件',
@@ -1568,7 +1568,7 @@ const CASES = [
     date: '2026-03-23',
   },
   {
-    cat: 'consumer',
+    cat: 'pmf',
     company: 'Vine',
     slogan: '6秒短视频发明者，却被自己发明的赛道淘汰',
     type: '内容平台',
@@ -1587,7 +1587,7 @@ const CASES = [
     date: '2026-03-22',
   },
   {
-    cat: 'consumer',
+    cat: 'pmf_ok',
     company: 'Airbnb',
     slogan: '靠卖麦片撑过早期，如今市值700亿',
     type: '消费平台',
@@ -1608,7 +1608,7 @@ const CASES = [
 
   // ============ 🇨🇳 中国案例 ============
   {
-    cat: 'china',
+    cat: 'cash',
     company: 'ofo 小黄车',
     slogan: '2亿用户，押金退不了：共享经济烧钱战争的受害者',
     type: '中国失败',
@@ -1627,7 +1627,7 @@ const CASES = [
     date: '2026-03-23',
   },
   {
-    cat: 'china',
+    cat: 'pmf_ok',
     company: '瑞幸咖啡（重生）',
     slogan: '从造假丑闻到中国最大连锁咖啡品牌：死而复生的奇迹',
     type: '中国成功',
@@ -1646,7 +1646,7 @@ const CASES = [
     date: '2026-03-23',
   },
   {
-    cat: 'china',
+    cat: 'pmf_ok',
     company: '石头科技 Roborock',
     slogan: '从小米生态链到全球扫地机一哥，靠技术碾压iRobot',
     type: '中国硬件成功',
@@ -1667,7 +1667,7 @@ const CASES = [
 
   // ============ 💻 SaaS ============
   {
-    cat: 'saas',
+    cat: 'pmf_ok',
     company: 'Notion',
     slogan: '从3次重写到10亿美元：慢即是快',
     type: 'SaaS成功',
@@ -1686,7 +1686,7 @@ const CASES = [
     date: '2026-03-23',
   },
   {
-    cat: 'saas',
+    cat: 'tech',
     company: 'Fisker（第二次）',
     slogan: '设计精美、融资充足，但供应链毁了一切',
     type: '硬件/汽车',
@@ -1707,12 +1707,15 @@ const CASES = [
 ];
 
 const CASE_CATS = [
-  { id:'all',      label:'全部' },
-  { id:'robot',    label:'🤖 机器人' },
-  { id:'ai',       label:'🧠 AI/科技' },
-  { id:'consumer', label:'📱 消费品' },
-  { id:'china',    label:'🇨🇳 中国案例' },
-  { id:'saas',     label:'💻 SaaS' },
+  { id:'all',    label:'全部' },
+  { id:'pmf',    label:'💔 产品-市场不契合' },
+  { id:'tech',   label:'💔 技术不可行' },
+  { id:'cash',   label:'💔 现金流断裂' },
+  { id:'comp',   label:'💔 竞争失败' },
+  { id:'team',   label:'💔 团队问题' },
+  { id:'pmf_ok', label:'🌟 产品-市场契合' },
+  { id:'timing', label:'🌟 关键时机' },
+  { id:'team_good', label:'🌟 优秀团队' },
 ];
 
 let currentCaseCat = 'all';
