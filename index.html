@@ -676,9 +676,29 @@
 <div id="blog" class="hidden">
   <section>
     <div class="section-header">
-      <div class="section-title">研究博客</div>
-      <div class="section-desc">论文解读、技术实践、研究随想与创业探索</div>
+      <div class="section-title">🧠 学习思考</div>
+      <div class="section-desc">前沿技术 · 案例分析 · 创业知识 · AI思路</div>
     </div>
+    <!-- 博客分类 -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px;">
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#7c3aed'" onmouseout="this.style.borderColor='var(--border)'" onclick="filterBlog('tech'); window.scrollTo({top:document.getElementById('blog').offsetTop-80,behavior:'smooth'})">
+        <div style="font-size:22px;font-weight:700;color:#7c3aed;">6</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">🚀 前沿技术</div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#f59e0b'" onmouseout="this.style.borderColor='var(--border)'" onclick="filterBlog('case'); window.scrollTo({top:document.getElementById('blog').offsetTop-80,behavior:'smooth'})">
+        <div style="font-size:22px;font-weight:700;color:#f59e0b;">4</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">📊 案例分析</div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#06b6d4'" onmouseout="this.style.borderColor='var(--border)'" onclick="filterBlog('startup'); window.scrollTo({top:document.getElementById('blog').offsetTop-80,behavior:'smooth'})">
+        <div style="font-size:22px;font-weight:700;color:#06b6d4;">3</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">📚 创业基础</div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#ec4899'" onmouseout="this.style.borderColor='var(--border)'" onclick="filterBlog('ai'); window.scrollTo({top:document.getElementById('blog').offsetTop-80,behavior:'smooth'})">
+        <div style="font-size:22px;font-weight:700;color:#ec4899;">2</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">💡 AI创业思路</div>
+      </div>
+    </div>
+    <div id="blogTabs" class="filter-bar" style="margin-bottom:28px;"></div>
     <div class="blog-list" id="blogFull"></div>
   </section>
 </div>
@@ -949,10 +969,20 @@
   <section>
     <div class="section-header">
       <div class="section-title">🦞B 创业案例库</div>
-      <div class="section-desc">真实故事 · 具体数字 · 关键教训 · 每日更新</div>
+      <div class="section-desc">失败原因分析 · 成功关键 · 每日更新</div>
     </div>
 
-
+    <!-- 统计概览 -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px;">
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#f85149'" onmouseout="this.style.borderColor='var(--border)'" onclick="renderCases('pmf'); window.scrollTo({top:document.getElementById('cases').offsetTop-80,behavior:'smooth'})">
+        <div style="font-size:22px;font-weight:700;color:#f85149;">10</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">💔 失败案例</div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#3fb950'" onmouseout="this.style.borderColor='var(--border)'" onclick="renderCases('pmf_ok'); window.scrollTo({top:document.getElementById('cases').offsetTop-80,behavior:'smooth'})">
+        <div style="font-size:22px;font-weight:700;color:#3fb950;">5</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">🌟 成功案例</div>
+      </div>
+    </div>
 
     <div id="caseTabs" class="filter-bar" style="margin-bottom:28px;"></div>
 
@@ -1276,55 +1306,63 @@ const PAPERS = [
 ];
 
 const BLOG_POSTS = [
-  // ===== 小红书文章（2026-03-23）=====
-  { date:'2026-03-24', title:'什么是具身智能？一句话讲清楚',
+  // ===== 前沿技术 =====
+  { cat:'tech', date:'2026-03-24', title:'什么是具身智能？一句话讲清楚',
     desc:'Siri打开空调不是具身智能，一个机器人自己走进房间找到空调按下开关才是。具身智能=有身体的AI，能理解世界+能行动。一句话讲清楚+3个例子+技术分类。',
     url:'./blog/embodied-ai-intro.html',
     tags:['具身智能','VLN','机器人','AI科普'] },
-  { date:'2026-03-24', title:'一批机器人公司正在倒闭',
-    desc:'2025年十多家机器人公司倒闭。K-Scale Labs融资3轮、订单200万$、OpenAI客户，仍倒闭。资金链断裂+中国供应链冲击+商业化验证失败。',
-    url:'./blog/robot-company-closure.html',
-    tags:['机器人','创业','失败案例','商业分析'] },
-  { date:'2026-03-24', title:'机器人是怎么"看懂"世界的？VLN视觉语言导航',
+  { cat:'tech', date:'2026-03-24', title:'机器人是怎么"看懂"世界的？VLN视觉语言导航',
     desc:'你家的扫地机器人可能是个"盲人"。VLN让机器人理解"走到客厅右转"这种指令。最新进展：World Model+VLN、思维链推理、RL微调。',
     url:'./blog/vln-explained.html',
     tags:['VLN','具身智能','技术科普','机器人'] },
-  
-  // ===== 创业案例（2026-03-23）=====
-  { date:'2026-03-23', title:'案例分析：K-Scale Labs硅谷明星人形机器人公司的陨落',
+  { cat:'tech', date:'2026-03-22', title:'为什么 VLN 的「跨模态对齐」是当前最大的难点',
+    desc:'视觉语言导航（VLN）十年发展，从 R2P 到 NAVI，跨模态对齐始终是核心挑战。本文梳理了当前主流方法的问题所在，以及 LLM 能带来什么改变。',
+    tags:['VLN','论文解读','跨模态'] },
+  { cat:'tech', date:'2026-03-21', title:'ObjectNav 的三种主流范式：主动探索、语义推理、记忆增强',
+    desc:'目标导航（ObjectNav）是具身导航中最接近实际应用的任务。主流方法分为三类：主动探索最大化信息增益、语义推理利用物体关系、记忆增强处理长序列。',
+    tags:['ObjectNav','技术分析'] },
+  { cat:'tech', date:'2026-03-20', title:'我的 LLM 导航实验记录（1）：LLaVA-1.5 在 Matterport3D 上的表现',
+    desc:'用 LLaVA-1.5 在 Matterport3D 上跑了一个简单实验，记录了视觉语言对齐问题、推理延迟和幻觉问题。结论：LLM 在具身任务上还有很长的路要走。',
+    tags:['LLM导航','实验记录','LLaVA'] },
+  { cat:'tech', date:'2026-03-19', title:'论文精读：Active Neural SLAM——主动探索如何提升 ObjectNav 效率',
+    desc:'这篇 CoRL 2022 的工作将 SLAM 与主动探索结合，让机器人在未知环境中主动寻找信息量大的区域。核心贡献是提出「探索-利用」平衡策略。',
+    tags:['论文精读','ObjectNav','主动探索'] },
+  { cat:'tech', date:'2026-03-17', title:'强化学习在 VLN 中的应用现状：为什么 RL 比 IL 难用',
+    desc:'模仿学习（IL）在 VLN 中是主流，因为它稳定、数据效率高。强化学习理论上更好，但面临奖励稀疏、探索空间大等挑战。本文分析 RL 在 VLN 中的应用现状。',
+    tags:['RL','VLN','技术分析'] },
+
+  // ===== 案例分析 =====
+  { cat:'case', date:'2026-03-24', title:'一批机器人公司正在倒闭',
+    desc:'2025年十多家机器人公司倒闭。K-Scale Labs融资3轮、订单200万$、OpenAI客户，仍倒闭。资金链断裂+中国供应链冲击+商业化验证失败。',
+    url:'./blog/robot-company-closure.html',
+    tags:['机器人','创业','失败案例','商业分析'] },
+  { cat:'case', date:'2026-03-23', title:'案例分析：K-Scale Labs硅谷明星人形机器人公司的陨落',
     desc:'融资3轮、订单200万$、OpenAI客户、2025年11月倒闭。账上只剩40万$。创始人：中国供应链崛起将主导全球人形机器人生态。',
     url:'./blog/case-k-scale.html',
     tags:['创业案例','失败分析','人形机器人','硅谷'] },
-  { date:'2026-03-23', title:'中国具身智能公司倒闭潮：2025年十多家公司倒掉',
+  { cat:'case', date:'2026-03-23', title:'中国具身智能公司倒闭潮：2025年十多家公司倒掉',
     desc:'达闼、蚕丛机器人、领贝机器人...一个接一个倒下。核心原因：蹭AI热度无核心技术、高估值低营收、订单无含金量。',
     url:'./blog/case-china-robots.html',
     tags:['创业案例','具身智能','中国公司','倒闭潮'] },
-  
-  // ===== 原有博客 =====
-  { date:'2026-03-23', title:'Quibi 创业故事视频全流程复盘：AI制作抖音内容的完整SOP',
+
+  // ===== 创业基础 =====
+  { cat:'startup', date:'2026-03-23', title:'Quibi 创业故事视频全流程复盘：AI制作抖音内容的完整SOP',
     desc:'从 0 到 1 跑通用 AI 制作创业故事视频。Quibi 案例融资 17.5 亿美元、6 个月关闭，足够有戏剧性。记录了选题逻辑、脚本框架、AI生成画面、火山引擎配音、字幕烧录、BGM 合成全部环节。',
     tags:['AI视频','抖音','创业故事','制作流程'] },
-  { date:'2026-03-23', title:'为什么选 Quibi 作为第一个抖音创业故事案例',
+  { cat:'startup', date:'2026-03-23', title:'为什么选 Quibi 作为第一个抖音创业故事案例',
     desc:'高认知度（大公司CEO）+ 强戏剧性（融资17.5亿美元后6个月关闭）+ 反直觉结论。选案例的三个标准：熟悉度、戏剧性、可执行性。新号起号策略：先用高认知案例建立调性，后期转中国案例增加本土共鸣。',
     tags:['抖音','内容策略','案例分析','创业故事'] },
-  { date:'2026-03-22', title:'为什么 VLN 的「跨模态对齐」是当前最大的难点',
-    desc:'视觉语言导航（VLN）十年发展，从 R2P 到 NAVI，跨模态对齐始终是核心挑战。本文梳理了当前主流方法的问题所在，以及 LLM 能带来什么改变。',
-    tags:['VLN','论文解读','跨模态'] },
-  { date:'2026-03-21', title:'ObjectNav 的三种主流范式：主动探索、语义推理、记忆增强',
-    desc:'目标导航（ObjectNav）是具身导航中最接近实际应用的任务。主流方法分为三类：主动探索最大化信息增益、语义推理利用物体关系、记忆增强处理长序列。',
-    tags:['ObjectNav','技术分析'] },
-  { date:'2026-03-20', title:'我的 LLM 导航实验记录（1）：LLaVA-1.5 在 Matterport3D 上的表现',
-    desc:'用 LLaVA-1.5 在 Matterport3D 上跑了一个简单实验，记录了视觉语言对齐问题、推理延迟和幻觉问题。结论：LLM 在具身任务上还有很长的路要走。',
-    tags:['LLM导航','实验记录','LLaVA'] },
-  { date:'2026-03-19', title:'论文精读：Active Neural SLAM——主动探索如何提升 ObjectNav 效率',
-    desc:'这篇 CoRL 2022 的工作将 SLAM 与主动探索结合，让机器人在未知环境中主动寻找信息量大的区域。核心贡献是提出「探索-利用」平衡策略。',
-    tags:['论文精读','ObjectNav','主动探索'] },
-  { date:'2026-03-18', title:'Newsletter 创业实验 Day 1：定位、受众与差异化',
+  { cat:'startup', date:'2026-03-18', title:'Newsletter 创业实验 Day 1：定位、受众与差异化',
     desc:'正式启动第一个创业实验——具身导航 Newsletter。定位：面向中文研究者的高端技术摘要。差异化：只做这一个细分方向，做深不做广。',
     tags:['创业','Newsletter','内容策略'] },
-  { date:'2026-03-17', title:'强化学习在 VLN 中的应用现状：为什么 RL 比 IL 难用',
-    desc:'模仿学习（IL）在 VLN 中是主流，因为它稳定、数据效率高。强化学习理论上更好，但面临奖励稀疏、探索空间大等挑战。本文分析 RL 在 VLN 中的应用现状。',
-    tags:['RL','VLN','技术分析'] },
+
+  // ===== AI创业思路 =====
+  { cat:'ai', date:'2026-03-22', title:'AI Agent 创业机会分析：具身智能领域的可能路径',
+    desc:'基于对 VLN、ObjectNav、LLM 导航的持续跟踪，思考 AI Agent 在机器人领域的落地路径。从技术成熟度、市场需求、商业模式三个维度分析。',
+    tags:['AI创业','具身智能','Agent','商业分析'] },
+  { cat:'ai', date:'2026-03-19', title:'从学术研究到产品化：具身导航技术的落地挑战',
+    desc:'学术论文中的 SOTA 方法在产品化过程中面临哪些挑战？数据、算力、可靠性、成本四个维度的分析，以及可能的解决方案。',
+    tags:['学术','产品化','具身智能','落地'] },
   { date:'2026-03-16', title:'视觉语言导航数据集全览：Matterport3D、HM3D、Robo360',
     desc:'数据集是具身导航研究的基础。本文全面梳理主流数据集的规模、评测指标、优缺点，以及如何选择适合自己的实验基准。',
     tags:['数据集','VLN','资源整理'] },
@@ -1886,6 +1924,43 @@ function renderBlog() {
   }
 }
 
+// 博客分类系统
+const BLOG_CATS = [
+  { id:'tech',    label:'🚀 前沿技术' },
+  { id:'case',    label:'📊 案例分析' },
+  { id:'startup', label:'📚 创业基础' },
+  { id:'ai',      label:'💡 AI创业' },
+];
+
+let currentBlogCat = 'all';
+
+function filterBlog(cat) {
+  currentBlogCat = cat;
+  const full = document.getElementById('blogFull');
+  if (!full) return;
+  
+  const filtered = cat === 'all' ? BLOG_POSTS : BLOG_POSTS.filter(b => b.cat === cat);
+  full.innerHTML = filtered.map(b => {
+    const link = b.url || '#blog';
+    const clickHandler = b.url ? `window.location.href='${link}'` : '';
+    return `
+    <div class="blog-item" onclick="${clickHandler}" style="cursor:${b.url?'pointer':'default'}">
+      <div class="blog-date">${b.date}</div>
+      <h3>${b.title}</h3>
+      <p>${b.desc}</p>
+      <div class="blog-tags">${b.tags.map(t => `<span class="blog-tag">${t}</span>`).join('')}</div>
+    </div>
+  `}).join('');
+}
+
+function renderBlogTabs() {
+  const container = document.getElementById('blogTabs');
+  if (!container) return;
+  container.innerHTML = BLOG_CATS.map(c => 
+    `<button class="case-tab-btn${c.id===currentBlogCat?' active':''}" data-cat="${c.id}" onclick="filterBlog('${c.id}')">${c.label}</button>`
+  ).join('');
+}
+
 function showSection(id) {
   ['home','research','papers','blog','cases','about'].forEach(s => {
     const el = document.getElementById(s);
@@ -1908,6 +1983,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFilterBar();
   renderPapers('all');
   renderBlog();
+  renderBlogTabs();
   renderCaseTabs();
   renderCases('all');
   renderHomePapersPreview();
