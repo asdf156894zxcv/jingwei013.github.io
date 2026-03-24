@@ -518,9 +518,9 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         查看创业案例
       </button>
-      <button class="btn-secondary" onclick="showSection('thinking')">
+      <button class="btn-secondary" onclick="showSection('research')">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        研究思考
+        研究方向
       </button>
     </div>
     <div class="hero-stats">
@@ -533,7 +533,7 @@
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
         <span class="stat-num">18</span><div class="stat-label">创业案例 →</div>
       </div>
-      <div class="stat" onclick="showSection('thinking')" title="点击查看研究思考">
+      <div class="stat" onclick="showSection('research')" title="点击查看研究方向">
         <span class="stat-num">日更</span><div class="stat-label">持续更新 →</div>
       </div>
     </div>
@@ -652,6 +652,102 @@
           <span class="blog-tag">Continual Learning</span>
           <span class="blog-tag">Sim-to-Real</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="section-header">
+      <div class="section-title">🤔 研究问题深度思考</div>
+      <div class="section-desc">当前最核心的研究问题梳理 · 每日更新</div>
+    </div>
+
+    <div class="thinking-card">
+      <h3>① 世界模型（WMA）如何真正帮助机器人导航？</h3>
+      <p>2025-2026年最热的方向：WMNav、NavMorph、AstraNav-World 都在做「让机器人构建内部世界模型，用来做预测式规划」。但核心问题还没有解决：<br><br>
+      <strong>世界模型预测的图像/状态，和机器人真实执行动作之间的误差怎么补偿？</strong>现有方法都是离线验证，真机泛化极差。这是一个真实的 Gap，也是值得发一篇 SCI 的地方。</p>
+    </div>
+
+    <div class="thinking-card">
+      <h3>② VLN 的「数据效率」问题：为什么 10 倍数据才涨 3% 的 SR？</h3>
+      <p>VLN 的成功率（SR）一直卡在 70-80%，每多一倍数据才能提升 2-3%。问题在于：<br><br>
+      <strong>现有模型对路径长度变化极度敏感，长路径任务 SR 骤降。</strong>Aux-Think 和 DualVLN 在试图解决这个问题，但还没有从数据层面根本上解决。一篇专注「长路径 VLN 的鲁棒性训练」的 SCI 有很大空间。</p>
+    </div>
+
+    <div class="thinking-card">
+      <h3>③ 零样本 ObjectNav：CLIP 的天花板在哪里？</h3>
+      <p>CLIP 做 zero-shot ObjectNav 已经是标配了（2022-2023 的工作）。但 2025 年之后，CLIP 在细粒度物体识别上的幻觉问题越来越明显。<br><br>
+      <strong>用视觉语言模型的「物体位置预测」替代 CLIP 的「物体相似度匹配」，有没有可能把 zero-shot ObjectNav 的成功率提升 5-10%？</strong>这是一个清晰、可执行的研究问题。</p>
+    </div>
+
+    <div class="thinking-card">
+      <h3>④ VLA 的「行动空间对齐」问题</h3>
+      <p>VLA（视觉语言行动模型）把行动直接作为模型输出，听起来优雅，但实际上面临严重的行动空间不连续问题：<br><br>
+      <strong>离散化的行动 token 和连续的机器人运动控制之间如何对齐？</strong>NaVILA 做了初步尝试，但还没有系统性的解决方案。这是一个机器人学 × AI 的交叉方向，适合具备 ROS 背景的研究者。</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="section-header">
+      <div class="section-title">🎯 SCI 发表概率预测</div>
+      <div class="section-desc">基于当前研究趋势、发表门槛、能力匹配度，预测最可能发 SCI 的方向</div>
+    </div>
+
+    <div class="sci-card">
+      <div class="sci-badge">🔥 最推荐</div>
+      <h3>方向 A：VLN 长路径鲁棒性训练策略</h3>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
+        问题明确（SR 随路径变长急剧下降）、数据集现成（R2R、CVDN）、创新点在训练策略而非大模型，适合博士生独立完成。目标期刊：<strong>ICRA 2026 / RAL</strong>
+      </p>
+      <div class="sci-prob">
+        <span style="font-size:13px;color:var(--text-secondary);width:120px">发表概率</span>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:75%"></div></div>
+        <span class="sci-prob-label">75%</span>
+      </div>
+      <div class="sci-prob">
+        <span style="font-size:13px;color:var(--text-secondary);width:120px">完成周期</span>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:80%;background:linear-gradient(90deg,#3fb950,#56d4dd)"></div></div>
+        <span class="sci-prob-label" style="color:#3fb950">6月</span>
+      </div>
+    </div>
+
+    <div class="sci-card">
+      <div class="sci-badge">⚡ 高风险高回报</div>
+      <h3>方向 B：世界模型辅助 VLN 规划（WM × VLN）</h3>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
+        把 WMNav 的世界模型作为 VLN 的规划器，用预测的未来状态来引导路径选择。创新点足够，但需要较强工程能力实现真机部署。目标期刊：<strong>IROS 2026 / TRO</strong>
+      </p>
+      <div class="sci-prob">
+        <span style="font-size:13px;color:var(--text-secondary);width:120px">发表概率</span>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:55%"></div></div>
+        <span class="sci-prob-label">55%</span>
+      </div>
+      <div class="sci-prob">
+        <span style="font-size:13px;color:var(--text-secondary);width:120px">完成周期</span>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:50%;background:linear-gradient(90deg,#f59e0b,#f85149)"></div></div>
+        <span class="sci-prob-label" style="color:#f59e0b">12月</span>
+      </div>
+    </div>
+
+    <div class="sci-card">
+      <div class="sci-badge">🔮 长期布局</div>
+      <h3>方向 C：VLA 机器人通用导航能力</h3>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
+        结合 RT-2、OpenVLA 等最新 VLA 成果，探索端到端机器人导航的泛化能力。这个方向适合长期布局，短期内以跟踪和复现为主。目标期刊：<strong>CoRL 2026 / IJRR</strong>
+      </p>
+      <div class="sci-prob">
+        <span style="font-size:13px;color:var(--text-secondary);width:120px">发表概率</span>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:40%"></div></div>
+        <span class="sci-prob-label">40%</span>
+      </div>
+      <div class="sci-prob">
+        <span style="font-size:13px;color:var(--text-secondary);width:120px">完成周期</span>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:30%;background:linear-gradient(90deg,#6e7681,#8b949e)"></div></div>
+        <span class="sci-prob-label" style="color:#6e7681">18月</span>
       </div>
     </div>
   </section>
@@ -817,150 +913,6 @@
         </div>
       </div>
     </div>
-  </section>
-</div>
-
-<!-- THINKING：研究思考 + SCI预测 -->
-<div id="thinking" class="hidden">
-  <section>
-    <div class="section-header">
-      <div class="section-title">🦞A · 学术龙虾：研究思考</div>
-      <div class="section-desc">当前具身导航研究问题的深度梳理 · 每日更新 · SCI论文预测</div>
-    </div>
-
-    <!-- 双龙虾说明 -->
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:32px;">
-      <div style="font-size:15px;font-weight:600;margin-bottom:10px;">🦞🦞 双龙虾分工架构</div>
-      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;">
-        一只龙虾干不好两件事。<strong>🦞A（学术龙虾）</strong>负责：论文日更追踪、研究方向梳理、SCI发表预测、每日论文思考；
-        <strong>🦞B（创业龙虾）</strong>负责：创业案例库维护、AI视频制作、内容运营。两线并行，互不干扰。
-      </p>
-    </div>
-
-    <!-- 当前最大研究问题 -->
-    <div class="section-header" style="margin-top:40px;">
-      <div class="section-title" style="font-size:20px;">一、当前最核心的研究问题</div>
-    </div>
-
-    <div class="thinking-card">
-      <h3>① 世界模型（WMA）如何真正帮助机器人导航？</h3>
-      <p>2025-2026年最热的方向：WMNav、NavMorph、AstraNav-World 都在做「让机器人构建内部世界模型，用来做预测式规划」。但核心问题还没有解决：<br><br>
-      <strong>世界模型预测的图像/状态，和机器人真实执行动作之间的误差怎么补偿？</strong>现有方法都是离线验证，真机泛化极差。这是一个真实的 Gap，也是值得发一篇 SCI 的地方。</p>
-    </div>
-
-    <div class="thinking-card">
-      <h3>② VLN 的「数据效率」问题：为什么 10 倍数据才涨 3% 的 SR？</h3>
-      <p>VLN 的成功率（SR）一直卡在 70-80%，每多一倍数据才能提升 2-3%。问题在于：<br><br>
-      <strong>现有模型对路径长度变化极度敏感，长路径任务 SR 骤降。</strong>Aux-Think 和 DualVLN 在试图解决这个问题，但还没有从数据层面根本上解决。一篇专注「长路径 VLN 的鲁棒性训练」的 SCI 有很大空间。</p>
-    </div>
-
-    <div class="thinking-card">
-      <h3>③ 零样本 ObjectNav：CLIP 的天花板在哪里？</h3>
-      <p>CLIP 做 zero-shot ObjectNav 已经是标配了（2022-2023 的工作）。但 2025 年之后，CLIP 在细粒度物体识别上的幻觉问题越来越明显。<br><br>
-      <strong>用视觉语言模型的「物体位置预测」替代 CLIP 的「物体相似度匹配」，有没有可能把 zero-shot ObjectNav 的成功率提升 5-10%？</strong>这是一个清晰、可执行的研究问题。</p>
-    </div>
-
-    <div class="thinking-card">
-      <h3>④ VLA 的「行动空间对齐」问题</h3>
-      <p>VLA（视觉语言行动模型）把行动直接作为模型输出，听起来优雅，但实际上面临严重的行动空间不连续问题：<br><br>
-      <strong>离散化的行动 token 和连续的机器人运动控制之间如何对齐？</strong>NaVILA 做了初步尝试，但还没有系统性的解决方案。这是一个机器人学 × AI 的交叉方向，适合具备 ROS 背景的研究者。</p>
-    </div>
-
-    <!-- SCI 预测 -->
-    <div class="section-header" style="margin-top:48px;">
-      <div class="section-title" style="font-size:20px;">二、🎯 SCI 发表概率预测（2026年）</div>
-      <div class="section-desc">基于当前研究趋势、发表门槛、我的能力匹配度，预测最可能发 SCI 的方向</div>
-    </div>
-
-    <div class="sci-card">
-      <div class="sci-badge">🔥 最推荐</div>
-      <h3>方向 A：VLN 长路径鲁棒性训练策略</h3>
-      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
-        问题明确（SR 随路径变长急剧下降）、数据集现成（R2R、CVDN）、创新点在训练策略而非大模型，适合博士生独立完成。目标期刊：<strong>ICRA 2026 / RAL</strong>
-      </p>
-      <div class="sci-prob">
-        <span style="font-size:13px;color:var(--text-secondary);width:120px">发表概率</span>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:75%"></div></div>
-        <span class="sci-prob-label">75%</span>
-      </div>
-      <div class="sci-prob">
-        <span style="font-size:13px;color:var(--text-secondary);width:120px">完成周期</span>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:80%;background:linear-gradient(90deg,#3fb950,#56d4dd)"></div></div>
-        <span class="sci-prob-label" style="color:#3fb950">6月</span>
-      </div>
-      <p style="font-size:13px;color:var(--text-secondary);margin-top:12px;">
-        <strong>今日论文任务：</strong>精读 Aux-Think + DualVLN，找到两篇方法的共同局限点，提炼出可以改进的具体 mechanism。
-      </p>
-    </div>
-
-    <div class="sci-card">
-      <div class="sci-badge">⚡ 高风险高回报</div>
-      <h3>方向 B：世界模型辅助 VLN 规划（WM × VLN）</h3>
-      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
-        趋势最热，但方法难度大。WMNav 已经做了 ObjectNav，VLN 还没人做世界模型辅助规划。如果能在 WMNav 的基础上扩展，创新性很强。目标期刊：<strong>IROS 2026 / RAL</strong>
-      </p>
-      <div class="sci-prob">
-        <span style="font-size:13px;color:var(--text-secondary);width:120px">发表概率</span>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:55%"></div></div>
-        <span class="sci-prob-label">55%</span>
-      </div>
-      <div class="sci-prob">
-        <span style="font-size:13px;color:var(--text-secondary);width:120px">完成周期</span>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:55%;background:linear-gradient(90deg,#f0883e,#f85149)"></div></div>
-        <span class="sci-prob-label" style="color:#f0883e">10月</span>
-      </div>
-      <p style="font-size:13px;color:var(--text-secondary);margin-top:12px;">
-        <strong>今日论文任务：</strong>看 WMNav 原文（IEEE 2025），理解其如何用 VLM 构建内部世界状态表征，记录可扩展到 VLN 的模块。
-      </p>
-    </div>
-
-    <div class="sci-card">
-      <div class="sci-badge">✅ 稳健选择</div>
-      <h3>方向 C：Zero-shot ObjectNav 的幻觉抑制</h3>
-      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
-        在 CLIP/VLM zero-shot 导航的基础上，增加幻觉检测和修正机制。问题明确，增量创新，期刊接受率高。目标期刊：<strong>IEEE Robotics and Automation Letters (RAL)</strong>
-      </p>
-      <div class="sci-prob">
-        <span style="font-size:13px;color:var(--text-secondary);width:120px">发表概率</span>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:70%"></div></div>
-        <span class="sci-prob-label">70%</span>
-      </div>
-      <div class="sci-prob">
-        <span style="font-size:13px;color:var(--text-secondary);width:120px">完成周期</span>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:65%;background:linear-gradient(90deg,#3fb950,#56d4dd)"></div></div>
-        <span class="sci-prob-label" style="color:#3fb950">8月</span>
-      </div>
-      <p style="font-size:13px;color:var(--text-secondary);margin-top:12px;">
-        <strong>今日论文任务：</strong>调研 2024-2025 年的 hallucination detection in VLM 方法，找出哪些可以无缝接入导航 pipeline。
-      </p>
-    </div>
-
-    <!-- 每日论文思考 -->
-    <div class="section-header" style="margin-top:48px;">
-      <div class="section-title" style="font-size:20px;">三、📅 每日论文思考（日更）</div>
-      <div class="section-desc">每天读一篇，记录核心思考，逼近论文</div>
-    </div>
-
-    <div class="thinking-card" style="border-left-color:#3fb950">
-      <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">2026-03-23</div>
-      <h3>WMNav：把 VLM 变成世界模型的核心思路</h3>
-      <p>
-        WMNav（IEEE 2025）的关键洞察：VLM 不只是分类器，可以作为「世界状态生成器」。给定当前观测 + 行动，VLM 预测下一帧状态，机器人根据预测状态而非真实状态做决策。<br><br>
-        <strong>问题：</strong>预测的状态是图像空间的，跟语义空间的行动决策之间有 semantic gap。方法：用 CLIP embedding 做桥梁，但 error accumulation 问题很严重。<br><br>
-        <strong>我的想法：</strong>如果把世界模型预测在 3D 语义地图空间做，而不是在像素空间做，会不会更稳定？这和 NavMorph 的思路有点像，可以进一步调研。
-      </p>
-    </div>
-
-    <div class="thinking-card" style="border-left-color:#a371f7">
-      <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">2026-03-22</div>
-      <h3>Aux-Think：辅助推理的数据效率问题</h3>
-      <p>
-        Aux-Think 核心：在 VLN 训练时加入显式推理链（Think step），让模型输出「我应该往哪里走，因为……」。结果在少量数据下 SR 提升 4-6%，但在大数据集上提升不明显。<br><br>
-        <strong>问题：</strong>推理链的质量直接影响模型，自动生成的推理链质量不稳定。这个问题在 DualVLN 里也有提及。<br><br>
-        <strong>猜测：</strong>如果把推理链的生成和验证分成两个独立模块（类似 Process Reward Model），数据效率会更高。这是一个清晰的后续工作。
-      </p>
-    </div>
-
   </section>
 </div>
 
