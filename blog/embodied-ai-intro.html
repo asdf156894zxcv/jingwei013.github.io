@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>什么是具身智能？一句话讲清楚 - 精卫013</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0f;color:#e4e4e7;line-height:1.8;min-height:100vh}
+    .container{max-width:720px;margin:0 auto;padding:40px 20px}
+    .back{display:inline-flex;align-items:center;gap:8px;color:#6366f1;text-decoration:none;font-size:14px;margin-bottom:32px}
+    .back:hover{text-decoration:underline}
+    h1{font-size:28px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#6366f1,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-image{width:100%;border-radius:16px;margin-bottom:32px;overflow:hidden;background:linear-gradient(135deg,#1e1b4b,#312e81)}
+    .hero-image img{width:100%;display:block}
+    .hero-placeholder{width:100%;height:300px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+    .hero-placeholder .icon{font-size:64px}
+    .hero-placeholder .text{font-size:16px;color:#a5b4fc}
+    .meta{font-size:14px;color:#71717a;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #27272a}
+    .content{font-size:16px}
+    .content p{margin-bottom:20px}
+    .content h2{font-size:20px;font-weight:600;margin:32px 0 16px;color:#f4f4f5}
+    .content ul,.content ol{margin:16px 0;padding-left:24px}
+    .content li{margin-bottom:8px}
+    .highlight{background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(168,85,247,0.15));border-left:3px solid #6366f1;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0}
+    .analogy{background:#18181b;border-radius:12px;padding:20px;margin:24px 0}
+    .analogy h3{font-size:14px;color:#fbbf24;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .analogy p{font-size:14px;color:#d4d4d8;margin:0}
+    .comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+    .comp-box{padding:20px;border-radius:12px}
+    .comp-box.bad{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3)}
+    .comp-box.good{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3)}
+    .comp-box h4{font-size:14px;margin-bottom:8px}
+    .comp-box.bad h4{color:#ef4444}
+    .comp-box.good h4{color:#22c55e}
+    .comp-box p{font-size:13px;color:#a1a1aa;margin:0}
+    .tech-flow{background:#18181b;border-radius:12px;padding:24px;margin:24px 0}
+    .tech-flow h3{font-size:16px;color:#6366f1;margin-bottom:16px}
+    .flow-steps{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px}
+    .step{flex:0 0 auto;width:140px;text-align:center}
+    .step-num{width:32px;height:32px;background:#6366f1;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:14px;font-weight:600}
+    .step p{font-size:12px;color:#a1a1aa;margin:0}
+    .tag{display:inline-block;background:#27272a;color:#a1a1aa;padding:4px 12px;border-radius:100px;font-size:12px;margin-right:8px;margin-bottom:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html#blog" class="back">← 返回精卫013</a>
+    
+    <div class="hero-image">
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+        <defs>
+          <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1e1b4b"/>
+            <stop offset="100%" style="stop-color:#312e81"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <rect width="400" height="300" fill="url(#bg)"/>
+        <!-- Robot body -->
+        <ellipse cx="200" cy="200" rx="50" ry="15" fill="#4f46e5" opacity="0.3"/>
+        <rect x="170" y="120" width="60" height="80" rx="10" fill="#6366f1" filter="url(#glow)"/>
+        <!-- Robot head -->
+        <rect x="180" y="70" width="40" height="40" rx="8" fill="#818cf8"/>
+        <!-- Robot eyes -->
+        <circle cx="192" cy="90" r="6" fill="#22d3ee" filter="url(#glow)"/>
+        <circle cx="208" cy="90" r="6" fill="#22d3ee" filter="url(#glow)"/>
+        <!-- Robot arms -->
+        <rect x="140" y="130" width="25" height="50" rx="8" fill="#6366f1"/>
+        <rect x="235" y="130" width="25" height="50" rx="8" fill="#6366f1"/>
+        <!-- Brain / AI symbol -->
+        <circle cx="200" cy="160" r="20" fill="none" stroke="#a855f7" stroke-width="2"/>
+        <path d="M190 160 Q200 150 210 160 M190 165 Q200 175 210 165" stroke="#a855f7" stroke-width="2" fill="none"/>
+        <!-- Floating particles -->
+        <circle cx="100" cy="100" r="3" fill="#a855f7" opacity="0.6"/>
+        <circle cx="300" cy="80" r="2" fill="#22d3ee" opacity="0.6"/>
+        <circle cx="320" cy="200" r="4" fill="#a855f7" opacity="0.4"/>
+        <circle cx="80" cy="180" r="2" fill="#22d3ee" opacity="0.5"/>
+      </svg>
+    </div>
+    
+    <h1>什么是具身智能？一句话讲清楚</h1>
+    <div class="meta">2026-03-24 · 精卫013 · 5分钟阅读</div>
+    
+    <div class="content">
+      <p>、Siri打开空调——这<b>不是</b>具身智能。</p>
+      <p>一个机器人自己走进房间，找到空调，按下开关——这<b>才是</b>具身智能。</p>
+      
+      <div class="highlight">
+        <strong>一句话定义：</strong>具身智能 = 有身体的AI，能<strong>理解世界</strong> + <strong>自主行动</strong>
+      </div>
+
+      <h2>🤔 为什么"身体"这么重要？</h2>
+      <p>你可能听说过ChatGPT、Claude这些AI。它们很聪明——能写文章、能编代码、能回答问题。但它们有一个致命缺点：</p>
+      <p><b>它们生活在屏幕里。</b></p>
+      <p>你问它答，仅此而已。它不知道什么是"热"，什么是"冷"，什么是"拿到眼前"。因为它没有身体，没有和真实世界接触过。</p>
+      
+      <div class="analogy">
+        <h3>💡 换一个角度理解</h3>
+        <p>想象你刚出生的婴儿——如果没有身体，就只是脑子里一堆文字符号，你永远学不会走路、说话、抓东西。<br><br><b>具身智能同理：AI必须"身体力行"才能理解世界。</b></p>
+      </div>
+
+      <h2>🔄 传统AI vs 具身智能</h2>
+      <div class="comparison">
+        <div class="comp-box bad">
+          <h4>传统AI（纯语言）</h4>
+          <p>只处理文字/图像数据<br>被动响应<br>无法影响物理世界<br>如：ChatGPT、Siri</p>
+        </div>
+        <div class="comp-box good">
+          <h4>具身智能（有身体）</h4>
+          <p>感知+理解+行动闭环<br>主动探索<br>能改变物理世界<br>如：机器人、自动驾驶</p>
+        </div>
+      </div>
+
+      <h2>🎯 具身智能的三个核心能力</h2>
+      <div class="tech-flow">
+        <h3>具身智能 = 感知 × 理解 × 行动</h3>
+        <div class="flow-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <p><b>感知</b><br>看到图像<br>听到声音<br>感知距离</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <p><b>理解</b><br>理解语言<br>理解场景<br>理解任务</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <p><b>行动</b><br>规划路径<br>移动导航<br>操作物体</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>📚 四个经典例子</h2>
+      
+      <p><strong>1. 扫地机器人</strong></p>
+      <p>❌ 普通版：按既定路线清扫，遇到障碍不会绕行——本质上是个"盲人"<br>
+      ✅ 具身智能版：能"看到"房间布局，自主规划路径，绕开家具——这是具身智能</p>
+
+      <p><strong>2. 语音助手开空调</strong></p>
+      <p>❌ Siri/Alexa：语音→文字→控制指令，只是信息转换器<br>
+      ✅ 具身智能：机器人走进房间，找到空调，按下开关——这是真实的"做事"</p>
+
+      <p><strong>3. 自动驾驶</strong></p>
+      <p>❌ 纯视觉检测：只识别红绿灯、行人——是感知，不是决策<br>
+      ✅ 具身智能：理解道路场景→做驾驶决策→控制车辆——整个闭环</p>
+
+      <p><strong>4. 家庭服务机器人</strong></p>
+      <p>理解"帮我倒杯水"→找到水壶→拿起→走到你面前→放下<br>
+      这对人类很简单，对机器人是巨大挑战——需要视觉、语言、动作完美配合</p>
+
+      <h2>🔧 技术分类</h2>
+      <ul>
+        <li><strong>VLN（视觉语言导航）</strong> — 让机器人听懂"走到客厅"的指令，自己找路</li>
+        <li><strong>ObjectNav（目标导航）</strong> — 让机器人自己找到"水杯"这类指定物体</li>
+        <li><strong>Manipulation（操作）</strong> — 让机器人能抓取、操作各种物体</li>
+        <li><strong>World Model（世界模型）</strong> — 让机器人能"想象"未来会发生什么</li>
+      </ul>
+
+      <h2>🔥 为什么现在突然火了？</h2>
+      <p>2022年GPT出现后，大语言模型（LLM）展现了<b>前所未有的推理能力</b>。研究者开始思考：</p>
+      <p><b>如果给LLM一个身体，会怎样？</b></p>
+      <p>答案就是具身智能——让AI不只是"文字游戏"，而是<b>真正能改变物理世界</b>。</p>
+      <p>这也是我正在研究的方向——用LLM让机器人更聪明。</p>
+
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid #27272a">
+        <span class="tag">具身智能</span>
+        <span class="tag">VLN</span>
+        <span class="tag">机器人</span>
+        <span class="tag">AI科普</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
