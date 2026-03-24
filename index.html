@@ -617,6 +617,85 @@
 
   <div class="divider"></div>
 
+  <!-- 论文实现模块 -->
+  <section>
+    <div class="section-header">
+      <div class="section-title">📝 论文实现跟踪</div>
+      <div class="section-desc">正在推进的研究工作 · 从想法到投稿的完整进度</div>
+    </div>
+
+    <div class="sci-card" style="border-left-color:#f59e0b;">
+      <div class="sci-badge" style="background:#f59e0b;">✍️ 写作中</div>
+      <h3>CoW-Nav: Chain-of-World Reasoning for LLM-Based Vision-Language Navigation</h3>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
+        <strong>核心创新：</strong>提出 Chain-of-World (CoW) 机制，让 LLM 在行动前想象未来的世界状态，形成"世界推理链"，显著减少幻觉并提升规划能力。
+      </p>
+      
+      <!-- 进度条 -->
+      <div style="margin:20px 0;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;">
+          <span>总体进度</span>
+          <span style="color:var(--accent);">35%</span>
+        </div>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:35%;background:linear-gradient(90deg,#f59e0b,#f85149)"></div></div>
+      </div>
+
+      <!-- 里程碑 -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:20px 0;">
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:1;">
+          <div style="font-size:20px;margin-bottom:4px;">✅</div>
+          <div style="font-size:12px;color:var(--text-secondary);">选题确定</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:1;">
+          <div style="font-size:20px;margin-bottom:4px;">✅</div>
+          <div style="font-size:12px;color:var(--text-secondary);">文献调研</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:1;">
+          <div style="font-size:20px;margin-bottom:4px;">🔄</div>
+          <div style="font-size:12px;color:var(--accent);">实验设计</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:0.4;">
+          <div style="font-size:20px;margin-bottom:4px;">⏳</div>
+          <div style="font-size:12px;color:var(--text-muted);">代码实现</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:0.4;">
+          <div style="font-size:20px;margin-bottom:4px;">⏳</div>
+          <div style="font-size:12px;color:var(--text-muted);">论文写作</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:0.4;">
+          <div style="font-size:20px;margin-bottom:4px;">⏳</div>
+          <div style="font-size:12px;color:var(--text-muted);">投稿</div>
+        </div>
+      </div>
+
+      <p style="font-size:13px;color:var(--text-muted);">
+        目标期刊：ICRA 2026 / RAL · 预计完成：2025年Q3 · 当前阶段：设计实验方案
+      </p>
+    </div>
+
+    <div class="sci-card" style="border-left-color:#6e7681;opacity:0.7;">
+      <div class="sci-badge" style="background:#6e7681;">💡 构思中</div>
+      <h3>LongPath-VLN: 长路径视觉语言导航的鲁棒性训练策略</h3>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
+        <strong>核心问题：</strong>现有VLN模型对路径长度变化极度敏感，长路径任务SR骤降。探索数据增强和课程学习策略来提升长路径鲁棒性。
+      </p>
+      
+      <div style="margin:20px 0;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;">
+          <span>总体进度</span>
+          <span style="color:#6e7681;">10%</span>
+        </div>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:10%;background:#6e7681"></div></div>
+      </div>
+
+      <p style="font-size:13px;color:var(--text-muted);">
+        目标期刊：ICRA 2026 / RAL · 状态：文献调研中 · 优先级：高
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <section>
     <div class="section-header">
       <div class="section-title">🎯 SCI 发表概率预测</div>
@@ -1052,13 +1131,6 @@ const PAPERS = [
     title:'NaviLLM: Learning to Navigate with Large Language Models',
     abstract:'CVPR 2024，将多种具身导航任务（VLN/EQA/ObjectNav）统一在单个LLM框架下，Schema-based指令统一不同任务格式，首个真正意义上的导航通用模型。',
     links:[{label:'arXiv',url:'https://arxiv.org/abs/2309.10103'}] },
-
-  // ===== VLN（视觉语言导航，高质量2022+论文）=====
-  // ===== 精卫013最新成果 =====
-  { cat:'vln', tag:'新论文', cls:'tag-vln', year:2026, venue:'NeurIPS/ICLR',
-    title:'CoW-Nav: Chain-of-World Reasoning for LLM-Based Vision-Language Navigation',
-    abstract:'【精卫013最新成果】2026年具身导航研究。核心创新：提出Chain-of-WorldReasoning机制，让LLM在行动前先"想象"未来世界状态，显著减少幻觉(+34%)。零样本泛化+任务性能双提升，在RXR/REVERIE/VLN-CE上比WMNav高+8.3% SR。',
-    links:[{label:'PDF',url:'/papers/CoW-Nav/paper.pdf'},{label:'代码',url:'https://github.com/Jingwei013/CoW-Nav'},{label:'Demo',url:'#'}] },
 
   // ===== VLN（视觉语言导航，高质量2022+论文）=====
   { cat:'vln', tag:'VLN', cls:'tag-vln', year:2025, venue:'arXiv',
