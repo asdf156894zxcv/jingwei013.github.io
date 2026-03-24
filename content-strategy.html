@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爆款内容生产SOP | 精卫013</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .strategy-container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+    .strategy-header { text-align: center; margin-bottom: 48px; }
+    .strategy-header h1 { font-size: 32px; margin-bottom: 12px; }
+    .strategy-header p { color: var(--text-secondary); }
+    
+    .strategy-card { 
+      background: var(--bg-card); 
+      border-radius: 16px; 
+      padding: 28px; 
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+    }
+    .strategy-card h2 { 
+      font-size: 20px; 
+      margin-bottom: 16px; 
+      display: flex; 
+      align-items: center; 
+      gap: 10px;
+    }
+    .strategy-card h3 {
+      font-size: 16px;
+      margin: 20px 0 12px;
+      color: var(--accent);
+    }
+    
+    .formula-box {
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.1));
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 14px;
+    }
+    
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .style-item {
+      background: var(--bg-page);
+      padding: 16px;
+      border-radius: 10px;
+    }
+    .style-item h4 { font-size: 14px; margin-bottom: 8px; }
+    .style-item p { font-size: 13px; color: var(--text-secondary); }
+    
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .check-item::before {
+      content: "☐";
+      color: var(--accent);
+      font-size: 16px;
+    }
+    
+    .tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .tool-tag {
+      background: var(--bg-page);
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-size: 13px;
+    }
+    .tool-tag.ready { border: 1px solid #22c55e; color: #22c55e; }
+    .tool-tag.pending { border: 1px solid var(--text-muted); color: var(--text-muted); }
+    
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .schedule-table th,
+    .schedule-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .schedule-table th {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    
+    .back-link { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 8px; 
+      color: var(--accent); 
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+    
+    .highlight-num {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← 返回首页</a>
+    
+    <div class="strategy-container">
+      <header class="strategy-header">
+        <h1>🚀 爆款内容生产SOP</h1>
+        <p>复现高质量爆款内容 · 文案+图文+视频全链路 · 数据驱动迭代</p>
+      </header>
+
+      <!-- 核心目标 -->
+      <div class="strategy-card">
+        <h2>🎯 核心目标</h2>
+        <p style="font-size:15px;color:var(--text-secondary);margin-bottom:16px;">
+          唯一目标：<strong>复现完整的爆款内容</strong>，不管是文案、图文还是视频。高质量爆款是精卫013和小龙虾团队的持续目标。
+        </p>
+        <div class="formula-box">
+          <strong>爆款公式：</strong>数据驱动 + 风格复制 + 持续迭代
+        </div>
+      </div>
+
+      <!-- 内容矩阵 -->
+      <div class="strategy-card">
+        <h2>📊 内容矩阵与风格</h2>
+        <div class="style-grid">
+          <div class="style-item">
+            <h4>🤖 前沿技术</h4>
+            <p><strong>风格：</strong>科技感、专业、数据驱动</p>
+            <p><strong>配图：</strong>赛博朋克、神经网络可视化</p>
+            <p><strong>视频：</strong>AI画面+科技BGM+数据可视化</p>
+          </div>
+          <div class="style-item">
+            <h4>💼 创业知识</h4>
+            <p><strong>风格：</strong>极简、实用、反直觉</p>
+            <p><strong>配图：</strong>极简插画、信息图表</p>
+            <p><strong>视频：</strong>数字人+简洁背景</p>
+          </div>
+          <div class="style-item">
+            <h4>📈 案例分析</h4>
+            <p><strong>风格：</strong>故事化、有梗、轻量</p>
+            <p><strong>配图：</strong>电影海报风、时间轴</p>
+            <p><strong>视频：</strong>电影感+悬疑BGM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 爆款文案公式 -->
+      <div class="strategy-card">
+        <h2>✍️ 爆款文案公式</h2>
+        
+        <h3>抖音60秒结构（2025-2026验证）</h3>
+        <div class="formula-box">
+0-3秒：黄金3秒钩子（反常识/悬念/痛点）<br>
+3-15秒：背景铺垫（建立认知）<br>
+15-45秒：核心内容（信息密度高）<br>
+45-55秒：高潮/转折（情绪峰值）<br>
+55-60秒：行动号召（关注/评论/转发）
+        </div>
+
+        <h3>小红书封面公式</h3>
+        <div class="formula-box">
+• 3:4竖版比例<br>
+• 大字标题（占画面30%以上）<br>
+• 高对比配色（黄黑/红白/蓝白）<br>
+• 数字+痛点+解决方案
+        </div>
+
+        <h3>标题公式库</h3>
+        <div class="formula-box">
+数字法："3个技巧让你..."<br>
+对比法："从0到10万，我只用了..."<br>
+悬念法："99%的人都不知道的..."<br>
+痛点法："为什么你总是..."<br>
+反常识："你可能不知道，最火的不是..."
+        </div>
+      </div>
+
+      <!-- 生产排期 -->
+      <div class="strategy-card">
+        <h2>📅 每周内容排期</h2>
+        <table class="schedule-table">
+          <tr>
+            <th>星期</th>
+            <th>内容类型</th>
+            <th>平台</th>
+            <th>工作量</th>
+          </tr>
+          <tr>
+            <td>周一</td>
+            <td>前沿技术解读</td>
+            <td>公众号/网站</td>
+            <td>1篇长文</td>
+          </tr>
+          <tr>
+            <td>周二</td>
+            <td>创业知识</td>
+            <td>小红书</td>
+            <td>3-5条图文</td>
+          </tr>
+          <tr>
+            <td>周三</td>
+            <td>案例分析</td>
+            <td>抖音</td>
+            <td>1条视频</td>
+          </tr>
+          <tr>
+            <td>周四</td>
+            <td>研究进展</td>
+            <td>网站/Newsletter</td>
+            <td>更新+周报</td>
+          </tr>
+          <tr>
+            <td>周五</td>
+            <td>热点追踪</td>
+            <td>小红书/抖音</td>
+            <td>1-2条短内容</td>
+          </tr>
+          <tr>
+            <td>周末</td>
+            <td>复盘+准备</td>
+            <td>-</td>
+            <td>数据分析+素材</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 工具栈 -->
+      <div class="strategy-card">
+        <h2>🛠️ 工具栈</h2>
+        
+        <h3>已配置 ✅</h3>
+        <div class="tool-list">
+          <span class="tool-tag ready">Nano Banana Pro - AI配图</span>
+          <span class="tool-tag ready">火山引擎TTS - AI配音</span>
+          <span class="tool-tag ready">即梦/Seedream - AI画面</span>
+          <span class="tool-tag ready">剪映 - 视频剪辑</span>
+          <span class="tool-tag ready">ima知识库 - 素材管理</span>
+          <span class="tool-tag ready">Video Cog - AI视频</span>
+        </div>
+
+        <h3>待配置 ⏳</h3>
+        <div class="tool-list">
+          <span class="tool-tag pending">HeyGen/D-ID - 数字人</span>
+          <span class="tool-tag pending">Runway/Pika - AI动画</span>
+          <span class="tool-tag pending">今日热榜 - 热点追踪</span>
+          <span class="tool-tag pending">数据分析 - 效果追踪</span>
+        </div>
+      </div>
+
+      <!-- 爆款检查清单 -->
+      <div class="strategy-card">
+        <h2>✅ 爆款检查清单</h2>
+        <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">每篇内容发布前必须检查：</p>
+        <div class="checklist">
+          <div class="check-item">标题包含数字/悬念/痛点？</div>
+          <div class="check-item">前3秒有强钩子？</div>
+          <div class="check-item">高对比封面/缩略图？</div>
+          <div class="check-item">信息密度足够（无废话）？</div>
+          <div class="check-item">明确的行动号召？</div>
+          <div class="check-item">配图/视频风格统一？</div>
+          <div class="check-item">可复制（能形成系列）？</div>
+          <div class="check-item">符合平台算法偏好？</div>
+        </div>
+      </div>
+
+      <!-- 数据指标 -->
+      <div class="strategy-card">
+        <h2>📈 核心数据指标</h2>
+        <div class="style-grid">
+          <div class="style-item">
+            <h4>小红书</h4>
+            <p>点击率（封面吸引力）</p>
+            <p>互动率（内容价值）</p>
+            <p>收藏率（实用程度）</p>
+            <p>转粉率（长期价值）</p>
+          </div>
+          <div class="style-item">
+            <h4>抖音</h4>
+            <p>3秒完播率（钩子质量）</p>
+            <p>完播率（整体质量）</p>
+            <p>互动率（情绪共鸣）</p>
+            <p>分享率（传播价值）</p>
+          </div>
+          <div class="style-item">
+            <h4>网站</h4>
+            <p>访问量</p>
+            <p>停留时长</p>
+            <p>跳出率</p>
+            <p>订阅转化</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 迭代机制 -->
+      <div class="strategy-card">
+        <h2>🔄 迭代机制</h2>
+        <div class="formula-box">
+<strong>每周复盘：</strong><br>
+1. 数据最好的3条 → 分析成功因素 → 形成模板<br>
+2. 数据最差的3条 → 分析问题 → 避免重复<br>
+3. 竞品爆款分析 → 复制可借鉴元素<br>
+4. 下周内容计划 → 基于数据调整方向
+        </div>
+      </div>
+
+      <!-- 参考数据 -->
+      <div class="strategy-card" style="text-align:center;">
+        <h2 style="justify-content:center;">📊 参考数据</h2>
+        <p style="font-size:14px;color:var(--text-secondary);">
+          2025抖音科技内容观看量超 <span class="highlight-num">1.4万亿次</span><br>
+          DeepSeek R1相关内容播放超 <span class="highlight-num">64亿次</span><br>
+          30分钟以上长视频需求显著提升
+        </p>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:16px;">
+          数据来源：《2025抖音科技内容生态报告》
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
