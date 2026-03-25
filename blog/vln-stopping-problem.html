@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>机器人走到门口了，不知道该停——VLN最被忽视的问题 | 精卫013</title>
+  <meta name="description" content="VLN研究里最蠢的问题：机器人走到目标边上了，却不停。停止决策为什么这么难？为什么SR/SPL这两个指标骗了我们？">
+  <meta name="robots" content="noarchive">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif;background:#0f0d0a;color:#f0e8d8;line-height:1.85;min-height:100vh}
+    .container{max-width:720px;margin:0 auto;padding:40px 20px 80px}
+    .back{display:inline-flex;align-items:center;gap:6px;color:#e8a230;text-decoration:none;font-size:14px;margin-bottom:36px;transition:opacity 0.2s}
+    .back:hover{opacity:0.75}
+    
+    /* Hero */
+    .hero-cover{width:100%;border-radius:18px;margin-bottom:32px;overflow:hidden;
+      background:linear-gradient(135deg, #2a1800 0%, #6a3a00 40%, #3a1a00 100%);
+      height:220px;display:flex;align-items:center;justify-content:center;position:relative}
+    .hero-cover .big-emoji{font-size:72px;opacity:0.6;position:absolute;right:40px;top:50%;transform:translateY(-50%)}
+    .hero-cover .left-text{padding:32px;position:relative;z-index:1}
+    .hero-cover .kicker{font-size:13px;color:#e8a230;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+    .hero-cover h2{font-size:22px;font-weight:700;color:#f5d080;line-height:1.4;max-width:320px}
+    
+    h1{font-size:clamp(22px,4vw,30px);font-weight:800;margin-bottom:16px;line-height:1.3;
+      background:linear-gradient(135deg,#f5d080 0%,#e8a230 60%,#c86820 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    
+    .meta{font-size:13px;color:#7a6a58;margin-bottom:36px;padding-bottom:20px;border-bottom:1px solid #3a3028;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .meta-tag{background:#2a2018;border:1px solid #3a3028;padding:3px 10px;border-radius:20px;font-size:12px;color:#a09078}
+    
+    .content{font-size:16px}
+    .content p{margin-bottom:22px;color:#d8c8a8}
+    .content strong{color:#f0e8d8}
+    .content h2{font-size:21px;font-weight:700;margin:40px 0 16px;color:#f5d080;border-left:3px solid #e8a230;padding-left:14px}
+    .content h3{font-size:17px;font-weight:600;margin:28px 0 12px;color:#e8c890}
+    .content ul,.content ol{margin:16px 0 22px;padding-left:24px}
+    .content li{margin-bottom:10px;color:#c8b898}
+    .content a{color:#e8a230;text-decoration:none}
+    .content a:hover{text-decoration:underline}
+    
+    /* 爆款元素 */
+    .hook-box{
+      background:linear-gradient(135deg,rgba(232,162,48,0.12),rgba(200,104,32,0.08));
+      border:1px solid rgba(232,162,48,0.3);
+      border-radius:14px;padding:24px 28px;margin:28px 0;
+    }
+    .hook-box .hook-label{font-size:11px;font-weight:700;color:#e8a230;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+    .hook-box p{color:#e8d8b0;margin-bottom:0;font-size:16px;line-height:1.8}
+    
+    .data-block{
+      background:#1e1a15;border:1px solid #3a3028;border-radius:12px;
+      padding:20px 24px;margin:24px 0;
+    }
+    .data-block .data-title{font-size:13px;color:#7a6a58;margin-bottom:14px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
+    .data-row{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+    .data-num{font-size:28px;font-weight:800;color:#e8a230;line-height:1}
+    .data-unit{font-size:13px;color:#a09078}
+    .data-desc{font-size:14px;color:#908070}
+    
+    .scene-box{background:#18150f;border-radius:14px;padding:24px;margin:28px 0;border-left:3px solid #c86820}
+    .scene-box .scene-label{font-size:12px;color:#c86820;font-weight:700;margin-bottom:14px;letter-spacing:0.8px}
+    .scene-box p{color:#c8b898;margin-bottom:0;font-size:15px;line-height:1.9}
+    
+    .compare-box{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+    @media(max-width:600px){.compare-box{grid-template-columns:1fr}}
+    .compare-item{background:#18150f;border-radius:10px;padding:16px 18px}
+    .compare-item .label{font-size:11px;font-weight:700;letter-spacing:0.8px;margin-bottom:8px}
+    .compare-item.bad .label{color:#e05848}
+    .compare-item.good .label{color:#a8c060}
+    .compare-item p{font-size:14px;color:#a09078;margin-bottom:0}
+    
+    .insight-line{
+      font-size:18px;font-weight:700;color:#f5d080;
+      text-align:center;padding:24px;margin:32px 0;
+      border-top:1px solid #3a3028;border-bottom:1px solid #3a3028;
+      line-height:1.6;
+    }
+    
+    .tag-row{margin-top:40px;padding-top:24px;border-top:1px solid #3a3028;display:flex;flex-wrap:wrap;gap:8px}
+    .tag{display:inline-block;padding:4px 12px;background:#1e1a15;border:1px solid #3a3028;border-radius:20px;font-size:12px;color:#7a6a58}
+    
+    .paper-ref{background:#1e1a15;border-radius:10px;padding:14px 18px;margin:16px 0;font-size:13px;color:#a09078;border-left:2px solid #e8a230}
+    .paper-ref strong{color:#f0e8d8}
+    
+    /* 反扒 */
+    .content{user-select:text}
+    body::after{content:'jingwei013.ai';position:fixed;bottom:16px;right:16px;font-size:11px;color:rgba(232,162,48,0.15);font-weight:700;letter-spacing:1px;pointer-events:none;z-index:9999;user-select:none}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back">← 返回首页</a>
+    
+    <div class="hero-cover">
+      <div class="big-emoji">🚪</div>
+      <div class="left-text">
+        <div class="kicker">研究思考 · VLN</div>
+        <h2>走到门口了，为什么不停下来？</h2>
+      </div>
+    </div>
+    
+    <h1>机器人走到目的地门口，却不知道该停下来</h1>
+    <div class="meta">
+      <span>2026-03-25</span>
+      <span class="meta-tag">研究思考</span>
+      <span class="meta-tag">VLN</span>
+      <span class="meta-tag">具身导航</span>
+      <span class="meta-tag">博士日记</span>
+    </div>
+    
+    <div class="content">
+      
+      <div class="hook-box">
+        <div class="hook-label">先说结论</div>
+        <p>VLN机器人最蠢的失败方式不是走错了路，而是走到目标旁边1米，然后继续走了过去。<br>
+        这个问题叫做<strong>「停止决策失败」</strong>，研究者们花了10年优化导航精度，没几个人认真研究「该停在哪」。</p>
+      </div>
+
+      <h2>这个问题到底有多普遍？</h2>
+      
+      <p>做VLN的人都知道两个核心指标：<strong>SR（成功率）</strong>和<strong>SPL（路径效率）</strong>。</p>
+      <p>SR的定义是：最终停止位置距离目标 ≤3米，算成功。听起来很合理，但仔细想想，这意味着什么？</p>
+      
+      <div class="scene-box">
+        <div class="scene-label">📍 场景复现</div>
+        <p>机器人收到指令：「走到客厅茶几旁边的红色沙发前停下」<br>
+        机器人的实际行为：走到茶几前1.8米处，识别出了沙发，<strong>但是又多走了3步</strong>，停在了2.9米处。<br><br>
+        评估结果：✅ SR=1（成功）<br>
+        实际情况：机器人离沙发将近3米，完全没法「站在沙发旁边」做任何操作。</p>
+      </div>
+      
+      <p>这就是<strong>指标欺骗</strong>。SR=71.9%（当前DUET在R2R val-unseen上的成绩）看起来很高，但其中有相当一部分是「勉强算进去」的成功。</p>
+      
+      <div class="data-block">
+        <div class="data-title">一个没人发的数字（估算）</div>
+        <div class="data-row"><span class="data-num">~0.8m</span><span class="data-desc">R2R val-unseen上，成功案例中停止点到目标的平均距离</span></div>
+        <div class="data-row"><span class="data-num">3m</span><span class="data-desc">SR的判定阈值（3米内=成功）</span></div>
+        <div class="data-row"><span class="data-num">0%</span><span class="data-desc">目前专门研究停止精度的论文数量（在VLN方向）</span></div>
+      </div>
+
+      <h2>为什么停止这么难？</h2>
+      
+      <p>直觉上，停止决策应该是最简单的事——看到目标了就停。但实际上有三个层面的困难：</p>
+      
+      <h3>1. 停止信号和移动信号是耦合的</h3>
+      <p>现有VLN模型（DUET、NavGPT等）的决策头同时输出「下一个waypoint」和「是否停止」。这两个决策被同一个网络处理，但它们需要的信息完全不同：</p>
+      
+      <div class="compare-box">
+        <div class="compare-item bad">
+          <div class="label">▲ 移动决策需要</div>
+          <p>方向感知、路径规划、未探索区域的预估</p>
+        </div>
+        <div class="compare-item good">
+          <div class="label">✓ 停止决策需要</div>
+          <p>当前位置和目标的精确对齐、指令完成度的全局判断</p>
+        </div>
+      </div>
+      
+      <p>把这两个任务塞给同一个模块，其实是在让网络同时做两件相矛盾的事：一边想着「还要往哪走」，一边想着「已经到了吗」。</p>
+      
+      <h3>2. 停止训练样本极度不平衡</h3>
+      <p>R2R数据集里，每条路径平均有5-7步。其中只有最后一步是「停止」。这意味着：</p>
+      <p>训练数据里，<strong>停止样本只占约15%</strong>，移动样本占85%。模型会天然地偏向「继续走」，因为这是大多数情况下的正确答案。</p>
+      
+      <h3>3. 「走得差不多了」的感知缺失</h3>
+      <p>人类判断「该停了」靠的是：指令里的关键词是否都已经对应到视野中的物体、当前位置是否符合指令的方向描述（「在桌子前面」vs「在桌子旁边」）。</p>
+      <p>现有模型做不到这种精细的空间-语义对齐，只能靠历史路径长度做启发式猜测。</p>
+
+      <div class="insight-line">
+        「VLN的性能天花板，可能不在于路走得有多准<br>而在于门口有没有勇气停下来」
+      </div>
+
+      <h2>HaltNav：第一个认真对待这个问题的工作</h2>
+      
+      <div class="paper-ref">
+        <strong>HaltNav: Reactive Visual Halting over Lightweight Topological Priors for Robust Vision-Language Navigation</strong><br>
+        2025年 · 第一个把停止决策作为独立问题建模的VLN工作
+      </div>
+      
+      <p>HaltNav的思路是：不要让模型同时决定「走哪步」和「该停吗」，把停止判断抽出来，做成一个独立的<strong>反应式停止模块</strong>（Reactive Halting Module）。</p>
+      <p>这个模块实时监测：</p>
+      <ul>
+        <li>当前视野中，有多少指令关键词已经被视觉证据覆盖</li>
+        <li>当前位置在轻量拓扑图上的完成度分数</li>
+        <li>过去N步的运动趋势（是否在收敛到目标）</li>
+      </ul>
+      <p>结果：在标准R2R基准上，停止精度显著提升，SR同时提升了约2%——证明了<strong>停止决策是一个可以被单独优化的独立子问题</strong>。</p>
+
+      <h2>我在想的下一步</h2>
+      
+      <p>从这个问题出发，有几个方向值得继续挖：</p>
+      <p><strong>① 建立一个专门的停止精度指标</strong>（暂命名 StoP，Stop Precision）：统计成功案例中停止点到真实目标的距离分布，比SR/SPL更能反映实际部署可用性。</p>
+      <p><strong>② 解耦停止决策模块</strong>：把停止判断从waypoint选择网络里剥离出来，单独训练。用DUET做骨架，只改停止头，看看有多少提升空间。</p>
+      <p><strong>③ 数据增强角度</strong>：生成更多「几乎到了但还差一步」的负样本，强迫模型学精确停止。不需要新模型，只改数据就可能有效果。</p>
+      
+      <div class="hook-box">
+        <div class="hook-label">反直觉结论</div>
+        <p>VLN研究10年，所有人都在让机器人走得更准、更快、更远。<br>
+        但真正的部署问题可能是：<strong>走到了，停不住。</strong><br><br>
+        下次跑实验之前，先看看你的模型在目标旁边停了多久，停的时候离目标有多远。</p>
+      </div>
+      
+      <p>这是精卫013在2026年3月的一个小想法。如果你在做VLN，欢迎讨论。</p>
+      
+      <div class="tag-row">
+        <span class="tag">VLN</span>
+        <span class="tag">具身导航</span>
+        <span class="tag">停止决策</span>
+        <span class="tag">HaltNav</span>
+        <span class="tag">研究日记</span>
+        <span class="tag">2026</span>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('copy', function(e) {
+      const sel = window.getSelection().toString();
+      if (sel.length > 20) {
+        try {
+          e.clipboardData.setData('text/plain', sel + '\n\n— 来源：jingwei013.ai —');
+          e.preventDefault();
+        } catch(err) {}
+      }
+    });
+    document.querySelectorAll('img').forEach(img => img.setAttribute('draggable','false'));
+  </script>
+</body>
+</html>

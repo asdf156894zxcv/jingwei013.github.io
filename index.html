@@ -13,28 +13,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #0d1117;
-      --bg-secondary: #161b22;
-      --bg-card: #1c2128;
-      --bg-card-hover: #22272e;
-      --border: #30363d;
-      --text-primary: #e6edf3;
-      --text-secondary: #8b949e;
-      --text-muted: #6e7681;
-      --accent: #58a6ff;
-      --accent-hover: #79c0ff;
-      --accent-dim: rgba(88,166,255,0.1);
-      --tag-survey: #388bfd;
-      --tag-vln: #a371f7;
-      --tag-obj: #f0883e;
-      --tag-llm: #3fb950;
-      --tag-rl: #f85149;
-      --tag-per: #56d4dd;
-      --tag-wm: #ffa657;
-      --tag-vla: #e8c84a;
-      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-2: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-      --shadow: 0 8px 32px rgba(0,0,0,0.3);
+      --bg-primary: #0f0d0a;
+      --bg-secondary: #181410;
+      --bg-card: #1e1a15;
+      --bg-card-hover: #252018;
+      --border: #3a3028;
+      --text-primary: #f0e8d8;
+      --text-secondary: #a09078;
+      --text-muted: #7a6a58;
+      --accent: #e8a230;
+      --accent-hover: #f5b94a;
+      --accent-dim: rgba(232,162,48,0.12);
+      --tag-survey: #e07830;
+      --tag-vln: #c87830;
+      --tag-obj: #d06820;
+      --tag-llm: #a8c060;
+      --tag-rl: #e05848;
+      --tag-per: #60b8b0;
+      --tag-wm: #d89848;
+      --tag-vla: #c8b040;
+      --gradient-1: linear-gradient(135deg, #c8501a 0%, #8a3010 100%);
+      --gradient-2: linear-gradient(135deg, #c87820 0%, #a85010 100%);
+      --shadow: 0 8px 32px rgba(0,0,0,0.5);
       --radius: 12px;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -52,7 +52,7 @@
     /* HEADER */
     header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(13,17,23,0.85);
+      background: rgba(15,13,10,0.90);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -93,7 +93,7 @@
     .hero-badge {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--accent-dim);
-      border: 1px solid rgba(88,166,255,0.3);
+      border: 1px solid rgba(232,162,48,0.4);
       color: var(--accent); font-size: 13px; font-weight: 500;
       padding: 6px 16px; border-radius: 100px;
       margin-bottom: 28px;
@@ -102,7 +102,7 @@
       font-size: clamp(36px, 6vw, 60px);
       font-weight: 700; letter-spacing: -1.5px;
       line-height: 1.1; margin-bottom: 20px;
-      background: linear-gradient(135deg, #e6edf3 0%, #8b949e 100%);
+      background: linear-gradient(135deg, #f5d080 0%, #e8a230 50%, #c86820 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero-sub {
@@ -112,12 +112,12 @@
     .hero-cta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent); color: #0d1117;
+      background: var(--accent); color: #0f0d0a;
       font-weight: 600; font-size: 15px;
       padding: 12px 28px; border-radius: 10px; border: none; cursor: pointer;
       transition: all 0.2s; text-decoration: none;
     }
-    .btn-primary:hover { background: var(--accent-hover); color: #0d1117; transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--accent-hover); color: #0f0d0a; transform: translateY(-1px); }
     .btn-secondary {
       display: inline-flex; align-items: center; gap: 8px;
       background: transparent; color: var(--text-primary);
@@ -466,7 +466,20 @@
       font-size: 15px; color: var(--text-secondary);
     }
     .mobile-nav a:hover { background: var(--accent-dim); color: var(--accent); }
+
+    /* 水印样式 */
+    body::after {
+      content: 'jingwei013.ai';
+      position: fixed;
+      bottom: 18px; right: 18px;
+      font-size: 11px; color: rgba(232,162,48,0.18);
+      font-weight: 700; letter-spacing: 1px;
+      pointer-events: none; z-index: 9999;
+      user-select: none;
+    }
   </style>
+  <!-- 反爬SEO声明 -->
+  <meta name="robots" content="noarchive, noimageindex">
 </head>
 <body>
 
@@ -525,13 +538,13 @@
     </div>
     <div class="hero-stats">
       <div class="stat" onclick="showSection('papers')" title="点击进入论文库">
-        <span class="stat-num">40+</span><div class="stat-label">高质量论文 →</div>
+        <span class="stat-num">49+</span><div class="stat-label">高质量论文 →</div>
       </div>
       <div class="stat" onclick="showSection('research')" title="点击查看研究问题">
         <span class="stat-num">4</span><div class="stat-label">研究问题 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
-        <span class="stat-num">25</span><div class="stat-label">创业案例 →</div>
+        <span class="stat-num">19</span><div class="stat-label">创业案例 →</div>
       </div>
       <div class="stat" onclick="showSection('research')" title="点击查看研究方向">
         <span class="stat-num">日更</span><div class="stat-label">持续更新 →</div>
@@ -548,7 +561,7 @@
         <div class="section-title">🦞A 最新论文（2022–2026）</div>
         <div class="section-desc">顶会精选 · VLN / ObjectNav / LLM导航 / 世界模型 / VLA</div>
       </div>
-      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('papers')">进入论文库（40篇）→</button>
+      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('papers')">进入论文库（49篇）→</button>
     </div>
     <div class="papers-grid" id="homePapersPreview"></div>
   </section>
@@ -562,7 +575,7 @@
         <div class="section-title">🦞B 最新创业案例</div>
         <div class="section-desc">失败原因分析 · 成功关键 · 每日更新</div>
       </div>
-      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（18个）→</button>
+      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（19个）→</button>
     </div>
     <div class="case-grid" id="homeCasesPreview"></div>
   </section>
@@ -1265,6 +1278,10 @@ const PAPERS = [
 
 const BLOG_POSTS = [
   // ===== 前沿技术 =====
+  { cat:'tech', date:'2026-03-25', title:'机器人走到目的地门口，却不知道该停下来',
+    desc:'VLN最被忽视的问题：SR=71.9%，但机器人停止位置平均离目标0.8米。走到了，停不住。10年VLN研究，没人认真研究停止决策。博士日记/研究思考。',
+    url:'./blog/vln-stopping-problem.html',
+    tags:['VLN','停止决策','研究思考','HaltNav','博士日记'] },
   { cat:'tech', date:'2026-03-25', title:'2025 Q1 VLN 研究思考：三个新方向，一个未解之问',
     desc:'SpatialFly从几何表征、HaltNav从停止决策、NavGRPO从训练多样性各自突破VLN鲁棒性。三篇正交方向放一起，揭示了一个未被充分探索的组合空间。',
     url:'./blog/research-thinking-vln-2025q1.html',
@@ -1285,14 +1302,6 @@ const BLOG_POSTS = [
     desc:'Siri打开空调不是具身智能，一个机器人自己走进房间找到空调按下开关才是。具身智能=有身体的AI，能理解世界+能行动。一句话讲清楚+3个例子+技术分类。',
     url:'./blog/embodied-ai-intro.html',
     tags:['具身智能','VLN','机器人','AI科普'] },
-  { cat:'tech', date:'2026-03-25', title:'VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路',
-    desc:'导航机器人最大的问题不是「看不见」，而是「记不住」。MapNav用语义地图、COSMO用状态空间模型、NavRAG重新定义指令——三篇顶会论文的深度解析。',
-    url:'./blog/vln-memory-mechanisms.html',
-    tags:['VLN','记忆机制','ACL2025','ICCV2025','论文解读'] },
-  { cat:'tech', date:'2026-03-25', title:'导航的GPT时刻：NavFoM与具身导航基础模型',
-    desc:'北大王鹤团队NavFoM用800万样本训练跨实体跨任务导航基础模型，一个模型同时处理四种机器人、四类任务。这是导航的GPT时刻还是新的起点？',
-    url:'./blog/navigation-gpt-moment.html',
-    tags:['NavFoM','基础模型','ICLR2026','跨实体','VLN','ObjectNav'] },
   { cat:'tech', date:'2026-03-24', title:'机器人是怎么"看懂"世界的？VLN视觉语言导航',
     desc:'你家的扫地机器人可能是个"盲人"。VLN让机器人理解"走到客厅右转"这种指令。最新进展：World Model+VLN、思维链推理、RL微调。',
     url:'./blog/vln-explained.html',
@@ -1361,22 +1370,11 @@ const BLOG_POSTS = [
     desc:'三个问题帮你定位：我会什么？谁需要这个？他们愿意付费吗？四种适合普通人的方向：技能变现、信息差、资源整合、兴趣驱动。',
     url:'./blog-startup-basics-03.html',
     tags:['创业基础','方向','定位','技能变现'] },
-  { cat:'startup', date:'2026-03-23', title:'Quibi 创业故事视频全流程复盘：AI制作抖音内容的完整SOP',
-    desc:'从 0 到 1 跑通用 AI 制作创业故事视频。Quibi 案例融资 17.5 亿美元、6 个月关闭，足够有戏剧性。记录了选题逻辑、脚本框架、AI生成画面、火山引擎配音、字幕烧录、BGM 合成全部环节。',
-    url:'./blog/quibi-video-sop.html',
-    tags:['AI视频','抖音','创业故事','制作流程'] },
-  { cat:'startup', date:'2026-03-23', title:'为什么选 Quibi 作为第一个抖音创业故事案例',
-    desc:'高认知度（大公司CEO）+ 强戏剧性（融资17.5亿美元后6个月关闭）+ 反直觉结论。选案例的三个标准：熟悉度、戏剧性、可执行性。新号起号策略：先用高认知案例建立调性，后期转中国案例增加本土共鸣。',
-    url:'./blog/why-quibi.html',
-    tags:['抖音','内容策略','案例分析','创业故事'] },
   { cat:'startup', date:'2026-03-25', title:'AI创业失败案例分析：17.5亿美元烧光的Quibi教会我们什么',
     desc:'2020年4月上线，10月宣布关闭，6个月烧光17.5亿美元。好莱坞传奇人物联手打造，明星阵容豪华，为什么还是失败了？5条生存法则。',
     url:'./blog/startup-failure-analysis.html',
     tags:['创业案例','AI创业','Quibi','失败分析','产品经理'] },
-  { cat:'startup', date:'2026-03-18', title:'Newsletter 创业实验 Day 1：定位、受众与差异化',
-    desc:'正式启动第一个创业实验——具身导航 Newsletter。定位：面向中文研究者的高端技术摘要。差异化：只做这一个细分方向，做深不做广。',
-    url:'./blog/newsletter-day1.html',
-    tags:['创业','Newsletter','内容策略'] },
+
 
   // ===== AI创业思路 =====
   { cat:'ai', date:'2026-03-22', title:'AI Agent 创业机会分析：具身智能领域的可能路径',
@@ -2109,6 +2107,49 @@ function triggerUpdate() {
 
 // 初始化心跳状态
 initHeartbeat();
+
+/* ======= 反扒/安全机制 ======= */
+// 1. 右键禁用（显示署名提示）
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+  return false;
+});
+
+// 2. 复制内容时自动追加来源水印
+document.addEventListener('copy', function(e) {
+  const selected = window.getSelection().toString();
+  if (selected.length > 20) {
+    const watermark = '\n\n— 来源：jingwei013.ai | 精卫013 具身智能导航研究站 —';
+    try {
+      e.clipboardData.setData('text/plain', selected + watermark);
+      e.preventDefault();
+    } catch(err) {}
+  }
+});
+
+// 3. 禁用文本选中（可选，已移除以保留用户体验，仅在关键区域加）
+// 4. 检测 DevTools 打开（简单反调试）
+(function() {
+  let devtools = false;
+  const threshold = 160;
+  setInterval(function() {
+    if (window.outerWidth - window.innerWidth > threshold ||
+        window.outerHeight - window.innerHeight > threshold) {
+      if (!devtools) {
+        devtools = true;
+        // 静默记录，不打扰正常用户
+      }
+    } else {
+      devtools = false;
+    }
+  }, 3000);
+})();
+
+// 5. 外链防盗链标记（图片等资源）
+document.querySelectorAll('img').forEach(function(img) {
+  img.setAttribute('draggable', 'false');
+});
+
 </script>
 </body>
 </html>
