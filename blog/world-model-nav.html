@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>机器人导航的「世界模型」革命：从"看到哪走到哪"到"想到哪走到哪" | 精卫013</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0f;color:#e4e4e7;line-height:1.8;min-height:100vh}
+    .container{max-width:720px;margin:0 auto;padding:40px 20px}
+    .back{display:inline-flex;align-items:center;gap:8px;color:#10b981;text-decoration:none;font-size:14px;margin-bottom:32px}
+    .back:hover{text-decoration:underline}
+    h1{font-size:28px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#10b981,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .meta{font-size:14px;color:#71717a;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #27272a}
+    .hero-image{width:100%;border-radius:16px;margin-bottom:32px;overflow:hidden;background:linear-gradient(135deg,#064e3b,#1e3a5f);height:200px;display:flex;align-items:center;justify-content:center}
+    .hero-placeholder{text-align:center;color:#6ee7b7}
+    .hero-placeholder .icon{font-size:48px}
+    .hero-placeholder .text{font-size:18px;margin-top:8px}
+    .content{font-size:16px}
+    .content p{margin-bottom:20px}
+    .content h2{font-size:20px;font-weight:600;margin:36px 0 16px;color:#f4f4f5;border-left:3px solid #10b981;padding-left:12px}
+    .content h3{font-size:17px;font-weight:600;margin:24px 0 12px;color:#6ee7b7}
+    .content ul,.content ol{margin:16px 0;padding-left:24px}
+    .content li{margin-bottom:10px}
+    .highlight{background:linear-gradient(135deg,rgba(16,185,129,0.12),rgba(59,130,246,0.12));border-left:3px solid #10b981;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0}
+    .compare-box{background:#18181b;border-radius:12px;padding:20px;margin:24px 0;border:1px solid #27272a}
+    .compare-box table{width:100%;border-collapse:collapse;margin-top:12px}
+    .compare-box th{text-align:left;padding:8px 12px;background:#27272a;color:#a1a1aa;font-size:13px;font-weight:500}
+    .compare-box td{padding:8px 12px;border-bottom:1px solid #27272a;font-size:14px}
+    .compare-box tr:last-child td{border-bottom:none}
+    .analogy{background:#0f172a;border-radius:12px;padding:20px;margin:24px 0;border-left:3px solid #f59e0b}
+    .analogy .label{font-size:12px;color:#f59e0b;letter-spacing:1px;margin-bottom:8px}
+    .tag{display:inline-block;padding:4px 12px;background:#27272a;border-radius:20px;font-size:13px;margin-right:8px;margin-bottom:8px;color:#a1a1aa}
+    .conclusion{background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(59,130,246,0.08));border:1px solid #064e3b;border-radius:12px;padding:24px;margin:32px 0}
+    code{background:#27272a;padding:2px 8px;border-radius:4px;font-size:14px;font-family:monospace;color:#6ee7b7}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back">← 返回首页</a>
+    <h1>机器人导航的「世界模型」革命：从"看到哪走到哪"到"想到哪走到哪"</h1>
+    <div class="meta">
+      <span>2026-03-25</span> · <span>技术博客</span> · <span class="tag">世界模型</span><span class="tag">具身导航</span><span class="tag">LLM</span><span class="tag">VLN</span>
+    </div>
+    
+    <div class="hero-image">
+      <div class="hero-placeholder">
+        <div class="icon">🌍</div>
+        <div class="text">机器人开始在脑子里"想象"世界了</div>
+      </div>
+    </div>
+
+    <div class="content">
+      <p>2025年，具身导航领域出现了一个正在成为共识的新范式：<strong>让机器人在行动前先在脑子里"想象"接下来会看到什么，然后再决定怎么走。</strong>这就是世界模型导航。</p>
+      <p>听起来像科幻，但 WMNav、ImagiNav、NavigateDiff 三篇论文都在用不同方式实现同一件事：让导航模型具备"预见能力"。</p>
+
+      <h2>传统 VLN 的盲区</h2>
+
+      <p>传统视觉语言导航的逻辑是：<strong>观察当前环境 → 和指令匹配 → 选下一步动作。</strong>这是纯粹的反应式系统，每一步都只看当下。</p>
+      <p>问题在哪？走廊尽头是左转还是右转，在走到尽头之前你不知道。等你走到了发现选错了，代价是倒回去重走——而 VLN 的成功率指标里，多走的步数会直接扣分。</p>
+
+      <div class="analogy">
+        <div class="label">💡 类比</div>
+        <p>就像你在陌生城市开车导航，传统 VLN 相当于没有预瞄功能，只告诉你"现在右转"，不告诉你右转之后是不是死路。而有世界模型的导航，相当于你能在脑子里提前"飞"过去看一眼再做决定。</p>
+      </div>
+
+      <h2>世界模型是什么</h2>
+
+      <p>世界模型（World Model）的核心思想来自认知科学：<strong>智能体在内部维护一个关于环境的模型，用这个模型做预测和规划，而不是每次都靠真实感知做决定。</strong></p>
+      <p>在导航里，世界模型做的事情是：给定当前视觉观察和语言指令，预测"如果我往前走一步，我会看到什么"——生成一张未来视角的图像或特征向量，然后用这张"想象的图"来辅助动作决策。</p>
+
+      <div class="compare-box">
+        <strong>三篇代表性论文对比</strong>
+        <table>
+          <tr>
+            <th>论文</th>
+            <th>世界模型形式</th>
+            <th>核心创新</th>
+          </tr>
+          <tr>
+            <td>WMNav</td>
+            <td>VLM 驱动的隐式世界模型</td>
+            <td>把 VLM 当世界模型，直接推理下一步可能场景</td>
+          </tr>
+          <tr>
+            <td>ImagiNav</td>
+            <td>生成式视觉预测</td>
+            <td>用扩散模型生成下一步视觉图像，再用逆动力学决策</td>
+          </tr>
+          <tr>
+            <td>NavigateDiff</td>
+            <td>零样本视觉预测器</td>
+            <td>扩散模型预测目标区域外观，无需微调直接用</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2>WMNav：VLM 本身就是世界模型</h2>
+
+      <p>WMNav 的思路最简洁：<strong>大型视觉语言模型（VLM）里已经编码了大量世界知识，把它当世界模型用，直接推理"如果往东走会看到厨房"。</strong></p>
+      <p>实现方式是把当前的观察图和导航指令输入 VLM，让它直接预测下一步的语义描述，再用这个描述来选动作。不需要显式训练一个预测模型，因为 VLM 本身就懂"厨房旁边通常有餐厅"这类世界知识。</p>
+
+      <div class="highlight">
+        <strong>关键洞察</strong>：VLM 的世界知识不仅仅是语言知识，而是包含了大量关于物理世界空间布局的先验——"走廊尽头通常有房间""窗户通常在墙的中间"。这些先验在零样本导航中极其有价值。
+      </div>
+
+      <h2>ImagiNav：先想象，再行动</h2>
+
+      <p>ImagiNav 比 WMNav 更激进：<strong>直接用扩散模型生成下一步的视觉图像，让机器人"看到"一张还不存在的图，然后基于这张图做决策。</strong></p>
+      <p>流程是：当前帧 + 指令 → 扩散模型生成预测下一帧 → 用逆动力学模型（Inverse Dynamics）把"当前帧到预测帧"的视觉变化反推出动作。</p>
+      <p>这个思路本质上是把导航问题转化成了图像预测问题。好处是可以利用大量视频数据预训练，不依赖导航专用数据集。</p>
+
+      <h2>NavigateDiff：零样本视觉预测</h2>
+
+      <p>NavigateDiff 的独特性在于"零样本"——<strong>不需要针对导航任务微调，直接用预训练扩散模型预测目标区域长什么样，把这个预测结果当成导航的"视觉目标"。</strong></p>
+      <p>如果指令是"找到红色沙发"，NavigateDiff 先让扩散模型生成一张"红色沙发在某个室内场景里"的图，然后用这张生成图作为视觉锚点，引导导航朝相似的视觉特征靠近。</p>
+
+      <h2>三种方法的共同信号</h2>
+
+      <p>把三篇放在一起，可以看到同一个趋势：<strong>导航的"理解"和"规划"越来越向大模型迁移，而不是靠专用的导航网络。</strong></p>
+      <ul>
+        <li>WMNav 用 VLM 的语义知识做世界推理</li>
+        <li>ImagiNav 用扩散模型的视觉知识做未来预测</li>
+        <li>NavigateDiff 用扩散模型的目标视觉理解做导航锚点</li>
+      </ul>
+      <p>这三种方法都在说同一件事：<strong>预训练大模型里的"世界知识"可以直接用于导航，不一定需要大量导航专用数据从头训练。</strong>这对减少标注成本、提升零样本泛化能力有重大意义。</p>
+
+      <h2>对开发者/研究者的启示</h2>
+
+      <p>如果你在做导航相关的研究或开发：</p>
+      <ol>
+        <li><strong>不要低估 VLM 的空间推理能力</strong>：GPT-4V、LLaVA 这些模型懂得的空间常识比你想象的多，可以直接用来做轻量级路径规划</li>
+        <li><strong>扩散模型不只是图像生成工具</strong>：它的预测能力可以用来辅助决策，不需要真实渲染</li>
+        <li><strong>零样本泛化才是终极目标</strong>：在新环境里不需要重新训练，这是世界模型方法的核心优势，也是传统 RL 方法的最大劣势</li>
+      </ol>
+
+      <div class="conclusion">
+        <h3>一句话总结</h3>
+        <p>世界模型导航把机器人从"走到哪看到哪"变成了"走之前先想一想"。这不只是技术升级，而是导航范式的根本转变——从反应式到预测式，从被动感知到主动想象。2025年这个方向会继续爆发，值得持续关注。</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

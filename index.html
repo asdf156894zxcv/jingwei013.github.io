@@ -1265,6 +1265,14 @@ const PAPERS = [
 
 const BLOG_POSTS = [
   // ===== 前沿技术 =====
+  { cat:'tech', date:'2026-03-25', title:'2025 Q1 VLN 研究思考：三个新方向，一个未解之问',
+    desc:'SpatialFly从几何表征、HaltNav从停止决策、NavGRPO从训练多样性各自突破VLN鲁棒性。三篇正交方向放一起，揭示了一个未被充分探索的组合空间。',
+    url:'./blog/research-thinking-vln-2025q1.html',
+    tags:['VLN','研究思考','SpatialFly','HaltNav','NavGRPO','2025'] },
+  { cat:'tech', date:'2026-03-25', title:'机器人导航的「世界模型」革命：从"看到哪走到哪"到"想到哪走到哪"',
+    desc:'WMNav、ImagiNav、NavigateDiff三篇论文正在把VLN从反应式变成预测式。机器人开始在脑子里"想象"世界，然后再走。导航范式的根本转变。',
+    url:'./blog/world-model-nav.html',
+    tags:['世界模型','VLN','扩散模型','具身导航','WMNav','ImagiNav'] },
   { cat:'tech', date:'2026-03-25', title:'导航的GPT时刻：NavFoM与具身导航基础模型',
     desc:'北大王鹤团队NavFoM用800万样本训练跨实体跨任务导航基础模型，一个模型同时处理四种机器人、四类任务。这是导航的GPT时刻还是新的起点？',
     url:'./blog/navigation-gpt-moment.html',
@@ -1311,6 +1319,10 @@ const BLOG_POSTS = [
     tags:['RL','VLN','技术分析'] },
 
   // ===== 案例分析 =====
+  { cat:'case', date:'2026-03-25', title:'产品市场匹配的7个反面教材：为什么"有人想要"≠ PMF',
+    desc:'有试用没复购、免费用户多付费意愿极低、销售卖得出续费却极低……7个"假PMF"反面教材，用真实案例和行为数据教你识别PMF真伪。',
+    url:'./blog/pmf-anti-patterns.html',
+    tags:['PMF','产品','创业基础','失败案例','SaaS'] },
   { cat:'case', date:'2026-03-25', title:'7大死亡陷阱：AI创业公司的真实墓志铭',
     desc:'Builder.ai融资4.5亿造假倒闭、Humane AI Pin退货超销售、Inflection AI 15亿被微软挖走……7个真实失败模式深度复盘，每个都有具体数字，每个都有人交过学费。',
     url:'./blog/ai-startup-death-traps.html',
@@ -1541,6 +1553,25 @@ const CASES = [
     story: 'Quibi 由好莱坞传奇 Jeffrey Katzenberg 和前惠普 CEO Meg Whitman 联合创立，融资 17.5 亿美元，目标是「移动端的 Netflix」，每集 10 分钟以内，专为碎片化时间设计。2020 年 4 月正式上线——恰好撞上新冠疫情，全世界都在家里，没人需要用手机「碎片化」看剧。用户不买账，6 个月后宣告关闭，创始人在给投资人的信中坦言：「我们不知道失败是因为我们的想法本身有问题，还是因为疫情。」',
     lesson: '两个 CEO、顶级团队、17.5 亿美元，都抵不过产品-市场不契合（No PMF）。疫情只是加速器，核心问题是移动短视频场景早已被 TikTok 和 YouTube 占领，没有留给 Quibi 的空间。',
     date: '2026-03-23',
+  },
+  {
+    cat: 'cash',
+    company: 'Stability AI',
+    slogan: 'AI绘画明星独角兽：50亿估值到资不抵债，创始人出逃',
+    type: 'AI/生成式模型',
+    typeColor: '#f85149',
+    emoji: '🎨',
+    coverGradient: 'linear-gradient(135deg, #0a001f 0%, #1a0040 50%, #2d006b 100%)',
+    stats: [
+      { num: '$101M', label: '融资额' },
+      { num: '$4B', label: '峰值估值（2022）' },
+      { num: '$99M', label: '欠款额（2023）' },
+      { num: 2024, label: '创始人出局年份' },
+    ],
+    key: '关键问题：开源模型没有护城河，算力成本失控，商业化路径缺失',
+    story: 'Emad Mostaque 在 2022 年发布 Stable Diffusion，一夜之间成为 AI 图像领域最受瞩目的公司。但 Stability AI 的商业逻辑从一开始就存在致命矛盾：把核心模型开源，任何人可以免费使用，但公司却要靠算力维持运营和训练，每月云计算账单高达数百万美元。2023 年内部文件泄露：公司欠亚马逊 AWS 账单约 9900 万美元，濒临资不抵债。投资人逼宫，Emad Mostaque 被迫辞职。2024 年公司卖出旗下部分产品资产，核心团队大规模出走。',
+    lesson: '开源是获取关注的最快方式，但不是商业模式。Stability AI 的失败揭示了"开源+算力"创业的根本矛盾：你越成功、用户越多、算力成本越高，而收入却不随用户增长。开源 AI 公司必须在开源之前就想清楚商业化路径。',
+    date: '2026-03-25',
   },
   {
     cat: 'pmf_ok',
