@@ -3,265 +3,380 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>视觉语言导航数据集全览：Matterport3D、HM3D、Robo360 | 精卫013</title>
-  <link rel="stylesheet" href="../styles.css">
+  <title>VLN数据集全览：选错数据集，模型白练 | 精卫013</title>
+  <meta name="description" content="视觉语言导航数据集完整对比：R2R、R4R、REVERIE、SOON、RxR、EQA、ScanQA，一文搞懂如何选择适合自己研究方向的数据集。">
   <style>
-    .blog-detail { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-    .blog-header { margin-bottom: 40px; }
-    .blog-title { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
-    .blog-meta { color: var(--text-muted); font-size: 14px; display: flex; gap: 20px; flex-wrap: wrap; }
-    .blog-content { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
-    .blog-content h2 { font-size: 22px; font-weight: 600; margin: 40px 0 20px; color: var(--text-primary); }
-    .blog-content h3 { font-size: 18px; font-weight: 600; margin: 30px 0 15px; color: var(--text-primary); }
-    .blog-content p { margin-bottom: 16px; }
-    .blog-content ul, .blog-content ol { margin-bottom: 20px; padding-left: 24px; }
-    .blog-content li { margin-bottom: 8px; }
-    .highlight-box { background: linear-gradient(135deg, rgba(200,114,14,0.08), rgba(200,114,14,0.04)); border-left: 4px solid var(--accent); padding: 20px; border-radius: 8px; margin: 24px 0; }
-    .warning-box { background: linear-gradient(135deg, rgba(248,81,73,0.1), rgba(248,81,73,0.05)); border-left: 4px solid #f85149; padding: 20px; border-radius: 8px; margin: 24px 0; }
-    .insight-box { background: linear-gradient(135deg, rgba(144,184,80,0.12), rgba(144,184,80,0.06)); border-left: 4px solid #90b850; padding: 20px; border-radius: 8px; margin: 24px 0; }
-    .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
-    .data-table th, .data-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border-color); }
-    .data-table th { background: var(--bg-secondary); font-weight: 600; }
-    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-color); text-decoration: none; margin-bottom: 24px; }
-    .xhs-cover { background: linear-gradient(135deg, #fdf8f2 0%, #2b1a08 50%, #3d2510 100%); padding: 60px 40px; text-align: center; border-radius: 12px; margin-bottom: 40px; position: relative; overflow: hidden; }
-    .xhs-cover::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(200,114,14,0.08) 0%, transparent 70%); animation: pulse 4s ease-in-out infinite; }
-    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 0.8; } }
-    .xhs-cover h1 { font-size: 32px; font-weight: 800; margin-bottom: 16px; background: linear-gradient(135deg, #2c1a0e 0%, #c8720e 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; position: relative; z-index: 1; }
-    .xhs-cover .subtitle { font-size: 16px; color: #a07858; position: relative; z-index: 1; }
-    .dataset-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px 0; }
-    .dataset-name { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#1c1510;color:#f5ead8;line-height:1.8;min-height:100vh}
+    .container{max-width:720px;margin:0 auto;padding:40px 20px}
+    .back{display:inline-flex;align-items:center;gap:8px;color:#e8a230;text-decoration:none;font-size:14px;margin-bottom:32px}
+    .back:hover{text-decoration:underline}
+    h1{font-size:28px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#e8a230,#f5b94a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-banner{width:100%;border-radius:16px;margin-bottom:32px;overflow:hidden;background:linear-gradient(135deg,#2b1a08,#3d2510,#1c1510);height:200px;display:flex;align-items:center;justify-content:center;position:relative}
+    .hero-banner::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(232,162,48,0.15) 0%,transparent 70%)}
+    .hero-text{text-align:center;position:relative;z-index:1}
+    .hero-text .icon{font-size:52px;display:block;margin-bottom:12px}
+    .hero-text .tagline{font-size:17px;color:#c8a878;font-weight:500}
+    .meta{font-size:14px;color:#9a8060;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #2b2118}
+    .content{font-size:16px}
+    .content p{margin-bottom:20px;color:#c8a878}
+    .content strong{color:#f5ead8}
+    .content h2{font-size:22px;font-weight:700;margin:40px 0 16px;color:#f5ead8;border-left:4px solid #e8a230;padding-left:14px}
+    .content h3{font-size:18px;font-weight:600;margin:28px 0 12px;color:#e8a230}
+    .content ul,.content ol{margin:16px 0;padding-left:24px}
+    .content li{margin-bottom:10px;color:#c8a878}
+    .content li strong{color:#f5ead8}
+    .highlight{background:linear-gradient(135deg,rgba(232,162,48,0.12),rgba(232,162,48,0.06));border-left:3px solid #e8a230;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0}
+    .highlight p{margin:0;color:#c8a878}
+    .dataset-card{background:#231b13;border:1px solid #3a2d1c;border-radius:16px;padding:24px;margin:24px 0;position:relative}
+    .dataset-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
+    .dataset-card.r2r::before{background:linear-gradient(90deg,#e8a230,#f5b94a)}
+    .dataset-card.r4r::before{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
+    .dataset-card.reverie::before{background:linear-gradient(90deg,#f87171,#ef4444)}
+    .dataset-card.rxr::before{background:linear-gradient(90deg,#34d399,#10b981)}
+    .dataset-card.soon::before{background:linear-gradient(90deg,#a78bfa,#7c3aed)}
+    .dataset-card.eqa::before{background:linear-gradient(90deg,#fb923c,#ea580c)}
+    .dataset-name{font-size:20px;font-weight:700;color:#f5ead8;margin-bottom:6px}
+    .dataset-full{font-size:13px;color:#9a8060;margin-bottom:16px}
+    .dataset-stats{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
+    .stat-badge{background:#2b2118;border-radius:8px;padding:6px 12px;font-size:13px}
+    .stat-badge .label{color:#9a8060;font-size:11px;display:block}
+    .stat-badge .value{color:#f5ead8;font-weight:600}
+    .tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;margin-right:6px;margin-bottom:6px}
+    .tag.research{background:rgba(232,162,48,0.15);color:#e8a230;border:1px solid rgba(232,162,48,0.3)}
+    .tag.prod{background:rgba(52,211,153,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.3)}
+    .tag.hard{background:rgba(248,113,113,0.15);color:#f87171;border:1px solid rgba(248,113,113,0.3)}
+    .tag.new{background:rgba(167,139,250,0.15);color:#a78bfa;border:1px solid rgba(167,139,250,0.3)}
+    .comparison-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .comparison-table th{background:#2b2118;color:#e8a230;padding:10px 12px;text-align:left;font-weight:600;border-bottom:2px solid #3a2d1c}
+    .comparison-table td{padding:10px 12px;border-bottom:1px solid #2b2118;color:#c8a878}
+    .comparison-table tr:hover td{background:rgba(232,162,48,0.04)}
+    .comparison-table .highlight-row td{color:#f5ead8}
+    .decision-tree{background:#231b13;border-radius:16px;padding:24px;margin:28px 0}
+    .decision-step{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #2b2118}
+    .decision-step:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#e8a230,#f5b94a);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#1c1510;flex-shrink:0;margin-top:2px}
+    .step-content h4{color:#f5ead8;font-weight:600;margin-bottom:6px}
+    .step-content p{color:#9a8060;font-size:14px;margin:0}
+    .warning-box{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.2);border-radius:12px;padding:20px;margin:24px 0}
+    .warning-box h4{color:#f87171;margin-bottom:8px;font-size:15px}
+    .warning-box p,.warning-box li{color:#c8a878;font-size:14px}
+    .tip-box{background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2);border-radius:12px;padding:20px;margin:24px 0}
+    .tip-box h4{color:#34d399;margin-bottom:8px;font-size:15px}
+    .tip-box p{color:#c8a878;font-size:14px;margin:0}
+    .conclusion-box{background:linear-gradient(135deg,rgba(232,162,48,0.15),rgba(232,162,48,0.05));border:1px solid rgba(232,162,48,0.3);border-radius:16px;padding:28px;margin:32px 0}
+    .conclusion-box h3{color:#e8a230;margin-bottom:16px}
+    .footer-nav{display:flex;justify-content:space-between;margin-top:60px;padding-top:32px;border-top:1px solid #2b2118;gap:16px}
+    .footer-nav a{color:#e8a230;text-decoration:none;font-size:14px;max-width:45%}
+    .footer-nav a:hover{text-decoration:underline}
+    code{background:#2b2118;padding:2px 8px;border-radius:4px;font-family:monospace;font-size:14px;color:#e8a230}
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-content">
-      <a href="../index.html" class="logo">精卫013</a>
-      <div class="nav-links">
-        <a href="../index.html#research">研究方向</a>
-        <a href="../index.html#papers">论文库</a>
-        <a href="../index.html#cases">案例库</a>
-        <a href="../index.html#blog">博客</a>
-        <a href="../index.html#about">关于</a>
+  <div class="container">
+    <a href="../index.html" class="back">← 返回首页</a>
+
+    <div class="hero-banner">
+      <div class="hero-text">
+        <span class="icon">🗺️</span>
+        <div class="tagline">选错数据集，模型白练——VLN数据集终极导航手册</div>
       </div>
     </div>
-  </nav>
 
-  <div class="container blog-detail">
-    <a href="../index.html#blog" class="back-link">← 返回博客列表</a>
-    
-    <article class="blog-header">
-      <div class="xhs-cover">
-        <h1>📊 VLN数据集怎么选？<br>一张表看懂所有主流数据集</h1>
-        <p class="subtitle">Matterport3D、HM3D、Robo360全面对比</p>
-      </div>
-      
-      <h1 class="blog-title">视觉语言导航数据集全览：Matterport3D、HM3D、Robo360</h1>
-      <div class="blog-meta">
-        <span>📅 2026-03-16</span>
-        <span>🏷️ 数据集·VLN·资源整理</span>
-        <span>⏱️ 阅读约15分钟</span>
-        <span>📚 实用指南</span>
-      </div>
-    </article>
+    <h1>VLN数据集全览：选错数据集，模型白练</h1>
+    <div class="meta">
+      <span>📅 2026-03-26</span> · <span>🏷️ 技术博客</span> · <span>VLN · 数据集 · R2R · REVERIE · 具身导航 · 入门指南</span> · <span>⏱️ 阅读约15分钟</span>
+    </div>
 
-    <div class="blog-content">
-      <p><strong>一句话总结：</strong>选错数据集，论文白写。本文全面梳理VLN主流数据集的规模、特点、适用场景，帮你找到最适合自己研究的benchmark。</p>
+    <div class="content">
+      <p>刚入门VLN，大概率会遇到这个问题：论文里出现了R2R、REVERIE、SOON、RxR、R4R……这些数据集到底有什么区别？我的任务该用哪个？</p>
 
-      <div class="highlight-box">
-        <strong>💡 为什么数据集选择很重要？</strong><br>
-        不同数据集的指令风格、场景复杂度、评测指标差异很大。选错数据集可能导致：方法不通用、结果难复现、审稿人质疑。
+      <p>这篇文章的目标很简单：<strong>读完之后，你能准确说出每个主流VLN数据集的核心特征、适用场景，以及最关键的——选错了会踩什么坑。</strong></p>
+
+      <div class="highlight">
+        <p><strong>先说结论：</strong>VLN领域现在有6大主流数据集，每个都指向不同的研究问题。R2R是基线，REVERIE难度更高，SOON专注室外，RxR考验多语言，R4R测长程规划，EQA/ScanQA测语言理解。选对数据集=选对了研究赛道。</p>
       </div>
 
-      <h2>一、📊 主流数据集速查表</h2>
+      <h2>🌍 VLN数据集的诞生背景</h2>
 
-      <table class="data-table">
-        <tr>
-          <th>数据集</th>
-          <th>场景数</th>
-          <th>指令数</th>
-          <th>平均步数</th>
-          <th>难度</th>
-        </tr>
-        <tr>
-          <td>R2R</td>
-          <td>90</td>
-          <td>21,567</td>
-          <td>6.1</td>
-          <td>⭐⭐</td>
-        </tr>
-        <tr>
-          <td>R4R</td>
-          <td>90</td>
-          <td>233,532</td>
-          <td>12.3</td>
-          <td>⭐⭐⭐</td>
-        </tr>
-        <tr>
-          <td>REVERIE</td>
-          <td>86</td>
-          <td>21,702</td>
-          <td>18.5</td>
-          <td>⭐⭐⭐⭐</td>
-        </tr>
-        <tr>
-          <td>RxR</td>
-          <td>126</td>
-          <td>126,069</td>
-          <td>14.2</td>
-          <td>⭐⭐⭐</td>
-        </tr>
-        <tr>
-          <td>SOON</td>
-          <td>105</td>
-          <td>4,125</td>
-          <td>22.3</td>
-          <td>⭐⭐⭐⭐⭐</td>
-        </tr>
+      <p>2018年，Anderson等人在CVPR发布了R2R（Room-to-Room），这是第一个规模化的VLN基准数据集，直接催生了后续5年的研究热潮。</p>
+
+      <p>R2R的核心设定：在Matterport3D扫描的真实室内环境里，给机器人一句自然语言指令（比如"走进客厅，在桌子旁边右转，停在电视机前面"），让它找到目标位置。</p>
+
+      <p>但R2R只是起点。研究者很快发现它有局限：指令太具体、环境太小、任务太单一。于是，各种方向的数据集接连出现，构成了今天VLN研究的版图。</p>
+
+      <h2>📦 六大主流数据集详解</h2>
+
+      <!-- R2R -->
+      <div class="dataset-card r2r">
+        <div class="dataset-name">R2R</div>
+        <div class="dataset-full">Room-to-Room · Anderson et al., CVPR 2018</div>
+        <div class="dataset-stats">
+          <div class="stat-badge"><span class="label">训练样本</span><span class="value">14,025条</span></div>
+          <div class="stat-badge"><span class="label">环境数量</span><span class="value">90个室内场景</span></div>
+          <div class="stat-badge"><span class="label">平均路径长度</span><span class="value">10米 / ~6步</span></div>
+          <div class="stat-badge"><span class="label">2025年SOTA SR</span><span class="value">~78%</span></div>
+        </div>
+        <span class="tag research">基础Benchmark</span>
+        <span class="tag prod">最常用</span>
+        <p style="margin-top:14px;color:#c8a878;font-size:15px;line-height:1.7">R2R是VLN领域的"ImageNet"——所有方法都必须在这里刷分。数据来自Matterport3D的90个真实室内场景（约10,800张全景图），指令由AMT众包工人标注，每条路径平均有3条不同表述的指令。</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px"><strong>核心研究问题：</strong>给定详细的步骤式指令，机器人能否精确跟随执行？</p>
+        <div class="warning-box" style="margin-top:16px">
+          <h4>⚠️ 使用注意</h4>
+          <p>R2R的指令非常详细（平均29个词），几乎每一步都有描述。这和真实应用差距很大——用户不会说"走三步然后向右转，再走两步"，而是说"去厨房"。如果你的研究强调自然语言理解，R2R可能不够挑战。</p>
+        </div>
+      </div>
+
+      <!-- R4R -->
+      <div class="dataset-card r4r">
+        <div class="dataset-name">R4R</div>
+        <div class="dataset-full">Room-for-Room · Jain et al., ACL 2019</div>
+        <div class="dataset-stats">
+          <div class="stat-badge"><span class="label">训练样本</span><span class="value">~233,613条</span></div>
+          <div class="stat-badge"><span class="label">环境数量</span><span class="value">同R2R，90个</span></div>
+          <div class="stat-badge"><span class="label">平均路径长度</span><span class="value">~22步（2倍R2R）</span></div>
+          <div class="stat-badge"><span class="label">核心指标</span><span class="value">CLS（路径忠实度）</span></div>
+        </div>
+        <span class="tag research">长程导航</span>
+        <span class="tag hard">难度高</span>
+        <p style="margin-top:14px;color:#c8a878;font-size:15px;line-height:1.7">R4R（Room-for-Room）是把两段R2R路径首尾相接，生成更长的路径。动机是：R2R路径太短，机器人只要"抄近路"就能得高分，根本不需要忠实跟随指令。</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px"><strong>核心研究问题：</strong>机器人能否在长程任务中保持路径忠实度，而不是走捷径？</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px">R4R引入了<strong>CLS（Coverage weighted by Length Score）</strong>指标，专门惩罚"成功到达但路径不对"的行为。这在R2R里是被默认允许的捷径。</p>
+      </div>
+
+      <!-- REVERIE -->
+      <div class="dataset-card reverie">
+        <div class="dataset-name">REVERIE</div>
+        <div class="dataset-full">Remote Embodied Visual Referring Expression · Qi et al., CVPR 2020</div>
+        <div class="dataset-stats">
+          <div class="stat-badge"><span class="label">训练样本</span><span class="value">10,466条</span></div>
+          <div class="stat-badge"><span class="label">环境数量</span><span class="value">60个室内场景</span></div>
+          <div class="stat-badge"><span class="label">指令类型</span><span class="value">简短+远程</span></div>
+          <div class="stat-badge"><span class="label">2025年SOTA SR</span><span class="value">~62%</span></div>
+        </div>
+        <span class="tag hard">高难度</span>
+        <span class="tag research">目标导航+VLN</span>
+        <p style="margin-top:14px;color:#c8a878;font-size:15px;line-height:1.7">REVERIE是VLN领域最接近真实应用的数据集之一。它的指令非常简洁，比如"去楼上卧室找那个白色枕头"——机器人不仅要导航到正确房间，还需要识别并指向目标物体。</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px"><strong>核心研究问题：</strong>机器人能否用简短的语言指令完成远程物体定位任务（Navigation + Grounding的联合任务）？</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px">REVERIE的难点在于：指令省略了大量中间步骤，机器人必须具备常识推理能力，比如"卧室通常在楼上"。这也是它和R2R最大的差异——<strong>R2R测"执行力"，REVERIE测"理解力"。</strong></p>
+      </div>
+
+      <!-- RxR -->
+      <div class="dataset-card rxr">
+        <div class="dataset-name">RxR</div>
+        <div class="dataset-full">Room-Across-Room · Anderson et al., EMNLP 2020</div>
+        <div class="dataset-stats">
+          <div class="stat-badge"><span class="label">训练样本</span><span class="value">79,467条</span></div>
+          <div class="stat-badge"><span class="label">语言数量</span><span class="value">3种（英/印地/泰语）</span></div>
+          <div class="stat-badge"><span class="label">平均指令长度</span><span class="value">127词（R2R的4倍）</span></div>
+          <div class="stat-badge"><span class="label">环境数量</span><span class="value">900个场景</span></div>
+        </div>
+        <span class="tag new">多语言</span>
+        <span class="tag research">密集标注</span>
+        <p style="margin-top:14px;color:#c8a878;font-size:15px;line-height:1.7">RxR是规模最大的VLN数据集，同时也是最密集标注的。指令不仅更长（平均127词），还包含了<strong>时间戳对齐的导航动作</strong>——标注者在导航时实时说出指令，每个词都对应了一个位置。</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px"><strong>核心研究问题：</strong>VLN模型能否跨语言泛化？密集的语言-动作对齐能否提升导航精度？</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px">如果你在研究<strong>跨语言VLN、语言-视觉对齐、或者需要大量训练数据</strong>，RxR是首选。它的规模（7.9万条，R2R的5倍）让大模型预训练成为可能。</p>
+      </div>
+
+      <!-- SOON -->
+      <div class="dataset-card soon">
+        <div class="dataset-name">SOON</div>
+        <div class="dataset-full">Scenario Oriented Object Navigation · Zhu et al., CVPR 2021</div>
+        <div class="dataset-stats">
+          <div class="stat-badge"><span class="label">训练样本</span><span class="value">4,675条</span></div>
+          <div class="stat-badge"><span class="label">任务类型</span><span class="value">场景描述→物体定位</span></div>
+          <div class="stat-badge"><span class="label">指令来源</span><span class="value">真实用户需求</span></div>
+          <div class="stat-badge"><span class="label">难点</span><span class="value">泛化到未见场景</span></div>
+        </div>
+        <span class="tag research">ObjectNav</span>
+        <span class="tag hard">少样本</span>
+        <p style="margin-top:14px;color:#c8a878;font-size:15px;line-height:1.7">SOON填补了一个空白：现实中用户描述目标时，往往先描述场景再描述物体（比如"找到浴室里装洗发水的蓝色瓶子"），而不是给出逐步路径指令。</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px"><strong>核心研究问题：</strong>机器人能否根据场景描述推断导航目标，而不是跟随路径指令？</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px">SOON的样本量较少（4,675条），但每条指令的质量极高——直接来自真实用户的功能性需求。这让它非常适合评估模型的<strong>零样本泛化能力</strong>。</p>
+      </div>
+
+      <!-- EQA -->
+      <div class="dataset-card eqa">
+        <div class="dataset-name">EQA / ScanQA</div>
+        <div class="dataset-full">Embodied Question Answering · Das et al., CVPR 2018 / ScanQA · Azuma et al., CVPR 2022</div>
+        <div class="dataset-stats">
+          <div class="stat-badge"><span class="label">EQA样本数</span><span class="value">5,000个问题</span></div>
+          <div class="stat-badge"><span class="label">ScanQA样本数</span><span class="value">41,000+问答对</span></div>
+          <div class="stat-badge"><span class="label">任务类型</span><span class="value">导航+问答</span></div>
+          <div class="stat-badge"><span class="label">输出格式</span><span class="value">自然语言答案</span></div>
+        </div>
+        <span class="tag new">QA任务</span>
+        <span class="tag research">理解+推理</span>
+        <p style="margin-top:14px;color:#c8a878;font-size:15px;line-height:1.7">EQA和ScanQA将VLN与视觉问答（VQA）结合：机器人不只要"到达"目标，还要"理解"场景并回答问题（比如"厨房里的椅子是什么颜色？"）。</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px"><strong>核心研究问题：</strong>具身智能体能否主动探索环境，收集信息，并回答关于场景的开放式问题？</p>
+        <p style="color:#c8a878;font-size:15px;line-height:1.7;margin-top:10px">在LLM时代，这类数据集的价值急剧上升——它天然适合评估<strong>MLLM（多模态大语言模型）的具身推理能力</strong>。2025年以来，GPT-4V和LLaVA在ScanQA上的表现已接近人类水平。</p>
+      </div>
+
+      <h2>📊 数据集横向对比</h2>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>数据集</th>
+            <th>年份</th>
+            <th>训练规模</th>
+            <th>指令类型</th>
+            <th>核心难点</th>
+            <th>推荐场景</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-row">
+            <td><strong>R2R</strong></td>
+            <td>2018</td>
+            <td>14k</td>
+            <td>详细步骤</td>
+            <td>基础跟随</td>
+            <td>必刷基线</td>
+          </tr>
+          <tr>
+            <td>R4R</td>
+            <td>2019</td>
+            <td>233k</td>
+            <td>详细步骤（加倍）</td>
+            <td>长程+路径忠实</td>
+            <td>测路径规划</td>
+          </tr>
+          <tr>
+            <td>REVERIE</td>
+            <td>2020</td>
+            <td>10k</td>
+            <td>简短自然语言</td>
+            <td>常识+定位</td>
+            <td>真实应用场景</td>
+          </tr>
+          <tr>
+            <td>RxR</td>
+            <td>2020</td>
+            <td>79k</td>
+            <td>超详细多语言</td>
+            <td>跨语言泛化</td>
+            <td>预训练/多语言</td>
+          </tr>
+          <tr>
+            <td>SOON</td>
+            <td>2021</td>
+            <td>4.7k</td>
+            <td>场景描述</td>
+            <td>泛化推理</td>
+            <td>ObjectNav研究</td>
+          </tr>
+          <tr>
+            <td>ScanQA</td>
+            <td>2022</td>
+            <td>41k</td>
+            <td>问题形式</td>
+            <td>理解+回答</td>
+            <td>MLLM评估</td>
+          </tr>
+        </tbody>
       </table>
 
-      <h2>二、🏠 底层环境对比</h2>
+      <h2>🧭 怎么选数据集？三步决策树</h2>
 
-      <table class="data-table">
-        <tr>
-          <th>环境</th>
-          <th>场景数</th>
-          <th>图像分辨率</th>
-          <th>特点</th>
-        </tr>
-        <tr>
-          <td>Matterport3D</td>
-          <td>90</td>
-          <td>640×480</td>
-          <td>真实扫描，纹理丰富，最常用</td>
-        </tr>
-        <tr>
-          <td>HM3D</td>
-          <td>1,000</td>
-          <td>512×512</td>
-          <td>Habitat出品，规模更大</td>
-        </tr>
-        <tr>
-          <td>Gibson</td>
-          <td>572</td>
-          <td>可变</td>
-          <td>真实扫描+合成，多样性高</td>
-        </tr>
-        <tr>
-          <td>Robo360</td>
-          <td>360</td>
-          <td>全景</td>
-          <td>360度全景视角</td>
-        </tr>
-      </table>
-
-      <h2>三、📈 评测指标说明</h2>
-
-      <table class="data-table">
-        <tr>
-          <th>指标</th>
-          <th>全称</th>
-          <th>含义</th>
-          <th>重要性</th>
-        </tr>
-        <tr>
-          <td>SR</td>
-          <td>Success Rate</td>
-          <td>成功率</td>
-          <td>⭐⭐⭐⭐⭐</td>
-        </tr>
-        <tr>
-          <td>SPL</td>
-          <td>Success weighted by Path Length</td>
-          <td>路径效率加权成功率</td>
-          <td>⭐⭐⭐⭐⭐</td>
-        </tr>
-        <tr>
-          <td>CLS</td>
-          <td>Coverage weighted by Length Score</td>
-          <td>覆盖度评分</td>
-          <td>⭐⭐⭐⭐</td>
-        </tr>
-        <tr>
-          <td>SDTW</td>
-          <td>Success weighted by Dynamic Time Warping</td>
-          <td>动态时间规整评分</td>
-          <td>⭐⭐⭐</td>
-        </tr>
-      </table>
-
-      <h2>四、🎯 如何选择数据集？</h2>
-
-      <div class="insight-box">
-        <strong>新手入门：</strong><br>
-        选R2R + Matterport3D。数据量适中，社区支持好，baseline代码丰富。
+      <div class="decision-tree">
+        <div class="decision-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>你的核心任务是什么？</h4>
+            <p>导航跟随 → R2R / R4R | 物体定位 → REVERIE / SOON | 语言理解 → RxR / ScanQA<br>如果不确定，先用R2R——它是所有VLN方法的标配基线，审稿人会问"为什么不用R2R？"</p>
+          </div>
+        </div>
+        <div class="decision-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>你的模型强调什么能力？</h4>
+            <p>跨语言泛化 → RxR（3种语言，79k样本）| 长程规划 → R4R（平均22步）| 常识推理 → REVERIE（简短指令，需要推断路径）| 大模型应用 → ScanQA（天然支持VQA格式）</p>
+          </div>
+        </div>
+        <div class="decision-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>你的计算资源和时间？</h4>
+            <p>资源有限 → 先R2R（90个场景，Matterport3D模拟器轻量）| 充足 → R2R+REVERIE联合训练，论文发顶会概率更高 | 做基础模型 → RxR预训练+R2R微调，这是2025年的主流做法</p>
+          </div>
+        </div>
       </div>
 
-      <div class="insight-box">
-        <strong>方法创新：</strong><br>
-        在R2R验证想法，在REVERIE/R4R测试泛化能力。
+      <h2>⚡ 2025年的新趋势：数据集在被"超越"</h2>
+
+      <p>2025年，有一个值得关注的信号：<strong>单一数据集上的SOTA正在接近天花板。</strong></p>
+
+      <p>R2R的人类表现SR约86%，而2025年最强方法已经到了78%；REVERIE的人类表现SR约69%，最强方法约62%。天花板越来越近。</p>
+
+      <p>这带来了三个新方向：</p>
+
+      <ul>
+        <li><strong>多数据集联合训练</strong>：NavFoM（2025）在800万样本上预训练，同时在R2R/REVERIE/SOON上fine-tune，比任何单数据集训练都强</li>
+        <li><strong>合成数据扩充</strong>：用LLM生成指令、用游戏引擎生成场景，NAVCON（2024）在R2R+RxR基础上生成了认知对齐的新指令</li>
+        <li><strong>持续环境评测</strong>：HM3D（Habitat）提供了900个未见过的新场景，更接近真实部署</li>
+      </ul>
+
+      <div class="tip-box">
+        <h4>💡 研究者提示</h4>
+        <p>如果你在2025-2026年发VLN论文，只跑R2R一个数据集已经不够了。审稿人越来越要求至少2个数据集，R2R+REVERIE是最常见的组合，能覆盖"精确跟随"和"语言理解"两个维度。</p>
       </div>
 
-      <div class="insight-box">
-        <strong>长程导航：</strong><br>
-        选R4R或SOON，测试模型的长期规划能力。
-      </div>
+      <h2>🔬 评估指标：光看SR不够</h2>
 
-      <h2>五、📚 数据集下载链接</h2>
+      <p>选完数据集，还要选对指标。VLN有4个核心评估指标，用错了会误导整个实验分析：</p>
 
-      <table class="data-table">
-        <tr>
-          <th>数据集</th>
-          <th>下载地址</th>
-          <th>许可证</th>
-        </tr>
-        <tr>
-          <td>Matterport3D</td>
-          <td>niessner.github.io/Matterport</td>
-          <td>研究用途</td>
-        </tr>
-        <tr>
-          <td>R2R</td>
-          <td>github.com/peteanderson80/Matterport3DSimulator</td>
-          <td>MIT</td>
-        </tr>
-        <tr>
-          <td>HM3D</td>
-          <td>aihabitat.org/datasets/hm3d</td>
-          <td>研究用途</td>
-        </tr>
-        <tr>
-          <td>Gibson</td>
-          <td>github.com/StanfordVL/GibsonEnv</td>
-          <td>研究用途</td>
-        </tr>
-      </table>
+      <ul>
+        <li><strong>SR（Success Rate）</strong>：最终停止位置距目标3米内算成功。最基础，但可以被"作弊"——机器人可以在目标附近乱逛直到碰到成功条件</li>
+        <li><strong>SPL（Success weighted by Path Length）</strong>：在SR基础上除以路径效率。鼓励走最短路，惩罚绕路</li>
+        <li><strong>nDTW（normalized Dynamic Time Warping）</strong>：测量预测路径和参考路径的相似度。R4R的标配指标，专门惩罚走捷径</li>
+        <li><strong>CLS（Coverage weighted by Length Score）</strong>：同时考虑路径覆盖度和效率，R4R引入，比nDTW更严格</li>
+      </ul>
 
       <div class="warning-box">
-        <strong>⚠️ 注意：</strong><br>
-        Matterport3D需要申请下载，审核通常需要1-2周。建议尽早申请。
+        <h4>⚠️ 常见误区</h4>
+        <ul>
+          <li>只报SR不报SPL：SR高但SPL低说明走的是"高成功率但低效率"的策略</li>
+          <li>在R2R上用nDTW：nDTW是为R4R的长程路径设计的，在短路径上区分度低</li>
+          <li>REVERIE上的SR和R2R的SR不可比：REVERIE的任务更难（还需要定位物体），直接对比没意义</li>
+        </ul>
       </div>
 
-      <h2>六、🎯 总结</h2>
+      <h2>🚀 实操建议：从R2R出发的标准流程</h2>
 
-      <div class="insight-box">
-        <strong>核心建议：</strong><br>
-        1. 新手从R2R开始<br>
-        2. 验证方法用多个数据集<br>
-        3. 关注SPL而不只是SR<br>
-        4. 注意数据集的bias
+      <p>根据2025年顶会论文的惯例，推荐的实验流程是：</p>
+
+      <ol>
+        <li><strong>环境搭建</strong>：Matterport3D Simulator（M3D-Sim）或 Habitat-Sim。M3D-Sim更轻量，Habitat-Sim支持连续动作空间（对应R2R-CE数据集）</li>
+        <li><strong>快速验证</strong>：先跑R2R验证基本框架，目标SR > 60%（基础可训练）</li>
+        <li><strong>强化对比</strong>：加REVERIE评测，如果SR < 50%，说明模型的常识理解能力不足</li>
+        <li><strong>发顶会水平</strong>：R2R SR > 75% 且 REVERIE SR > 60%，加上RxR或SOON其中一个，基本够CVPR/ICCV水平</li>
+      </ol>
+
+      <div class="conclusion-box">
+        <h3>📌 总结：一张图记住所有</h3>
+        <p style="color:#c8a878;line-height:1.8">
+          <strong style="color:#f5ead8">R2R</strong> = VLN的"Hello World"，必须跑<br>
+          <strong style="color:#f5ead8">R4R</strong> = R2R的加长版，测长程规划<br>
+          <strong style="color:#f5ead8">REVERIE</strong> = 最接近真实应用，简短指令+物体定位<br>
+          <strong style="color:#f5ead8">RxR</strong> = 规模最大+多语言，适合预训练<br>
+          <strong style="color:#f5ead8">SOON</strong> = 场景描述导航，样本少但质量高<br>
+          <strong style="color:#f5ead8">ScanQA</strong> = LLM时代的新宠，测具身问答<br><br>
+          <span style="color:#e8a230">2025年黄金组合：R2R + REVERIE 联合训练，是当前顶会论文最常见的配置。</span>
+        </p>
       </div>
 
-      <hr style="border-color:var(--border);margin:40px 0;">
+      <p>最后一句话：<strong>数据集选择不是小事。</strong>研究问题、基线方法、评估指标——这三件事必须和你选的数据集高度匹配。看一遍这篇文章，能帮你省掉3个月走弯路的时间。</p>
 
-      <p style="font-size:14px;color:var(--text-muted);">
-        <strong>关于作者：</strong>精卫013，具身智能导航方向博士生。整理数据集资源，分享实用经验。<br>
-        <strong>联系方式：</strong>微信 jingwei013 | GitHub @Jingwei013
-      </p>
+      <hr style="border:none;border-top:1px solid #2b2118;margin:40px 0">
+      <p style="color:#9a8060;font-size:14px">📎 参考资料：R2R(Anderson et al., CVPR 2018) · R4R(Jain et al., ACL 2019) · REVERIE(Qi et al., CVPR 2020) · RxR(Anderson et al., EMNLP 2020) · SOON(Zhu et al., CVPR 2021) · ScanQA(Azuma et al., CVPR 2022) · NAVCON(Penn, 2024) · NavFoM(2025)</p>
+
+      <div class="footer-nav">
+        <a href="vln-memory-mechanisms.html">← 上一篇：VLN记忆机制三篇顶会解析</a>
+        <a href="navigation-gpt-moment.html">下一篇：NavFoM导航的GPT时刻 →</a>
+      </div>
+
     </div>
   </div>
-
-  <footer style="text-align:center;padding:40px 20px;color:var(--text-muted);font-size:14px;border-top:1px solid var(--border);margin-top:60px;">
-    <p>© 2026 精卫013 | 用AI探索具身智能的边界</p>
-  </footer>
 </body>
 </html>
