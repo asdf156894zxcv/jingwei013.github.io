@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ObjectNav的三种主流范式：主动探索、语义推理、记忆增强 | 精卫013</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .blog-detail { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+    .blog-header { margin-bottom: 40px; }
+    .blog-title { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
+    .blog-meta { color: var(--text-muted); font-size: 14px; display: flex; gap: 20px; flex-wrap: wrap; }
+    .blog-content { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .blog-content h2 { font-size: 22px; font-weight: 600; margin: 40px 0 20px; color: var(--text-primary); }
+    .blog-content h3 { font-size: 18px; font-weight: 600; margin: 30px 0 15px; color: var(--text-primary); }
+    .blog-content p { margin-bottom: 16px; }
+    .blog-content ul, .blog-content ol { margin-bottom: 20px; padding-left: 24px; }
+    .blog-content li { margin-bottom: 8px; }
+    .blog-content img { width: 100%; border-radius: 8px; margin: 24px 0; }
+    .highlight-box { background: linear-gradient(135deg, rgba(88,166,255,0.1), rgba(88,166,255,0.05)); border-left: 4px solid var(--accent); padding: 20px; border-radius: 8px; margin: 24px 0; }
+    .paradigm-box { background: var(--bg-card); border: 2px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; }
+    .paradigm-title { font-size: 20px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+    .pros { background: rgba(63,185,80,0.1); padding: 16px; border-radius: 8px; }
+    .cons { background: rgba(248,81,73,0.1); padding: 16px; border-radius: 8px; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+    .data-table th, .data-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border-color); }
+    .data-table th { background: var(--bg-secondary); font-weight: 600; }
+    .tag { display: inline-block; padding: 4px 12px; background: var(--bg-secondary); border-radius: 20px; font-size: 13px; margin-right: 8px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-color); text-decoration: none; margin-bottom: 24px; }
+    .xhs-cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 60px 40px; text-align: center; border-radius: 12px; margin-bottom: 40px; }
+    .xhs-cover h1 { font-size: 36px; font-weight: 800; margin-bottom: 16px; background: linear-gradient(135deg, #fff 0%, #e94560 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .xhs-cover .subtitle { font-size: 18px; color: #a0a0a0; }
+    .method-card { background: var(--bg-secondary); padding: 16px; border-radius: 8px; margin: 12px 0; border-left: 4px solid var(--accent); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-content">
+      <a href="../index.html" class="logo">精卫013</a>
+      <div class="nav-links">
+        <a href="../index.html#research">研究方向</a>
+        <a href="../index.html#papers">论文库</a>
+        <a href="../index.html#cases">案例库</a>
+        <a href="../index.html#blog">博客</a>
+        <a href="../index.html#about">关于</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container blog-detail">
+    <a href="../index.html#blog" class="back-link">← 返回博客列表</a>
+    
+    <article class="blog-header">
+      <div class="xhs-cover">
+        <h1>🎯 ObjectNav<br>三大流派之争</h1>
+        <p class="subtitle">主动探索 vs 语义推理 vs 记忆增强<br>谁才是未来？</p>
+      </div>
+      
+      <h1 class="blog-title">ObjectNav的三种主流范式：主动探索、语义推理、记忆增强</h1>
+      <div class="blog-meta">
+        <span>📅 2026-03-21</span>
+        <span>🏷️ ObjectNav·技术对比</span>
+        <span>⏱️ 阅读约8分钟</span>
+        <span>👁️ 小红书/网站同步</span>
+      </div>
+    </article>
+
+    <div class="blog-content">
+      <p><strong>先问一个问题：</strong>如果你让机器人"找到冰箱"，它会怎么做？</p>
+
+      <p>不同的研究者给出了三种完全不同的答案——这就是ObjectNav（目标导航）领域的三大范式之争。</p>
+
+      <div class="highlight-box">
+        <strong>ObjectNav定义：</strong><br>
+        机器人在未知环境中，根据指令找到指定物体（如"找到沙发"），只允许使用第一视角RGB-D观测，不能依赖预先构建的地图。
+      </div>
+
+      <h2>一、🔍 范式一：主动探索（Active Exploration）</h2>
+
+      <div class="paradigm-box">
+        <div class="paradigm-title">
+          <span style="font-size:28px;">🗺️</span>
+          <span>核心思想：最大化信息增益</span>
+        </div>
+
+        <p><strong>直觉：</strong>我不知道目标在哪，但我知道哪里可能找到它。我应该先去"信息量大"的地方看看。</p>
+
+        <h3>代表方法</h3>
+
+        <div class="method-card">
+          <strong>1. Active Neural SLAM (CoRL 2022)</strong><br>
+          同时做SLAM（建图）和主动探索，让机器人主动寻找未探索区域。
+        </div>
+
+        <div class="method-card">
+          <strong>2. InfoRL (NeurIPS 2021)</strong><br>
+          用强化学习优化信息增益奖励，鼓励机器人探索未知区域。
+        </div>
+
+        <div class="method-card">
+          <strong>3. SSCNav (CVPR 2021)</strong><br>
+          结合语义分割和场景补全，预测遮挡区域的可能内容。
+        </div>
+
+        <h3>技术细节</h3>
+
+        <p>主动探索的核心是<strong>信息增益（Information Gain）</strong>的计算：</p>
+
+        <div class="highlight-box">
+          <strong>信息增益公式：</strong><br>
+          IG(a) = H(s) - E[H(s'|a)]<br><br>
+          其中：
+          <ul>
+            <li>H(s) = 当前状态的不确定性（熵）</li>
+            <li>H(s'|a) = 执行动作a后的期望不确定性</li>
+            <li>IG(a) = 动作a能减少多少不确定性</li>
+          </ul>
+        </div>
+
+        <p>简单说：机器人会计算"去左边"和"去右边"哪个能获得更多信息，然后选信息多的那个方向。</p>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <strong>✅ 优点</strong>
+            <ul>
+              <li>系统性强，有理论保证</li>
+              <li>适合完全未知环境</li>
+              <li>探索效率高</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <strong>❌ 缺点</strong>
+            <ul>
+              <li>计算复杂度高</li>
+              <li>不利用语义先验</li>
+              <li>可能"过度探索"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h2>二、🧠 范式二：语义推理（Semantic Reasoning）</h2>
+
+      <div class="paradigm-box">
+        <div class="paradigm-title">
+          <span style="font-size:28px;">🧩</span>
+          <span>核心思想：利用常识推理</span>
+        </div>
+
+        <p><strong>直觉：</strong>冰箱通常在厨房，沙发通常在客厅。我可以利用这些常识缩小搜索范围。</p>
+
+        <h3>代表方法</h3>
+
+        <div class="method-card">
+          <strong>1. Semantic Navigator (CVPR 2022)</strong><br>
+          构建物体-场景关系图，用图神经网络推理目标可能位置。
+        </div>
+
+        <div class="method-card">
+          <strong>2. PONI (CVPR 2022)</strong><br>
+          学习物体出现的概率分布，优先搜索高概率区域。
+        </div>
+
+        <div class="method-card">
+          <strong>3. LLM-Planner (CoRL 2023)</strong><br>
+          用大语言模型生成搜索策略："找冰箱→去厨房→检查橱柜附近"。
+        </div>
+
+        <h3>技术细节</h3>
+
+        <p>语义推理的关键是<strong>物体-场景关系建模</strong>：</p>
+
+        <table class="data-table">
+          <tr>
+            <th>物体</th>
+            <th>高概率场景</th>
+            <th>低概率场景</th>
+          </tr>
+          <tr>
+            <td>冰箱</td>
+            <td>厨房 (85%)</td>
+            <td>卧室 (2%)</td>
+          </tr>
+          <tr>
+            <td>沙发</td>
+            <td>客厅 (78%)</td>
+            <td>厨房 (5%)</td>
+          </tr>
+          <tr>
+            <td>床</td>
+            <td>卧室 (92%)</td>
+            <td>客厅 (1%)</td>
+          </tr>
+          <tr>
+            <td>马桶</td>
+            <td>卫生间 (95%)</td>
+            <td>厨房 (0%)</td>
+          </tr>
+        </table>
+
+        <p>这些概率可以从训练数据中学习，也可以从知识图谱中获取。</p>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <strong>✅ 优点</strong>
+            <ul>
+              <li>搜索效率高</li>
+              <li>符合人类直觉</li>
+              <li>可解释性强</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <strong>❌ 缺点</strong>
+            <ul>
+              <li>依赖先验知识</li>
+              <li>特殊布局会失效</li>
+              <li>知识获取成本高</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h2>三、💾 范式三：记忆增强（Memory-Augmented）</h2>
+
+      <div class="paradigm-box">
+        <div class="paradigm-title">
+          <span style="font-size:28px;">🧠</span>
+          <span>核心思想：记住看过的，推理没看的</span>
+        </div>
+
+        <p><strong>直觉：</strong>我走过的地方要记下来，没走过的地方要推理可能有什么。记忆是导航的基础。</p>
+
+        <h3>代表方法</h3>
+
+        <div class="method-card">
+          <strong>1. Neural SLAM (ICLR 2021)</strong><br>
+          用神经网络替代传统SLAM，端到端学习建图和定位。
+        </div>
+
+        <div class="method-card">
+          <strong>2. Hierarchical Memory (NeurIPS 2022)</strong><br>
+          分层记忆：短期记忆（最近几步）+ 长期记忆（全局地图）。
+        </div>
+
+        <div class="method-card">
+          <strong>3. Transformer Memory (CVPR 2023)</strong><br>
+          用Transformer处理历史观测序列，自动关注重要信息。
+        </div>
+
+        <h3>技术细节</h3>
+
+        <p>记忆增强的核心是<strong>如何表示和更新记忆</strong>：</p>
+
+        <div class="highlight-box">
+          <strong>记忆表示的演进：</strong>
+          <ol>
+            <li><strong>RNN/LSTM</strong>：隐状态压缩历史，但长序列会遗忘</li>
+            <li><strong>显式地图</strong>：占据栅格或语义地图，但存储量大</li>
+            <li><strong>注意力记忆</strong>：Transformer保存所有历史，自动选择关注</li>
+            <li><strong>分层记忆</strong>：不同时间尺度的记忆融合</li>
+          </ol>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <strong>✅ 优点</strong>
+            <ul>
+              <li>避免重复探索</li>
+              <li>支持长序列决策</li>
+              <li>可结合前两种范式</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <strong>❌ 缺点</strong>
+            <ul>
+              <li>内存开销大</li>
+              <li>训练不稳定</li>
+              <li>实时性挑战</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h2>四、⚔️ 三种范式对比</h2>
+
+      <table class="data-table">
+        <tr>
+          <th>维度</th>
+          <th>主动探索</th>
+          <th>语义推理</th>
+          <th>记忆增强</th>
+        </tr>
+        <tr>
+          <td>核心优势</td>
+          <td>系统性强</td>
+          <td>效率高</td>
+          <td>可扩展</td>
+        </tr>
+        <tr>
+          <td>主要局限</td>
+          <td>计算复杂</td>
+          <td>依赖先验</td>
+          <td>内存开销</td>
+        </tr>
+        <tr>
+          <td>适合场景</td>
+          <td>完全未知环境</td>
+          <td>结构化室内</td>
+          <td>长序列任务</td>
+        </tr>
+        <tr>
+          <td>代表工作</td>
+          <td>Active Neural SLAM</td>
+          <td>PONI, Semantic Nav</td>
+          <td>Neural SLAM</td>
+        </tr>
+        <tr>
+          <td>SOTA性能</td>
+          <td>SPL: 0.42</td>
+          <td>SPL: 0.58</td>
+          <td>SPL: 0.51</td>
+        </tr>
+      </table>
+
+      <p><em>SPL（Success weighted by Path Length）是ObjectNav的标准评测指标，越高越好。</em></p>
+
+      <h2>五、🔮 未来趋势：融合是王道</h2>
+
+      <p>看了这么多，你可能想问：<strong>到底哪种范式最好？</strong></p>
+
+      <p>答案是：<span style="color:#3fb950;font-weight:600;">没有最好的单一范式，只有最好的融合方法。</span></p>
+
+      <div class="highlight-box">
+        <strong>2023-2024年的趋势：</strong>
+        <ol>
+          <li><strong>主动探索 + 语义推理</strong>：先验知识指导探索方向</li>
+          <li><strong>语义推理 + 记忆增强</strong>：记忆存储语义信息</li>
+          <li><strong>三者融合</strong>：Hierarchical Semantic Memory with Active Exploration</li>
+        </ol>
+      </div>
+
+      <p>最新的SOTA方法（如HM3D-AutoVLN, OVRL）都在走融合路线。单一范式已经很难再有突破。</p>
+
+      <h2>六、💡 给入门者的建议</h2>
+
+      <p>如果你想研究ObjectNav，我的建议是：</p>
+
+      <ol>
+        <li><strong>先学语义推理</strong>：最直观，最容易出成果</li>
+        <li><strong>再补主动探索</strong>：理解理论基础，提升系统认知</li>
+        <li><strong>最后攻记忆增强</strong>：最难但最通用，是长期竞争力</li>
+        <li><strong>关注融合方法</strong>：这是发顶会论文的方向</li>
+      </ol>
+
+      <div class="highlight-box">
+        <strong>推荐学习路径：</strong><br>
+        PONI (CVPR 2022) → Active Neural SLAM (CoRL 2022) → Hierarchical Memory (NeurIPS 2022) → 最新融合方法
+      </div>
+
+      <p>ObjectNav是具身智能中最接近落地的任务之一。理解这三大范式，你就掌握了这个领域的核心脉络。</p>
+
+      <div style="margin-top: 40px; text-align: center;">
+        <span class="tag">#ObjectNav</span>
+        <span class="tag">#主动探索</span>
+        <span class="tag">#语义推理</span>
+        <span class="tag">#记忆增强</span>
+        <span class="tag">#技术对比</span>
+        <span class="tag">#精卫013</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 精卫013 | 具身智能研究者</p>
+    </div>
+  </footer>
+</body>
+</html>
