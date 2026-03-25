@@ -783,15 +783,15 @@
     <!-- 博客分类 -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px;">
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#7c3aed'" onmouseout="this.style.borderColor='var(--border)'" onclick="filterBlog('tech'); window.scrollTo({top:document.getElementById('blog').offsetTop-80,behavior:'smooth'})">
-        <div style="font-size:22px;font-weight:700;color:#7c3aed;">6</div>
+        <div style="font-size:22px;font-weight:700;color:#7c3aed;">7</div>
         <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">🚀 前沿技术</div>
       </div>
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#f59e0b'" onmouseout="this.style.borderColor='var(--border)'" onclick="filterBlog('case'); window.scrollTo({top:document.getElementById('blog').offsetTop-80,behavior:'smooth'})">
-        <div style="font-size:22px;font-weight:700;color:#f59e0b;">4</div>
+        <div style="font-size:22px;font-weight:700;color:#f59e0b;">5</div>
         <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">📊 案例分析</div>
       </div>
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#06b6d4'" onmouseout="this.style.borderColor='var(--border)'" onclick="filterBlog('startup'); window.scrollTo({top:document.getElementById('blog').offsetTop-80,behavior:'smooth'})">
-        <div style="font-size:22px;font-weight:700;color:#06b6d4;">3</div>
+        <div style="font-size:22px;font-weight:700;color:#06b6d4;">7</div>
         <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">📚 创业基础</div>
       </div>
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#ec4899'" onmouseout="this.style.borderColor='var(--border)'" onclick="filterBlog('ai'); window.scrollTo({top:document.getElementById('blog').offsetTop-80,behavior:'smooth'})">
@@ -1269,6 +1269,14 @@ const BLOG_POSTS = [
     desc:'Siri打开空调不是具身智能，一个机器人自己走进房间找到空调按下开关才是。具身智能=有身体的AI，能理解世界+能行动。一句话讲清楚+3个例子+技术分类。',
     url:'./blog/embodied-ai-intro.html',
     tags:['具身智能','VLN','机器人','AI科普'] },
+  { cat:'tech', date:'2026-03-25', title:'VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路',
+    desc:'导航机器人最大的问题不是「看不见」，而是「记不住」。MapNav用语义地图、COSMO用状态空间模型、NavRAG重新定义指令——三篇顶会论文的深度解析。',
+    url:'./blog/vln-memory-mechanisms.html',
+    tags:['VLN','记忆机制','ACL2025','ICCV2025','论文解读'] },
+  { cat:'tech', date:'2026-03-25', title:'导航的GPT时刻：NavFoM与具身导航基础模型',
+    desc:'北大王鹤团队NavFoM用800万样本训练跨实体跨任务导航基础模型，一个模型同时处理四种机器人、四类任务。这是导航的GPT时刻还是新的起点？',
+    url:'./blog/navigation-gpt-moment.html',
+    tags:['NavFoM','基础模型','ICLR2026','跨实体','VLN','ObjectNav'] },
   { cat:'tech', date:'2026-03-24', title:'机器人是怎么"看懂"世界的？VLN视觉语言导航',
     desc:'你家的扫地机器人可能是个"盲人"。VLN让机器人理解"走到客厅右转"这种指令。最新进展：World Model+VLN、思维链推理、RL微调。',
     url:'./blog/vln-explained.html',
@@ -1295,6 +1303,14 @@ const BLOG_POSTS = [
     tags:['RL','VLN','技术分析'] },
 
   // ===== 案例分析 =====
+  { cat:'case', date:'2026-03-25', title:'7大死亡陷阱：AI创业公司的真实墓志铭',
+    desc:'Builder.ai融资4.5亿造假倒闭、Humane AI Pin退货超销售、Inflection AI 15亿被微软挖走……7个真实失败模式深度复盘，每个都有具体数字，每个都有人交过学费。',
+    url:'./blog/ai-startup-death-traps.html',
+    tags:['AI创业','失败案例','深度分析','创业陷阱'] },
+  { cat:'case', date:'2026-03-25', title:'25款AI应用集体猝死：腾讯智影、讯飞写作、冒泡鸭全在列',
+    desc:'2025下半年，25款AI应用集中关闭。腾讯、阿里、字节、科大讯飞、美团无一幸免。商业化失败、监管收紧、战略调整三大死因，675家AI公司倒闭的行业全景。',
+    url:'./blog/ai-apps-death-wave.html',
+    tags:['AI行业','创业失败','产品关闭','商业分析'] },
   { cat:'case', date:'2026-03-24', title:'一批机器人公司正在倒闭',
     desc:'2025年十多家机器人公司倒闭。K-Scale Labs融资3轮、订单200万$、OpenAI客户，仍倒闭。资金链断裂+中国供应链冲击+商业化验证失败。',
     url:'./blog/robot-company-closure.html',
@@ -1303,6 +1319,10 @@ const BLOG_POSTS = [
     desc:'融资3轮、订单200万$、OpenAI客户、2025年11月倒闭。账上只剩40万$。创始人：中国供应链崛起将主导全球人形机器人生态。',
     url:'./blog/case-k-scale.html',
     tags:['创业案例','失败分析','人形机器人','硅谷'] },
+  { cat:'case', date:'2026-03-25', title:'AI独角兽正在倒闭：达闼机器人与2025年的明星公司危机',
+    desc:'达闼停摆、澜码欠薪、Stability AI资不抵债……8万家AI企业倒闭、62.4亿亏损。顶级光环救不了它们，4种死亡模式+3条生存教训。',
+    url:'./blog/ai-unicorn-collapse.html',
+    tags:['创业案例','AI独角兽','倒闭潮','机器人'] },
   { cat:'case', date:'2026-03-23', title:'中国具身智能公司倒闭潮：2025年十多家公司倒掉',
     desc:'达闼、蚕丛机器人、领贝机器人...一个接一个倒下。核心原因：蹭AI热度无核心技术、高估值低营收、订单无含金量。',
     url:'./blog/case-china-robots.html',
