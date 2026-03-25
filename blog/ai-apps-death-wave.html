@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25款AI应用集体猝死：2025年AI创业的真实死亡报告 | 精卫013</title>
+  <meta name="description" content="2025年下半年，25款AI应用集中关闭——腾讯智影、讯飞写作、晓象、冒泡鸭……大厂和创业公司无一幸免。商业化失败、监管收紧、战略调整三大死因全解析。">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB',sans-serif;background:#0a0a0f;color:#e4e4e7;line-height:1.8;min-height:100vh}
+    .container{max-width:720px;margin:0 auto;padding:40px 20px}
+    .back{display:inline-flex;align-items:center;gap:8px;color:#6366f1;text-decoration:none;font-size:14px;margin-bottom:32px;transition:color 0.2s}
+    .back:hover{color:#818cf8}
+    .hero{width:100%;border-radius:16px;margin-bottom:40px;overflow:hidden;background:linear-gradient(135deg,#1a1a2e,#0f3460,#16213e);height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(99,102,241,0.3),transparent 60%),radial-gradient(circle at 70% 50%,rgba(239,68,68,0.2),transparent 60%)}
+    .hero-icon{font-size:48px;margin-bottom:12px;position:relative}
+    .hero-title{font-size:20px;font-weight:700;color:#93c5fd;text-align:center;padding:0 20px;position:relative;line-height:1.4}
+    .meta{font-size:14px;color:#71717a;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #27272a;display:flex;gap:20px;flex-wrap:wrap}
+    .meta-tag{background:#27272a;color:#818cf8;padding:3px 10px;border-radius:100px;font-size:12px}
+    .content{font-size:16px;color:#d4d4d8}
+    .content p{margin-bottom:20px}
+    .content h2{font-size:20px;font-weight:700;margin:40px 0 16px;color:#f4f4f5;border-left:3px solid #6366f1;padding-left:14px}
+    .content h3{font-size:17px;font-weight:600;margin:28px 0 12px;color:#e4e4e7}
+    .content ul,.content ol{margin:16px 0;padding-left:24px}
+    .content li{margin-bottom:10px;color:#d4d4d8}
+    .content strong{color:#f4f4f5}
+    .highlight{background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(139,92,246,0.08));border-left:3px solid #6366f1;padding:18px 20px;margin:24px 0;border-radius:0 10px 10px 0}
+    .highlight p{margin:0;font-size:15px}
+    .danger{background:linear-gradient(135deg,rgba(239,68,68,0.12),rgba(249,115,22,0.08));border-left:3px solid #ef4444;padding:18px 20px;margin:24px 0;border-radius:0 10px 10px 0}
+    .danger p{margin:0;font-size:15px}
+    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
+    .stat{background:#18181b;border-radius:12px;padding:18px;text-align:center;border:1px solid #27272a}
+    .stat .num{font-size:26px;font-weight:800;background:linear-gradient(135deg,#6366f1,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .stat .label{font-size:12px;color:#71717a;margin-top:4px}
+    .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:20px 0}
+    .app-item{background:#18181b;border-radius:10px;padding:14px;border:1px solid #27272a;transition:all 0.2s}
+    .app-item:hover{border-color:#6366f1}
+    .app-name{font-size:14px;font-weight:600;color:#f4f4f5;margin-bottom:4px}
+    .app-meta{font-size:11px;color:#71717a;line-height:1.5}
+    .app-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:100px;margin-top:6px;font-weight:600}
+    .tag-biz{background:rgba(239,68,68,0.15);color:#f87171}
+    .tag-reg{background:rgba(249,115,22,0.15);color:#fb923c}
+    .tag-str{background:rgba(99,102,241,0.15);color:#818cf8}
+    .cause-box{background:#18181b;border-radius:14px;padding:20px;margin:16px 0;border:1px solid #27272a}
+    .cause-num{font-size:12px;font-weight:700;color:#6366f1;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em}
+    .cause-title{font-size:16px;font-weight:600;color:#f4f4f5;margin-bottom:8px}
+    .cause-body{font-size:14px;color:#a1a1aa;line-height:1.7}
+    h1{font-size:26px;font-weight:800;margin-bottom:16px;line-height:1.4;background:linear-gradient(135deg,#818cf8,#f87171);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    @media(max-width:480px){.stat-grid{grid-template-columns:repeat(2,1fr)}.app-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html#blog" class="back">&larr; 返回博客列表</a>
+
+    <div class="hero">
+      <div class="hero-icon">&#9760;</div>
+      <div class="hero-title">25款AI应用集体猝死<br>大厂也救不了的死亡名单</div>
+    </div>
+
+    <h1>25款AI应用集体猝死：2025年AI创业的真实死亡报告</h1>
+
+    <div class="meta">
+      <span>精卫013</span>
+      <span>2026年3月25日</span>
+      <span class="meta-tag">AI行业</span>
+      <span class="meta-tag">创业失败</span>
+      <span class="meta-tag">案例分析</span>
+    </div>
+
+    <div class="content">
+
+      <p>2025年6月30日，腾讯智影宣布暂停服务、注销账号。同一天，阿里巴巴旗下的AI设计工具鹿班也悄然下线。紧接着，科大讯飞的讯飞写作、阶跃星辰的冒泡鸭、面壁智能的纸飞机AI……一款接一款。</p>
+
+      <p>这不是某一家公司的问题。2025年下半年，<strong>至少25款AI应用在中国市场集中关闭</strong>，覆盖社交陪伴、效率工具、内容创作、翻译、设计等多个赛道。更值得注意的是，这份死亡名单里不只有创业公司——腾讯、阿里、字节跳动、科大讯飞、美团、小红书、Soul、智谱AI，几乎你能想到的AI大玩家全在列。</p>
+
+      <div class="highlight">
+        <p><strong>死亡名单速览：</strong>腾讯智影、鹿班（阿里）、冒泡鸭（阶跃星辰）、讯飞写作（科大讯飞）、Wow AI（美团）、纸飞机AI（面壁智能）、AiU爱哟（智谱AI）、XEVA（小冰公司）、库小悟空（字节跳动）、腾讯翻译君、筑梦岛（阅文+商汤）、狸谱、奇域AI（小红书）、晓象、Vega AI、胃之书、Lumi噜米、异世界回响（Soul）、通义听悟（活跃度暴跌）……以及更多未具名的产品。</p>
+      </div>
+
+      <h2>死亡名单：25款AI应用（部分）</h2>
+
+      <div class="app-grid">
+        <div class="app-item">
+          <div class="app-name">腾讯智影</div>
+          <div class="app-meta">AI视频工具<br>2025.06.30 停运</div>
+          <span class="app-tag tag-str">大厂战略调整</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">鹿班</div>
+          <div class="app-meta">阿里AI设计平台<br>2025.06.30 关闭</div>
+          <span class="app-tag tag-str">大厂战略调整</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">讯飞写作</div>
+          <div class="app-meta">科大讯飞<br>2025.11.30 关停</div>
+          <span class="app-tag tag-str">产品定位失败</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">冒泡鸭</div>
+          <div class="app-meta">AI情感陪伴<br>2025.11.05 关停</div>
+          <span class="app-tag tag-reg">监管收紧</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">晓象</div>
+          <div class="app-meta">AI写诗/创作<br>2025年 资金链断裂</div>
+          <span class="app-tag tag-biz">商业化失败</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">XEVA</div>
+          <div class="app-meta">小冰岛衍生<br>2025.10.31 停充</div>
+          <span class="app-tag tag-reg">监管收紧</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">纸飞机AI</div>
+          <div class="app-meta">面壁智能<br>2025下半年 关停</div>
+          <span class="app-tag tag-reg">监管+商业化</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">AiU爱哟</div>
+          <div class="app-meta">智谱AI旗下<br>2025下半年 关停</div>
+          <span class="app-tag tag-reg">监管+商业化</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">库小悟空</div>
+          <div class="app-meta">字节跳动<br>2025年 下架整合</div>
+          <span class="app-tag tag-str">大厂业务整合</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">筑梦岛</div>
+          <div class="app-meta">阅文+商汤<br>注册用户近500万</div>
+          <span class="app-tag tag-reg">监管整改</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">Wow AI</div>
+          <div class="app-meta">美团旗下<br>2025下半年 关停</div>
+          <span class="app-tag tag-reg">监管+商业化</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">AskXBOT</div>
+          <div class="app-meta">澜码科技<br>A轮千万，创始人卖房</div>
+          <span class="app-tag tag-biz">融资断裂</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">狸谱</div>
+          <div class="app-meta">次元AIGC社区<br>2025.10.31 关停</div>
+          <span class="app-tag tag-biz">商业化失败</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">奇域AI</div>
+          <div class="app-meta">小红书 国风AI绘画<br>2025年 逐渐淡出</div>
+          <span class="app-tag tag-str">大厂战略调整</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">腾讯翻译君</div>
+          <div class="app-meta">翻译工具<br>服务迁移至腾讯元宝</div>
+          <span class="app-tag tag-str">业务整合</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">Lepton AI</div>
+          <div class="app-meta">贾扬清团队<br>2025.05 被英伟达收购</div>
+          <span class="app-tag tag-str">被收购退出</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">通义听悟</div>
+          <div class="app-meta">阿里旗下<br>功能并入夸克钉钉</div>
+          <span class="app-tag tag-str">业务整合</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">异世界回响</div>
+          <div class="app-meta">Soul旗下<br>2025下半年 关停</div>
+          <span class="app-tag tag-reg">监管收紧</span>
+        </div>
+        <div class="app-item">
+          <div class="app-name">Vega AI</div>
+          <div class="app-meta">AI绘画应用<br>2025年 被淘汰</div>
+          <span class="app-tag tag-biz">无护城河</span>
+        </div>
+      </div>
+
+      <h2>三条血泪教训</h2>
+
+      <div class="cause-box">
+        <div class="cause-num">死因 01</div>
+        <div class="cause-title">商业化失败：免费的AI产品，养不活自己</div>
+        <div class="cause-body">
+          这是最大的死因，覆盖了超过一半的关闭案例。冒泡鸭下载量超600万，筑梦岛注册用户近500万、付费率约20%——这些数字看起来不错，但算力成本居高不下，用户付费意愿远远无法覆盖API调用费用。晓象的B轮融资目标5亿元未达成，触发对赌协议，直接导致资金链断裂。
+        </div>
+      </div>
+
+      <div class="cause-box">
+        <div class="cause-num">死因 02</div>
+        <div class="cause-title">监管收紧：AI社交/陪伴赛道集体受挫</div>
+        <div class="cause-body">
+          2025年"清朗"专项行动对AI社交赛道造成了毁灭性打击。冒泡鸭、纸飞机AI、AiU爱哟、异世界回响、XEVA、Wow AI——几乎所有的AI陪伴/社交产品都被波及。这个赛道的特殊性在于：用户期待的是"真实感的AI社交"，但这恰恰是监管最敏感的灰色地带。监管收紧不是偶然事件，而是这个赛道的结构性风险。
+        </div>
+      </div>
+
+      <div class="cause-box">
+        <div class="cause-num">死因 03</div>
+        <div class="cause-title">大厂战略调整：背靠大树也未必好乘凉</div>
+        <div class="cause-body">
+          腾讯关了智影和翻译君，阿里关了鹿班，字节下架了库小悟空，小红书的奇域AI逐渐淡出。这些不是"失败"，而是大厂在AI投入的ROI复盘后做出的理性决策：当产品的独立价值不足以维持运营成本，功能被整合进更大的生态是更经济的选择。但对用户来说，昨天还在用的工具今天突然下线，信任成本不比创业公司低。
+        </div>
+      </div>
+
+      <h2>更残酷的数据：这只是冰山一角</h2>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="num">675</div>
+          <div class="label">2012-2025年底<br>AI公司倒闭总数</div>
+        </div>
+        <div class="stat">
+          <div class="num">77%</div>
+          <div class="label">人形机器人企业<br>仍在种子/A轮阶段</div>
+        </div>
+        <div class="stat">
+          <div class="num">54%</div>
+          <div class="label">倒闭AI公司<br>从未获得融资</div>
+        </div>
+      </div>
+
+      <p>据澎湃新闻2026年1月报道，IT桔子"死亡公司公墓"收录了675家倒闭的AI公司。这675家公司的寿命中位数为5.3年，63%成立于2015-2018年那波AI热潮。</p>
+
+      <p>而在人形机器人这个"2025年最热赛道"，36氪2026年3月的统计显示：中国超过150家人形机器人企业中，77%仍处于种子轮、天使轮或A轮阶段，不到5%进入C轮以上。2025年行业融资236亿元，但增量资金几乎全部流向头部——银河通用机器人一年融资超55亿元，而中小公司连下一轮在哪里都不知道。</p>
+
+      <div class="danger">
+        <p><strong>关键判断：</strong>2026年将是AI行业真正的"清场年"。大厂在砍掉ROI不达标的产品，资本在集中押注头部，监管在收紧敏感赛道。中间地带的创业公司，如果还没找到付费客户，时间窗口正在快速关闭。</p>
+      </div>
+
+      <h2>对普通创业者的启示</h2>
+
+      <p><strong>第一，不要和平台级大厂做同一件事。</strong>腾讯关了智影、阿里关了鹿班、字节下架了库小悟空——当大厂免费提供的能力足够好，独立的AI工具没有生存空间。创业公司必须做大厂不愿意做、做不了的事：垂直行业的深度定制、长尾场景的精细化服务、或者大厂体系外的独立价值。</p>
+
+      <p><strong>第二，算力成本是真正的"生死线"。</strong>每一个AI应用的关闭，背后都有一笔算不过来的账：API调用成本 vs 用户付费。如果用户付费覆盖不了调用成本，再多的用户增长也只是加速死亡。这个基本算术题，很多团队在上线之前没有认真算过。</p>
+
+      <p><strong>第三，监管不是风险，是赛道的结构性约束。</strong>AI社交、AI陪伴、AI内容——凡是涉及UGC和用户互动的AI产品，都要把监管因素作为核心假设之一来规划，而不是事后的"意外"。筑梦岛500万注册用户、20%付费率，数据很漂亮，但监管约谈一次就足以让增长归零。</p>
+
+      <h2>写在最后</h2>
+
+      <p>25款AI应用的死亡，不只是25个产品的失败。它们代表的是：<strong>AI行业正在从"技术 demo 阶段"进入"商业验证阶段"</strong>。</p>
+
+      <p>能跑demo不等于能跑business。能拿到用户不等于能收到钱。能拿到融资不等于能活下去。</p>
+
+      <p>这些死掉的产品里，有些是方向本身就错了（AI陪伴在中国监管环境下几乎不可能独立存活），有些是执行出了问题（晓象的对赌协议），有些是时代的牺牲品（独立翻译工具被大模型降维打击）。但无论如何，它们留下的教训是真实的——<strong>比任何成功故事都更有参考价值</strong>。</p>
+
+      <div class="highlight">
+        <p><strong>下一个倒下的会是谁？不知道。但可以确定的是：没有找到付费客户的AI产品，倒下只是时间问题。</strong></p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

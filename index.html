@@ -783,7 +783,7 @@
     <!-- 博客分类 -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px;">
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#7c3aed'" onmouseout="this.style.borderColor='var(--border)'" onclick="filterBlog('tech'); window.scrollTo({top:document.getElementById('blog').offsetTop-80,behavior:'smooth'})">
-        <div style="font-size:22px;font-weight:700;color:#7c3aed;">7</div>
+        <div style="font-size:22px;font-weight:700;color:#7c3aed;">9</div>
         <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">🚀 前沿技术</div>
       </div>
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#f59e0b'" onmouseout="this.style.borderColor='var(--border)'" onclick="filterBlog('case'); window.scrollTo({top:document.getElementById('blog').offsetTop-80,behavior:'smooth'})">
@@ -1265,6 +1265,14 @@ const PAPERS = [
 
 const BLOG_POSTS = [
   // ===== 前沿技术 =====
+  { cat:'tech', date:'2026-03-25', title:'导航的GPT时刻：NavFoM与具身导航基础模型',
+    desc:'北大王鹤团队NavFoM用800万样本训练跨实体跨任务导航基础模型，一个模型同时处理四种机器人、四类任务。这是导航的GPT时刻还是新的起点？',
+    url:'./blog/navigation-gpt-moment.html',
+    tags:['NavFoM','基础模型','ICLR2026','跨实体','VLN','ObjectNav'] },
+  { cat:'tech', date:'2026-03-25', title:'VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路',
+    desc:'导航机器人最大的问题不是「看不见」，而是「记不住」。MapNav用语义地图、COSMO用状态空间模型、NavRAG重新定义指令——三篇顶会论文的深度解析。',
+    url:'./blog/vln-memory-mechanisms.html',
+    tags:['VLN','记忆机制','ACL2025','ICCV2025','论文解读'] },
   { cat:'tech', date:'2026-03-24', title:'什么是具身智能？一句话讲清楚',
     desc:'Siri打开空调不是具身智能，一个机器人自己走进房间找到空调按下开关才是。具身智能=有身体的AI，能理解世界+能行动。一句话讲清楚+3个例子+技术分类。',
     url:'./blog/embodied-ai-intro.html',

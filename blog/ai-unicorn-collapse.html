@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI独角兽正在倒闭：达闼机器人与2025年的明星公司危机 | 精卫013</title>
+  <meta name="description" content="达闼机器人停摆、澜码科技欠薪、Stability AI资不抵债……2024-2025年，第一批AI独角兽正在集中倒下。这场危机背后，有哪些共同的死亡模式？">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB',sans-serif;background:#0a0a0f;color:#e4e4e7;line-height:1.8;min-height:100vh}
+    .container{max-width:720px;margin:0 auto;padding:40px 20px}
+    .back{display:inline-flex;align-items:center;gap:8px;color:#6366f1;text-decoration:none;font-size:14px;margin-bottom:32px;transition:color 0.2s}
+    .back:hover{color:#818cf8}
+    
+    /* Hero */
+    .hero{width:100%;border-radius:16px;margin-bottom:40px;overflow:hidden;background:linear-gradient(135deg,#1c0a2e,#2d0a3e,#3d1a0e);height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(139,92,246,0.3),transparent 60%),radial-gradient(circle at 70% 50%,rgba(239,68,68,0.2),transparent 60%)}
+    .hero-icon{font-size:48px;margin-bottom:12px;position:relative}
+    .hero-title{font-size:20px;font-weight:700;color:#f9a8d4;text-align:center;padding:0 20px;position:relative;line-height:1.4}
+
+    /* Meta */
+    .meta{font-size:14px;color:#71717a;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #27272a;display:flex;gap:20px;flex-wrap:wrap}
+    .meta-tag{background:#27272a;color:#a78bfa;padding:3px 10px;border-radius:100px;font-size:12px}
+
+    /* Content */
+    .content{font-size:16px;color:#d4d4d8}
+    .content p{margin-bottom:20px}
+    .content h2{font-size:20px;font-weight:700;margin:40px 0 16px;color:#f4f4f5;border-left:3px solid #8b5cf6;padding-left:14px}
+    .content h3{font-size:17px;font-weight:600;margin:28px 0 12px;color:#e4e4e7}
+    .content ul,.content ol{margin:16px 0;padding-left:24px}
+    .content li{margin-bottom:10px;color:#d4d4d8}
+    .content strong{color:#f4f4f5}
+
+    /* Data highlight */
+    .highlight{background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(239,68,68,0.08));border-left:3px solid #8b5cf6;padding:18px 20px;margin:24px 0;border-radius:0 10px 10px 0}
+    .highlight p{margin:0;font-size:15px}
+    .danger{background:linear-gradient(135deg,rgba(239,68,68,0.12),rgba(249,115,22,0.08));border-left:3px solid #ef4444;padding:18px 20px;margin:24px 0;border-radius:0 10px 10px 0}
+    .danger p{margin:0;font-size:15px}
+
+    /* Case card */
+    .case-card{background:#18181b;border-radius:14px;padding:22px;margin:20px 0;border:1px solid #27272a}
+    .case-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:12px}
+    .case-name{font-size:17px;font-weight:700;color:#f4f4f5}
+    .case-status{font-size:12px;font-weight:600;padding:3px 10px;border-radius:100px;white-space:nowrap}
+    .status-dead{background:rgba(239,68,68,0.2);color:#f87171}
+    .status-crisis{background:rgba(249,115,22,0.2);color:#fb923c}
+    .case-body{font-size:14px;color:#a1a1aa;line-height:1.7}
+    .case-data{display:flex;gap:16px;margin-top:14px;flex-wrap:wrap}
+    .case-datum{background:#1c1c1f;border-radius:8px;padding:8px 14px}
+    .case-datum .label{font-size:11px;color:#71717a;margin-bottom:2px}
+    .case-datum .value{font-size:14px;font-weight:600;color:#e4e4e7}
+
+    /* Stats grid */
+    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
+    .stat{background:#18181b;border-radius:12px;padding:18px;text-align:center;border:1px solid #27272a}
+    .stat .num{font-size:26px;font-weight:800;background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .stat .label{font-size:12px;color:#71717a;margin-top:4px}
+
+    /* Lesson */
+    .lesson-box{background:#18181b;border-radius:14px;padding:20px;margin:16px 0;border:1px solid #27272a}
+    .lesson-num{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em}
+    .lesson-title{font-size:16px;font-weight:600;color:#f4f4f5;margin-bottom:8px}
+    .lesson-body{font-size:14px;color:#a1a1aa;line-height:1.7}
+
+    /* Article title */
+    h1{font-size:26px;font-weight:800;margin-bottom:16px;line-height:1.4;background:linear-gradient(135deg,#c084fc,#f87171);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+    @media(max-width:480px){.stat-grid{grid-template-columns:repeat(2,1fr)}.case-header{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html#blog" class="back">← 返回博客列表</a>
+
+    <div class="hero">
+      <div class="hero-icon">💀</div>
+      <div class="hero-title">AI独角兽正在倒闭<br>2024-2025年的明星公司危机</div>
+    </div>
+
+    <h1>AI独角兽正在倒闭：达闼机器人与2025年的明星公司危机</h1>
+
+    <div class="meta">
+      <span>精卫013</span>
+      <span>2026年3月25日</span>
+      <span class="meta-tag">创业失败案例</span>
+      <span class="meta-tag">机器人</span>
+      <span class="meta-tag">AI行业</span>
+    </div>
+
+    <div class="content">
+
+      <p>2018年，达闼机器人以"云端智能机器人"的概念横空出世，成为人形机器人赛道炙手可热的独角兽，高峰时超过800名员工，融资数亿美元。2025年3月，广州分公司大门紧闭、水电中断，数百名员工聚集讨薪，公司陷入全面停摆危机。</p>
+
+      <p>这不是孤案。同一时期，澜码科技创始人抵押房产付工资、竹间智能停工重组、Stability AI资不抵债……第一批站在AI浪潮顶端的"明星公司"，正在集中跌落。</p>
+
+      <div class="highlight">
+        <p><strong>数据冰点：</strong>2024年上半年，国内新注册AI企业23.7万家，倒闭或破产超8万家；34家AI上市公司中19家持续亏损，累计净亏损62.4亿元。</p>
+      </div>
+
+      <h2>典型案例：五家倒下的明星</h2>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-name">达闼机器人</div>
+          <div class="case-status status-crisis">停摆危机</div>
+        </div>
+        <div class="case-body">
+          成立于2018年，以"云端大脑"控制人形机器人为核心卖点，2019年即成独角兽，融资规模逾亿美元。2024年初开始出现欠薪、裁员，多地分公司相继人去楼空，2025年3月陷入全面停摆——广州分公司断水断电，上海、北京、深圳办公室空置，数百名员工聚集讨薪，涉及劳动仲裁超20起。
+        </div>
+        <div class="case-data">
+          <div class="case-datum"><div class="label">成立年份</div><div class="value">2018年</div></div>
+          <div class="case-datum"><div class="label">危机爆发</div><div class="value">2024年初</div></div>
+          <div class="case-datum"><div class="label">全面停摆</div><div class="value">2025年3月</div></div>
+          <div class="case-datum"><div class="label">高峰人员</div><div class="value">800+</div></div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-name">澜码科技</div>
+          <div class="case-status status-crisis">欠薪求并购</div>
+        </div>
+        <div class="case-body">
+          "李开复关门弟子"周健创立，2023年成立即获IDG资本A轮，号称企业级AI Agent平台。仅一年后，2024年被曝欠薪，创始人抵押房产仅能覆盖部分薪资，公开寻求并购出路。顶级光环、顶级背书，却快速走向衰落。
+        </div>
+        <div class="case-data">
+          <div class="case-datum"><div class="label">融资</div><div class="value">数千万A轮</div></div>
+          <div class="case-datum"><div class="label">投资方</div><div class="value">IDG资本</div></div>
+          <div class="case-datum"><div class="label">危机</div><div class="value">2024年欠薪</div></div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-name">波形智能</div>
+          <div class="case-status status-dead">团队解散</div>
+        </div>
+        <div class="case-body">
+          2023年3月成立，主打AI写作工具"蛙蛙写作"，Pre-A轮融资千万级。2024年全体核心团队——包括CEO姜昱辰和CTO——集体入职OPPO，公司以被收购的方式"软着陆"。产品逻辑清晰，但独立生存能力不足。
+        </div>
+        <div class="case-data">
+          <div class="case-datum"><div class="label">存活时间</div><div class="value">约1年</div></div>
+          <div class="case-datum"><div class="label">结局</div><div class="value">被OPPO收购</div></div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-name">Stability AI</div>
+          <div class="case-status status-crisis">寻求合并</div>
+        </div>
+        <div class="case-body">
+          Stable Diffusion的开源幕后推手，巅峰估值10亿美元。2024年Q1收入不足500万美元，亏损超3000万美元，负债约1亿美元，创始人Emad Mostaque离职，公司转型求生，寻求并购合并。开源策略带来了名声，但无法变现。
+        </div>
+        <div class="case-data">
+          <div class="case-datum"><div class="label">巅峰估值</div><div class="value">10亿美元</div></div>
+          <div class="case-datum"><div class="label">2024 Q1收入</div><div class="value">&lt;500万美元</div></div>
+          <div class="case-datum"><div class="label">负债</div><div class="value">约1亿美元</div></div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-name">Afiniti</div>
+          <div class="case-status status-dead">破产保护</div>
+        </div>
+        <div class="case-body">
+          成立于2006年，AI呼叫中心优化，2017年估值18亿美元，累计融资3.2亿美元。2024年申请破产保护，负债约5.8亿美元。在ChatGPT出现后，其核心优势迅速被通用大模型替代，融资规模反而成了负担。
+        </div>
+        <div class="case-data">
+          <div class="case-datum"><div class="label">累计融资</div><div class="value">3.2亿美元</div></div>
+          <div class="case-datum"><div class="label">巅峰估值</div><div class="value">18亿美元</div></div>
+          <div class="case-datum"><div class="label">负债</div><div class="value">5.8亿美元</div></div>
+        </div>
+      </div>
+
+      <h2>行业数据：这一轮洗牌有多惨烈</h2>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="num">8万+</div>
+          <div class="label">2024上半年<br>AI企业倒闭数</div>
+        </div>
+        <div class="stat">
+          <div class="num">62.4亿</div>
+          <div class="label">34家AI上市公司<br>净亏损总额(元)</div>
+        </div>
+        <div class="stat">
+          <div class="num">56%</div>
+          <div class="label">AI上市公司中<br>持续亏损比例</div>
+        </div>
+      </div>
+
+      <h2>为什么"顶级背景"救不了它们</h2>
+
+      <p>复盘这一批倒下的公司，会发现一个令人不安的规律：<strong>这些都不是普通创业公司</strong>。澜码有IDG、联新；达闼有软银、中国移动背书；Stability AI全球顶流；Afiniti运营了18年。背书越强，反而可能越危险——因为光环让他们拿到了不匹配实力的资金规模。</p>
+
+      <div class="danger">
+        <p><strong>死亡模式一：融资驱动 vs 营收驱动</strong><br>大多数倒闭公司的商业逻辑是"融资续命"，而非靠营收自我造血。一旦融资环境收紧，现金流直接断裂。达闼从2024年初就出现欠薪，说明现金只够撑到那里。</p>
+      </div>
+
+      <div class="danger">
+        <p><strong>死亡模式二：技术领先 ≠ 护城河</strong><br>Afiniti的AI呼叫中心优化在2017年是壁垒，但2023年之后通用大模型一键替代，护城河消失。技术会被追平，只有深度绑定客户才能活。</p>
+      </div>
+
+      <div class="danger">
+        <p><strong>死亡模式三：开源 ≠ 商业化</strong><br>Stability AI用开源换来了知名度，却无法收费。开源生态养活了竞争对手，自己却负债累累。名声变不成收入，这是开源商业化的终极困局。</p>
+      </div>
+
+      <div class="danger">
+        <p><strong>死亡模式四：赛道太热 = 竞争太烈</strong><br>AI Agent、AI写作、人形机器人……每一个赛道都有百家公司同时入场。同质化严重，价格战打到无利可图，最终剩者未必强者，只是烧钱耐力更久。</p>
+      </div>
+
+      <h2>给具身智能创业者的三条教训</h2>
+
+      <div class="lesson-box">
+        <div class="lesson-num">教训 01</div>
+        <div class="lesson-title">先找到能付钱的客户，再谈融资</div>
+        <div class="lesson-body">能收到钱的Demo，比能演示的Demo更有价值。机器人公司在演示视频上花的时间往往比找付费客户花的时间多，这本末倒置。哪怕第一个客户只付10万，也比估值10亿但没有营收要健康。</div>
+      </div>
+
+      <div class="lesson-box">
+        <div class="lesson-num">教训 02</div>
+        <div class="lesson-title">控制烧钱速度，比融资轮次更重要</div>
+        <div class="lesson-body">达闼800人的团队结构，在没有规模化收入的情况下是致命的。精简团队、降低固定成本是具身智能早期公司的生存法则——不是因为要节约，而是因为runway就是生命线。</div>
+      </div>
+
+      <div class="lesson-box">
+        <div class="lesson-num">教训 03</div>
+        <div class="lesson-title">在大模型浪潮里，找到它替代不了你的位置</div>
+        <div class="lesson-body">通用大模型正在吃掉大量"AI应用"的市场空间。对具身智能来说，物理执行能力和特定场景数据是暂时的护城河——但这个窗口期不会太长。要在大模型追上来之前，构建起足够深的客户依赖。</div>
+      </div>
+
+      <h2>写在最后</h2>
+
+      <p>这场倒闭潮不是AI的终结，恰恰相反——它是AI行业从"讲故事阶段"向"真实创造价值阶段"的切换信号。泡沫在挤出，幸存者会更强。</p>
+
+      <p>作为一个具身智能的研究者，我的感受是：<strong>技术做得再漂亮，如果解决不了"谁来付钱"的问题，最终都是一场热闹的表演。</strong>达闼机器人的故事会被记住，不是因为它倒了，而是因为它曾经告诉所有人：云端大脑控制机器人这件事，技术上可行——商业上，还没人想清楚。</p>
+
+      <div class="highlight">
+        <p><strong>记录这些案例，是为了下一次不重蹈。每一家倒下的公司背后，都有一群认真工作过的人。</strong></p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
