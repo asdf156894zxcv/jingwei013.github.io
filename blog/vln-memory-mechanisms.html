@@ -6,29 +6,29 @@
   <title>VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路 | 精卫013</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0f;color:#e4e4e7;line-height:1.8;min-height:100vh}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#1c1510;color:#f5ead8;line-height:1.8;min-height:100vh}
     .container{max-width:720px;margin:0 auto;padding:40px 20px}
-    .back{display:inline-flex;align-items:center;gap:8px;color:#6366f1;text-decoration:none;font-size:14px;margin-bottom:32px}
+    .back{display:inline-flex;align-items:center;gap:8px;color:#e8a230;text-decoration:none;font-size:14px;margin-bottom:32px}
     .back:hover{text-decoration:underline}
     h1{font-size:28px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#10b981,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .hero-image{width:100%;border-radius:16px;margin-bottom:32px;overflow:hidden;background:linear-gradient(135deg,#064e3b,#155e75);height:200px;display:flex;align-items:center;justify-content:center}
     .hero-placeholder{text-align:center;color:#6ee7b7}
     .hero-placeholder .icon{font-size:48px}
     .hero-placeholder .text{font-size:18px;margin-top:8px}
-    .meta{font-size:14px;color:#71717a;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #27272a}
+    .meta{font-size:14px;color:#9a8060;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #2b2118}
     .content{font-size:16px}
     .content p{margin-bottom:20px}
     .content h2{font-size:20px;font-weight:600;margin:32px 0 16px;color:#f4f4f5}
     .content ul,.content ol{margin:16px 0;padding-left:24px}
     .content li{margin-bottom:8px}
     .highlight{background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(6,182,212,0.15));border-left:3px solid #10b981;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0}
-    .scene{background:#18181b;border-radius:12px;padding:24px;margin:24px 0}
+    .scene{background:#231b13;border-radius:12px;padding:24px;margin:24px 0}
     .scene h3{font-size:16px;color:#10b981;margin-bottom:16px}
-    .dialogue{background:#0f172a;border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:14px}
+    .dialogue{background:#1c1510;border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:14px}
     .dialogue .you{color:#60a5fa}
     .dialogue .robot{color:#34d399}
-    .analogy{background:#18181b;border-radius:12px;padding:20px;margin:24px 0}
-    .tag{display:inline-block;padding:4px 12px;background:#27272a;border-radius:20px;font-size:13px;margin-right:8px;color:#a1a1aa}
+    .analogy{background:#231b13;border-radius:12px;padding:20px;margin:24px 0}
+    .tag{display:inline-block;padding:4px 12px;background:#2b2118;border-radius:20px;font-size:13px;margin-right:8px;color:#c8a878}
   </style>
 </head>
 <body>
@@ -136,12 +136,12 @@
 
       <h2>三篇论文对比</h2>
       <table style="width:100%;border-collapse:collapse;margin:24px 0">
-        <tr style="background:#27272a"><th style="padding:12px;text-align:left;border-bottom:1px solid #3f3f46">维度</th><th style="padding:12px;text-align:left;border-bottom:1px solid #3f3f46">MapNav</th><th style="padding:12px;text-align:left;border-bottom:1px solid #3f3f46">COSMO</th><th style="padding:12px;text-align:left;border-bottom:1px solid #3f3f46">NavRAG</th></tr>
-        <tr><td style="padding:12px;border-bottom:1px solid #27272a">核心贡献</td><td style="padding:12px;border-bottom:1px solid #27272a">语义地图替代帧序列作为记忆</td><td style="padding:12px;border-bottom:1px solid #27272a">SSM+Transformer混合低成本架构</td><td style="padding:12px;border-bottom:1px solid #27272a">RAG增强的需求式指令数据生成</td></tr>
-        <tr><td style="padding:12px;border-bottom:1px solid #27272a">解决问题</td><td style="padding:12px;border-bottom:1px solid #27272a">历史帧序列存储/计算开销</td><td style="padding:12px;border-bottom:1px solid #27272a">模型轻量化 vs 性能权衡</td><td style="padding:12px;border-bottom:1px solid #27272a">训练数据与真实用户需求不匹配</td></tr>
-        <tr><td style="padding:12px;border-bottom:1px solid #27272a">发表</td><td style="padding:12px;border-bottom:1px solid #27272a">ACL 2025</td><td style="padding:12px;border-bottom:1px solid #27272a">ICCV 2025</td><td style="padding:12px;border-bottom:1px solid #27272a">ACL 2025 Findings</td></tr>
-        <tr><td style="padding:12px;border-bottom:1px solid #27272a">技术亮点</td><td style="padding:12px;border-bottom:1px solid #27272a">ASM带文字标注</td><td style="padding:12px;border-bottom:1px solid #27272a">RSS选择性扫描</td><td style="padding:12px;border-bottom:1px solid #27272a">层次化场景描述树 + 200万指令</td></tr>
-        <tr><td style="padding:12px;border-bottom:1px solid #27272a">局限性</td><td style="padding:12px;border-bottom:1px solid #27272a">动态/开放场景的地图维护</td><td style="padding:12px;border-bottom:1px solid #27272a">SSM空间建模能力上限</td><td style="padding:12px;border-bottom:1px solid #27272a">需要大量LLM调用，成本高</td></tr>
+        <tr style="background:#2b2118"><th style="padding:12px;text-align:left;border-bottom:1px solid #4a3c2c">维度</th><th style="padding:12px;text-align:left;border-bottom:1px solid #4a3c2c">MapNav</th><th style="padding:12px;text-align:left;border-bottom:1px solid #4a3c2c">COSMO</th><th style="padding:12px;text-align:left;border-bottom:1px solid #4a3c2c">NavRAG</th></tr>
+        <tr><td style="padding:12px;border-bottom:1px solid #2b2118">核心贡献</td><td style="padding:12px;border-bottom:1px solid #2b2118">语义地图替代帧序列作为记忆</td><td style="padding:12px;border-bottom:1px solid #2b2118">SSM+Transformer混合低成本架构</td><td style="padding:12px;border-bottom:1px solid #2b2118">RAG增强的需求式指令数据生成</td></tr>
+        <tr><td style="padding:12px;border-bottom:1px solid #2b2118">解决问题</td><td style="padding:12px;border-bottom:1px solid #2b2118">历史帧序列存储/计算开销</td><td style="padding:12px;border-bottom:1px solid #2b2118">模型轻量化 vs 性能权衡</td><td style="padding:12px;border-bottom:1px solid #2b2118">训练数据与真实用户需求不匹配</td></tr>
+        <tr><td style="padding:12px;border-bottom:1px solid #2b2118">发表</td><td style="padding:12px;border-bottom:1px solid #2b2118">ACL 2025</td><td style="padding:12px;border-bottom:1px solid #2b2118">ICCV 2025</td><td style="padding:12px;border-bottom:1px solid #2b2118">ACL 2025 Findings</td></tr>
+        <tr><td style="padding:12px;border-bottom:1px solid #2b2118">技术亮点</td><td style="padding:12px;border-bottom:1px solid #2b2118">ASM带文字标注</td><td style="padding:12px;border-bottom:1px solid #2b2118">RSS选择性扫描</td><td style="padding:12px;border-bottom:1px solid #2b2118">层次化场景描述树 + 200万指令</td></tr>
+        <tr><td style="padding:12px;border-bottom:1px solid #2b2118">局限性</td><td style="padding:12px;border-bottom:1px solid #2b2118">动态/开放场景的地图维护</td><td style="padding:12px;border-bottom:1px solid #2b2118">SSM空间建模能力上限</td><td style="padding:12px;border-bottom:1px solid #2b2118">需要大量LLM调用，成本高</td></tr>
       </table>
 
       <h2>给具身导航研究者的启示</h2>
@@ -162,9 +162,9 @@
       </div>
     </div>
 
-    <div style="margin-top:48px;padding-top:24px;border-top:1px solid #27272a;color:#71717a;font-size:14px">
+    <div style="margin-top:48px;padding-top:24px;border-top:1px solid #2b2118;color:#9a8060;font-size:14px">
       <p>作者：精卫013 | 具身智能机器人导航方向博士生</p>
-      <p>博客首发：<a href="https://jingwei013.ai" style="color:#6366f1">jingwei013.ai</a></p>
+      <p>博客首发：<a href="https://jingwei013.ai" style="color:#e8a230">jingwei013.ai</a></p>
     </div>
   </div>
 </body>
