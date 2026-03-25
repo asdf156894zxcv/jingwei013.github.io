@@ -544,7 +544,7 @@
         <span class="stat-num">4</span><div class="stat-label">研究问题 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
-        <span class="stat-num">19</span><div class="stat-label">创业案例 →</div>
+        <span class="stat-num">17</span><div class="stat-label">创业案例 →</div>
       </div>
       <div class="stat" onclick="showSection('research')" title="点击查看研究方向">
         <span class="stat-num">日更</span><div class="stat-label">持续更新 →</div>
@@ -575,7 +575,7 @@
         <div class="section-title">🦞B 最新创业案例</div>
         <div class="section-desc">失败原因分析 · 成功关键 · 每日更新</div>
       </div>
-      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（19个）→</button>
+      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（17个）→</button>
     </div>
     <div class="case-grid" id="homeCasesPreview"></div>
   </section>
@@ -1318,10 +1318,14 @@ const BLOG_POSTS = [
     desc:'目标导航（ObjectNav）是具身导航中最接近实际应用的任务。主流方法分为三类：主动探索最大化信息增益、语义推理利用物体关系、记忆增强处理长序列。',
     url:'./blog/objectnav-paradigms.html',
     tags:['ObjectNav','技术分析'] },
-  { cat:'tech', date:'2026-03-20', title:'我的 LLM 导航实验记录（1）：LLaVA-1.5 在 Matterport3D 上的表现',
-    desc:'用 LLaVA-1.5 在 Matterport3D 上跑了一个简单实验，记录了视觉语言对齐问题、推理延迟和幻觉问题。结论：LLM 在具身任务上还有很长的路要走。',
+  { cat:'tech', date:'2026-03-26', title:'导航基础模型三国杀：NavFoM vs OctoNav vs P³Nav',
+    desc:'2025-2026年三篇重量级论文定义了导航基础模型的三种路线：NavFoM的TVI Token、OctoNav的行动前思考、P³Nav的感知-预测-规划统一。深度对比技术架构、实验表现和对研究者的启示。',
+    url:'./blog/navigation-foundation-models-comparison.html',
+    tags:['导航基础模型','NavFoM','OctoNav','P³Nav','ICLR2026','技术对比'] },
+  { cat:'tech', date:'2026-03-26', title:'🧠 LLM导航实验记录：从踩坑到顿悟的30天',
+    desc:'三阶段递进实验：纯提示工程(成功率18.7%)→记忆增强(41.3%)→世界模型集成(48.6%)。最终结论：LLM不是导航的银弹，但用对地方能提升30%+成功率。',
     url:'./blog/llm-nav-experiments.html',
-    tags:['LLM导航','实验记录','LLaVA'] },
+    tags:['LLM导航','实验记录','30天复盘','Mem2Ego','WMNav'] },
   { cat:'tech', date:'2026-03-19', title:'论文精读：Active Neural SLAM——主动探索如何提升 ObjectNav 效率',
     desc:'这篇 CoRL 2022 的工作将 SLAM 与主动探索结合，让机器人在未知环境中主动寻找信息量大的区域。核心贡献是提出「探索-利用」平衡策略。',
     url:'./blog/active-neural-slam.html',
@@ -1356,6 +1360,10 @@ const BLOG_POSTS = [
     desc:'达闼停摆、澜码欠薪、Stability AI资不抵债……8万家AI企业倒闭、62.4亿亏损。顶级光环救不了它们，4种死亡模式+3条生存教训。',
     url:'./blog/ai-unicorn-collapse.html',
     tags:['创业案例','AI独角兽','倒闭潮','机器人'] },
+  { cat:'case', date:'2026-03-26', title:'具身智能清场时刻：K-Scale Labs倒闭的6条血训',
+    desc:'烧光5000万估值后倒闭，2026年具身智能淘汰赛正式开始。6条血训每一条都价值数千万美元：警惕大模型沙文主义、供应链不是可选项、定制化硬件是必修课……',
+    url:'./blog/k-scale-labs-failure-analysis.html',
+    tags:['具身智能','K-Scale Labs','创业失败','案例分析','2026趋势'] },
   { cat:'case', date:'2026-03-25', title:'人形机器人第一波倒闭潮：5条血训',
     desc:'K-Scale Labs有订单照样倒闭、iRobot 30年神话被中国制造终结、Embodied云端依赖变砖头——三个真实案例+5条可复用血训。150多家人形机器人公司，77%还在A轮挣扎。',
     url:'./blog/humanoid-robot-failure-wave.html',
