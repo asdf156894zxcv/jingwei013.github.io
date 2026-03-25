@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>强化学习+VLN：2025年的两条技术路线 | 精卫013</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e14;
+      --bg-secondary: #111620;
+      --bg-card: #151c28;
+      --accent-red: #e0503a;
+      --accent-gold: #f0a500;
+      --accent-cyan: #4ecdc4;
+      --text-primary: #e8eaf0;
+      --text-secondary: #8892a4;
+      --text-muted: #4a5568;
+      --border: #1e2a3a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.8;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--accent-red); }
+    
+    .article-header { margin-bottom: 3rem; }
+    .article-meta { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+    .article-date { color: var(--text-muted); font-size: 0.9rem; }
+    .article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .article-tag { padding: 0.2rem 0.6rem; background: var(--bg-card); border-radius: 4px; font-size: 0.75rem; color: var(--accent-cyan); border: 1px solid rgba(78,205,196,0.2); }
+    .article-tag.gold { color: var(--accent-gold); border-color: rgba(240,165,0,0.2); }
+    
+    h1 { font-family: 'Noto Serif SC', serif; font-size: 2rem; line-height: 1.4; margin-bottom: 1.5rem; }
+    h2 { font-family: 'Noto Serif SC', serif; font-size: 1.4rem; margin: 2.5rem 0 1rem; color: var(--accent-cyan); }
+    h3 { font-size: 1.1rem; margin: 2rem 0 0.8rem; color: var(--text-primary); }
+    
+    p { margin-bottom: 1.2rem; color: var(--text-secondary); }
+    strong { color: var(--text-primary); }
+    
+    .highlight-box { background: var(--bg-card); border-left: 3px solid var(--accent-red); padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+    
+    .paper-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .paper-card h3 { margin-top: 0; color: var(--accent-gold); }
+    .paper-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+    
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.8rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { color: var(--accent-cyan); font-weight: 500; background: var(--bg-card); }
+    td { color: var(--text-secondary); }
+    tr:hover td { background: rgba(78,205,196,0.05); }
+    
+    .method-flow { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; padding: 1rem; background: var(--bg-card); border-radius: 8px; }
+    .method-step { padding: 0.5rem 1rem; background: rgba(78,205,196,0.1); border-radius: 6px; font-size: 0.85rem; }
+    .method-arrow { color: var(--accent-gold); }
+    
+    code { background: var(--bg-secondary); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 0.9em; color: var(--accent-cyan); }
+    pre { background: var(--bg-secondary); padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
+    pre code { background: none; padding: 0; }
+    
+    .insight-box { background: linear-gradient(135deg, rgba(78,205,196,0.1), rgba(224,80,58,0.05)); border: 1px solid rgba(78,205,196,0.2); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+    .insight-box h3 { color: var(--accent-cyan); margin-top: 0; }
+    
+    ul, ol { margin: 1rem 0 1rem 1.5rem; color: var(--text-secondary); }
+    li { margin-bottom: 0.5rem; }
+    
+    .conclusion { background: var(--bg-card); border-radius: 12px; padding: 2rem; margin-top: 3rem; }
+    .conclusion h2 { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html#blog" class="back-link">← 返回博客列表</a>
+    
+    <article class="article-header">
+      <div class="article-meta">
+        <span class="article-date">2026-03-26</span>
+        <div class="article-tags">
+          <span class="article-tag">VLN</span>
+          <span class="article-tag">强化学习</span>
+          <span class="article-tag">LLM</span>
+          <span class="article-tag gold">2025最新</span>
+        </div>
+      </div>
+      <h1>强化学习+VLN：2025年的两条技术路线</h1>
+    </article>
+
+    <div class="highlight-box">
+      <p><strong>核心结论：</strong>2025年，强化学习（RL）正在重塑视觉语言导航（VLN）的技术范式。两条路线值得关注：</p>
+      <p>1. <strong>VLN-R1</strong>：用GRPO强化微调直接优化连续环境导航，端到端训练</p>
+      <p>2. <strong>EvolveNav</strong>：自改进CoT推理，让LLM自己教自己导航</p>
+    </div>
+
+    <p>视觉语言导航（VLN）的核心矛盾一直没变：自然语言指令是离散的、高层次的，而机器人动作是连续的、低层次的。传统方法用拓扑图把连续空间离散化，再在上面做路径规划——这就像是把3D世界压成一张地图，再让机器人按图索骥。</p>
+
+    <p>2025年的新思路是：直接让模型在原始观测上学习端到端的决策，用强化学习来桥接语言和动作的鸿沟。</p>
+
+    <h2>路线一：VLN-R1 —— 连续环境的端到端强化学习</h2>
+
+    <div class="paper-card">
+      <h3>VLN-R1: Vision-Language Navigation via Reinforcement Fine-Tuning</h3>
+      <div class="paper-meta">港大 & 上海AI Lab | arXiv:2506.17221 | 2025</div>
+      <p><strong>核心创新：</strong>首次将DeepSeek-R1的GRPO（Group Relative Policy Optimization）方法应用到VLN连续环境，实现端到端训练。</p>
+    </div>
+
+    <h3>为什么传统方法不行？</h3>
+
+    <p>之前的LLM-based VLN方法大多基于离散拓扑图：</p>
+    <ul>
+      <li>把环境预建成一个图，节点是可导航位置，边是可达路径</li>
+      <li>LLM决定"去哪个节点"，底层控制器负责实际移动</li>
+      <li>问题：图构建有误差，离散决策无法处理连续环境的细微差别</li>
+    </ul>
+
+    <p>VLN-R1的解法很直接：<strong>不要图了，直接让LVLM输出连续动作</strong>。</p>
+
+    <h3>两阶段训练流程</h3>
+
+    <div class="method-flow">
+      <span class="method-step">SFT监督微调</span>
+      <span class="method-arrow">→</span>
+      <span class="method-step">GRPO强化微调</span>
+      <span class="method-arrow">→</span>
+      <span class="method-step">TDR时间衰减奖励</span>
+    </div>
+
+    <p><strong>阶段1：SFT（Supervised Fine-Tuning）</strong></p>
+    <p>用专家轨迹做监督学习，让模型学会"看到什么就该做什么"的基础映射。这个阶段只训练文本输出，动作空间是离散的文本token（如"forward", "turn_left"）。</p>
+
+    <p><strong>阶段2：RFT（Reinforcement Fine-Tuning）</strong></p>
+    <p>这是VLN-R1的核心。采用GRPO算法，关键点在于奖励设计：</p>
+
+    <ul>
+      <li><strong>成功奖励：</strong>到达目标给+1</li>
+      <li><strong>TDR（Time-Decay Reward）：</strong>多步未来动作的加权奖励，近的权重高，远的权重低</li>
+      <li><strong>步数惩罚：</strong>每走一步有小幅负奖励，鼓励高效路径</li>
+    </ul>
+
+    <p>TDR的设计很聪明：导航是一个序列决策问题，当前动作的影响会随时间衰减。TDR让模型更关注近期效果，避免被遥远的未来奖励干扰。</p>
+
+    <h3>长短时记忆采样</h3>
+
+    <p>VLN-R1还解决了一个工程问题：LLM的上下文长度有限，但导航视频流是连续的。</p>
+
+    <p>他们的方案是<strong>长短时记忆采样</strong>：</p>
+    <ul>
+      <li>近期帧：密集采样（每1-2帧取一个）</li>
+      <li>远期帧：稀疏采样（每N帧取一个）</li>
+      <li>平衡历史上下文和当前观测</li>
+    </ul>
+
+    <h2>路线二：EvolveNav —— 自改进的CoT推理</h2>
+
+    <div class="paper-card">
+      <h3>EvolveNav: Empowering LLM-Based VLN via Self-Improving Embodied Reasoning</h3>
+      <div class="paper-meta">中山大学 & 上海AI Lab等 | arXiv:2506.01551 | 2025</div>
+      <p><strong>核心创新：</strong>让LLM通过自我反思迭代改进推理能力，不需要外部专家数据。</p>
+    </div>
+
+    <h3>CoT训练的困境</h3>
+
+    <p>思维链（Chain-of-Thought）能提高LLM推理的可解释性和准确性，但在VLN里有三个问题：</p>
+
+    <ol>
+      <li><strong>标注成本高：</strong>完美的CoT标签需要人工写推理过程，费时费力</li>
+      <li><strong>过拟合风险：</strong>纯CoT监督微调容易记住特定模式，泛化差</li>
+      <li><strong>领域差异：</strong>LLM预训练语料和VLN任务分布不一致</li>
+    </ol>
+
+    <h3>EvolveNav的解法：自己教自己</h3>
+
+    <div class="method-flow">
+      <span class="method-step">形式化CoT SFT</span>
+      <span class="method-arrow">→</span>
+      <span class="method-step">自反思后训练</span>
+      <span class="method-arrow">→</span>
+      <span class="method-step">对比学习优化</span>
+    </div>
+
+    <p><strong>阶段1：形式化CoT监督微调</strong></p>
+    <p>先用精心设计的CoT模板做监督学习，激活模型的导航推理能力。这里的CoT不是自由文本，而是结构化模板，包含：</p>
+    <ul>
+      <li>指令理解：提取目标位置、路径约束</li>
+      <li>视觉分析：描述当前观测的关键信息</li>
+      <li>动作决策：基于上述分析选择动作</li>
+    </ul>
+
+    <p><strong>阶段2：自反思后训练（Self-Reflective Post-Training）</strong></p>
+    <p>这是EvolveNav的核心创新。模型用自己的推理输出作为训练数据，迭代改进：</p>
+
+    <ol>
+      <li>让模型在训练环境上运行，收集推理轨迹</li>
+      <li>筛选成功和失败的案例</li>
+      <li>用<strong>自反思辅助任务</strong>对比学习：让模型学会区分正确和错误的推理路径</li>
+    </ol>
+
+    <p>本质上，EvolveNav在做一件事：<strong>让模型从自己的错误中学习</strong>，而不是依赖人工标注的完美数据。</p>
+
+    <h2>两条路线的对比</h2>
+
+    <table>
+      <tr>
+        <th>维度</th>
+        <th>VLN-R1</th>
+        <th>EvolveNav</th>
+      </tr>
+      <tr>
+        <td><strong>核心方法</strong></td>
+        <td>GRPO强化微调</td>
+        <td>自改进CoT推理</td>
+      </tr>
+      <tr>
+        <td><strong>动作空间</strong></td>
+        <td>连续环境（VLN-CE）</td>
+        <td>离散拓扑图</td>
+      </tr>
+      <tr>
+        <td><strong>训练数据</strong></td>
+        <td>需要专家轨迹（VLN-EGO数据集）</td>
+        <td>可自我生成，数据效率更高</td>
+      </tr>
+      <tr>
+        <td><strong>可解释性</strong></td>
+        <td>较低（端到端黑盒）</td>
+        <td>高（显式CoT推理）</td>
+      </tr>
+      <tr>
+        <td><strong>适用场景</strong></td>
+        <td>真实机器人部署</td>
+        <td>需要解释性的场景</td>
+      </tr>
+      <tr>
+        <td><strong>关键创新</strong></td>
+        <td>TDR时间衰减奖励</td>
+        <td>自反思对比学习</td>
+      </tr>
+    </table>
+
+    <h2>技术洞察：为什么现在是RL+VLN的拐点？</h2>
+
+    <div class="insight-box">
+      <h3>三个关键变化</h3>
+      <p><strong>1. 大视觉语言模型（LVLM）成熟了</strong></p>
+      <p>Qwen2-VL、InternVL等开源模型在视觉理解上已经足够强，可以直接处理第一人称视频流。这是端到端训练的前提。</p>
+      
+      <p><strong>2. RL算法进步了</strong></p>
+      <p>GRPO（Group Relative Policy Optimization）比PPO更稳定，不需要critic网络，训练成本更低。DeepSeek-R1验证了GRPO在大模型上的有效性。</p>
+      
+      <p><strong>3. 数据瓶颈有了新解法</strong></p>
+      <p>EvolveNav的自改进范式减少了对人工标注的依赖。在具身智能领域，数据永远是最稀缺的资源。</p>
+    </div>
+
+    <h2>实践建议：选哪条路线？</h2>
+
+    <h3>选VLN-R1如果：</h3>
+    <ul>
+      <li>你的目标是真实机器人部署</li>
+      <li>有连续环境模拟器（Habitat 3.0、Isaac Sim）</li>
+      <li>能接受端到端的黑盒决策</li>
+      <li>有足够的计算资源做RL训练</li>
+    </ul>
+
+    <h3>选EvolveNav如果：</h3>
+    <ul>
+      <li>你需要可解释的决策过程</li>
+      <li>标注数据有限，想最大化数据效率</li>
+      <li>在离散拓扑图环境上工作</li>
+      <li>需要跨任务泛化能力</li>
+    </ul>
+
+    <h2>未来趋势判断</h2>
+
+    <p>基于这两条路线，我判断VLN领域接下来会有三个方向：</p>
+
+    <ol>
+      <li><strong>混合训练范式：</strong>SFT+RL+自改进三者结合，取长补短</li>
+      <li><strong>真实世界RL：</strong>从模拟器走向真实环境的强化学习，解决sim2real问题</li>
+      <li><strong>多模态融合：</strong>不仅用视觉和语言，还要整合触觉、听觉等更多模态</li>
+    </ol>
+
+    <div class="conclusion">
+      <h2>总结</h2>
+      <p>2025年，强化学习正在成为VLN的新标配。VLN-R1证明了端到端RL在连续环境的可行性，EvolveNav展示了自改进范式的数据效率优势。</p>
+      <p>对于研究者来说，这是一个值得投入的方向：既有理论创新空间（奖励设计、探索策略），也有工程落地价值（真实机器人导航）。</p>
+      <p>对于从业者来说，建议先跑通SFT基线，再逐步引入RL训练。GRPO比PPO更友好，是入门的好选择。</p>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 2rem;">
+      <p><strong>参考资源：</strong></p>
+      <p>• VLN-R1项目页：<a href="https://vlnr1.github.io/" style="color: var(--accent-cyan);">https://vlnr1.github.io/</a></p>
+      <p>• EvolveNav代码：<a href="https://github.com/expectorlin/EvolveNav" style="color: var(--accent-cyan);">https://github.com/expectorlin/EvolveNav</a></p>
+      <p>• VLN-EGO数据集：Habitat 3.0构建的连续环境导航数据集</p>
+    </div>
+
+  </div>
+</body>
+</html>
