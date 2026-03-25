@@ -13,29 +13,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #1c1510;
-      --bg-secondary: #231b13;
-      --bg-card: #2b2118;
-      --bg-card-hover: #332820;
-      --border: #4a3c2c;
-      --text-primary: #f5ead8;
-      --text-secondary: #c8a878;
-      --text-muted: #9a8060;
-      --accent: #e8a230;
-      --accent-hover: #f5b94a;
-      --accent-dim: rgba(232,162,48,0.15);
-      --tag-survey: #e07830;
-      --tag-vln: #d08040;
-      --tag-obj: #c87030;
-      --tag-llm: #90b850;
-      --tag-rl: #e05848;
-      --tag-per: #50a8a0;
-      --tag-wm: #d09840;
-      --tag-vla: #c8b030;
-      --gradient-1: linear-gradient(135deg, #d06020 0%, #903010 100%);
-      --gradient-2: linear-gradient(135deg, #d08820 0%, #b06010 100%);
-      --shadow: 0 8px 32px rgba(0,0,0,0.4);
-      --radius: 12px;
+      --bg-primary:    #ffffff;
+      --bg-secondary:  #faf8f5;
+      --bg-card:       #f9f7f0;
+      --bg-card-hover: #f5ede8;
+      --border:        #e8d8c4;
+      --text-primary:  #2c1a0e;
+      --text-secondary:#6b4c30;
+      --text-muted:    #a07858;
+      --accent:        #e8a230;
+      --accent-hover:  #f5b94a;
+      --accent-dim:    rgba(232,162,48,0.12);
+      --tag-survey:    #c86010;
+      --tag-vln:       #b07020;
+      --tag-obj:       #a85010;
+      --tag-llm:       #5a8c20;
+      --tag-rl:        #c03828;
+      --tag-per:       #207870;
+      --tag-wm:        #b07818;
+      --tag-vla:       #a09010;
+      --gradient-1:    linear-gradient(135deg, #c8501a 0%, #8a2e08 100%);
+      --gradient-2:    linear-gradient(135deg, #d07818 0%, #a04808 100%);
+      --shadow:        0 4px 20px rgba(44,26,14,0.12);
+      --radius:        12px;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
@@ -52,7 +52,7 @@
     /* HEADER */
     header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(28,21,16,0.92);
+      background: rgba(253,248,242,0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -102,7 +102,7 @@
       font-size: clamp(36px, 6vw, 60px);
       font-weight: 700; letter-spacing: -1.5px;
       line-height: 1.1; margin-bottom: 20px;
-      background: linear-gradient(135deg, #f5d080 0%, #e8a230 50%, #c86820 100%);
+      background: linear-gradient(135deg, #8a2e08 0%, #c8600e 50%, #e8890e 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero-sub {
@@ -112,12 +112,12 @@
     .hero-cta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent); color: #0f0d0a;
+      background: var(--accent); color: #fff;
       font-weight: 600; font-size: 15px;
       padding: 12px 28px; border-radius: 10px; border: none; cursor: pointer;
       transition: all 0.2s; text-decoration: none;
     }
-    .btn-primary:hover { background: var(--accent-hover); color: #0f0d0a; transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--accent-hover); color: #fff; transform: translateY(-1px); }
     .btn-secondary {
       display: inline-flex; align-items: center; gap: 8px;
       background: transparent; color: var(--text-primary);
@@ -257,7 +257,7 @@
     }
     .status-planning { background: rgba(240,136,62,0.15); color: #f0883e; border: 1px solid rgba(240,136,62,0.3); }
     .status-validating { background: rgba(56,191,80,0.15); color: #3fb950; border: 1px solid rgba(56,191,80,0.3); }
-    .status-building { background: rgba(88,166,255,0.15); color: #58a6ff; border: 1px solid rgba(88,166,255,0.3); }
+    .status-building { background: rgba(200,114,14,0.12); color: #c8720e; border: 1px solid rgba(200,114,14,0.3); }
     .status-done { background: rgba(163,113,247,0.15); color: #a371f7; border: 1px solid rgba(163,113,247,0.3); }
     .startup-log { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
     .startup-log-item {
@@ -336,7 +336,7 @@
       color: var(--accent); padding: 6px 14px; border-radius: 6px;
       font-size: 12px; cursor: pointer; transition: all 0.2s;
     }
-    .heartbeat-btn:hover { background: var(--accent); color: #0d1117; }
+    .heartbeat-btn:hover { background: var(--accent); color: #fff; }
     footer p { font-size: 13px; color: var(--text-muted); }
     footer a { color: var(--text-muted); }
     footer a:hover { color: var(--accent); }
@@ -356,8 +356,8 @@
     .thinking-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
     .thinking-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.8; }
     .sci-card {
-      background: linear-gradient(135deg, rgba(88,166,255,0.08) 0%, rgba(163,113,247,0.08) 100%);
-      border: 1px solid rgba(88,166,255,0.3);
+      background: linear-gradient(135deg, rgba(200,114,14,0.07) 0%, rgba(180,80,20,0.05) 100%);
+      border: 1px solid rgba(200,114,14,0.25);
       border-radius: var(--radius);
       padding: 28px 32px;
       margin-bottom: 16px;
@@ -367,20 +367,20 @@
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 11px; font-weight: 700; letter-spacing: 0.8px;
       padding: 4px 12px; border-radius: 100px;
-      background: rgba(88,166,255,0.15); color: var(--accent);
-      border: 1px solid rgba(88,166,255,0.4);
+      background: rgba(200,114,14,0.12); color: var(--accent);
+      border: 1px solid rgba(200,114,14,0.35);
       margin-bottom: 14px;
     }
     .sci-prob {
       display: flex; align-items: center; gap: 12px; margin: 12px 0;
     }
     .sci-prob-bar {
-      flex: 1; height: 6px; background: rgba(255,255,255,0.1);
+      flex: 1; height: 6px; background: rgba(44,26,14,0.12);
       border-radius: 100px; overflow: hidden;
     }
     .sci-prob-fill {
       height: 100%; border-radius: 100px;
-      background: linear-gradient(90deg, #58a6ff, #a371f7);
+      background: linear-gradient(90deg, #c8600e, #e8890e);
     }
     .sci-prob-label { font-size: 12px; font-weight: 600; color: var(--accent); width: 40px; text-align: right; }
 
@@ -472,7 +472,7 @@
       content: 'jingwei013.ai';
       position: fixed;
       bottom: 18px; right: 18px;
-      font-size: 11px; color: rgba(232,162,48,0.18);
+      font-size: 11px; color: rgba(44,26,14,0.18);
       font-weight: 700; letter-spacing: 1px;
       pointer-events: none; z-index: 9999;
       user-select: none;

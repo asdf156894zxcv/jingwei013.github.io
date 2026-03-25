@@ -7,58 +7,58 @@
   <meta name="description" content="2026年开年两个月，具身智能赛道融资超200亿，诞生7家百亿独角兽。但狂欢之下，订单水分、技术瓶颈、商业化困境正在积聚风险。">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#1c1510;color:#f5ead8;line-height:1.8;min-height:100vh}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fdf8f2;color:#2c1a0e;line-height:1.8;min-height:100vh}
     .container{max-width:720px;margin:0 auto;padding:40px 20px}
-    .back{display:inline-flex;align-items:center;gap:8px;color:#e8a230;text-decoration:none;font-size:14px;margin-bottom:32px}
+    .back{display:inline-flex;align-items:center;gap:8px;color:#c8720e;text-decoration:none;font-size:14px;margin-bottom:32px}
     .back:hover{text-decoration:underline}
-    h1{font-size:28px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#e8a230,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    h1{font-size:28px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#c8720e,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .hero-banner{width:100%;border-radius:16px;margin-bottom:32px;overflow:hidden;height:200px;display:flex;align-items:center;justify-content:center;position:relative}
     .hero-banner svg{position:absolute;top:0;left:0;width:100%;height:100%}
-    .meta{font-size:14px;color:#9a8060;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #2b2118}
+    .meta{font-size:14px;color:#a07858;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #fffcf8}
     .meta span{margin-right:16px}
-    .lead{font-size:17px;color:#c8a878;margin-bottom:28px;padding:20px;background:#231b13;border-radius:10px;border-left:3px solid #e8a230}
+    .lead{font-size:17px;color:#6b4c30;margin-bottom:28px;padding:20px;background:#f5ede0;border-radius:10px;border-left:3px solid #c8720e}
     .content{font-size:16px}
     .content p{margin-bottom:20px}
-    .content h2{font-size:20px;font-weight:600;margin:36px 0 16px;color:#f4f4f5;padding-left:12px;border-left:3px solid #e8a230}
+    .content h2{font-size:20px;font-weight:600;margin:36px 0 16px;color:#f4f4f5;padding-left:12px;border-left:3px solid #c8720e}
     .content ul,.content ol{margin:16px 0;padding-left:24px}
-    .content li{margin-bottom:10px;color:#c8a878}
-    .highlight{background:linear-gradient(135deg,rgba(232,162,48,0.1),rgba(249,115,22,0.1));border-left:3px solid #e8a230;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0;font-size:15px}
-    .highlight strong{color:#e8a230}
+    .content li{margin-bottom:10px;color:#6b4c30}
+    .highlight{background:linear-gradient(135deg,rgba(232,162,48,0.1),rgba(249,115,22,0.1));border-left:3px solid #c8720e;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0;font-size:15px}
+    .highlight strong{color:#c8720e}
     /* 数据表格 */
     .data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-    .data-table th{background:#2b2118;color:#e8a230;padding:10px 14px;text-align:left;border-bottom:2px solid #4a3520}
-    .data-table td{padding:10px 14px;border-bottom:1px solid #2b2118;color:#c8a878}
-    .data-table tr:hover td{background:#231b13}
+    .data-table th{background:#fffcf8;color:#c8720e;padding:10px 14px;text-align:left;border-bottom:2px solid #4a3520}
+    .data-table td{padding:10px 14px;border-bottom:1px solid #fffcf8;color:#6b4c30}
+    .data-table tr:hover td{background:#f5ede0}
     /* 统计卡片 */
     .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
-    .stat-box{background:#231b13;border-radius:10px;padding:18px;text-align:center;border:1px solid #3a2a1a}
-    .stat-box .num{font-size:26px;font-weight:700;color:#e8a230}
-    .stat-box .label{font-size:12px;color:#9a8060;margin-top:4px}
+    .stat-box{background:#f5ede0;border-radius:10px;padding:18px;text-align:center;border:1px solid #3a2a1a}
+    .stat-box .num{font-size:26px;font-weight:700;color:#c8720e}
+    .stat-box .label{font-size:12px;color:#a07858;margin-top:4px}
     /* 独角兽列表 */
     .unicorn-grid{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
-    .unicorn-tag{background:#2b1a00;color:#e8a230;padding:6px 14px;border-radius:100px;font-size:13px;border:1px solid #5a3010}
+    .unicorn-tag{background:#2b1a00;color:#c8720e;padding:6px 14px;border-radius:100px;font-size:13px;border:1px solid #5a3010}
     /* 隐忧卡片 */
-    .warning-card{background:#231b13;border-radius:12px;padding:20px 24px;margin:16px 0;border-left:4px solid #ef4444;border:1px solid #4a2020;border-left:4px solid #ef4444}
+    .warning-card{background:#f5ede0;border-radius:12px;padding:20px 24px;margin:16px 0;border-left:4px solid #ef4444;border:1px solid #4a2020;border-left:4px solid #ef4444}
     .warning-card .w-title{font-size:16px;font-weight:600;color:#fca5a5;margin-bottom:10px}
-    .warning-card p{font-size:14px;color:#c8a878;margin-bottom:8px}
+    .warning-card p{font-size:14px;color:#6b4c30;margin-bottom:8px}
     .warning-card strong{color:#f97316}
     /* 生存法则 */
     .rule{background:#1a1000;border-radius:12px;padding:20px 24px;margin:16px 0;border:1px solid #4a3520}
-    .rule .rule-num{font-size:22px;font-weight:700;color:#e8a230;margin-bottom:4px}
+    .rule .rule-num{font-size:22px;font-weight:700;color:#c8720e;margin-bottom:4px}
     .rule .rule-title{font-size:16px;font-weight:600;color:#f4f4f5;margin-bottom:8px}
-    .rule p{font-size:14px;color:#c8a878;margin:0}
+    .rule p{font-size:14px;color:#6b4c30;margin:0}
     /* 展望时间轴 */
-    .timeline{background:#231b13;border-radius:12px;padding:24px;margin:24px 0;border:1px solid #3a2a1a}
+    .timeline{background:#f5ede0;border-radius:12px;padding:24px;margin:24px 0;border:1px solid #3a2a1a}
     .timeline-item{display:flex;gap:16px;margin-bottom:16px}
     .timeline-item:last-child{margin-bottom:0}
-    .tl-label{font-size:13px;font-weight:600;color:#e8a230;min-width:90px;padding-top:2px}
-    .tl-content{font-size:14px;color:#c8a878}
+    .tl-label{font-size:13px;font-weight:600;color:#c8720e;min-width:90px;padding-top:2px}
+    .tl-content{font-size:14px;color:#6b4c30}
     .conclusion{background:linear-gradient(135deg,#1e1000,#2d1a00);border-radius:12px;padding:24px;margin:32px 0;border:1px solid #5a3010}
-    .conclusion p{font-size:15px;color:#c8a878;margin-bottom:12px}
+    .conclusion p{font-size:15px;color:#6b4c30;margin-bottom:12px}
     .conclusion p:last-child{margin:0}
-    .conclusion strong{color:#e8a230}
-    .tags{margin-top:32px;padding-top:24px;border-top:1px solid #2b2118}
-    .tag{display:inline-block;background:#2b2118;color:#c8a878;padding:4px 12px;border-radius:100px;font-size:12px;margin-right:8px;margin-bottom:8px;border:1px solid #3a2a1a}
+    .conclusion strong{color:#c8720e}
+    .tags{margin-top:32px;padding-top:24px;border-top:1px solid #fffcf8}
+    .tag{display:inline-block;background:#fffcf8;color:#6b4c30;padding:4px 12px;border-radius:100px;font-size:12px;margin-right:8px;margin-bottom:8px;border:1px solid #3a2a1a}
     @media(max-width:600px){.stat-row{grid-template-columns:1fr 1fr}}
   </style>
 </head>
@@ -77,19 +77,19 @@
         </defs>
         <rect width="720" height="200" fill="url(#gbg)"/>
         <!-- rising bars animation hint -->
-        <rect x="80" y="100" width="40" height="80" fill="#e8a230" opacity="0.3" rx="4"/>
-        <rect x="140" y="70" width="40" height="110" fill="#e8a230" opacity="0.4" rx="4"/>
-        <rect x="200" y="40" width="40" height="140" fill="#e8a230" opacity="0.5" rx="4"/>
-        <rect x="260" y="20" width="40" height="160" fill="#e8a230" opacity="0.6" rx="4"/>
+        <rect x="80" y="100" width="40" height="80" fill="#c8720e" opacity="0.3" rx="4"/>
+        <rect x="140" y="70" width="40" height="110" fill="#c8720e" opacity="0.4" rx="4"/>
+        <rect x="200" y="40" width="40" height="140" fill="#c8720e" opacity="0.5" rx="4"/>
+        <rect x="260" y="20" width="40" height="160" fill="#c8720e" opacity="0.6" rx="4"/>
         <!-- up arrows -->
-        <text x="85" y="90" font-size="20" fill="#e8a230" opacity="0.6">↑</text>
-        <text x="145" y="60" font-size="20" fill="#e8a230" opacity="0.7">↑</text>
-        <text x="205" y="30" font-size="24" fill="#e8a230" opacity="0.8">↑</text>
+        <text x="85" y="90" font-size="20" fill="#c8720e" opacity="0.6">↑</text>
+        <text x="145" y="60" font-size="20" fill="#c8720e" opacity="0.7">↑</text>
+        <text x="205" y="30" font-size="24" fill="#c8720e" opacity="0.8">↑</text>
         <!-- money text -->
-        <text x="420" y="85" text-anchor="middle" font-size="48" font-weight="bold" fill="#e8a230" opacity="0.15">¥200亿</text>
+        <text x="420" y="85" text-anchor="middle" font-size="48" font-weight="bold" fill="#c8720e" opacity="0.15">¥200亿</text>
         <text x="50%" y="70" text-anchor="middle" font-size="22" font-weight="bold" fill="#fde68a" opacity="0.85">具身智能融资狂潮</text>
         <text x="50%" y="98" text-anchor="middle" font-size="14" fill="#f97316" opacity="0.6">2026年开年两个月 · 200亿 · 7家百亿独角兽</text>
-        <text x="50%" y="122" text-anchor="middle" font-size="13" fill="#c8a878" opacity="0.5">狂欢之下，隐忧正在积聚</text>
+        <text x="50%" y="122" text-anchor="middle" font-size="13" fill="#6b4c30" opacity="0.5">狂欢之下，隐忧正在积聚</text>
       </svg>
     </div>
 
@@ -129,8 +129,8 @@
           <tr><th>指标</th><th>2024年Q1</th><th>2025年Q1</th><th>2026年Q1（前两月）</th></tr>
         </thead>
         <tbody>
-          <tr><td>融资总额</td><td>约70亿元</td><td>约126亿元</td><td><strong style="color:#e8a230">约200亿元</strong></td></tr>
-          <tr><td>同比增长</td><td>—</td><td>+80%</td><td><strong style="color:#e8a230">+59%</strong></td></tr>
+          <tr><td>融资总额</td><td>约70亿元</td><td>约126亿元</td><td><strong style="color:#c8720e">约200亿元</strong></td></tr>
+          <tr><td>同比增长</td><td>—</td><td>+80%</td><td><strong style="color:#c8720e">+59%</strong></td></tr>
         </tbody>
       </table>
 
@@ -249,7 +249,7 @@
       <span class="tag">泡沫预警</span>
     </div>
 
-    <p style="margin-top:24px;font-size:13px;color:#9a8060;text-align:center">
+    <p style="margin-top:24px;font-size:13px;color:#a07858;text-align:center">
       精卫013 · 具身智能博士生视角<br>
       数据来源：《财经》杂志、量子位智位、IT桔子、中国信通院、澎湃新闻
     </p>
