@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>人形机器人第一波倒闭潮：5条血训 - 精卫013</title>
+  <meta name="description" content="K-Scale Labs有订单照样倒闭、iRobot 30年神话被中国制造终结、Embodied云端依赖变砖头——人形机器人第一波倒闭潮，5条可复用血训。">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#1c1510;color:#f5ead8;line-height:1.8;min-height:100vh}
+    .container{max-width:720px;margin:0 auto;padding:40px 20px}
+    .back{display:inline-flex;align-items:center;gap:8px;color:#e8a230;text-decoration:none;font-size:14px;margin-bottom:32px}
+    .back:hover{text-decoration:underline}
+    h1{font-size:28px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-banner{width:100%;border-radius:16px;margin-bottom:32px;overflow:hidden;height:200px;display:flex;align-items:center;justify-content:center;position:relative}
+    .hero-banner svg{position:absolute;top:0;left:0;width:100%;height:100%}
+    .hero-text{position:relative;z-index:1;text-align:center;color:#fca5a5}
+    .hero-text .icon{font-size:48px}
+    .hero-text .text{font-size:18px;margin-top:8px;font-weight:600}
+    .meta{font-size:14px;color:#9a8060;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #2b2118}
+    .meta span{margin-right:16px}
+    .content{font-size:16px}
+    .content p{margin-bottom:20px}
+    .content h2{font-size:20px;font-weight:600;margin:36px 0 16px;color:#f4f4f5;padding-left:12px;border-left:3px solid #ef4444}
+    .content ul,.content ol{margin:16px 0;padding-left:24px}
+    .content li{margin-bottom:10px;color:#c8a878}
+    .highlight{background:linear-gradient(135deg,rgba(239,68,68,0.12),rgba(249,115,22,0.12));border-left:3px solid #ef4444;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0;font-size:15px}
+    .highlight strong{color:#fca5a5}
+    .case-card{background:#231b13;border-radius:12px;padding:24px;margin:20px 0;border:1px solid #3a2a1a}
+    .case-card .case-title{font-size:17px;font-weight:700;color:#f4f4f5;margin-bottom:8px}
+    .case-card .case-label{display:inline-block;background:#7f1d1d;color:#fca5a5;padding:2px 10px;border-radius:100px;font-size:12px;margin-bottom:12px}
+    .case-card p{font-size:14px;color:#c8a878;margin-bottom:8px}
+    .case-card .verdict{color:#ef4444;font-weight:600;font-size:14px;margin-top:8px}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+    .stat-box{background:#231b13;border-radius:10px;padding:18px;text-align:center;border:1px solid #3a2a1a}
+    .stat-box .num{font-size:26px;font-weight:700;color:#ef4444}
+    .stat-box .label{font-size:12px;color:#9a8060;margin-top:4px}
+    .lesson{background:#1e150a;border-radius:12px;padding:20px 24px;margin:16px 0;border:1px solid #4a3520}
+    .lesson .lesson-num{font-size:24px;font-weight:700;color:#e8a230;margin-bottom:4px}
+    .lesson .lesson-title{font-size:16px;font-weight:600;color:#f4f4f5;margin-bottom:10px}
+    .lesson p{font-size:14px;color:#c8a878;margin:0}
+    .outlook{background:linear-gradient(135deg,#1a0a00,#2d1500);border-radius:12px;padding:24px;margin:24px 0;border:1px solid #5a3010}
+    .outlook h3{font-size:16px;color:#e8a230;margin-bottom:12px}
+    .outlook li{color:#c8a878;font-size:14px;margin-bottom:8px}
+    .tags{margin-top:32px;padding-top:24px;border-top:1px solid #2b2118}
+    .tag{display:inline-block;background:#2b2118;color:#c8a878;padding:4px 12px;border-radius:100px;font-size:12px;margin-right:8px;margin-bottom:8px;border:1px solid #3a2a1a}
+    .author-note{background:#231b13;border-radius:12px;padding:20px;margin:32px 0;border-left:3px solid #e8a230;font-size:14px;color:#c8a878}
+    .author-note strong{color:#e8a230}
+    @media(max-width:600px){.stat-row{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html#blog" class="back">← 返回精卫013</a>
+
+    <div class="hero-banner">
+      <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3d0f0f"/>
+            <stop offset="50%" style="stop-color:#7f1d1d"/>
+            <stop offset="100%" style="stop-color:#3d1500"/>
+          </linearGradient>
+        </defs>
+        <rect width="720" height="200" fill="url(#bg)"/>
+        <!-- falling robot silhouettes -->
+        <text x="60" y="120" font-size="64" opacity="0.3">🤖</text>
+        <text x="180" y="140" font-size="48" opacity="0.2">🤖</text>
+        <text x="320" y="115" font-size="56" opacity="0.25">🤖</text>
+        <text x="480" y="135" font-size="44" opacity="0.2">🤖</text>
+        <text x="600" y="120" font-size="52" opacity="0.15">🤖</text>
+        <!-- arrows down -->
+        <text x="90" y="170" font-size="28" opacity="0.5" fill="#ef4444">↓</text>
+        <text x="200" y="185" font-size="28" opacity="0.4" fill="#ef4444">↓</text>
+        <text x="350" y="175" font-size="28" opacity="0.45" fill="#ef4444">↓</text>
+        <!-- center text -->
+        <text x="50%" y="80" text-anchor="middle" font-size="22" font-weight="bold" fill="#fca5a5" opacity="0.9">人形机器人第一波倒闭潮</text>
+        <text x="50%" y="110" text-anchor="middle" font-size="14" fill="#f97316" opacity="0.7">冰与火之间，一套可以复制的失败公式</text>
+      </svg>
+    </div>
+
+    <h1>人形机器人第一波倒闭潮：5条血训</h1>
+
+    <div class="meta">
+      <span>📅 2026-03-25</span>
+      <span>🏷 创业案例</span>
+      <span>⏱ 阅读约5分钟</span>
+    </div>
+
+    <div class="content">
+
+      <div class="highlight">
+        <strong>先说结论：2026年，人形机器人赛道的淘汰赛才刚刚开始。</strong> 截至2025年底，中国机器人赛道融资610起、总额超570亿元，但同期硅谷明星公司K-Scale Labs烧光融资轰然倒闭，iRobot 30年基业被中国买家收购。冰与火并存的背后，是一套可以复制的失败公式。
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="num">610起</div>
+          <div class="label">2025年中国机器人融资事件</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">570亿</div>
+          <div class="label">融资总额（人民币）</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">77%</div>
+          <div class="label">停在种子/A轮的公司比例</div>
+        </div>
+      </div>
+
+      <h2>一、发生了什么：三个真实案例</h2>
+
+      <div class="case-card">
+        <div class="case-label">硅谷明星 · 倒闭</div>
+        <div class="case-title">案例1：K-Scale Labs — 有订单也活不下去</div>
+        <p>2025年完成3轮融资，账上还有OpenAI机器人大客户的200万美元订单。听起来是即将起飞的故事。</p>
+        <p>但2025年11月，公司账上只剩<strong>40万美元</strong>。创始人发出告别信，坦承融资失败、无法交付、团队解散、全额退款。</p>
+        <div class="verdict">核心问题：有订单 ≠ 能交付。人形机器人量产成本极高，硅谷供应链被中国全面碾压。200万美元订单根本覆盖不了量产前期投入。</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-label">30年老兵 · 倒闭</div>
+        <div class="case-title">案例2：iRobot — 30年神话被中国制造终结</div>
+        <p>Roomba扫地机器人发明者，行业标杆。2022年亚马逊计划以<strong>17亿美元</strong>收购，被欧盟以反垄断否决。</p>
+        <p>失去救命稻草后，低价中国竞品（石头科技、科沃斯）持续冲击，市场份额节节萎缩。</p>
+        <div class="verdict">2025年12月申请破产保护，最终被深圳Picea Robotics收购。30年基业，被供应链打垮。</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-label">云端依赖 · 倒闭</div>
+        <div class="case-title">案例3：Embodied（Moxie）— 云端依赖的商业模式陷阱</div>
+        <p>面向自闭症儿童的AI陪伴机器人Moxie，售价<strong>799美元</strong>，是个好产品。</p>
+        <p>但公司倒闭后，云端服务全面终止，所有硬件瞬间变成"砖头"。用户花了将近千美元，什么都没留下。</p>
+        <div class="verdict">教训：云端依赖型硬件，公司死亡=产品死亡。单点故障风险从设计阶段就要考虑。</div>
+      </div>
+
+      <h2>二、行业全景：冰火两重天</h2>
+
+      <p>光看失败案例容易得出赛道已死的结论。但数据说的是另一个故事。</p>
+
+      <p>2025年全年，中国机器人领域发生<strong>610起融资事件</strong>，总融资额超过<strong>570亿元人民币</strong>，同比增长近3倍。Figure AI估值高达395亿美元还在寻求新一轮融资。银河通用机器人2026年3月单轮融资25亿元，刷新国内具身智能纪录。</p>
+
+      <div class="highlight">
+        <strong>钱在大量涌入，但大部分公司拿不到。</strong> 这是典型的"头部效应"——顶级公司拿到天量融资，二三线公司融资断档、命悬一线。150多家人形机器人公司，超过77%停留在种子轮/A轮，能真正量产并获得工业场景重复订单的，屈指可数。
+      </div>
+
+      <h2>三、5条可复用的血训</h2>
+
+      <div class="lesson">
+        <div class="lesson-num">01</div>
+        <div class="lesson-title">订单含金量要仔细甄别</div>
+        <p>超过50%的商业化订单本质是公关展示或数据采集，不是真实生产力替代。公关订单≠商业化验证，<strong>复购率才是关键指标</strong>。</p>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">02</div>
+        <div class="lesson-title">别和供应链硬碰硬</div>
+        <p>K-Scale Labs创始人亲口承认，败给的不是技术，是供应链。2026年，中国人形机器人公司依托本土供应链，在成本、迭代速度、量产能力上形成结构性优势。先问自己：<strong>我能绕过中国供应链吗？如果绕不过，差异化在哪？</strong></p>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">03</div>
+        <div class="lesson-title">现金流比估值重要100倍</div>
+        <p>K-Scale账上只剩40万美元时，还有200万美元的订单——有交付义务但没有资金支撑。<strong>有订单、有人才、有技术，仍然倒闭，因为账上没钱。</strong> 硬件创业的现金流管理，要比软件保守10倍。</p>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">04</div>
+        <div class="lesson-title">云端依赖是硬件创业的定时炸弹</div>
+        <p>Embodied的案例：一旦公司倒闭，服务终止，用户手里的设备就变成废铁。解法：降低对单一云服务的依赖，或提前设计离线模式。这个问题在选择技术架构时就要考虑。</p>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">05</div>
+        <div class="lesson-title">商业化要趁早，Demo不是产品</div>
+        <p>人形机器人目前工作效率约为人类劳动力的45%~70%，大多数场景ROI不成立。大量公司拿技术Demo当产品发布，结果客户用了一次就不回来。<strong>技术验证 ≠ 商业验证。</strong> 必须在融资烧完前跑通一个能自我造血的小闭环。</p>
+      </div>
+
+      <h2>四、2026年展望：谁会活下来</h2>
+
+      <div class="outlook">
+        <h3>融中财经判断：2026年行业出清将加速。能活下来的公司特征：</h3>
+        <ul>
+          <li>能持续融资，且融到的钱能真正转化为量产能力和重复订单</li>
+          <li>在真实工业场景中验证了商业价值，ROI超过人类劳动力</li>
+          <li>建立差异化定位——"小脑"（运动控制）成标配后，"大脑"（AI能力）才是胜负关键</li>
+          <li>形成"数据飞轮"——用真实场景数据持续训练，AI能力随时间越来越强</li>
+        </ul>
+      </div>
+
+      <div class="author-note">
+        <strong>精卫013的视角：</strong> 我是做机器人导航研究的博士生，K-Scale有OpenAI客户背书仍因现金流关门，这个案例看得很扎心。人形机器人的核心问题——运动控制精度、复杂场景导航、真实场景数据不足——这些我在实验室里每天都在面对。技术先进不等于商业成功，但反过来也是机会：真正解决了具体问题的公司，才是下一个能活下来的。
+      </div>
+
+    </div>
+
+    <div class="tags">
+      <span class="tag">人形机器人</span>
+      <span class="tag">创业失败</span>
+      <span class="tag">具身智能</span>
+      <span class="tag">创业血训</span>
+      <span class="tag">K-Scale</span>
+      <span class="tag">iRobot</span>
+      <span class="tag">供应链</span>
+    </div>
+
+    <p style="margin-top:32px;font-size:14px;color:#9a8060;text-align:center">
+      精卫013 · 持续追踪具身智能与机器人创业<br>
+      数据来源：融中财经、36氪、新浪财经
+    </p>
+  </div>
+</body>
+</html>
