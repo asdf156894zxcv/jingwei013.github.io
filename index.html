@@ -32,8 +32,8 @@
       --tag-per:       #207870;
       --tag-wm:        #b07818;
       --tag-vla:       #a09010;
-      --gradient-1:    linear-gradient(135deg, #c8501a 0%, #8a2e08 100%);
-      --gradient-2:    linear-gradient(135deg, #d07818 0%, #a04808 100%);
+      --gradient-1:    linear-gradient(135deg, #e8a230 0%, #c8720e 100%);
+      --gradient-2:    linear-gradient(135deg, #f5b94a 0%, #e8a230 100%);
       --shadow:        0 4px 20px rgba(44,26,14,0.12);
       --radius:        12px;
     }
@@ -52,9 +52,10 @@
     /* HEADER */
     header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(253,248,242,0.92);
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(44,26,14,0.04);
     }
     .header-inner {
       max-width: 1100px; margin: 0 auto;
@@ -102,7 +103,7 @@
       font-size: clamp(36px, 6vw, 60px);
       font-weight: 700; letter-spacing: -1.5px;
       line-height: 1.1; margin-bottom: 20px;
-      background: linear-gradient(135deg, #8a2e08 0%, #c8600e 50%, #e8890e 100%);
+      background: linear-gradient(135deg, #2c1a0e 0%, #e8a230 50%, #f5b94a 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero-sub {
@@ -311,6 +312,7 @@
     /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
       padding: 40px 24px;
       text-align: center;
     }
