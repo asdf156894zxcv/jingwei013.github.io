@@ -1,182 +1,140 @@
 {
-  "updated": "2026-03-25 03:33 UTC",
-  "total": 25,
+  "updated": "2026-03-26 03:43 UTC",
+  "total": 19,
   "today_count": 0,
   "papers": [
     {
-      "title": "OccAny: Generalized Unconstrained Urban 3D Occupancy",
-      "date": "2026-03-24",
-      "id": "2603.23502v1",
-      "abstract": "Relying on in-domain annotations and precise sensor-rig priors, existing 3D occupancy prediction methods are limited in both scalability and out-of-domain generalization. While recent visual geometry ",
-      "url": "https://arxiv.org/abs/2603.23502v1"
+      "title": "Vibe Coding XR: Accelerating AI + XR Prototyping with XR Blocks and Gemini",
+      "date": "2026-03-25",
+      "id": "2603.24591v1",
+      "abstract": "While large language models have accelerated software development through \"vibe coding\", prototyping intelligent Extended Reality (XR) experiences remains inaccessible due to the friction of complex g",
+      "url": "https://arxiv.org/abs/2603.24591v1"
     },
     {
-      "title": "MedObvious: Exposing the Medical Moravec's Paradox in VLMs via Clinical Triage",
-      "date": "2026-03-24",
-      "id": "2603.23501v1",
-      "abstract": "Vision Language Models (VLMs) are increasingly used for tasks like medical report generation and visual question answering. However, fluent diagnostic text does not guarantee safe visual understanding",
-      "url": "https://arxiv.org/abs/2603.23501v1"
+      "title": "Comparing Developer and LLM Biases in Code Evaluation",
+      "date": "2026-03-25",
+      "id": "2603.24586v1",
+      "abstract": "As LLMs are increasingly used as judges in code applications, they should be evaluated in realistic interactive settings that capture partial context and ambiguous intent. We present TRACE (Tool for R",
+      "url": "https://arxiv.org/abs/2603.24586v1"
     },
     {
-      "title": "UniGRPO: Unified Policy Optimization for Reasoning-Driven Visual Generation",
-      "date": "2026-03-24",
-      "id": "2603.23500v1",
-      "abstract": "Unified models capable of interleaved generation have emerged as a promising paradigm, with the community increasingly converging on autoregressive modeling for text and flow matching for image genera",
-      "url": "https://arxiv.org/abs/2603.23500v1"
+      "title": "TAG: Target-Agnostic Guidance for Stable Object-Centric Inference in Vision-Language-Action Models",
+      "date": "2026-03-25",
+      "id": "2603.24584v1",
+      "abstract": "Vision--Language--Action (VLA) policies have shown strong progress in mapping language instructions and visual observations to robotic actions, yet their reliability degrades in cluttered scenes with ",
+      "url": "https://arxiv.org/abs/2603.24584v1"
     },
     {
-      "title": "VTAM: Video-Tactile-Action Models for Complex Physical Interaction Beyond VLAs",
-      "date": "2026-03-24",
-      "id": "2603.23481v1",
-      "abstract": "Video-Action Models (VAMs) have emerged as a promising framework for embodied intelligence, learning implicit world dynamics from raw video streams to produce temporally consistent action predictions.",
-      "url": "https://arxiv.org/abs/2603.23481v1"
+      "title": "Chameleon: Episodic Memory for Long-Horizon Robotic Manipulation",
+      "date": "2026-03-25",
+      "id": "2603.24576v1",
+      "abstract": "Robotic manipulation often requires memory: occlusion and state changes can make decision-time observations perceptually aliased, making action selection non-Markovian at the observation level because",
+      "url": "https://arxiv.org/abs/2603.24576v1"
     },
     {
-      "title": "SIMART: Decomposing Monolithic Meshes into Sim-ready Articulated Assets via MLLM",
-      "date": "2026-03-24",
-      "id": "2603.23386v1",
-      "abstract": "High-quality articulated 3D assets are indispensable for embodied AI and physical simulation, yet 3D generation still focuses on static meshes, leaving a gap in \"sim-ready\" interactive objects. Most r",
-      "url": "https://arxiv.org/abs/2603.23386v1"
+      "title": "The enrichment paradox: critical capability thresholds and irreversible dependency in human-AI symbiosis",
+      "date": "2026-03-25",
+      "id": "2603.24391v1",
+      "abstract": "As artificial intelligence assumes cognitive labor, no quantitative framework predicts when human capability loss becomes catastrophic. We present a two-variable dynamical systems model coupling capab",
+      "url": "https://arxiv.org/abs/2603.24391v1"
     },
     {
-      "title": "ABot-PhysWorld: Interactive World Foundation Model for Robotic Manipulation with Physics Alignment",
-      "date": "2026-03-24",
-      "id": "2603.23376v1",
-      "abstract": "Video-based world models offer a powerful paradigm for embodied simulation and planning, yet state-of-the-art models often generate physically implausible manipulations - such as object penetration an",
-      "url": "https://arxiv.org/abs/2603.23376v1"
+      "title": "Honey, I shrunk the scientist -- Evaluating 2D, 3D, and VR interfaces for navigating samples under the microscope",
+      "date": "2026-03-25",
+      "id": "2603.24337v1",
+      "abstract": "In contemporary biology and medicine, 3D microscopy is one of the most widely-used techniques for imaging and manipulation of various kinds of samples. Navigating such a micrometer-sized, 3-dimensiona",
+      "url": "https://arxiv.org/abs/2603.24337v1"
     },
     {
-      "title": "Active learning-enabled multi-objective design of thermally conductive and mechanically compliant polymers",
-      "date": "2026-03-24",
-      "id": "2603.23494v1",
-      "abstract": "Polymers are attractive in applications like flexible electronics and thermal interface materials due to their mechanical compliance and processability. However, conventional polymers have low thermal",
-      "url": "https://arxiv.org/abs/2603.23494v1"
+      "title": "Fractal universe and quantum gravity made simple",
+      "date": "2026-03-25",
+      "id": "2603.24593v1",
+      "abstract": "Quantum field theory (QFT) on fractal spacetimes is a program aiming at quantizing the gravitational interaction consistently at all energy scales thanks to an intrinsically or dynamically induced mul",
+      "url": "https://arxiv.org/abs/2603.24593v1"
     },
     {
-      "title": "AgentRVOS: Reasoning over Object Tracks for Zero-Shot Referring Video Object Segmentation",
-      "date": "2026-03-24",
-      "id": "2603.23489v1",
-      "abstract": "Referring Video Object Segmentation (RVOS) aims to segment a target object throughout a video given a natural language query. Training-free methods for this task follow a common pipeline: a MLLM selec",
-      "url": "https://arxiv.org/abs/2603.23489v1"
+      "title": "Polynomial Speedup in Diffusion Models with the Multilevel Euler-Maruyama Method",
+      "date": "2026-03-25",
+      "id": "2603.24594v1",
+      "abstract": "We introduce the Multilevel Euler-Maruyama (ML-EM) method compute solutions of SDEs and ODEs using a range of approximators $f^1,\\dots,f^k$ to the drift $f$ with increasing accuracy and computational ",
+      "url": "https://arxiv.org/abs/2603.24594v1"
     },
     {
-      "title": "TETO: Tracking Events with Teacher Observation for Motion Estimation and Frame Interpolation",
-      "date": "2026-03-24",
-      "id": "2603.23487v1",
-      "abstract": "Event cameras capture per-pixel brightness changes with microsecond resolution, offering continuous motion information lost between RGB frames. However, existing event-based motion estimators depend o",
-      "url": "https://arxiv.org/abs/2603.23487v1"
+      "title": "YingMusic-Singer: Controllable Singing Voice Synthesis with Flexible Lyric Manipulation and Annotation-free Melody Guidance",
+      "date": "2026-03-25",
+      "id": "2603.24589v1",
+      "abstract": "Regenerating singing voices with altered lyrics while preserving melody consistency remains challenging, as existing methods either offer limited controllability or require laborious manual alignment.",
+      "url": "https://arxiv.org/abs/2603.24589v1"
     },
     {
-      "title": "Edge Radar Material Classification Under Geometry Shifts",
-      "date": "2026-03-24",
-      "id": "2603.23342v1",
-      "abstract": "Material awareness can improve robotic navigation and interaction, particularly in conditions where cameras and LiDAR degrade. We present a lightweight mmWave radar material classification pipeline de",
-      "url": "https://arxiv.org/abs/2603.23342v1"
+      "title": "SpinGQE: A Generative Quantum Eigensolver for Spin Hamiltonians",
+      "date": "2026-03-25",
+      "id": "2603.24298v1",
+      "abstract": "The ground state search problem is central to quantum computing, with applications spanning quantum chemistry, condensed matter physics, and optimization. The Variational Quantum Eigensolver (VQE) has",
+      "url": "https://arxiv.org/abs/2603.24298v1"
     },
     {
-      "title": "AeroScene: Progressive Scene Synthesis for Aerial Robotics",
-      "date": "2026-03-24",
-      "id": "2603.23224v1",
-      "abstract": "Generative models have shown substantial impact across multiple domains, their potential for scene synthesis remains underexplored in robotics. This gap is more evident in drone simulators, where simu",
-      "url": "https://arxiv.org/abs/2603.23224v1"
+      "title": "EndoVGGT: GNN-Enhanced Depth Estimation for Surgical 3D Reconstruction",
+      "date": "2026-03-25",
+      "id": "2603.24577v1",
+      "abstract": "Accurate 3D reconstruction of deformable soft tissues is essential for surgical robotic perception. However, low-texture surfaces, specular highlights, and instrument occlusions often fragment geometr",
+      "url": "https://arxiv.org/abs/2603.24577v1"
     },
     {
-      "title": "HGNet: Scalable Foundation Model for Automated Knowledge Graph Generation from Scientific Literature",
-      "date": "2026-03-24",
-      "id": "2603.23136v1",
-      "abstract": "Automated knowledge graph (KG) construction is essential for navigating the rapidly expanding body of scientific literature. However, existing approaches struggle to recognize long multi-word entities",
-      "url": "https://arxiv.org/abs/2603.23136v1"
+      "title": "UI-Voyager: A Self-Evolving GUI Agent Learning via Failed Experience",
+      "date": "2026-03-25",
+      "id": "2603.24533v1",
+      "abstract": "Autonomous mobile GUI agents have attracted increasing attention along with the advancement of Multimodal Large Language Models (MLLMs). However, existing methods still suffer from inefficient learnin",
+      "url": "https://arxiv.org/abs/2603.24533v1"
     },
     {
-      "title": "Planning over MAPF Agent Dependencies via Multi-Dependency PIBT",
-      "date": "2026-03-24",
-      "id": "2603.23405v1",
-      "abstract": "Modern Multi-Agent Path Finding (MAPF) algorithms must plan for hundreds to thousands of agents in congested environments within a second, requiring highly efficient algorithms. Priority Inheritance w",
-      "url": "https://arxiv.org/abs/2603.23405v1"
+      "title": "Unleashing Vision-Language Semantics for Deepfake Video Detection",
+      "date": "2026-03-25",
+      "id": "2603.24454v1",
+      "abstract": "Recent Deepfake Video Detection (DFD) studies have demonstrated that pre-trained Vision-Language Models (VLMs) such as CLIP exhibit strong generalization capabilities in detecting artifacts across dif",
+      "url": "https://arxiv.org/abs/2603.24454v1"
     },
     {
-      "title": "Reliable and High Performance IGZO and In2O3 Transistors via Channel Capping",
-      "date": "2026-03-24",
-      "id": "2603.23341v1",
-      "abstract": "A device and process strategy for achieving reliable indium gallium zinc oxide and indium oxide transistors compatible with a 400oC BEOL thermal budget and without performance degradation is demonstra",
-      "url": "https://arxiv.org/abs/2603.23341v1"
+      "title": "MARCH: Multi-Agent Reinforced Self-Check for LLM Hallucination",
+      "date": "2026-03-25",
+      "id": "2603.24579v1",
+      "abstract": "Hallucination remains a critical bottleneck for large language models (LLMs), undermining their reliability in real-world applications, especially in Retrieval-Augmented Generation (RAG) systems. Whil",
+      "url": "https://arxiv.org/abs/2603.24579v1"
     },
     {
-      "title": "Failure of contextual invariance in gender inference with large language models",
-      "date": "2026-03-24",
-      "id": "2603.23485v1",
-      "abstract": "Standard evaluation practices assume that large language model (LLM) outputs are stable under contextually equivalent formulations of a task. Here, we test this assumption in the setting of gender inf",
-      "url": "https://arxiv.org/abs/2603.23485v1"
+      "title": "Landau and fractionalized theories of periodically driven intertwined orders",
+      "date": "2026-03-25",
+      "id": "2603.24592v1",
+      "abstract": "We obtain the phase diagrams of field theories of intertwined orders in the presence of periodic driving by an external field which preserves all symmetries. We consider both a conventional Landau the",
+      "url": "https://arxiv.org/abs/2603.24592v1"
     },
     {
-      "title": "SpecEyes: Accelerating Agentic Multimodal LLMs via Speculative Perception and Planning",
-      "date": "2026-03-24",
-      "id": "2603.23483v1",
-      "abstract": "Agentic multimodal large language models (MLLMs) (e.g., OpenAI o3 and Gemini Agentic Vision) achieve remarkable reasoning capabilities through iterative visual tool invocation. However, the cascaded p",
-      "url": "https://arxiv.org/abs/2603.23483v1"
+      "title": "DreamerAD: Efficient Reinforcement Learning via Latent World Model for Autonomous Driving",
+      "date": "2026-03-25",
+      "id": "2603.24587v1",
+      "abstract": "We introduce DreamerAD, the first latent world model framework that enables efficient reinforcement learning for autonomous driving by compressing diffusion sampling from 100 steps to 1 - achieving 80",
+      "url": "https://arxiv.org/abs/2603.24587v1"
     },
     {
-      "title": "ReqFusion: A Multi-Provider Framework for Automated PEGS Analysis Across Software Domains",
-      "date": "2026-03-24",
-      "id": "2603.23482v1",
-      "abstract": "Requirements engineering is a vital, yet labor-intensive, stage in the software development process. This article introduces ReqFusion: an AI-enhanced system that automates the extraction, classificat",
-      "url": "https://arxiv.org/abs/2603.23482v1"
+      "title": "VFIG: Vectorizing Complex Figures in SVG with Vision-Language Models",
+      "date": "2026-03-25",
+      "id": "2603.24575v1",
+      "abstract": "Scalable Vector Graphics (SVG) are an essential format for technical illustration and digital design, offering precise resolution independence and flexible semantic editability. In practice, however, ",
+      "url": "https://arxiv.org/abs/2603.24575v1"
     },
     {
-      "title": "DA-Flow: Degradation-Aware Optical Flow Estimation with Diffusion Models",
-      "date": "2026-03-24",
-      "id": "2603.23499v1",
-      "abstract": "Optical flow models trained on high-quality data often degrade severely when confronted with real-world corruptions such as blur, noise, and compression artifacts. To overcome this limitation, we form",
-      "url": "https://arxiv.org/abs/2603.23499v1"
+      "title": "Latent-WAM: Latent World Action Modeling for End-to-End Autonomous Driving",
+      "date": "2026-03-25",
+      "id": "2603.24581v1",
+      "abstract": "We introduce Latent-WAM, an efficient end-to-end autonomous driving framework that achieves strong trajectory planning through spatially-aware and dynamics-informed latent world representations. Exist",
+      "url": "https://arxiv.org/abs/2603.24581v1"
     },
     {
-      "title": "Hall Viscosity in the Quark-Gluon Plasma",
-      "date": "2026-03-24",
-      "id": "2603.23498v1",
-      "abstract": "We study the Hall viscosity of the quark gluon plasma (QGP) created in non-central heavy-ion collisions. In the presence of a strong magnetic field or vorticity, rotational symmetry is broken from O(3",
-      "url": "https://arxiv.org/abs/2603.23498v1"
-    },
-    {
-      "title": "Estimating Flow Velocity and Vehicle Angle-of-Attack from Non-invasive Piezoelectric Structural Measurements Using Deep Learning",
-      "date": "2026-03-24",
-      "id": "2603.23496v1",
-      "abstract": "Accurate estimation of aerodynamic state variables such as freestream velocity and angle of attack (AoA) is important for aerodynamic load prediction, flight control, and model validation. This work p",
-      "url": "https://arxiv.org/abs/2603.23496v1"
-    },
-    {
-      "title": "Tunable Floquet selection rules in a driven Ising chain",
-      "date": "2026-03-24",
-      "id": "2603.23493v1",
-      "abstract": "We study a periodically driven spin-$1/2$ Ising chain with a nearest-neighbour coupling and longitudinal field while a weak transverse field induces single-spin flips. Through Floquet perturbation the",
-      "url": "https://arxiv.org/abs/2603.23493v1"
-    },
-    {
-      "title": "Evidence of political bias in search engines and language models before major elections",
-      "date": "2026-03-24",
-      "id": "2603.23474v1",
-      "abstract": "Search engines (SEs) and large language models (LLMs) are central to political information access, yet their algorithmic decisions and potential underlying biases remain underexplored. We developed a ",
-      "url": "https://arxiv.org/abs/2603.23474v1"
-    },
-    {
-      "title": "One View Is Enough! Monocular Training for In-the-Wild Novel View Generation",
-      "date": "2026-03-24",
-      "id": "2603.23488v1",
-      "abstract": "Monocular novel-view synthesis has long required multi-view image pairs for supervision, limiting training data scale and diversity. We argue it is not necessary: one view is enough. We present OVIE, ",
-      "url": "https://arxiv.org/abs/2603.23488v1"
-    },
-    {
-      "title": "WildWorld: A Large-Scale Dataset for Dynamic World Modeling with Actions and Explicit State toward Generative ARPG",
-      "date": "2026-03-24",
-      "id": "2603.23497v1",
-      "abstract": "Dynamical systems theory and reinforcement learning view world evolution as latent-state dynamics driven by actions, with visual observations providing partial information about the state. Recent vide",
-      "url": "https://arxiv.org/abs/2603.23497v1"
-    },
-    {
-      "title": "Dynamic Light Spanners in Doubling Metrics",
-      "date": "2026-03-24",
-      "id": "2603.23490v1",
-      "abstract": "A $t$-spanner of a point set $X$ in a metric space $(\\mathcal{X}, δ)$ is a graph $G$ with vertex set $P$ such that, for any pair of points $u,v \\in X$, the distance between $u$ and $v$ in $G$ is at mo",
-      "url": "https://arxiv.org/abs/2603.23490v1"
+      "title": "Vision-Language Models vs Human: Perceptual Image Quality Assessment",
+      "date": "2026-03-25",
+      "id": "2603.24578v1",
+      "abstract": "Psychophysical experiments remain the most reliable approach for perceptual image quality assessment (IQA), yet their cost and limited scalability encourage automated approaches. We investigate whethe",
+      "url": "https://arxiv.org/abs/2603.24578v1"
     }
   ]
 }
