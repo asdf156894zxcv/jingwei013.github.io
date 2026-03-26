@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>语义地图构建：ObjectNav的核心技术栈 | 精卫013</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e14;
+      --bg-secondary: #111620;
+      --bg-card: #151c28;
+      --bg-card-hover: #1c2535;
+      --accent-red: #e0503a;
+      --accent-red-light: #ff6b4a;
+      --accent-gold: #f0a500;
+      --accent-cyan: #4ecdc4;
+      --text-primary: #e8eaf0;
+      --text-secondary: #8892a4;
+      --text-muted: #4a5568;
+      --border: #1e2a3a;
+      --glow-red: rgba(224, 80, 58, 0.15);
+      --glow-gold: rgba(240, 165, 0, 0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 10%, var(--glow-red), transparent),
+        radial-gradient(ellipse 40% 40% at 20% 80%, var(--glow-gold), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 20, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--text-primary); }
+
+    .article-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 100px 2rem 80px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tag-type {
+      background: rgba(224, 80, 58, 0.15);
+      color: var(--accent-red);
+      border: 1px solid rgba(224, 80, 58, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .article-date {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .read-time {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text-primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .article-lead {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-body h2 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      margin: 2.5rem 0 1rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent-gold);
+    }
+
+    .article-body h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .article-body p {
+      line-height: 1.85;
+      color: #c8cdd8;
+      margin-bottom: 1.2rem;
+      font-size: 0.97rem;
+    }
+
+    .article-body strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .article-body em {
+      color: var(--accent-cyan);
+      font-style: normal;
+    }
+
+    .highlight-box {
+      background: rgba(240, 165, 0, 0.07);
+      border: 1px solid rgba(240, 165, 0, 0.25);
+      border-left: 4px solid var(--accent-gold);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: #d4b896;
+      font-size: 0.95rem;
+    }
+
+    .highlight-box .box-title {
+      color: var(--accent-gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .insight-box {
+      background: rgba(78, 205, 196, 0.06);
+      border: 1px solid rgba(78, 205, 196, 0.2);
+      border-left: 4px solid var(--accent-cyan);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+    }
+
+    .insight-box p {
+      margin: 0;
+      color: #9ee4df;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .insight-box .box-title {
+      color: var(--accent-cyan);
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    /* 对比表格 */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.88rem;
+    }
+
+    .compare-table th {
+      background: var(--bg-card);
+      color: var(--accent-gold);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .compare-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid rgba(30,42,58,0.7);
+      color: #c8cdd8;
+      vertical-align: top;
+    }
+
+    .compare-table tr:hover td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .compare-table .method-name {
+      color: var(--accent-red);
+      font-weight: 600;
+    }
+
+    .compare-table .score-high {
+      color: #4ade80;
+      font-weight: 600;
+    }
+
+    .compare-table .score-mid {
+      color: var(--accent-gold);
+    }
+
+    .compare-table .score-low {
+      color: var(--text-secondary);
+    }
+
+    /* 技术层级图 */
+    .stack-diagram {
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .stack-layer {
+      padding: 1rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .stack-layer:last-child { border-bottom: none; }
+
+    .stack-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .layer-1 { background: var(--bg-card); }
+    .layer-1 .stack-num { background: rgba(224,80,58,0.2); color: var(--accent-red); }
+
+    .layer-2 { background: rgba(240,165,0,0.04); }
+    .layer-2 .stack-num { background: rgba(240,165,0,0.2); color: var(--accent-gold); }
+
+    .layer-3 { background: rgba(78,205,196,0.04); }
+    .layer-3 .stack-num { background: rgba(78,205,196,0.15); color: var(--accent-cyan); }
+
+    .layer-4 { background: rgba(130,100,200,0.04); }
+    .layer-4 .stack-num { background: rgba(130,100,200,0.2); color: #a78bfa; }
+
+    .stack-content .layer-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
+
+    .layer-1 .layer-title { color: var(--accent-red); }
+    .layer-2 .layer-title { color: var(--accent-gold); }
+    .layer-3 .layer-title { color: var(--accent-cyan); }
+    .layer-4 .layer-title { color: #a78bfa; }
+
+    .stack-content .layer-desc {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* 方法卡片 */
+    .method-cards {
+      display: grid;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .method-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      transition: border-color 0.2s;
+    }
+
+    .method-card:hover { border-color: rgba(224,80,58,0.3); }
+
+    .method-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .method-badge {
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .badge-2024 { background: rgba(240,165,0,0.15); color: var(--accent-gold); }
+    .badge-2025 { background: rgba(78,205,196,0.15); color: var(--accent-cyan); }
+    .badge-2026 { background: rgba(224,80,58,0.15); color: var(--accent-red); }
+
+    .method-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-primary);
+    }
+
+    .method-venue {
+      margin-left: auto;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .method-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .method-key {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+    }
+
+    .key-tag {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* 数字高亮 */
+    .stat-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.2rem 0;
+    }
+
+    .stat-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      flex: 1;
+      min-width: 140px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      display: block;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* 决策树 */
+    .decision-tree {
+      margin: 1.5rem 0;
+    }
+
+    .dt-step {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .dt-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 32px;
+      bottom: -8px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .dt-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .dt-body {
+      padding-bottom: 1.4rem;
+      flex: 1;
+    }
+
+    .dt-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .dt-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .dt-s1 .dt-icon { background: rgba(224,80,58,0.2); color: var(--accent-red); }
+    .dt-s2 .dt-icon { background: rgba(240,165,0,0.2); color: var(--accent-gold); }
+    .dt-s3 .dt-icon { background: rgba(78,205,196,0.2); color: var(--accent-cyan); }
+    .dt-s4 .dt-icon { background: rgba(130,100,200,0.2); color: #a78bfa; }
+
+    .dt-s1 .dt-title { color: var(--accent-red); }
+    .dt-s2 .dt-title { color: var(--accent-gold); }
+    .dt-s3 .dt-title { color: var(--accent-cyan); }
+    .dt-s4 .dt-title { color: #a78bfa; }
+
+    /* 底部标签 */
+    .article-tags {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .article-tag {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .article-footer {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .article-footer p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin: 0;
+    }
+
+    .article-footer a {
+      color: var(--accent-red);
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .article-wrapper { padding: 80px 1.2rem 60px; }
+      h1 { font-size: 1.5rem; }
+      .stat-row { gap: 0.6rem; }
+      .stat-item { padding: 0.75rem 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">精卫013</a>
+    <a href="../index.html#blog" class="nav-back">← 返回博客</a>
+  </div>
+</nav>
+
+<div class="article-wrapper">
+  <div class="article-meta">
+    <span class="tag-type">研究</span>
+    <span class="article-date">2026-03-26</span>
+    <span class="read-time">阅读约 10 分钟</span>
+  </div>
+
+  <h1>语义地图构建：ObjectNav 的核心技术栈</h1>
+
+  <p class="article-lead">
+    ObjectNav 里，<strong>地图决定上限，探索策略决定效率</strong>。这篇文章系统拆解语义地图的四层技术栈——从原始像素到导航决策，每一层都有不同的技术选型和设计取舍。2024-2026 年，这个方向被 VLM 和 3DGS 彻底重塑了。
+  </p>
+
+  <div class="article-body">
+
+    <h2>先搞清楚：为什么 ObjectNav 需要语义地图？</h2>
+
+    <p>
+      ObjectNav 的任务定义看起来简单：给你一个目标词（比如"找到椅子"），让机器人在陌生房间里把它找到。但这个"简单"任务包含三个极难的子问题：
+    </p>
+
+    <div class="stack-diagram">
+      <div class="stack-layer dt-s1">
+        <div class="stack-num" style="background:rgba(224,80,58,0.2);color:var(--accent-red);">?</div>
+        <div class="stack-content">
+          <div class="layer-title">在哪里？（Localization）</div>
+          <div class="layer-desc">机器人自身在哪？没有 GPS，没有先验地图，只有 RGB-D 传感器。</div>
+        </div>
+      </div>
+      <div class="stack-layer dt-s2">
+        <div class="stack-num" style="background:rgba(240,165,0,0.2);color:var(--accent-gold);">?</div>
+        <div class="stack-content">
+          <div class="layer-title">目标在哪里？（Semantic Understanding）</div>
+          <div class="layer-desc">椅子可能在卧室、客厅、餐厅，甚至藏在角落里看不见。</div>
+        </div>
+      </div>
+      <div class="stack-layer dt-s3">
+        <div class="stack-num" style="background:rgba(78,205,196,0.2);color:var(--accent-cyan);">?</div>
+        <div class="stack-content">
+          <div class="layer-title">怎么去？（Navigation Planning）</div>
+          <div class="layer-desc">规避障碍、决定探索顺序、在找到目标时及时停下。</div>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      语义地图就是把这三个问题的答案统一编码到一个数据结构里。它既表示物理空间（我在哪、哪里能走），也表示语义信息（哪里可能有目标），还支持导航规划（下一步该往哪走）。
+    </p>
+
+    <div class="highlight-box">
+      <div class="box-title">核心矛盾</div>
+      <p>地图越精细，越能找到目标，但构建成本越高、计算越慢。导航 benchmark 通常限制步数（Habitat 上限 500 步），所以效率和精度的权衡贯穿整个技术栈。</p>
+    </div>
+
+    <h2>技术栈全景：四层架构</h2>
+
+    <p>
+      把 ObjectNav 的语义地图技术栈分成四层，从底层感知到上层决策，每一层都有独立的研究问题：
+    </p>
+
+    <div class="stack-diagram">
+      <div class="stack-layer layer-1">
+        <div class="stack-num">L1</div>
+        <div class="stack-content">
+          <div class="layer-title">感知层：语义分割 + 深度估计</div>
+          <div class="layer-desc">把 RGB-D 图像转成有语义标签的点云。核心问题：用什么分割模型？开放词汇还是固定类别？</div>
+        </div>
+      </div>
+      <div class="stack-layer layer-2">
+        <div class="stack-num">L2</div>
+        <div class="stack-content">
+          <div class="layer-title">表示层：地图数据结构</div>
+          <div class="layer-desc">把点云组织成可查询的地图。三大选项：2D 语义栅格图、3D 点云 / 体素、场景图（Scene Graph）。</div>
+        </div>
+      </div>
+      <div class="stack-layer layer-3">
+        <div class="stack-num">L3</div>
+        <div class="stack-content">
+          <div class="layer-title">探索层：前沿检测 + 策略</div>
+          <div class="layer-desc">决定机器人下一步往哪走。经典方案：Frontier-Based Exploration (FBE)；VLM增强版：VLFM 语义价值前沿。</div>
+        </div>
+      </div>
+      <div class="stack-layer layer-4">
+        <div class="stack-num">L4</div>
+        <div class="stack-content">
+          <div class="layer-title">决策层：目标推断 + 停止判断</div>
+          <div class="layer-desc">判断当前帧是否是目标、何时停止导航。VLM/LLM 作为推理引擎成为主流。</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>L1：感知层——分割模型的选择决定天花板</h2>
+
+    <p>
+      感知层的历史就是分割模型的进化史。三个阶段：
+    </p>
+
+    <h3>阶段一：固定类别分割（2019-2022）</h3>
+    <p>
+      用 Mask-RCNN 或 DeepLab 这类在 COCO/ADE20K 上预训练的模型，只能识别固定的 80-150 个类别。代表作：<strong>Chaplot 等人的 Goal-Oriented Semantic Exploration（CVPR 2020）</strong>，用 RedNet 做实时语义分割，SR 在 Gibson benchmark 上达到 35.4%，比当时纯几何方法高 12 个点。
+    </p>
+    <p>
+      问题：ObjectNav benchmark 里有很多长尾类别（如"吹风机"、"花瓶"），固定类别模型直接挂掉。
+    </p>
+
+    <h3>阶段二：CLIP 开放词汇（2022-2024）</h3>
+    <p>
+      CLIP 的出现让开放词汇导航成为可能。机器人不再需要见过目标类别，只需要把目标文本和图像特征匹配。<strong>VLFM（ICRA 2024）</strong>把这个思路做成了系统：
+    </p>
+
+    <div class="method-cards">
+      <div class="method-card">
+        <div class="method-card-header">
+          <span class="method-badge badge-2024">ICRA 2024</span>
+          <span class="method-title">VLFM: Vision-Language Frontier Maps</span>
+          <span class="method-venue">Boston Dynamics AI</span>
+        </div>
+        <div class="method-desc">
+          用深度图构建占据地图，识别前沿区域；用 VLM（GroundingDINO + BLIP2）为每个前沿打分，选语义最相关的前沿探索。核心贡献：把语言目标融入前沿探索，实现零样本导航。
+        </div>
+        <div class="method-key">
+          <span class="key-tag">GroundingDINO</span>
+          <span class="key-tag">零样本</span>
+          <span class="key-tag">前沿语义打分</span>
+          <span class="key-tag">Gibson/HM3D/MP3D SOTA</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>阶段三：大模型驱动感知（2024-2026）</h3>
+    <p>
+      GPT-4V、Qwen2-VL、InternVL 的出现让感知层有了推理能力。不再只是"这是椅子"，而是"右边那个房间更像客厅，椅子可能在那里"。这直接影响了探索策略的质量。
+    </p>
+
+    <h2>L2：表示层——三种地图数据结构的终极对比</h2>
+
+    <div class="stat-row">
+      <div class="stat-item">
+        <span class="stat-num">2D</span>
+        <div class="stat-label">语义栅格图<br>最成熟、最快</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">3D</span>
+        <div class="stat-label">点云/体素图<br>最完整、最重</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">SG</span>
+        <div class="stat-label">场景图<br>最紧凑、最可推理</div>
+      </div>
+    </div>
+
+    <table class="compare-table">
+      <tr>
+        <th>地图类型</th>
+        <th>分辨率</th>
+        <th>存储</th>
+        <th>推理能力</th>
+        <th>代表工作</th>
+      </tr>
+      <tr>
+        <td class="method-name">2D 语义栅格</td>
+        <td>5cm/格</td>
+        <td class="score-high">低</td>
+        <td class="score-low">弱（仅空间）</td>
+        <td>ANS, VLFM</td>
+      </tr>
+      <tr>
+        <td class="method-name">3D 点云/体素</td>
+        <td>1-5cm</td>
+        <td class="score-low">高</td>
+        <td class="score-mid">中（含高度）</td>
+        <td>Semantic 3D Map</td>
+      </tr>
+      <tr>
+        <td class="method-name">场景图</td>
+        <td>对象级</td>
+        <td class="score-high">极低</td>
+        <td class="score-high">强（关系推理）</td>
+        <td>SG-Nav, UniGoal</td>
+      </tr>
+      <tr>
+        <td class="method-name">3DGS 神经表示</td>
+        <td>连续</td>
+        <td class="score-mid">中</td>
+        <td class="score-high">强（自由视点）</td>
+        <td>3DGSNav (2026)</td>
+      </tr>
+    </table>
+
+    <h3>场景图崛起：SG-Nav 和 UniGoal</h3>
+
+    <p>
+      场景图是 2024-2025 年 ObjectNav 最重要的技术趋势之一。不再存储原始像素，而是存储"对象-关系"图：床在卧室里，椅子在床边。
+    </p>
+
+    <div class="method-cards">
+      <div class="method-card">
+        <div class="method-card-header">
+          <span class="method-badge badge-2024">NeurIPS 2024</span>
+          <span class="method-title">SG-Nav: Online 3D Scene Graph Guided Navigation</span>
+        </div>
+        <div class="method-desc">
+          在线增量式构建 3D 场景图，将物体、房间类型、空间关系编码进图结构。用图神经网络做推理，引导智能体向可能包含目标的区域探索。NeurIPS 2024 接收后扩展为 UniGoal，在 CVPR 2025 统一了不同导航任务（ObjectNav、PointNav、ImageNav）。
+        </div>
+        <div class="method-key">
+          <span class="key-tag">在线场景图</span>
+          <span class="key-tag">GNN推理</span>
+          <span class="key-tag">NeurIPS 2024</span>
+          <span class="key-tag">CVPR 2025扩展</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <div class="box-title">为什么场景图比栅格图更适合导航？</div>
+      <p>栅格图回答"这个位置有什么"，场景图回答"这些东西之间什么关系"。导航需要常识推理——"电视一般在客厅，床一般在卧室"——这类空间关系用图表示天然契合 LLM 的输入格式。</p>
+    </div>
+
+    <h3>3DGS 神经隐式表示：2026 年的新玩家</h3>
+
+    <p>
+      <strong>3DGSNav（arXiv 2026.02）</strong>把 3D 高斯泼溅（3DGS）作为 VLM 的"持久化空间记忆"。机器人边走边重建三维高斯场，可以在任意视角渲染出逼真图像，让 VLM 能"回顾"没有直接观测到的角落。
+    </p>
+
+    <p>
+      技术亮点：支持轨迹引导的自由视点渲染 + 边界感知的第一人称视图生成。在四足机器人真实环境实验中验证了可行性。这是第一类把神经渲染和零样本 ObjectNav 结合的工作，方向值得跟踪。
+    </p>
+
+    <h2>L3：探索层——前沿检测和策略选择</h2>
+
+    <p>
+      前沿（Frontier）是已探索区域和未探索区域的边界。经典 Frontier-Based Exploration (FBE) 的策略是：找到所有前沿，去离自己最近的那个。这个策略简单但盲目——不管目标是什么，每个前沿优先级相同。
+    </p>
+
+    <h3>语义加权前沿：VLFM 的核心贡献</h3>
+
+    <p>
+      VLFM 的关键改进是给每个前沿打语义分：用 VLM 估计"如果往这个前沿走，找到目标的概率有多大"。厨房方向出现了微波炉，那附近的前沿优先级提高。这让导航效率大幅提升，在三个 benchmark 上均达到 SOTA。
+    </p>
+
+    <h3>SCOPE：时空势能图 + 自反思（AAAI 2026）</h3>
+
+    <div class="method-cards">
+      <div class="method-card">
+        <div class="method-card-header">
+          <span class="method-badge badge-2026">AAAI 2026</span>
+          <span class="method-title">SCOPE: Semantic Cognition over Potential-Based Exploration</span>
+        </div>
+        <div class="method-desc">
+          把前沿探索升级为"势能图"——不只看当前帧，而是构建时空维度的势能地图，记录随探索过程每个区域的动态变化。关键创新是<strong>自反思机制</strong>：智能体会定期回顾自己的决策，如果当前路径看起来不对，主动回溯。比最优基线准确率提升 4.6%。
+        </div>
+        <div class="method-key">
+          <span class="key-tag">时空势能图</span>
+          <span class="key-tag">自反思</span>
+          <span class="key-tag">零样本</span>
+          <span class="key-tag">+4.6% vs SOTA</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>Frontier Semantic Exploration（FSE）的探索策略对比</h3>
+
+    <table class="compare-table">
+      <tr>
+        <th>策略</th>
+        <th>前沿选择依据</th>
+        <th>优点</th>
+        <th>缺点</th>
+      </tr>
+      <tr>
+        <td class="method-name">经典 FBE</td>
+        <td>最近前沿</td>
+        <td class="score-mid">高效、简单</td>
+        <td>完全盲目，不管目标</td>
+      </tr>
+      <tr>
+        <td class="method-name">VLFM</td>
+        <td>VLM 语义打分</td>
+        <td class="score-high">零样本、语义感知</td>
+        <td>单步决策，无历史</td>
+      </tr>
+      <tr>
+        <td class="method-name">SCOPE</td>
+        <td>时空势能图</td>
+        <td class="score-high">动态规划 + 自反思</td>
+        <td>计算开销更大</td>
+      </tr>
+      <tr>
+        <td class="method-name">SG-Nav</td>
+        <td>场景图语义推理</td>
+        <td class="score-high">常识推理最强</td>
+        <td>场景图构建有误差</td>
+      </tr>
+    </table>
+
+    <h2>L4：决策层——何时"停下来，就是这里"</h2>
+
+    <p>
+      ObjectNav 的成功率（SR）不只看能不能走到目标附近，还要求智能体在正确位置停下来（停在目标 1m 内且目标在视野内）。<strong>停止决策错误是 SR 损失的主要来源之一</strong>，这一点常被低估。
+    </p>
+
+    <h3>三类停止策略</h3>
+
+    <div class="decision-tree">
+      <div class="dt-step dt-s1">
+        <div class="dt-icon">1</div>
+        <div class="dt-body">
+          <div class="dt-title">固定阈值：检测置信度 > 0.8 则停</div>
+          <div class="dt-desc">早期方法。问题：Mask-RCNN 在低光照/遮挡场景置信度不稳定，误停率高。</div>
+        </div>
+      </div>
+      <div class="dt-step dt-s2">
+        <div class="dt-icon">2</div>
+        <div class="dt-body">
+          <div class="dt-title">VLM 验证：多角度重验证</div>
+          <div class="dt-desc">3DGSNav 的方案：实时检测器初筛，VLM 做主动视点切换再验证。先生成目标附近视角的渲染图，让 VLM 从多个角度确认是否正确目标，再决定停止。</div>
+        </div>
+      </div>
+      <div class="dt-step dt-s3">
+        <div class="dt-icon">3</div>
+        <div class="dt-body">
+          <div class="dt-title">LLM 推理：上下文感知停止</div>
+          <div class="dt-desc">结合场景理解。"我在客厅，前方有沙发，目标是椅子——沙发旁边通常有椅子，继续转向"。把停止决策融入语义推理。</div>
+        </div>
+      </div>
+      <div class="dt-step dt-s4">
+        <div class="dt-icon">4</div>
+        <div class="dt-body">
+          <div class="dt-title">自反思停止（SCOPE）</div>
+          <div class="dt-desc">不只判断"这是不是目标"，还判断"我的判断可靠吗"。用自反思机制降低过度自信导致的错误停止。</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>2024-2026 技术演进：三个趋势</h2>
+
+    <h3>趋势一：从稠密感知到稀疏语义</h3>
+    <p>
+      2020 年的主流是稠密语义栅格地图（每个格子都有类别标签），现在的趋势是稀疏场景图（只记录有意义的对象和关系）。原因：VLM 能从稀疏描述推断出稠密环境信息，没必要存所有像素的语义。
+    </p>
+
+    <h3>趋势二：神经渲染作为空间记忆</h3>
+    <p>
+      3DGSNav 代表的方向：用神经渲染（NeRF/3DGS）替代传统地图作为空间记忆。好处是不损失视觉细节，VLM 可以"渲染出"它没有直接看过的视角来做推理。坏处是计算开销大，实时性差。
+    </p>
+
+    <h3>趋势三：零样本导航成为新标准</h3>
+    <p>
+      三年前，ObjectNav 系统需要在 HM3D 或 MP3D 上微调才能达到好成绩。现在 VLFM、SCOPE、3DGSNav 都是零样本。这意味着语义地图构建本身不再需要针对特定环境的训练数据，泛化能力大幅提升。
+    </p>
+
+    <div class="highlight-box">
+      <div class="box-title">关键数据</div>
+      <p>HM3D benchmark 上：经典 FBE 方法 SR ≈ 20-25%；VLFM（ICRA 2024）达到零样本 SOTA；SCOPE（AAAI 2026）比当时最优方法再提升 4.6%。整体趋势：每年 SR 稳定提升 5-10 个点，但 SPL 进步更慢——成功率在提升，但路径效率还有大量空间。</p>
+    </div>
+
+    <h2>实践指南：怎么为自己的任务选技术栈</h2>
+
+    <div class="method-cards">
+      <div class="method-card">
+        <div class="method-card-header">
+          <span class="method-badge badge-2024">场景 A</span>
+          <span class="method-title">只需要跑通 Habitat benchmark</span>
+        </div>
+        <div class="method-desc">用 VLFM 框架（代码开源，bdaiinstitute/vlfm）。2D 语义栅格 + VLM 前沿打分，零样本，部署方便，三个 benchmark 均有结果可对比。</div>
+      </div>
+      <div class="method-card">
+        <div class="method-card-header">
+          <span class="method-badge badge-2025">场景 B</span>
+          <span class="method-title">需要长程导航 + 常识推理</span>
+        </div>
+        <div class="method-desc">考虑场景图路线（SG-Nav/UniGoal）。场景图对 LLM 友好，天然支持"电视在客厅、床在卧室"这类常识。适合多房间复杂环境，但场景图构建有误差需处理。</div>
+      </div>
+      <div class="method-card">
+        <div class="method-card-header">
+          <span class="method-badge badge-2026">场景 C</span>
+          <span class="method-title">真实机器人 + 高精度验证</span>
+        </div>
+        <div class="method-desc">关注 3DGSNav 路线。神经渲染的视点自由度让停止验证更可靠。但实时重建计算开销大，适合计算资源充足的平台（如波士顿动力 Spot）。</div>
+      </div>
+    </div>
+
+    <h2>我的判断</h2>
+
+    <p>
+      语义地图这个方向，<strong>感知层的问题基本被大模型解决了</strong>——有了 GPT-4V 级别的视觉理解，"这是不是椅子"已经不是瓶颈。现在的核心难题有两个：
+    </p>
+
+    <p>
+      第一，<strong>地图表示和推理的耦合</strong>。场景图比栅格图可推理，但如何让 LLM 的推理结果高效地回流到地图更新里，还没有好的方案。3DGSNav 的神经渲染方向给了一个新思路：让 VLM 直接操作感知，而不是通过中间地图表示。
+    </p>
+
+    <p>
+      第二，<strong>探索效率问题（SPL）</strong>。ObjectNav 的 SR 已经很高了，但路径长度效率（SPL）还差得远。人类找一个物体很少需要走完整个公寓，但机器人经常系统性地扫描所有房间。SCOPE 的势能图方向是对的，但离人类的直觉效率还有很大差距。
+    </p>
+
+    <p>
+      如果要选一个下注方向：<em>在线场景图 + LLM 语义推理 + VLM 主动验证</em>，这三者的组合是最有可能在 2026 年刷新 ObjectNav 记录的路线。
+    </p>
+
+    <div class="article-tags">
+      <span class="article-tag">#ObjectNav</span>
+      <span class="article-tag">#语义地图</span>
+      <span class="article-tag">#具身导航</span>
+      <span class="article-tag">#场景图</span>
+      <span class="article-tag">#VLFM</span>
+      <span class="article-tag">#3DGS</span>
+      <span class="article-tag">#VLM</span>
+      <span class="article-tag">#Frontier探索</span>
+    </div>
+
+    <div class="article-footer">
+      <p>精卫013 · 具身导航研究日志 · <a href="../index.html">返回主站</a></p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
