@@ -584,8 +584,8 @@
       </p>
       <div class="hero-stats">
         <div class="stat-item"><div class="stat-num">25</div><div class="stat-label">论文收录</div></div>
-        <div class="stat-item"><div class="stat-num">19</div><div class="stat-label">创业案例</div></div>
-        <div class="stat-item"><div class="stat-num">23</div><div class="stat-label">博客日志</div></div>
+        <div class="stat-item"><div class="stat-num">18</div><div class="stat-label">创业案例</div></div>
+        <div class="stat-item"><div class="stat-num">22</div><div class="stat-label">博客日志</div></div>
         <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">主线路任务</div></div>
       </div>
       <div class="hero-actions">
@@ -683,7 +683,7 @@
         <div class="s-icon s-content">&#x1F4DA;</div>
         <h3>创业案例库</h3>
         <p>AI/机器人/科技赛道失败案例深度分析，从别人踩过的坑里学到教训。</p>
-        <div class="s-count">19 个案例 · 8 个精写</div>
+        <div class="s-count">18 个案例 · 8 个精写</div>
       </div>
       <div class="startup-card" onclick="showSub('resources')">
         <div class="s-icon s-resource">&#x1F4C1;</div>
@@ -721,7 +721,7 @@
     <div class="wave-divider"></div>
     <div class="section-header">
       <h2>创业案例库</h2>
-      <p>19个失败案例 · 从别人踩过的坑里学到教训</p>
+      <p>18个失败案例 · 从别人踩过的坑里学到教训</p>
     </div>
     <div class="category-tabs" id="case-tabs"></div>
     <div class="blog-list" id="case-list"></div>
@@ -1001,10 +1001,10 @@ const PAPERS = [
 ];
 
 const BLOG_POSTS = [
-  { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'AI时代内容创业：3类机会窗口正在关闭', tags:['内容创业','AI创业','知识变现','个人品牌'],
-    desc:'错过这个窗口期，再进来成本贵10倍。深度拆解AI时代内容创业的3类机会：垂直知识翻译（关闭中）、知识产品+社群（仍然开放）、AI工具方法论（2年内关闭）。认知差异才是护城河，博士视角的真实观察。', url:'blog/content-entrepreneurship-ai-era.html' },
-  { date:'2026-03-26', type:'type-research', typeLabel:'研究', title:'VLN架构演进史：从LSTM到VLM的五年跃迁', tags:['VLN','Transformer','CLIP','VLM','架构演进','具身导航'],
-    desc:'2019年LSTM时代成功率35%，2025年VLM时代达到76%。五代架构跃迁背后的技术逻辑：为什么预训练规模碾压专门设计？为什么LLM规划器反而降低了SR？为什么模态融合的"接缝"越来越少性能越来越强？一文读懂VLN六年技术演进路线图。', url:'blog/vln-architecture-evolution.html' },
+  { date:'2026-03-26', type:'type-research', typeLabel:'研究', title:'NavCoT详解：思维链如何提升导航性能', tags:['VLN','NavCoT','思维链','具身导航','推理'],
+    desc:'让模型先"思考"再行动——NavCoT在R2R val_unseen上将SR从54.3%提升到59.6%（+5.3%）。系统拆解四步推理框架（场景感知→位置估计→指令对齐→行动决策）、自监督CoT数据生成方法、三大局限性，以及NavCoT→EvolveNav→VLN-R1的技术演进路径。', url:'blog/navcot-chain-of-thought-navigation.html' },
+  { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'创业融资101：从天使轮到IPO的完整地图', tags:['融资','创业基础','估值','股权','风险投资'],
+    desc:'大多数创始人第一次融资都是被牵着鼻子走。本文把七个融资轮次要点、估值逻辑、稀释路径、六大条款陷阱（优先清算权/参与分配/反稀释/拖带权等）和融资时机一次讲清楚。核心结论：融资不是要钱，是卖股权换资源。', url:'blog/startup-fundraising-101.html' },
   { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'柔宇科技：640亿估值的折叠屏先驱，为何比华为三星死得更惨', tags:['柔宇','创业失败','折叠屏','硬科技','中国创业'],
     desc:'全球第一款折叠屏手机的发明者，比三星早5个月，累计融资61亿元，峰值估值640亿元。2023年破产。技术是真的，公司是真死的。深度拆解柔宇失败的三个致命问题：自建孤立产线、良品率不足30%、C端B端都没打通。', url:'blog/royole-64-billion-collapse.html' },
   { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'PMF：创业公司唯一重要的指标', tags:['PMF','产品市场契合','创业基础','Airbnb','Dropbox','Slack'],
@@ -1076,10 +1076,6 @@ const CASES = [
     title:'移动应用创业失败启示录',
     desc:'126家失败公司、烧掉90亿美元后的血泪教训。系统性分析移动应用赛道失败模式：获客成本高、留存率低、商业化困难。',
     meta:'126家公司 · 90亿美元 · 行业分析' },
-  { id:9, cat:'ai', catLabel:'AI', tagCls:'cat-ai', status:'fail', statusLabel:'失败',
-    title:'Inflection AI — $15亿情感AI，微软6.5亿"租走"团队',
-    desc:'2024年行业最高端的并购操作：微软不做股权收购，用"技术许可+雇用"方式拿走Inflection全部核心资产，绕过FTC反垄断审查。情感AI Pi月活600万 vs ChatGPT 3亿，定位≠差异化，模型能力代差才是死因。后来成为AI行业监管套利教科书案例。',
-    meta:'$15亿融资 · 微软6.5亿收团队 · 2024年 · 情感AI' },
 ];
 
 const CASE_CATS = [
