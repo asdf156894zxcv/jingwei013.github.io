@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VLM+导航：从CLIP到Qwen2-VL的四年演进 | 精卫013</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e14;
+      --bg-secondary: #111620;
+      --bg-card: #151c28;
+      --bg-card-hover: #1c2535;
+      --accent-red: #e0503a;
+      --accent-red-light: #ff6b4a;
+      --accent-gold: #f0a500;
+      --accent-cyan: #4ecdc4;
+      --text-primary: #e8eaf0;
+      --text-secondary: #8892a4;
+      --text-muted: #4a5568;
+      --border: #1e2a3a;
+      --glow-red: rgba(224, 80, 58, 0.15);
+      --glow-gold: rgba(240, 165, 0, 0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 10%, var(--glow-red), transparent),
+        radial-gradient(ellipse 40% 40% at 20% 80%, var(--glow-gold), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 20, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--text-primary); }
+
+    .article-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 100px 2rem 80px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tag-type {
+      background: rgba(224, 80, 58, 0.15);
+      color: var(--accent-red);
+      border: 1px solid rgba(224, 80, 58, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .article-date {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .read-time {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text-primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .article-lead {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-body h2 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      margin: 2.5rem 0 1rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent-gold);
+    }
+
+    .article-body h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .article-body p {
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .article-body strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .article-body code {
+      font-family: 'Courier New', monospace;
+      background: rgba(78, 205, 196, 0.1);
+      color: var(--accent-cyan);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    /* 时间线 */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      margin: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-red), var(--accent-gold), var(--accent-cyan));
+      opacity: 0.5;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.8rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.7rem;
+      top: 0.4rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      border: 2px solid var(--bg-primary);
+    }
+
+    .timeline-year {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* 方法卡片 */
+    .method-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .method-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem;
+      transition: border-color 0.2s;
+    }
+
+    .method-card:hover {
+      border-color: rgba(240, 165, 0, 0.4);
+      background: var(--bg-card-hover);
+    }
+
+    .method-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .method-card-year {
+      font-size: 0.75rem;
+      color: var(--accent-red);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    .method-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .method-card-perf {
+      margin-top: 0.8rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    /* 对比表格 */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.88rem;
+    }
+
+    .compare-table th {
+      background: rgba(240, 165, 0, 0.1);
+      color: var(--accent-gold);
+      font-weight: 600;
+      padding: 0.8rem 1rem;
+      text-align: left;
+      border-bottom: 2px solid rgba(240, 165, 0, 0.3);
+    }
+
+    .compare-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .compare-table tr:hover td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .compare-table .col-name {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge-green { background: rgba(78, 205, 196, 0.15); color: var(--accent-cyan); }
+    .badge-red { background: rgba(224, 80, 58, 0.15); color: var(--accent-red); }
+    .badge-gold { background: rgba(240, 165, 0, 0.15); color: var(--accent-gold); }
+
+    /* 架构演进图 */
+    .arch-flow {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .arch-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: center;
+      flex: 1;
+      min-width: 100px;
+    }
+
+    .arch-box.highlight {
+      border-color: rgba(240, 165, 0, 0.5);
+      background: rgba(240, 165, 0, 0.08);
+      color: var(--accent-gold);
+    }
+
+    .arch-arrow {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* 亮点块 */
+    .insight-block {
+      background: rgba(78, 205, 196, 0.05);
+      border: 1px solid rgba(78, 205, 196, 0.2);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .insight-block .insight-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .insight-block p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    /* 警示块 */
+    .warn-block {
+      background: rgba(224, 80, 58, 0.05);
+      border: 1px solid rgba(224, 80, 58, 0.2);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .warn-block .warn-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .warn-block p { margin-bottom: 0; font-size: 0.95rem; }
+
+    /* 结语 */
+    .article-footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .method-cards { grid-template-columns: 1fr; }
+      .arch-flow { flex-direction: column; }
+      .arch-arrow { transform: rotate(90deg); }
+      .compare-table { font-size: 0.78rem; }
+      .compare-table th, .compare-table td { padding: 0.5rem 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">精卫013</a>
+    <a href="../index.html#blog" class="nav-back">
+      <span>←</span> 返回博客
+    </a>
+  </div>
+</nav>
+
+<div class="article-wrapper">
+  <div class="article-meta">
+    <span class="tag-type">技术深度</span>
+    <span class="article-date">2026-03-26</span>
+    <span class="read-time">阅读约 14 分钟</span>
+  </div>
+
+  <h1>VLM+导航：从CLIP到Qwen2-VL的四年演进</h1>
+
+  <p class="article-lead">
+    2022年，CLIP的出现让"零样本导航"从科幻变成了现实——机器人第一次不需要任何标注数据，就能理解"去找那个微波炉"。四年后，导航模型的视觉语言骨干已经从单一的图文对齐演进到能看视频、能推理空间的多模态大模型。这篇文章梳理这条清晰的技术演进线，看懂它，你就知道2025年导航研究的核心矛盾在哪里。
+  </p>
+
+  <div class="article-body">
+
+    <h2>为什么VLM是导航的关键</h2>
+
+    <p>
+      在CLIP之前，VLN（视觉语言导航）模型的核心瓶颈是<strong>视觉-语言对齐</strong>：如何让模型同时理解"走廊尽头的红色椅子旁边转弯"这句话，和真实的RGB图像帧。早期方法（VLN-BERT、OSCAR等）需要大量人工标注的 图像-文本对，泛化能力极差，换个房间模型就不认识了。
+    </p>
+
+    <p>
+      VLM（视觉语言模型）的本质贡献是：用<strong>数以亿计的互联网图文对做预训练</strong>，把"视觉概念"和"语言概念"映射到同一语义空间。这意味着导航模型不再需要从零学"椅子"是什么——它继承了VLM的常识。这一点改变了导航研究的基本范式。
+    </p>
+
+    <div class="arch-flow">
+      <div class="arch-box">原始RGB图</div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box highlight">VLM视觉编码器</div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">语义特征向量</div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">导航策略</div>
+    </div>
+
+    <p>
+      关键在于这个"VLM视觉编码器"用什么。四年里，它经历了从CLIP到BLIP-2到LLaVA到Qwen2-VL的四代更迭，每一代的能力边界都在显著扩张。
+    </p>
+
+    <h2>第一代：CLIP——零样本导航的起点（2022）</h2>
+
+    <p>
+      CLIP（Contrastive Language-Image Pre-Training，OpenAI，2021）是具身导航领域的分水岭。它通过对比学习，让图像编码器和文本编码器输出高度对齐的特征向量。核心能力：给定一张图，CLIP能直接计算"这张图和某个文字描述的相似度"，不需要任何领域微调。
+    </p>
+
+    <p>
+      导航研究者立刻把它用于两类任务：
+    </p>
+
+    <div class="method-cards">
+      <div class="method-card">
+        <div class="method-card-year">2022 · CoRL</div>
+        <div class="method-card-title">CLIP on Wheels</div>
+        <div class="method-card-desc">最早把CLIP用于ObjectNav的工作。给定目标描述，CLIP计算当前视图与目标的相似度热力图，驱动机器人向高相似度区域探索。</div>
+        <div class="method-card-perf">首次实现零样本目标导航</div>
+      </div>
+      <div class="method-card">
+        <div class="method-card-year">2022 · CoRL</div>
+        <div class="method-card-title">CLIP-Nav</div>
+        <div class="method-card-desc">将长指令分解为子指令，CLIP对每一步做局部增量规划，直接预测动作而非生成地图。比CLIP on Wheels更轻量，推理速度更快。</div>
+        <div class="method-card-perf">R2R零样本 SR: ~22%</div>
+      </div>
+      <div class="method-card">
+        <div class="method-card-year">2023 · ICCV</div>
+        <div class="method-card-title">ESC</div>
+        <div class="method-card-desc">在CLIP之上引入常识推理（GPT-3提供"物品常在哪里"的先验），把纯视觉匹配升级为认知推理，显著提升复杂指令下的成功率。</div>
+        <div class="method-card-perf">HM3D SR: 39.2%（零样本SOTA 2023）</div>
+      </div>
+    </div>
+
+    <div class="insight-block">
+      <div class="insight-title">CLIP的核心局限</div>
+      <p>CLIP只做图像-文本相似度匹配，<strong>没有生成能力，没有推理能力</strong>。它能告诉你"当前帧和'厨房'有多像"，但无法回答"我应该先往左还是往右探索才能找到厨房"。这个局限推动了第二代：加入LLM的推理能力。</p>
+    </div>
+
+    <h2>第二代：CLIP + LLM——视觉感知 × 语言推理（2023）</h2>
+
+    <p>
+      2023年，研究者开始把CLIP作为视觉感知模块，LLM（GPT-3/4、LLaMA）作为推理和规划模块，两者组合使用。这一阶段的核心问题是：<strong>如何把视觉信息"说给"LLM听</strong>。
+    </p>
+
+    <h3>NavGPT：纯LLM导航的首次尝试</h3>
+
+    <p>
+      NavGPT（2023，AAAI 2024）是第一个纯粹依赖LLM进行VLN推理的系统。它的架构很直接：用BLIP等视觉模型把每个方向的图像转成自然语言描述，然后把"历史轨迹+当前观测描述+导航指令"打包成prompt喂给GPT-4，让GPT-4直接输出下一步动作。
+    </p>
+
+    <div class="arch-flow">
+      <div class="arch-box">当前视图</div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">图像转文字<br><small>BLIP描述</small></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box highlight">GPT-4 Prompt<br><small>推理+规划</small></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">动作输出</div>
+    </div>
+
+    <p>
+      NavGPT在R2R数据集上的零样本SR约为34%，远低于有监督方法（DUET约71%），但它证明了一件重要的事：<strong>LLM确实具备导航推理能力，但视觉信息转文字的"信息损耗"是主要瓶颈</strong>。把图变成文字，丢掉了太多空间信息。
+    </p>
+
+    <h3>VLFM：BLIP-2驱动的语义价值地图</h3>
+
+    <p>
+      VLFM（2024，ICRA）走了一条不同的路：不用LLM做规划，而是用BLIP-2（更强的图文对齐模型）直接生成<strong>动态语义价值地图</strong>。每个位置的价值 = BLIP-2计算的当前观测与目标描述的相似度。机器人始终朝着价值最高的方向走。
+    </p>
+
+    <p>
+      VLFM的突破在于<strong>在真实机器人（波士顿动力Spot）上成功部署</strong>，不只是仿真测试。HM3D ObjectNav基准上SR达到60.1%，显著优于同期零样本方法。
+    </p>
+
+    <div class="warn-block">
+      <div class="warn-title">这一代的共同问题</div>
+      <p>CLIP + LLM的"拼装"模式有两个结构性缺陷：一是视觉编码器和语言模型<strong>训练目标不一致</strong>，特征空间的对齐是离线的；二是LLM在接收文字化视觉描述时，<strong>空间几何信息严重丢失</strong>，导致在需要精确空间推理的任务上表现差。这推动了第三代：端到端多模态大模型。</p>
+    </div>
+
+    <h2>第三代：端到端MLLM——图文视频统一理解（2024）</h2>
+
+    <p>
+      2024年，多模态大语言模型（MLLM）成熟了。LLaVA、InternVL2、Qwen2-VL这批模型的核心突破：<strong>视觉编码器和语言模型联合训练，端到端优化</strong>。模型直接"看图说话做动作"，不再需要中间的图转文字步骤。
+    </p>
+
+    <div class="method-cards">
+      <div class="method-card">
+        <div class="method-card-year">ECCV 2024</div>
+        <div class="method-card-title">NavGPT-2</div>
+        <div class="method-card-desc">用LLaVA（视觉LLM）替代NavGPT中的"BLIP描述+GPT推理"组合，实现端到端的视觉导航推理。新增全局拓扑图规划和回溯机制（Backtracking）。</div>
+        <div class="method-card-perf">RxR零样本 NE: 6.2m，显著优于NavGPT</div>
+      </div>
+      <div class="method-card">
+        <div class="method-card-year">NeurIPS 2024</div>
+        <div class="method-card-title">TopV-Nav</div>
+        <div class="method-card-desc">把MLLM用于俯视图（Top-View）推理。把导航图投影成鸟瞰地图，让LLM在二维地图上做空间推理，突破了第一视角的视野局限。</div>
+        <div class="method-card-perf">MP3D / HM3D ObjectNav ZSON SOTA 2024</div>
+      </div>
+      <div class="method-card">
+        <div class="method-card-year">2024·CVPR</div>
+        <div class="method-card-title">ImagiNav</div>
+        <div class="method-card-desc">用MLLM"想象"未探索区域的样子（目标导向的子目标图像生成），把抽象的目标描述转化为具体的视觉子目标，驱动探索策略。</div>
+        <div class="method-card-perf">ObjectNav SR提升8%+</div>
+      </div>
+      <div class="method-card">
+        <div class="method-card-year">2024·arXiv</div>
+        <div class="method-card-title">Mem2Ego</div>
+        <div class="method-card-desc">引入跨帧记忆模块，把历史关键帧压缩成自我中心表示，解决MLLM导航中的长程依赖问题，减少冗余观测对推理的干扰。</div>
+        <div class="method-card-perf">VLN-CE SR: 68.4%</div>
+      </div>
+    </div>
+
+    <h3>Qwen2-VL：当前最强视觉骨干</h3>
+
+    <p>
+      Qwen2-VL（阿里，2024年9月）是目前在导航领域中性能最强的视觉语言骨干之一。它的关键技术是<strong>动态分辨率处理</strong>（Naive Dynamic Resolution）：不同大小的图像不再被强制缩放到固定尺寸，而是保持原始分辨率，通过<code>2D-RoPE</code>位置编码处理任意长宽比的输入。
+    </p>
+
+    <p>
+      更重要的是，Qwen2-VL支持<strong>视频级别的时序理解</strong>：把连续的导航帧当成视频输入，而不是独立的图像序列。这在理论上解决了VLN中帧间时序依赖的问题——模型可以"看"机器人移动的连续过程，而不只是当前帧的快照。
+    </p>
+
+    <div class="insight-block">
+      <div class="insight-title">端到端MLLM的真正优势</div>
+      <p>端到端MLLM最大的优势不是单帧精度，而是<strong>上下文理解能力</strong>。当你问"刚才走过的地方有没有办公椅"，基于CLIP的方法无从回答，因为CLIP只处理当前帧。MLLM可以在长上下文窗口里保留历史帧，做多步推理。这正是VLN任务的本质需求。</p>
+    </div>
+
+    <h2>第四代：双系统架构——感知+规划的分离（2025-2026）</h2>
+
+    <p>
+      2025年后，研究方向出现了有趣的分叉：并非所有人都相信"一个超大MLLM包打天下"。来自上海AI Lab的<strong>InternVLA-N1</strong>（ICLR 2026）提出了双系统架构（Dual-System），明确把导航分为两个模块：
+    </p>
+
+    <table class="compare-table">
+      <tr>
+        <th>系统</th>
+        <th>职责</th>
+        <th>骨干模型</th>
+        <th>核心能力</th>
+      </tr>
+      <tr>
+        <td class="col-name">System 1（慢系统）</td>
+        <td>语言理解 + 全局路径规划</td>
+        <td>Qwen2.5-VL</td>
+        <td>生成语义路径点（Waypoints）</td>
+      </tr>
+      <tr>
+        <td class="col-name">System 2（快系统）</td>
+        <td>低层轨迹执行 + 局部避障</td>
+        <td>NavDP（扩散策略）</td>
+        <td>连续运动控制，实时反应</td>
+      </tr>
+    </table>
+
+    <p>
+      InternVLA-N1在VLN-CE R2R Unseen上达到<strong>SR 64.3%、SPL 58.5%</strong>，是当前开源导航框架中的顶级水平。更关键的是：这套架构在真实机器人（Unitree Go2、G1）上实现了零样本迁移，不需要额外的Sim2Real适配。
+    </p>
+
+    <p>
+      双系统的核心逻辑：<strong>MLLM很强但很慢（~1-2秒/步），扩散策略很快但没有语义理解</strong>。把两者分开，各司其职，是当前工程化落地的最优解之一。这也是为什么InternNav工具箱要支持多种骨干模型——单一骨干满足不了所有场景的需求。
+    </p>
+
+    <h2>四代演进的横向对比</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>CLIP时代 (2022)</th>
+          <th>CLIP+LLM (2023)</th>
+          <th>端到端MLLM (2024)</th>
+          <th>双系统 (2025+)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-name">代表方法</td>
+          <td>CLIP-Nav, ESC</td>
+          <td>NavGPT, VLFM</td>
+          <td>NavGPT-2, TopV-Nav</td>
+          <td>InternVLA-N1</td>
+        </tr>
+        <tr>
+          <td class="col-name">视觉骨干</td>
+          <td>CLIP ViT</td>
+          <td>BLIP-2</td>
+          <td>LLaVA / Qwen2-VL</td>
+          <td>Qwen2.5-VL + NavDP</td>
+        </tr>
+        <tr>
+          <td class="col-name">零样本能力</td>
+          <td><span class="badge badge-gold">基础</span></td>
+          <td><span class="badge badge-gold">中等</span></td>
+          <td><span class="badge badge-green">强</span></td>
+          <td><span class="badge badge-green">强+实用</span></td>
+        </tr>
+        <tr>
+          <td class="col-name">空间推理</td>
+          <td><span class="badge badge-red">弱</span></td>
+          <td><span class="badge badge-red">弱（信息损耗）</span></td>
+          <td><span class="badge badge-gold">中等</span></td>
+          <td><span class="badge badge-green">强（拓扑+几何）</span></td>
+        </tr>
+        <tr>
+          <td class="col-name">真实部署</td>
+          <td>实验室级</td>
+          <td>受限（需API）</td>
+          <td>本地可运行</td>
+          <td><span class="badge badge-green">真实机器人验证</span></td>
+        </tr>
+        <tr>
+          <td class="col-name">推理延迟</td>
+          <td>&lt;100ms/步</td>
+          <td>1-3s/步（API依赖）</td>
+          <td>500ms-2s/步</td>
+          <td>快系统&lt;100ms，慢系统~1s</td>
+        </tr>
+        <tr>
+          <td class="col-name">训练数据需求</td>
+          <td>零样本，无需</td>
+          <td>零样本，无需</td>
+          <td>少量微调</td>
+          <td>大规模（InternData-N1: 83万条）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>当前的核心矛盾</h2>
+
+    <p>
+      读完这四代演进，你会发现导航领域有一个<strong>没有解决的核心矛盾</strong>：
+    </p>
+
+    <p>
+      <strong>MLLM越强，推理越慢，实时控制越难</strong>。Qwen2-VL能做视频理解、多步推理，但在真实机器人上以2秒/步的频率执行导航，根本跑不了——机器人需要10-30Hz的控制频率。双系统架构是目前最好的工程解法，但它引入了新的问题：两个系统如何协调？路径点的质量如何保证？慢系统的错误如何被快系统纠正？
+    </p>
+
+    <p>
+      另一个矛盾：<strong>零样本能力 vs 任务特化性能之间的tradeoff</strong>。纯MLLM的零样本方法灵活、通用，但在标准VLN benchmark上的SR比有监督的专用模型低15-20%。InternData-N1的83万条标注数据说明：要打榜，还是需要大量领域数据；要泛化到新场景，就得牺牲顶线性能。
+    </p>
+
+    <div class="insight-block">
+      <div class="insight-title">研究者的选择建议</div>
+      <p>
+        如果你想<strong>做VLN/ObjectNav的research</strong>：重点关注MLLM如何做更好的空间推理（TopV-Nav的俯视视角、3DGSNav的神经地图），这是目前delta最大的方向。如果你想<strong>做实际部署</strong>：双系统架构（InternVLA-N1）或轻量化MLLM（Qwen2-VL 7B微调版）是最务实的路径。如果你想做<strong>方法创新</strong>：MLLM端到端训练的高效化（减少推理延迟）和多轮交互（人机协作导航）是尚未被充分探索的方向。
+      </p>
+    </div>
+
+    <h2>2025年值得关注的新进展</h2>
+
+    <p>
+      随着Qwen2.5-VL（2025年初）和InternVL2.5的发布，视觉骨干的能力又上了一个台阶：支持更长视频序列（最长10分钟视频理解），支持任意分辨率高清输入，数学推理能力显著提升（这意味着更好的空间几何推理）。这些能力直接可以迁移到导航任务。
+    </p>
+
+    <p>
+      另一个值得关注的方向：<strong>VLN数据集的大规模合成</strong>。InternData-N1的83万条VLN数据中，大量是合成生成的。2025年，多个团队在探索用扩散模型生成多样化室内场景+自动标注导航指令，这可能是解决"数据稀缺"问题的根本出路。
+    </p>
+
+    <p>
+      Qwen2-VL和InternVL2已经被证明可以作为强导航骨干。接下来的问题不是"用什么VLM"，而是<strong>"如何有效地把VLM的能力对齐到导航任务的细粒度需求"</strong>——包括精确的深度感知、连续帧间的运动估计、和对环境变化的鲁棒性。这个问题，2025年还没有人给出完美答案。
+    </p>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="footer-tags">
+      <span class="footer-tag">VLM</span>
+      <span class="footer-tag">CLIP</span>
+      <span class="footer-tag">Qwen2-VL</span>
+      <span class="footer-tag">具身导航</span>
+      <span class="footer-tag">VLN</span>
+      <span class="footer-tag">ObjectNav</span>
+      <span class="footer-tag">InternVLA</span>
+      <span class="footer-tag">零样本导航</span>
+      <span class="footer-tag">多模态大模型</span>
+    </div>
+    <p style="color: var(--text-muted); font-size: 0.85rem;">
+      精卫013 · 具身智能研究笔记 · 如有错误欢迎指正
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

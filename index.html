@@ -1001,10 +1001,14 @@ const PAPERS = [
 ];
 
 const BLOG_POSTS = [
+  { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'字节跳动：一个工程师用算法重写了注意力经济', tags:['字节跳动','TikTok','算法推荐','中国创业','案例分析'],
+    desc:'2012年，张一鸣用500万美元起步，做出了一款腾讯拼命封杀的App。10年后，他的公司年营收1550亿美元，超过了腾讯。全球16.85亿TikTok月活，1.7亿美国用户，美国政府专门立法封禁。深度拆解字节跳动的算法护城河、Musical.ly10亿美元收购、腾讯封杀的反弹效应，以及TikTok美国风波的完整时间线。', url:'bytedance-algorithm-empire.html' },
   { date:'2026-03-26', type:'type-research', typeLabel:'研究', title:'NavCoT详解：思维链如何提升导航性能', tags:['VLN','NavCoT','思维链','具身导航','推理'],
     desc:'让模型先"思考"再行动——NavCoT在R2R val_unseen上将SR从54.3%提升到59.6%（+5.3%）。系统拆解四步推理框架（场景感知→位置估计→指令对齐→行动决策）、自监督CoT数据生成方法、三大局限性，以及NavCoT→EvolveNav→VLN-R1的技术演进路径。', url:'blog/navcot-chain-of-thought-navigation.html' },
   { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'创业融资101：从天使轮到IPO的完整地图', tags:['融资','创业基础','估值','股权','风险投资'],
     desc:'大多数创始人第一次融资都是被牵着鼻子走。本文把七个融资轮次要点、估值逻辑、稀释路径、六大条款陷阱（优先清算权/参与分配/反稀释/拖带权等）和融资时机一次讲清楚。核心结论：融资不是要钱，是卖股权换资源。', url:'blog/startup-fundraising-101.html' },
+  { date:'2026-03-26', type:'type-research', typeLabel:'研究', title:'VLM+导航：从CLIP到Qwen2-VL的四年演进', tags:['VLM','CLIP','Qwen2-VL','具身导航','VLN','零样本导航','InternVLA','多模态大模型'],
+    desc:'2022年CLIP让零样本导航成为可能，2024年Qwen2-VL让端到端视觉推理成为现实。四年里，导航模型的视觉语言骨干经历了四代更迭：CLIP→CLIP+LLM→端到端MLLM→双系统架构。每一代的能力边界都在扩张，但核心矛盾从未解决：推理越强、速度越慢，实时控制越难。', url:'blog/vlm-navigation-clip-to-qwen2vl.html' },
   { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'柔宇科技：640亿估值的折叠屏先驱，为何比华为三星死得更惨', tags:['柔宇','创业失败','折叠屏','硬科技','中国创业'],
     desc:'全球第一款折叠屏手机的发明者，比三星早5个月，累计融资61亿元，峰值估值640亿元。2023年破产。技术是真的，公司是真死的。深度拆解柔宇失败的三个致命问题：自建孤立产线、良品率不足30%、C端B端都没打通。', url:'blog/royole-64-billion-collapse.html' },
   { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'PMF：创业公司唯一重要的指标', tags:['PMF','产品市场契合','创业基础','Airbnb','Dropbox','Slack'],
@@ -1160,10 +1164,10 @@ function setCat(cat) {
 function renderBlog() {
   const container = document.getElementById('blog-list');
   container.innerHTML = BLOG_POSTS.map(b => `
-    <div class="blog-card">
+    <div class="blog-card${b.url ? ' clickable' : ''}" ${b.url ? `onclick="window.location='${b.url}'" style="cursor:pointer;"` : ''}>
       <span class="blog-type ${b.type}">${b.typeLabel}</span>
       <div class="blog-date">${b.date}</div>
-      <h3>${b.title}</h3>
+      <h3>${b.title}${b.url ? ' <span style="color:#e8a230;font-size:0.8rem;">→ 阅读全文</span>' : ''}</h3>
       <p>${b.desc}</p>
       <div class="blog-tags">
         ${b.tags.map(t => `<span class="blog-tag">#${t}</span>`).join('')}
