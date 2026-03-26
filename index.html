@@ -538,16 +538,16 @@
     </div>
     <div class="hero-stats">
       <div class="stat" onclick="showSection('papers')" title="点击进入论文库">
-        <span class="stat-num">49+</span><div class="stat-label">高质量论文 →</div>
+        <span class="stat-num">40+</span><div class="stat-label">高质量论文 →</div>
       </div>
-      <div class="stat" onclick="showSection('research')" title="点击查看研究问题">
-        <span class="stat-num">4</span><div class="stat-label">研究问题 →</div>
+      <div class="stat" onclick="showSection('blog')" title="点击查看博客">
+        <span class="stat-num">37</span><div class="stat-label">技术博客 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
         <span class="stat-num">19</span><div class="stat-label">创业案例 →</div>
       </div>
       <div class="stat" onclick="showSection('research')" title="点击查看研究方向">
-        <span class="stat-num">日更</span><div class="stat-label">持续更新 →</div>
+        <span class="stat-num">3月26</span><div class="stat-label">今日更新 →</div>
       </div>
     </div>
   </div>
@@ -1294,10 +1294,22 @@ const BLOG_POSTS = [
     desc:'北大王鹤团队NavFoM用800万样本训练跨实体跨任务导航基础模型，一个模型同时处理四种机器人、四类任务。这是导航的GPT时刻还是新的起点？',
     url:'./blog/navigation-gpt-moment.html',
     tags:['NavFoM','基础模型','ICLR2026','跨实体','VLN','ObjectNav'] },
+  { cat:'tech', date:'2026-03-26', title:'BEV表示学习：鸟瞰视角在导航中的应用',
+    desc:'BEV在导航中的三大优势（解决遮挡、尺度感知、动态物体处理），IndoorBEV/BEVNav/GaussianBeV三大技术流派深度解析，含技术对比表格和实践选型指南。',
+    url:'./blog/bev-representation-learning-navigation.html',
+    tags:['BEV','鸟瞰视角','导航','IndoorBEV','BEVNav','GaussianBeV'] },
   { cat:'tech', date:'2026-03-26', title:'多模态LLM在具身导航中的应用：从理解到行动的关键桥梁',
     desc:'从TopV-Nav的端到端MLLM导航、ImagiNav的子目标分解、到Mem2Ego的记忆增强，三种范式正在重新定义导航研究范式。',
     url:'./blog/mlm-embodied-navigation.html',
     tags:['多模态LLM','具身导航','TopV-Nav','ImagiNav','Mem2Ego'] },
+  { cat:'tech', date:'2026-03-26', title:'强化学习+VLN：2025年的两条技术路线',
+    desc:'VLN-R1（GRPO强化微调+TDR奖励）vs EvolveNav（自改进CoT推理）深度对比。两条路线6维度对比表格，实践建议：如何选择适合自己的路线。',
+    url:'./blog/rl-vln-2025.html',
+    tags:['强化学习','VLN','2025','VLN-R1','EvolveNav','GRPO'] },
+  { cat:'tech', date:'2026-03-26', title:'语义地图构建：ObjectNav的核心技术栈',
+    desc:'四层技术栈（感知L1/表示L2/探索L3/决策L4），VLFM/SG-Nav/SCOPE/3DGSNav四大代表工作，探索策略对比表，停止决策四种方案，2024-2026三大技术趋势。',
+    url:'./blog/semantic-map-objectnav.html',
+    tags:['语义地图','ObjectNav','VLFM','SG-Nav','SCOPE','3DGSNav'] },
   { cat:'tech', date:'2026-03-25', title:'VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路',
     desc:'导航机器人最大的问题不是「看不见」，而是「记不住」。MapNav用语义地图、COSMO用状态空间模型、NavRAG重新定义指令——三篇顶会论文的深度解析。',
     url:'./blog/vln-memory-mechanisms.html',
@@ -1374,6 +1386,14 @@ const BLOG_POSTS = [
     desc:'三个问题帮你定位：我会什么？谁需要这个？他们愿意付费吗？四种适合普通人的方向：技能变现、信息差、资源整合、兴趣驱动。',
     url:'./blog-startup-basics-03.html',
     tags:['创业基础','方向','定位','技能变现'] },
+  { cat:'startup', date:'2026-03-26', title:'创业融资101：从种子轮到IPO的完整路线图',
+    desc:'7个轮次时间线、估值逻辑、稀释路径、6大条款陷阱（对赌/清算优先/反稀释）、融资时机判断。创始人必知的融资真相。',
+    url:'./blog/startup-fundraising-101.html',
+    tags:['创业融资','种子轮','A轮','估值','条款陷阱'] },
+  { cat:'startup', date:'2026-03-26', title:'PMF（产品市场契合）：创业公司唯一重要的指标',
+    desc:'从Color.com 4100万美元失败案例切入，系统讲解PMF概念、Sean Ellis 40%法则、四大经典案例（Dropbox/Slack/Airbnb/拼多多）、PMF前后对比。',
+    url:'./blog/pmf-the-only-thing-that-matters.html',
+    tags:['PMF','产品市场契合','创业基础','Color','Dropbox'] },
   { cat:'startup', date:'2026-03-25', title:'AI创业失败案例分析：17.5亿美元烧光的Quibi教会我们什么',
     desc:'2020年4月上线，10月宣布关闭，6个月烧光17.5亿美元。好莱坞传奇人物联手打造，明星阵容豪华，为什么还是失败了？5条生存法则。',
     url:'./blog/startup-failure-analysis.html',
