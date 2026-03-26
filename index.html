@@ -698,7 +698,7 @@
         <div class="s-icon s-content">&#x1F4DA;</div>
         <h3>创业案例库</h3>
         <p>AI/机器人/科技赛道失败案例深度分析，从别人踩过的坑里学到教训。</p>
-        <div class="s-count">18 个案例 · 8 个精写</div>
+        <div class="s-count">20 个案例 · 9 个精写</div>
       </div>
       <div class="startup-card" onclick="showSub('resources')">
         <div class="s-icon s-resource">&#x1F4C1;</div>
@@ -1077,6 +1077,14 @@ const CASES = [
     title:'移动应用创业失败启示录',
     desc:'126家失败公司、烧掉90亿美元后的血泪教训。系统性分析移动应用赛道失败模式：获客成本高、留存率低、商业化困难。',
     meta:'126家公司 · 90亿美元 · 行业分析' },
+  { id:9, cat:'ai', catLabel:'AI', tagCls:'cat-ai', status:'fail', statusLabel:'失败',
+    title:'Adept AI — 技术最强的AI Agent先驱，被亚马逊"人才收购"',
+    desc:'创始团队来自Google DeepMind和Transformer论文核心贡献者，融资超4亿美元。2024年倒下——没有商业化产品上市，核心团队被亚马逊整体挖走。技术最强，商业化为零。教训：技术验证 ≠ 商业验证，技术领先不等于存活。',
+    meta:'融资4亿美元 · 2024年倒闭 · AI Agent' },
+  { id:10, cat:'ai', catLabel:'AI', tagCls:'cat-ai', status:'fail', statusLabel:'失败',
+    title:'Humane AI Pin — 1.8亿美元砸出的AI可穿戴，退货超销售',
+    desc:'Sam Altman等知名投资人背书，融资1.8亿美元，199美元/月订阅。上市后退货量超过销售量，评测分数1.4/10，电池持续时间仅2小时。硬件AI产品失败教训：Demo优秀 ≠ 日常可用，体验细节决定生死。',
+    meta:'融资$180M · 2024年上市即失败 · 可穿戴AI' },
 ];
 
 const CASE_CATS = [
@@ -1235,6 +1243,8 @@ const TECH_BLOGS = [
     desc:'从技术成熟度、市场需求、商业模式三维度分析AI Agent在机器人领域的落地路径。', url:'./blog/ai-agent-opportunities.html' },
   { cat:'startup', date:'2026-03-19', title:'从学术研究到产品化：具身导航技术的落地挑战', tags:['学术','产品化'],
     desc:'学术论文SOTA方法在产品化过程中的数据/算力/可靠性/成本四维挑战，以及可能解法。', url:'./blog/research-to-product.html' },
+  { cat:'startup', date:'2026-03-26', title:'具身智能商业化：硬件创业的7个反直觉规律', tags:['具身智能','商业化','硬件创业'],
+    desc:'200亿融资涌入、25家公司倒下。技术越强死得越早、有订单反而更危险……7条反直觉规律，一个导航博士的冷静复盘。', url:'./blog/embodied-ai-commercialization.html' },
   { cat:'startup', date:'2026-03-15', title:'为什么要做「知识创业」：一个博士的第二曲线', tags:['知识创业','博士'],
     desc:'科研做得好不等于能养活自己。探索用知识和内容变现的可能性，让研究与副业相互增强。', url:'./blog/why-knowledge-entrepreneurship.html' },
 ];
