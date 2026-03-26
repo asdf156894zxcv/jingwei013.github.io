@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ObjectNav vs VLN：目标导航和视觉语言导航的本质区别 · 精卫013</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e14;
+      --bg-secondary: #111620;
+      --bg-card: #151c28;
+      --accent-red: #e0503a;
+      --accent-gold: #f0a500;
+      --accent-cyan: #4ecdc4;
+      --text-primary: #e8eaf0;
+      --text-secondary: #8892a4;
+      --text-muted: #4a5568;
+      --border: #1e2a3a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,14,20,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo { font-family: 'Noto Serif SC', serif; font-weight: 700; color: var(--accent-gold); text-decoration: none; font-size: 1.1rem; }
+    .nav-back { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; }
+    .nav-back:hover { color: var(--accent-gold); }
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+    .article-meta {
+      display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+    .meta-tag {
+      padding: 0.2rem 0.7rem; border-radius: 5px; font-size: 0.78rem; font-weight: 500;
+    }
+    .tag-research { background: rgba(78,205,196,0.15); color: var(--accent-cyan); }
+    .tag-date { color: var(--text-muted); font-size: 0.82rem; }
+    h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2rem; font-weight: 700; line-height: 1.4;
+      margin-bottom: 1rem; color: var(--text-primary);
+    }
+    .article-lead {
+      font-size: 1.05rem; color: var(--text-secondary); line-height: 1.9;
+      margin-bottom: 2.5rem; padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.35rem; font-weight: 600; color: var(--accent-gold);
+      margin: 2.5rem 0 1rem;
+    }
+    h3 {
+      font-size: 1.05rem; font-weight: 600; color: var(--accent-cyan);
+      margin: 1.8rem 0 0.75rem;
+    }
+    p { margin-bottom: 1.2rem; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.9; }
+    strong { color: var(--text-primary); }
+    .highlight-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-gold);
+      border-radius: 8px; padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+    }
+    .highlight-box p { margin-bottom: 0; font-size: 0.9rem; }
+    table {
+      width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.87rem;
+    }
+    th {
+      background: var(--bg-card); color: var(--accent-gold);
+      padding: 0.75rem 1rem; text-align: left; border: 1px solid var(--border); font-weight: 600;
+    }
+    td {
+      padding: 0.7rem 1rem; border: 1px solid var(--border); color: var(--text-secondary); vertical-align: top;
+    }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+    .code-block {
+      background: #0d1117; border: 1px solid var(--border); border-radius: 8px;
+      padding: 1rem 1.5rem; margin: 1.2rem 0; font-family: 'Courier New', monospace;
+      font-size: 0.85rem; color: #79c0ff; overflow-x: auto;
+    }
+    .verdict {
+      background: linear-gradient(135deg, rgba(240,165,0,0.08), rgba(78,205,196,0.05));
+      border: 1px solid rgba(240,165,0,0.25); border-radius: 12px;
+      padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .verdict h3 { color: var(--accent-gold); margin-top: 0; }
+    .tags-footer { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .footer-tag {
+      padding: 0.25rem 0.75rem; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; font-size: 0.78rem; color: var(--text-muted);
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 2.5rem; padding: 0.6rem 1.2rem;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .back-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-logo">精卫013</a>
+    <a href="../index.html#blog" class="nav-back">← 返回博客</a>
+  </nav>
+
+  <div class="article-container">
+    <div class="article-meta">
+      <span class="meta-tag tag-research">具身导航</span>
+      <span class="tag-date">2026-03-26</span>
+    </div>
+
+    <h1>ObjectNav vs VLN：目标导航和视觉语言导航的本质区别</h1>
+
+    <p class="article-lead">很多人第一次接触具身导航，会把 ObjectNav 和 VLN 混为一谈——"不都是让机器人走到某个地方吗？"其实两者在<strong>任务定义、技术路线、评测标准</strong>上差得很远。选错方向，模型白练。这篇文章把两个范式的核心区别说清楚。</p>
+
+    <h2>一句话定义</h2>
+    <p>先给出最简洁的区分：</p>
+    <div class="highlight-box">
+      <p><strong>ObjectNav（目标导航）</strong>：给一个类别名词（"找一把椅子"），机器人在未知环境里搜索并导航到该物体。<br><br>
+      <strong>VLN（视觉语言导航）</strong>：给一段自然语言指令（"出门左转，走过沙发，在第三个门右边的床前停下"），机器人按指令走到终点。</p>
+    </div>
+    <p>本质区别在于：<strong>ObjectNav 是开放式搜索，VLN 是指令跟随</strong>。前者需要探索策略，后者需要理解语义序列。</p>
+
+    <h2>任务定义对比</h2>
+    <table>
+      <tr>
+        <th>维度</th>
+        <th>ObjectNav</th>
+        <th>VLN</th>
+      </tr>
+      <tr>
+        <td>输入</td>
+        <td>目标类别（"chair", "TV"）+ 第一人称视觉流</td>
+        <td>自然语言指令（多句、分步）+ 第一人称视觉流</td>
+      </tr>
+      <tr>
+        <td>输出</td>
+        <td>导航至目标物体附近并停止</td>
+        <td>按指令步骤导航，在终点停止</td>
+      </tr>
+      <tr>
+        <td>环境</td>
+        <td>通常是未见过的新环境（zero-shot泛化）</td>
+        <td>已见或未见环境，依赖landmark对齐</td>
+      </tr>
+      <tr>
+        <td>核心挑战</td>
+        <td>高效探索 + 目标定位</td>
+        <td>指令理解 + 轨迹跟随</td>
+      </tr>
+      <tr>
+        <td>语言复杂度</td>
+        <td>低（单词级）</td>
+        <td>高（多句、指代消解、时序推理）</td>
+      </tr>
+      <tr>
+        <td>典型数据集</td>
+        <td>HM3D ObjectNav, Gibson ObjectGoal, MP3D ObjectNav</td>
+        <td>R2R, REVERIE, CVDN, SOON, ScanQA</td>
+      </tr>
+    </table>
+
+    <h2>技术路线的分叉点</h2>
+
+    <h3>ObjectNav：探索优先</h3>
+    <p>ObjectNav 的核心是<strong>如何在未知空间里高效找到目标</strong>。机器人进入新房间时，既不知道物体在哪，也不知道房间布局。主流技术方向：</p>
+    <p><strong>1. 语义地图构建</strong>：实时构建含语义标注的 2D/3D 地图（如 SemExp），将已探索区域的物体位置记录下来，指导后续探索。典型工作：SemExp（ICCV 2021）、PONI、GRec。</p>
+    <p><strong>2. 前沿探索（Frontier-based）</strong>：用已知区域边界（frontier）作为下一步探索目标，平衡"找到目标"和"探索新区域"。简单但强效的 baseline。</p>
+    <p><strong>3. LLM/VLM 常识推理</strong>：利用预训练模型的常识知识（"椅子通常在餐厅或客厅"）指导探索方向，减少无效探索。代表工作：ESC（ECCV 2023）、OVON、L3MVN。</p>
+    <p><strong>4. 零样本泛化</strong>：不在目标环境训练，直接泛化到新场景。OpenVocab 方法（如 CLIP + 探索策略）是当前主流范式。</p>
+
+    <h3>VLN：语义对齐优先</h3>
+    <p>VLN 的核心是<strong>如何把自然语言指令和视觉观察对齐</strong>。指令里的"过沙发"需要机器人在视觉里找到沙发，"第三个门"需要计数，"右边"需要空间推理。主流技术方向：</p>
+    <p><strong>1. Cross-modal Transformer</strong>：用注意力机制做语言-视觉对齐，是目前的统治性架构。代表作：VLNBERT、DUET、ScaleVLN。</p>
+    <p><strong>2. 航点图（Waypoint Graph）</strong>：将连续空间离散化为候选航点，大幅简化决策空间。DUET 就是这个路线的代表。</p>
+    <p><strong>3. 预训练 + 微调</strong>：用大规模图文对预训练视觉语言模型，再在 VLN 数据集微调。ScaleVLN 通过扩大预训练数据量提升性能。</p>
+    <p><strong>4. 强化学习 + CoT</strong>：最近（2025）的新方向，VLN-R1 用 GRPO 强化微调，EvolveNav 用自改进 CoT 推理。两条路线详见我的上一篇文章。</p>
+
+    <h2>评测指标也完全不同</h2>
+    <table>
+      <tr>
+        <th>指标</th>
+        <th>含义</th>
+        <th>用于</th>
+      </tr>
+      <tr>
+        <td>SR（Success Rate）</td>
+        <td>到达目标的比例（距离 &lt; 1m 视为成功）</td>
+        <td>ObjectNav + VLN</td>
+      </tr>
+      <tr>
+        <td>SPL（Success weighted by Path Length）</td>
+        <td>成功率 × 路径效率，惩罚绕路</td>
+        <td>ObjectNav + VLN</td>
+      </tr>
+      <tr>
+        <td>TL（Trajectory Length）</td>
+        <td>平均轨迹长度，衡量探索效率</td>
+        <td>ObjectNav 为主</td>
+      </tr>
+      <tr>
+        <td>NE（Navigation Error）</td>
+        <td>终点与目标的欧氏距离（米）</td>
+        <td>VLN 为主</td>
+      </tr>
+      <tr>
+        <td>nDTW（normalized Dynamic Time Warping）</td>
+        <td>衡量轨迹与参考路径的相似度</td>
+        <td>VLN（CVDN 等）</td>
+      </tr>
+      <tr>
+        <td>SDTW（Success weighted DTW）</td>
+        <td>成功率 × 路径与参考路径相似度</td>
+        <td>VLN（强调轨迹质量）</td>
+      </tr>
+    </table>
+    <p>注意：ObjectNav 通常<strong>不关心走的路径是否"正确"</strong>，只要最后到达目标就算成功。而 VLN 的某些评测（如 nDTW、SDTW）要求轨迹和人类参考路径相似，因为语言指令本身暗示了特定的行走路线。</p>
+
+    <h2>模拟器选择也不一样</h2>
+    <p>ObjectNav 主要跑在 <strong>Habitat</strong>（Meta AI）上，使用 Matterport3D（MP3D）、Gibson、HM3D 等三维重建场景。这些场景是真实房间的 3D 扫描，物体类别丰富。</p>
+    <p>VLN 最常用的是 <strong>Matterport3D 全景导航图</strong>（R2R 数据集标配），每个节点是 36 方向的全景图，离散动作空间（选下一个节点）。连续环境版本是 <strong>VLN-CE</strong>（在 Habitat 里跑连续控制）。</p>
+
+    <div class="highlight-box">
+      <p>💡 <strong>容易混淆的点</strong>：REVERIE 数据集同时包含 VLN 和 ObjectNav 元素——它给一段指令，同时要求找到并操作目标物体。这是一个"VLN+ObjectNav"的混合任务，难度更高，但也更贴近真实应用。</p>
+    </div>
+
+    <h2>适用场景和研究定位</h2>
+    <table>
+      <tr>
+        <th>维度</th>
+        <th>ObjectNav 更适合</th>
+        <th>VLN 更适合</th>
+      </tr>
+      <tr>
+        <td>真实应用场景</td>
+        <td>家庭服务机器人（"帮我找电视遥控器"）、仓储取货机器人</td>
+        <td>导览机器人（"按我说的路线走"）、无障碍辅助设备</td>
+      </tr>
+      <tr>
+        <td>数据获取难度</td>
+        <td>较低（只需场景+物体类别标注）</td>
+        <td>较高（需要人工写导航指令）</td>
+      </tr>
+      <tr>
+        <td>零样本泛化</td>
+        <td>更容易（类别泛化）</td>
+        <td>更难（指令多样性高）</td>
+      </tr>
+      <tr>
+        <td>LLM 发挥空间</td>
+        <td>常识推理、探索规划</td>
+        <td>指令理解、时序推理、指代消解</td>
+      </tr>
+      <tr>
+        <td>工业落地进度</td>
+        <td>更快（扫地机器人、工业AMR）</td>
+        <td>较慢（需要精确语言理解）</td>
+      </tr>
+    </table>
+
+    <h2>我的研究定位在哪？</h2>
+    <p>我目前的主要方向是 VLN，具体是<strong>停止决策（HaltNav）</strong>和<strong>BEV 几何推理</strong>两个子问题。</p>
+    <p>ObjectNav 我也在关注，特别是 LLM/VLM 指导的零样本探索路线（ESC、OVON 这条线）。两个任务的核心差异让它们在技术上相互补充：VLN 的语言对齐技术可以迁移到"语言描述的物体目标"，ObjectNav 的探索策略可以增强 VLN 在未知环境的鲁棒性。</p>
+
+    <div class="verdict">
+      <h3>结论</h3>
+      <p>ObjectNav 和 VLN 是具身导航的两大主流范式，前者侧重<strong>高效探索+目标定位</strong>，后者侧重<strong>语义理解+轨迹跟随</strong>。选数据集、选 baseline、选评测指标之前，先确认自己做的是哪个范式。两个范式都在快速演进，VLM 和 LLM 正在成为两条路线的共同基础设施——但任务定义的本质差异不会消失。</p>
+    </div>
+
+    <div class="tags-footer">
+      <span class="footer-tag">ObjectNav</span>
+      <span class="footer-tag">VLN</span>
+      <span class="footer-tag">目标导航</span>
+      <span class="footer-tag">具身智能</span>
+      <span class="footer-tag">导航benchmark</span>
+      <span class="footer-tag">技术对比</span>
+    </div>
+
+    <a href="../index.html#blog" class="back-btn">← 返回博客列表</a>
+  </div>
+</body>
+</html>

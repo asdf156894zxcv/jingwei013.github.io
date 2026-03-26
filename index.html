@@ -585,7 +585,7 @@
       <div class="hero-stats">
         <div class="stat-item"><div class="stat-num">25</div><div class="stat-label">论文收录</div></div>
         <div class="stat-item"><div class="stat-num">18</div><div class="stat-label">创业案例</div></div>
-        <div class="stat-item"><div class="stat-num">20</div><div class="stat-label">博客日志</div></div>
+        <div class="stat-item"><div class="stat-num">22</div><div class="stat-label">博客日志</div></div>
         <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">主线路任务</div></div>
       </div>
       <div class="hero-actions">
@@ -660,21 +660,6 @@
       <p>记录每天的研究进展、思考、踩坑与复盘</p>
     </div>
     <div class="blog-list" id="blog-list"></div>
-
-    <div class="wave-divider" style="margin:2rem 0;"></div>
-    <div class="section-header">
-      <h2>&#x1F9E0; 技术博客</h2>
-      <p>具身导航前沿技术 · 论文解读 · 研究思考 · 创业案例 · 共 31 篇</p>
-    </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.2rem;" id="tech-blog-filter">
-      <button class="btn btn-primary" style="font-size:13px;padding:6px 14px;" onclick="filterTechBlog('all',this)">全部</button>
-      <button class="btn btn-outline" style="font-size:13px;padding:6px 14px;" onclick="filterTechBlog('vln',this)">VLN</button>
-      <button class="btn btn-outline" style="font-size:13px;padding:6px 14px;" onclick="filterTechBlog('objectnav',this)">目标导航</button>
-      <button class="btn btn-outline" style="font-size:13px;padding:6px 14px;" onclick="filterTechBlog('llm',this)">LLM导航</button>
-      <button class="btn btn-outline" style="font-size:13px;padding:6px 14px;" onclick="filterTechBlog('case',this)">创业案例</button>
-      <button class="btn btn-outline" style="font-size:13px;padding:6px 14px;" onclick="filterTechBlog('startup',this)">创业思考</button>
-    </div>
-    <div class="blog-list" id="tech-blog-list"></div>
   </main>
 </div>
 
@@ -698,7 +683,7 @@
         <div class="s-icon s-content">&#x1F4DA;</div>
         <h3>创业案例库</h3>
         <p>AI/机器人/科技赛道失败案例深度分析，从别人踩过的坑里学到教训。</p>
-        <div class="s-count">20 个案例 · 9 个精写</div>
+        <div class="s-count">18 个案例 · 8 个精写</div>
       </div>
       <div class="startup-card" onclick="showSub('resources')">
         <div class="s-icon s-resource">&#x1F4C1;</div>
@@ -1016,9 +1001,13 @@ const PAPERS = [
 ];
 
 const BLOG_POSTS = [
-  { date:'2026-03-26', type:'type-research', typeLabel:'研究', title:'强化学习+VLN：2025年的两条技术路线', tags=['VLN','强化学习','GRPO','EvolveNav','VLN-R1'],
+  { date:'2026-03-26', type:'type-research', typeLabel:'研究', title:'ObjectNav vs VLN：目标导航和视觉语言导航的本质区别', tags:['ObjectNav','VLN','目标导航','具身智能','技术对比'],
+    desc:'很多人把ObjectNav和VLN混为一谈。本文系统拆解两大导航范式的任务定义、技术路线、评测指标、适用场景，从探索策略到语义对齐，从SR/SPL到nDTW/SDTW，帮你选清楚研究方向。', url:'blog/objectnav-vs-vln.html' },
+  { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'Theranos：硅谷最美女骗子的900亿骗局如何骗过所有人', tags:['Theranos','创业失败','硅谷骗局','Elizabeth Holmes','医疗科技'],
+    desc:'9亿美元融资、90亿估值、11年监禁。19岁辍学创始人如何用"一滴血检测200种疾病"的故事骗过前国务卿、前国防部长和顶级投资机构？深度拆解三层防御架构：权贵护城河、极端保密文化、故事型融资的自我强化陷阱。', url:'blog/theranos.html' },
+  { date:'2026-03-26', type:'type-research', typeLabel:'研究', title:'强化学习+VLN：2025年的两条技术路线', tags:['VLN','强化学习','GRPO','EvolveNav','VLN-R1'],
     desc:'深度解析2025年VLN领域两大技术突破：VLN-R1用GRPO强化微调实现连续环境端到端训练，EvolveNav通过自改进CoT推理提升数据效率。包含两条路线的详细对比表格和实践建议。', url:'blog/rl-vln-2025.html' },
-  { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'WeWork案例精写：从470亿到破产，孙正义160亿学费的教训', tags=['WeWork','创业失败','软银','共享办公','案例分析'],
+  { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'WeWork案例精写：从470亿到破产，孙正义160亿学费的教训', tags:['WeWork','创业失败','软银','共享办公','案例分析'],
     desc:'深度拆解WeWork从470亿估值到4400万破产的全过程。分析长租短出结构性错配、Adam Neumann公司治理灾难、软银12分钟决策三大败因，对比IWG轻资产盈利模式，总结创业者三个核心教训。' },
   { date:'2026-03-26', type:'type-startup', typeLabel:'创业', title:'每日心跳任务完成：网站更新+案例库+视频SOP+内容策略', tags=['自动化','网站','创业案例','视频生产','小红书'],
     desc:'完成精卫013每日心跳任务：(1) 网站BLOG_POSTS更新1条今日日志；(2) 推进DNS配置TODO任务；(3) 确认论文索引Excel存在，无需额外更新；(4) 今日新增1条研究日志到notes。本周产出：创业案例库上线（8精写+18总）、爆款SOP文档化、小红书双线策略确定、VLN/NavFoM博客2篇。' },
@@ -1077,14 +1066,6 @@ const CASES = [
     title:'移动应用创业失败启示录',
     desc:'126家失败公司、烧掉90亿美元后的血泪教训。系统性分析移动应用赛道失败模式：获客成本高、留存率低、商业化困难。',
     meta:'126家公司 · 90亿美元 · 行业分析' },
-  { id:9, cat:'ai', catLabel:'AI', tagCls:'cat-ai', status:'fail', statusLabel:'失败',
-    title:'Adept AI — 技术最强的AI Agent先驱，被亚马逊"人才收购"',
-    desc:'创始团队来自Google DeepMind和Transformer论文核心贡献者，融资超4亿美元。2024年倒下——没有商业化产品上市，核心团队被亚马逊整体挖走。技术最强，商业化为零。教训：技术验证 ≠ 商业验证，技术领先不等于存活。',
-    meta:'融资4亿美元 · 2024年倒闭 · AI Agent' },
-  { id:10, cat:'ai', catLabel:'AI', tagCls:'cat-ai', status:'fail', statusLabel:'失败',
-    title:'Humane AI Pin — 1.8亿美元砸出的AI可穿戴，退货超销售',
-    desc:'Sam Altman等知名投资人背书，融资1.8亿美元，199美元/月订阅。上市后退货量超过销售量，评测分数1.4/10，电池持续时间仅2小时。硬件AI产品失败教训：Demo优秀 ≠ 日常可用，体验细节决定生死。',
-    meta:'融资$180M · 2024年上市即失败 · 可穿戴AI' },
 ];
 
 const CASE_CATS = [
@@ -1181,115 +1162,11 @@ function renderBlog() {
   `).join('');
 }
 
-// ==================== 技术博客数据 ====================
-const TECH_BLOGS = [
-  { cat:'vln', date:'2026-03-26', title:'机器人听懂"把红苹果放到冰箱里"有多难？VLN指令理解的五年演进', tags:['VLN','指令理解','LLM'],
-    desc:'指令越短难度越高。从LSTM到LLM，VLN语言理解经历三次跃迁，但语言-空间-时序联合理解的gap还没有填上。', url:'./blog/vln-instruction-grounding.html' },
-  { cat:'vln', date:'2026-03-26', title:'VLN数据集全览：选错数据集，模型白练', tags:['VLN','数据集'],
-    desc:'R2R、REVERIE、RxR、SOON等六大VLN数据集横向对比，三步选择决策树，附评估指标避坑指南。', url:'./blog/vln-datasets.html' },
-  { cat:'vln', date:'2026-03-25', title:'机器人走到目的地门口，却不知道该停下来', tags:['VLN','停止决策'],
-    desc:'VLN最被忽视的问题：SR=71.9%，但机器人停止位置平均离目标0.8米。走到了，停不住。', url:'./blog/vln-stopping-problem.html' },
-  { cat:'vln', date:'2026-03-25', title:'2025 Q1 VLN研究思考：三个新方向，一个未解之问', tags:['VLN','研究思考'],
-    desc:'SpatialFly、HaltNav、NavGRPO三篇正交方向放一起，揭示了一个未被充分探索的组合空间。', url:'./blog/research-thinking-vln-2025q1.html' },
-  { cat:'vln', date:'2026-03-25', title:'机器人导航的「世界模型」革命', tags:['VLN','世界模型'],
-    desc:'WMNav、ImagiNav、NavigateDiff把VLN从反应式变成预测式。机器人开始在脑子里"想象"世界，然后再走。', url:'./blog/world-model-nav.html' },
-  { cat:'vln', date:'2026-03-25', title:'导航的GPT时刻：NavFoM与具身导航基础模型', tags:['NavFoM','基础模型'],
-    desc:'北大王鹤团队NavFoM用800万样本训练跨实体跨任务导航基础模型，这是导航的GPT时刻还是新的起点？', url:'./blog/navigation-gpt-moment.html' },
-  { cat:'vln', date:'2026-03-26', title:'导航基础模型三国杀：NavFoM vs OctoNav vs P³Nav', tags:['NavFoM','OctoNav'],
-    desc:'2025-2026三篇重量级论文定义了导航基础模型的三种路线，深度对比技术架构与实验表现。', url:'./blog/navigation-foundation-models-comparison.html' },
-  { cat:'vln', date:'2026-03-25', title:'为什么VLN的「跨模态对齐」是当前最大的难点', tags:['VLN','跨模态'],
-    desc:'VLN十年发展，跨模态对齐始终是核心挑战。梳理当前主流方法的问题所在，以及LLM能带来什么改变。', url:'./blog/vln-cross-modal-alignment.html' },
-  { cat:'vln', date:'2026-03-21', title:'VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路', tags:['VLN','记忆机制'],
-    desc:'三种记忆机制如何让机器人在100步长任务里不迷路？VLN-BERT、NavRAG、Mem2Ego深度解析。', url:'./blog/vln-memory-mechanisms.html' },
-  { cat:'vln', date:'2026-03-22', title:'VLN技术科普：机器人如何听懂语言、走完路径', tags:['VLN','科普'],
-    desc:'用最简单的语言解释视觉语言导航是什么，为什么难，2025年的进展在哪里。', url:'./blog/vln-explained.html' },
-  { cat:'vln', date:'2026-03-17', title:'强化学习在VLN中的应用现状：为什么RL比IL难用', tags:['RL','VLN'],
-    desc:'模仿学习在VLN中是主流，RL理论上更好，但面临奖励稀疏等挑战。分析现状与可能解法。', url:'./blog/rl-in-vln.html' },
-  { cat:'objectnav', date:'2026-03-21', title:'ObjectNav的三种主流范式：主动探索、语义推理、记忆增强', tags:['ObjectNav'],
-    desc:'目标导航最接近实际应用的任务，三类方法各有取舍，深度对比与实验结论。', url:'./blog/objectnav-paradigms.html' },
-  { cat:'objectnav', date:'2026-03-19', title:'论文精读：Active Neural SLAM——主动探索如何提升ObjectNav效率', tags:['ObjectNav','SLAM'],
-    desc:'CoRL 2022工作将SLAM与主动探索结合，提出「探索-利用」平衡策略，被100+工作引用。', url:'./blog/active-neural-slam.html' },
-  { cat:'llm', date:'2026-03-26', title:'LLM导航实验记录：从踩坑到顿悟的30天', tags:['LLM导航','实验'],
-    desc:'三阶段递进实验：纯提示工程(18.7%)→记忆增强(41.3%)→世界模型集成(48.6%)。LLM用对地方能提升30%+。', url:'./blog/llm-nav-experiments.html' },
-  { cat:'llm', date:'2026-03-26', title:'多模态LLM具身导航应用：三种范式与最新进展', tags:['MLLM','导航范式'],
-    desc:'端到端MLLM、子目标分解器、记忆增强器三种应用范式，TopV-Nav/ImagiNav/Mem2Ego代表作分析。', url:'./blog/mlm-embodied-navigation.html' },
-  { cat:'vln', date:'2026-03-20', title:'Sim-to-Real迁移：具身导航的「仿真到真实」鸿沟', tags:['Sim2Real','迁移'],
-    desc:'在Isaac Sim里SR=80%，部署真机变30%——三重打击原因分析与最新解法全梳理。', url:'./blog/sim-to-real-embodied-navigation.html' },
-  { cat:'vln', date:'2026-03-18', title:'什么是具身智能？我用3个类比让小白秒懂', tags:['具身智能','科普'],
-    desc:'用3个生活类比讲清感知-决策-执行闭环，附2025最新进展。', url:'./blog/embodied-ai-intro.html' },
-  { cat:'case', date:'2026-03-26', title:'具身智能清场时刻：K-Scale Labs倒闭的6条血训', tags:['具身智能','失败案例'],
-    desc:'烧光5000万估值后倒闭，2026具身智能淘汰赛正式开始。6条血训每条价值数千万美元。', url:'./blog/k-scale-labs-failure-analysis.html' },
-  { cat:'case', date:'2026-03-26', title:'具身智能融资狂潮：两个月200亿背后的狂热与隐忧', tags:['具身智能','融资'],
-    desc:'2026年开年两个月，具身智能赛道融资超200亿，7家百亿独角兽。泡沫积聚中的清醒分析。', url:'./blog/embodied-ai-funding-frenzy.html' },
-  { cat:'case', date:'2026-03-25', title:'25款AI应用集体猝死：腾讯智影、讯飞写作全在列', tags:['AI应用','倒闭'],
-    desc:'2025下半年25款AI应用集中关闭，腾讯阿里字节无一幸免。三大死因深度分析。', url:'./blog/ai-apps-death-wave.html' },
-  { cat:'case', date:'2026-03-25', title:'7大死亡陷阱：AI创业公司的真实墓志铭', tags:['AI创业','失败'],
-    desc:'Builder.ai融资4.5亿造假倒闭、Humane AI Pin退货超销售……7个真实失败模式深度复盘。', url:'./blog/ai-startup-death-traps.html' },
-  { cat:'case', date:'2026-03-25', title:'AI独角兽正在倒闭：达闼机器人与2025年明星公司危机', tags:['AI独角兽','倒闭潮'],
-    desc:'达闼停摆、澜码欠薪、Stability AI资不抵债……4种死亡模式+3条生存教训。', url:'./blog/ai-unicorn-collapse.html' },
-  { cat:'case', date:'2026-03-25', title:'人形机器人第一波倒闭潮：5条血训', tags:['人形机器人','失败'],
-    desc:'K-Scale Labs有订单照样倒闭、iRobot 30年神话被中国制造终结——三个真实案例+5条血训。', url:'./blog/humanoid-robot-failure-wave.html' },
-  { cat:'case', date:'2026-03-25', title:'产品市场匹配的7个反面教材', tags:['PMF','产品'],
-    desc:'7个"假PMF"反面教材，用真实案例和行为数据教你识别PMF真伪。', url:'./blog/pmf-anti-patterns.html' },
-  { cat:'case', date:'2026-03-24', title:'一批机器人公司正在倒闭', tags:['机器人','创业'],
-    desc:'2025年十多家机器人公司倒闭。资金链断裂+中国供应链冲击+商业化验证失败。', url:'./blog/robot-company-closure.html' },
-  { cat:'case', date:'2026-03-23', title:'案例分析：K-Scale Labs硅谷明星人形机器人公司的陨落', tags:['K-Scale','失败'],
-    desc:'融资3轮、订单200万$、OpenAI客户、2025年11月倒闭。账上只剩40万$。', url:'./blog/case-k-scale.html' },
-  { cat:'case', date:'2026-03-23', title:'中国具身智能公司倒闭潮：2025年十多家公司倒掉', tags:['中国公司','倒闭潮'],
-    desc:'达闼、蚕丛机器人、领贝机器人……核心原因：蹭AI热度无核心技术、高估值低营收。', url:'./blog/case-china-robots.html' },
-  { cat:'startup', date:'2026-03-25', title:'AI创业失败案例：17.5亿美元烧光的Quibi教会我们什么', tags:['Quibi','创业'],
-    desc:'2020年4月上线，10月宣布关闭，6个月烧光17.5亿美元。5条生存法则。', url:'./blog/startup-failure-analysis.html' },
-  { cat:'startup', date:'2026-03-22', title:'AI Agent创业机会分析：具身智能领域的可能路径', tags:['AI创业','Agent'],
-    desc:'从技术成熟度、市场需求、商业模式三维度分析AI Agent在机器人领域的落地路径。', url:'./blog/ai-agent-opportunities.html' },
-  { cat:'startup', date:'2026-03-19', title:'从学术研究到产品化：具身导航技术的落地挑战', tags:['学术','产品化'],
-    desc:'学术论文SOTA方法在产品化过程中的数据/算力/可靠性/成本四维挑战，以及可能解法。', url:'./blog/research-to-product.html' },
-  { cat:'startup', date:'2026-03-26', title:'具身智能商业化：硬件创业的7个反直觉规律', tags:['具身智能','商业化','硬件创业'],
-    desc:'200亿融资涌入、25家公司倒下。技术越强死得越早、有订单反而更危险……7条反直觉规律，一个导航博士的冷静复盘。', url:'./blog/embodied-ai-commercialization.html' },
-  { cat:'startup', date:'2026-03-15', title:'为什么要做「知识创业」：一个博士的第二曲线', tags:['知识创业','博士'],
-    desc:'科研做得好不等于能养活自己。探索用知识和内容变现的可能性，让研究与副业相互增强。', url:'./blog/why-knowledge-entrepreneurship.html' },
-];
-
-let currentTechCat = 'all';
-
-function filterTechBlog(cat, btn) {
-  currentTechCat = cat;
-  document.querySelectorAll('#tech-blog-filter button').forEach(b => {
-    b.classList.remove('btn-primary');
-    b.classList.add('btn-outline');
-  });
-  if (btn) {
-    btn.classList.remove('btn-outline');
-    btn.classList.add('btn-primary');
-  }
-  renderTechBlog();
-}
-
-function renderTechBlog() {
-  const container = document.getElementById('tech-blog-list');
-  if (!container) return;
-  const filtered = currentTechCat === 'all' ? TECH_BLOGS : TECH_BLOGS.filter(b => b.cat === currentTechCat);
-  container.innerHTML = filtered.map(b => `
-    <a class="blog-card" href="${b.url}" style="display:block;text-decoration:none;color:inherit;cursor:pointer;">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-        <span class="blog-type ${b.cat === 'case' ? 'type-startup' : 'type-research'}">${b.cat === 'case' ? '案例' : b.cat === 'startup' ? '创业' : '技术'}</span>
-        <span class="blog-date">${b.date}</span>
-      </div>
-      <h3 style="margin-bottom:6px;">${b.title}</h3>
-      <p style="color:var(--text-secondary);font-size:0.9rem;">${b.desc}</p>
-      <div class="blog-tags" style="margin-top:8px;">
-        ${b.tags.map(t => `<span class="blog-tag">#${t}</span>`).join('')}
-      </div>
-      <div style="margin-top:8px;font-size:12px;color:var(--accent);">阅读全文 →</div>
-    </a>
-  `).join('');
-}
-
 // Init
 renderPapers('home-papers', 'all');
 renderTabs('cat-tabs', 'all');
 renderPapers('knowledge-papers', 'all');
 renderBlog();
-renderTechBlog();
 renderCaseTabs();
 renderCases();
 document.getElementById('footer-papers').textContent = PAPERS.length + '篇论文 · ' + CASES.length + '个案例';
