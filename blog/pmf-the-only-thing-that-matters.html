@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PMF：创业公司唯一重要的指标 · 精卫013</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e14;
+      --bg-secondary: #111620;
+      --bg-card: #151c28;
+      --accent-red: #e0503a;
+      --accent-gold: #f0a500;
+      --accent-cyan: #4ecdc4;
+      --text-primary: #e8eaf0;
+      --text-secondary: #8892a4;
+      --text-muted: #4a5568;
+      --border: #1e2a3a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,14,20,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo { font-family: 'Noto Serif SC', serif; font-weight: 700; color: var(--accent-gold); text-decoration: none; font-size: 1.1rem; }
+    .nav-back { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; }
+    .nav-back:hover { color: var(--accent-gold); }
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+    .article-meta {
+      display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+    .meta-tag {
+      padding: 0.2rem 0.7rem; border-radius: 5px; font-size: 0.78rem; font-weight: 500;
+    }
+    .tag-startup { background: rgba(224,80,58,0.15); color: var(--accent-red); }
+    .tag-pmf { background: rgba(240,165,0,0.12); color: var(--accent-gold); }
+    .tag-date { color: var(--text-muted); font-size: 0.82rem; }
+    h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2rem; font-weight: 700; line-height: 1.4;
+      margin-bottom: 1rem; color: var(--text-primary);
+    }
+    .article-lead {
+      font-size: 1.05rem; color: var(--text-secondary); line-height: 1.9;
+      margin-bottom: 2.5rem; padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.35rem; font-weight: 600; color: var(--accent-gold);
+      margin: 2.5rem 0 1rem;
+    }
+    h3 {
+      font-size: 1.05rem; font-weight: 600; color: var(--accent-red);
+      margin: 1.8rem 0 0.75rem;
+    }
+    p { margin-bottom: 1.2rem; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.9; }
+    strong { color: var(--text-primary); }
+    blockquote {
+      border-left: 3px solid var(--accent-gold);
+      background: var(--bg-card);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+    }
+    .highlight-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-red);
+      border-radius: 8px; padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+    }
+    .highlight-box p { margin-bottom: 0; font-size: 0.9rem; }
+    .number-highlight {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2.5rem; font-weight: 700; color: var(--accent-red);
+      display: block; margin: 0.5rem 0;
+    }
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.2rem; text-align: center;
+    }
+    .stat-card .num { font-size: 1.8rem; font-weight: 700; color: var(--accent-red); font-family: 'Noto Serif SC', serif; }
+    .stat-card .label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; }
+    .stat-card .num.gold { color: var(--accent-gold); }
+    .stat-card .num.cyan { color: var(--accent-cyan); }
+    table {
+      width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.87rem;
+    }
+    th {
+      background: var(--bg-card); color: var(--accent-gold);
+      padding: 0.75rem 1rem; text-align: left; border: 1px solid var(--border); font-weight: 600;
+    }
+    td {
+      padding: 0.65rem 1rem; border: 1px solid var(--border); color: var(--text-secondary);
+    }
+    tr:nth-child(even) td { background: rgba(21,28,40,0.5); }
+    .versus-box {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;
+    }
+    .versus-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.2rem;
+    }
+    .versus-card .v-title { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.8rem; }
+    .versus-card.lose .v-title { color: var(--accent-red); }
+    .versus-card.win .v-title { color: var(--accent-cyan); }
+    .versus-card .v-num { font-size: 2rem; font-weight: 700; font-family: 'Noto Serif SC', serif; }
+    .versus-card.lose .v-num { color: var(--accent-red); }
+    .versus-card.win .v-num { color: var(--accent-cyan); }
+    .versus-card .v-name { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem; }
+    .versus-card .v-desc { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.8rem; line-height: 1.6; }
+    .case-block {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; margin: 2rem 0;
+    }
+    .case-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+    .case-icon { font-size: 1.5rem; }
+    .case-title { font-family: 'Noto Serif SC', serif; font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+    .case-subtitle { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .case-block p { font-size: 0.9rem; }
+    .case-lesson {
+      margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--accent-gold); font-weight: 500;
+    }
+    .path-cards {
+      display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0;
+    }
+    .path-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.2rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .path-num {
+      font-family: 'Noto Serif SC', serif; font-size: 1.5rem; font-weight: 700;
+      color: var(--accent-gold); min-width: 2rem;
+    }
+    .path-content .path-title { font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .path-content p { margin-bottom: 0; font-size: 0.88rem; }
+    .conclusion-box {
+      background: linear-gradient(135deg, rgba(240,165,0,0.08), rgba(224,80,58,0.06));
+      border: 1px solid rgba(240,165,0,0.2);
+      border-radius: 12px; padding: 2rem; margin: 2.5rem 0;
+    }
+    .conclusion-box h2 { margin-top: 0; }
+    .refs {
+      margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .refs h3 { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .refs a { color: var(--text-muted); font-size: 0.82rem; text-decoration: none; display: block; margin-bottom: 0.4rem; }
+    .refs a:hover { color: var(--accent-gold); }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.6rem; }
+      .versus-box { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">精卫013</a>
+  <a href="../index.html" class="nav-back">← 返回首页</a>
+</nav>
+
+<div class="article-container">
+
+  <div class="article-meta">
+    <span class="meta-tag tag-startup">创业基础</span>
+    <span class="meta-tag tag-pmf">PMF</span>
+    <span class="tag-date">2026-03-26</span>
+  </div>
+
+  <h1>PMF：创业公司唯一重要的指标</h1>
+
+  <p class="article-lead">Marc Andreessen在2007年写了一篇文章，只说了一件事——创业公司的生命里只有一个指标重要，其他都是噪音。17年过去了，这依然是最重要的真理。42%的创业公司死于"没有市场需求"，不是技术太烂，不是团队太差，就是做了一个没人想要的东西。</p>
+
+  <!-- Color vs Instagram 对比 -->
+  <h2>Color.com的故事：4100万美元堆出来的失败</h2>
+
+  <div class="versus-box">
+    <div class="versus-card lose">
+      <div class="v-title">失败方</div>
+      <div class="v-num">$4100万</div>
+      <div class="v-name">Color.com</div>
+      <div class="v-desc">38人团队，豪华办公室，35万美元域名。上线当天App Store两星评价。2012年底关闭，700万打包卖给苹果。</div>
+    </div>
+    <div class="versus-card win">
+      <div class="v-title">同年赢家</div>
+      <div class="v-num">$10亿</div>
+      <div class="v-name">Instagram</div>
+      <div class="v-desc">13人团队，融资约50万美元。同年被Facebook以10亿美元收购。</div>
+    </div>
+  </div>
+
+  <p>2011年3月，Color产品都没上线，就从红杉等顶级VC拿了4100万美元。红杉称其为"每十年才出一两个的改变世界的公司"。</p>
+  <p>用户打开App，完全不知道能做什么。</p>
+
+  <div class="highlight-box">
+    <p><strong>PMF缺失的代价</strong>——资金越多，死得越惨，因为你失去了小步试错的机会。Color的故事不是钱的问题，是根本没有人需要这个产品。</p>
+  </div>
+
+  <!-- Andreessen的话 -->
+  <h2>那一篇2007年的文章</h2>
+
+  <p>Marc Andreessen，a16z的联合创始人，早年写了一篇博客，标题叫《The only thing that matters》（唯一重要的事）。</p>
+
+  <blockquote>
+    "创业公司的生命可以被分成两个阶段：达到PMF之前，和达到PMF之后。"
+  </blockquote>
+  <blockquote>
+    "在一个伟大的市场里——一个有大量真实潜在客户的市场里——市场会把产品从创业公司身上<em>拉</em>出来。"
+  </blockquote>
+  <blockquote>
+    "当PMF发生时，你总能感觉到。客户购买产品的速度和你生产一样快，或者使用量的增长速度和你添加服务器一样快。"
+  </blockquote>
+
+  <p>PMF的定义很简单：在一个好市场里，有一个能满足这个市场的产品。听起来废话，但执行层面，<strong>95%的创业公司在找到PMF之前就死了。</strong></p>
+
+  <!-- 量化指标 -->
+  <h2>PMF的样子：四个数字</h2>
+
+  <h3>1. Sean Ellis测试：40%法则</h3>
+  <p>Sean Ellis是"增长黑客"这个词的发明者，他2009年提出一个测试——向活跃用户问一个问题：</p>
+  <blockquote>"如果明天你不能再使用这个产品，你会有什么感受？"</blockquote>
+
+  <table>
+    <thead>
+      <tr><th>回答"非常失望"的比例</th><th>含义</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>&lt; 25%</td><td>没有PMF，重新思考产品方向</td></tr>
+      <tr><td>25%–40%</td><td>有苗头，需要改进</td></tr>
+      <tr><td>≥ 40%</td><td>✅ 达到PMF，可以开始规模化扩张</td></tr>
+      <tr><td>&gt; 60%</td><td>强PMF，极其罕见</td></tr>
+    </tbody>
+  </table>
+
+  <h3>2. 留存曲线</h3>
+  <p>留存率是最诚实的指标。关键不是绝对数字，而是<strong>曲线形态</strong>——如果留存曲线一路向下，说明没有PMF；如果曲线趋于平缓，稳定的核心用户群已经出现。</p>
+
+  <table>
+    <thead>
+      <tr><th>产品类型</th><th>良好30天留存</th><th>优秀30天留存</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>消费者社交</td><td>≥ 25%</td><td>≥ 40%</td></tr>
+      <tr><td>消费者SaaS</td><td>≥ 20%</td><td>≥ 35%</td></tr>
+      <tr><td>B2B SaaS</td><td>≥ 40%</td><td>≥ 60%</td></tr>
+      <tr><td>企业级SaaS</td><td>≥ 70%</td><td>≥ 85%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3. DAU/MAU比率</h3>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="num">&lt;10%</div>
+      <div class="label">用户根本不来</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">10–20%</div>
+      <div class="label">工具类正常水平</div>
+    </div>
+    <div class="stat-card">
+      <div class="num gold">65%</div>
+      <div class="label">Facebook日活比</div>
+    </div>
+    <div class="stat-card">
+      <div class="num cyan">40%</div>
+      <div class="label">Slack活跃团队</div>
+    </div>
+  </div>
+
+  <h3>4. NPS（净推荐值）</h3>
+  <p>NPS &lt; 0 表示PMF弱；NPS &gt; 50 是强PMF信号，有机增长开始出现；NPS &gt; 70 极罕见，产品已成为用户不可或缺的一部分。</p>
+
+  <!-- 四个案例 -->
+  <h2>四个案例：PMF的样子</h2>
+
+  <div class="case-block">
+    <div class="case-header">
+      <div class="case-icon">🏠</div>
+      <div>
+        <div class="case-title">Airbnb：一场大会 + 麦片盒</div>
+        <div class="case-subtitle">2008年 · 从凑房租到100亿估值</div>
+      </div>
+    </div>
+    <p>2008年，Airbnb几乎快撑不下去。创始人Brian Chesky和Joe Gebbia设计了两款总统大选主题麦片盒——"Obama O's"和"Cap'n McCain's"，每盒40美元，卖出500盒，筹了3万美元活命。</p>
+    <p>真正的PMF转折点：2010年，团队亲自跑到纽约，挨家挨户帮房东拍专业照片。不是算法，不是增长黑客，是两个人拎着相机敲门。纽约房源预订量增长<strong>2到3倍</strong>。他们把这个模式推向全球。</p>
+    <p>到2014年春天：<strong>1000万</strong>次入住，全球<strong>55万处</strong>房源，估值超过100亿美元。</p>
+    <div class="case-lesson">教训：PMF不是被"设计"出来的，是被逼出来的。</div>
+  </div>
+
+  <div class="case-block">
+    <div class="case-header">
+      <div class="case-icon">💬</div>
+      <div>
+        <div class="case-title">Slack：连续失败的游戏开发者</div>
+        <div class="case-subtitle">2014年 · 从游戏副产品到277亿美元</div>
+      </div>
+    </div>
+    <p>Stewart Butterfield做了两个游戏，都失败了。Game Neverending失败后，提取出工具变成Flickr，以2500万卖给Yahoo。Glitch（2011年）失败后，把内部协作工具独立出来，叫Slack。</p>
+    <p>2014年2月公开上线：<strong>首日8000个</strong>使用请求，<strong>第二周15000个</strong>。第一年每周增长5%到10%。2014年当年营收1200万美元，估值达到11亿，上线当年就成了独角兽。</p>
+    <p>2020年，Salesforce用<strong>277亿美元</strong>收购Slack。</p>
+    <div class="case-lesson">反直觉：两次做游戏失败，两次都从游戏里提取出工具，合计价值超过280亿美元。失败本身不重要，PMF才重要。</div>
+  </div>
+
+  <div class="case-block">
+    <div class="case-header">
+      <div class="case-icon">📦</div>
+      <div>
+        <div class="case-title">Dropbox：假视频验证真需求</div>
+        <div class="case-subtitle">2008年 · MVP可以不是产品</div>
+      </div>
+    </div>
+    <p>Drew Houston想做跨设备文件同步工具，但产品还没做完。他录了一个<strong>4分钟演示视频</strong>，视频里展示的功能是模拟效果，不是真实产品。</p>
+    <p>视频发到Hacker News：等待列表从5000人，<strong>一夜涨到75000人</strong>，增长1400%。</p>
+    <p>后来推出双向推荐计划（推荐人和被推荐人各得500MB），用户从<strong>10万涨到400万</strong>，15个月内增长<strong>3900%</strong>，35%的每日新注册来自推荐。</p>
+    <div class="case-lesson">教训：验证PMF最好的MVP，可能不是产品，而是一段视频。</div>
+  </div>
+
+  <div class="case-block">
+    <div class="case-header">
+      <div class="case-icon">🛒</div>
+      <div>
+        <div class="case-title">拼多多：消费降级的反直觉</div>
+        <div class="case-subtitle">2015年 · 反向押注空白市场</div>
+      </div>
+    </div>
+    <p>2015年，所有平台都在做消费升级。黄峥看到了另一面：三四线城市和农村有大量用户，要的是便宜，不是品质。淘宝和京东都没在认真服务他们。</p>
+    <p>拼多多的核心机制：拼团 + 微信社交分享。在微信生态裂变，不花广告费，用低价驱动。</p>
+    <p>上线<strong>4个月</strong>，日订单量破100万。2016年用户突破1亿。2018年上市时月活<strong>2.95亿</strong>，IPO估值<strong>240亿美元</strong>。</p>
+    <div class="case-lesson">教训：当所有人都在往同一个方向跑时，空白市场往往在另一边。PMF来自对主流视角的反向押注。</div>
+  </div>
+
+  <!-- PMF前后 -->
+  <h2>PMF之前和之后，完全是两个世界</h2>
+
+  <p>Marc Andreessen说得很直白：</p>
+  <blockquote>
+    "达到PMF之前，专注于此，不惜一切。可以更换团队成员，彻底重造产品，进入不同市场。其他所有事情，都是次要的。"
+  </blockquote>
+
+  <p>什么是"其他所有事情"？完美的销售流程、HR政策、办公室装修、品牌设计……在没有PMF之前，这些全都是噪音。</p>
+
+  <div class="versus-box">
+    <div class="versus-card lose">
+      <div class="v-title">PMF之前</div>
+      <div class="v-desc">你推石头上山，推一下动一下，停了就停了。核心问题：有没有人想要这个东西？</div>
+    </div>
+    <div class="versus-card win">
+      <div class="v-title">PMF之后</div>
+      <div class="v-desc">市场在拉着你跑，你的问题变成"跑得够不够快"，而不是"有没有人想跑"。</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>42%</strong>的创业公司失败的原因是"没有市场需求"（来源：CB Insights）。不是技术太烂，不是团队太差，不是钱不够——就是做了一个没人想要的东西。</p>
+  </div>
+
+  <!-- 三条路 -->
+  <h2>怎么找到PMF？三条路</h2>
+
+  <div class="path-cards">
+    <div class="path-card">
+      <div class="path-num">01</div>
+      <div class="path-content">
+        <div class="path-title">先找痛点，再造产品</div>
+        <p>拼多多的痛点是低价需求被忽视；滴滴的痛点是打车难；微信的痛点是流量贵打字慢。每一个成功的PMF背后，都有一个被主流忽视的真实痛点。</p>
+      </div>
+    </div>
+    <div class="path-card">
+      <div class="path-num">02</div>
+      <div class="path-content">
+        <div class="path-title">不要过度融资</div>
+        <p>Color的教训：钱多了，反而失去了试错空间。你必须保持饥饿感，快速验证，快速迭代。Instagram 13人团队，50万美元融资，10亿美元出售。Color 38人，4100万美元，700万打包卖掉。</p>
+      </div>
+    </div>
+    <div class="path-card">
+      <div class="path-num">03</div>
+      <div class="path-content">
+        <div class="path-title">做不能规模化的事</div>
+        <p>Paul Graham的经典建议：在早期，手动服务每一个用户。Airbnb创始人挨家敲门，Stripe创始人帮用户手动安装，Wufoo给每个用户手写感谢信。这些事情无法规模化，但它们告诉你用户真正在乎什么。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 结语 -->
+  <div class="conclusion-box">
+    <h2 style="margin-top:0;">最后一点</h2>
+    <p>Dropbox用一个假视频验证了75000人的需求，然后才动手写代码。</p>
+    <p>Slack从一个失败游戏的副产品起步，上线首日就收到8000个使用请求。</p>
+    <p>Airbnb两个创始人拎着相机敲纽约房东的门，订单翻了3倍。</p>
+    <p>拼多多在所有人做消费升级的时候，反手做了消费降级，4个月日订单破百万。</p>
+    <p>这些故事的共同点：<strong>没有一个是靠"钱砸出来的"。</strong></p>
+    <p>Marc Andreessen说，你总能感觉到PMF的到来——用户购买速度比你生产速度更快，服务器加不够快，电话和邮件多到接不完，投资人开始主动找你。</p>
+    <p style="margin-bottom:0;">在那之前，只有一件事重要：用一切方法，找到那个时刻。</p>
+  </div>
+
+  <div class="refs">
+    <h3>参考来源</h3>
+    <a href="https://pmarchive.com/guide_to_startups_part4.html" target="_blank">Marc Andreessen - The only thing that matters (pmarchive.com)</a>
+    <a href="https://paulgraham.com/ds.html" target="_blank">Paul Graham - Do Things that Don't Scale</a>
+    <a href="https://growthhackers.com/growth-studies/airbnb/" target="_blank">Airbnb Growth Story - GrowthHackers</a>
+    <a href="https://www.businessofapps.com/data/slack-statistics/" target="_blank">Slack Statistics - Business of Apps</a>
+    <a href="https://growsurf.com/blog/dropbox-referral-program/" target="_blank">Dropbox Referral Program - GrowSurf</a>
+    <a href="https://startupik.com/color-labs-the-41m-startup-that-nobody-used/" target="_blank">Color Labs Failure - Startupik</a>
+  </div>
+
+</div>
+
+</body>
+</html>
