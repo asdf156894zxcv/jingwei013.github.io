@@ -685,29 +685,50 @@
 
       <!-- 详细进度 -->
       <div style="margin-top:16px;padding:16px;background:var(--bg-page);border-radius:8px;">
-        <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;font-weight:600;">📁 研究产出</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;font-weight:600;">📁 研究产出（CoW-Nav）</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;">
-          <div style="padding:8px 12px;background:rgba(248,81,73,0.1);border-radius:6px;border-left:3px solid #f85149;">
+          <div style="padding:8px 12px;background:rgba(248,81,73,0.15);border-radius:6px;border-left:3px solid #f85149;">
             <div style="font-size:11px;color:var(--text-muted);">论文初稿</div>
-            <div style="font-size:13px;color:var(--text-secondary);">⏳ 未开始</div>
+            <div style="font-size:13px;color:var(--text-secondary);font-weight:500;">✅ LaTeX完成</div>
+            <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">main.tex + 附录</div>
           </div>
-          <div style="padding:8px 12px;background:rgba(248,81,73,0.1);border-radius:6px;border-left:3px solid #f85149;">
+          <div style="padding:8px 12px;background:rgba(248,81,73,0.15);border-radius:6px;border-left:3px solid #f85149;">
             <div style="font-size:11px;color:var(--text-muted);">代码Demo</div>
-            <div style="font-size:13px;color:var(--text-secondary);">🔄 环境配置中</div>
+            <div style="font-size:13px;color:var(--text-secondary);font-weight:500;">🔄 框架完成</div>
+            <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">FSCoT生成脚本</div>
           </div>
-          <div style="padding:8px 12px;background:rgba(248,81,73,0.1);border-radius:6px;border-left:3px solid #f85149;">
+          <div style="padding:8px 12px;background:rgba(248,81,73,0.15);border-radius:6px;border-left:3px solid #f85149;">
             <div style="font-size:11px;color:var(--text-muted);">实验数据</div>
-            <div style="font-size:13px;color:var(--text-secondary);">⏳ 待收集</div>
+            <div style="font-size:13px;color:var(--text-secondary);font-weight:500;">🔶 模拟数字</div>
+            <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">待GPU验证</div>
           </div>
-          <div style="padding:8px 12px;background:rgba(248,81,73,0.1);border-radius:6px;border-left:3px solid #f85149;">
+          <div style="padding:8px 12px;background:rgba(248,81,73,0.15);border-radius:6px;border-left:3px solid #f85149;">
             <div style="font-size:11px;color:var(--text-muted);">LaTeX模板</div>
-            <div style="font-size:13px;color:var(--text-secondary);">⏳ 未开始</div>
+            <div style="font-size:13px;color:var(--text-secondary);font-weight:500;">✅ 已完成</div>
+            <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">5张论文图</div>
           </div>
+        </div>
+        
+        <!-- 详细文档链接 -->
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border-color);">
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">📄 相关文档</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <a href="https://github.com/jingwei013/paper-cow-nav" target="_blank" style="font-size:11px;padding:4px 10px;background:var(--bg-card);border-radius:4px;color:var(--text-secondary);text-decoration:none;border:1px solid var(--border-color);">📄 paper.md</a>
+            <a href="https://github.com/jingwei013/paper-cow-nav" target="_blank" style="font-size:11px;padding:4px 10px;background:var(--bg-card);border-radius:4px;color:var(--text-secondary);text-decoration:none;border:1px solid var(--border-color);">📊 PROGRESS.md</a>
+            <span style="font-size:11px;padding:4px 10px;background:var(--bg-card);border-radius:4px;color:var(--text-muted);border:1px solid var(--border-color);">📝 tex/ (LaTeX源文件)</span>
+            <span style="font-size:11px;padding:4px 10px;background:var(--bg-card);border-radius:4px;color:var(--text-muted);border:1px solid var(--border-color);">💻 code/ (实验代码)</span>
+          </div>
+        </div>
+        
+        <!-- 阻塞点提示 -->
+        <div style="margin-top:12px;padding:10px 12px;background:rgba(248,81,73,0.08);border-radius:6px;border-left:3px solid #f85149;">
+          <div style="font-size:11px;color:#f85149;font-weight:500;">⚠️ 当前阻塞</div>
+          <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">需要GPU服务器运行真实实验验证模拟数字（预计56-97 GPU-hours）</div>
         </div>
       </div>
 
       <p style="font-size:13px;color:var(--text-muted);margin-top:16px;">
-        目标：ICRA 2027/RAL · 预计投稿：2026年9月 · 当前：配置环境运行DUET baseline
+        目标：ICRA 2027/RAL · 预计投稿：2026年9月 · 当前：CoW-Nav论文草稿完成，待GPU实验验证
       </p>
     </div>
 
