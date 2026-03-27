@@ -637,74 +637,136 @@
       <div class="section-desc">正在推进的研究工作 · 从想法到投稿的完整进度</div>
     </div>
 
+    <!-- 方向A：停止决策 -->
     <div class="sci-card" style="border-left-color:#f59e0b;">
-      <div class="sci-badge" style="background:#f59e0b;">✍️ 写作中</div>
-      <h3>CoW-Nav: Chain-of-World Reasoning for LLM-Based Vision-Language Navigation</h3>
+      <div class="sci-badge" style="background:#f59e0b;">🔥 最高优先级</div>
+      <h3>方向A：停止决策优化 — HaltNav复现与改进</h3>
       <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
-        <strong>核心创新：</strong>提出 Chain-of-World (CoW) 机制，让 LLM 在行动前想象未来的世界状态，形成"世界推理链"，显著减少幻觉并提升规划能力。
+        <strong>核心问题：</strong>VLN机器人走到目标门口却停不下来。HaltNav发现DUET的StoP仅58%，平均停止距离0.8米。<br>
+        <strong>研究思路：</strong>复现HaltNav baseline → 分析StoP误差分布 → 设计改进方案（形式化CoT+隐式信心头）。
       </p>
       
       <!-- 进度条 -->
       <div style="margin:20px 0;">
         <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;">
           <span>总体进度</span>
-          <span style="color:var(--accent);">35%</span>
+          <span style="color:var(--accent);">15%</span>
         </div>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:35%;background:linear-gradient(90deg,#f59e0b,#f85149)"></div></div>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:15%;background:linear-gradient(90deg,#f59e0b,#f85149)"></div></div>
       </div>
 
       <!-- 里程碑 -->
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:20px 0;">
         <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:1;">
           <div style="font-size:20px;margin-bottom:4px;">✅</div>
-          <div style="font-size:12px;color:var(--text-secondary);">选题确定</div>
+          <div style="font-size:12px;color:var(--text-secondary);">精读HaltNav</div>
         </div>
         <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:1;">
           <div style="font-size:20px;margin-bottom:4px;">✅</div>
-          <div style="font-size:12px;color:var(--text-secondary);">文献调研</div>
+          <div style="font-size:12px;color:var(--text-secondary);">阶段0代码</div>
         </div>
         <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:1;">
           <div style="font-size:20px;margin-bottom:4px;">🔄</div>
-          <div style="font-size:12px;color:var(--accent);">实验设计</div>
+          <div style="font-size:12px;color:var(--accent);">运行baseline</div>
         </div>
         <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:0.4;">
           <div style="font-size:20px;margin-bottom:4px;">⏳</div>
-          <div style="font-size:12px;color:var(--text-muted);">代码实现</div>
+          <div style="font-size:12px;color:var(--text-muted);">StoP分析</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:0.4;">
+          <div style="font-size:20px;margin-bottom:4px;">⏳</div>
+          <div style="font-size:12px;color:var(--text-muted);">改进方案</div>
         </div>
         <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:0.4;">
           <div style="font-size:20px;margin-bottom:4px;">⏳</div>
           <div style="font-size:12px;color:var(--text-muted);">论文写作</div>
         </div>
-        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:0.4;">
-          <div style="font-size:20px;margin-bottom:4px;">⏳</div>
-          <div style="font-size:12px;color:var(--text-muted);">投稿</div>
-        </div>
       </div>
 
       <p style="font-size:13px;color:var(--text-muted);">
-        目标期刊：ICRA 2026 / RAL · 预计完成：2025年Q3 · 当前阶段：设计实验方案
+        目标：ICRA 2026/RAL · 预计投稿：2025年Q4 · 当前：配置环境运行DUET baseline
       </p>
     </div>
 
-    <div class="sci-card" style="border-left-color:#6e7681;opacity:0.7;">
-      <div class="sci-badge" style="background:#6e7681;">💡 构思中</div>
-      <h3>LongPath-VLN: 长路径视觉语言导航的鲁棒性训练策略</h3>
+    <!-- 方向B：几何对齐 -->
+    <div class="sci-card" style="border-left-color:#3fb950;">
+      <div class="sci-badge" style="background:#3fb950;">🔄 并行推进</div>
+      <h3>方向B：几何对齐 — SpatialFly BEV集成</h3>
       <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
-        <strong>核心问题：</strong>现有VLN模型对路径长度变化极度敏感，长路径任务SR骤降。探索数据增强和课程学习策略来提升长路径鲁棒性。
+        <strong>核心问题：</strong>VLN跨模态对齐困难，视觉-语言-空间几何关系建模不足。<br>
+        <strong>研究思路：</strong>将SpatialFly的BEV模块集成到DUET，用几何感知增强跨模态对齐。
       </p>
       
       <div style="margin:20px 0;">
         <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;">
           <span>总体进度</span>
-          <span style="color:#6e7681;">10%</span>
+          <span style="color:#3fb950;">10%</span>
         </div>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:10%;background:#6e7681"></div></div>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:10%;background:#3fb950"></div></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:20px 0;">
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:1;">
+          <div style="font-size:20px;margin-bottom:4px;">✅</div>
+          <div style="font-size:12px;color:var(--text-secondary);">精读SpatialFly</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:1;">
+          <div style="font-size:20px;margin-bottom:4px;">🔄</div>
+          <div style="font-size:12px;color:#3fb950;">集成方案</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:0.4;">
+          <div style="font-size:20px;margin-bottom:4px;">⏳</div>
+          <div style="font-size:12px;color:var(--text-muted);">伪代码</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:0.4;">
+          <div style="font-size:20px;margin-bottom:4px;">⏳</div>
+          <div style="font-size:12px;color:var(--text-muted);">实现验证</div>
+        </div>
       </div>
 
       <p style="font-size:13px;color:var(--text-muted);">
-        目标期刊：ICRA 2026 / RAL · 状态：文献调研中 · 优先级：高
+        目标：ICRA 2026 · 预计投稿：2025年Q4 · 当前：设计BEV-DUET集成架构
       </p>
     </div>
+
+    <!-- 方向D：CoT推理 -->
+    <div class="sci-card" style="border-left-color:#a371f7;">
+      <div class="sci-badge" style="background:#a371f7;">💡 概念阶段</div>
+      <h3>方向D：CoT推理优化 — 避免推理崩溃</h3>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
+        <strong>核心问题：</strong>Aux-Think发现显式CoT在VLN中提升有限，EvolveNav的自改进CoT存在推理崩溃。<br>
+        <strong>研究思路：</strong>结合方向A，用形式化CoT+隐式信心头，让模型知道自己"该不该停"。
+      </p>
+      
+      <div style="margin:20px 0;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;">
+          <span>总体进度</span>
+          <span style="color:#a371f7;">5%</span>
+        </div>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:5%;background:#a371f7"></div></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:20px 0;">
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:1;">
+          <div style="font-size:20px;margin-bottom:4px;">✅</div>
+          <div style="font-size:12px;color:var(--text-secondary);">精读Aux-Think</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:1;">
+          <div style="font-size:20px;margin-bottom:4px;">✅</div>
+          <div style="font-size:12px;color:var(--text-secondary);">精读EvolveNav</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--bg-page);border-radius:8px;opacity:0.4;">
+          <div style="font-size:20px;margin-bottom:4px;">⏳</div>
+          <div style="font-size:12px;color:var(--text-muted);">思路整合</div>
+        </div>
+      </div>
+
+      <p style="font-size:13px;color:var(--text-muted);">
+        目标：与方向A结合 · 预计启动：2025年Q3 · 当前：文献调研完成
+      </p>
+    </div>
+
+
   </section>
 
   <div class="divider"></div>
@@ -717,32 +779,32 @@
 
     <div class="sci-card">
       <div class="sci-badge">🔥 最推荐</div>
-      <h3>方向 A：VLN 长路径鲁棒性训练策略</h3>
+      <h3>方向 A：停止决策优化（HaltNav改进）</h3>
       <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
-        问题明确（SR 随路径变长急剧下降）、数据集现成（R2R、CVDN）、创新点在训练策略而非大模型，适合博士生独立完成。目标期刊：<strong>ICRA 2026 / RAL</strong>
+        问题明确（StoP仅58%，平均停止距离0.8米）、数据集现成（R2R）、创新点清晰（形式化CoT+隐式信心头）。<strong>当前正在推进，优先级最高。</strong>目标期刊：<strong>ICRA 2026 / RAL</strong>
       </p>
       <div class="sci-prob">
         <span style="font-size:13px;color:var(--text-secondary);width:120px">发表概率</span>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:75%"></div></div>
-        <span class="sci-prob-label">75%</span>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:70%"></div></div>
+        <span class="sci-prob-label">70%</span>
       </div>
       <div class="sci-prob">
         <span style="font-size:13px;color:var(--text-secondary);width:120px">完成周期</span>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:80%;background:linear-gradient(90deg,#3fb950,#56d4dd)"></div></div>
-        <span class="sci-prob-label" style="color:#3fb950">6月</span>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:60%;background:linear-gradient(90deg,#3fb950,#56d4dd)"></div></div>
+        <span class="sci-prob-label" style="color:#3fb950">6-8月</span>
       </div>
     </div>
 
     <div class="sci-card">
-      <div class="sci-badge">⚡ 高风险高回报</div>
-      <h3>方向 B：世界模型辅助 VLN 规划（WM × VLN）</h3>
+      <div class="sci-badge">⚡ 并行推进</div>
+      <h3>方向 B：几何对齐（SpatialFly BEV集成）</h3>
       <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
-        把 WMNav 的世界模型作为 VLN 的规划器，用预测的未来状态来引导路径选择。创新点足够，但需要较强工程能力实现真机部署。目标期刊：<strong>IROS 2026 / TRO</strong>
+        将SpatialFly的BEV模块集成到DUET，用几何感知增强跨模态对齐。与方向A互补，可形成组合创新。目标期刊：<strong>ICRA 2026</strong>
       </p>
       <div class="sci-prob">
         <span style="font-size:13px;color:var(--text-secondary);width:120px">发表概率</span>
-        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:55%"></div></div>
-        <span class="sci-prob-label">55%</span>
+        <div class="sci-prob-bar"><div class="sci-prob-fill" style="width:60%"></div></div>
+        <span class="sci-prob-label">60%</span>
       </div>
       <div class="sci-prob">
         <span style="font-size:13px;color:var(--text-secondary);width:120px">完成周期</span>
@@ -779,7 +841,7 @@
         <div class="section-title">🦞A 论文知识库</div>
         <div class="section-desc">2022年后高质量顶会论文 · VLN / ObjectNav / LLM导航 / 世界模型 / VLA · 持续更新</div>
       </div>
-      <div style="font-size:13px;color:var(--text-muted);">共 <strong style="color:var(--accent);">40+</strong> 篇 · 按方向筛选</div>
+      <div style="font-size:13px;color:var(--text-muted);">共 <strong style="color:var(--accent);" id="paperCount">33</strong> 篇 · 按方向筛选</div>
     </div>
     <div class="filter-bar" id="filterBar"></div>
     <div class="papers-grid" id="papersGrid"></div>
