@@ -544,7 +544,7 @@
         <span class="stat-num">39</span><div class="stat-label">技术博客 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
-        <span class="stat-num">23</span><div class="stat-label">创业案例 →</div>
+        <span class="stat-num">33</span><div class="stat-label">创业案例 →</div>
       </div>
       <div class="stat" onclick="showSection('research')" title="点击查看研究方向">
         <span class="stat-num">3月27</span><div class="stat-label">今日更新 →</div>
@@ -575,7 +575,7 @@
         <div class="section-title">🦞B 最新创业案例</div>
         <div class="section-desc">失败原因分析 · 成功关键 · 每日更新</div>
       </div>
-      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（23个）→</button>
+      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（33个）→</button>
     </div>
     <div class="case-grid" id="homeCasesPreview"></div>
   </section>
@@ -708,6 +708,29 @@
             <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">5张论文图</div>
           </div>
         </div>
+
+        <!-- 论文草稿核心数字 -->
+        <div style="margin-top:12px;padding:14px;background:rgba(232,162,48,0.08);border-radius:8px;border:1px solid rgba(232,162,48,0.25);">
+          <div style="font-size:11px;color:var(--accent);font-weight:600;margin-bottom:10px;">📊 CoW-Nav 草稿核心数字（模拟，待GPU验证）</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;">
+            <div style="text-align:center;padding:8px;background:var(--bg-card);border-radius:6px;">
+              <div style="font-size:18px;font-weight:700;color:var(--accent);">73.4%</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">SR（成功率）</div>
+            </div>
+            <div style="text-align:center;padding:8px;background:var(--bg-card);border-radius:6px;">
+              <div style="font-size:18px;font-weight:700;color:var(--accent);">84.7%</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">StoP（停止精度）</div>
+            </div>
+            <div style="text-align:center;padding:8px;background:var(--bg-card);border-radius:6px;">
+              <div style="font-size:18px;font-weight:700;color:#3fb950;">+4.8%</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">vs DUET SR↑</div>
+            </div>
+            <div style="text-align:center;padding:8px;background:var(--bg-card);border-radius:6px;">
+              <div style="font-size:18px;font-weight:700;color:#3fb950;">+19.7%</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">vs DUET StoP↑</div>
+            </div>
+          </div>
+        </div>
         
         <!-- 详细文档链接 -->
         <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border-color);">
@@ -720,10 +743,16 @@
           </div>
         </div>
         
+        <!-- 审核结论 -->
+        <div style="margin-top:12px;padding:10px 12px;background:rgba(232,162,48,0.08);border-radius:6px;border-left:3px solid var(--accent);">
+          <div style="font-size:11px;color:var(--accent);font-weight:500;">🔍 研究思考审核（2026-03-27）</div>
+          <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">综合评分 3/5 · 三个投稿前BLOCKER：① 需真实GPU实验数据 ② 与Aux-Think重叠需处理 ③ EvolveNav差距需叙事化</div>
+        </div>
+
         <!-- 阻塞点提示 -->
-        <div style="margin-top:12px;padding:10px 12px;background:rgba(248,81,73,0.08);border-radius:6px;border-left:3px solid #f85149;">
+        <div style="margin-top:8px;padding:10px 12px;background:rgba(248,81,73,0.08);border-radius:6px;border-left:3px solid #f85149;">
           <div style="font-size:11px;color:#f85149;font-weight:500;">⚠️ 当前阻塞</div>
-          <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">需要GPU服务器运行真实实验验证模拟数字（预计56-97 GPU-hours）</div>
+          <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">需要GPU服务器运行真实实验验证模拟数字（预计56-97 GPU-hours），优先跑 Stage1 FSCoT SFT</div>
         </div>
       </div>
 
@@ -1097,11 +1126,11 @@
     <!-- 统计概览 -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px;">
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#f85149'" onmouseout="this.style.borderColor='var(--border)'" onclick="renderCases('pmf'); window.scrollTo({top:document.getElementById('cases').offsetTop-80,behavior:'smooth'})">
-        <div style="font-size:22px;font-weight:700;color:#f85149;">13</div>
+        <div style="font-size:22px;font-weight:700;color:#f85149;">20</div>
         <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">💔 失败案例</div>
       </div>
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#3fb950'" onmouseout="this.style.borderColor='var(--border)'" onclick="renderCases('pmf_ok'); window.scrollTo({top:document.getElementById('cases').offsetTop-80,behavior:'smooth'})">
-        <div style="font-size:22px;font-weight:700;color:#3fb950;">5</div>
+        <div style="font-size:22px;font-weight:700;color:#3fb950;">6</div>
         <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">🌟 成功案例</div>
       </div>
     </div>
@@ -2015,6 +2044,206 @@ const CASES = [
     story: 'Fisker 第二次创业（2016-2024）最初被看好：设计师出身的 Henrik Fisker 聚焦设计，制造外包给麦格纳，号称"苹果式轻资产造车"。2023 年 Fisker Ocean 正式上市，设计获得好评。但噩梦随即开始：刹车软件故障、信息娱乐系统黑屏、车门自动打开。麦格纳减产，零部件供应商因账期问题停供。2024 年 Fisker 申请破产，手握 4.5 万辆订单却无法交车。',
     lesson: '轻资产模式的代价是：你没有供应链控制权，危机来临时只能等死。汽车是重资产生意，苹果可以外包iPhone组装，但苹果控制了芯片、系统、设计。Fisker 什么都没有控制。',
     date: '2026-03-23',
+  },
+  // ============ 🍕 机器人/消费 ============
+  {
+    cat: 'tech',
+    company: 'Zume Pizza',
+    slogan: '$446M打造的机器人披萨帝国，不到5年全面崩塌',
+    type: '机器人/消费',
+    typeColor: '#e05a00',
+    emoji: '🍕',
+    coverGradient: 'linear-gradient(135deg, #1a0500 0%, #3d0e00 50%, #6b1900 100%)',
+    stats: [
+      { num: '$446M', label: '累计融资额' },
+      { num: '$2.25B', label: '巅峰估值' },
+      { num: '2023', label: '最终关闭' },
+      { num: '5年', label: '从C轮到关门' },
+    ],
+    key: '关键问题：技术未验证就全速扩张，软银对赌式增长预期催命',
+    story: 'Zume Pizza 2015年创立，核心卖点是机器人自动制作披萨+移动披萨车边走边烤。2019年软银领投$375M，估值$2.25B，被视为"餐饮业的Uber"。但现实是：机器人只能完成70%的工序，人工成本没有实质性下降；移动披萨车过重导致油耗极高；在出餐速度和口感上无法与人工店竞争。2020年宣布关闭披萨业务，转型食品包装技术，2023年彻底关门。',
+    lesson: '软银模式的副作用：钱来得太快，迫使公司在商业模式验证前就进入超速扩张。技术还没验证就拿着几亿美元大干快上，等于提前锁定了失败的速度。',
+    date: '2026-03-27',
+  },
+  // ============ 🤖 AI机器人/消费 ============
+  {
+    cat: 'pmf',
+    company: 'Embodied Moxie',
+    slogan: '$120M造出最温柔的儿童机器人，却因云端断线而死',
+    type: 'AI机器人',
+    typeColor: '#7c3aed',
+    emoji: '🤖',
+    coverGradient: 'linear-gradient(135deg, #0a001a 0%, #1a0040 50%, #2d0080 100%)',
+    stats: [
+      { num: '~$120M', label: '累计融资额' },
+      { num: '10年', label: '研发历程' },
+      { num: '2024年12月', label: '关闭服务器' },
+      { num: '0天', label: '关闭前用户预警' },
+    ],
+    key: '关键问题：云端依赖=产品不可控，服务器关了机器人变废铁',
+    story: 'Embodied 由 USC 机器人学教授创立，Moxie 是面向儿童的社交情感机器人，售价 $1500，专为有社交障碍的孩子设计。产品口碑极佳，家长反馈孩子与 Moxie 的互动改善了社交能力。但公司在 2024 年 10 月突然宣布关闭，服务器下线后 Moxie 立刻失去所有 AI 功能，变成一块塑料。家长和孩子毫无预警地失去了已经建立情感联系的"朋友"。',
+    lesson: 'AI 硬件产品必须设计离线降级方案。当你把产品的核心价值放在云端，关公司=杀死用户手里的产品。消费级 AI 硬件的"云端依赖"是系统性风险，不是技术债。',
+    date: '2026-03-27',
+  },
+  // ============ 🤖 消费AI ============
+  {
+    cat: 'cash',
+    company: 'Character.AI',
+    slogan: '$193M融资，却被Google以$27亿"技术许可"反向收购',
+    type: '消费AI',
+    typeColor: '#ec4899',
+    emoji: '💬',
+    coverGradient: 'linear-gradient(135deg, #1a001a 0%, #3d003d 50%, #6b006b 100%)',
+    stats: [
+      { num: '$193M', label: '累计融资额' },
+      { num: '$5B', label: '巅峰估值' },
+      { num: '$27亿', label: 'Google技术许可费' },
+      { num: '2024年8月', label: '创始人回归Google' },
+    ],
+    key: '关键问题：推理成本>变现能力，规模越大亏得越快',
+    story: 'Character.AI 由前 Google LaMDA 团队创始人创立，2023 年月活达 2000 万，是消费级 AI 对话的现象级产品。但商业模型极其脆弱：每次对话的推理成本约$0.005，用户平均每天发送 200 条消息，订阅费 $9.99/月，算下来每个活跃用户每月亏损约$20。2024 年 8 月，Google 以 $27 亿"技术许可"的方式把创始人和核心技术团队带走，公司实质上被掏空，留给投资人一个没有大脑的空壳。',
+    lesson: '消费级 AI 的"规模陷阱"：用户越多，亏得越快。在单位经济模型（Unit Economics）转正之前，增长是毒药。AI 硬件/软件必须先证明：单个用户能盈利，然后再谈规模。',
+    date: '2026-03-27',
+  },
+  // ============ 📱 AI硬件 ============
+  {
+    cat: 'pmf',
+    company: 'Rabbit R1',
+    slogan: '$199的AI小方块：CES最火产品，三个月后变成梗图',
+    type: 'AI硬件',
+    typeColor: '#f59e0b',
+    emoji: '📱',
+    coverGradient: 'linear-gradient(135deg, #1a1000 0%, #3d2500 50%, #6b4200 100%)',
+    stats: [
+      { num: '~$30M', label: '融资额（Khosla领投）' },
+      { num: '$199', label: '售价' },
+      { num: '10万', label: '总注册用户' },
+      { num: '0.5%', label: '月活留存率' },
+    ],
+    key: '关键问题：AI硬件不能靠演示，演示≠产品，实际能力差演示一个量级',
+    story: 'Rabbit R1 在 2024 年 CES 上大放异彩：一个橙色的小方块，用"大动作模型（LAM）"控制手机 App，展示了订外卖、叫车、发邮件。发布后两周预订量超 10 万台。但实机体验灾难性：LAM 经常崩溃，响应速度慢，很多功能根本不能用。更致命的是：Wired 发现 R1 的核心功能只是套了皮的 Claude API，完全可以用手机 App 替代。',
+    lesson: '演示驱动的 AI 硬件销售模式是一次性的：第一批用户基于演示购买，体验后不推荐。口碑崩塌的速度远快于产品迭代的速度。AI 硬件必须有不可被软件替代的本地能力。',
+    date: '2026-03-27',
+  },
+  // ============ 🎨 开源AI ============
+  {
+    cat: 'team',
+    company: 'Stability AI',
+    slogan: '$181M融资，$4B估值，CEO跑路后的开源AI公司怎么活',
+    type: '开源AI',
+    typeColor: '#06b6d4',
+    emoji: '🎨',
+    coverGradient: 'linear-gradient(135deg, #001a1a 0%, #003d3d 50%, #006b6b 100%)',
+    stats: [
+      { num: '$181M', label: '累计融资额' },
+      { num: '$4B', label: '2022年估值' },
+      { num: '2024年3月', label: 'CEO Mostaque辞职' },
+      { num: '95%', label: '估值跌幅（传言）' },
+    ],
+    key: '关键问题：开源≠商业模式，叙事型估值在盈利压力下必然崩塌',
+    story: 'Stability AI 凭借 Stable Diffusion 开源图像生成模型在 2022 年红遍全球，Emad Mostaque 以"AI民主化"叙事融到$181M，估值$4B。但开源的代价是：竞争对手（Midjourney、DALL-E）直接用他们的成果建立商业壁垒，Stability AI 自己却没有盈利路径。公司长期入不敷出，2024 年 Mostaque 因"虚报简历"等丑闻辞职，核心团队出走，公司以极低估值重组。',
+    lesson: '开源社区影响力和商业价值是两回事。叙事型估值（"我要改变世界"）支撑不了公司的 AWS 账单。在开源战略下建立商业护城河，需要的是差异化服务，而不是更大的开源。',
+    date: '2026-03-27',
+  },
+  // ============ 👁️ AR硬件 ============
+  {
+    cat: 'tech',
+    company: 'Mojo Vision',
+    slogan: '$301M造出隐形眼镜里的AR，但眼球不是屏幕',
+    type: 'AR硬件',
+    typeColor: '#3fb950',
+    emoji: '👁️',
+    coverGradient: 'linear-gradient(135deg, #001a00 0%, #003d00 50%, #006b00 100%)',
+    stats: [
+      { num: '~$301M', label: '累计融资额' },
+      { num: '2022年', label: '人体测试启动' },
+      { num: '2023年', label: '转型MicroLED授权' },
+      { num: '8年', label: '研发历程' },
+    ],
+    key: '关键问题：技术可行≠商业可行，极端的使用场景限制注定市场极小',
+    story: 'Mojo Vision 从 2015 年开始研发隐形眼镜形态的 AR 显示设备，核心技术是微型 MicroLED 屏幕直接嵌入隐形眼镜。2022 年 CEO 亲自戴上原型机进行人体测试，引发全球媒体关注。但商业化路径极为狭窄：需要处方配戴流程、眼科医生认证、FDA 审批，而且能显示的信息量极为有限（低分辨率）。2023 年公司宣布放弃 AR 眼镜产品，转型为 MicroLED 技术授权商。',
+    lesson: '技术突破和市场需求之间的鸿沟，在医疗器械+消费电子的交叉领域尤为巨大。监管壁垒、使用场景限制、用户习惯——每一个单独都能杀死一个产品，更别说三个叠加。',
+    date: '2026-03-27',
+  },
+  // ============ 🚁 无人机 ============
+  {
+    cat: 'comp',
+    company: 'Skydio',
+    slogan: '$570M融资，美国最强无人机公司，却主动放弃消费市场',
+    type: '无人机',
+    typeColor: '#3b82f6',
+    emoji: '🚁',
+    coverGradient: 'linear-gradient(135deg, #00001a 0%, #00003d 50%, #00006b 100%)',
+    stats: [
+      { num: '$570M', label: '累计融资额' },
+      { num: '$1B+', label: '估值' },
+      { num: '2023年10月', label: '宣布退出消费市场' },
+      { num: '100%', label: '消费业务占比→0%' },
+    ],
+    key: '关键问题：to-C和to-G是两种完全不同的公司，不能平滑切换',
+    story: 'Skydio 是美国最先进的消费无人机公司，AI 自主避障技术领先大疆。但在消费市场，大疆以$300-$1500 的价格覆盖了全球市场，而 Skydio 的旗舰产品定价$2499，无论技术多先进都难以撼动大疆的规模优势。2023 年，Skydio 宣布放弃消费市场，全面转向美国政府和军事客户——这是一步活命棋，但也意味着整个产品线、销售团队、品牌定位需要从零重建。',
+    lesson: '消费无人机是一场关于成本控制和供应链的战争，不是关于技术领先的战争。而政府/军用无人机是一场关于认证、关系和安全审查的战争。这两场战争的武器完全不同。',
+    date: '2026-03-27',
+  },
+  // ============ 🤖 人形机器人（成功） ============
+  {
+    cat: 'pmf_ok',
+    company: 'Figure AI',
+    slogan: '$1.7B融资，宝马工厂实测，人形机器人最接近商业化的公司',
+    type: '人形机器人',
+    typeColor: '#3fb950',
+    emoji: '🦾',
+    coverGradient: 'linear-gradient(135deg, #001a0a 0%, #003d18 50%, #006b2a 100%)',
+    stats: [
+      { num: '$1.7B+', label: '累计融资额' },
+      { num: '$2.6B', label: '2024年估值' },
+      { num: '宝马', label: '战略合作客户' },
+      { num: '2025年', label: '工厂部署计划' },
+    ],
+    key: '成功关键：真实客户合同+战略投资者（OpenAI/微软/英伟达）双保险',
+    story: 'Figure AI 2022 年由 Brett Adcock 创立，目标是制造通用人形机器人。关键节点：2024 年 2 月融资$675M，投资方包括 OpenAI、微软、英伟达、贝佐斯——这份投资人名单本身就是最好的信任背书。同年与宝马签订工厂部署协议，Figure 02 在宝马 Spartanburg 工厂实测搬运零部件，这是人形机器人首次在真实工业环境商业化运营。',
+    lesson: '人形机器人成功的路径：不要试图一步到位做"通用机器人"，先攻克一个垂直场景（工厂物料搬运）。战略投资者（AI公司+芯片公司）提供技术护城河，企业客户合同提供商业验证。两者缺一不可。',
+    date: '2026-03-27',
+  },
+  // ============ 📦 物流机器人 ============
+  {
+    cat: 'cash',
+    company: 'Dextrous Robotics',
+    slogan: '$30M物流机器人，倒在量产前夜',
+    type: '物流机器人',
+    typeColor: '#f59e0b',
+    emoji: '📦',
+    coverGradient: 'linear-gradient(135deg, #1a1000 0%, #3d2800 50%, #6b4500 100%)',
+    stats: [
+      { num: '~$30M', label: '累计融资额' },
+      { num: '2024年', label: '关闭' },
+      { num: '5年', label: '成立到关闭' },
+      { num: '3', label: '已部署客户数' },
+    ],
+    key: '关键问题：硬件创业的"鸡和蛋"——没有量产就没有利润，没有利润就没有量产',
+    story: 'Dextrous Robotics 专注于电商仓库包裹分拣机器人，技术路线是柔性夹爪+视觉系统，能处理各种形状的包裹。在亚马逊、UPS 等电商物流高速增长的背景下，市场需求真实存在。但公司卡在了硬件创业最典型的死亡螺旋：每套系统成本高（需要客户签大合同）、部署周期长（需要现场集成）、维护要求高（需要本地团队）。融资不足以支撑到规模化，2024 年宣布关闭。',
+    lesson: '硬件机器人创业的单位经济学必须在 Series B 之前算清楚：每台机器在几年内能回本？维护成本多少？客户愿意付多少钱？这三个问题没有清晰答案，就不要扩张。',
+    date: '2026-03-27',
+  },
+  // ============ 🌾 农业机器人 ============
+  {
+    cat: 'pmf',
+    company: 'Small Robot Company',
+    slogan: '英国农业机器人先驱：政府补贴撑起来的"成功"，市场证明不了',
+    type: '农业机器人',
+    typeColor: '#3fb950',
+    emoji: '🌾',
+    coverGradient: 'linear-gradient(135deg, #001a00 0%, #003300 50%, #005500 100%)',
+    stats: [
+      { num: '~£14M', label: '累计融资额（约$18M）' },
+      { num: '2023年', label: '重组为软件公司' },
+      { num: '6年', label: '硬件探索历程' },
+      { num: '1', label: '活跃硬件产品→0' },
+    ],
+    key: '关键问题：政府补贴驱动≠市场驱动，农业机器人的ROI周期比农民的耐心更长',
+    story: 'Small Robot Company 成立于 2017 年，是英国 AgTech 的明星公司，开发出 Tom（除草机器人）、Dick（种植机器人）和 Harry（土壤检测机器人）。获得了大量政府补贴和奖项，媒体报道频繁。但核心问题是：农民并不买账。机器人需要精确到厘米级的农田地图，前期投入巨大；出故障时农民没有维修能力；ROI 周期 3-5 年，农民更愿意等新的农药。2023 年公司重组，关闭硬件业务，转型为农业数据/软件平台。',
+    lesson: '农业机器人的客户（农民）和投资方（政府/VC）之间存在巨大的认知鸿沟。政府关注技术可行性，农民关注明年的收成。融到钱不等于找到客户，奖项不等于PMF。',
+    date: '2026-03-27',
   },
 ];
 
