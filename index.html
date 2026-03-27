@@ -538,16 +538,16 @@
     </div>
     <div class="hero-stats">
       <div class="stat" onclick="showSection('papers')" title="点击进入论文库">
-        <span class="stat-num">40+</span><div class="stat-label">高质量论文 →</div>
+        <span class="stat-num">33</span><div class="stat-label">高质量论文 →</div>
       </div>
       <div class="stat" onclick="showSection('blog')" title="点击查看博客">
-        <span class="stat-num">37</span><div class="stat-label">技术博客 →</div>
+        <span class="stat-num">39</span><div class="stat-label">技术博客 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
-        <span class="stat-num">19</span><div class="stat-label">创业案例 →</div>
+        <span class="stat-num">23</span><div class="stat-label">创业案例 →</div>
       </div>
       <div class="stat" onclick="showSection('research')" title="点击查看研究方向">
-        <span class="stat-num">3月26</span><div class="stat-label">今日更新 →</div>
+        <span class="stat-num">3月27</span><div class="stat-label">今日更新 →</div>
       </div>
     </div>
   </div>
@@ -561,7 +561,7 @@
         <div class="section-title">🦞A 最新论文（2022–2026）</div>
         <div class="section-desc">顶会精选 · VLN / ObjectNav / LLM导航 / 世界模型 / VLA</div>
       </div>
-      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('papers')">进入论文库（49篇）→</button>
+      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('papers')">进入论文库（33篇）→</button>
     </div>
     <div class="papers-grid" id="homePapersPreview"></div>
   </section>
@@ -575,7 +575,7 @@
         <div class="section-title">🦞B 最新创业案例</div>
         <div class="section-desc">失败原因分析 · 成功关键 · 每日更新</div>
       </div>
-      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（19个）→</button>
+      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（23个）→</button>
     </div>
     <div class="case-grid" id="homeCasesPreview"></div>
   </section>
@@ -1344,6 +1344,10 @@ const BLOG_POSTS = [
     tags:['RL','VLN','技术分析'] },
 
   // ===== 案例分析 =====
+  { cat:'case', date:'2026-03-27', title:'每日优鲜死亡复盘：140亿融资烧光，30分钟送货为什么救不了生鲜电商',
+    desc:'8年融资140亿，IPO市值32亿美元，退市市值不足200万美元。1925名员工锐减至55人，供应商欠款22.4亿，青岛国资20亿打水漂。前置仓模式的终极教训。',
+    url:'./blog/missfresh-death.html',
+    tags:['失败案例','生鲜电商','每日优鲜','前置仓','深度复盘'] },
   { cat:'case', date:'2026-03-25', title:'产品市场匹配的7个反面教材：为什么"有人想要"≠ PMF',
     desc:'有试用没复购、免费用户多付费意愿极低、销售卖得出续费却极低……7个"假PMF"反面教材，用真实案例和行为数据教你识别PMF真伪。',
     url:'./blog/pmf-anti-patterns.html',
@@ -1374,6 +1378,10 @@ const BLOG_POSTS = [
     tags:['创业案例','具身智能','中国公司','倒闭潮'] },
 
   // ===== 创业基础 =====
+  { cat:'startup', date:'2026-03-27', title:'创始人股权分配101：分错一次，公司就没了',
+    desc:'23%创业失败归因于团队冲突，均分股权的团队价值低30%。Odeo均分33%导致决策瘫痪、Facebook差点被30%不干活合伙人拖垮。5条黄金法则+不同阶段参考模型。',
+    url:'./blog/founder-equity-101.html',
+    tags:['创业基础','股权','创始人','公司治理','Vesting'] },
   { cat:'startup', date:'2026-03-24', title:'创业第一课：普通人如何开始第一次创业',
     desc:'重新定义"创业"，普通人创业的三条铁律：从副业开始、不要做大而全、先验证再投入。创业不是赌博，是验证。',
     url:'./blog-startup-basics-01.html',
@@ -1398,6 +1406,38 @@ const BLOG_POSTS = [
     desc:'2020年4月上线，10月宣布关闭，6个月烧光17.5亿美元。好莱坞传奇人物联手打造，明星阵容豪华，为什么还是失败了？5条生存法则。',
     url:'./blog/startup-failure-analysis.html',
     tags:['创业案例','AI创业','Quibi','失败分析','产品经理'] },
+  { cat:'case', date:'2026-03-25', title:'Quibi：17.5亿美元、6个月关闭——史上最快陨落的创业公司',
+    desc:'好莱坞传奇人物Jeffrey Katzenberg和Meg Whitman联手，融资17.5亿美元，明星阵容豪华。2020年4月上线，10月宣布关闭。为什么？',
+    url:'./blog/quibi.html',
+    tags:['创业案例','失败分析','Quibi','流媒体'] },
+  { cat:'case', date:'2026-03-25', title:'Theranos：硅谷最美女骗子的900亿骗局如何骗过所有人',
+    desc:'一滴血检测200+指标，估值90亿美元，Elizabeth Holmes被誉为女版乔布斯。骗局如何维持15年？又为何最终败露？',
+    url:'./blog/theranos.html',
+    tags:['创业案例','失败分析','Theranos','医疗','骗局'] },
+  { cat:'case', date:'2026-03-25', title:'柔宇科技：640亿估值的折叠屏先驱，为何比华为三星死得更惨',
+    desc:'折叠屏手机先驱，估值640亿人民币，却倒在量产前夜。技术领先却商业化失败，柔宇给中国硬科技创业什么教训？',
+    url:'./blog/royole-64-billion-collapse.html',
+    tags:['创业案例','失败分析','柔宇科技','硬科技','中国'] },
+  { cat:'case', date:'2026-03-25', title:'人形机器人倒闭潮：K-Scale Labs等明星公司为何集体倒下',
+    desc:'2025年人形机器人公司倒闭潮。K-Scale Labs、Figure AI等明星公司相继倒下。技术瓶颈还是商业化困境？',
+    url:'./blog/humanoid-robot-failure-wave.html',
+    tags:['创业案例','失败分析','人形机器人','倒闭潮'] },
+  { cat:'tech', date:'2026-03-25', title:'具身智能融资狂潮：2024-2025年钱流向了哪里',
+    desc:'具身智能赛道融资数据全景。谁拿到了钱？什么方向最热门？钱从哪来？深度解析具身智能投资趋势。',
+    url:'./blog/embodied-ai-funding-frenzy.html',
+    tags:['具身智能','融资','投资','趋势'] },
+  { cat:'tech', date:'2026-03-25', title:'从CLIP到Qwen2-VL：VLM在导航中的演进',
+    desc:'视觉语言模型如何赋能机器人导航？从CLIP到Qwen2-VL的技术演进路线，以及落地实践中的关键挑战。',
+    url:'./blog/vlm-navigation-clip-to-qwen2vl.html',
+    tags:['VLM','导航','CLIP','Qwen2-VL','技术演进'] },
+  { cat:'tech', date:'2026-03-25', title:'ObjectNav vs VLN：两种导航范式的本质区别',
+    desc:'ObjectNav和VLN看似相似，实则本质不同。目标驱动vs指令驱动，探索vs跟随，两种范式的技术路线对比。',
+    url:'./blog/objectnav-vs-vln.html',
+    tags:['ObjectNav','VLN','技术对比','导航'] },
+  { cat:'tech', date:'2026-03-25', title:'NavCoT：思维链推理在视觉语言导航中的应用',
+    desc:'思维链(CoT)推理如何提升VLN性能？NavCoT方法详解：显式推理步骤、中间监督、可解释性提升。',
+    url:'./blog/navcot-chain-of-thought-navigation.html',
+    tags:['VLN','CoT','思维链','推理','NavCoT'] },
 
 
   // ===== AI创业思路 =====
