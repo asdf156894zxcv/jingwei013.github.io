@@ -1,140 +1,63 @@
 {
-  "updated": "2026-03-26 03:43 UTC",
-  "total": 19,
+  "updated": "2026-03-27 03:48 UTC",
+  "total": 8,
   "today_count": 0,
   "papers": [
     {
-      "title": "Vibe Coding XR: Accelerating AI + XR Prototyping with XR Blocks and Gemini",
-      "date": "2026-03-25",
-      "id": "2603.24591v1",
-      "abstract": "While large language models have accelerated software development through \"vibe coding\", prototyping intelligent Extended Reality (XR) experiences remains inaccessible due to the friction of complex g",
-      "url": "https://arxiv.org/abs/2603.24591v1"
+      "title": "ShotStream: Streaming Multi-Shot Video Generation for Interactive Storytelling",
+      "date": "2026-03-26",
+      "id": "2603.25746v1",
+      "abstract": "Multi-shot video generation is crucial for long narrative storytelling, yet current bidirectional architectures suffer from limited interactivity and high latency. We propose ShotStream, a novel causa",
+      "url": "https://arxiv.org/abs/2603.25746v1"
     },
     {
-      "title": "Comparing Developer and LLM Biases in Code Evaluation",
-      "date": "2026-03-25",
-      "id": "2603.24586v1",
-      "abstract": "As LLMs are increasingly used as judges in code applications, they should be evaluated in realistic interactive settings that capture partial context and ambiguous intent. We present TRACE (Tool for R",
-      "url": "https://arxiv.org/abs/2603.24586v1"
+      "title": "Less Gaussians, Texture More: 4K Feed-Forward Textured Splatting",
+      "date": "2026-03-26",
+      "id": "2603.25745v1",
+      "abstract": "Existing feed-forward 3D Gaussian Splatting methods predict pixel-aligned primitives, leading to a quadratic growth in primitive count as resolution increases. This fundamentally limits their scalabil",
+      "url": "https://arxiv.org/abs/2603.25745v1"
     },
     {
-      "title": "TAG: Target-Agnostic Guidance for Stable Object-Centric Inference in Vision-Language-Action Models",
-      "date": "2026-03-25",
-      "id": "2603.24584v1",
-      "abstract": "Vision--Language--Action (VLA) policies have shown strong progress in mapping language instructions and visual observations to robotic actions, yet their reliability degrades in cluttered scenes with ",
-      "url": "https://arxiv.org/abs/2603.24584v1"
+      "title": "MuRF: Unlocking the Multi-Scale Potential of Vision Foundation Models",
+      "date": "2026-03-26",
+      "id": "2603.25744v1",
+      "abstract": "Vision Foundation Models (VFMs) have become the cornerstone of modern computer vision, offering robust representations across a wide array of tasks. While recent advances allow these models to handle ",
+      "url": "https://arxiv.org/abs/2603.25744v1"
     },
     {
-      "title": "Chameleon: Episodic Memory for Long-Horizon Robotic Manipulation",
-      "date": "2026-03-25",
-      "id": "2603.24576v1",
-      "abstract": "Robotic manipulation often requires memory: occlusion and state changes can make decision-time observations perceptually aliased, making action selection non-Markovian at the observation level because",
-      "url": "https://arxiv.org/abs/2603.24576v1"
+      "title": "SoftMimicGen: A Data Generation System for Scalable Robot Learning in Deformable Object Manipulation",
+      "date": "2026-03-26",
+      "id": "2603.25725v1",
+      "abstract": "Large-scale robot datasets have facilitated the learning of a wide range of robot manipulation skills, but these datasets remain difficult to collect and scale further, owing to the intractable amount",
+      "url": "https://arxiv.org/abs/2603.25725v1"
     },
     {
-      "title": "The enrichment paradox: critical capability thresholds and irreversible dependency in human-AI symbiosis",
-      "date": "2026-03-25",
-      "id": "2603.24391v1",
-      "abstract": "As artificial intelligence assumes cognitive labor, no quantitative framework predicts when human capability loss becomes catastrophic. We present a two-variable dynamical systems model coupling capab",
-      "url": "https://arxiv.org/abs/2603.24391v1"
+      "title": "LEMMA: Laplacian pyramids for Efficient Marine SeMAntic Segmentation",
+      "date": "2026-03-26",
+      "id": "2603.25689v1",
+      "abstract": "Semantic segmentation in marine environments is crucial for the autonomous navigation of unmanned surface vessels (USVs) and coastal Earth Observation events such as oil spills. However, existing meth",
+      "url": "https://arxiv.org/abs/2603.25689v1"
     },
     {
-      "title": "Honey, I shrunk the scientist -- Evaluating 2D, 3D, and VR interfaces for navigating samples under the microscope",
-      "date": "2026-03-25",
-      "id": "2603.24337v1",
-      "abstract": "In contemporary biology and medicine, 3D microscopy is one of the most widely-used techniques for imaging and manipulation of various kinds of samples. Navigating such a micrometer-sized, 3-dimensiona",
-      "url": "https://arxiv.org/abs/2603.24337v1"
+      "title": "Intelligent Navigation and Obstacle-Aware Fabrication for Mobile Additive Manufacturing Systems",
+      "date": "2026-03-26",
+      "id": "2603.25688v1",
+      "abstract": "As the demand for mass customization increases, manufacturing systems must become more flexible and adaptable to produce personalized products efficiently. Additive manufacturing (AM) enhances product",
+      "url": "https://arxiv.org/abs/2603.25688v1"
     },
     {
-      "title": "Fractal universe and quantum gravity made simple",
-      "date": "2026-03-25",
-      "id": "2603.24593v1",
-      "abstract": "Quantum field theory (QFT) on fractal spacetimes is a program aiming at quantizing the gravitational interaction consistently at all energy scales thanks to an intrinsically or dynamically induced mul",
-      "url": "https://arxiv.org/abs/2603.24593v1"
+      "title": "Vega: Learning to Drive with Natural Language Instructions",
+      "date": "2026-03-26",
+      "id": "2603.25741v1",
+      "abstract": "Vision-language-action models have reshaped autonomous driving to incorporate languages into the decision-making process. However, most existing pipelines only utilize the language modality for scene ",
+      "url": "https://arxiv.org/abs/2603.25741v1"
     },
     {
-      "title": "Polynomial Speedup in Diffusion Models with the Multilevel Euler-Maruyama Method",
-      "date": "2026-03-25",
-      "id": "2603.24594v1",
-      "abstract": "We introduce the Multilevel Euler-Maruyama (ML-EM) method compute solutions of SDEs and ODEs using a range of approximators $f^1,\\dots,f^k$ to the drift $f$ with increasing accuracy and computational ",
-      "url": "https://arxiv.org/abs/2603.24594v1"
-    },
-    {
-      "title": "YingMusic-Singer: Controllable Singing Voice Synthesis with Flexible Lyric Manipulation and Annotation-free Melody Guidance",
-      "date": "2026-03-25",
-      "id": "2603.24589v1",
-      "abstract": "Regenerating singing voices with altered lyrics while preserving melody consistency remains challenging, as existing methods either offer limited controllability or require laborious manual alignment.",
-      "url": "https://arxiv.org/abs/2603.24589v1"
-    },
-    {
-      "title": "SpinGQE: A Generative Quantum Eigensolver for Spin Hamiltonians",
-      "date": "2026-03-25",
-      "id": "2603.24298v1",
-      "abstract": "The ground state search problem is central to quantum computing, with applications spanning quantum chemistry, condensed matter physics, and optimization. The Variational Quantum Eigensolver (VQE) has",
-      "url": "https://arxiv.org/abs/2603.24298v1"
-    },
-    {
-      "title": "EndoVGGT: GNN-Enhanced Depth Estimation for Surgical 3D Reconstruction",
-      "date": "2026-03-25",
-      "id": "2603.24577v1",
-      "abstract": "Accurate 3D reconstruction of deformable soft tissues is essential for surgical robotic perception. However, low-texture surfaces, specular highlights, and instrument occlusions often fragment geometr",
-      "url": "https://arxiv.org/abs/2603.24577v1"
-    },
-    {
-      "title": "UI-Voyager: A Self-Evolving GUI Agent Learning via Failed Experience",
-      "date": "2026-03-25",
-      "id": "2603.24533v1",
-      "abstract": "Autonomous mobile GUI agents have attracted increasing attention along with the advancement of Multimodal Large Language Models (MLLMs). However, existing methods still suffer from inefficient learnin",
-      "url": "https://arxiv.org/abs/2603.24533v1"
-    },
-    {
-      "title": "Unleashing Vision-Language Semantics for Deepfake Video Detection",
-      "date": "2026-03-25",
-      "id": "2603.24454v1",
-      "abstract": "Recent Deepfake Video Detection (DFD) studies have demonstrated that pre-trained Vision-Language Models (VLMs) such as CLIP exhibit strong generalization capabilities in detecting artifacts across dif",
-      "url": "https://arxiv.org/abs/2603.24454v1"
-    },
-    {
-      "title": "MARCH: Multi-Agent Reinforced Self-Check for LLM Hallucination",
-      "date": "2026-03-25",
-      "id": "2603.24579v1",
-      "abstract": "Hallucination remains a critical bottleneck for large language models (LLMs), undermining their reliability in real-world applications, especially in Retrieval-Augmented Generation (RAG) systems. Whil",
-      "url": "https://arxiv.org/abs/2603.24579v1"
-    },
-    {
-      "title": "Landau and fractionalized theories of periodically driven intertwined orders",
-      "date": "2026-03-25",
-      "id": "2603.24592v1",
-      "abstract": "We obtain the phase diagrams of field theories of intertwined orders in the presence of periodic driving by an external field which preserves all symmetries. We consider both a conventional Landau the",
-      "url": "https://arxiv.org/abs/2603.24592v1"
-    },
-    {
-      "title": "DreamerAD: Efficient Reinforcement Learning via Latent World Model for Autonomous Driving",
-      "date": "2026-03-25",
-      "id": "2603.24587v1",
-      "abstract": "We introduce DreamerAD, the first latent world model framework that enables efficient reinforcement learning for autonomous driving by compressing diffusion sampling from 100 steps to 1 - achieving 80",
-      "url": "https://arxiv.org/abs/2603.24587v1"
-    },
-    {
-      "title": "VFIG: Vectorizing Complex Figures in SVG with Vision-Language Models",
-      "date": "2026-03-25",
-      "id": "2603.24575v1",
-      "abstract": "Scalable Vector Graphics (SVG) are an essential format for technical illustration and digital design, offering precise resolution independence and flexible semantic editability. In practice, however, ",
-      "url": "https://arxiv.org/abs/2603.24575v1"
-    },
-    {
-      "title": "Latent-WAM: Latent World Action Modeling for End-to-End Autonomous Driving",
-      "date": "2026-03-25",
-      "id": "2603.24581v1",
-      "abstract": "We introduce Latent-WAM, an efficient end-to-end autonomous driving framework that achieves strong trajectory planning through spatially-aware and dynamics-informed latent world representations. Exist",
-      "url": "https://arxiv.org/abs/2603.24581v1"
-    },
-    {
-      "title": "Vision-Language Models vs Human: Perceptual Image Quality Assessment",
-      "date": "2026-03-25",
-      "id": "2603.24578v1",
-      "abstract": "Psychophysical experiments remain the most reliable approach for perceptual image quality assessment (IQA), yet their cost and limited scalability encourage automated approaches. We investigate whethe",
-      "url": "https://arxiv.org/abs/2603.24578v1"
+      "title": "RefAlign: Representation Alignment for Reference-to-Video Generation",
+      "date": "2026-03-26",
+      "id": "2603.25743v1",
+      "abstract": "Reference-to-video (R2V) generation is a controllable video synthesis paradigm that constrains the generation process using both text prompts and reference images, enabling applications such as person",
+      "url": "https://arxiv.org/abs/2603.25743v1"
     }
   ]
 }
