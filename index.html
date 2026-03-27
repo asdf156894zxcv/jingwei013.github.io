@@ -538,7 +538,7 @@
     </div>
     <div class="hero-stats">
       <div class="stat" onclick="showSection('papers')" title="点击进入论文库">
-        <span class="stat-num">33</span><div class="stat-label">高质量论文 →</div>
+        <span class="stat-num">41</span><div class="stat-label">高质量论文 →</div>
       </div>
       <div class="stat" onclick="showSection('blog')" title="点击查看博客">
         <span class="stat-num">39</span><div class="stat-label">技术博客 →</div>
@@ -561,7 +561,7 @@
         <div class="section-title">🦞A 最新论文（2022–2026）</div>
         <div class="section-desc">顶会精选 · VLN / ObjectNav / LLM导航 / 世界模型 / VLA</div>
       </div>
-      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('papers')">进入论文库（33篇）→</button>
+      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('papers')">进入论文库（41篇）→</button>
     </div>
     <div class="papers-grid" id="homePapersPreview"></div>
   </section>
@@ -841,7 +841,7 @@
         <div class="section-title">🦞A 论文知识库</div>
         <div class="section-desc">2022年后高质量顶会论文 · VLN / ObjectNav / LLM导航 / 世界模型 / VLA · 持续更新</div>
       </div>
-      <div style="font-size:13px;color:var(--text-muted);">共 <strong style="color:var(--accent);" id="paperCount">33</strong> 篇 · 按方向筛选</div>
+      <div style="font-size:13px;color:var(--text-muted);">共 <strong style="color:var(--accent);" id="paperCount">41</strong> 篇 <span style="margin:0 8px;">|</span> <span style="color:#3fb950;">📄 27篇PDF</span> <span style="margin:0 4px;">+</span> <span style="color:var(--text-muted);">🔗 14篇链接</span></div>
     </div>
     <div class="filter-bar" id="filterBar"></div>
     <div class="papers-grid" id="papersGrid"></div>
@@ -1336,6 +1336,40 @@ const PAPERS = [
     abstract:'ECCV 2022，利用文本条件生成全景图像用于VLN数据增强，解决VLN数据稀缺问题，对后续数据增强研究有重要影响。',
     links:[{label:'arXiv',url:'https://arxiv.org/abs/2301.09872'}] },
 ];
+
+// PDF可用性映射：标记哪些论文有本地PDF文件 (27/41篇有PDF)
+const PDF_AVAILABLE = {
+  // Survey (5篇有PDF)
+  'Embodied Navigation: A Survey': true,
+  'Vision-Language Navigation: A Survey of Tasks, Methods, and Future Directions': true,
+  // VLN (7篇有PDF)
+  'COSMO: Cross-Object State Machine for Efficient Vision-Language Navigation': true,
+  'FlexVLN: Flexible Adaptation for Visual Language Navigation': true,
+  'GroundLevel: VLN in Continuous Environment': true,
+  'GSA-VLN: General Scene Adaptation': true,
+  'MapNav: Semantic Maps with VLM for VLN': true,
+  'VLN Embodied Gap Holistic Study': true,
+  'WorldConsistent: Data Generation for VLN': true,
+  // ObjectNav (4篇有PDF)
+  'InstructNav: Zero-Shot Generic Navigation': true,
+  'NavFoM: Embodied Navigation Foundation Model': true,
+  'OneRING: Robotic Indoor Navigation Generalist': true,
+  'TopV-Nav: Zero-Shot ObjectNav with MLLM': true,
+  // LLM-Nav (5篇有PDF)
+  'Mem2Ego: VLM for Long-Horizon Navigation': true,
+  'NavigateDiff: Zero-Shot Navigation Assistant': true,
+  'NaVILA: Legged Robot VLA Navigation': true,
+  'NavRAG: Retrieval-Augmented LLM Navigation': true,
+  'SRLM: Social Robot Navigation with LLM+RL': true,
+  // RL (3篇有PDF)
+  'EmbodiedEscaping: RL for Narrow Environment Navigation': true,
+  'SRLM Human-in-Loop: Social Robot Navigation': true,
+  'VisualRFT: Reinforcement Fine-Tuning': true,
+  // Perception (3篇有PDF)
+  'Mem2Ego Global-to-Ego: Memory for Long-Horizon': true,
+  'NavigateDiff Visual Predictor': true,
+  'OpenGraph: 3D Graph for Outdoor Environment': true,
+};
 
 const BLOG_POSTS = [
   // ===== 前沿技术 =====
@@ -1985,11 +2019,16 @@ function renderPapers(filter) {
   grid.innerHTML = sorted.map(p => {
     const tagColor = `var(--tag-${p.cat}, var(--accent))`;
     const firstLink = p.links && p.links[0] ? p.links[0].url : '#';
+    const hasPDF = PDF_AVAILABLE[p.title] === true;
+    const pdfBadge = hasPDF 
+      ? `<span style="background:#3fb95022;color:#3fb950;border:1px solid #3fb95044;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:600;margin-left:8px;">📄 PDF</span>`
+      : `<span style="background:var(--bg-page);color:var(--text-muted);border:1px solid var(--border);border-radius:100px;padding:2px 8px;font-size:10px;font-weight:600;margin-left:8px;">🔗 链接</span>`;
     return `
     <div class="paper-card" onclick="window.open('${firstLink}','_blank')" style="cursor:pointer">
       <div class="paper-meta">
         <span class="paper-tag" style="background:${tagColor}22;color:${tagColor};border:1px solid ${tagColor}44;border-radius:100px;padding:2px 10px;font-size:11px;font-weight:600;letter-spacing:0.3px;">${p.tag}</span>
         <span class="paper-year">${p.year} · ${p.venue}</span>
+        ${pdfBadge}
       </div>
       <h4 style="line-height:1.5;margin-bottom:8px;">${p.title}</h4>
       <p style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">${p.abstract}</p>
