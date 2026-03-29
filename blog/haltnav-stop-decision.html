@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VLN停止决策：被忽视的致命瓶颈 | 精卫导航</title>
+  <meta name="description" content="HaltNav论文精读：68%成功率的VLN系统，停止误差平均2.5米。为什么STOP不是普通动作？StoP指标如何量化停止质量？">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg2: #f5f5f5; --border: #e0e0e0;
+      --text: #1a1a1a; --text2: #4a4a4a; --muted: #757575;
+      --accent: #d35400; --accent-h: #e67e22; --accent-dim: rgba(211,84,0,0.1);
+      --radius: 12px; --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter','Noto Serif SC',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { color:var(--accent-h); }
+
+    header { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.95); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+    .header-inner { max-width:860px; margin:0 auto; padding:0 24px; height:60px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-size:18px; font-weight:700; }
+    .logo span { color:var(--accent); }
+    .back-link { font-size:14px; color:var(--muted); }
+    .back-link:hover { color:var(--accent); }
+
+    .article { max-width:860px; margin:0 auto; padding:48px 24px 80px; }
+    .article-meta { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:20px; }
+    .tag { font-size:11px; font-weight:700; padding:3px 10px; border-radius:100px; background:var(--accent-dim); color:var(--accent); letter-spacing:0.5px; }
+    .date { font-size:13px; color:var(--muted); }
+    h1 { font-size:clamp(24px,4vw,36px); font-weight:700; line-height:1.3; margin-bottom:12px; }
+    .subtitle { font-size:17px; color:var(--text2); margin-bottom:32px; line-height:1.7; }
+
+    .lead-card { background:linear-gradient(135deg,#e67e22,#d35400); color:#fff; border-radius:var(--radius); padding:28px 32px; margin-bottom:36px; }
+    .lead-card h2 { font-size:20px; margin-bottom:12px; }
+    .lead-card p { font-size:15px; line-height:1.7; opacity:0.95; }
+    .lead-stats { display:flex; gap:24px; margin-top:20px; flex-wrap:wrap; }
+    .lead-stat { text-align:center; }
+    .lead-stat-num { font-size:28px; font-weight:700; display:block; }
+    .lead-stat-label { font-size:12px; opacity:0.85; }
+
+    h2 { font-size:22px; font-weight:700; margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--accent-dim); }
+    h3 { font-size:18px; font-weight:600; margin:28px 0 12px; color:var(--accent); }
+    p { margin-bottom:16px; font-size:16px; }
+    ul, ol { margin:0 0 16px 24px; }
+    li { margin-bottom:8px; font-size:16px; }
+    strong { color:var(--text); }
+
+    .highlight-box { background:var(--bg2); border-left:4px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; padding:20px 24px; margin:24px 0; }
+    .highlight-box p { margin:0; }
+
+    .insight-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin:24px 0; }
+    .insight-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:20px; transition:all 0.2s; }
+    .insight-card:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:var(--shadow); }
+    .insight-num { font-size:28px; font-weight:700; color:var(--accent); margin-bottom:8px; }
+    .insight-label { font-size:13px; color:var(--muted); margin-bottom:8px; }
+    .insight-desc { font-size:14px; color:var(--text2); line-height:1.6; }
+
+    table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; }
+    th { background:var(--bg2); padding:10px 14px; text-align:left; font-weight:600; border:1px solid var(--border); }
+    td { padding:10px 14px; border:1px solid var(--border); }
+    tr:hover td { background:#fafafa; }
+    .num { font-weight:700; color:var(--accent); }
+
+    .formula-box { background:#1a1a1a; color:#f8f8f2; border-radius:var(--radius); padding:20px 24px; margin:20px 0; font-family:'Courier New',monospace; font-size:14px; line-height:1.6; overflow-x:auto; }
+    .formula-box .comment { color:#75715e; }
+    .formula-box .highlight { color:#e6db74; }
+
+    .comparison-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+    .comparison-card { border-radius:var(--radius); padding:20px; }
+    .comparison-card.bad { background:#fff5f5; border:1px solid #ffcdd2; }
+    .comparison-card.good { background:#f0fdf4; border:1px solid #c3e6cb; }
+    .comparison-card h4 { font-size:14px; font-weight:700; margin-bottom:10px; }
+    .comparison-card.bad h4 { color:#c62828; }
+    .comparison-card.good h4 { color:#2e7d32; }
+    .comparison-card p { font-size:14px; margin:0; }
+
+    .tldr { background:var(--accent); color:#fff; border-radius:var(--radius); padding:24px 28px; margin:40px 0; }
+    .tldr h3 { color:#fff; margin:0 0 12px; font-size:16px; letter-spacing:0.5px; }
+    .tldr ul { margin:0 0 0 20px; }
+    .tldr li { font-size:15px; margin-bottom:6px; }
+
+    .nav-footer { display:flex; gap:12px; margin-top:48px; flex-wrap:wrap; }
+    .nav-btn { padding:10px 20px; border-radius:8px; font-size:14px; font-weight:500; border:1px solid var(--border); color:var(--text2); transition:all 0.2s; }
+    .nav-btn:hover { border-color:var(--accent); color:var(--accent); }
+    .nav-btn.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .nav-btn.primary:hover { background:var(--accent-h); }
+
+    @media(max-width:640px){
+      .comparison-row{grid-template-columns:1fr;}
+      .lead-stats{gap:16px;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">精卫<span>导航</span></div>
+    <a href="../index.html" class="back-link">← 返回首页</a>
+  </div>
+</header>
+
+<article class="article">
+  <div class="article-meta">
+    <span class="tag">停止决策</span>
+    <span class="tag">VLN</span>
+    <span class="tag">论文精读</span>
+    <span class="date">2026-03-29</span>
+  </div>
+
+  <h1>VLN停止决策：被所有人忽视的致命瓶颈</h1>
+  <p class="subtitle">68%成功率的顶级VLN系统，停止误差平均2.5米。机器人"导航成功"了，却停在离目标5步远的地方——这不是bug，是系统性缺陷。</p>
+
+  <div class="lead-card">
+    <h2>核心数字</h2>
+    <p>HaltNav（2025）首次系统量化了VLN停止精度问题。结果比大家想象的更糟糕：</p>
+    <div class="lead-stats">
+      <div class="lead-stat">
+        <span class="lead-stat-num">2.5m</span>
+        <span class="lead-stat-label">DUET平均停止误差</span>
+      </div>
+      <div class="lead-stat">
+        <span class="lead-stat-num">5×</span>
+        <span class="lead-stat-label">超过机械臂操作范围</span>
+      </div>
+      <div class="lead-stat">
+        <span class="lead-stat-num">65%</span>
+        <span class="lead-stat-label">StoP指标（DUET基线）</span>
+      </div>
+      <div class="lead-stat">
+        <span class="lead-stat-num">3m</span>
+        <span class="lead-stat-label">SR"成功"的判定阈值</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>反直觉事实：</strong>VLN的主流评估指标SR（成功率），对"停在3米内"就算成功。但真正的机器人任务（拿东西、开门、充电）需要精确到0.5米以内。现有SOTA模型在"成功"的轨迹中，平均停在离目标2.5米的地方。</p>
+  </div>
+
+  <h2>为什么STOP不是普通动作</h2>
+
+  <p>VLN中有4类动作：前进、左转、右转、停止。现有模型（DUET、NavGPT等）把这4个动作放在同一个action vocabulary里，用完全相同的方式训练和预测。</p>
+
+  <p>这是根本错误。</p>
+
+  <div class="comparison-row">
+    <div class="comparison-card bad">
+      <h4>❌ 方向动作（前进/转向）</h4>
+      <p>依赖<strong>局部视觉线索</strong>：眼前有走廊就走进去，有门就考虑转向。只需要看当前帧。</p>
+    </div>
+    <div class="comparison-card good">
+      <h4>✅ 停止动作（STOP）</h4>
+      <p>需要<strong>全局语义对齐</strong>：当前位置的视觉特征 vs. 指令末端描述的目标。需要跨越整个轨迹做判断。</p>
+    </div>
+  </div>
+
+  <p>用一个例子说明：指令是"走到卧室门口，在床左边的椅子旁停下"。到达附近后，模型需要回答的问题是：</p>
+  <ul>
+    <li>我看到的椅子，是不是指令里说的那把？</li>
+    <li>我站的位置，是不是"床左边"？</li>
+    <li>现在停，还是再走一步？</li>
+  </ul>
+  <p>这些问题没有一个能从当前帧的局部特征回答。模型需要把当前视觉场景和指令的目标描述做语义对齐，而这正是现有模型没有专门设计的能力。</p>
+
+  <h2>StoP指标：量化停止质量</h2>
+
+  <p>HaltNav提出了StoP（Stop Precision）指标，解决SR指标掩盖停止误差的问题。</p>
+
+  <div class="formula-box">
+<span class="comment"># StoP@τ：在成功轨迹中，停止点在目标τ米内的比例</span>
+<span class="highlight">StoP@τ = |{i ∈ 成功轨迹 : d(stop_i, goal_i) ≤ τ}| / |成功轨迹|</span>
+
+<span class="comment"># 例子：τ=1.0m时，有多少成功轨迹的停止点在1米内？</span>
+<span class="comment"># DUET baseline: StoP@1m ≈ 25%（4个成功里只有1个停在1米内）</span>
+<span class="comment"># 即使放宽到τ=3m（SR的阈值），StoP@3m ≈ 65%</span>
+  </div>
+
+  <p>可以画StoP曲线：横轴是阈值τ，纵轴是StoP@τ。曲线越陡峭、上升越快，停止精度越高。DUET的曲线在0.5~1.5m区间非常平缓，说明停止点分散在目标周围很大的范围内。</p>
+
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="insight-num">25%</div>
+      <div class="insight-label">DUET StoP@1m</div>
+      <div class="insight-desc">4次导航成功，只有1次停在目标1米内。剩下3次"成功"了，但停的位置机器手够不到。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-num">65%</div>
+      <div class="insight-label">DUET StoP@3m</div>
+      <div class="insight-desc">放宽到3米（等于SR的判定标准），65%的成功轨迹能停在3米内。说明35%的"成功"停止误差超过3米。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-num">68%</div>
+      <div class="insight-label">DUET SR</div>
+      <div class="insight-desc">表面上看很高的成功率，但建立在3米这个宽松阈值上。换成1米阈值，真实有效率仅约17%。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-num">2类</div>
+      <div class="insight-label">主要停止错误</div>
+      <div class="insight-desc">过早停止（Premature）和过晚停止（Delayed），比例约55%/45%，各有不同成因。</div>
+    </div>
+  </div>
+
+  <h2>HaltNav的解决方案：RVH机制</h2>
+
+  <p>HaltNav提出了Reactive Visual Halt（RVH）机制，核心思路：不改变模型的主体架构，而是在停止决策时引入额外的视觉比对模块。</p>
+
+  <h3>RVH工作原理</h3>
+  <ol>
+    <li><strong>构建Topological Memory</strong>：保留最近3个视觉观察帧（O_t-2, O_t-1, O_t）</li>
+    <li><strong>提取Goal Reference</strong>：从指令中抽取目标描述子句（最后一个地点描述）</li>
+    <li><strong>计算Visual-Semantic Similarity</strong>：当前帧视觉特征 vs. 目标描述的文本嵌入</li>
+    <li><strong>设置Halt Threshold</strong>：相似度超过阈值τ=0.65时触发停止</li>
+  </ol>
+
+  <div class="highlight-box">
+    <p><strong>RVH的局限：</strong>只用最近3帧，没有全局轨迹上下文；相似度阈值是静态的，无法适应不同难度的指令；最重要的是，没有专门针对停止决策的推理机制——仍然是"阈值触发"而不是"语义理解"。</p>
+  </div>
+
+  <h3>实验结果</h3>
+  <table>
+    <thead><tr><th>方法</th><th>SR ↑</th><th>SPL ↑</th><th>StoP@1m ↑</th><th>StoP@3m ↑</th></tr></thead>
+    <tbody>
+      <tr><td>DUET（基线）</td><td class="num">68.6%</td><td class="num">62.1%</td><td class="num">25.0%</td><td class="num">65.0%</td></tr>
+      <tr><td>DUET + RVH</td><td class="num">69.2%</td><td class="num">62.8%</td><td class="num">31.4%</td><td class="num">70.2%</td></tr>
+      <tr><td>NavGPT-2 + RVH</td><td class="num">72.1%</td><td class="num">65.3%</td><td class="num">34.0%</td><td class="num">72.8%</td></tr>
+    </tbody>
+  </table>
+  <p>RVH把StoP@1m从25%提升到31%，提升6个点。但还有大量空间——模型仍然有近70%的成功轨迹停在距目标1米以外。</p>
+
+  <h2>为什么停止误差在真实场景中被放大</h2>
+
+  <p>学术benchmark用3米阈值，掩盖了这个问题的严重性。但真实机器人场景的要求完全不同：</p>
+
+  <ul>
+    <li><strong>充电桩对接</strong>：需要精确到±5cm，3米停止误差=完全失败</li>
+    <li><strong>物品抓取</strong>：机械臂伸展范围约50cm，停止误差>50cm=无法完成任务</li>
+    <li><strong>开门操作</strong>：门把手高度固定，停止位置偏差>20cm=操作失败</li>
+    <li><strong>人机交互</strong>：服务机器人停在2.5米外递东西，用户体验极差</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>结论：</strong>现有VLN系统距离实际部署还有一个被严重低估的障碍——停止精度。不解决停止决策问题，SR从68%提升到80%只是数字游戏，真实有用性没有本质改变。</p>
+  </div>
+
+  <h2>停止误差的根本原因分析</h2>
+
+  <p>HaltNav的分析把停止错误分为3类：</p>
+
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="insight-num">Type A</div>
+      <div class="insight-label">过早停止（55%）</div>
+      <div class="insight-desc">到达正确区域前就停了。主因：路径中遇到视觉相似的"干扰场景"（similar-looking rooms），模型误以为到了。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-num">Type B</div>
+      <div class="insight-label">过晚停止（35%）</div>
+      <div class="insight-desc">经过了目标位置没停，继续走直到迷路。主因：指令目标描述模糊，模型不确定时选择继续走（更保守）。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-num">Type C</div>
+      <div class="insight-label">精度不足（10%）</div>
+      <div class="insight-desc">停在了正确位置附近，但偏差超过1米。主因：缺乏精细的深度/距离感知，无法确定"刚好在这里"。</div>
+    </div>
+  </div>
+
+  <p>三种错误类型背后是同一个根本问题：<strong>停止决策缺乏专门的语义对齐机制</strong>。模型用和方向决策完全相同的特征做停止判断，但停止需要的是"当前场景与目标描述的匹配度"，而不是"下一步往哪走"。</p>
+
+  <h2>研究价值：为什么这个方向值得做</h2>
+
+  <p>停止决策是VLN走向真实部署的关键缺口，而且是个<strong>相对低竞争</strong>的方向。截至2025年Q1：</p>
+  <ul>
+    <li>专门研究停止决策的论文：<strong>&lt;5篇</strong></li>
+    <li>提出停止精度指标的论文：<strong>只有HaltNav</strong></li>
+    <li>VLN整体论文年产量：<strong>200+篇</strong></li>
+  </ul>
+
+  <p>大家都在卷SR，没人盯StoP。这是一个明显的研究gap，而且和工业落地直接相关。</p>
+
+  <div class="tldr">
+    <h3>TL;DR — 3个关键结论</h3>
+    <ul>
+      <li>STOP≠普通动作：它需要全局语义对齐，而现有模型没有为此专门设计</li>
+      <li>StoP指标揭示了被SR掩盖的系统性问题：DUET成功轨迹中75%的停止点超出1米</li>
+      <li>停止精度是VLN落地的关键瓶颈，而且是个研究空白——方向正确，时机成熟</li>
+    </ul>
+  </div>
+
+  <h2>延伸阅读</h2>
+  <div class="nav-footer">
+    <a href="vln-stopping-problem.html" class="nav-btn">VLN停止问题综述</a>
+    <a href="navcot-chain-of-thought-navigation.html" class="nav-btn">NavCoT：思维链导航</a>
+    <a href="evolvenav-self-improving-cot.html" class="nav-btn">EvolveNav：自改进CoT</a>
+    <a href="../index.html#blog" class="nav-btn primary">← 回到博客列表</a>
+  </div>
+</article>
+
+</body>
+</html>

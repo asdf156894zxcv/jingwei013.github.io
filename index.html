@@ -541,7 +541,7 @@
         <span class="stat-num">41</span><div class="stat-label">高质量论文 →</div>
       </div>
       <div class="stat" onclick="showSection('blog')" title="点击查看博客">
-        <span class="stat-num">40</span><div class="stat-label">技术博客 →</div>
+        <span class="stat-num">43</span><div class="stat-label">技术博客 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
         <span class="stat-num">33</span><div class="stat-label">创业案例 →</div>
@@ -1521,6 +1521,14 @@ const BLOG_POSTS = [
     desc:'VLN-R1（GRPO强化微调+TDR奖励）vs EvolveNav（自改进CoT推理）深度对比。两条路线6维度对比表格，实践建议：如何选择适合自己的路线。',
     url:'./blog/rl-vln-2025.html',
     tags:['强化学习','VLN','2025','VLN-R1','EvolveNav','GRPO'] },
+  { cat:'tech', date:'2026-03-29', title:'EvolveNav：让机器人自己学会反思，VLN成功率跳到77%',
+    desc:'ICLR 2025。形式化CoT训练+GRPO自改进，无需人工标注推理链。反直觉设计：训练时用CoT，推断时扔掉——为什么这样反而更好？与Aux-Think、VLN-R1的横向对比。',
+    url:'./blog/evolvenav-self-improving-cot.html',
+    tags:['EvolveNav','CoT推理','GRPO','自改进','ICLR2025','VLN'] },
+  { cat:'tech', date:'2026-03-29', title:'VLN停止决策：被所有人忽视的致命瓶颈',
+    desc:'HaltNav论文精读。68%成功率的顶级VLN，停止误差平均2.5米——5倍机械臂操作范围。StoP指标首次量化停止质量，揭示SR掩盖的系统性缺陷。3类停止错误分析+研究机会。',
+    url:'./blog/haltnav-stop-decision.html',
+    tags:['停止决策','HaltNav','StoP指标','VLN','论文精读'] },
   { cat:'tech', date:'2026-03-26', title:'语义地图构建：ObjectNav的核心技术栈',
     desc:'四层技术栈（感知L1/表示L2/探索L3/决策L4），VLFM/SG-Nav/SCOPE/3DGSNav四大代表工作，探索策略对比表，停止决策四种方案，2024-2026三大技术趋势。',
     url:'./blog/semantic-map-objectnav.html',
@@ -1597,6 +1605,10 @@ const BLOG_POSTS = [
     desc:'23%创业失败归因于团队冲突，均分股权的团队价值低30%。Odeo均分33%导致决策瘫痪、Facebook差点被30%不干活合伙人拖垮。5条黄金法则+不同阶段参考模型。',
     url:'./blog/founder-equity-101.html',
     tags:['创业基础','股权','创始人','公司治理','Vesting'] },
+  { cat:'startup', date:'2026-03-29', title:'创始人股权分配的5个死亡陷阱',
+    desc:'95%早期团队都会踩。平均分（决策瘫痪）、无Vesting（离职者带走股权）、忘期权池（融资时被稀释）、顾问股权泛滥、忽视控制权设计——每一条都足以毁掉公司。附YC标准参考。',
+    url:'./blog/equity-distribution-traps.html',
+    tags:['股权分配','创业基础','创始人','Vesting','期权池','控制权'] },
   { cat:'startup', date:'2026-03-24', title:'创业第一课：普通人如何开始第一次创业',
     desc:'重新定义"创业"，普通人创业的三条铁律：从副业开始、不要做大而全、先验证再投入。创业不是赌博，是验证。',
     url:'./blog-startup-basics-01.html',

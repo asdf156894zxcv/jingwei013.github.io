@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EvolveNav：让机器人自己学会反思，VLN成功率77% | 精卫导航</title>
+  <meta name="description" content="EvolveNav论文精读：ICLR 2025。形式化CoT训练+自改进机制，无需人工标注，VLN成功率从72%→77%。解析为什么结构化推理比自由推理有效。">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg2: #f5f5f5; --border: #e0e0e0;
+      --text: #1a1a1a; --text2: #4a4a4a; --muted: #757575;
+      --accent: #d35400; --accent-h: #e67e22; --accent-dim: rgba(211,84,0,0.1);
+      --radius: 12px; --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter','Noto Serif SC',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { color:var(--accent-h); }
+
+    header { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.95); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+    .header-inner { max-width:860px; margin:0 auto; padding:0 24px; height:60px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-size:18px; font-weight:700; }
+    .logo span { color:var(--accent); }
+    .back-link { font-size:14px; color:var(--muted); }
+    .back-link:hover { color:var(--accent); }
+
+    .article { max-width:860px; margin:0 auto; padding:48px 24px 80px; }
+    .article-meta { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:20px; }
+    .tag { font-size:11px; font-weight:700; padding:3px 10px; border-radius:100px; background:var(--accent-dim); color:var(--accent); letter-spacing:0.5px; }
+    .date { font-size:13px; color:var(--muted); }
+    h1 { font-size:clamp(24px,4vw,36px); font-weight:700; line-height:1.3; margin-bottom:12px; }
+    .subtitle { font-size:17px; color:var(--text2); margin-bottom:32px; line-height:1.7; }
+
+    .lead-card { background:linear-gradient(135deg,#e67e22,#d35400); color:#fff; border-radius:var(--radius); padding:28px 32px; margin-bottom:36px; }
+    .lead-card h2 { font-size:20px; margin-bottom:12px; }
+    .lead-card p { font-size:15px; line-height:1.7; opacity:0.95; }
+    .lead-stats { display:flex; gap:24px; margin-top:20px; flex-wrap:wrap; }
+    .lead-stat { text-align:center; }
+    .lead-stat-num { font-size:28px; font-weight:700; display:block; }
+    .lead-stat-label { font-size:12px; opacity:0.85; }
+
+    h2 { font-size:22px; font-weight:700; margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--accent-dim); }
+    h3 { font-size:18px; font-weight:600; margin:28px 0 12px; color:var(--accent); }
+    p { margin-bottom:16px; font-size:16px; }
+    ul, ol { margin:0 0 16px 24px; }
+    li { margin-bottom:8px; font-size:16px; }
+
+    .highlight-box { background:var(--bg2); border-left:4px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; padding:20px 24px; margin:24px 0; }
+    .highlight-box p { margin:0; }
+
+    .step-flow { display:flex; flex-direction:column; gap:0; margin:24px 0; }
+    .step-item { display:flex; gap:16px; align-items:flex-start; }
+    .step-connector { display:flex; flex-direction:column; align-items:center; }
+    .step-dot { width:32px; height:32px; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .step-line { width:2px; height:24px; background:var(--accent-dim); }
+    .step-content { padding:0 0 20px; }
+    .step-content h4 { font-size:15px; font-weight:700; margin-bottom:6px; }
+    .step-content p { font-size:14px; color:var(--text2); margin:0; }
+
+    .insight-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; margin:24px 0; }
+    .insight-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:20px; transition:all 0.2s; }
+    .insight-card:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:var(--shadow); }
+    .insight-num { font-size:28px; font-weight:700; color:var(--accent); margin-bottom:8px; }
+    .insight-label { font-size:13px; color:var(--muted); margin-bottom:8px; }
+    .insight-desc { font-size:13px; color:var(--text2); line-height:1.6; }
+
+    table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; }
+    th { background:var(--bg2); padding:10px 14px; text-align:left; font-weight:600; border:1px solid var(--border); }
+    td { padding:10px 14px; border:1px solid var(--border); }
+    tr:hover td { background:#fafafa; }
+    .num { font-weight:700; color:var(--accent); }
+    .sota { background:#fff3e0; font-weight:700; }
+
+    .formula-box { background:#1a1a1a; color:#f8f8f2; border-radius:var(--radius); padding:20px 24px; margin:20px 0; font-family:'Courier New',monospace; font-size:14px; line-height:1.6; overflow-x:auto; }
+    .formula-box .comment { color:#75715e; }
+    .formula-box .key { color:#66d9ef; }
+    .formula-box .value { color:#e6db74; }
+
+    .vs-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:24px 0; }
+    .vs-card { border-radius:var(--radius); padding:20px; border:1px solid var(--border); }
+    .vs-card.old { border-color:#ffcdd2; background:#fff5f5; }
+    .vs-card.new { border-color:#c8e6c9; background:#f1f8e9; }
+    .vs-card h4 { font-size:14px; font-weight:700; margin-bottom:12px; }
+    .vs-card.old h4 { color:#c62828; }
+    .vs-card.new h4 { color:#2e7d32; }
+    .vs-card ul { margin:0 0 0 16px; }
+    .vs-card li { font-size:13px; margin-bottom:6px; }
+
+    .tldr { background:var(--accent); color:#fff; border-radius:var(--radius); padding:24px 28px; margin:40px 0; }
+    .tldr h3 { color:#fff; margin:0 0 12px; font-size:16px; letter-spacing:0.5px; }
+    .tldr ul { margin:0 0 0 20px; }
+    .tldr li { font-size:15px; margin-bottom:6px; }
+
+    .nav-footer { display:flex; gap:12px; margin-top:48px; flex-wrap:wrap; }
+    .nav-btn { padding:10px 20px; border-radius:8px; font-size:14px; font-weight:500; border:1px solid var(--border); color:var(--text2); transition:all 0.2s; }
+    .nav-btn:hover { border-color:var(--accent); color:var(--accent); }
+    .nav-btn.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .nav-btn.primary:hover { background:var(--accent-h); }
+
+    @media(max-width:640px){
+      .vs-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">精卫<span>导航</span></div>
+    <a href="../index.html" class="back-link">← 返回首页</a>
+  </div>
+</header>
+
+<article class="article">
+  <div class="article-meta">
+    <span class="tag">自改进训练</span>
+    <span class="tag">CoT推理</span>
+    <span class="tag">ICLR 2025</span>
+    <span class="date">2026-03-29</span>
+  </div>
+
+  <h1>EvolveNav：让机器人学会自我反思，VLN成功率直接跳到77%</h1>
+  <p class="subtitle">ICLR 2025顶会论文。核心洞察：不是让模型推理得更好，而是让模型在训练时用推理链"教自己"——推断时直接扔掉推理过程。反直觉，但有效。</p>
+
+  <div class="lead-card">
+    <h2>论文核心贡献</h2>
+    <p>EvolveNav（ICLR 2025）提出形式化CoT训练 + 自改进机制，无需人工标注推理链，VLN成功率从NavGPT-2的72%直接提升到77%，刷新R2R val-unseen SOTA。</p>
+    <div class="lead-stats">
+      <div class="lead-stat">
+        <span class="lead-stat-num">77%</span>
+        <span class="lead-stat-label">R2R val-unseen SR</span>
+      </div>
+      <div class="lead-stat">
+        <span class="lead-stat-num">+5pp</span>
+        <span class="lead-stat-label">vs NavGPT-2基线</span>
+      </div>
+      <div class="lead-stat">
+        <span class="lead-stat-num">0</span>
+        <span class="lead-stat-label">人工标注推理链</span>
+      </div>
+      <div class="lead-stat">
+        <span class="lead-stat-num">2阶段</span>
+        <span class="lead-stat-label">自改进训练流程</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>问题背景：为什么自由CoT效果差？</h2>
+
+  <p>2024年，研究者发现让VLN模型在推断时生成推理链（"我看到走廊，可能要左转…"）会<strong>降低</strong>性能。这反直觉，但有解释：</p>
+
+  <div class="vs-grid">
+    <div class="vs-card old">
+      <h4>❌ 自由推理（Free CoT）的问题</h4>
+      <ul>
+        <li>推理内容不受约束，模型"随意联想"</li>
+        <li>生成冗长推理占用注意力，挤占视觉处理能力</li>
+        <li>推理链和最终动作决策脱节</li>
+        <li>不同步骤的推理风格不一致，难以学习</li>
+      </ul>
+    </div>
+    <div class="vs-card new">
+      <h4>✅ 形式化推理（Formal CoT）的优势</h4>
+      <ul>
+        <li>固定输出格式，强制聚焦相关信息</li>
+        <li>训练时建立结构化内部表示</li>
+        <li>推断时可以抛弃显式推理，用隐式表示决策</li>
+        <li>自动生成正/负样本，无需人工标注</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>核心洞察：</strong>CoT的价值不在于推断时生成推理文字，而在于<strong>训练时用结构化推理强迫模型学会关注正确的信息</strong>。推断时反而要把显式推理过程扔掉，只保留学到的内部表示。</p>
+  </div>
+
+  <h2>EvolveNav的两阶段训练</h2>
+
+  <h3>第一阶段：形式化CoT监督微调（Formal CoT SFT）</h3>
+
+  <p>EvolveNav设计了一个固定格式的推理链，要求模型每步生成：</p>
+
+  <div class="formula-box">
+<span class="comment">// EvolveNav CoT格式（每个导航步骤）</span>
+<span class="key">Observation</span>: <span class="value">"我看到一条走廊，左边有扶手，右边是教室门"</span>
+<span class="key">Progress</span>: <span class="value">"指令说走到会议室，我可能已经走了3/4的路"</span>  
+<span class="key">Landmark</span>: <span class="value">"指令提到'蓝色门'，当前视野右侧有一扇蓝色门"</span>
+<span class="key">Action</span>: <span class="value">RIGHT_TURN</span>
+  </div>
+
+  <p>关键：这些推理链不需要人工标注。EvolveNav用成功轨迹的自动化回溯算法生成伪推理标签：</p>
+  <ol>
+    <li>用基础模型（NavGPT-2）生成大量导航轨迹</li>
+    <li>筛选成功的轨迹，作为"正样本"</li>
+    <li>用规则模板填写对应的CoT格式（根据轨迹几何信息自动生成）</li>
+    <li>在这些(CoT推理, 动作)对上做SFT</li>
+  </ol>
+
+  <h3>第二阶段：自改进强化学习（Self-Improving RL with GRPO）</h3>
+
+  <p>SFT之后，模型用GRPO（Group Relative Policy Optimization）做强化学习微调：</p>
+
+  <div class="step-flow">
+    <div class="step-item">
+      <div class="step-connector"><div class="step-dot">1</div><div class="step-line"></div></div>
+      <div class="step-content">
+        <h4>采样多条轨迹</h4>
+        <p>对每条训练指令，用当前模型采样G条轨迹（G=8），每条轨迹有完整的CoT推理链</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-connector"><div class="step-dot">2</div><div class="step-line"></div></div>
+      <div class="step-content">
+        <h4>计算相对优势</h4>
+        <p>用SR和SPL计算每条轨迹的奖励，用组内平均奖励归一化得到相对优势A_i = (r_i - mean(r)) / std(r)</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-connector"><div class="step-dot">3</div><div class="step-line"></div></div>
+      <div class="step-content">
+        <h4>KL约束策略更新</h4>
+        <p>用PPO-clip目标 + KL散度约束更新策略，避免偏离SFT初始化太远</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-connector"><div class="step-dot">4</div><div class="step-line"></div></div>
+      <div class="step-content">
+        <h4>迭代自改进</h4>
+        <p>用更新后的模型重新采样轨迹，循环3轮。每轮都用自己生成的成功轨迹做正样本。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>GRPO vs PPO：</strong>传统PPO需要一个Critic网络估计值函数，计算成本高。GRPO用组内相对排名替代Critic，只需要比较同组轨迹的相对好坏——简化了训练，同时保留了策略优化的效果。</p>
+  </div>
+
+  <h2>实验结果对比</h2>
+
+  <table>
+    <thead>
+      <tr><th>方法</th><th>SR ↑</th><th>SPL ↑</th><th>NE ↓</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>DUET</td><td class="num">68.6%</td><td class="num">62.1%</td><td class="num">3.65</td><td>图神经网络基线</td></tr>
+      <tr><td>NavGPT-2</td><td class="num">72.6%</td><td class="num">65.8%</td><td class="num">3.31</td><td>LLM+视觉对齐</td></tr>
+      <tr><td>EvolveNav (SFT only)</td><td class="num">74.2%</td><td class="num">67.4%</td><td class="num">3.15</td><td>仅第一阶段</td></tr>
+      <tr class="sota"><td>EvolveNav (Full)</td><td class="num">77.0%</td><td class="num">69.8%</td><td class="num">2.93</td><td>SFT + GRPO，ICLR 2025 SOTA</td></tr>
+    </tbody>
+  </table>
+
+  <p>消融分析揭示两阶段的贡献：SFT阶段贡献+1.6pp SR（形式化CoT的训练效果），GRPO阶段再贡献+2.8pp SR（自改进强化学习的效果）。GRPO是更大的提升来源。</p>
+
+  <h2>关键设计选择：为什么推断时不用CoT</h2>
+
+  <p>EvolveNav在推断时<strong>关闭了CoT输出</strong>。这是个反直觉但关键的设计：</p>
+
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="insight-num">速度</div>
+      <div class="insight-label">推理效率</div>
+      <div class="insight-desc">生成完整CoT链需要约200个额外token，推断时间增加3-5倍。关闭CoT后恢复实时速度。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-num">质量</div>
+      <div class="insight-label">决策质量</div>
+      <div class="insight-desc">Aux-Think论文证明在线CoT会"reasoning collapse"——推理token和视觉token竞争注意力，反而降低决策质量。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-num">迁移</div>
+      <div class="insight-label">知识保留</div>
+      <div class="insight-desc">CoT训练的价值不在输出，在于建立了更好的内部特征空间。推断时隐式使用这些特征，无需显式生成。</div>
+    </div>
+  </div>
+
+  <h2>EvolveNav的局限与未解决的问题</h2>
+
+  <p>EvolveNav虽然在SR/SPL上达到SOTA，但有几个明显局限：</p>
+
+  <ol>
+    <li><strong>没有专门处理停止决策</strong>：SR提升了，但StoP（停止精度）没有专门优化。模型仍然把STOP当普通动作。</li>
+    <li><strong>GRPO奖励设计复杂</strong>：轨迹级奖励需要运行完整导航才能得到，计算成本高；奖励函数设计需要仔细调优。</li>
+    <li><strong>对骨干网络依赖强</strong>：初始化自NavGPT-2，需要较强的基础VLN能力，不能轻易换到更小的骨干。</li>
+    <li><strong>CoT推理链质量未验证</strong>：自动生成的伪CoT标签质量如何？对不同场景类型的CoT生成是否均匀？论文没有深入分析。</li>
+  </ol>
+
+  <div class="highlight-box">
+    <p><strong>研究机会：</strong>EvolveNav证明了"形式化CoT训练 + 自改进"路线的有效性。但它优化的是整体导航质量（SR/SPL），对停止精度（StoP）没有专门设计。把这套机制迁移到停止决策这个专门问题上，是一个明确的研究方向。</p>
+  </div>
+
+  <h2>和同期工作的横向对比</h2>
+
+  <table>
+    <thead><tr><th>方法</th><th>训练范式</th><th>推断时CoT</th><th>自改进</th><th>停止专项</th><th>SR</th></tr></thead>
+    <tbody>
+      <tr><td>NavGPT-2</td><td>SFT+规划</td><td>✓（自由）</td><td>✗</td><td>✗</td><td class="num">72.6%</td></tr>
+      <tr><td>Aux-Think</td><td>SFT</td><td>✗（抑制）</td><td>✗</td><td>✗</td><td class="num">73.1%</td></tr>
+      <tr class="sota"><td>EvolveNav</td><td>SFT+GRPO RL</td><td>✗（训练用）</td><td>✓</td><td>✗</td><td class="num">77.0%</td></tr>
+      <tr><td>VLN-R1</td><td>GRPO+时间衰减</td><td>✗</td><td>✓</td><td>✗</td><td class="num">75.8%</td></tr>
+    </tbody>
+  </table>
+
+  <p>EvolveNav的优势在于同时使用了形式化CoT监督（比Aux-Think更结构化）和强化学习自改进（比NavGPT-2更强的优化机制）。VLN-R1用了类似的GRPO但没有形式化CoT，性能略低。</p>
+
+  <div class="tldr">
+    <h3>TL;DR — 为什么EvolveNav值得深度研究</h3>
+    <ul>
+      <li>证明了"训练时用CoT，推断时不用CoT"的正确性——这不是妥协，是设计</li>
+      <li>GRPO自改进是目前最有效的VLN后训练方法，+2.8pp SR不依赖更多人工标注</li>
+      <li>明确留下了停止精度的研究gap：StoP没有专门处理，这是可以扩展的方向</li>
+      <li>形式化CoT的思路完全可以迁移到停止决策专项训练，这正是CoW-Nav的出发点</li>
+    </ul>
+  </div>
+
+  <div class="nav-footer">
+    <a href="haltnav-stop-decision.html" class="nav-btn">HaltNav精读：停止决策</a>
+    <a href="navcot-chain-of-thought-navigation.html" class="nav-btn">NavCoT：思维链导航</a>
+    <a href="rl-vln-2025.html" class="nav-btn">强化学习+VLN 2025</a>
+    <a href="../index.html#blog" class="nav-btn primary">← 回到博客列表</a>
+  </div>
+</article>
+
+</body>
+</html>
