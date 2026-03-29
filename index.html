@@ -541,13 +541,13 @@
         <span class="stat-num">41</span><div class="stat-label">高质量论文 →</div>
       </div>
       <div class="stat" onclick="showSection('blog')" title="点击查看博客">
-        <span class="stat-num">43</span><div class="stat-label">技术博客 →</div>
+        <span class="stat-num">44</span><div class="stat-label">技术博客 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
         <span class="stat-num">33</span><div class="stat-label">创业案例 →</div>
       </div>
       <div class="stat" onclick="showSection('research')" title="点击查看研究方向">
-        <span class="stat-num">3月29</span><div class="stat-label">今日更新 →</div>
+        <span class="stat-num">3月30</span><div class="stat-label">今日更新 →</div>
       </div>
     </div>
   </div>
@@ -1521,6 +1521,10 @@ const BLOG_POSTS = [
     desc:'VLN-R1（GRPO强化微调+TDR奖励）vs EvolveNav（自改进CoT推理）深度对比。两条路线6维度对比表格，实践建议：如何选择适合自己的路线。',
     url:'./blog/rl-vln-2025.html',
     tags:['强化学习','VLN','2025','VLN-R1','EvolveNav','GRPO'] },
+  { cat:'tech', date:'2026-03-30', title:'FSCoT：机器人"停在哪里"，比"走哪条路"难10倍',
+    desc:'VLN停止决策的终极解法。三段式形式化推理链（视觉描述→语义匹配→信心分）+自改进训练+信心头蒸馏，StoP从65%提升到85%。训练-推断不对称设计彻底解决在线CoT崩溃问题。',
+    url:'./blog/fscot-stop-reasoning-vln.html',
+    tags:['FSCoT','停止决策','CoT推理','自改进','VLN','信心估计'] },
   { cat:'tech', date:'2026-03-29', title:'EvolveNav：让机器人自己学会反思，VLN成功率跳到77%',
     desc:'ICLR 2025。形式化CoT训练+GRPO自改进，无需人工标注推理链。反直觉设计：训练时用CoT，推断时扔掉——为什么这样反而更好？与Aux-Think、VLN-R1的横向对比。',
     url:'./blog/evolvenav-self-improving-cot.html',
@@ -2541,17 +2545,14 @@ const UPDATE_HOUR = 9; // 每天北京时间 9:00 自动更新
 
 function initHeartbeat() {
   const now = new Date();
-  const lastUpdate = localStorage.getItem('jingwei_last_update') || '';
+  // 强制覆盖为最新心跳时间（每次网站更新时手动修改此处）
+  const LAST_UPDATE_ISO = '2026-03-30T00:10:00+08:00';
+  localStorage.setItem('jingwei_last_update', LAST_UPDATE_ISO);
   const nextUpdateEl = document.getElementById('nextUpdate');
   const lastUpdateEl = document.getElementById('lastUpdate');
 
   // 显示最后更新时间
-  if (lastUpdate) {
-    lastUpdateEl.textContent = formatHeartbeatTime(lastUpdate);
-  } else {
-    lastUpdateEl.textContent = now.toLocaleString('zh-CN', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-    localStorage.setItem('jingwei_last_update', now.toISOString());
-  }
+  lastUpdateEl.textContent = formatHeartbeatTime(LAST_UPDATE_ISO);
 
   // 计算下次更新时间
   const nextUpdate = getNextUpdateTime();
