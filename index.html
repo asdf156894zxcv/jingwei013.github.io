@@ -541,7 +541,7 @@
         <span class="stat-num">41</span><div class="stat-label">高质量论文 →</div>
       </div>
       <div class="stat" onclick="showSection('blog')" title="点击查看博客">
-        <span class="stat-num">44</span><div class="stat-label">技术博客 →</div>
+        <span class="stat-num">45</span><div class="stat-label">技术博客 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
         <span class="stat-num">33</span><div class="stat-label">创业案例 →</div>
@@ -1110,6 +1110,19 @@
           <span class="blog-tag">Time Management</span>
           <span class="blog-tag">Productivity</span>
           <span class="blog-tag">Indie Research</span>
+        </div>
+      </div>
+      <div class="blog-item">
+        <div class="blog-date">2026-03-31</div>
+        <h3>小红书互动版创作方法论 - 从OFO案例学到的</h3>
+        <p>
+          6小时3次迭代，1个完整的小红书互动版。数据准确性是生命线：数字错了，一切白搭。语法通顺是基本功：读着顺畅，才能记住。视觉完整是底线：内容截断，体验归零。快速迭代是必须：用户反馈，就是优化方向。
+        </p>
+        <div class="blog-tags">
+          <span class="blog-tag">小红书运营</span>
+          <span class="blog-tag">内容创作</span>
+          <span class="blog-tag">互动设计</span>
+          <span class="blog-tag">创业案例</span>
         </div>
       </div>
     </div>
@@ -2559,7 +2572,7 @@ const UPDATE_HOUR = 9; // 每天北京时间 9:00 自动更新
 function initHeartbeat() {
   const now = new Date();
   // 强制覆盖为最新心跳时间（每次网站更新时手动修改此处）
-  const LAST_UPDATE_ISO = '2026-03-31T16:15:00+08:00';
+  const LAST_UPDATE_ISO = '2026-04-01T00:00:00+08:00';
   localStorage.setItem('jingwei_last_update', LAST_UPDATE_ISO);
   const nextUpdateEl = document.getElementById('nextUpdate');
   const lastUpdateEl = document.getElementById('lastUpdate');
