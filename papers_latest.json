@@ -1,6 +1,112 @@
 {
-  "updated": "2026-03-30 03:54 UTC",
-  "total": 0,
+  "updated": "2026-03-31 03:45 UTC",
+  "total": 15,
   "today_count": 0,
-  "papers": []
+  "papers": [
+    {
+      "title": "Gen-Searcher: Reinforcing Agentic Search for Image Generation",
+      "date": "2026-03-30",
+      "id": "2603.28767v1",
+      "abstract": "Recent image generation models have shown strong capabilities in generating high-fidelity and photorealistic images. However, they are fundamentally constrained by frozen internal knowledge, thus ofte",
+      "url": "https://arxiv.org/abs/2603.28767v1"
+    },
+    {
+      "title": "HandX: Scaling Bimanual Motion and Interaction Generation",
+      "date": "2026-03-30",
+      "id": "2603.28766v1",
+      "abstract": "Synthesizing human motion has advanced rapidly, yet realistic hand motion and bimanual interaction remain underexplored. Whole-body models often miss the fine-grained cues that drive dexterous behavio",
+      "url": "https://arxiv.org/abs/2603.28766v1"
+    },
+    {
+      "title": "Adaptive Block-Scaled Data Types",
+      "date": "2026-03-30",
+      "id": "2603.28765v1",
+      "abstract": "NVFP4 has grown increasingly popular as a 4-bit format for quantizing large language models due to its hardware support and its ability to retain useful information with relatively few bits per parame",
+      "url": "https://arxiv.org/abs/2603.28765v1"
+    },
+    {
+      "title": "SonoWorld: From One Image to a 3D Audio-Visual Scene",
+      "date": "2026-03-30",
+      "id": "2603.28757v1",
+      "abstract": "Tremendous progress in visual scene generation now turns a single image into an explorable 3D world, yet immersion remains incomplete without sound. We introduce Image2AVScene, the task of generating ",
+      "url": "https://arxiv.org/abs/2603.28757v1"
+    },
+    {
+      "title": "Pandora: Articulated 3D Scene Graphs from Egocentric Vision",
+      "date": "2026-03-30",
+      "id": "2603.28732v1",
+      "abstract": "Robotic mapping systems typically approach building metric-semantic scene representations from the robot's own sensors and cameras. However, these \"first person\" maps inherit the robot's own limitatio",
+      "url": "https://arxiv.org/abs/2603.28732v1"
+    },
+    {
+      "title": "DRIVE-Nav: Directional Reasoning, Inspection, and Verification for Efficient Open-Vocabulary Navigation",
+      "date": "2026-03-30",
+      "id": "2603.28691v1",
+      "abstract": "Open-Vocabulary Object Navigation (OVON) requires an embodied agent to locate a language-specified target in unknown environments. Existing zero-shot methods often reason over dense frontier points un",
+      "url": "https://arxiv.org/abs/2603.28691v1"
+    },
+    {
+      "title": "SHOW3D: Capturing Scenes of 3D Hands and Objects in the Wild",
+      "date": "2026-03-30",
+      "id": "2603.28760v1",
+      "abstract": "Accurate 3D understanding of human hands and objects during manipulation remains a significant challenge for egocentric computer vision. Existing hand-object interaction datasets are predominantly cap",
+      "url": "https://arxiv.org/abs/2603.28760v1"
+    },
+    {
+      "title": "Navigating the Mirage: A Dual-Path Agentic Framework for Robust Misleading Chart Question Answering",
+      "date": "2026-03-30",
+      "id": "2603.28583v1",
+      "abstract": "Despite the success of Vision-Language Models (VLMs), misleading charts remain a significant challenge due to their deceptive visual structures and distorted data representations. We present ChartCyni",
+      "url": "https://arxiv.org/abs/2603.28583v1"
+    },
+    {
+      "title": "FocusVLA: Focused Visual Utilization for Vision-Language-Action Models",
+      "date": "2026-03-30",
+      "id": "2603.28740v1",
+      "abstract": "Vision-Language-Action (VLA) models improve action generation by conditioning policies on rich vision-language information. However, current auto-regressive policies are constrained by three bottlenec",
+      "url": "https://arxiv.org/abs/2603.28740v1"
+    },
+    {
+      "title": "RAD-AI: Rethinking Architecture Documentation for AI-Augmented Ecosystems",
+      "date": "2026-03-30",
+      "id": "2603.28735v1",
+      "abstract": "AI-augmented ecosystems (interconnected systems where multiple AI components interact through shared data and infrastructure) are becoming the architectural norm for smart cities, autonomous fleets, a",
+      "url": "https://arxiv.org/abs/2603.28735v1"
+    },
+    {
+      "title": "SAGAI-MID: A Generative AI-Driven Middleware for Dynamic Runtime Interoperability",
+      "date": "2026-03-30",
+      "id": "2603.28731v1",
+      "abstract": "Modern distributed systems integrate heterogeneous services, REST APIs with different schema versions, GraphQL endpoints, and IoT devices with proprietary payloads that suffer from persistent schema m",
+      "url": "https://arxiv.org/abs/2603.28731v1"
+    },
+    {
+      "title": "FlowIt: Global Matching for Optical Flow with Confidence-Guided Refinement",
+      "date": "2026-03-30",
+      "id": "2603.28759v1",
+      "abstract": "We present FlowIt, a novel architecture for optical flow estimation designed to robustly handle large pixel displacements. At its core, FlowIt leverages a hierarchical transformer architecture that ca",
+      "url": "https://arxiv.org/abs/2603.28759v1"
+    },
+    {
+      "title": "Fast Large-Scale Model-Based Iterative Tomography via Exploiting Mathematical Structure, Hierarchical Optimization, Smart Initialization, and Distributed GPU Computing",
+      "date": "2026-03-30",
+      "id": "2603.28756v1",
+      "abstract": "Model-Based Iterative Reconstruction (MBIR) is important because direct methods, such as Filtered Back-Projection (FBP) can introduce significant noise and artifacts in sparse-angle tomography, especi",
+      "url": "https://arxiv.org/abs/2603.28756v1"
+    },
+    {
+      "title": "PoseDreamer: Scalable and Photorealistic Human Data Generation Pipeline with Diffusion Models",
+      "date": "2026-03-30",
+      "id": "2603.28763v1",
+      "abstract": "Acquiring labeled datasets for 3D human mesh estimation is challenging due to depth ambiguities and the inherent difficulty of annotating 3D geometry from monocular images. Existing datasets are eithe",
+      "url": "https://arxiv.org/abs/2603.28763v1"
+    },
+    {
+      "title": "On-the-fly Repulsion in the Contextual Space for Rich Diversity in Diffusion Transformers",
+      "date": "2026-03-30",
+      "id": "2603.28762v1",
+      "abstract": "Modern Text-to-Image (T2I) diffusion models have achieved remarkable semantic alignment, yet they often suffer from a significant lack of variety, converging on a narrow set of visual solutions for an",
+      "url": "https://arxiv.org/abs/2603.28762v1"
+    }
+  ]
 }
