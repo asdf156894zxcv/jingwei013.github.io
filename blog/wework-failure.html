@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeWork失败案例 - 精卫013</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .title-copy-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #ff2442;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        .title-copy-btn:hover {
+            background: #e01d3a;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .image-preview {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fafafa;
+        }
+
+        .image-container {
+            width: 100%;
+            min-height: 552px;
+            overflow: visible;
+            position: relative;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-content {
+            width: 100%;
+            min-height: 552px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            min-height: 552px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.9) 100%);
+            z-index: 1;
+            min-height: 552px;
+        }
+
+        .image-text {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            width: 100%;
+            max-width: 374px;
+            overflow: visible;
+            min-height: 552px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .image-number {
+            font-size: 14px;
+            color: #ff9500;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .story-title {
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .story-text {
+            font-size: 15px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .big-number {
+            font-size: 28px;
+            color: #ff2442;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .highlight-yellow {
+            color: #ff9500;
+        }
+
+        .key-point {
+            font-size: 14px;
+            color: #ffd700;
+            line-height: 1.5;
+            margin: 8px 0;
+            padding-left: 15px;
+            border-left: 3px solid #ff9500;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            z-index: 10;
+        }
+
+        .copy-btn:hover {
+            background: white;
+        }
+
+        .tips {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .tips strong {
+            color: #333;
+        }
+
+        .tags {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #f0f0f0;
+            color: #666;
+            border-radius: 15px;
+            margin: 5px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>WeWork失败案例 - 标题选择</h1>
+            <div>
+                <button class="title-copy-btn" onclick="copyToClipboard('470亿到破产，WeWork的10年梦碎')">复制标题1</button>
+                <button class="title-copy-btn" onclick="copyToClipboard('软银最惨投资：WeWork如何从470亿归零')">复制标题2</button>
+                <button class="title-copy-btn" onclick="copyToClipboard('共享办公鼻祖的陨落：WeWork失败复盘')">复制标题3</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>标签</h2>
+            <div class="tags">
+                <span class="tag">#wework</span>
+                <span class="tag">#共享办公</span>
+                <span class="tag">#创业失败</span>
+                <span class="tag">#软银</span>
+                <span class="tag">#避坑</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>正文</h2>
+            <p style="line-height: 1.8; color: #333; font-size: 15px;">
+                2010年，Adam Neumann在纽约创立WeWork，共享办公的概念火遍全球。<br><br>
+                2019年，WeWork申请IPO，招股书中暴露的问题让投资者清醒。<br><br>
+                2020年，软银撤资，估值从470亿美元跌到29亿美元。<br><br>
+                2023年，WeWork申请破产保护，10年梦碎。<br><br>
+                今天复盘WeWork失败原因，给创业者一个警示。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>图片预览（5张3:4比例）</h2>
+            <div class="image-grid">
+                <div class="image-preview">
+                    <div class="image-container">
+                        <div class="image-content">
+                            <div class="image-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=1060&fit=crop')"></div>
+                            <div class="overlay"></div>
+                            <div class="image-text">
+                                <div class="image-number">封面</div>
+                                <div class="story-title">470亿美元估值<br>10年后归零</div>
+                                <div class="big-number">470亿 → 0</div>
+                                <div class="story-text">共享办公鼻祖WeWork，2023年申请破产保护，软银最惨投资，10年梦碎。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-preview">
+                    <div class="image-container">
+                        <div class="image-content">
+                            <div class="image-bg" style="background-image: url('https://images.unsplash.com/photo-1497215842964-222b430dc094?w=800&h=1060&fit=crop')"></div>
+                            <div class="overlay"></div>
+                            <div class="image-text">
+                                <div class="image-number">第一幕</div>
+                                <div class="story-title">2010-2019：<br>巅峰时期</div>
+                                <div class="key-point">软银投资：超过100亿美元</div>
+                                <div class="key-point">全球扩张：111个城市</div>
+                                <div class="key-point">会员数量：66万人</div>
+                                <div class="story-text">共享办公概念火遍全球，Adam Neumann成为传奇创业者，WeWork成为独角兽。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-preview">
+                    <div class="image-container">
+                        <div class="image-content">
+                            <div class="image-bg" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=1060&fit=crop')"></div>
+                            <div class="overlay"></div>
+                            <div class="image-text">
+                                <div class="image-number">第二幕</div>
+                                <div class="story-title">2019年IPO：<br>问题暴露</div>
+                                <div class="key-point">亏损严重：2018年亏损19亿</div>
+                                <div class="key-point">商业模式不清晰：赚差价不赚钱</div>
+                                <div class="key-point">创始人问题：Adam Neumann被罢免</div>
+                                <div class="story-text">招股书暴露的问题让投资者清醒，IPO失败，估值大幅下降。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-preview">
+                    <div class="image-container">
+                        <div class="image-content">
+                            <div class="image-bg" style="background-image: url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=800&h=1060&fit=crop')"></div>
+                            <div class="overlay"></div>
+                            <div class="image-text">
+                                <div class="image-number">第三幕</div>
+                                <div class="story-title">2020-2023：<br>走向破产</div>
+                                <div class="big-number">470亿 → 29亿</div>
+                                <div class="story-text">软银撤资，估值暴跌94%。2023年申请破产保护，10年梦碎。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-preview">
+                    <div class="image-container">
+                        <div class="image-content">
+                            <div class="image-bg" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=1060&fit=crop')"></div>
+                            <div class="overlay"></div>
+                            <div class="image-text">
+                                <div class="image-number">第四幕</div>
+                                <div class="story-title">失败原因：<br>三大致命伤</div>
+                                <div class="key-point">商业模式缺陷：赚差价不赚钱</div>
+                                <div class="key-point">过度扩张：不计成本增长</div>
+                                <div class="key-point">创始人问题：决策混乱</div>
+                                <div class="story-text">给创业者的警示：商业模式验证比规模更重要，创始人能力决定生死。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips">
+                <strong>使用说明：</strong><br>
+                1. 点击标题按钮复制标题，小红书发布时粘贴<br>
+                2. 图片预览尺寸：414×552px（预览），实际截图：1242×1660px（3:4）<br>
+                3. 每张图完整截图，确保内容不截断<br>
+                4. 发布顺序：封面→第一幕→第二幕→第三幕→第四幕
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('标题已复制：' + text);
+            }, function(err) {
+                alert('复制失败，请手动复制');
+            });
+        }
+    </script>
+</body>
+</html>
