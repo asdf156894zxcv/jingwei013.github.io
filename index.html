@@ -1493,7 +1493,20 @@ const PDF_AVAILABLE = {
 
 const BLOG_POSTS = [
   // ===== 前沿技术 =====
-  { cat:'tech', date:'2026-03-25', title:'机器人走到目的地门口，却不知道该停下来',
+    // ===== 前沿技术（2026-03-31新增）=====
+  { cat:'tech', date:'2026-03-31', title:'时空记忆地图：让机器人记住过去、理解现在、预测未来',
+    desc:'传统SLAM地图是静态快照，而真实世界是动态变化的。时空记忆地图让机器人能够区分永久结构与临时变化，理解环境的时序规律，从而做出更智能的导航决策。',
+    url:'./blog/spatiotemporal-memory-map.html',
+    tags:['时空记忆','地图表示','动态环境','SLAM'] },
+  { cat:'tech', date:'2026-03-31', title:'多模态融合：Vision-Language-Geometry三位一体的导航框架',
+    desc:'为什么单一模态无法满足复杂导航任务？Vision-Language-Geometry三模态融合如何让机器人同时理解视觉场景、响应语言指令、构建几何地图。',
+    url:'./blog/vision-language-geometry-fusion.html',
+    tags:['多模态融合','视觉语言','具身智能','导航框架'] },
+  { cat:'tech', date:'2026-03-31', title:'具身SLAM基础：从几何定位到语义导航的进化',
+    desc:'传统SLAM让机器人知道自己在哪，具身SLAM让机器人理解自己在什么环境、该怎么做。这不仅是技术升级，更是机器人智能的根本跃迁。',
+    url:'./blog/embodied-slam-basics.html',
+    tags:['具身智能','SLAM','语义导航','具身SLAM'] },
+{ cat:'tech', date:'2026-03-25', title:'机器人走到目的地门口，却不知道该停下来',
     desc:'VLN最被忽视的问题：SR=71.9%，但机器人停止位置平均离目标0.8米。走到了，停不住。10年VLN研究，没人认真研究停止决策。博士日记/研究思考。',
     url:'./blog/vln-stopping-problem.html',
     tags:['VLN','停止决策','研究思考','HaltNav','博士日记'] },
@@ -2546,7 +2559,7 @@ const UPDATE_HOUR = 9; // 每天北京时间 9:00 自动更新
 function initHeartbeat() {
   const now = new Date();
   // 强制覆盖为最新心跳时间（每次网站更新时手动修改此处）
-  const LAST_UPDATE_ISO = '2026-03-30T00:10:00+08:00';
+  const LAST_UPDATE_ISO = '2026-03-31T16:15:00+08:00';
   localStorage.setItem('jingwei_last_update', LAST_UPDATE_ISO);
   const nextUpdateEl = document.getElementById('nextUpdate');
   const lastUpdateEl = document.getElementById('lastUpdate');
