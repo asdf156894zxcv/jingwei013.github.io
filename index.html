@@ -538,16 +538,16 @@
     </div>
     <div class="hero-stats">
       <div class="stat" onclick="showSection('papers')" title="点击进入论文库">
-        <span class="stat-num">27</span><div class="stat-label">高质量论文 →</div>
+        <span class="stat-num">43</span><div class="stat-label">高质量论文 →</div>
       </div>
       <div class="stat" onclick="showSection('blog')" title="点击查看博客">
         <span class="stat-num">49</span><div class="stat-label">技术博客 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
-        <span class="stat-num">13</span><div class="stat-label">创业案例 →</div>
+        <span class="stat-num">33</span><div class="stat-label">创业案例 →</div>
       </div>
       <div class="stat" onclick="showSection('research')" title="点击查看研究方向">
-        <span class="stat-num">3月30</span><div class="stat-label">今日更新 →</div>
+        <span class="stat-num">4月1</span><div class="stat-label">今日更新 →</div>
       </div>
     </div>
   </div>
@@ -561,7 +561,7 @@
         <div class="section-title">🦞A 最新论文（2022–2026）</div>
         <div class="section-desc">顶会精选 · VLN / ObjectNav / LLM导航 / 世界模型 / VLA</div>
       </div>
-      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('papers')">进入论文库（41篇）→</button>
+      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('papers')">进入论文库（43篇）→</button>
     </div>
     <div class="papers-grid" id="homePapersPreview"></div>
   </section>
@@ -961,7 +961,7 @@
         <div class="section-title">🦞A 论文知识库</div>
         <div class="section-desc">2022年后高质量顶会论文 · VLN / ObjectNav / LLM导航 / 世界模型 / VLA · 持续更新</div>
       </div>
-      <div style="font-size:13px;color:var(--text-muted);">共 <strong style="color:var(--accent);" id="paperCount">41</strong> 篇 <span style="margin:0 8px;">|</span> <span style="color:#3fb950;">📄 27篇PDF</span> <span style="margin:0 4px;">+</span> <span style="color:var(--text-muted);">🔗 14篇链接</span></div>
+      <div style="font-size:13px;color:var(--text-muted);">共 <strong style="color:var(--accent);" id="paperCount">43</strong> 篇 <span style="margin:0 8px;">|</span> <span style="color:#3fb950;">📄 27篇PDF</span> <span style="margin:0 4px;">+</span> <span style="color:var(--text-muted);">🔗 16篇链接</span></div>
     </div>
     <div class="filter-bar" id="filterBar"></div>
     <div class="papers-grid" id="papersGrid"></div>
@@ -1116,7 +1116,7 @@
         <div class="blog-date">2026-03-31</div>
         <h3>小红书互动版创作方法论 - 从OFO案例学到的</h3>
         <p>
-          6小时3次迭代，1个完整的小红书互动版。数据准确性是生命线：数字错了，一切白搭。语法通顺是基本功：读着顺畅，才能记住。视觉完整是底线：内容截断，体验归零。快速迭代是必须：用户反馈，就是优化方向。
+          6小时，6次迭代，1个完整的小红书互动版。数据准确性是生命线：数字错了，一切白搭。语法通顺是基本功：读着顺畅，才能记住。视觉完整是底线：内容截断，体验归零。快速迭代是必须：用户反馈，就是优化方向。
         </p>
         <div class="blog-tags">
           <span class="blog-tag">小红书运营</span>
@@ -1470,7 +1470,7 @@ const PAPERS = [
     links:[{label:'arXiv',url:'https://arxiv.org/abs/2301.09872'}] },
 ];
 
-// PDF可用性映射：标记哪些论文有本地PDF文件 (27/41篇有PDF)
+// PDF可用性映射：标记哪些论文有本地PDF文件 (27/43篇有PDF)
 const PDF_AVAILABLE = {
   // Survey (5篇有PDF)
   'Embodied Navigation: A Survey': true,
@@ -1506,20 +1506,7 @@ const PDF_AVAILABLE = {
 
 const BLOG_POSTS = [
   // ===== 前沿技术 =====
-    // ===== 前沿技术（2026-03-31新增）=====
-  { cat:'tech', date:'2026-03-31', title:'时空记忆地图：让机器人记住过去、理解现在、预测未来',
-    desc:'传统SLAM地图是静态快照，而真实世界是动态变化的。时空记忆地图让机器人能够区分永久结构与临时变化，理解环境的时序规律，从而做出更智能的导航决策。',
-    url:'./blog/spatiotemporal-memory-map.html',
-    tags:['时空记忆','地图表示','动态环境','SLAM'] },
-  { cat:'tech', date:'2026-03-31', title:'多模态融合：Vision-Language-Geometry三位一体的导航框架',
-    desc:'为什么单一模态无法满足复杂导航任务？Vision-Language-Geometry三模态融合如何让机器人同时理解视觉场景、响应语言指令、构建几何地图。',
-    url:'./blog/vision-language-geometry-fusion.html',
-    tags:['多模态融合','视觉语言','具身智能','导航框架'] },
-  { cat:'tech', date:'2026-03-31', title:'具身SLAM基础：从几何定位到语义导航的进化',
-    desc:'传统SLAM让机器人知道自己在哪，具身SLAM让机器人理解自己在什么环境、该怎么做。这不仅是技术升级，更是机器人智能的根本跃迁。',
-    url:'./blog/embodied-slam-basics.html',
-    tags:['具身智能','SLAM','语义导航','具身SLAM'] },
-{ cat:'tech', date:'2026-03-25', title:'机器人走到目的地门口，却不知道该停下来',
+  { cat:'tech', date:'2026-03-25', title:'机器人走到目的地门口，却不知道该停下来',
     desc:'VLN最被忽视的问题：SR=71.9%，但机器人停止位置平均离目标0.8米。走到了，停不住。10年VLN研究，没人认真研究停止决策。博士日记/研究思考。',
     url:'./blog/vln-stopping-problem.html',
     tags:['VLN','停止决策','研究思考','HaltNav','博士日记'] },
@@ -2572,7 +2559,7 @@ const UPDATE_HOUR = 9; // 每天北京时间 9:00 自动更新
 function initHeartbeat() {
   const now = new Date();
   // 强制覆盖为最新心跳时间（每次网站更新时手动修改此处）
-  const LAST_UPDATE_ISO = '2026-04-01T00:00:00+08:00';
+  const LAST_UPDATE_ISO = '2026-04-01T16:11:00+08:00';
   localStorage.setItem('jingwei_last_update', LAST_UPDATE_ISO);
   const nextUpdateEl = document.getElementById('nextUpdate');
   const lastUpdateEl = document.getElementById('lastUpdate');
