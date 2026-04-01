@@ -1,112 +1,161 @@
 {
-  "updated": "2026-03-31 03:45 UTC",
-  "total": 15,
+  "updated": "2026-04-01 03:57 UTC",
+  "total": 22,
   "today_count": 0,
   "papers": [
     {
-      "title": "Gen-Searcher: Reinforcing Agentic Search for Image Generation",
-      "date": "2026-03-30",
-      "id": "2603.28767v1",
-      "abstract": "Recent image generation models have shown strong capabilities in generating high-fidelity and photorealistic images. However, they are fundamentally constrained by frozen internal knowledge, thus ofte",
-      "url": "https://arxiv.org/abs/2603.28767v1"
+      "title": "OmniRoam: World Wandering via Long-Horizon Panoramic Video Generation",
+      "date": "2026-03-31",
+      "id": "2603.30045v1",
+      "abstract": "Modeling scenes using video generation models has garnered growing research interest in recent years. However, most existing approaches rely on perspective video models that synthesize only limited ob",
+      "url": "https://arxiv.org/abs/2603.30045v1"
     },
     {
-      "title": "HandX: Scaling Bimanual Motion and Interaction Generation",
-      "date": "2026-03-30",
-      "id": "2603.28766v1",
-      "abstract": "Synthesizing human motion has advanced rapidly, yet realistic hand motion and bimanual interaction remain underexplored. Whole-body models often miss the fine-grained cues that drive dexterous behavio",
-      "url": "https://arxiv.org/abs/2603.28766v1"
+      "title": "Video Models Reason Early: Exploiting Plan Commitment for Maze Solving",
+      "date": "2026-03-31",
+      "id": "2603.30043v1",
+      "abstract": "Video diffusion models exhibit emergent reasoning capabilities like solving mazes and puzzles, yet little is understood about how they reason during generation. We take a first step towards understand",
+      "url": "https://arxiv.org/abs/2603.30043v1"
     },
     {
-      "title": "Adaptive Block-Scaled Data Types",
-      "date": "2026-03-30",
-      "id": "2603.28765v1",
-      "abstract": "NVFP4 has grown increasingly popular as a 4-bit format for quantizing large language models due to its hardware support and its ability to retain useful information with relatively few bits per parame",
-      "url": "https://arxiv.org/abs/2603.28765v1"
+      "title": "HapCompass: A Rotational Haptic Device for Contact-Rich Robotic Teleoperation",
+      "date": "2026-03-31",
+      "id": "2603.30042v1",
+      "abstract": "The contact-rich nature of manipulation makes it a significant challenge for robotic teleoperation. While haptic feedback is critical for contact-rich tasks, providing intuitive directional cues withi",
+      "url": "https://arxiv.org/abs/2603.30042v1"
     },
     {
-      "title": "SonoWorld: From One Image to a 3D Audio-Visual Scene",
-      "date": "2026-03-30",
-      "id": "2603.28757v1",
-      "abstract": "Tremendous progress in visual scene generation now turns a single image into an explorable 3D world, yet immersion remains incomplete without sound. We introduce Image2AVScene, the task of generating ",
-      "url": "https://arxiv.org/abs/2603.28757v1"
+      "title": "SurgNavAR: An Augmented Reality Surgical Navigation Framework for Optical See-Through Head Mounted Displays",
+      "date": "2026-03-31",
+      "id": "2603.29990v1",
+      "abstract": "Augmented reality (AR) devices with head mounted displays (HMDs) facilitate the direct superimposition of 3D preoperative imaging data onto the patient during surgery. To use an HMD-AR device as a sta",
+      "url": "https://arxiv.org/abs/2603.29990v1"
     },
     {
-      "title": "Pandora: Articulated 3D Scene Graphs from Egocentric Vision",
-      "date": "2026-03-30",
-      "id": "2603.28732v1",
-      "abstract": "Robotic mapping systems typically approach building metric-semantic scene representations from the robot's own sensors and cameras. However, these \"first person\" maps inherit the robot's own limitatio",
-      "url": "https://arxiv.org/abs/2603.28732v1"
+      "title": "SurgTEMP: Temporal-Aware Surgical Video Question Answering with Text-guided Visual Memory for Laparoscopic Cholecystectomy",
+      "date": "2026-03-31",
+      "id": "2603.29962v1",
+      "abstract": "Surgical procedures are inherently complex and risky, requiring extensive expertise and constant focus to well navigate evolving intraoperative scenes. Computer-assisted systems such as surgical visua",
+      "url": "https://arxiv.org/abs/2603.29962v1"
     },
     {
-      "title": "DRIVE-Nav: Directional Reasoning, Inspection, and Verification for Efficient Open-Vocabulary Navigation",
-      "date": "2026-03-30",
-      "id": "2603.28691v1",
-      "abstract": "Open-Vocabulary Object Navigation (OVON) requires an embodied agent to locate a language-specified target in unknown environments. Existing zero-shot methods often reason over dense frontier points un",
-      "url": "https://arxiv.org/abs/2603.28691v1"
+      "title": "Owl-AuraID 1.0: An Intelligent System for Autonomous Scientific Instrumentation and Scientific Data Analysis",
+      "date": "2026-03-31",
+      "id": "2603.29828v1",
+      "abstract": "Scientific discovery increasingly depends on high-throughput characterization, yet automation is hindered by proprietary GUIs and the limited generalizability of existing API-based systems. We present",
+      "url": "https://arxiv.org/abs/2603.29828v1"
     },
     {
-      "title": "SHOW3D: Capturing Scenes of 3D Hands and Objects in the Wild",
-      "date": "2026-03-30",
-      "id": "2603.28760v1",
-      "abstract": "Accurate 3D understanding of human hands and objects during manipulation remains a significant challenge for egocentric computer vision. Existing hand-object interaction datasets are predominantly cap",
-      "url": "https://arxiv.org/abs/2603.28760v1"
+      "title": "The WEAVE acquisition and guiding software: pattern recognition-based acquisition and multi-fibre guiding",
+      "date": "2026-03-31",
+      "id": "2603.30044v1",
+      "abstract": "We present the architecture, implementation, and on-sky validation of the fully automated acquisition and guiding system (AG) developed for the WEAVE instrument on the William Herschel Telescope. The ",
+      "url": "https://arxiv.org/abs/2603.30044v1"
     },
     {
-      "title": "Navigating the Mirage: A Dual-Path Agentic Framework for Robust Misleading Chart Question Answering",
-      "date": "2026-03-30",
-      "id": "2603.28583v1",
-      "abstract": "Despite the success of Vision-Language Models (VLMs), misleading charts remain a significant challenge due to their deceptive visual structures and distorted data representations. We present ChartCyni",
-      "url": "https://arxiv.org/abs/2603.28583v1"
+      "title": "Benchmarking PhD-Level Coding in 3D Geometric Computer Vision",
+      "date": "2026-03-31",
+      "id": "2603.30038v1",
+      "abstract": "AI-assisted coding has rapidly reshaped software practice and research workflows, yet today's models still struggle to produce correct code for complex 3D geometric vision. If models could reliably wr",
+      "url": "https://arxiv.org/abs/2603.30038v1"
     },
     {
-      "title": "FocusVLA: Focused Visual Utilization for Vision-Language-Action Models",
-      "date": "2026-03-30",
-      "id": "2603.28740v1",
-      "abstract": "Vision-Language-Action (VLA) models improve action generation by conditioning policies on rich vision-language information. However, current auto-regressive policies are constrained by three bottlenec",
-      "url": "https://arxiv.org/abs/2603.28740v1"
+      "title": "Tucker Attention: A generalization of approximate attention mechanisms",
+      "date": "2026-03-31",
+      "id": "2603.30033v1",
+      "abstract": "The pursuit of reducing the memory footprint of the self-attention mechanism in multi-headed self attention (MHA) spawned a rich portfolio of methods, e.g., group-query attention (GQA) and multi-head ",
+      "url": "https://arxiv.org/abs/2603.30033v1"
     },
     {
-      "title": "RAD-AI: Rethinking Architecture Documentation for AI-Augmented Ecosystems",
-      "date": "2026-03-30",
-      "id": "2603.28735v1",
-      "abstract": "AI-augmented ecosystems (interconnected systems where multiple AI components interact through shared data and infrastructure) are becoming the architectural norm for smart cities, autonomous fleets, a",
-      "url": "https://arxiv.org/abs/2603.28735v1"
+      "title": "SceneTeract: Agentic Functional Affordances and VLM Grounding in 3D Scenes",
+      "date": "2026-03-31",
+      "id": "2603.29798v1",
+      "abstract": "Embodied AI depends on interactive 3D environments that support meaningful activities for diverse users, yet assessing their functional affordances remains a core challenge. We introduce SceneTeract, ",
+      "url": "https://arxiv.org/abs/2603.29798v1"
     },
     {
-      "title": "SAGAI-MID: A Generative AI-Driven Middleware for Dynamic Runtime Interoperability",
-      "date": "2026-03-30",
-      "id": "2603.28731v1",
-      "abstract": "Modern distributed systems integrate heterogeneous services, REST APIs with different schema versions, GraphQL endpoints, and IoT devices with proprietary payloads that suffer from persistent schema m",
-      "url": "https://arxiv.org/abs/2603.28731v1"
+      "title": "Automatic Identification of Parallelizable Loops Using Transformer-Based Source Code Representations",
+      "date": "2026-03-31",
+      "id": "2603.30040v1",
+      "abstract": "Automatic parallelization remains a challenging problem in software engineering, particularly in identifying code regions where loops can be safely executed in parallel on modern multi-core architectu",
+      "url": "https://arxiv.org/abs/2603.30040v1"
     },
     {
-      "title": "FlowIt: Global Matching for Optical Flow with Confidence-Guided Refinement",
-      "date": "2026-03-30",
-      "id": "2603.28759v1",
-      "abstract": "We present FlowIt, a novel architecture for optical flow estimation designed to robustly handle large pixel displacements. At its core, FlowIt leverages a hierarchical transformer architecture that ca",
-      "url": "https://arxiv.org/abs/2603.28759v1"
+      "title": "Hybrid Framework for Robotic Manipulation: Integrating Reinforcement Learning and Large Language Models",
+      "date": "2026-03-31",
+      "id": "2603.30022v1",
+      "abstract": "This paper introduces a new hybrid framework that combines Reinforcement Learning (RL) and Large Language Models (LLMs) to improve robotic manipulation tasks. By utilizing RL for accurate low-level co",
+      "url": "https://arxiv.org/abs/2603.30022v1"
     },
     {
-      "title": "Fast Large-Scale Model-Based Iterative Tomography via Exploiting Mathematical Structure, Hierarchical Optimization, Smart Initialization, and Distributed GPU Computing",
-      "date": "2026-03-30",
-      "id": "2603.28756v1",
-      "abstract": "Model-Based Iterative Reconstruction (MBIR) is important because direct methods, such as Filtered Back-Projection (FBP) can introduce significant noise and artifacts in sparse-angle tomography, especi",
-      "url": "https://arxiv.org/abs/2603.28756v1"
+      "title": "Phyelds: A Pythonic Framework for Aggregate Computing",
+      "date": "2026-03-31",
+      "id": "2603.29999v1",
+      "abstract": "Aggregate programming is a field-based coordination paradigm with over a decade of exploration and successful applications across domains including sensor networks, robotics, and IoT, with implementat",
+      "url": "https://arxiv.org/abs/2603.29999v1"
     },
     {
-      "title": "PoseDreamer: Scalable and Photorealistic Human Data Generation Pipeline with Diffusion Models",
-      "date": "2026-03-30",
-      "id": "2603.28763v1",
-      "abstract": "Acquiring labeled datasets for 3D human mesh estimation is challenging due to depth ambiguities and the inherent difficulty of annotating 3D geometry from monocular images. Existing datasets are eithe",
-      "url": "https://arxiv.org/abs/2603.28763v1"
+      "title": "GreenFLag: A Green Agentic Approach for Energy-Efficient Federated Learning",
+      "date": "2026-03-31",
+      "id": "2603.29933v1",
+      "abstract": "Progressing toward a new generation of mobile networks, a clear focus on integrating distributed intelligence across the system is observed to drive performance, autonomy, and real-time adaptability. ",
+      "url": "https://arxiv.org/abs/2603.29933v1"
     },
     {
-      "title": "On-the-fly Repulsion in the Contextual Space for Rich Diversity in Diffusion Transformers",
-      "date": "2026-03-30",
-      "id": "2603.28762v1",
-      "abstract": "Modern Text-to-Image (T2I) diffusion models have achieved remarkable semantic alignment, yet they often suffer from a significant lack of variety, converging on a narrow set of visual solutions for an",
-      "url": "https://arxiv.org/abs/2603.28762v1"
+      "title": "DIAL: Decoupling Intent and Action via Latent World Modeling for End-to-End VLA",
+      "date": "2026-03-31",
+      "id": "2603.29844v1",
+      "abstract": "The development of Vision-Language-Action (VLA) models has been significantly accelerated by pre-trained Vision-Language Models (VLMs). However, most existing end-to-end VLAs treat the VLM primarily a",
+      "url": "https://arxiv.org/abs/2603.29844v1"
+    },
+    {
+      "title": "Urban mobility enables deprivation bubble breaking in Indian and Mexican cities",
+      "date": "2026-03-31",
+      "id": "2603.29782v1",
+      "abstract": "Urban deprivation is traditionally measured using static, residence-based indicators, capturing the socioeconomic, demographic, and spatial conditions of neighborhoods. However, this approach overlook",
+      "url": "https://arxiv.org/abs/2603.29782v1"
+    },
+    {
+      "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought?",
+      "date": "2026-03-31",
+      "id": "2603.30036v1",
+      "abstract": "Chain-of-Thought (CoT) monitoring, in which automated systems monitor the CoT of an LLM, is a promising approach for effectively overseeing AI systems. However, the extent to which a model's CoT helps",
+      "url": "https://arxiv.org/abs/2603.30036v1"
+    },
+    {
+      "title": "Reward-Based Online LLM Routing via NeuralUCB",
+      "date": "2026-03-31",
+      "id": "2603.30035v1",
+      "abstract": "This study investigates the use of NeuralUCB for cost-aware large language model (LLM) routing. Existing routing approaches can be broadly grouped into supervised routing methods and partial-feedback ",
+      "url": "https://arxiv.org/abs/2603.30035v1"
+    },
+    {
+      "title": "EnsembleSHAP: Faithful and Certifiably Robust Attribution for Random Subspace Method",
+      "date": "2026-03-31",
+      "id": "2603.30034v1",
+      "abstract": "Random subspace method has wide security applications such as providing certified defenses against adversarial and backdoor attacks, and building robustly aligned LLM against jailbreaking attacks. How",
+      "url": "https://arxiv.org/abs/2603.30034v1"
+    },
+    {
+      "title": "ContextClaim: A Context-Driven Paradigm for Verifiable Claim Detection",
+      "date": "2026-03-31",
+      "id": "2603.30025v1",
+      "abstract": "Verifiable claim detection asks whether a claim expresses a factual statement that can, in principle, be assessed against external evidence. As an early filtering stage in automated fact-checking, it ",
+      "url": "https://arxiv.org/abs/2603.30025v1"
+    },
+    {
+      "title": "A Lightweight Hybrid Publish/Subscribe Event Fabric for IPC and Modular Distributed Systems",
+      "date": "2026-03-31",
+      "id": "2603.30030v1",
+      "abstract": "Modular software deployed on mini compute units in controlled distributed environments often needs two messaging paths: low-overhead in-process coordination and selective cross-node distribution. In p",
+      "url": "https://arxiv.org/abs/2603.30030v1"
+    },
+    {
+      "title": "Can Commercial LLMs Be Parliamentary Political Companions? Comparing LLM Reasoning Against Romanian Legislative Expuneri de Motive",
+      "date": "2026-03-31",
+      "id": "2603.30028v1",
+      "abstract": "This paper evaluates whether commercial large language models (LLMs) can function as reliable political advisory tools by comparing their outputs against official legislative reasoning. Using a datase",
+      "url": "https://arxiv.org/abs/2603.30028v1"
     }
   ]
 }
