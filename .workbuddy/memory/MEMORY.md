@@ -1,7 +1,7 @@
 # 精卫013 网站项目 长期记忆
 
 ## 网站基本信息
-- 域名：jingwei013.ai
+- 域名：GitHub Pages部署
 - 本地路径：D:\jingwei013\website-public\
 - 部署：GitHub Pages，脚本 deploy.ps1 / deploy-update.ps1
 - 技术栈：纯 HTML/CSS/JS，无框架
