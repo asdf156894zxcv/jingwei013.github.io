@@ -6,32 +6,32 @@
   <title>导航的GPT时刻：NavFoM与具身导航基础模型 | 精卫013</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fdf8f2;color:#2c1a0e;line-height:1.8;min-height:100vh}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#1c1510;color:#f5ead8;line-height:1.8;min-height:100vh}
     .container{max-width:720px;margin:0 auto;padding:40px 20px}
-    .back{display:inline-flex;align-items:center;gap:8px;color:#c8720e;text-decoration:none;font-size:14px;margin-bottom:32px}
+    .back{display:inline-flex;align-items:center;gap:8px;color:#e8a230;text-decoration:none;font-size:14px;margin-bottom:32px}
     .back:hover{text-decoration:underline}
     h1{font-size:28px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#8b5cf6,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .hero-image{width:100%;border-radius:16px;margin-bottom:32px;overflow:hidden;background:linear-gradient(135deg,#1e1b4b,#4c1d95);height:200px;display:flex;align-items:center;justify-content:center}
-    .hero-placeholder{text-align:center;color:#2c1a0e}
+    .hero-placeholder{text-align:center;color:#a78bfa}
     .hero-placeholder .icon{font-size:48px}
     .hero-placeholder .text{font-size:18px;margin-top:8px}
-    .meta{font-size:14px;color:#a07858;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #fffcf8}
+    .meta{font-size:14px;color:#9a8060;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #2b2118}
     .content{font-size:16px}
     .content p{margin-bottom:20px}
-    .content h2{font-size:20px;font-weight:600;margin:32px 0 16px;color:#2c1a0e}
-    .content h3{font-size:17px;font-weight:600;margin:24px 0 12px;color:#2c1a0e}
+    .content h2{font-size:20px;font-weight:600;margin:32px 0 16px;color:#f4f4f5}
+    .content h3{font-size:17px;font-weight:600;margin:24px 0 12px;color:#f5ead8}
     .content ul,.content ol{margin:16px 0;padding-left:24px}
     .content li{margin-bottom:8px}
     .highlight{background:linear-gradient(135deg,rgba(139,92,246,0.15),rgba(236,72,153,0.15));border-left:3px solid #8b5cf6;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0}
     .warning{background:linear-gradient(135deg,rgba(245,158,11,0.15),rgba(239,68,68,0.15));border-left:3px solid #f59e0b;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0}
     .insight{background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(6,182,212,0.15));border-left:3px solid #10b981;padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0}
     table{width:100%;border-collapse:collapse;margin:24px 0}
-    th,td{padding:12px;text-align:left;border-bottom:1px solid #fffcf8}
-    th{background:#fffcf8;font-weight:600}
-    .tag{display:inline-block;padding:4px 12px;background:#fffcf8;border-radius:20px;font-size:13px;margin-right:8px;color:#6b4c30}
-    .metric{background:#f5ede0;border-radius:12px;padding:20px;margin:16px 0;text-align:center}
-    .metric-value{font-size:32px;font-weight:700;color:#c8720e}
-    .metric-label{font-size:14px;color:#a07858;margin-top:8px}
+    th,td{padding:12px;text-align:left;border-bottom:1px solid #2b2118}
+    th{background:#2b2118;font-weight:600}
+    .tag{display:inline-block;padding:4px 12px;background:#2b2118;border-radius:20px;font-size:13px;margin-right:8px;color:#c8a878}
+    .metric{background:#231b13;border-radius:12px;padding:20px;margin:16px 0;text-align:center}
+    .metric-value{font-size:32px;font-weight:700;color:#8b5cf6}
+    .metric-label{font-size:14px;color:#9a8060;margin-top:8px}
   </style>
 </head>
 <body>
@@ -166,17 +166,17 @@
       <div class="highlight">
         <strong>参考文献：</strong>
         <ul>
-          <li>NavFoM: <a href="https://arxiv.org/abs/2509.12129" style="color:#c8720e">arXiv:2509.12129</a></li>
-          <li>P³Nav: <a href="https://arxiv.org/abs/2603.17459" style="color:#c8720e">arXiv:2603.17459</a></li>
-          <li>NavFoM Project Page: <a href="https://pku-epic.github.io/NavFoM-Web" style="color:#c8720e">pku-epic.github.io/NavFoM-Web</a></li>
-          <li>ICLR 2026: <a href="https://openreview.net/forum?id=kkBOIsrCXh" style="color:#c8720e">OpenReview</a></li>
+          <li>NavFoM: <a href="https://arxiv.org/abs/2509.12129" style="color:#8b5cf6">arXiv:2509.12129</a></li>
+          <li>P³Nav: <a href="https://arxiv.org/abs/2603.17459" style="color:#8b5cf6">arXiv:2603.17459</a></li>
+          <li>NavFoM Project Page: <a href="https://pku-epic.github.io/NavFoM-Web" style="color:#8b5cf6">pku-epic.github.io/NavFoM-Web</a></li>
+          <li>ICLR 2026: <a href="https://openreview.net/forum?id=kkBOIsrCXh" style="color:#8b5cf6">OpenReview</a></li>
         </ul>
       </div>
     </div>
 
-    <div style="margin-top:48px;padding-top:24px;border-top:1px solid #fffcf8;color:#a07858;font-size:14px">
+    <div style="margin-top:48px;padding-top:24px;border-top:1px solid #2b2118;color:#9a8060;font-size:14px">
       <p>精卫013 | 具身智能机器人导航方向 | 博士研究</p>
-      <p>博客首发：<a href="https://jingwei013.ai" style="color:#c8720e">jingwei013.ai</a></p>
+      <p>博客首发：<a href="https://jingwei013.ai" style="color:#e8a230">jingwei013.ai</a></p>
     </div>
   </div>
 </body>

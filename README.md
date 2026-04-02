@@ -1,54 +1,71 @@
-# jingwei013.ai | 精卫导航
+# 精卫013 · 具身导航研究 & 创业日志
 
-> 具身智能机器人导航研究 & 独立开发者
+> 精卫填海，每天填一点知识的大海。根据地：`D:\jingwei013`
 
-**在线访问**：https://jingwei013.github.io/jingwei013.github.io/
+## 两条主线
 
-**开源仓库**：https://github.com/Jingwei013/jingwei013.github.io
+1. **任务一：具身导航研究** — 博士论文方向
+2. **任务二：知识创业** — 靠内容养活自己
 
----
+## 网站结构
 
-## 关于这个项目
+```
+jingwei013/           ← 根据地根目录（D:\jingwei013）
+├── website/
+│   ├── index.html    # 主站（首页 + 知识库 + 博客 + 创业 + 技能 + 关于）
+│   ├── HEARTBEAT.md  # 心跳清单
+│   └── PROGRESS.md   # 进度追踪
+├── papers/           # 论文库（27篇，6方向）
+├── startup/          # 创业想法和日志
+├── notes/            # 每日工作笔记
+└── backup/           # 备份
+```
 
-这是一个个人研究网站，聚焦具身智能机器人导航领域（Embodied Intelligence Robot Navigation），同时探索独立开发者副业。
+## 内容更新
 
-主要内容包括：
+### 每日研究日志
+在 `website/index.html` 的 `BLOG_POSTS` 数组开头添加新条目。
 
-- **研究方向**：VLN视觉语言导航、ObjectNav目标导航、LLM导航、强化学习导航
-- **论文库**：27篇核心论文，覆盖6大方向
-- **博客**：研究日志、论文解读、创业思考
-- **创业**：独立开发者实验项目和方法论
+### 论文库
+在 `website/index.html` 的 `PAPERS` 数组中添加新论文。
 
----
+### 创业想法
+在 `startup/ideas.md` 中记录，状态：validating / planning / building / live。
 
-## 部署方式
+## 发布方式
 
-### GitHub Pages（当前）
+本地预览：
+```bash
+cd D:\jingwei013\website
+python -m http.server 8080
+```
 
-代码推送至 main 分支后，GitHub Pages 自动构建。
+部署到 jingwei013.ai：
+- Vercel / Netlify：直接拖拽 website 文件夹
+- GitHub Pages：在仓库中启用即可
 
-### 自定义域名（可选）
+## 定时任务
 
-如需绑定 `jingwei013.ai`，在域名服务商添加 DNS 记录：
+| 任务 | 频率 | 内容 |
+|------|------|------|
+| 精卫013每日研究记录 | 每天21:00 | 写日志 + 推进PROGRESS |
+| 具身机器人导航论文周更 | 每周一09:00 | 搜索arXiv新论文 + 下载 |
 
-| 记录类型 | 主机记录 | 记录值 |
-|---------|---------|--------|
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| CNAME | www | Jingwei013.github.io |
+## 参考方法论
 
----
+- https://sanwan.ai — AI自主运营实验参考
+- WorkBuddy专家中心 — 各类AI技能
 
-## 技术栈
+## 部署记录
 
-- 纯 HTML / CSS / JavaScript
-- 零外部依赖
-- 响应式设计，移动端适配
-- 字体：Google Fonts（Inter + Noto Serif SC）
-- 图标：内联 SVG
+| 事件 | 日期 | 状态 |
+|------|------|------|
+| 对外专业网站上线 | 2026-03-22 | 完成 |
+| jingwei013.ai 域名DNS配置 | 待完成 | 见 website-public/README.md |
 
----
+### 对外访问（jingwei013.ai）
+- **本地目录**：`D:\jingwei013\website-public\`
+- **部署方式**：GitHub Pages / Vercel / Netlify
+- **对外内容**：研究 + 博客 + 创业 + 关于，无内部信息泄露
 
-*© 2026 jingwei013.ai | Open Source on GitHub*
+

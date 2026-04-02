@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字节跳动：一个工程师用算法重写了注意力经济 | 精卫013</title>
+    <meta name="description" content="2012年3月，一个南开大学软件工程毕业生，用500万美元种子轮，做出了一款被腾讯拼命封杀的App。10年后，他的公司年营收1100亿美元，超过了腾讯。">
+    <style>
+        :root {
+            --accent: #e8a230;
+            --bg: #fdf8f0;
+            --text: #2c2c2c;
+            --muted: #888;
+            --border: #e8dcc8;
+            --card-bg: #fff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.9;
+            font-size: 17px;
+        }
+        header {
+            background: #fff;
+            border-bottom: 2px solid var(--accent);
+            padding: 1rem 2rem;
+        }
+        header .brand {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        header .nav-links {
+            float: right;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        header .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        header .nav-links a:hover { color: var(--accent); }
+        .article-header {
+            max-width: 780px;
+            margin: 3rem auto 2rem;
+            padding: 0 1.5rem;
+        }
+        .category-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+        h1.article-title {
+            font-size: 2.4rem;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        .article-subtitle {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-family: sans-serif;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 2rem auto;
+        }
+        /* 关键数字卡片 */
+        .stats-row {
+            max-width: 780px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .stat-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 1.2rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            line-height: 1.1;
+            font-family: sans-serif;
+        }
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 0.3rem;
+            font-family: sans-serif;
+        }
+        /* 正文 */
+        .article-body {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+        .article-body h2 {
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1rem;
+            color: #1a1a1a;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+        .article-body h3 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.8rem;
+            color: #333;
+        }
+        /* 引用块 */
+        blockquote {
+            border-left: 4px solid var(--accent);
+            background: #fff8ee;
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555;
+            border-radius: 0 4px 4px 0;
+        }
+        /* 关键词高亮 */
+        .highlight {
+            background: linear-gradient(180deg, transparent 60%, rgba(232,162,48,0.35) 60%);
+        }
+        /* 时间线 */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+        .timeline-item {
+            position: relative;
+            padding: 0.8rem 0 0.8rem 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.85rem;
+            top: 1.1rem;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        .timeline-year {
+            font-weight: bold;
+            color: var(--accent);
+            font-family: sans-serif;
+            font-size: 0.9rem;
+        }
+        .timeline-text {
+            font-size: 0.95rem;
+            color: #444;
+        }
+        /* 对比表格 */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.92rem;
+            font-family: sans-serif;
+        }
+        .compare-table th {
+            background: var(--accent);
+            color: #fff;
+            padding: 0.8rem 1rem;
+            text-align: left;
+        }
+        .compare-table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .compare-table tr:nth-child(even) td { background: #fdf5e8; }
+        /* 反直觉盒子 */
+        .insight-box {
+            background: #fff8ee;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .insight-box .insight-label {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-family: sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .insight-box p {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+        /* 结语 */
+        .conclusion-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--accent);
+            border-radius: 4px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        /* 底部导航 */
+        .article-footer {
+            max-width: 780px;
+            margin: 0 auto 4rem;
+            padding: 0 1.5rem;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 600px) {
+            h1.article-title { font-size: 1.7rem; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="brand">精卫013</a>
+    <nav class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="index.html#blog">博客</a>
+        <a href="index.html#papers">论文</a>
+    </nav>
+</header>
+
+<article>
+    <div class="article-header">
+        <span class="category-tag">案例分析</span>
+        <h1 class="article-title">字节跳动：一个工程师用算法重写了注意力经济</h1>
+        <p class="article-subtitle">2012年，张一鸣用500万美元起步，做出了一款腾讯拼命封杀的App。10年后，他的公司年营收1100亿美元，超过了腾讯本身。</p>
+        <div class="article-meta">
+            <span>📅 2026-03-26</span>
+            <span>⏱ 约12分钟</span>
+            <span>🏷 案例分析 · AI创业 · 算法经济</span>
+        </div>
+    </div>
+
+    <!-- 关键数字 -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-number">$1550亿</div>
+            <div class="stat-label">2024年营收（超过腾讯）</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">16.85亿</div>
+            <div class="stat-label">TikTok全球月活（2024）</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">7.66亿</div>
+            <div class="stat-label">抖音中国日活（2024）</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">$3300亿+</div>
+            <div class="stat-label">2025年估值（员工回购价）</div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="article-body">
+
+        <p>2012年，腾讯市值1200亿美元，阿里巴巴正准备IPO，百度是中国最大的信息入口。所有人都觉得中国互联网格局已定——BAT三足鼎立，后来者没机会了。</p>
+
+        <p>同一年，一个29岁的南开大学软件工程毕业生，在北京中关村创立了一家叫"字节跳动"的公司。他的第一款产品，不是社交软件，不是电商平台，而是一个新闻阅读器。</p>
+
+        <p>这个选择，在当时看来，简直是在送死。</p>
+
+        <p>10年后，这家公司的年营收超过了腾讯，成为全球估值最高的未上市科技公司之一，旗下的TikTok成为第一个真正"入侵"美国文化的中国互联网产品，影响力大到美国政府要专门立法封禁它。</p>
+
+        <p>这是中国互联网史上最反直觉的崛起故事。</p>
+
+        <h2>一、从500万美元开始</h2>
+
+        <p>张一鸣1983年生于福建龙岩，客家人。2005年从南开大学软件工程专业毕业后，他没有去大厂，而是连续创业——参与创建了酷讯（旅游搜索）、九九房等早期互联网项目，这些公司后来都算不上成功。</p>
+
+        <p>但这段经历给了他一个关键认知：<span class="highlight">中国互联网的信息分发，从来都是低效的</span>。门户网站靠编辑，搜索靠关键词匹配，社交靠关系链。没有一种方式，是真正基于"这个人喜欢什么"来推送内容的。</p>
+
+        <p>2012年3月，张一鸣和联合创始人梁汝波（南开同学）创立字节跳动。2012年7月，拿到第一笔外部融资——来自Susquehanna International Group（SIG）的<strong>500万美元种子轮</strong>。</p>
+
+        <p>2012年8月，今日头条上线。</p>
+
+        <p>这款App做了一件当时看起来很"小"的事：用机器学习算法，根据用户的阅读行为，给每个人推送个性化内容。不需要关注任何人，不需要搜索任何词，打开就是你"会喜欢"的内容。</p>
+
+        <blockquote>
+            "我们不是媒体，我们是技术公司。内容是别人的，算法是我们的。"<br>
+            —— 张一鸣，2013年内部讲话（转述）
+        </blockquote>
+
+        <p>这个理念，在2012年的中国互联网，是全新的。甚至有点超前得让人看不懂。</p>
+
+        <h2>二、估值演变：12年从5亿到3300亿</h2>
+
+        <p>字节跳动的融资轨迹，是一条几乎完美的指数曲线：</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">2012 · 种子轮</div>
+                <div class="timeline-text">SIG投资500万美元，估值未披露。今日头条刚上线。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2014 · B轮</div>
+                <div class="timeline-text">红杉资本中国领投1亿美元，<strong>投后估值5亿美元</strong>。今日头条MAU已达数千万量级。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2017 · C/D轮</div>
+                <div class="timeline-text">General Atlantic + KKR投资10亿美元，<strong>估值升至110亿美元</strong>。抖音上线，收购Musical.ly（约10亿美元）。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2018 · E轮</div>
+                <div class="timeline-text">软银领投30亿美元，<strong>估值达750亿美元</strong>。TikTok开始在全球爆发。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2020 · E+轮</div>
+                <div class="timeline-text">Tiger Global + 红杉资本再投20亿美元，<strong>估值1800亿美元</strong>。疫情期间TikTok全球用户暴增。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2021 · 市场估算</div>
+                <div class="timeline-text">市场估值约<strong>2500亿美元</strong>。张一鸣宣布卸任CEO，梁汝波接班。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2025 · 员工回购</div>
+                <div class="timeline-text">员工股票回购定价对应估值<strong>超3300亿美元</strong>。富达/普信等机构估值最高上调至4800亿美元。</div>
+            </div>
+        </div>
+
+        <p>13年，从种子轮的不到5亿美元估值，到3300亿美元以上。<strong>估值增长超过660倍</strong>。而且，至今未IPO。</p>
+
+        <h2>三、反直觉一：腾讯的封杀，反而帮了字节跳动</h2>
+
+        <p>2018年，腾讯开始在微信和微博平台全面屏蔽今日头条和抖音的内容链接。任何字节跳动旗下的链接，在微信里都无法正常打开。</p>
+
+        <p>从表面上看，这是降维打击——腾讯有12亿微信用户，字节跳动所有的传播都要经过这个管道。一旦封禁，字节跳动理应失血而死。</p>
+
+        <p>结果恰恰相反。</p>
+
+        <p>封禁逼迫字节跳动从根本上重新思考流量来源。今日头条、抖音开始疯狂地在App内部构建完整的内容生态：创作者激励、私信、评论、关注——把用户留在自家App里，而不是依赖微信分发。</p>
+
+        <div class="insight-box">
+            <div class="insight-label">⚡ 反直觉</div>
+            <p>被最强对手封杀，往往是创业公司建立独立生态的最大动力。腾讯的封禁，本质上是帮字节跳动解决了"用户黏性不够"的问题。</p>
+        </div>
+
+        <p>到2021年，字节跳动的广告收入已经超过百度，与腾讯的广告营收规模接近。一家创立仅10年的公司，撼动了中国互联网广告市场的格局。</p>
+
+        <h2>四、反直觉二：算法，不是产品——算法就是护城河</h2>
+
+        <p>大多数互联网公司的护城河是用户数量（网络效应）或切换成本（微信的通讯录、淘宝的交易记录）。字节跳动的护城河是什么？</p>
+
+        <p>是算法本身积累的数据飞轮。</p>
+
+        <p>每个用户在今日头条/抖音上的每一次点击、每一秒停留时长、每一次划走，都在训练模型，让推荐变得更准确，用户更难离开，更多优质创作者聚集，更多广告主愿意付费。<span class="highlight">这个正向飞轮，一旦转起来，后来者极难复制。</span></p>
+
+        <p>最能说明问题的对比：微博从2009年做到2015年，MAU大约3亿；今日头条从2012年上线，2013年就有数千万用户，2019年前后MAU超3亿——用了更短的时间，没有依赖任何社交关系链，纯靠算法。</p>
+
+        <h2>五、Musical.ly：10亿美元买来了TikTok的命运</h2>
+
+        <p>2016年9月，抖音在中国上线。2017年，字节跳动将其国际化版本TikTok推向东南亚和美国市场。</p>
+
+        <p>但真正改变TikTok命运的，是一次收购。</p>
+
+        <p>2017年11月，字节跳动宣布以约<strong>10亿美元</strong>收购Musical.ly——这是一款主打"对口型短视频"的北美青少年社交App，用户超过2亿，在美国15岁以下女孩中的渗透率高得惊人。</p>
+
+        <p>2018年8月，Musical.ly完全并入TikTok。合并后的数据说明了一切：</p>
+
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>时间节点</th>
+                    <th>TikTok全球月活</th>
+                    <th>关键事件</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2018年底（合并后）</td>
+                    <td>2.71亿</td>
+                    <td>Musical.ly用户迁入完成</td>
+                </tr>
+                <tr>
+                    <td>2019年底</td>
+                    <td>5.07亿</td>
+                    <td>增长87%，成为全球增长最快App</td>
+                </tr>
+                <tr>
+                    <td>2020年（疫情爆发）</td>
+                    <td>7亿</td>
+                    <td>美国特朗普首次威胁封禁</td>
+                </tr>
+                <tr>
+                    <td>2021年9月27日</td>
+                    <td><strong>10亿</strong></td>
+                    <td>月活破10亿，上线约3年</td>
+                </tr>
+                <tr>
+                    <td>2023年</td>
+                    <td>15.87亿</td>
+                    <td>CEO周受资出席美国国会听证</td>
+                </tr>
+                <tr>
+                    <td>2024年</td>
+                    <td>16.85亿</td>
+                    <td>美国用户1.7亿，封禁风波升级</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>从上线到10亿月活，TikTok用了约3年。Facebook用了8年，Instagram用了7年。</p>
+
+        <div class="insight-box">
+            <div class="insight-label">⚡ 关键数字</div>
+            <p>花10亿美元买Musical.ly，然后在2024年TikTok仅广告收入就达<strong>230亿美元</strong>。这笔收购的ROI，是23倍。</p>
+        </div>
+
+        <h2>六、营收对比：字节跳动超越腾讯的过程</h2>
+
+        <p>字节跳动从未公开过财报，所有营收数字均来自知情人士泄露或机构估算（以Bloomberg/Reuters为主要来源）：</p>
+
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>年份</th>
+                    <th>字节跳动营收</th>
+                    <th>同比增速</th>
+                    <th>腾讯营收（参考）</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2020</td>
+                    <td>约340亿美元</td>
+                    <td>—</td>
+                    <td>约720亿美元</td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td>约580亿美元</td>
+                    <td>+70%</td>
+                    <td>约860亿美元</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>约850亿美元</td>
+                    <td>+38%</td>
+                    <td>约800亿美元</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td><strong>约1100亿美元</strong></td>
+                    <td>+30%</td>
+                    <td>约860亿美元</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td><strong>约1550亿美元</strong></td>
+                    <td>+29%</td>
+                    <td>估计约900亿美元</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>2022年，字节跳动已接近腾讯营收体量。2023年，字节跳动正式超越腾讯，成为营收最高的中国互联网公司。</p>
+
+        <p>一家2012年成立的公司，用11年时间超越了2004年上市的腾讯。</p>
+
+        <h2>七、TikTok的美国风波：最贵的"监管成本"</h2>
+
+        <p>2020年，美国开始认真对待TikTok带来的"威胁"。这不仅是地缘政治博弈，更是一次对中国互联网公司全球化的系统性压力测试。</p>
+
+        <p>风波主要节点：</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">2020年8月</div>
+                <div class="timeline-text">特朗普政府首次以"国家安全"为由，威胁封禁TikTok。美国法院随后暂停执行。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2023年3月</div>
+                <div class="timeline-text">TikTok CEO周受资在美国国会出席长达5小时的听证会，被问及用户数据是否被中国政府获取。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2024年4月</div>
+                <div class="timeline-text">美国国会通过"不卖就禁"法案，拜登签署。字节跳动必须在180天内剥离TikTok美国业务，否则封禁。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2025年1月19日</div>
+                <div class="timeline-text">TikTok在美国服务中断约<strong>14小时</strong>。1.7亿美国用户短暂失去访问权限。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2025年1月20日</div>
+                <div class="timeline-text">特朗普签署行政令，给予75天宽限期，TikTok恢复服务。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2025年9月</div>
+                <div class="timeline-text">美中达成框架协议：Oracle领投财团将持有TikTok美国业务<strong>50%股权</strong>，字节跳动保留19.9%但无控制权。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2025年12月18日</div>
+                <div class="timeline-text">字节跳动签署具有法律约束力的出售协议。新实体"TikTok USDS Joint Venture LLC"正式确立，Oracle/Silver Lake/MGX各持15%，共50%控股。</div>
+            </div>
+        </div>
+
+        <p>这场风波的结局很有意思：字节跳动失去了TikTok美国业务的控制权，但TikTok本身活下来了。而且活得并不难看——在美国中断服务的那14小时里，用户暴增了小红书的下载量，充分说明了TikTok的用户黏性有多深。</p>
+
+        <h2>八、张一鸣：那个从不开微信的人</h2>
+
+        <p>张一鸣在中国科技界以一个习惯著称：他<strong>从不用微信</strong>（或极少使用），认为即时通讯会打断深度思考。他用飞书（自家产品）和邮件。</p>
+
+        <p>这个细节，折射出他的方法论：<span class="highlight">减少噪音，最大化有效工作时间</span>。这也是字节跳动"No meeting culture"（最小化会议）和OKR管理文化的来源。</p>
+
+        <p>更关键的是他的两个核心决策：</p>
+
+        <p><strong>决策一：算法优先于编辑。</strong>2012年今日头条上线第一天起，就没有人工编辑。所有内容推荐，全靠机器学习。在新闻客户端百花齐放的年代，这个决定极其反传统——当时所有人都认为"好内容需要好编辑"。</p>
+
+        <p><strong>决策二：全球化先于所有人。</strong>2016年字节跳动就开始布局海外，2017年收购Musical.ly，这比阿里、腾讯系统性地"走出去"早了将近5年。更重要的是，字节跳动不靠投资收购来全球化，而是用原生产品——这在中国互联网公司里是罕见的。</p>
+
+        <p>2021年5月，张一鸣宣布卸任CEO，由联合创始人梁汝波接班。张一鸣持有公司约20-25%股权，通过特殊投票权掌握约50%表决权。从前台退后，但控制权没有改变。</p>
+
+        <h2>九、字节跳动留给创业者的三个教训</h2>
+
+        <h3>1. 在巨头的夹缝里，找到它们不愿意做的事</h3>
+
+        <p>腾讯控制社交关系链，阿里控制交易，百度控制搜索。字节跳动做的是"内容分发"——不依赖任何一方的核心资产，用算法建立独立的流量生态。巨头往往对"不在自己核心赛道"的事情反应迟钝。</p>
+
+        <h3>2. 技术本身可以是商业模式</h3>
+
+        <p>今日头条和抖音，本质上卖的不是内容，而是用户注意力的"精准分配权"。算法越准，广告主愿意付的价格越高，这是一个纯技术驱动的商业模式。大多数中国互联网公司的护城河是"用户数量"，字节跳动的护城河是"数据+算法"的飞轮。</p>
+
+        <h3>3. 出海要用产品，不要用资本</h3>
+
+        <p>中国互联网公司通常的出海策略是"投资/收购当地公司"。字节跳动用TikTok证明了另一种可能：用普适性的产品体验直接打开市场。这条路更难，但建立的壁垒更深。</p>
+
+        <div class="conclusion-box">
+            <h3 style="margin-bottom:1rem;color:#1a1a1a;">结语：算法改变的不只是信息分发</h3>
+            <p>字节跳动的故事，表面上是一家中国科技公司的崛起史，底层是一个关于"注意力"的命题：当一个算法变得足够精准，它就不再只是工具，而是成为人与信息之间的基础设施。</p>
+            <p style="margin-top:1rem;">美国政府之所以要立法对付TikTok，不是因为担心用户数据被泄露（这种担心在Facebook上同样存在），而是因为它意识到：一个掌握了1.7亿美国人注意力的算法系统，本质上是一种比军事武器更隐性、更深层的影响力工具。</p>
+            <p style="margin-top:1rem;">张一鸣在2012年大概没有想到这些。他只是觉得，信息分发应该更有效率。</p>
+            <p style="margin-top:1rem;">结果他无意间造出了一个帝国。</p>
+        </div>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <p style="font-size:0.88rem;color:var(--muted);">
+            <strong>数据来源：</strong>Business of Apps（TikTok Statistics 2026，2026年1月更新）；TMTPOST（字节跳动2023年营收，2023年12月）；Sacra（ByteDance 2024营收，1550亿美元）；Tech-ish（TikTok美国交易，2025年12月）；Bloomberg（营收数据，多时间节点）；ByteBridge/Medium（融资历史，2025年1月）；White House官方公告（2025年9月）。所有营收数字均非官方财报，字节跳动至今未公开年度财报。
+        </p>
+
+    </div>
+</article>
+
+<div class="article-footer">
+    <a href="index.html" class="back-link">← 返回首页</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.html#blog" class="back-link">查看所有博客</a>
+</div>
+
+</body>
+</html>

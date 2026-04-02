@@ -7,29 +7,29 @@
   <meta name="description" content="达闼机器人停摆、澜码科技欠薪、Stability AI资不抵债……2024-2025年，第一批AI独角兽正在集中倒下。这场危机背后，有哪些共同的死亡模式？">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB',sans-serif;background:#fdf8f2;color:#2c1a0e;line-height:1.8;min-height:100vh}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB',sans-serif;background:#1c1510;color:#f5ead8;line-height:1.8;min-height:100vh}
     .container{max-width:720px;margin:0 auto;padding:40px 20px}
-    .back{display:inline-flex;align-items:center;gap:8px;color:#c8720e;text-decoration:none;font-size:14px;margin-bottom:32px;transition:color 0.2s}
-    .back:hover{color:#c8720e}
+    .back{display:inline-flex;align-items:center;gap:8px;color:#e8a230;text-decoration:none;font-size:14px;margin-bottom:32px;transition:color 0.2s}
+    .back:hover{color:#e8a230}
     
     /* Hero */
     .hero{width:100%;border-radius:16px;margin-bottom:40px;overflow:hidden;background:linear-gradient(135deg,#1c0a2e,#2d0a3e,#3d1a0e);height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
     .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(139,92,246,0.3),transparent 60%),radial-gradient(circle at 70% 50%,rgba(239,68,68,0.2),transparent 60%)}
     .hero-icon{font-size:48px;margin-bottom:12px;position:relative}
-    .hero-title{font-size:20px;font-weight:700;color:#c8720e;text-align:center;padding:0 20px;position:relative;line-height:1.4}
+    .hero-title{font-size:20px;font-weight:700;color:#f9a8d4;text-align:center;padding:0 20px;position:relative;line-height:1.4}
 
     /* Meta */
-    .meta{font-size:14px;color:#a07858;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #fffcf8;display:flex;gap:20px;flex-wrap:wrap}
-    .meta-tag{background:#fffcf8;color:#2c1a0e;padding:3px 10px;border-radius:100px;font-size:12px}
+    .meta{font-size:14px;color:#9a8060;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #2b2118;display:flex;gap:20px;flex-wrap:wrap}
+    .meta-tag{background:#2b2118;color:#a78bfa;padding:3px 10px;border-radius:100px;font-size:12px}
 
     /* Content */
-    .content{font-size:16px;color:#6b4c30}
+    .content{font-size:16px;color:#e8d8c0}
     .content p{margin-bottom:20px}
-    .content h2{font-size:20px;font-weight:700;margin:40px 0 16px;color:#2c1a0e;border-left:3px solid #8b5cf6;padding-left:14px}
-    .content h3{font-size:17px;font-weight:600;margin:28px 0 12px;color:#2c1a0e}
+    .content h2{font-size:20px;font-weight:700;margin:40px 0 16px;color:#f4f4f5;border-left:3px solid #8b5cf6;padding-left:14px}
+    .content h3{font-size:17px;font-weight:600;margin:28px 0 12px;color:#f5ead8}
     .content ul,.content ol{margin:16px 0;padding-left:24px}
-    .content li{margin-bottom:10px;color:#6b4c30}
-    .content strong{color:#2c1a0e}
+    .content li{margin-bottom:10px;color:#e8d8c0}
+    .content strong{color:#f4f4f5}
 
     /* Data highlight */
     .highlight{background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(239,68,68,0.08));border-left:3px solid #8b5cf6;padding:18px 20px;margin:24px 0;border-radius:0 10px 10px 0}
@@ -38,29 +38,29 @@
     .danger p{margin:0;font-size:15px}
 
     /* Case card */
-    .case-card{background:#f5ede0;border-radius:14px;padding:22px;margin:20px 0;border:1px solid #fffcf8}
+    .case-card{background:#231b13;border-radius:14px;padding:22px;margin:20px 0;border:1px solid #2b2118}
     .case-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:12px}
-    .case-name{font-size:17px;font-weight:700;color:#2c1a0e}
+    .case-name{font-size:17px;font-weight:700;color:#f4f4f5}
     .case-status{font-size:12px;font-weight:600;padding:3px 10px;border-radius:100px;white-space:nowrap}
     .status-dead{background:rgba(239,68,68,0.2);color:#f87171}
     .status-crisis{background:rgba(249,115,22,0.2);color:#fb923c}
-    .case-body{font-size:14px;color:#6b4c30;line-height:1.7}
+    .case-body{font-size:14px;color:#c8a878;line-height:1.7}
     .case-data{display:flex;gap:16px;margin-top:14px;flex-wrap:wrap}
-    .case-datum{background:#f5ede0;border-radius:8px;padding:8px 14px}
-    .case-datum .label{font-size:11px;color:#a07858;margin-bottom:2px}
-    .case-datum .value{font-size:14px;font-weight:600;color:#2c1a0e}
+    .case-datum{background:#231b13;border-radius:8px;padding:8px 14px}
+    .case-datum .label{font-size:11px;color:#9a8060;margin-bottom:2px}
+    .case-datum .value{font-size:14px;font-weight:600;color:#f5ead8}
 
     /* Stats grid */
     .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
-    .stat{background:#f5ede0;border-radius:12px;padding:18px;text-align:center;border:1px solid #fffcf8}
+    .stat{background:#231b13;border-radius:12px;padding:18px;text-align:center;border:1px solid #2b2118}
     .stat .num{font-size:26px;font-weight:800;background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .stat .label{font-size:12px;color:#a07858;margin-top:4px}
+    .stat .label{font-size:12px;color:#9a8060;margin-top:4px}
 
     /* Lesson */
-    .lesson-box{background:#f5ede0;border-radius:14px;padding:20px;margin:16px 0;border:1px solid #fffcf8}
-    .lesson-num{font-size:12px;font-weight:700;color:#c8720e;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em}
-    .lesson-title{font-size:16px;font-weight:600;color:#2c1a0e;margin-bottom:8px}
-    .lesson-body{font-size:14px;color:#6b4c30;line-height:1.7}
+    .lesson-box{background:#231b13;border-radius:14px;padding:20px;margin:16px 0;border:1px solid #2b2118}
+    .lesson-num{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em}
+    .lesson-title{font-size:16px;font-weight:600;color:#f4f4f5;margin-bottom:8px}
+    .lesson-body{font-size:14px;color:#c8a878;line-height:1.7}
 
     /* Article title */
     h1{font-size:26px;font-weight:800;margin-bottom:16px;line-height:1.4;background:linear-gradient(135deg,#c084fc,#f87171);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
