@@ -626,6 +626,24 @@
       <p>VLA（视觉语言行动模型）把行动直接作为模型输出，听起来优雅，但实际上面临严重的行动空间不连续问题：<br><br>
       <strong>离散化的行动 token 和连续的机器人运动控制之间如何对齐？</strong>NaVILA 做了初步尝试，但还没有系统性的解决方案。这是一个机器人学 × AI 的交叉方向，适合具备 ROS 背景的研究者。</p>
     </div>
+
+    <div class="thinking-card">
+      <h3>⑤ 具身导航的「安全最后一公里」问题</h3>
+      <p>IJCAI 2025最新综述《Safety of Embodied Navigation》指出：当前VLN/ObjectNav研究几乎不考虑安全攻击（对抗样本、传感器欺骗、指令注入）。<br><br>
+      <strong>如何在VLN中引入形式化安全验证，让机器人在对抗环境下仍能可靠执行？</strong>这是一个安全AI × 具身导航的交叉处女地，IJCAI/AAAI都非常欢迎这类工作。</p>
+    </div>
+
+    <div class="thinking-card">
+      <h3>⑥ 语义建图能否解决VLN的「长程依赖」问题？</h3>
+      <p>当前VLN模型在长路径任务上SR骤降，根本原因是缺乏全局语义记忆。语义SLAM（Semantic Mapping）在开放词汇检测、层次化场景建模上已有突破：<br><br>
+      <strong>将开放词汇语义建图（Open-Vocabulary Semantic Map）作为VLN的外部记忆，能否让机器人跨房间、跨楼层导航时保持语义连贯性？</strong>这是语义建图 × VLN的交叉方向，2025年刚开始有人探索。</p>
+    </div>
+
+    <div class="thinking-card">
+      <h3>⑦ Sim-to-Real Gap：VLN在仿真中涨点、真机失效怎么办？</h3>
+      <p>具身导航的经典难题：Matterport3R模拟器训练的模型迁移到真实机器人性能骤降。当前Sim-to-Real方法（域随机化、GAIL、Real-to-Sim）主要针对控制策略，<strong>但对VLN的跨模态对齐泛化研究极少</strong>。<br><br>
+      <strong>如何设计针对视觉语言对齐的域自适应方法，让VLN模型从仿真到真机时仍保持跨模态一致性？</strong>这是一个偏工程但很有实际价值的方向。</p>
+    </div>
   </section>
 
   <div class="divider"></div>
