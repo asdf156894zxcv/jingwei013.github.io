@@ -1,161 +1,161 @@
 {
-  "updated": "2026-04-01 03:57 UTC",
+  "updated": "2026-04-02 03:38 UTC",
   "total": 22,
   "today_count": 0,
   "papers": [
     {
-      "title": "OmniRoam: World Wandering via Long-Horizon Panoramic Video Generation",
-      "date": "2026-03-31",
-      "id": "2603.30045v1",
-      "abstract": "Modeling scenes using video generation models has garnered growing research interest in recent years. However, most existing approaches rely on perspective video models that synthesize only limited ob",
-      "url": "https://arxiv.org/abs/2603.30045v1"
+      "title": "HippoCamp: Benchmarking Contextual Agents on Personal Computers",
+      "date": "2026-04-01",
+      "id": "2604.01221v1",
+      "abstract": "We present HippoCamp, a new benchmark designed to evaluate agents' capabilities on multimodal file management. Unlike existing agent benchmarks that focus on tasks like web interaction, tool use, or s",
+      "url": "https://arxiv.org/abs/2604.01221v1"
     },
     {
-      "title": "Video Models Reason Early: Exploiting Plan Commitment for Maze Solving",
-      "date": "2026-03-31",
-      "id": "2603.30043v1",
-      "abstract": "Video diffusion models exhibit emergent reasoning capabilities like solving mazes and puzzles, yet little is understood about how they reason during generation. We take a first step towards understand",
-      "url": "https://arxiv.org/abs/2603.30043v1"
+      "title": "Universal YOCO for Efficient Depth Scaling",
+      "date": "2026-04-01",
+      "id": "2604.01220v1",
+      "abstract": "The rise of test-time scaling has remarkably boosted the reasoning and agentic proficiency of Large Language Models (LLMs). Yet, standard Transformers struggle to scale inference-time compute efficien",
+      "url": "https://arxiv.org/abs/2604.01220v1"
     },
     {
-      "title": "HapCompass: A Rotational Haptic Device for Contact-Rich Robotic Teleoperation",
-      "date": "2026-03-31",
-      "id": "2603.30042v1",
-      "abstract": "The contact-rich nature of manipulation makes it a significant challenge for robotic teleoperation. While haptic feedback is critical for contact-rich tasks, providing intuitive directional cues withi",
-      "url": "https://arxiv.org/abs/2603.30042v1"
+      "title": "LAtent Phase Inference from Short time sequences using SHallow REcurrent Decoders (LAPIS-SHRED)",
+      "date": "2026-04-01",
+      "id": "2604.01216v1",
+      "abstract": "Reconstructing full spatio-temporal dynamics from sparse observations in both space and time remains a central challenge in complex systems, as measurements can be spatially incomplete and can be also",
+      "url": "https://arxiv.org/abs/2604.01216v1"
     },
     {
-      "title": "SurgNavAR: An Augmented Reality Surgical Navigation Framework for Optical See-Through Head Mounted Displays",
-      "date": "2026-03-31",
-      "id": "2603.29990v1",
-      "abstract": "Augmented reality (AR) devices with head mounted displays (HMDs) facilitate the direct superimposition of 3D preoperative imaging data onto the patient during surgery. To use an HMD-AR device as a sta",
-      "url": "https://arxiv.org/abs/2603.29990v1"
+      "title": "Functional Force-Aware Retargeting from Virtual Human Demos to Soft Robot Policies",
+      "date": "2026-04-01",
+      "id": "2604.01224v1",
+      "abstract": "We introduce SoftAct, a framework for teaching soft robot hands to perform human-like manipulation skills by explicitly reasoning about contact forces. Leveraging immersive virtual reality, our system",
+      "url": "https://arxiv.org/abs/2604.01224v1"
     },
     {
-      "title": "SurgTEMP: Temporal-Aware Surgical Video Question Answering with Text-guided Visual Memory for Laparoscopic Cholecystectomy",
-      "date": "2026-03-31",
-      "id": "2603.29962v1",
-      "abstract": "Surgical procedures are inherently complex and risky, requiring extensive expertise and constant focus to well navigate evolving intraoperative scenes. Computer-assisted systems such as surgical visua",
-      "url": "https://arxiv.org/abs/2603.29962v1"
+      "title": "Data-Model Co-Driven Continuous Channel Map Construction: A Perceptive Foundation for Embodied Intelligent Agents in 6G Networks",
+      "date": "2026-04-01",
+      "id": "2604.01060v1",
+      "abstract": "Future 6G networks will host massive numbers of embodied intelligent agents, which require real-time channel awareness over continuous-space for autonomous decision-making. By pre-obtaining location-s",
+      "url": "https://arxiv.org/abs/2604.01060v1"
     },
     {
-      "title": "Owl-AuraID 1.0: An Intelligent System for Autonomous Scientific Instrumentation and Scientific Data Analysis",
-      "date": "2026-03-31",
-      "id": "2603.29828v1",
-      "abstract": "Scientific discovery increasingly depends on high-throughput characterization, yet automation is hindered by proprietary GUIs and the limited generalizability of existing API-based systems. We present",
-      "url": "https://arxiv.org/abs/2603.29828v1"
+      "title": "OmniMem: Autoresearch-Guided Discovery of Lifelong Multimodal Agent Memory",
+      "date": "2026-04-01",
+      "id": "2604.01007v1",
+      "abstract": "AI agents increasingly operate over extended time horizons, yet their ability to retain, organize, and recall multimodal experiences remains a critical bottleneck. Building effective lifelong memory r",
+      "url": "https://arxiv.org/abs/2604.01007v1"
     },
     {
-      "title": "The WEAVE acquisition and guiding software: pattern recognition-based acquisition and multi-fibre guiding",
-      "date": "2026-03-31",
-      "id": "2603.30044v1",
-      "abstract": "We present the architecture, implementation, and on-sky validation of the fully automated acquisition and guiding system (AG) developed for the WEAVE instrument on the William Herschel Telescope. The ",
-      "url": "https://arxiv.org/abs/2603.30044v1"
+      "title": "Collaborative Task and Path Planning for Heterogeneous Robotic Teams using Multi-Agent PPO",
+      "date": "2026-04-01",
+      "id": "2604.01213v1",
+      "abstract": "Efficient robotic extraterrestrial exploration requires robots with diverse capabilities, ranging from scientific measurement tools to advanced locomotion. A robotic team enables the distribution of t",
+      "url": "https://arxiv.org/abs/2604.01213v1"
     },
     {
-      "title": "Benchmarking PhD-Level Coding in 3D Geometric Computer Vision",
-      "date": "2026-03-31",
-      "id": "2603.30038v1",
-      "abstract": "AI-assisted coding has rapidly reshaped software practice and research workflows, yet today's models still struggle to produce correct code for complex 3D geometric vision. If models could reliably wr",
-      "url": "https://arxiv.org/abs/2603.30038v1"
+      "title": "CliffSearch: Structured Agentic Co-Evolution over Theory and Code for Scientific Algorithm Discovery",
+      "date": "2026-04-01",
+      "id": "2604.01210v1",
+      "abstract": "Scientific algorithm discovery is iterative: hypotheses are proposed, implemented, stress-tested, and revised. Current LLM-guided search systems accelerate proposal generation, but often under-represe",
+      "url": "https://arxiv.org/abs/2604.01210v1"
     },
     {
-      "title": "Tucker Attention: A generalization of approximate attention mechanisms",
-      "date": "2026-03-31",
-      "id": "2603.30033v1",
-      "abstract": "The pursuit of reducing the memory footprint of the self-attention mechanism in multi-headed self attention (MHA) spawned a rich portfolio of methods, e.g., group-query attention (GQA) and multi-head ",
-      "url": "https://arxiv.org/abs/2603.30033v1"
+      "title": "On Generalised Discrete Torsion",
+      "date": "2026-04-01",
+      "id": "2604.01225v1",
+      "abstract": "For a 2d gauged sigma model with target space $M$ and discrete gauge group $G$, we consider a generalisation of Vafa's discrete torsion $H^2(BG; U(1))$ that assigns different local discrete torsion ph",
+      "url": "https://arxiv.org/abs/2604.01225v1"
     },
     {
-      "title": "SceneTeract: Agentic Functional Affordances and VLM Grounding in 3D Scenes",
-      "date": "2026-03-31",
-      "id": "2603.29798v1",
-      "abstract": "Embodied AI depends on interactive 3D environments that support meaningful activities for diverse users, yet assessing their functional affordances remains a core challenge. We introduce SceneTeract, ",
-      "url": "https://arxiv.org/abs/2603.29798v1"
+      "title": "Multimessenger Constraints on Production Sites of High-Energy Neutrinos from NGC 1068",
+      "date": "2026-04-01",
+      "id": "2604.01222v1",
+      "abstract": "The detection of high-energy neutrino signals from the nearby Seyfert galaxy NGC 1068 provides us with a unique opportunity to explore nonthermal processes near the center of supermassive black holes.",
+      "url": "https://arxiv.org/abs/2604.01222v1"
     },
     {
-      "title": "Automatic Identification of Parallelizable Loops Using Transformer-Based Source Code Representations",
-      "date": "2026-03-31",
-      "id": "2603.30040v1",
-      "abstract": "Automatic parallelization remains a challenging problem in software engineering, particularly in identifying code regions where loops can be safely executed in parallel on modern multi-core architectu",
-      "url": "https://arxiv.org/abs/2603.30040v1"
+      "title": "Tube-Based Safety for Anticipative Tracking in Multi-Agent Systems",
+      "date": "2026-04-01",
+      "id": "2604.00992v1",
+      "abstract": "A tube-based safety framework is presented for robust anticipative tracking in nonlinear Brunovsky multi-agent systems subject to bounded disturbances. The architecture establishes robust safety certi",
+      "url": "https://arxiv.org/abs/2604.00992v1"
     },
     {
-      "title": "Hybrid Framework for Robotic Manipulation: Integrating Reinforcement Learning and Large Language Models",
-      "date": "2026-03-31",
-      "id": "2603.30022v1",
-      "abstract": "This paper introduces a new hybrid framework that combines Reinforcement Learning (RL) and Large Language Models (LLMs) to improve robotic manipulation tasks. By utilizing RL for accurate low-level co",
-      "url": "https://arxiv.org/abs/2603.30022v1"
+      "title": "When Users Change Their Mind: Evaluating Interruptible Agents in Long-Horizon Web Navigation",
+      "date": "2026-04-01",
+      "id": "2604.00892v1",
+      "abstract": "As LLM agents transition from short, static problem solving to executing complex, long-horizon tasks in dynamic environments, the ability to handle user interruptions, such as adding requirement or re",
+      "url": "https://arxiv.org/abs/2604.00892v1"
     },
     {
-      "title": "Phyelds: A Pythonic Framework for Aggregate Computing",
-      "date": "2026-03-31",
-      "id": "2603.29999v1",
-      "abstract": "Aggregate programming is a field-based coordination paradigm with over a decade of exploration and successful applications across domains including sensor networks, robotics, and IoT, with implementat",
-      "url": "https://arxiv.org/abs/2603.29999v1"
+      "title": "A ROS 2 Wrapper for Florence-2: Multi-Mode Local Vision-Language Inference for Robotic Systems",
+      "date": "2026-04-01",
+      "id": "2604.01179v1",
+      "abstract": "Foundation vision-language models are becoming increasingly relevant to robotics because they can provide richer semantic perception than narrow task-specific pipelines. However, their practical adopt",
+      "url": "https://arxiv.org/abs/2604.01179v1"
     },
     {
-      "title": "GreenFLag: A Green Agentic Approach for Energy-Efficient Federated Learning",
-      "date": "2026-03-31",
-      "id": "2603.29933v1",
-      "abstract": "Progressing toward a new generation of mobile networks, a clear focus on integrating distributed intelligence across the system is observed to drive performance, autonomy, and real-time adaptability. ",
-      "url": "https://arxiv.org/abs/2603.29933v1"
+      "title": "Automated Generation of High-Quality Bug Reports for Android Applications",
+      "date": "2026-04-01",
+      "id": "2604.01148v1",
+      "abstract": "Most defects in mobile applications are visually observable on the device screen. To track these defects, users, testers, and developers must manually submit bug reports, especially in the absence of ",
+      "url": "https://arxiv.org/abs/2604.01148v1"
     },
     {
-      "title": "DIAL: Decoupling Intent and Action via Latent World Modeling for End-to-End VLA",
-      "date": "2026-03-31",
-      "id": "2603.29844v1",
-      "abstract": "The development of Vision-Language-Action (VLA) models has been significantly accelerated by pre-trained Vision-Language Models (VLMs). However, most existing end-to-end VLAs treat the VLM primarily a",
-      "url": "https://arxiv.org/abs/2603.29844v1"
+      "title": "POLARIS: PHY-Aware Spectrum Steering for Dynamic Spectrum Sharing",
+      "date": "2026-04-01",
+      "id": "2604.01087v1",
+      "abstract": "Dynamic Spectrum Sharing (DSS) enables flexible activation of additional spectrum resources but leaves open a key runtime question: once new spectrum becomes available, which steering mechanism should",
+      "url": "https://arxiv.org/abs/2604.01087v1"
     },
     {
-      "title": "Urban mobility enables deprivation bubble breaking in Indian and Mexican cities",
-      "date": "2026-03-31",
-      "id": "2603.29782v1",
-      "abstract": "Urban deprivation is traditionally measured using static, residence-based indicators, capturing the socioeconomic, demographic, and spatial conditions of neighborhoods. However, this approach overlook",
-      "url": "https://arxiv.org/abs/2603.29782v1"
+      "title": "Adversarial Attacks in AI-Driven RAN Slicing: SLA Violations and Recovery",
+      "date": "2026-04-01",
+      "id": "2604.01049v1",
+      "abstract": "Next-generation (NextG) cellular networks are designed to support emerging applications with diverse data rate and latency requirements, such as immersive multimedia services and large-scale Internet ",
+      "url": "https://arxiv.org/abs/2604.01049v1"
     },
     {
-      "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought?",
-      "date": "2026-03-31",
-      "id": "2603.30036v1",
-      "abstract": "Chain-of-Thought (CoT) monitoring, in which automated systems monitor the CoT of an LLM, is a promising approach for effectively overseeing AI systems. However, the extent to which a model's CoT helps",
-      "url": "https://arxiv.org/abs/2603.30036v1"
+      "title": "$\\texttt{YC-Bench}$: Benchmarking AI Agents for Long-Term Planning and Consistent Execution",
+      "date": "2026-04-01",
+      "id": "2604.01212v1",
+      "abstract": "As LLM agents tackle increasingly complex tasks, a critical question is whether they can maintain strategic coherence over long horizons: planning under uncertainty, learning from delayed feedback, an",
+      "url": "https://arxiv.org/abs/2604.01212v1"
     },
     {
-      "title": "Reward-Based Online LLM Routing via NeuralUCB",
-      "date": "2026-03-31",
-      "id": "2603.30035v1",
-      "abstract": "This study investigates the use of NeuralUCB for cost-aware large language model (LLM) routing. Existing routing approaches can be broadly grouped into supervised routing methods and partial-feedback ",
-      "url": "https://arxiv.org/abs/2603.30035v1"
+      "title": "Conditional channel entropy sets fundamental limits on thermodynamic quantum information processing",
+      "date": "2026-04-01",
+      "id": "2604.01217v1",
+      "abstract": "The thermodynamic resourcefulness of quantum channels primarily depends on their underlying causal structure and their ability to generate quantum correlations. We quantify this interplay within the r",
+      "url": "https://arxiv.org/abs/2604.01217v1"
     },
     {
-      "title": "EnsembleSHAP: Faithful and Certifiably Robust Attribution for Random Subspace Method",
-      "date": "2026-03-31",
-      "id": "2603.30034v1",
-      "abstract": "Random subspace method has wide security applications such as providing certified defenses against adversarial and backdoor attacks, and building robustly aligned LLM against jailbreaking attacks. How",
-      "url": "https://arxiv.org/abs/2603.30034v1"
+      "title": "Topological algebra of symplectic geometry of symmetric powers",
+      "date": "2026-04-01",
+      "id": "2604.01208v1",
+      "abstract": "To a noncompact orientable surface with no closed boundary, we associate the sum of Fukaya categories of (Liouville sectors associated to) its symmetric powers. We construct sectorial covers with the ",
+      "url": "https://arxiv.org/abs/2604.01208v1"
     },
     {
-      "title": "ContextClaim: A Context-Driven Paradigm for Verifiable Claim Detection",
-      "date": "2026-03-31",
-      "id": "2603.30025v1",
-      "abstract": "Verifiable claim detection asks whether a claim expresses a factual statement that can, in principle, be assessed against external evidence. As an early filtering stage in automated fact-checking, it ",
-      "url": "https://arxiv.org/abs/2603.30025v1"
+      "title": "ORBIT: Scalable and Verifiable Data Generation for Search Agents on a Tight Budget",
+      "date": "2026-04-01",
+      "id": "2604.01195v1",
+      "abstract": "Search agents, which integrate language models (LMs) with web search, are becoming crucial for answering complex user queries. Constructing training datasets for deep research tasks, involving multi-s",
+      "url": "https://arxiv.org/abs/2604.01195v1"
     },
     {
-      "title": "A Lightweight Hybrid Publish/Subscribe Event Fabric for IPC and Modular Distributed Systems",
-      "date": "2026-03-31",
-      "id": "2603.30030v1",
-      "abstract": "Modular software deployed on mini compute units in controlled distributed environments often needs two messaging paths: low-overhead in-process coordination and selective cross-node distribution. In p",
-      "url": "https://arxiv.org/abs/2603.30030v1"
+      "title": "TRACE: High-Fidelity 3D Scene Editing via Tangible Reconstruction and Geometry-Aligned Contextual Video Masking",
+      "date": "2026-04-01",
+      "id": "2604.01207v1",
+      "abstract": "We present TRACE, a mesh-guided 3DGS editing framework that achieves automated, high-fidelity scene transformation. By anchoring video diffusion with explicit 3D geometry, TRACE uniquely enables fine-",
+      "url": "https://arxiv.org/abs/2604.01207v1"
     },
     {
-      "title": "Can Commercial LLMs Be Parliamentary Political Companions? Comparing LLM Reasoning Against Romanian Legislative Expuneri de Motive",
-      "date": "2026-03-31",
-      "id": "2603.30028v1",
-      "abstract": "This paper evaluates whether commercial large language models (LLMs) can function as reliable political advisory tools by comparing their outputs against official legislative reasoning. Using a datase",
-      "url": "https://arxiv.org/abs/2603.30028v1"
+      "title": "Neural Harmonic Textures for High-Quality Primitive Based Neural Reconstruction",
+      "date": "2026-04-01",
+      "id": "2604.01204v1",
+      "abstract": "Primitive-based methods such as 3D Gaussian Splatting have recently become the state-of-the-art for novel-view synthesis and related reconstruction tasks. Compared to neural fields, these representati",
+      "url": "https://arxiv.org/abs/2604.01204v1"
     }
   ]
 }
