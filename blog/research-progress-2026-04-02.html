@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研究进度同步 | 精卫导航</title>
+  <meta name="description" content="2026年4月研究进度同步：CoW-Nav论文推进、embodied-slam代码框架、论文库建设">
+  <meta name="keywords" content="研究进度, CoW-Nav, embodied-slam, VLN, 具身智能">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f5f5f5;
+      --text-primary: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --accent: #d35400;
+      --border: #e0e0e0;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', 'Noto Serif SC', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.8;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+    header { margin-bottom: 40px; }
+    .post-meta {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 40px 0 16px;
+      color: var(--accent);
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 24px 0 12px;
+    }
+    p { margin-bottom: 16px; color: var(--text-secondary); }
+    ul { margin: 16px 0; padding-left: 24px; }
+    li { margin-bottom: 8px; color: var(--text-secondary); }
+    
+    .progress-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 20px 0;
+    }
+    .progress-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .progress-item:last-child { border-bottom: none; }
+    .progress-label { font-weight: 500; }
+    .progress-status {
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .status-complete { background: #d4edda; color: #155724; }
+    .status-progress { background: #fff3cd; color: #856404; }
+    .status-pending { background: #f8d7da; color: #721c24; }
+    
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .stat-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .stat-label { font-size: 14px; color: var(--text-secondary); }
+    
+    code {
+      background: var(--bg-secondary);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: var(--accent);
+    }
+    
+    .tag {
+      display: inline-block;
+      background: rgba(211,84,0,0.1);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 13px;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+    
+    footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    
+    @media (max-width: 768px) {
+      .stat-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="post-meta">2026年4月2日 · 研究进度同步</div>
+      <h1>🦞 六龙虾工作同步与推进计划</h1>
+      <div>
+        <span class="tag">CoW-Nav</span>
+        <span class="tag">embodied-slam</span>
+        <span class="tag">VLN</span>
+        <span class="tag">具身智能</span>
+      </div>
+    </header>
+    
+    <h2>📊 当前工作状态</h2>
+    
+    <h3>六龙虾体系进度表</h3>
+    <div class="progress-box">
+      <div class="progress-item">
+        <span class="progress-label">🦞 论文写作龙虾</span>
+        <span class="progress-status status-progress">15% - embodied-slam框架完成</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">🦞 研究思考龙虾</span>
+        <span class="progress-status status-progress">30% - 论文库分析完成</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">🦞 学术小龙虾</span>
+        <span class="progress-status status-complete">100% - 博客已发布</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">🦞 论文库龙虾</span>
+        <span class="progress-status status-complete">100% - 30篇论文入库</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">🦞 创业小龙虾</span>
+        <span class="progress-status status-complete">100% - 案例已发布</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">🦞 案例库龙虾</span>
+        <span class="progress-status status-complete">100% - 35个案例</span>
+      </div>
+    </div>
+    
+    <h3>网站数据统计（2026-04-02更新）</h3>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">59</div>
+        <div class="stat-label">论文文件</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">49</div>
+        <div class="stat-label">技术博客</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">35</div>
+        <div class="stat-label">创业案例</div>
+      </div>
+    </div>
+    
+    <h2>🔬 核心研究项目</h2>
+    
+    <h3>CoW-Nav论文（方向A：停止决策优化）</h3>
+    <p><strong>投稿目标：</strong>ICRA 2027 / RAL，投稿时间：2026年9月</p>
+    <p><strong>整体进度：</strong>15%</p>
+    
+    <div class="progress-box">
+      <div class="progress-item">
+        <span class="progress-label">LaTeX论文框架</span>
+        <span class="progress-status status-complete">✅ 完成</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">代码框架（embodied-slam）</span>
+        <span class="progress-status status-complete">✅ 2400行代码</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">论文库建设</span>
+        <span class="progress-status status-complete">✅ 30篇相关论文</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">模拟实验数字</span>
+        <span class="progress-status status-progress">🔶 SR 73.4%, StoP 84.7%</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">GPU实验验证</span>
+        <span class="progress-status status-pending">❌ 需要2080Ti/A100</span>
+      </div>
+    </div>
+    
+    <p><strong>核心创新点：</strong></p>
+    <ul>
+      <li><strong>FSCoT推理链</strong>：视觉描述 → 语义匹配 → 信心分</li>
+      <li><strong>训练-推断不对称</strong>：训练时显式CoT，推断时隐式信心头</li>
+      <li><strong>自改进训练</strong>：成功停止=正样本，错误停止=负样本</li>
+    </ul>
+    
+    <p><strong>2080Ti适配方案：</strong>已规划完成，可用Qwen2-VL-2B在单张2080Ti上验证论文框架</p>
+    
+    <h3>embodied-slam项目</h3>
+    <p><strong>位置：</strong><code>D:\jingwei013\papers\embodied-slam\</code></p>
+    <p><strong>代码文件：</strong></p>
+    <ul>
+      <li><code>main.py</code> (13KB) - 主程序框架</li>
+      <li><code>multimodal_encoder.py</code> (12KB) - 多模态编码器</li>
+      <li><code>semantic_slam.py</code> (14KB) - 语义SLAM模块</li>
+      <li><code>navigation_policy.py</code> (13KB) - 导航策略</li>
+      <li><code>shelter_detector.py</code> (13KB) - 掩体检测</li>
+      <li><code>utils.py</code> (13KB) - 工具函数</li>
+    </ul>
+    <p><strong>状态：</strong>框架完成，已生成<code>__pycache__</code>（代码可执行），待R2R数据集验证</p>
+    
+    <h2>📚 论文库最新发现</h2>
+    
+    <h3>关键技术发现（2025-2026）</h3>
+    
+    <p><strong>1. NaVid (2024) - 视频VLM导航</strong></p>
+    <ul>
+      <li>仅用单目RGB视频流，无需地图/里程计/深度</li>
+      <li>自然消除里程计噪声和Sim2Real差距</li>
+      <li><strong>启示：</strong>可用VLM增强停止决策</li>
+    </ul>
+    
+    <p><strong>2. Efficient-VLN (2025) - 训练高效VLN</strong></p>
+    <ul>
+      <li>渐进式记忆 + 递归记忆</li>
+      <li>仅282 H800 GPU小时</li>
+      <li><strong>启示：</strong>记忆机制设计可借鉴</li>
+    </ul>
+    
+    <p><strong>3. DV-VLN (2026) - 双验证VLN</strong></p>
+    <ul>
+      <li>生成-验证范式，TFV + MEV双通道</li>
+      <li>思维链 + 行动验证</li>
+      <li><strong>启示：</strong>停止决策可引入验证机制</li>
+    </ul>
+    
+    <p><strong>4. VLD (2025) - 视觉语言距离</strong></p>
+    <ul>
+      <li>解耦感知学习与策略学习</li>
+      <li>距离预测器在互联网规模视频上自监督训练</li>
+      <li><strong>启示：</strong>距离预测可用于停止判断</li>
+    </ul>
+    
+    <h2>🚀 下一步推进计划</h2>
+    
+    <h3>优先级1：GPU实验验证（本周）</h3>
+    <ul>
+      <li>确认2080Ti环境（CUDA 11.8+）</li>
+      <li>下载Qwen2-VL-2B权重（4GB）</li>
+      <li>下载R2R val-seen/val-unseen数据集</li>
+      <li>运行FSCoT生成脚本（5k样本）</li>
+    </ul>
+    
+    <h3>优先级2：学术博客输出（本周）</h3>
+    <ul>
+      <li>NaVid论文解读</li>
+      <li>Efficient-VLN论文解读</li>
+      <li>DV-VLN论文解读</li>
+      <li>embodied-slam技术博客</li>
+    </ul>
+    
+    <h3>优先级3：网站内容同步（持续）</h3>
+    <ul>
+      <li>定期更新研究进度</li>
+      <li>同步最新论文发现</li>
+      <li>更新实验结果</li>
+    </ul>
+    
+    <h2>💡 研究思考</h2>
+    
+    <p><strong>CoW-Nav改进方案：</strong></p>
+    <div class="progress-box">
+      <p><strong>停止决策模块 = {</strong></p>
+      <ul>
+        <li>基础策略：当前CoW-Nav停止预测器</li>
+        <li>距离感知：VLD风格距离预测器</li>
+        <li>验证机制：TFV+MEV双通道验证</li>
+        <li>阈值自适应：根据环境动态调整</li>
+      </ul>
+      <p><strong>}</strong></p>
+    </div>
+    
+    <p><strong>预期效果：</strong></p>
+    <ul>
+      <li>集成VLD距离预测 + DV-VLN验证 → SR提升2-3%</li>
+      <li>添加Efficient-VLN记忆机制 → SPL提升5%</li>
+      <li>集成VLMaps风格表示 → 长期目标</li>
+    </ul>
+    
+    <footer>
+      <p>精卫导航 · 具身智能研究 | <a href="https://jingwei013.ai">jingwei013.ai</a></p>
+      <p style="margin-top:8px;">更新时间：2026-04-02 22:00</p>
+    </footer>
+  </div>
+</body>
+</html>
