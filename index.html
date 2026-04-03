@@ -992,6 +992,68 @@
           <strong>下一步：</strong>GPU实验 → NaVid/Efficient-VLN博客 → 验证CoW-Nav核心假设H1-H4。
         </div>
       </div>
+
+      <!-- 🔍 顶会审稿评估 + 论文框架梳理（2026-04-03） -->
+      <div style="margin-top:20px;padding:20px;background:linear-gradient(135deg,rgba(248,81,73,0.06),rgba(163,113,247,0.06));border:1px solid rgba(248,81,73,0.2);border-radius:12px;">
+        <div style="font-size:13px;color:#f85149;font-weight:700;margin-bottom:16px;">🔍 顶会审稿评估 + 论文框架梳理 · 2026-04-03</div>
+
+        <!-- 审稿评分 -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:16px;">
+          <div style="padding:12px;background:var(--bg-card);border-radius:8px;border-left:3px solid #f59e0b;">
+            <div style="font-size:11px;font-weight:600;color:var(--text-secondary);">CoW-Nav（停止决策）</div>
+            <div style="font-size:22px;font-weight:700;color:#f59e0b;margin:4px 0;">2.6/5</div>
+            <div style="font-size:10px;color:var(--text-muted);">Weak Reject → Weak Accept<br>解决3个BLOCKER后</div>
+          </div>
+          <div style="padding:12px;background:var(--bg-card);border-radius:8px;border-left:3px solid #f85149;">
+            <div style="font-size:11px;font-weight:600;color:var(--text-secondary);">EmbodiedSLAM</div>
+            <div style="font-size:22px;font-weight:700;color:#f85149;margin:4px 0;">1.8/5</div>
+            <div style="font-size:10px;color:var(--text-muted);">Reject<br>需改题+重新定位</div>
+          </div>
+          <div style="padding:12px;background:var(--bg-card);border-radius:8px;border-left:3px solid #f85149;">
+            <div style="font-size:11px;font-weight:600;color:var(--text-secondary);">方向B（BEV）</div>
+            <div style="font-size:22px;font-weight:700;color:#f85149;margin:4px 0;">1.8/5</div>
+            <div style="font-size:10px;color:var(--text-muted);">Reject<br>方法迁移无创新</div>
+          </div>
+          <div style="padding:12px;background:var(--bg-card);border-radius:8px;border-left:3px solid #f85149;">
+            <div style="font-size:11px;font-weight:600;color:var(--text-secondary);">方向D（CoT）</div>
+            <div style="font-size:22px;font-weight:700;color:#f85149;margin:4px 0;">1.8/5</div>
+            <div style="font-size:10px;color:var(--text-muted);">Reject<br>整合到CoW-Nav</div>
+          </div>
+        </div>
+
+        <!-- CoW-Nav三大BLOCKER -->
+        <div style="padding:14px;background:rgba(248,81,73,0.08);border-radius:8px;border:1px solid rgba(248,81,73,0.2);margin-bottom:12px;">
+          <div style="font-size:11px;font-weight:700;color:#f85149;margin-bottom:8px;">⛔ CoW-Nav 投稿三大BLOCKER</div>
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.8;">
+            <strong>[M1] GPU实验（Critical）：</strong>所有数字为模拟值，顶会看到会立即拒稿。需完成Stage 1 FSCoT SFT真实训练。<br>
+            <strong>[M2] Aux-Think重叠（Critical）：</strong>"训练时CoT，推断时蒸馏"与Aux-Think（EMNLP 2024）核心思想一致，需重写Related Work明确差异化。<br>
+            <strong>[M3] EvolveNav差距（Critical）：</strong>SR 73.4% vs EvolveNav 77%差距-3.6%，需合理化叙事或集成实验。
+          </div>
+        </div>
+
+        <!-- 论文框架管理 -->
+        <div style="padding:14px;background:rgba(22,160,133,0.08);border-radius:8px;border:1px solid rgba(22,160,133,0.2);margin-bottom:12px;">
+          <div style="font-size:11px;font-weight:700;color:#16a085;margin-bottom:8px;">📁 论文框架管理（已完成）</div>
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.8;">
+            ✅ 建立统一论文管理体系（标准8节框架 × 4篇论文）<br>
+            ✅ CoW-Nav旧版paper.md重命名为paper-DEPRECATED-world-model-version.md<br>
+            ✅ 创建PAPERS-OVERVIEW.md总览（关系图+时间线+优先级排序）<br>
+            ✅ 方向B/D决定：不独立投稿，整合到CoW-Nav/EmbodiedSLAM<br>
+            📂 所有框架文件：D:\jingwei013\papers\ *PAPER-FRAMEWORK.md
+          </div>
+        </div>
+
+        <!-- 行动计划 -->
+        <div style="padding:14px;background:rgba(211,84,0,0.08);border-radius:8px;border-left:3px solid var(--accent);">
+          <div style="font-size:11px;font-weight:700;color:var(--accent);margin-bottom:8px;">📋 4月行动计划</div>
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.8;">
+            <strong>P0（本周）：</strong>GPU环境配置 → FSCoT数据生成 → Stage 1 SFT真实数字<br>
+            <strong>P1（下周）：</strong>深读Aux-Think → 重写Related Work → 处理EvolveNav叙事<br>
+            <strong>P2（本月）：</strong>EmbodiedSLAM改题+核心模块实现<br>
+            <strong>资源分配：</strong>80% CoW-Nav / 20% EmbodiedSLAM / 暂停B/D独立
+          </div>
+        </div>
+      </div>
     </div>
 
   </section>
