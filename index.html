@@ -538,13 +538,13 @@
     </div>
     <div class="hero-stats">
       <div class="stat" onclick="showSection('papers')" title="点击进入论文库">
-        <span class="stat-num">88</span><div class="stat-label">高质量论文 →</div>
+        <span class="stat-num">43</span><div class="stat-label">高质量论文 →</div>
       </div>
       <div class="stat" onclick="showSection('blog')" title="点击查看博客">
         <span class="stat-num">51</span><div class="stat-label">技术博客 →</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
-        <span class="stat-num">29</span><div class="stat-label">创业案例 →</div>
+        <span class="stat-num">37</span><div class="stat-label">创业案例 →</div>
       </div>
       <div class="stat" onclick="showSection('research')" title="点击查看研究方向">
         <span class="stat-num">4月3</span><div class="stat-label">今日更新 →</div>
@@ -561,7 +561,7 @@
         <div class="section-title">🦞A 最新论文（2022–2026）</div>
         <div class="section-desc">顶会精选 · VLN / ObjectNav / LLM导航 / 世界模型 / VLA</div>
       </div>
-      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('papers')">进入论文库（88篇）→</button>
+      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('papers')">进入论文库（43篇）→</button>
     </div>
     <div class="papers-grid" id="homePapersPreview"></div>
   </section>
@@ -575,7 +575,7 @@
         <div class="section-title">🦞B 最新创业案例</div>
         <div class="section-desc">失败原因分析 · 成功关键 · 每日更新</div>
       </div>
-      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（29个）→</button>
+      <button class="btn-secondary" style="padding:8px 18px;font-size:13px;" onclick="showSection('cases')">进入案例库（37个）→</button>
     </div>
     <div class="case-grid" id="homeCasesPreview"></div>
   </section>
@@ -1130,7 +1130,7 @@
         <div class="section-title">🦞A 论文知识库</div>
         <div class="section-desc">2022年后高质量顶会论文 · VLN / ObjectNav / LLM导航 / 世界模型 / VLA · 持续更新</div>
       </div>
-      <div style="font-size:13px;color:var(--text-muted);">共 <strong style="color:var(--accent);" id="paperCount">88</strong> 篇 <span style="margin:0 8px;">|</span> <span style="color:#3fb950;">📄 44篇PDF</span> <span style="margin:0 4px;">+</span> <span style="color:var(--text-muted);">🔗 44篇链接</span></div>
+      <div style="font-size:13px;color:var(--text-muted);">共 <strong style="color:var(--accent);" id="paperCount">43</strong> 篇 <span style="margin:0 8px;">|</span> <span style="color:#3fb950;">📄 44篇PDF</span> <span style="margin:0 4px;">+</span> <span style="color:var(--text-muted);">🔗 44篇链接</span></div>
     </div>
     <div class="filter-bar" id="filterBar"></div>
     <div class="papers-grid" id="papersGrid"></div>
@@ -2728,7 +2728,7 @@ const UPDATE_HOUR = 9; // 每天北京时间 9:00 自动更新
 function initHeartbeat() {
   const now = new Date();
   // 强制覆盖为最新心跳时间（每次网站更新时手动修改此处）
-  const LAST_UPDATE_ISO = '2026-04-03T12:20:00+08:00';
+  const LAST_UPDATE_ISO = '2026-04-03T17:50:00+08:00';
   localStorage.setItem('jingwei_last_update', LAST_UPDATE_ISO);
   const nextUpdateEl = document.getElementById('nextUpdate');
   const lastUpdateEl = document.getElementById('lastUpdate');
