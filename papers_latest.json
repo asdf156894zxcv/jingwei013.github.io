@@ -1,133 +1,147 @@
 {
-  "updated": "2026-04-06 03:53 UTC",
-  "total": 18,
+  "updated": "2026-04-07 03:44 UTC",
+  "total": 20,
   "today_count": 0,
   "papers": [
     {
-      "title": "CoME-VL: Scaling Complementary Multi-Encoder Vision-Language Learning",
-      "date": "2026-04-03",
-      "id": "2604.03231v1",
-      "abstract": "Recent vision-language models (VLMs) typically rely on a single vision encoder trained with contrastive image-text objectives, such as CLIP-style pretraining. While contrastive encoders are effective ",
-      "url": "https://arxiv.org/abs/2604.03231v1"
+      "title": "Vanast: Virtual Try-On with Human Image Animation via Synthetic Triplet Supervision",
+      "date": "2026-04-06",
+      "id": "2604.04934v1",
+      "abstract": "We present Vanast, a unified framework that generates garment-transferred human animation videos directly from a single human image, garment images, and a pose guidance video. Conventional two-stage p",
+      "url": "https://arxiv.org/abs/2604.04934v1"
     },
     {
-      "title": "VOSR: A Vision-Only Generative Model for Image Super-Resolution",
-      "date": "2026-04-03",
-      "id": "2604.03225v1",
-      "abstract": "Most of the recent generative image super-resolution (SR) methods rely on adapting large text-to-image (T2I) diffusion models pretrained on web-scale text-image data. While effective, this paradigm st",
-      "url": "https://arxiv.org/abs/2604.03225v1"
+      "title": "PointTPA: Dynamic Network Parameter Adaptation for 3D Scene Understanding",
+      "date": "2026-04-06",
+      "id": "2604.04933v1",
+      "abstract": "Scene-level point cloud understanding remains challenging due to diverse geometries, imbalanced category distributions, and highly varied spatial layouts. Existing methods improve object-level perform",
+      "url": "https://arxiv.org/abs/2604.04933v1"
     },
     {
-      "title": "HyperCT: Low-Rank Hypernet for Unified Chest CT Analysis",
-      "date": "2026-04-03",
-      "id": "2604.03224v1",
-      "abstract": "Non-contrast chest CTs offer a rich opportunity for both conventional pulmonary and opportunistic extra-pulmonary screening. While Multi-Task Learning (MTL) can unify these diverse tasks, standard har",
-      "url": "https://arxiv.org/abs/2604.03224v1"
+      "title": "Beyond the Final Actor: Modeling the Dual Roles of Creator and Editor for Fine-Grained LLM-Generated Text Detection",
+      "date": "2026-04-06",
+      "id": "2604.04932v1",
+      "abstract": "The misuse of large language models (LLMs) requires precise detection of synthetic text. Existing works mainly follow binary or ternary classification settings, which can only distinguish pure human/L",
+      "url": "https://arxiv.org/abs/2604.04932v1"
     },
     {
-      "title": "Hierarchical Planning with Latent World Models",
-      "date": "2026-04-03",
-      "id": "2604.03208v1",
-      "abstract": "Model predictive control (MPC) with learned world models has emerged as a promising paradigm for embodied control, particularly for its ability to generalize zero-shot when deployed in new environment",
-      "url": "https://arxiv.org/abs/2604.03208v1"
+      "title": "InfBaGel: Human-Object-Scene Interaction Generation with Dynamic Perception and Iterative Refinement",
+      "date": "2026-04-06",
+      "id": "2604.04843v1",
+      "abstract": "Human-object-scene interactions (HOSI) generation has broad applications in embodied AI, simulation, and animation. Unlike human-object interaction (HOI) and human-scene interaction (HSI), HOSI genera",
+      "url": "https://arxiv.org/abs/2604.04843v1"
     },
     {
-      "title": "FSUNav: A Cerebrum-Cerebellum Architecture for Fast, Safe, and Universal Zero-Shot Goal-Oriented Navigation",
-      "date": "2026-04-03",
-      "id": "2604.03139v1",
-      "abstract": "Current vision-language navigation methods face substantial bottlenecks regarding heterogeneous robot compatibility, real-time performance, and navigation safety. Furthermore, they struggle to support",
-      "url": "https://arxiv.org/abs/2604.03139v1"
+      "title": "E-VLA: Event-Augmented Vision-Language-Action Model for Dark and Blurred Scenes",
+      "date": "2026-04-06",
+      "id": "2604.04834v1",
+      "abstract": "Robotic Vision-Language-Action (VLA) models generalize well for open-ended manipulation, but their perception is fragile under sensing-stage degradations such as extreme low light, motion blur, and bl",
+      "url": "https://arxiv.org/abs/2604.04834v1"
     },
     {
-      "title": "SCC-Loc: A Unified Semantic Cascade Consensus Framework for UAV Thermal Geo-Localization",
-      "date": "2026-04-03",
-      "id": "2604.03120v1",
-      "abstract": "Cross-modal Thermal Geo-localization (TG) provides a robust, all-weather solution for Unmanned Aerial Vehicles (UAVs) in Global Navigation Satellite System (GNSS)-denied environments. However, profoun",
-      "url": "https://arxiv.org/abs/2604.03120v1"
+      "title": "Efficient Multi-Objective Planning with Weighted Maximization Using Large Neighbourhood Search",
+      "date": "2026-04-06",
+      "id": "2604.04826v1",
+      "abstract": "Autonomous navigation often requires the simultaneous optimization of multiple objectives. The most common approach scalarizes these into a single cost function using a weighted sum, but this method i",
+      "url": "https://arxiv.org/abs/2604.04826v1"
     },
     {
-      "title": "Unmixing the Crowd: Learning Mixture-to-Set Speaker Embeddings for Enrollment-Free Target Speech Extraction",
-      "date": "2026-04-03",
-      "id": "2604.03219v1",
-      "abstract": "Personalized or target speech extraction (TSE) typically needs a clean enrollment -- hard to obtain in real-world crowded environments. We remove the essential need for enrollment by predicting, from ",
-      "url": "https://arxiv.org/abs/2604.03219v1"
+      "title": "Comprehensive List of User Deception Techniques in Emails",
+      "date": "2026-04-06",
+      "id": "2604.04926v1",
+      "abstract": "Email remains a central communication medium, yet its long-standing design and interface conventions continue to enable deceptive attacks. This research note presents a structured list of 42 email-bas",
+      "url": "https://arxiv.org/abs/2604.04926v1"
     },
     {
-      "title": "Parametric SED Modelling of Protoplanetary Discs: Validation and Application to an Unstudied YSO",
-      "date": "2026-04-03",
-      "id": "2604.03211v1",
-      "abstract": "We present a physically motivated spectral energy distribution (SED) modelling framework for deriving stellar and circumstellar disc parameters from broadband photometry. The model combines a parametr",
-      "url": "https://arxiv.org/abs/2604.03211v1"
+      "title": "Fully Procedural Synthetic Data from Simple Rules for Multi-View Stereo",
+      "date": "2026-04-06",
+      "id": "2604.04925v1",
+      "abstract": "In this paper, we explore the design space of procedural rules for multi-view stereo (MVS). We demonstrate that we can generate effective training data using SimpleProc: a new, fully procedural genera",
+      "url": "https://arxiv.org/abs/2604.04925v1"
     },
     {
-      "title": "Belief Propagation and Tensor Network Expansions for Many-Body Quantum Systems: Rigorous Results and Fundamental Limits",
-      "date": "2026-04-03",
-      "id": "2604.03228v1",
-      "abstract": "Belief propagation (BP) provides a scalable heuristic for contracting tensor networks on loopy graphs, but its success in quantum many-body settings has largely rested on empirical evidence. Developin",
-      "url": "https://arxiv.org/abs/2604.03228v1"
+      "title": "LoMa: Local Feature Matching Revisited",
+      "date": "2026-04-06",
+      "id": "2604.04931v1",
+      "abstract": "Local feature matching has long been a fundamental component of 3D vision systems such as Structure-from-Motion (SfM), yet progress has lagged behind the rapid advances of modern data-driven approache",
+      "url": "https://arxiv.org/abs/2604.04931v1"
     },
     {
-      "title": "Enhancing Robustness of Federated Learning via Server Learning",
-      "date": "2026-04-03",
-      "id": "2604.03226v1",
-      "abstract": "This paper explores the use of server learning for enhancing the robustness of federated learning against malicious attacks even when clients' training data are not independent and identically distrib",
-      "url": "https://arxiv.org/abs/2604.03226v1"
+      "title": "ROSClaw: A Hierarchical Semantic-Physical Framework for Heterogeneous Multi-Agent Collaboration",
+      "date": "2026-04-06",
+      "id": "2604.04664v1",
+      "abstract": "The integration of large language models (LLMs) with embodied agents has improved high-level reasoning capabilities; however, a critical gap remains between semantic understanding and physical executi",
+      "url": "https://arxiv.org/abs/2604.04664v1"
     },
     {
-      "title": "Coupled Control, Structured Memory, and Verifiable Action in Agentic AI (SCRAT -- Stochastic Control with Retrieval and Auditable Trajectories): A Comparative Perspective from Squirrel Locomotion and Scatter-Hoarding",
-      "date": "2026-04-03",
-      "id": "2604.03201v1",
-      "abstract": "Agentic AI is increasingly judged not by fluent output alone but by whether it can act, remember, and verify under partial observability, delay, and strategic observation. Existing research often stud",
-      "url": "https://arxiv.org/abs/2604.03201v1"
+      "title": "Semi-Markovian Dynamics of a Self-Propelled Particle in a Confined Environment: A Large-Deviation Study",
+      "date": "2026-04-06",
+      "id": "2604.04595v1",
+      "abstract": "We study the large deviations of the time-integrated current for a self-propelled particle moving within a confined environment. The dynamics is modeled as a semi-Markovian process, where the transiti",
+      "url": "https://arxiv.org/abs/2604.04595v1"
     },
     {
-      "title": "Safety-Critical Centralized Nonlinear MPC for Cooperative Payload Transportation by Two Quadrupedal Robots",
-      "date": "2026-04-03",
-      "id": "2604.03200v1",
-      "abstract": "This paper presents a safety-critical centralized nonlinear model predictive control (NMPC) framework for cooperative payload transportation by two quadrupedal robots. The interconnected robot-payload",
-      "url": "https://arxiv.org/abs/2604.03200v1"
+      "title": "AnyUser: Translating Sketched User Intent into Domestic Robots",
+      "date": "2026-04-06",
+      "id": "2604.04811v1",
+      "abstract": "We introduce AnyUser, a unified robotic instruction system for intuitive domestic task instruction via free-form sketches on camera images, optionally with language. AnyUser interprets multimodal inpu",
+      "url": "https://arxiv.org/abs/2604.04811v1"
     },
     {
-      "title": "Bifurcations in Stokes Flow Sedimentation",
-      "date": "2026-04-03",
-      "id": "2604.03193v1",
-      "abstract": "Particles whose shapes couple translation to rotation display a rich array of behaviors as they sediment at low Reynolds number. We introduce a unifying perspective in which the possible dynamical reg",
-      "url": "https://arxiv.org/abs/2604.03193v1"
+      "title": "Exploring Expert Perspectives on Wearable-Triggered LLM Conversational Support for Daily Stress Management",
+      "date": "2026-04-06",
+      "id": "2604.04915v1",
+      "abstract": "Wearable devices increasingly support stress detection, while LLMs enable conversational mental health support. However, designing systems that meaningfully connect wearable-triggered stress events wi",
+      "url": "https://arxiv.org/abs/2604.04915v1"
     },
     {
-      "title": "The Compression Gap: Why Discrete Tokenization Limits Vision-Language-Action Model Scaling",
-      "date": "2026-04-03",
-      "id": "2604.03191v1",
-      "abstract": "Scaling Vision-Language-Action (VLA) models by upgrading the vision encoder is expected to improve downstream manipulation performance--as it does in vision-language modeling. We show that this expect",
-      "url": "https://arxiv.org/abs/2604.03191v1"
+      "title": "Rethinking Model Efficiency: Multi-Agent Inference with Large Models",
+      "date": "2026-04-06",
+      "id": "2604.04929v1",
+      "abstract": "Most vision-language models (VLMs) apply a large language model (LLM) as the decoder, where the response tokens are generated sequentially through autoregression. Therefore, the number of output token",
+      "url": "https://arxiv.org/abs/2604.04929v1"
     },
     {
-      "title": "Exclusive and Shared Electric Flying Taxis: Evidence on Modal Shares, Stated Reasons, and Modal Shifts",
-      "date": "2026-04-03",
-      "id": "2604.03166v1",
-      "abstract": "This study examines travelers' preferences for electric flying taxi services in the United Arab Emirates (UAE) under varying travel conditions and service configurations. A stated preference (SP) surv",
-      "url": "https://arxiv.org/abs/2604.03166v1"
+      "title": "TriAttention: Efficient Long Reasoning with Trigonometric KV Compression",
+      "date": "2026-04-06",
+      "id": "2604.04921v1",
+      "abstract": "Extended reasoning in large language models (LLMs) creates severe KV cache memory bottlenecks. Leading KV cache compression methods estimate KV importance using attention scores from recent post-RoPE ",
+      "url": "https://arxiv.org/abs/2604.04921v1"
     },
     {
-      "title": "BAS: A Decision-Theoretic Approach to Evaluating Large Language Model Confidence",
-      "date": "2026-04-03",
-      "id": "2604.03216v1",
-      "abstract": "Large language models (LLMs) often produce confident but incorrect answers in settings where abstention would be safer. Standard evaluation protocols, however, require a response and do not account fo",
-      "url": "https://arxiv.org/abs/2604.03216v1"
+      "title": "Vero: An Open RL Recipe for General Visual Reasoning",
+      "date": "2026-04-06",
+      "id": "2604.04917v1",
+      "abstract": "What does it take to build a visual reasoner that works across charts, science, spatial understanding, and open-ended tasks? The strongest vision-language models (VLMs) show such broad visual reasonin",
+      "url": "https://arxiv.org/abs/2604.04917v1"
     },
     {
-      "title": "p-adic Hodge theory of de Rham local systems, I: Newton polygon and monodromy",
-      "date": "2026-04-03",
-      "id": "2604.03220v1",
-      "abstract": "We prove that the relative p-adic monodromy theorem holds over a dense open subset. Moreover, we establish the equivalence of the following two statements: the local constancy of the Newton polygon fu",
-      "url": "https://arxiv.org/abs/2604.03220v1"
+      "title": "Counting geodesic paths in graphs",
+      "date": "2026-04-06",
+      "id": "2604.04907v1",
+      "abstract": "A geodesic is a shortest path which connects a pair of vertices of a graph G. In this paper we define the geodesic subpath number gpn(G) of a graph G as the number of geodesics in G. The number of sub",
+      "url": "https://arxiv.org/abs/2604.04907v1"
     },
     {
-      "title": "PR3DICTR: A modular AI framework for medical 3D image-based detection and outcome prediction",
-      "date": "2026-04-03",
-      "id": "2604.03203v1",
-      "abstract": "Three-dimensional medical image data and computer-aided decision making, particularly using deep learning, are becoming increasingly important in the medical field. To aid in these developments we int",
-      "url": "https://arxiv.org/abs/2604.03203v1"
+      "title": "Maximally localized modes of a multimode fiber",
+      "date": "2026-04-06",
+      "id": "2604.04903v1",
+      "abstract": "This article presents an optimization method to find the most spatially concentrated basis of a multimode fiber, obtained by minimizing the sum of the spatial spreads of the individual modes over all ",
+      "url": "https://arxiv.org/abs/2604.04903v1"
+    },
+    {
+      "title": "Elephant random walk on the infinite dihedral group $\\mathbb{Z}_2 * \\mathbb{Z}_2$",
+      "date": "2026-04-06",
+      "id": "2604.04922v1",
+      "abstract": "Elephant random walks were studied recently in \\cite{mukherjee2025elephant} on the groups $\\mathbb{Z}^{*d_1} * \\mathbb{Z}_2^{*d_2}$ whose Cayley graphs are infinite $d$-regular trees with $d = 2d_1 + ",
+      "url": "https://arxiv.org/abs/2604.04922v1"
+    },
+    {
+      "title": "Stratifying Reinforcement Learning with Signal Temporal Logic",
+      "date": "2026-04-06",
+      "id": "2604.04923v1",
+      "abstract": "In this paper, we develop a stratification-based semantics for Signal Temporal Logic (STL) in which each atomic predicate is interpreted as a membership test in a stratified space. This perspective re",
+      "url": "https://arxiv.org/abs/2604.04923v1"
     }
   ]
 }
