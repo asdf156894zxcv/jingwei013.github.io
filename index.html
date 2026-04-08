@@ -1252,10 +1252,10 @@
   <div class="heartbeat-status">
     <div class="heartbeat-item">
       <span class="heartbeat-dot"></span>
-      <span>最后更新: <strong id="lastUpdate">--</strong></span>
+      <span>最后更新: <strong id="lastUpdate">4月9</strong></span>
     </div>
     <div class="heartbeat-item">
-      <span>下次更新: <strong id="nextUpdate">--</strong></span>
+      <span>下次更新: <strong id="nextUpdate">4月10</strong></span>
     </div>
   </div>
   <p>&copy; 2026 jingwei013.ai · 具身智能导航研究 &amp; 独立开发 · 基于互联网公开资料构建</p>
@@ -2647,7 +2647,7 @@ const UPDATE_HOUR = 9; // 每天北京时间 9:00 自动更新
 function initHeartbeat() {
   const now = new Date();
   // 强制覆盖为最新心跳时间（每次网站更新时手动修改此处）
-  const LAST_UPDATE_ISO = '2026-04-04T02:00:00+08:00';
+  const LAST_UPDATE_ISO = '2026-04-09T00:00:00+08:00';
   localStorage.setItem('jingwei_last_update', LAST_UPDATE_ISO);
   const nextUpdateEl = document.getElementById('nextUpdate');
   const lastUpdateEl = document.getElementById('lastUpdate');
