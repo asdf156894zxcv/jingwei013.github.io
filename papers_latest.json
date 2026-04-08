@@ -1,147 +1,105 @@
 {
-  "updated": "2026-04-07 03:44 UTC",
-  "total": 20,
+  "updated": "2026-04-08 03:46 UTC",
+  "total": 14,
   "today_count": 0,
   "papers": [
     {
-      "title": "Vanast: Virtual Try-On with Human Image Animation via Synthetic Triplet Supervision",
-      "date": "2026-04-06",
-      "id": "2604.04934v1",
-      "abstract": "We present Vanast, a unified framework that generates garment-transferred human animation videos directly from a single human image, garment images, and a pose guidance video. Conventional two-stage p",
-      "url": "https://arxiv.org/abs/2604.04934v1"
+      "title": "Paper Circle: An Open-source Multi-agent Research Discovery and Analysis Framework",
+      "date": "2026-04-07",
+      "id": "2604.06170v1",
+      "abstract": "The rapid growth of scientific literature has made it increasingly difficult for researchers to efficiently discover, evaluate, and synthesize relevant work. Recent advances in multi-agent large langu",
+      "url": "https://arxiv.org/abs/2604.06170v1"
     },
     {
-      "title": "PointTPA: Dynamic Network Parameter Adaptation for 3D Scene Understanding",
-      "date": "2026-04-06",
-      "id": "2604.04933v1",
-      "abstract": "Scene-level point cloud understanding remains challenging due to diverse geometries, imbalanced category distributions, and highly varied spatial layouts. Existing methods improve object-level perform",
-      "url": "https://arxiv.org/abs/2604.04933v1"
+      "title": "In-Place Test-Time Training",
+      "date": "2026-04-07",
+      "id": "2604.06169v1",
+      "abstract": "The static ``train then deploy\" paradigm fundamentally limits Large Language Models (LLMs) from dynamically adapting their weights in response to continuous streams of new information inherent in real",
+      "url": "https://arxiv.org/abs/2604.06169v1"
     },
     {
-      "title": "Beyond the Final Actor: Modeling the Dual Roles of Creator and Editor for Fine-Grained LLM-Generated Text Detection",
-      "date": "2026-04-06",
-      "id": "2604.04932v1",
-      "abstract": "The misuse of large language models (LLMs) requires precise detection of synthetic text. Existing works mainly follow binary or ternary classification settings, which can only distinguish pure human/L",
-      "url": "https://arxiv.org/abs/2604.04932v1"
+      "title": "Action Images: End-to-End Policy Learning via Multiview Video Generation",
+      "date": "2026-04-07",
+      "id": "2604.06168v1",
+      "abstract": "World action models (WAMs) have emerged as a promising direction for robot policy learning, as they can leverage powerful video backbones to model the future states. However, existing approaches often",
+      "url": "https://arxiv.org/abs/2604.06168v1"
     },
     {
-      "title": "InfBaGel: Human-Object-Scene Interaction Generation with Dynamic Perception and Iterative Refinement",
-      "date": "2026-04-06",
-      "id": "2604.04843v1",
-      "abstract": "Human-object-scene interactions (HOSI) generation has broad applications in embodied AI, simulation, and animation. Unlike human-object interaction (HOI) and human-scene interaction (HSI), HOSI genera",
-      "url": "https://arxiv.org/abs/2604.04843v1"
+      "title": "MAESTRO: Adapting GUIs and Guiding Navigation with User Preferences in Conversational Agents with GUIs",
+      "date": "2026-04-07",
+      "id": "2604.06134v1",
+      "abstract": "Modern task-oriented chatbots present GUI elements alongside natural-language dialogue, yet the agent's role has largely been limited to interpreting natural-language input as GUI actions and followin",
+      "url": "https://arxiv.org/abs/2604.06134v1"
     },
     {
-      "title": "E-VLA: Event-Augmented Vision-Language-Action Model for Dark and Blurred Scenes",
-      "date": "2026-04-06",
-      "id": "2604.04834v1",
-      "abstract": "Robotic Vision-Language-Action (VLA) models generalize well for open-ended manipulation, but their perception is fragile under sensing-stage degradations such as extreme low light, motion blur, and bl",
-      "url": "https://arxiv.org/abs/2604.04834v1"
+      "title": "eVTOL Aircraft Energy Overhead Estimation under Conflict Resolution in High-Density Airspaces",
+      "date": "2026-04-07",
+      "id": "2604.06093v1",
+      "abstract": "Electric vertical takeoff and landing (eVTOL) aircraft operating in high-density urban airspace must maintain safe separation through tactical conflict resolution, yet the energy cost of such maneuver",
+      "url": "https://arxiv.org/abs/2604.06093v1"
     },
     {
-      "title": "Efficient Multi-Objective Planning with Weighted Maximization Using Large Neighbourhood Search",
-      "date": "2026-04-06",
-      "id": "2604.04826v1",
-      "abstract": "Autonomous navigation often requires the simultaneous optimization of multiple objectives. The most common approach scalarizes these into a single cost function using a weighted sum, but this method i",
-      "url": "https://arxiv.org/abs/2604.04826v1"
+      "title": "Beyond Compromise: Pareto-Lenient Consensus for Efficient Multi-Preference LLM Alignment",
+      "date": "2026-04-07",
+      "id": "2604.05965v1",
+      "abstract": "Transcending the single-preference paradigm, aligning LLMs with diverse human values is pivotal for robust deployment. Contemporary Multi-Objective Preference Alignment (MPA) approaches predominantly ",
+      "url": "https://arxiv.org/abs/2604.05965v1"
     },
     {
-      "title": "Comprehensive List of User Deception Techniques in Emails",
-      "date": "2026-04-06",
-      "id": "2604.04926v1",
-      "abstract": "Email remains a central communication medium, yet its long-standing design and interface conventions continue to enable deceptive attacks. This research note presents a structured list of 42 email-bas",
-      "url": "https://arxiv.org/abs/2604.04926v1"
+      "title": "HaloProbe: Bayesian Detection and Mitigation of Object Hallucinations in Vision-Language Models",
+      "date": "2026-04-07",
+      "id": "2604.06165v1",
+      "abstract": "Large vision-language models can produce object hallucinations in image descriptions, highlighting the need for effective detection and mitigation strategies. Prior work commonly relies on the model's",
+      "url": "https://arxiv.org/abs/2604.06165v1"
     },
     {
-      "title": "Fully Procedural Synthetic Data from Simple Rules for Multi-View Stereo",
-      "date": "2026-04-06",
-      "id": "2604.04925v1",
-      "abstract": "In this paper, we explore the design space of procedural rules for multi-view stereo (MVS). We demonstrate that we can generate effective training data using SimpleProc: a new, fully procedural genera",
-      "url": "https://arxiv.org/abs/2604.04925v1"
+      "title": "Delta6: A Low-Cost, 6-DOF Force-Sensing Flexible End-Effector",
+      "date": "2026-04-07",
+      "id": "2604.06150v1",
+      "abstract": "This paper presents Delta6, a low-cost, six-degree-of-freedom (6-DOF) force/torque end-effector that combines antagonistic springs with magnetic encoders to deliver accurate wrench sensing while remai",
+      "url": "https://arxiv.org/abs/2604.06150v1"
     },
     {
-      "title": "LoMa: Local Feature Matching Revisited",
-      "date": "2026-04-06",
-      "id": "2604.04931v1",
-      "abstract": "Local feature matching has long been a fundamental component of 3D vision systems such as Structure-from-Motion (SfM), yet progress has lagged behind the rapid advances of modern data-driven approache",
-      "url": "https://arxiv.org/abs/2604.04931v1"
+      "title": "Slovakia's Mass Testing: A Critical Look at the Negative Effects",
+      "date": "2026-04-07",
+      "id": "2604.05936v1",
+      "abstract": "This e-letter re-evaluates the epidemiological impact of nationwide mass antigen testing in Slovakia. While initial reports \\cite{Pavelka} proposed a causal link between these campaigns and declining ",
+      "url": "https://arxiv.org/abs/2604.05936v1"
     },
     {
-      "title": "ROSClaw: A Hierarchical Semantic-Physical Framework for Heterogeneous Multi-Agent Collaboration",
-      "date": "2026-04-06",
-      "id": "2604.04664v1",
-      "abstract": "The integration of large language models (LLMs) with embodied agents has improved high-level reasoning capabilities; however, a critical gap remains between semantic understanding and physical executi",
-      "url": "https://arxiv.org/abs/2604.04664v1"
+      "title": "Collective spatial reorganization from arrest to peeling and migration through density-dependent mobility in internal-state coordinates",
+      "date": "2026-04-07",
+      "id": "2604.05880v1",
+      "abstract": "Numerous problems in development, regeneration, and disease involve simultaneous evolution of both spatial organization and the internal state of the constituents in addition to local interactions and",
+      "url": "https://arxiv.org/abs/2604.05880v1"
     },
     {
-      "title": "Semi-Markovian Dynamics of a Self-Propelled Particle in a Confined Environment: A Large-Deviation Study",
-      "date": "2026-04-06",
-      "id": "2604.04595v1",
-      "abstract": "We study the large deviations of the time-integrated current for a self-propelled particle moving within a confined environment. The dynamics is modeled as a semi-Markovian process, where the transiti",
-      "url": "https://arxiv.org/abs/2604.04595v1"
+      "title": "Data, Not Model: Explaining Bias toward LLM Texts in Neural Retrievers",
+      "date": "2026-04-07",
+      "id": "2604.06163v1",
+      "abstract": "Recent studies show that neural retrievers often display source bias, favoring passages generated by LLMs over human-written ones, even when both are semantically similar. This bias has been considere",
+      "url": "https://arxiv.org/abs/2604.06163v1"
     },
     {
-      "title": "AnyUser: Translating Sketched User Intent into Domestic Robots",
-      "date": "2026-04-06",
-      "id": "2604.04811v1",
-      "abstract": "We introduce AnyUser, a unified robotic instruction system for intuitive domestic task instruction via free-form sketches on camera images, optionally with language. AnyUser interprets multimodal inpu",
-      "url": "https://arxiv.org/abs/2604.04811v1"
+      "title": "Mutual Linearity in and out of Stationarity for Markov Jump Processes: A Trajectory-Based Approach",
+      "date": "2026-04-07",
+      "id": "2604.06162v1",
+      "abstract": "Nonequilibrium response theory is a fundamental framework for understanding how physical systems respond to perturbations. Recently, a mutual linearity has been discovered for Markov jump processes us",
+      "url": "https://arxiv.org/abs/2604.06162v1"
     },
     {
-      "title": "Exploring Expert Perspectives on Wearable-Triggered LLM Conversational Support for Daily Stress Management",
-      "date": "2026-04-06",
-      "id": "2604.04915v1",
-      "abstract": "Wearable devices increasingly support stress detection, while LLMs enable conversational mental health support. However, designing systems that meaningfully connect wearable-triggered stress events wi",
-      "url": "https://arxiv.org/abs/2604.04915v1"
+      "title": "DiffHDR: Re-Exposing LDR Videos with Video Diffusion Models",
+      "date": "2026-04-07",
+      "id": "2604.06161v1",
+      "abstract": "Most digital videos are stored in 8-bit low dynamic range (LDR) formats, where much of the original high dynamic range (HDR) scene radiance is lost due to saturation and quantization. This loss of hig",
+      "url": "https://arxiv.org/abs/2604.06161v1"
     },
     {
-      "title": "Rethinking Model Efficiency: Multi-Agent Inference with Large Models",
-      "date": "2026-04-06",
-      "id": "2604.04929v1",
-      "abstract": "Most vision-language models (VLMs) apply a large language model (LLM) as the decoder, where the response tokens are generated sequentially through autoregression. Therefore, the number of output token",
-      "url": "https://arxiv.org/abs/2604.04929v1"
-    },
-    {
-      "title": "TriAttention: Efficient Long Reasoning with Trigonometric KV Compression",
-      "date": "2026-04-06",
-      "id": "2604.04921v1",
-      "abstract": "Extended reasoning in large language models (LLMs) creates severe KV cache memory bottlenecks. Leading KV cache compression methods estimate KV importance using attention scores from recent post-RoPE ",
-      "url": "https://arxiv.org/abs/2604.04921v1"
-    },
-    {
-      "title": "Vero: An Open RL Recipe for General Visual Reasoning",
-      "date": "2026-04-06",
-      "id": "2604.04917v1",
-      "abstract": "What does it take to build a visual reasoner that works across charts, science, spatial understanding, and open-ended tasks? The strongest vision-language models (VLMs) show such broad visual reasonin",
-      "url": "https://arxiv.org/abs/2604.04917v1"
-    },
-    {
-      "title": "Counting geodesic paths in graphs",
-      "date": "2026-04-06",
-      "id": "2604.04907v1",
-      "abstract": "A geodesic is a shortest path which connects a pair of vertices of a graph G. In this paper we define the geodesic subpath number gpn(G) of a graph G as the number of geodesics in G. The number of sub",
-      "url": "https://arxiv.org/abs/2604.04907v1"
-    },
-    {
-      "title": "Maximally localized modes of a multimode fiber",
-      "date": "2026-04-06",
-      "id": "2604.04903v1",
-      "abstract": "This article presents an optimization method to find the most spatially concentrated basis of a multimode fiber, obtained by minimizing the sum of the spatial spreads of the individual modes over all ",
-      "url": "https://arxiv.org/abs/2604.04903v1"
-    },
-    {
-      "title": "Elephant random walk on the infinite dihedral group $\\mathbb{Z}_2 * \\mathbb{Z}_2$",
-      "date": "2026-04-06",
-      "id": "2604.04922v1",
-      "abstract": "Elephant random walks were studied recently in \\cite{mukherjee2025elephant} on the groups $\\mathbb{Z}^{*d_1} * \\mathbb{Z}_2^{*d_2}$ whose Cayley graphs are infinite $d$-regular trees with $d = 2d_1 + ",
-      "url": "https://arxiv.org/abs/2604.04922v1"
-    },
-    {
-      "title": "Stratifying Reinforcement Learning with Signal Temporal Logic",
-      "date": "2026-04-06",
-      "id": "2604.04923v1",
-      "abstract": "In this paper, we develop a stratification-based semantics for Signal Temporal Logic (STL) in which each atomic predicate is interpreted as a membership test in a stratified space. This perspective re",
-      "url": "https://arxiv.org/abs/2604.04923v1"
+      "title": "On supertoken graphs",
+      "date": "2026-04-07",
+      "id": "2604.06164v1",
+      "abstract": "We generalize the concept of token graphs to obtain supertoken graphs. In the latter case, there can be more than one token in a vertex. We formally define supertoken graphs and establish their basic ",
+      "url": "https://arxiv.org/abs/2604.06164v1"
     }
   ]
 }
