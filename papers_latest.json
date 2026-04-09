@@ -1,105 +1,147 @@
 {
-  "updated": "2026-04-08 03:46 UTC",
-  "total": 14,
+  "updated": "2026-04-09 03:42 UTC",
+  "total": 20,
   "today_count": 0,
   "papers": [
     {
-      "title": "Paper Circle: An Open-source Multi-agent Research Discovery and Analysis Framework",
-      "date": "2026-04-07",
-      "id": "2604.06170v1",
-      "abstract": "The rapid growth of scientific literature has made it increasingly difficult for researchers to efficiently discover, evaluate, and synthesize relevant work. Recent advances in multi-agent large langu",
-      "url": "https://arxiv.org/abs/2604.06170v1"
+      "title": "Fast Spatial Memory with Elastic Test-Time Training",
+      "date": "2026-04-08",
+      "id": "2604.07350v1",
+      "abstract": "Large Chunk Test-Time Training (LaCT) has shown strong performance on long-context 3D reconstruction, but its fully plastic inference-time updates remain vulnerable to catastrophic forgetting and over",
+      "url": "https://arxiv.org/abs/2604.07350v1"
     },
     {
-      "title": "In-Place Test-Time Training",
-      "date": "2026-04-07",
-      "id": "2604.06169v1",
-      "abstract": "The static ``train then deploy\" paradigm fundamentally limits Large Language Models (LLMs) from dynamically adapting their weights in response to continuous streams of new information inherent in real",
-      "url": "https://arxiv.org/abs/2604.06169v1"
+      "title": "MoRight: Motion Control Done Right",
+      "date": "2026-04-08",
+      "id": "2604.07348v1",
+      "abstract": "Generating motion-controlled videos--where user-specified actions drive physically plausible scene dynamics under freely chosen viewpoints--demands two capabilities: (1) disentangled motion control, a",
+      "url": "https://arxiv.org/abs/2604.07348v1"
     },
     {
-      "title": "Action Images: End-to-End Policy Learning via Multiview Video Generation",
-      "date": "2026-04-07",
-      "id": "2604.06168v1",
-      "abstract": "World action models (WAMs) have emerged as a promising direction for robot policy learning, as they can leverage powerful video backbones to model the future states. However, existing approaches often",
-      "url": "https://arxiv.org/abs/2604.06168v1"
+      "title": "Personalized RewardBench: Evaluating Reward Models with Human Aligned Personalization",
+      "date": "2026-04-08",
+      "id": "2604.07343v1",
+      "abstract": "Pluralistic alignment has emerged as a critical frontier in the development of Large Language Models (LLMs), with reward models (RMs) serving as a central mechanism for capturing diverse human values.",
+      "url": "https://arxiv.org/abs/2604.07343v1"
     },
     {
-      "title": "MAESTRO: Adapting GUIs and Guiding Navigation with User Preferences in Conversational Agents with GUIs",
-      "date": "2026-04-07",
-      "id": "2604.06134v1",
-      "abstract": "Modern task-oriented chatbots present GUI elements alongside natural-language dialogue, yet the agent's role has largely been limited to interpreting natural-language input as GUI actions and followin",
-      "url": "https://arxiv.org/abs/2604.06134v1"
+      "title": "Robots that learn to evaluate models of collective behavior",
+      "date": "2026-04-08",
+      "id": "2604.07303v1",
+      "abstract": "Understanding and modeling animal behavior is essential for studying collective motion, decision-making, and bio-inspired robotics. Yet, evaluating the accuracy of behavioral models still often relies",
+      "url": "https://arxiv.org/abs/2604.07303v1"
     },
     {
-      "title": "eVTOL Aircraft Energy Overhead Estimation under Conflict Resolution in High-Density Airspaces",
-      "date": "2026-04-07",
-      "id": "2604.06093v1",
-      "abstract": "Electric vertical takeoff and landing (eVTOL) aircraft operating in high-density urban airspace must maintain safe separation through tactical conflict resolution, yet the energy cost of such maneuver",
-      "url": "https://arxiv.org/abs/2604.06093v1"
+      "title": "CADENCE: Context-Adaptive Depth Estimation for Navigation and Computational Efficiency",
+      "date": "2026-04-08",
+      "id": "2604.07286v1",
+      "abstract": "Autonomous vehicles deployed in remote environments typically rely on embedded processors, compact batteries, and lightweight sensors. These hardware limitations conflict with the need to derive robus",
+      "url": "https://arxiv.org/abs/2604.07286v1"
     },
     {
-      "title": "Beyond Compromise: Pareto-Lenient Consensus for Efficient Multi-Preference LLM Alignment",
-      "date": "2026-04-07",
-      "id": "2604.05965v1",
-      "abstract": "Transcending the single-preference paradigm, aligning LLMs with diverse human values is pivotal for robust deployment. Contemporary Multi-Objective Preference Alignment (MPA) approaches predominantly ",
-      "url": "https://arxiv.org/abs/2604.05965v1"
+      "title": "INSPATIO-WORLD: A Real-Time 4D World Simulator via Spatiotemporal Autoregressive Modeling",
+      "date": "2026-04-08",
+      "id": "2604.07209v1",
+      "abstract": "Building world models with spatial consistency and real-time interactivity remains a fundamental challenge in computer vision. Current video generation paradigms often struggle with a lack of spatial ",
+      "url": "https://arxiv.org/abs/2604.07209v1"
     },
     {
-      "title": "HaloProbe: Bayesian Detection and Mitigation of Object Hallucinations in Vision-Language Models",
-      "date": "2026-04-07",
-      "id": "2604.06165v1",
-      "abstract": "Large vision-language models can produce object hallucinations in image descriptions, highlighting the need for effective detection and mitigation strategies. Prior work commonly relies on the model's",
-      "url": "https://arxiv.org/abs/2604.06165v1"
+      "title": "From Blobs to Spokes: High-Fidelity Surface Reconstruction via Oriented Gaussians",
+      "date": "2026-04-08",
+      "id": "2604.07337v1",
+      "abstract": "3D Gaussian Splatting (3DGS) has revolutionized fast novel view synthesis, yet its opacity-based formulation makes surface extraction fundamentally difficult. Unlike implicit methods built on Signed D",
+      "url": "https://arxiv.org/abs/2604.07337v1"
     },
     {
-      "title": "Delta6: A Low-Cost, 6-DOF Force-Sensing Flexible End-Effector",
-      "date": "2026-04-07",
-      "id": "2604.06150v1",
-      "abstract": "This paper presents Delta6, a low-cost, six-degree-of-freedom (6-DOF) force/torque end-effector that combines antagonistic springs with magnetic encoders to deliver accurate wrench sensing while remai",
-      "url": "https://arxiv.org/abs/2604.06150v1"
+      "title": "Temporal Structure Mediates the Robustness and Collapse of Plant-Pollinator Networks",
+      "date": "2026-04-08",
+      "id": "2604.07347v1",
+      "abstract": "Mutualistic networks provide a powerful way to describe and analyse plant-pollinator communities and their structure over time. While these networks capture the complex interdependencies that link pop",
+      "url": "https://arxiv.org/abs/2604.07347v1"
     },
     {
-      "title": "Slovakia's Mass Testing: A Critical Look at the Negative Effects",
-      "date": "2026-04-07",
-      "id": "2604.05936v1",
-      "abstract": "This e-letter re-evaluates the epidemiological impact of nationwide mass antigen testing in Slovakia. While initial reports \\cite{Pavelka} proposed a causal link between these campaigns and declining ",
-      "url": "https://arxiv.org/abs/2604.05936v1"
+      "title": "Autopoiesis: A Self-Evolving System Paradigm for LLM Serving Under Runtime Dynamics",
+      "date": "2026-04-08",
+      "id": "2604.07144v1",
+      "abstract": "Modern Large Language Model (LLM) serving operates in highly volatile environments characterized by severe runtime dynamics, such as workload fluctuations and elastic cluster autoscaling. Traditional ",
+      "url": "https://arxiv.org/abs/2604.07144v1"
     },
     {
-      "title": "Collective spatial reorganization from arrest to peeling and migration through density-dependent mobility in internal-state coordinates",
-      "date": "2026-04-07",
-      "id": "2604.05880v1",
-      "abstract": "Numerous problems in development, regeneration, and disease involve simultaneous evolution of both spatial organization and the internal state of the constituents in addition to local interactions and",
-      "url": "https://arxiv.org/abs/2604.05880v1"
+      "title": "TAMEn: Tactile-Aware Manipulation Engine for Closed-Loop Data Collection in Contact-Rich Tasks",
+      "date": "2026-04-08",
+      "id": "2604.07335v1",
+      "abstract": "Handheld paradigms offer an efficient and intuitive way for collecting large-scale demonstration of robot manipulation. However, achieving contact-rich bimanual manipulation through these methods rema",
+      "url": "https://arxiv.org/abs/2604.07335v1"
     },
     {
-      "title": "Data, Not Model: Explaining Bias toward LLM Texts in Neural Retrievers",
-      "date": "2026-04-07",
-      "id": "2604.06163v1",
-      "abstract": "Recent studies show that neural retrievers often display source bias, favoring passages generated by LLMs over human-written ones, even when both are semantically similar. This bias has been considere",
-      "url": "https://arxiv.org/abs/2604.06163v1"
+      "title": "RoSHI: A Versatile Robot-oriented Suit for Human Data In-the-Wild",
+      "date": "2026-04-08",
+      "id": "2604.07331v1",
+      "abstract": "Scaling up robot learning will likely require human data containing rich and long-horizon interactions in the wild. Existing approaches for collecting such data trade off portability, robustness to oc",
+      "url": "https://arxiv.org/abs/2604.07331v1"
     },
     {
-      "title": "Mutual Linearity in and out of Stationarity for Markov Jump Processes: A Trajectory-Based Approach",
-      "date": "2026-04-07",
-      "id": "2604.06162v1",
-      "abstract": "Nonequilibrium response theory is a fundamental framework for understanding how physical systems respond to perturbations. Recently, a mutual linearity has been discovered for Markov jump processes us",
-      "url": "https://arxiv.org/abs/2604.06162v1"
+      "title": "Toward a Tractability Frontier for Exact Relevance Certification",
+      "date": "2026-04-08",
+      "id": "2604.07349v1",
+      "abstract": "Exact relevance certification asks which coordinates are necessary to determine the optimal action in a coordinate-structured decision problem. The tractable families treated here admit a finite primi",
+      "url": "https://arxiv.org/abs/2604.07349v1"
     },
     {
-      "title": "DiffHDR: Re-Exposing LDR Videos with Video Diffusion Models",
-      "date": "2026-04-07",
-      "id": "2604.06161v1",
-      "abstract": "Most digital videos are stored in 8-bit low dynamic range (LDR) formats, where much of the original high dynamic range (HDR) scene radiance is lost due to saturation and quantization. This loss of hig",
-      "url": "https://arxiv.org/abs/2604.06161v1"
+      "title": "Splats under Pressure: Exploring Performance-Energy Trade-offs in Real-Time 3D Gaussian Splatting under Constrained GPU Budgets",
+      "date": "2026-04-08",
+      "id": "2604.07177v1",
+      "abstract": "We investigate the feasibility of real-time 3D Gaussian Splatting (3DGS) rasterisation on edge clients with varying Gaussian splat counts and GPU computational budgets. Instead of evaluating multiple ",
+      "url": "https://arxiv.org/abs/2604.07177v1"
     },
     {
-      "title": "On supertoken graphs",
-      "date": "2026-04-07",
-      "id": "2604.06164v1",
-      "abstract": "We generalize the concept of token graphs to obtain supertoken graphs. In the latter case, there can be more than one token in a vertex. We formally define supertoken graphs and establish their basic ",
-      "url": "https://arxiv.org/abs/2604.06164v1"
+      "title": "Multi-Turn Reasoning LLMs for Task Offloading in Mobile Edge Computing",
+      "date": "2026-04-08",
+      "id": "2604.07148v1",
+      "abstract": "Emerging computation-intensive applications impose stringent latency requirements on resource-constrained mobile devices. Mobile Edge Computing (MEC) addresses this challenge through task offloading. ",
+      "url": "https://arxiv.org/abs/2604.07148v1"
+    },
+    {
+      "title": "Towards viable H$_2$ storage in Ca decorated low-dimensional materials with insights from reference quantum Monte Carlo",
+      "date": "2026-04-08",
+      "id": "2604.07110v1",
+      "abstract": "Hydrogen technology is set to be a key energy alternative for mitigating pollution and reducing CO$_2$ emissions. However, the current storage mechanism of hydrogen molecules in carbon fibre tanks det",
+      "url": "https://arxiv.org/abs/2604.07110v1"
+    },
+    {
+      "title": "Appear2Meaning: A Cross-Cultural Benchmark for Structured Cultural Metadata Inference from Images",
+      "date": "2026-04-08",
+      "id": "2604.07338v1",
+      "abstract": "Recent advances in vision-language models (VLMs) have improved image captioning for cultural heritage. However, inferring structured cultural metadata (e.g., creator, origin, period) from visual input",
+      "url": "https://arxiv.org/abs/2604.07338v1"
+    },
+    {
+      "title": "Syntax Is Easy, Semantics Is Hard: Evaluating LLMs for LTL Translation",
+      "date": "2026-04-08",
+      "id": "2604.07321v1",
+      "abstract": "Propositional Linear Temporal Logic (LTL) is a popular formalism for specifying desirable requirements and security and privacy policies for software, networks, and systems. Yet expressing such requir",
+      "url": "https://arxiv.org/abs/2604.07321v1"
+    },
+    {
+      "title": "Interaction-Mediated Non-Reciprocal Dynamics in Open Quantum Systems: From an Exactly Solvable Model to Generic Behavior",
+      "date": "2026-04-08",
+      "id": "2604.07346v1",
+      "abstract": "Reservoir engineering has emerged as a powerful paradigm to realize non-reciprocal dynamics in open quantum many-body systems. Here, we show that density-density interactions can transfer bath-induced",
+      "url": "https://arxiv.org/abs/2604.07346v1"
+    },
+    {
+      "title": "Dual-Envelope Constrained Nonlinear MPC for Distributed Drive Electric Vehicles Drifting Under Bounded Steering and Direct Yaw-Moment Control",
+      "date": "2026-04-08",
+      "id": "2604.07342v1",
+      "abstract": "Distributed drive electric vehicles offer superior yaw moment control for autonomous drifting in extreme maneuvers. Conventional drift analysis constructs stability boundaries from open loop equilibri",
+      "url": "https://arxiv.org/abs/2604.07342v1"
+    },
+    {
+      "title": "TC-AE: Unlocking Token Capacity for Deep Compression Autoencoders",
+      "date": "2026-04-08",
+      "id": "2604.07340v1",
+      "abstract": "We propose TC-AE, a ViT-based architecture for deep compression autoencoders. Existing methods commonly increase the channel number of latent representations to maintain reconstruction quality under h",
+      "url": "https://arxiv.org/abs/2604.07340v1"
     }
   ]
 }
