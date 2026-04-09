@@ -2517,7 +2517,7 @@ function renderHomeCasesPreview() {
   const container = document.getElementById('homeCasesPreview');
   if (!container) return;
   // 各分类各取1个，共4个
-  const cats = ['failure','success','knowledge','aistrategy'];
+  const cats = ['comp','tech','pmf','team','cash','pmf_ok'];
   const preview = cats.map(cat => CASES.find(c => c.cat === cat)).filter(Boolean);
   container.innerHTML = preview.map(c => `
     <div class="case-card" onclick="showSection('cases');setTimeout(()=>renderCases('${c.cat}'),50)" style="cursor:pointer">
