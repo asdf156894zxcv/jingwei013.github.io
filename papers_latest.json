@@ -1,133 +1,133 @@
 {
-  "updated": "2026-04-12 03:58 UTC",
+  "updated": "2026-04-13 04:15 UTC",
   "total": 18,
   "today_count": 0,
   "papers": [
     {
-      "title": "GaussiAnimate: Reconstruct and Rig Animatable Categories with Level of Dynamics",
-      "date": "2026-04-09",
-      "id": "2604.08547v1",
-      "abstract": "Free-form bones, that conform closely to the surface, can effectively capture non-rigid deformations, but lack a kinematic structure necessary for intuitive control. Thus, we propose a Scaffold-Skin R",
-      "url": "https://arxiv.org/abs/2604.08547v1"
+      "title": "Tango: Taming Visual Signals for Efficient Video Large Language Models",
+      "date": "2026-04-10",
+      "id": "2604.09547v1",
+      "abstract": "Token pruning has emerged as a mainstream approach for developing efficient Video Large Language Models (Video LLMs). This work revisits and advances the two predominant token-pruning paradigms: atten",
+      "url": "https://arxiv.org/abs/2604.09547v1"
     },
     {
-      "title": "ETCH-X: Robustify Expressive Body Fitting to Clothed Humans with Composable Datasets",
-      "date": "2026-04-09",
-      "id": "2604.08548v1",
-      "abstract": "Human body fitting, which aligns parametric body models such as SMPL to raw 3D point clouds of clothed humans, serves as a crucial first step for downstream tasks like animation and texturing. An effe",
-      "url": "https://arxiv.org/abs/2604.08548v1"
+      "title": "Large Language Models Generate Harmful Content Using a Distinct, Unified Mechanism",
+      "date": "2026-04-10",
+      "id": "2604.09544v1",
+      "abstract": "Large language models (LLMs) undergo alignment training to avoid harmful behaviors, yet the resulting safeguards remain brittle: jailbreaks routinely bypass them, and fine-tuning on narrow domains can",
+      "url": "https://arxiv.org/abs/2604.09544v1"
     },
     {
-      "title": "When Numbers Speak: Aligning Textual Numerals and Visual Instances in Text-to-Video Diffusion Models",
-      "date": "2026-04-09",
-      "id": "2604.08546v1",
-      "abstract": "Text-to-video diffusion models have enabled open-ended video synthesis, but often struggle with generating the correct number of objects specified in a prompt. We introduce NUMINA , a training-free id",
-      "url": "https://arxiv.org/abs/2604.08546v1"
+      "title": "Trans-RAG: Query-Centric Vector Transformation for Secure Cross-Organizational Retrieval",
+      "date": "2026-04-10",
+      "id": "2604.09541v1",
+      "abstract": "Retrieval Augmented Generation (RAG) systems deployed across organizational boundaries face fundamental tensions between security, accuracy, and efficiency. Current encryption methods expose plaintext",
+      "url": "https://arxiv.org/abs/2604.09541v1"
     },
     {
-      "title": "SIM1: Physics-Aligned Simulator as Zero-Shot Data Scaler in Deformable Worlds",
-      "date": "2026-04-09",
-      "id": "2604.08544v1",
-      "abstract": "Robotic manipulation with deformable objects represents a data-intensive regime in embodied learning, where shape, contact, and topology co-evolve in ways that far exceed the variability of rigids. Al",
-      "url": "https://arxiv.org/abs/2604.08544v1"
+      "title": "EgoTL: Egocentric Think-Aloud Chains for Long-Horizon Tasks",
+      "date": "2026-04-10",
+      "id": "2604.09535v1",
+      "abstract": "Large foundation models have made significant advances in embodied intelligence, enabling synthesis and reasoning over egocentric input for household tasks. However, VLM-based auto-labeling is often n",
+      "url": "https://arxiv.org/abs/2604.09535v1"
     },
     {
-      "title": "ActiveGlasses: Learning Manipulation with Active Vision from Ego-centric Human Demonstration",
-      "date": "2026-04-09",
-      "id": "2604.08534v1",
-      "abstract": "Large-scale real-world robot data collection is a prerequisite for bringing robots into everyday deployment. However, existing pipelines often rely on specialized handheld devices to bridge the embodi",
-      "url": "https://arxiv.org/abs/2604.08534v1"
+      "title": "Event-Driven Temporal Graph Networks for Asynchronous Multi-Agent Cyber Defense in NetForge_RL",
+      "date": "2026-04-10",
+      "id": "2604.09523v1",
+      "abstract": "The transition of Multi-Agent Reinforcement Learning (MARL) policies from simulated cyber wargames to operational Security Operations Centers (SOCs) is fundamentally bottlenecked by the Sim2Real gap. ",
+      "url": "https://arxiv.org/abs/2604.09523v1"
     },
     {
-      "title": "Ads in AI Chatbots? An Analysis of How Large Language Models Navigate Conflicts of Interest",
-      "date": "2026-04-09",
-      "id": "2604.08525v1",
-      "abstract": "Today's large language models (LLMs) are trained to align with user preferences through methods such as reinforcement learning. Yet models are beginning to be deployed not merely to satisfy users, but",
-      "url": "https://arxiv.org/abs/2604.08525v1"
+      "title": "SafeAdapt: Provably Safe Policy Updates in Deep Reinforcement Learning",
+      "date": "2026-04-10",
+      "id": "2604.09452v1",
+      "abstract": "Safety guarantees are a prerequisite to the deployment of reinforcement learning (RL) agents in safety-critical tasks. Often, deployment environments exhibit non-stationary dynamics or are subject to ",
+      "url": "https://arxiv.org/abs/2604.09452v1"
     },
     {
-      "title": "Act Wisely: Cultivating Meta-Cognitive Tool Use in Agentic Multimodal Models",
-      "date": "2026-04-09",
-      "id": "2604.08545v1",
-      "abstract": "The advent of agentic multimodal models has empowered systems to actively interact with external environments. However, current agents suffer from a profound meta-cognitive deficit: they struggle to a",
-      "url": "https://arxiv.org/abs/2604.08545v1"
+      "title": "RIRF: Reasoning Image Restoration Framework",
+      "date": "2026-04-10",
+      "id": "2604.09511v1",
+      "abstract": "Universal image restoration (UIR) aims to recover clean images from diverse and unknown degradations using a unified model. Existing UIR methods primarily focus on pixel reconstruction and often lack ",
+      "url": "https://arxiv.org/abs/2604.09511v1"
     },
     {
-      "title": "ClawBench: Can AI Agents Complete Everyday Online Tasks?",
-      "date": "2026-04-09",
-      "id": "2604.08523v1",
-      "abstract": "AI agents may be able to automate your inbox, but can they automate other routine aspects of your life? Everyday online tasks offer a realistic yet unsolved testbed for evaluating the next generation ",
-      "url": "https://arxiv.org/abs/2604.08523v1"
+      "title": "ANTIC: Adaptive Neural Temporal In-situ Compressor",
+      "date": "2026-04-10",
+      "id": "2604.09543v1",
+      "abstract": "The persistent storage requirements for high-resolution, spatiotemporally evolving fields governed by large-scale and high-dimensional partial differential equations (PDEs) have reached the petabyte-t",
+      "url": "https://arxiv.org/abs/2604.09543v1"
     },
     {
-      "title": "MolmoWeb: Open Visual Web Agent and Open Data for the Open Web",
-      "date": "2026-04-09",
-      "id": "2604.08516v1",
-      "abstract": "Web agents--autonomous systems that navigate and execute tasks on the web on behalf of users--have the potential to transform how people interact with the digital world. However, the most capable web ",
-      "url": "https://arxiv.org/abs/2604.08516v1"
+      "title": "Physics-Informed Reinforcement Learning of Spatial Density Velocity Potentials for Map-Free Racing",
+      "date": "2026-04-10",
+      "id": "2604.09499v1",
+      "abstract": "Autonomous racing without prebuilt maps is a grand challenge for embedded robotics that requires kinodynamic planning from instantaneous sensor data at the acceleration and tire friction limits. Out-O",
+      "url": "https://arxiv.org/abs/2604.09499v1"
     },
     {
-      "title": "A-SLIP: Acoustic Sensing for Continuous In-hand Slip Estimation",
-      "date": "2026-04-09",
-      "id": "2604.08528v1",
-      "abstract": "Reliable in-hand manipulation requires accurate real-time estimation of slip between a gripper and a grasped object. Existing tactile sensing approaches based on vision, capacitance, or force-torque m",
-      "url": "https://arxiv.org/abs/2604.08528v1"
+      "title": "Black Hole Dynamics at Fifth Post-Newtonian Order",
+      "date": "2026-04-10",
+      "id": "2604.09545v1",
+      "abstract": "Using the worldline action in [2409.05860], we derive the total even-in-velocity (relative) impulse, scattering angle, and time delay at fifth post-Newtonian (5PN) order, including radiation-reaction ",
+      "url": "https://arxiv.org/abs/2604.09545v1"
     },
     {
-      "title": "\"Because we are no longer ashamed of our disabilities, we are proud\": Advocating and Reclaiming Next-Gen Accessibility Symbols",
-      "date": "2026-04-09",
-      "id": "2604.08514v1",
-      "abstract": "Our study investigates the relationship between accessibility symbols and emerging technologies in supporting disability disclosure. We conducted twenty three remote design creation sessions with semi",
-      "url": "https://arxiv.org/abs/2604.08514v1"
+      "title": "On the origin of superlattice stacking faults nucleation via climb of Frank partial in CoNi-based superalloys",
+      "date": "2026-04-10",
+      "id": "2604.09329v1",
+      "abstract": "High-temperature deformation in superalloys is governed by the cooperative glide-climb motion of dislocations. Superlattice stacking faults (SFs) in the gamma prime phase are predominantly interpreted",
+      "url": "https://arxiv.org/abs/2604.09329v1"
     },
     {
-      "title": "LAMP: Lift Image-Editing as General 3D Priors for Open-world Manipulation",
-      "date": "2026-04-09",
-      "id": "2604.08475v1",
-      "abstract": "Human-like generalization in open-world remains a fundamental challenge for robotic manipulation. Existing learning-based methods, including reinforcement learning, imitation learning, and vision-lang",
-      "url": "https://arxiv.org/abs/2604.08475v1"
+      "title": "Robust Adaptive Backstepping Impedance Control of Robots in Unknown Environments",
+      "date": "2026-04-10",
+      "id": "2604.09323v1",
+      "abstract": "This paper presents a Robust Adaptive Backstepping Impedance Control (RABIC) strategy for robots operating in contact-rich and uncertain environments. The proposed control strategy considers the compl",
+      "url": "https://arxiv.org/abs/2604.09323v1"
     },
     {
-      "title": "KnowU-Bench: Towards Interactive, Proactive, and Personalized Mobile Agent Evaluation",
-      "date": "2026-04-09",
-      "id": "2604.08455v1",
-      "abstract": "Personalized mobile agents that infer user preferences and calibrate proactive assistance hold great promise as everyday digital assistants, yet existing benchmarks fail to capture what this requires.",
-      "url": "https://arxiv.org/abs/2604.08455v1"
+      "title": "The causal relation between off-street parking and electric vehicle adoption in Scotland",
+      "date": "2026-04-10",
+      "id": "2604.09271v1",
+      "abstract": "The transition to electric mobility hinges on maximising aggregate adoption while also facilitating equitable access. This study examines whether the 'charging divide' between households with and with",
+      "url": "https://arxiv.org/abs/2604.09271v1"
     },
     {
-      "title": "OpenVLThinkerV2: A Generalist Multimodal Reasoning Model for Multi-domain Visual Tasks",
-      "date": "2026-04-09",
-      "id": "2604.08539v1",
-      "abstract": "Group Relative Policy Optimization (GRPO) has emerged as the de facto Reinforcement Learning (RL) objective driving recent advancements in Multimodal Large Language Models. However, extending this suc",
-      "url": "https://arxiv.org/abs/2604.08539v1"
+      "title": "Envisioning the Future, One Step at a Time",
+      "date": "2026-04-10",
+      "id": "2604.09527v1",
+      "abstract": "Accurately anticipating how complex, diverse scenes will evolve requires models that represent uncertainty, simulate along extended interaction chains, and efficiently explore many plausible futures. ",
+      "url": "https://arxiv.org/abs/2604.09527v1"
     },
     {
-      "title": "Fail2Drive: Benchmarking Closed-Loop Driving Generalization",
-      "date": "2026-04-09",
-      "id": "2604.08535v1",
-      "abstract": "Generalization under distribution shift remains a central bottleneck for closed-loop autonomous driving. Although simulators like CARLA enable safe and scalable testing, existing benchmarks rarely mea",
-      "url": "https://arxiv.org/abs/2604.08535v1"
+      "title": "Clustered vortex helices with compactly supported cross-sectional vorticity in the 3D Euler equations",
+      "date": "2026-04-10",
+      "id": "2604.09546v1",
+      "abstract": "We consider the three-dimensional incompressible Euler equations for helical flows without swirl. By adapting gluing techniques, we construct the first smooth multi-vortex solution in the whole space ",
+      "url": "https://arxiv.org/abs/2604.09546v1"
     },
     {
-      "title": "E-3DPSM: A State Machine for Event-Based Egocentric 3D Human Pose Estimation",
-      "date": "2026-04-09",
-      "id": "2604.08543v1",
-      "abstract": "Event cameras offer multiple advantages in monocular egocentric 3D human pose estimation from head-mounted devices, such as millisecond temporal resolution, high dynamic range, and negligible motion b",
-      "url": "https://arxiv.org/abs/2604.08543v1"
+      "title": "Explicit Block Encoding of Difference-of-Gaussian Operators on a Periodic Grid",
+      "date": "2026-04-10",
+      "id": "2604.09538v1",
+      "abstract": "The Difference-of-Gaussian (DoG) is a widely used operator across applications, including image processing (feature and edge detection), quantum machine learning, and finite-difference methods (approx",
+      "url": "https://arxiv.org/abs/2604.09538v1"
     },
     {
-      "title": "Scal3R: Scalable Test-Time Training for Large-Scale 3D Reconstruction",
-      "date": "2026-04-09",
-      "id": "2604.08542v1",
-      "abstract": "This paper addresses the task of large-scale 3D scene reconstruction from long video sequences. Recent feed-forward reconstruction models have shown promising results by directly regressing 3D geometr",
-      "url": "https://arxiv.org/abs/2604.08542v1"
+      "title": "A Physically-Informed Subgraph Isomorphism Approach to Molecular Docking Using Quantum Annealers",
+      "date": "2026-04-10",
+      "id": "2604.09540v1",
+      "abstract": "Molecular docking is a crucial step in the development of new drugs as it guides the positioning of a small molecule (ligand) within the pocket of a target protein. In the literature, a feasibility st",
+      "url": "https://arxiv.org/abs/2604.09540v1"
     },
     {
-      "title": "Seeing but Not Thinking: Routing Distraction in Multimodal Mixture-of-Experts",
-      "date": "2026-04-09",
-      "id": "2604.08541v1",
-      "abstract": "Multimodal Mixture-of-Experts (MoE) models have achieved remarkable performance on vision-language tasks. However, we identify a puzzling phenomenon termed Seeing but Not Thinking: models accurately p",
-      "url": "https://arxiv.org/abs/2604.08541v1"
+      "title": "Case-Grounded Evidence Verification: A Framework for Constructing Evidence-Sensitive Supervision",
+      "date": "2026-04-10",
+      "id": "2604.09537v1",
+      "abstract": "Evidence-grounded reasoning requires more than attaching retrieved text to a prediction: a model should make decisions that depend on whether the provided evidence supports the target claim. In practi",
+      "url": "https://arxiv.org/abs/2604.09537v1"
     }
   ]
 }
