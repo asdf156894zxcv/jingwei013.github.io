@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VLM置信度校准：为什么AI越自信越危险 | 精卫导航</title>
+<style>
+body{font-family:'Inter','Noto Serif SC',-apple-system,sans-serif;max-width:800px;margin:0 auto;padding:40px 20px;line-height:1.8;color:#1a1a1a;background:#fff}
+h1{font-size:28px;font-weight:700;margin-bottom:8px;color:#d35400}
+h2{font-size:22px;font-weight:600;margin-top:36px;color:#2c3e50;border-left:4px solid #d35400;padding-left:12px}
+h3{font-size:18px;font-weight:600;margin-top:24px;color:#34495e}
+p{margin:12px 0;color:#4a4a4a}
+.tag{display:inline-block;background:#d3540022;color:#d35400;border:1px solid #d3540044;border-radius:100px;padding:2px 12px;font-size:12px;font-weight:600;margin:2px}
+blockquote{border-left:4px solid #e67e22;padding:12px 16px;background:#fdf2e9;margin:16px 0;border-radius:0 8px 8px 0}
+code{background:#f5f5f5;padding:2px 6px;border-radius:4px;font-size:14px}
+table{width:100%;border-collapse:collapse;margin:16px 0}
+th,td{border:1px solid #e0e0e0;padding:10px;text-align:left;font-size:14px}
+th{background:#f8f8f8;font-weight:600}
+.back{display:inline-block;margin-bottom:20px;color:#d35400;text-decoration:none;font-weight:500}
+.back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<a class="back" href="../index.html#blog">← 返回首页</a>
+<h1>VLM置信度校准：为什么AI越自信越危险</h1>
+<p><span class="tag">VLM</span> <span class="tag">置信度校准</span> <span class="tag">停止决策</span> <span class="tag">具身导航</span></p>
+<p>2026-04-14</p>
+
+<h2>一个反直觉的事实</h2>
+<p>当前最强的视觉语言模型（VLM），包括LLaVA、Qwen2-VL、InternVL等，在具身导航任务中存在一个致命缺陷：<strong>它们对错误答案的置信度几乎与正确答案相同。</strong></p>
+<p>这意味着什么？当VLM告诉你"就是这里，该停了"的时候，它可能完全走错了位置——但它表达出的确信程度和真正到达目标时一模一样。</p>
+
+<blockquote>在R2R数据集上，68%成功率的顶级VLN模型，停止位置平均离目标2.5米——5倍机械臂操作范围。不是"走不到"，是"到了不知道停"。</blockquote>
+
+<h2>为什么传统校准方法失效？</h2>
+
+<h3>1. Temperature Scaling——全局调温不治病</h3>
+<p>Temperature Scaling通过调整softmax温度来校准置信度。问题是：它只改变概率分布的"陡峭程度"，不改变排名。如果模型对错误答案的置信度本来就比正确答案高，调温度救不了。</p>
+
+<h3>2. Label Smoothing——分类任务有效，导航不适用</h3>
+<p>Label Smoothing在ImageNet分类上很有效，但VLN停止决策不是简单的K类分类——它是一个序列决策问题，当前步的停止概率依赖整个历史轨迹。</p>
+
+<h3>3. Ensemble方法——推理成本太高</h3>
+<p>5个模型取平均确实能提升校准，但每个模型推理200ms，5个就是1秒——对实时导航来说完全不可接受。</p>
+
+<h2>FSCoT的解法：校准-决策解耦</h2>
+
+<p>FSCoT采用了一种全新的架构：<strong>将决策和置信度估计解耦为两个独立模块。</strong></p>
+
+<table>
+<tr><th>维度</th><th>传统方法</th><th>FSCoT解耦</th></tr>
+<tr><td>决策来源</td><td>VLM原始输出</td><td>导航动作模块</td></tr>
+<tr><td>置信度来源</td><td>softmax概率</td><td>独立信心头</td></tr>
+<tr><td>训练信号</td><td>导航奖励</td><td>推理链蒸馏</td></tr>
+<tr><td>优化目标</td><td>准确率+校准的Pareto权衡</td><td>各自独立优化</td></tr>
+</table>
+
+<h3>核心设计：对比蒸馏</h3>
+<p>信心头的训练不使用简单的MSE蒸馏，而是采用<strong>对比蒸馏损失</strong>：</p>
+<p><code>L = -log(exp(sim(c_student, c_teacher+)) / Σ exp(sim(c_student, c_teacher_i)))</code></p>
+<p>其中正样本是Teacher正确推理链的信心嵌入，负样本是错误推理链的信心嵌入。这确保了Student的信心空间与Teacher的"正确推理"语义空间对齐，而非仅仅数值接近。</p>
+
+<h2>为什么解耦有效？</h2>
+
+<p>传统端到端方法面临一个根本矛盾：<strong>准确率和校准是两个不同的目标。</strong>追求准确率需要模型对训练数据过拟合，追求校准需要模型保持不确定性。这两个目标在Pareto前沿上互相冲突。</p>
+
+<p>解耦之后：</p>
+<ul>
+<li><strong>导航动作模块</strong>：可以大胆追求准确率，不需要担心过度自信</li>
+<li><strong>信心头模块</strong>：可以在验证集上专门优化校准，不受准确率目标干扰</li>
+</ul>
+
+<h2>推广到其他具身任务</h2>
+<p>置信度校准问题不仅存在于VLN停止决策，还广泛出现在：</p>
+<ul>
+<li><strong>ObjectNav</strong>：目标检测置信度——"我看到椅子了"有多可靠？</li>
+<li><strong>机器人操作</strong>：抓取成功率估计——"这个抓取姿态会成功吗"？</li>
+<li><strong>多智能体协调</strong>：通信可靠性——"我收到的是可靠信息吗"？</li>
+</ul>
+
+<blockquote>所有这些场景的核心需求是相同的：需要一个可靠的"何时停止/放弃"信号。FSCoT的校准-决策解耦思路，为这类问题提供了一个通用的解决框架。</blockquote>
+
+<h2>总结</h2>
+<p>VLM的过度自信不是bug，是feature——对语言生成任务来说，自信是好事。但在具身任务中，自信地犯错比不确定地犹豫更危险。FSCoT通过校准-决策解耦，让AI在"该自信时自信，该犹豫时犹豫"，这才是真正可靠的具身智能。</p>
+
+</body>
+</html>
