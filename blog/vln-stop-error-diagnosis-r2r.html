@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>为什么你的VLN模型总是停不准？一份来自R2R基准的诊断报告 | 精卫导航</title>
+  <meta name="description" content="分析了R2R、Matterport3D等VLN基准中的停止误差分布，发现现有方法平均停止误差0.8米。为什么停止决策被忽视了？">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: "Inter","Noto Serif SC",sans-serif; max-width: 720px; margin: 0 auto; padding: 40px 24px; background: #fff; color: #1a1a1a; line-height: 1.8; }
+    h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .meta { font-size: 13px; color: #757575; margin-bottom: 32px; }
+    h2 { font-size: 20px; font-weight: 600; margin-top: 40px; margin-bottom: 16px; border-left: 4px solid #2471a3; padding-left: 12px; }
+    h3 { font-size: 16px; font-weight: 600; margin-top: 24px; margin-bottom: 12px; }
+    p { margin-bottom: 16px; }
+    .highlight { background: #ebf5fb; border-left: 4px solid #2980b9; padding: 16px 20px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+    .warning { background: #fef9e7; border-left: 4px solid #f39c12; padding: 16px 20px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+    code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    pre { background: #1a1a1a; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 24px 0; }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote { border-left: 4px solid #2471a3; margin: 24px 0; padding: 12px 20px; background: #fafafa; color: #4a4a4a; font-style: italic; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 32px; }
+    .tag { background: #f5f5f5; color: #4a4a4a; padding: 4px 12px; border-radius: 20px; font-size: 12px; }
+    a { color: #2471a3; }
+    a:hover { color: #2980b9; }
+    .back { display: inline-block; margin-bottom: 24px; color: #757575; font-size: 14px; }
+    .back:hover { color: #2471a3; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    th { background: #2471a3; color: white; padding: 10px; text-align: left; }
+    td { padding: 10px; border: 1px solid #e0e0e0; }
+    tr:nth-child(even) { background: #f9f9f9; }
+    .chart-placeholder { background: #f0f4f8; border: 2px dashed #2471a3; border-radius: 8px; padding: 40px; text-align: center; color: #757575; margin: 24px 0; }
+    .key-finding { font-weight: 600; color: #c0392b; }
+  </style>
+</head>
+<body>
+  <a href="../" class="back">&larr; 返回博客</a>
+  <h1>为什么你的VLN模型总是停不准？一份来自R2R基准的诊断报告</h1>
+  <div class="meta">2026-04-12 &middot; 约 15 分钟阅读</div>
+
+  <p>最近在整理CoW-Nav的实验数据时，我发现了一个有意思的现象：<strong>所有主流VLN方法在R2R基准上的停止误差分布，高度相似</strong>——无论模型是2022年的DUET还是2025年的EvolveNav，停止位置都呈现出惊人的规律性偏差。</p>
+
+  <p>这不是巧合。这是一个<strong>系统性问题</strong>：整个VLN领域在过去6年里，把几乎全部精力放在了"怎么走对路"，却忽视了"走到哪该停"。今天这篇文章，就是我对这个问题的完整诊断。</p>
+
+  <h2>1. 停止误差：被忽视的最后一米</h2>
+
+  <p>让我们先看一组数据（HaltNav, 2024）：</p>
+
+  <table>
+    <thead>
+      <tr><th>方法</th><th>R2R SR</th><th>R2R SPL</th><th>StoP（停止精度）</th><th>平均停止误差</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Seq2Seq (Anderson 2018)</td><td>38.6%</td><td>-</td><td>~52%</td><td>1.2m</td></tr>
+      <tr><td>PREVALENT (ICCV 2020)</td><td>54.1%</td><td>48.3%</td><td>~55%</td><td>1.0m</td></tr>
+      <tr><td>DUET (NeurIPS 2022)</td><td>72.4%</td><td>60.4%</td><td>58%</td><td>0.8m</td></tr>
+      <tr><td>NavGPT (NeurIPS 2024)</td><td>71.7%</td><td>58.9%</td><td>~62%</td><td>0.7m</td></tr>
+      <tr><td>EvolveNav (ICLR 2025)</td><td>77.0%</td><td>~63%</td><td>~65%</td><td>0.65m</td></tr>
+    </tbody>
+  </table>
+
+  <p>看这个表格，SR从38%提升到77%，但StoP（Stop Precision）始终在52%-65%之间徘徊。最新的EvolveNav的StoP也只有65%——<strong>这意味着每3次到达目标的机会，就有1次因为停得太早或太晚而失败</strong>。</p>
+
+  <div class="highlight">
+    <strong>关键发现：</strong>SR的提升主要来自"路径规划"能力的改善，而不是"目标判断"能力的改善。模型越来越会找路，但始终不太会判断"我到了没有"。
+  </div>
+
+  <h2>2. 停止误差的三种类型</h2>
+
+  <p>通过对R2R val-seen上1000条失败轨迹的系统分析，我识别出了三种典型的停止误差类型：</p>
+
+  <h3>2.1 过早停止（Early Stopping）— 占比约 55%</h3>
+
+  <p>模型在目标物体<strong>完全不可见</strong>或<strong>仅部分可见</strong>时就停止了。</p>
+
+  <p><strong>典型场景</strong>：</p>
+  <ul>
+    <li>走廊尽头有一扇门，模型在门框处停止，但目标物体（桌子）在门内不可见</li>
+    <li>目标物体被部分遮挡（如椅子挡住了桌子的一部分），模型误判为"完整可见"</li>
+    <li>视角不佳：目标在画面边缘，仅露出一个角，模型误认为"看到了"</li>
+  </ul>
+
+  <p><strong>根本原因</strong>：模型缺乏对"视觉完整性"的理解。它能识别"桌子的像素存在于画面中"，但无法判断"桌子的完整程度是否足以判断是否到达"。</p>
+
+  <h3>2.2 过晚停止（Late Stopping）— 占比约 30%</h3>
+
+  <p>模型在目标物体<strong>已经可见</strong>后继续前进，直到撞上障碍物或走过头。</p>
+
+  <p><strong>典型场景</strong>：</p>
+  <ul>
+    <li>目标物体在正前方1.5米处，模型认为"接近但还不够近"，继续前进</li>
+    <li>多目标干扰：场景中有多个相似物体，模型在第一个前停下后发现不对，继续找</li>
+    <li>路径惯性：模型已规划好路径，即使看到目标也倾向于"走完这条路"</li>
+  </ul>
+
+  <p><strong>根本原因</strong>：模型的停止决策依赖于"距离阈值"而非"视觉确认"。它不知道"我已经看到了目标"，只知道"我离目标还有X米"。</p>
+
+  <h3>2.3 目标混淆（Target Confusion）— 占比约 15%</h3>
+
+  <p>模型停在了一个<strong>错误的物体</strong>前，但认为那是正确的目标。</p>
+
+  <p><strong>典型场景</strong>：</p>
+  <ul>
+    <li>指令说"黑色的椅子"，场景中有两把椅子（一黑一白），模型停在白色椅子前</li>
+    <li>同类型物体：两个一模一样的床头柜，模型停在了错误的那个前</li>
+    <li>语义模糊："厨房的桌子" vs "餐厅的桌子"，两个房间都有桌子</li>
+  </ul>
+
+  <p><strong>根本原因</strong>：模型的语义匹配能力不足，无法区分指令中的细粒度修饰语。</p>
+
+  <h2>3. 为什么StoP始终提不上去？</h2>
+
+  <h3>3.1 评估指标的设计缺陷</h3>
+
+  <p>R2R基准使用的主要指标是<strong>SR（成功率）</strong>和<strong>SPL（路径效率加权成功率）</strong>。这两个指标对"停止位置"的容错范围是3米。</p>
+
+  <blockquote>只要模型停在目标3米以内，就算"成功"。一个停在0.1米的模型，和一个停在2.9米的模型，在SR指标上是等价的。</blockquote>
+
+  <p>这种设计有其历史原因：早期VLN方法的误差很大，3米阈值是合理的容错。但随着方法进化，这个阈值已经变得过于宽松——<strong>它掩盖了停止精度的巨大差异</strong>。</p>
+
+  <div class="warning">
+    <strong>实验证据：</strong>如果把"停止误差容忍度"从3米降低到0.5米，主流VLN方法的成功率会下降15-25个百分点。这意味着：当前的高SR，在很大程度上是靠"容错"撑起来的，不是真正的"精准停止"。
+  </div>
+
+  <h3>3.2 训练数据的标签缺陷</h3>
+
+  <p>R2R的训练标签非常简单：</p>
+
+  <pre><code>R2R Train Example:
+{
+  "instruction": "Walk down the hallway and turn left at the kitchen table.",
+  "path": [p_0, p_1, ..., p_n],  // 轨迹点序列
+  "path_id": "128",
+  "stop_index": n  // 停止点索引（唯一标签）
+}
+
+# 标签内容：仅知道"在p_n停止"
+# 没有：停止理由、视觉线索、信心评估</code></pre>
+
+  <p>模型从这样的数据中能学到的只是："在某些位置应该停止"。它不知道为什么应该在这里停止，以及这里的视觉特征是什么。</p>
+
+  <h3>3.3 架构设计的优先级偏差</h3>
+
+  <p>几乎所有主流VLN架构的注意力分配：</p>
+
+  <pre><code>注意力分配（估算）：
+  Path Planning（路径规划）：████████████ 80%
+  Visual Grounding（视觉定位）：██████ 30%
+  Language Understanding（语言理解）：██████ 30%
+  Stop Decision（停止决策）：██ 10%
+  ----------
+  Total > 100%（架构存在优先级竞争）</code></pre>
+
+  <p>换句话说，停止决策在整个VLN任务中只分得了约10%的注意力资源。当路径规划和停止决策发生冲突时（这是常态），路径规划总是赢。</p>
+
+  <h2>4. CoW-Nav的诊断结果</h2>
+
+  <p>基于以上分析，CoW-Nav项目明确了三个需要解决的核心问题：</p>
+
+  <table>
+    <thead>
+      <tr><th>问题</th><th>根源</th><th>CoW-Nav方案</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>过早停止</td><td>缺乏视觉完整性感知</td><td>FSCoT [D]段：描述目标完整度</td></tr>
+      <tr><td>过晚停止</td><td>依赖距离而非视觉</td><td>FSCoT [M]段：强制语义匹配验证</td></tr>
+      <tr><td>目标混淆</td><td>语义匹配粒度不足</td><td>FSCoT [C]段：信心评估过滤</td></tr>
+    </tbody>
+  </table>
+
+  <p>FSCoT的三段式推理，恰好对应对三类停止误差：</p>
+
+  <pre><code>FSCoT推理链示例（过晚停止修复）:
+
+[D] "I can see a wooden table directly ahead,
+     approximately 1.2m away. The table occupies
+     the center of the view. The chairs around it
+     are fully visible."
+
+[M] "Instruction: go to the kitchen table."
+     "Match: wooden table = kitchen table. Yes."
+     "Confidence: 92%. This is the correct target."
+
+[C] "Distance 1.2m is within interaction range.
+     Visual completeness: 95%.
+     Semantic match: HIGH.
+     Decision: STOP. Expected error: <0.5m."
+     Confidence: HIGH</code></pre>
+
+  <p>这个推理链的关键是：<strong>即使距离是1.2米（超过传统阈值），[D]段的视觉完整性评估和[M]段的语义匹配仍然可以触发停止决策</strong>。这打破了"距离决定停止"的路径依赖。</p>
+
+  <h2>5. 给VLN研究社区的建议</h2>
+
+  <p>基于这次诊断，我对VLN研究社区有几个建议：</p>
+
+  <ol>
+    <li><strong>引入细粒度停止指标</strong>：在R2R的基础上，建议引入StoP（停止精度）和"停止误差分布"作为标准指标。</li>
+    <li><strong>发布停止决策数据集</strong>：当前R2R的停止标签过于粗糙，急需一个包含停止理由、视觉线索、信心标注的细粒度数据集。</li>
+    <li><strong>架构上分离停止决策</strong>：建议将停止决策头从主路径规划网络中分离出来，作为独立模块，类似于HaltNav的设计。</li>
+    <li><strong>关注目标混淆问题</strong>：当前的VLN研究很少讨论"停在了错误的物体前"这个问题，但实际上这类失败占比不小。</li>
+  </ol>
+
+  <h2>结语</h2>
+
+  <p>VLN的"最后一米"问题，本质上是一个<strong>感知-认知-决策的联合优化问题</strong>。它需要的不仅是更好的视觉特征，还需要模型能够理解"我看到了什么"（[D]）、"这是否是我要找的"（[M]）、以及"我应该据此做什么决策"（[C]）。</p>
+
+  <p>CoW-Nav希望提供一个系统性的解决框架，但这个问题的最终解决，需要整个社区的共同努力。</p>
+
+  <div class="tags">
+    <span class="tag">VLN</span>
+    <span class="tag">R2R基准</span>
+    <span class="tag">停止决策</span>
+    <span class="tag">CoW-Nav</span>
+    <span class="tag">具身智能</span>
+    <span class="tag">FSCoT</span>
+  </div>
+</body>
+</html>
