@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>为什么VLN模型总是"假装自信"——一个被忽视的致命缺陷 | 精卫导航</title>
+<style>
+body{font-family:'Inter','Noto Serif SC',-apple-system,sans-serif;max-width:800px;margin:0 auto;padding:40px 20px;line-height:1.8;color:#1a1a1a;background:#fff}
+h1{font-size:28px;font-weight:700;margin-bottom:8px;color:#d35400}
+h2{font-size:22px;font-weight:600;margin-top:36px;color:#2c3e50;border-left:4px solid #d35400;padding-left:12px}
+p{margin:12px 0;color:#4a4a4a}
+.tag{display:inline-block;background:#d3540022;color:#d35400;border:1px solid #d3540044;border-radius:100px;padding:2px 12px;font-size:12px;font-weight:600;margin:2px}
+blockquote{border-left:4px solid #e67e22;padding:12px 16px;background:#fdf2e9;margin:16px 0;border-radius:0 8px 8px 0}
+table{width:100%;border-collapse:collapse;margin:16px 0}
+th,td{border:1px solid #e0e0e0;padding:10px;text-align:left;font-size:14px}
+th{background:#f8f8f8;font-weight:600}
+.back{display:inline-block;margin-bottom:20px;color:#d35400;text-decoration:none;font-weight:500}
+.back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<a class="back" href="../index.html#blog">← 返回首页</a>
+<h1>为什么VLN模型总是"假装自信"</h1>
+<p><span class="tag">VLN</span> <span class="tag">停止决策</span> <span class="tag">置信度校准</span> <span class="tag">具身导航</span></p>
+<p>2026-04-14</p>
+
+<h2>一个被忽视的致命缺陷</h2>
+<p>2026年，视觉语言导航（VLN）领域已经发表了数百篇论文。所有论文都在汇报"成功率"（SR）——你到了没有？但几乎没有人问："模型什么时候应该承认自己不确定？"</p>
+<p>这是一个被系统性忽视的问题。</p>
+
+<blockquote>当VLN模型告诉你"我觉得这就是目的地了"，它的置信度和真正到达目标时的置信度几乎完全一样。这不是模型的问题，是训练范式的根本缺陷。</blockquote>
+
+<h2>"假装自信"的三层含义</h2>
+
+<h3>第一层：动作输出的过度自信</h3>
+<p>VLM的语言输出本质上是一个多分类问题（下一步往哪走）。Softmax输出的最大概率，在训练数据充分的分布内可能是可靠的，但在导航场景中，模型经常遇到"训练集没见过的新场景"。此时VLM的"自信"完全是幻觉。</p>
+
+<h3>第二层：停止决策的置信度缺失</h3>
+<p>VLN要求机器人在正确的位置停下来。这不是"下一步往哪走"，而是"现在要不要停"。这是一个完全不同的决策类型——它需要对"当前位置是否足够接近目标"做出判断。</p>
+<p>但几乎所有VLN模型在训练时都只优化"走对"，不优化"停对"。结果：模型学会了"不停走"，或者"随机停"。</p>
+
+<h3>第三层：跨模态对齐的不确定性</h3>
+<p>"走进厨房拿水杯"——这句话和机器人当前看到的像素之间存在巨大的语义鸿沟。VLM在建立这个对齐时，会产生大量"假对齐"：语言描述的场景和视觉场景不完全匹配，但模型仍然自信地认为匹配了。</p>
+
+<h2>为什么这个问题十年没人解决？</h2>
+
+<table>
+<tr><th>原因</th><th>说明</th></tr>
+<tr><td>评估指标不涵盖校准</td><td>SR/SPL只看最终结果，不看置信度可靠性</td></tr>
+<tr><td>校准研究是"不好发论文"的方向</td><td>提升校准1%不如提升SR1%有冲击力</td></tr>
+<tr><td>缺少停止决策的标注数据</td><td>停止是隐式行为，没有显式标签</td></tr>
+<tr><td>端到端方法天然忽视不确定性</td><td>最大化动作准确率的训练目标不包含校准信号</td></tr>
+</table>
+
+<h2>解决方案：FSCoT信心头</h2>
+<p>FSCoT（Formally-Strengthened Chain-of-Thought）提出了一种新思路：不校准VLM的原始置信度，而是训练一个专门的<strong>信心头模块</strong>，让它输出专门针对"停止决策"的置信度分数。</p>
+
+<h3>对比蒸馏：让信心真正代表"正确概率"</h3>
+<p>信心头的训练使用对比蒸馏损失：</p>
+<ul>
+<li><strong>正样本</strong>：Teacher推理链（完整FSCoT推理）正确停止位置的信心嵌入</li>
+<li><strong>负样本</strong>：Teacher推理链错误停止位置（过早停、错误方向）的信心嵌入</li>
+</ul>
+<p>这样训练出来的信心头，它的"高信心"真正代表"正确停止的概率高"，而不是"模型对这个答案的熟悉程度高"。</p>
+
+<h2>为什么这个思路值得重视？</h2>
+<p>在真实机器人部署中，"什么时候不该动"和"什么时候该动"一样重要。一个总是"假装自信"的机器人，要么过度探索（不停走），要么过早放弃（乱停）。</p>
+<p>FSCoT信心头的核心价值：让机器人在"该自信时自信，该犹豫时犹豫"。这才是真正可靠的具身智能。</p>
+
+<blockquote>最好的机器人不是最聪明的，而是最诚实的——它知道自己什么时候不确定，并且愿意说出来。</blockquote>
+
+</body>
+</html>
