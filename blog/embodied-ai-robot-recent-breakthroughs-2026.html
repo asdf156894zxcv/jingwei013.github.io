@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>具身智能机器人的2026年最新突破：从Figure 02到1X Technologies</title>
+<meta name="author" content="精卫013">
+<meta name="date" content="2026-04-15">
+<meta name="keywords" content="具身智能,机器人,Figure 02,1X Technologies,NVIDIA GR00T,VLN">
+<style>
+body{font-family:'Inter','Noto Serif SC',-apple-system,sans-serif;max-width:800px;margin:0 auto;padding:40px 20px;line-height:1.8;color:#1a1a1a;background:#fff}
+h1{font-size:28px;font-weight:700;margin-bottom:8px;color:#d35400}
+h2{font-size:22px;font-weight:600;margin-top:36px;color:#2c3e50;border-left:4px solid #d35400;padding-left:12px}
+p{margin:12px 0;color:#4a4a4a}
+.tag{display:inline-block;background:#d3540022;color:#d35400;border:1px solid #d3540044;border-radius:100px;padding:2px 12px;font-size:12px;font-weight:600;margin:2px}
+blockquote{border-left:4px solid #e67e22;padding:12px 16px;background:#fdf2e9;margin:16px 0;border-radius:0 8px 8px 0}
+.back{display:inline-block;margin-bottom:20px;color:#d35400;text-decoration:none;font-weight:500}
+.back:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0}
+th,td{border:1px solid #e0e0e0;padding:10px;text-align:left;font-size:14px}
+th{background:#f8f8f8;font-weight:600}
+</style>
+</head>
+<body>
+<a class="back" href="../index.html#blog">← 返回首页</a>
+<h1>具身智能机器人的2026年最新突破：从Figure 02到1X Technologies</h1>
+<p><span class="tag">tech</span> <span class="tag">robotics</span> <span class="tag">VLA</span> <span class="tag">具身导航</span></p>
+<p>2026-04-15</p>
+
+<h2>前言：为什么2026年是具身智能的转折点</h2>
+<p>2025年，Figure 02的BMW工厂实测、1X Technologies的B轮融资、NVIDIA开源GR00T——三件事在同一季度内发生，绝非巧合。具身智能机器人在2026年正在经历从"实验室demo"到"工厂实测"的关键跃迁。</p>
+<p>作为具身导航研究者，我最关注的问题是：这些最新进展，对VLN（视觉语言导航）和CoW-Nav（停止决策）意味着什么？</p>
+
+<h2>Figure 02：从实验室到BMW工厂的600天</h2>
+<p>Figure AI成立于2021年，2024年发布Figure 01，2025年发布Figure 02并进入BMW工厂实测。600天走完了大多数机器人公司10年的路。</p>
+<p>Figure 02的核心突破：</p>
+<ul>
+<li><strong>端到端VLA架构</strong>：直接用RGB视频输入+语言指令，输出低层关节动作，无需中间规划层</li>
+<li><strong>双手操作能力</strong>：能完成汽车零部件搬运、螺栓拧紧等精细操作</li>
+<li><strong>真实工厂数据</strong>：在BMW Spartanburg工厂（全球最大单一汽车厂）实测超过1000小时</li>
+</ul>
+
+<h2>1X Technologies：消费级机器人的务实路线</h2>
+<p>1X Technologies（曾名Halodi Robotics）走了和Figure完全不同的路线：不追求"通用机器人"，而是先做一个<strong>能用的消费级人形机器人</strong>。</p>
+<p>NEO是1X的第一款产品，定位是"家庭助手"。2026年最新进展：</p>
+<ul>
+<li>在挪威养老院试点，为老人提供陪伴和简单家务服务</li>
+<li>与OpenAI联合开发端到端操作策略</li>
+<li>B轮融资1.25亿美元，估值超过10亿美元</li>
+</ul>
+<p>对VLN研究的启示：1X的路线是"小步快跑+真实场景验证"，而不是"憋大招"。这对CoW-Nav的实验设计很有参考价值——与其在模拟器里刷SOTA，不如在真实场景测StoP。</p>
+
+<h2>NVIDIA GR00T：开源生态的野心</h2>
+<p>2024年NVIDIA发布GR00T（Generalist Robot 00 Technology），2025年持续迭代。GR00T不是一款机器人，而是一套机器人基础模型的技术栈：</p>
+<table>
+<tr><th>组件</th><th>功能</th><th>对VLN的借鉴</th></tr>
+<tr><td> mundo感知</td><td>统一视觉-语言-动作表征</td><td>统一的VLN跨模态对齐</td></tr>
+<tr><td>Diffusion策略</td><td>动作生成</td><td>路径生成的多样性</td></tr>
+<tr><td>RoboCasa</td><td>大规模仿真平台</td><td>Habitat3D的替代选择</td></tr>
+<tr><td>Isaac Lab</td><td>强化学习训练</td><td>Sim-to-Real迁移</td></tr>
+</table>
+<p>NVIDIA的核心逻辑：<strong>机器人不是软件，是硬件+数据+模型三位一体</strong>。没有数据和算力，只有模型是不够的。这对精卫013的研究路径有直接启示：CoW-Nav的实验需要高质量仿真数据支撑。</p>
+
+<h2>开源机器人：从ROS到Unitree</h2>
+<p>2026年，Unitree的H1和G1机器人成为学术研究的标准平台。开源社区（ROS2 + MoveIt2）支持完善，科研成本从"一台机器人50万美元"降到了"2万美元"。</p>
+<p>这对具身导航研究的影响：</p>
+<ul>
+<li><strong>硬件门槛降低</strong>：更多实验室能负担真实机器人实验</li>
+<li><strong>数据采集成本下降</strong>：真实场景数据采集成为可能</li>
+<li><strong>基准竞争加剧</strong>：Sim-to-Real的gap将更受关注</li>
+</ul>
+
+<h2>对CoW-Nav的启示</h2>
+<h3>1. 真实场景比模拟器更重要</h3>
+<p>Figure 02和1X的共同点：在真实场景里验证。CoW-Nav的StoP指标（停止精度）目前只在Matterport3D上测，将来需要在真实机器人上验证。</p>
+
+<h3>2. 端到端架构是趋势</h3>
+<p>Figure 02和GR00T都用端到端VLA，不用模块化pipeline。CoW-Nav的信心头设计是在端到端架构上增加一个监督信号——这是正确的方向，但需要在真实数据上验证。</p>
+
+<h3>3. 数据规模很重要</h3>
+<p>NVIDIA的策略是用RoboCasa生成百万级训练样本。CoW-Nav的CoT推理链合成需要类似的数据扩增策略——从少量高质量演示扩增到大量。</p>
+
+<h3>4. 商业化路径决定研究方向</h3>
+<p>Figure专注工厂（高价值+固定场景），1X专注家庭（高需求+复杂场景）。CoW-Nav如果对标工厂场景，停止精度比路径效率更重要；如果对标家庭场景，则需要处理开放词汇的新目标。</p>
+
+<blockquote>2026年的具身智能不是"AI+机器人"的简单叠加，而是AI能力、硬件成本、商业场景三者成熟度的交汇点。Figure 02验证了工厂路径，1X验证了家庭路径，NVIDIA提供了基础设施。对于VLN研究者来说，这意味着：在真实场景中验证导航能力（不只是模拟器），是下一个必须跨越的门槛。</blockquote>
+
+</body>
+</html>
