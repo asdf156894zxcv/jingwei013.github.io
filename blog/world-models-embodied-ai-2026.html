@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>具身智能中的世界模型：从Yann LeCun的预言到2026年的实践 | 精卫导航</title>
+  <meta name="description" content="世界模型是具身智能的下一个圣杯。从LeCun的JEPA到DeepMind的Genie 2，再到机器人领域的NaVILA和UniNav，本文深度解析世界模型如何在导航、操控和决策中发挥作用。">
+  <meta name="keywords" content="世界模型, World Model, JEPA, Genie 2, 具身智能, 机器人, 视觉导航, Yann LeCun, DeepMind, 预测模型">
+  <link rel="canonical" href="https://jingwei013.github.io/blog/world-models-embodied-ai-2026.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Serif SC', -apple-system, sans-serif;
+      background: #1c1510;
+      color: #f5ead8;
+      line-height: 1.7;
+    }
+    a { color: #e8a230; text-decoration: none; }
+    a:hover { color: #f5b94a; }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(28,21,16,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #4a3c2c;
+    }
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-size: 20px; font-weight: 700; color: #f5ead8; }
+    .logo span { color: #e8a230; }
+    nav a {
+      padding: 6px 14px; border-radius: 8px;
+      font-size: 14px; font-weight: 500;
+      color: #c8a878;
+      transition: all 0.2s;
+    }
+    nav a:hover { background: rgba(232,162,48,0.15); color: #e8a230; }
+
+    main {
+      max-width: 900px; margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #c8a878; font-size: 14px;
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #e8a230; }
+
+    article { max-width: 780px; margin: 0 auto; }
+    .post-meta {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 13px; color: #9a8060;
+      margin-bottom: 32px;
+    }
+    .post-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .post-tags span {
+      background: rgba(232,162,48,0.15);
+      color: #e8a230; font-size: 12px;
+      padding: 4px 10px; border-radius: 4px;
+    }
+
+    h1 {
+      font-size: 32px; font-weight: 700; line-height: 1.3;
+      margin-bottom: 40px; color: #f5ead8;
+    }
+    h2 {
+      font-size: 24px; font-weight: 600; line-height: 1.3;
+      margin: 56px 0 24px; color: #f5ead8;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #4a3c2c;
+    }
+    h3 {
+      font-size: 20px; font-weight: 600; line-height: 1.3;
+      margin: 36px 0 16px; color: #f5ead8;
+    }
+    h4 {
+      font-size: 16px; font-weight: 600; margin: 24px 0 12px;
+      color: #e8c898;
+    }
+
+    p { margin-bottom: 20px; }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 10px; }
+
+    blockquote {
+      border-left: 3px solid #e8a230;
+      padding: 16px 20px;
+      margin: 28px 0;
+      background: rgba(232,162,48,0.08);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #d4c4a8;
+    }
+
+    .highlight-box {
+      background: rgba(232,162,48,0.1);
+      border: 1px solid rgba(232,162,48,0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+    .highlight-box h4 {
+      margin-top: 0;
+      color: #e8a230;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(255,255,255,0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: rgba(0,0,0,0.3);
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+    }
+    .comparison-table th,
+    .comparison-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #4a3c2c;
+    }
+    .comparison-table th {
+      background: rgba(232,162,48,0.1);
+      font-weight: 600;
+      color: #e8a230;
+    }
+    .comparison-table tr:hover {
+      background: rgba(255,255,255,0.03);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      margin: 32px 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #4a3c2c;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #e8a230;
+    }
+    .timeline-date {
+      font-size: 13px;
+      color: #9a8060;
+      margin-bottom: 6px;
+    }
+    .timeline-title {
+      font-weight: 600;
+      color: #f5ead8;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      border-top: 1px solid #4a3c2c;
+      padding-top: 40px;
+      margin-top: 60px;
+      text-align: center;
+      color: #9a8060;
+      font-size: 14px;
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 26px; }
+      h2 { font-size: 20px; }
+      h3 { font-size: 18px; }
+      main { padding: 40px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo">精卫<span>导航</span></a>
+      <nav>
+        <a href="../index.html#blog">博客</a>
+        <a href="../index.html#cases">案例</a>
+        <a href="../index.html#about">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <a href="../index.html#blog" class="back-link">← 返回博客列表</a>
+    
+    <article>
+      <div class="post-meta">
+        <span>2026年4月16日</span>
+        <span>·</span>
+        <span>阅读约 12 分钟</span>
+      </div>
+      
+      <div class="post-tags">
+        <span>世界模型</span>
+        <span>具身智能</span>
+        <span>JEPA</span>
+        <span>Genie 2</span>
+        <span>机器人</span>
+      </div>
+
+      <h1>具身智能中的世界模型：从Yann LeCun的预言到2026年的实践</h1>
+
+      <blockquote>
+        "人类婴儿在出生后的几个月内就能学会世界的基本运作方式。他们不需要被告知物理定律，而是通过观察就能建立对世界的预测模型。这是当前AI系统所缺失的。"
+        <br>—— Yann LeCun, 2022
+      </blockquote>
+
+      <p>2022年，Yann LeCun发表了那篇著名的<a href="https://openreview.net/pdf?id=BZ5a1r-kVsf" target="_blank">《A Path Towards Autonomous Machine Intelligence》</a>，提出了JEPA（Joint Embedding Predictive Architecture）架构，将"世界模型"推向了AI研究的核心舞台。四年过去，2026年的今天，世界模型已经从理论构想走向实际应用，尤其在具身智能领域展现出巨大潜力。</p>
+
+      <h2>一、什么是世界模型？</h2>
+
+      <p>世界模型（World Model）是指智能体对环境的内部表示，能够：</p>
+      <ul>
+        <li><strong>预测</strong>：给定当前状态和动作，预测下一状态</li>
+        <li><strong>想象</strong>：在没有真实交互的情况下"脑补"可能的结果</li>
+        <li><strong>规划</strong>：基于预测进行多步决策优化</li>
+      </ul>
+
+      <div class="highlight-box">
+        <h4>世界模型 vs 传统强化学习</h4>
+        <p>传统RL：智能体 → 真实环境 → 奖励信号 → 策略更新（试错成本高）</p>
+        <p>世界模型：智能体 → 内部模型 → 想象轨迹 → 策略优化（试错在"脑中"完成）</p>
+      </div>
+
+      <h2>二、世界模型发展时间线</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2018</div>
+          <div class="timeline-title">World Models (Ha & Schmidhuber)</div>
+          <p>第一篇以"World Models"命名的论文，使用VAE + RNN在简单游戏环境中实现想象训练。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2022</div>
+          <div class="timeline-title">LeCun提出JEPA架构</div>
+          <p>放弃生成式建模，转向联合嵌入预测，强调表征学习而非像素级重建。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2023</div>
+          <div class="timeline-title">DeepMind发布Genie</div>
+          <p>基于Transformer的世界模型，可以从单张图像生成交互式环境。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <div class="timeline-title">I-JEPA & V-JEPA</div>
+          <p>Meta发布基于JEPA的自监督学习模型，在视觉任务上展现强大表征能力。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div class="timeline-title">Genie 2 & 机器人世界模型爆发</div>
+          <p>DeepMind发布Genie 2，支持3D环境生成；机器人领域出现NaVILA、UniNav等世界模型方法。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2026</div>
+          <div class="timeline-title">世界模型成为具身智能标配</div>
+          <p>主流机器人系统开始集成世界模型模块，用于导航、操控和决策。</p>
+        </div>
+      </div>
+
+      <h2>三、2026年主流世界模型架构对比</h2>
+
+      <table class="comparison-table">
+        <tr>
+          <th>模型</th>
+          <th>机构</th>
+          <th>核心思想</th>
+          <th>应用场景</th>
+        </tr>
+        <tr>
+          <td><strong>JEPA</strong></td>
+          <td>Meta / NYU</td>
+          <td>联合嵌入预测，学习抽象表征而非像素</td>
+          <td>通用视觉表征</td>
+        </tr>
+        <tr>
+          <td><strong>Genie 2</strong></td>
+          <td>Google DeepMind</td>
+          <td>Latent Action Model，从视频学习可交互世界</td>
+          <td>游戏/模拟环境生成</td>
+        </tr>
+        <tr>
+          <td><strong>NaVILA</strong></td>
+          <td>Stanford / Berkeley</td>
+          <td>导航专用世界模型，预测未来观测辅助决策</td>
+          <td>视觉语言导航</td>
+        </tr>
+        <tr>
+          <td><strong>UniNav</strong></td>
+          <td>UIUC / MIT</td>
+          <td>统一导航框架，融合拓扑地图与隐式世界模型</td>
+          <td>零样本导航</td>
+        </tr>
+        <tr>
+          <td><strong>π0</strong></td>
+          <td>Physical Intelligence</td>
+          <td>流匹配生成模型，连续动作空间的世界模型</td>
+          <td>机器人操控</td>
+        </tr>
+        <tr>
+          <td><strong>Cosmos</strong></td>
+          <td>NVIDIA</td>
+          <td>物理世界生成模型，支持机器人训练数据合成</td>
+          <td>Sim2Real训练</td>
+        </tr>
+      </table>
+
+      <h2>四、世界模型在具身导航中的应用</h2>
+
+      <h3>4.1 预测未来观测（Observation Prediction）</h3>
+
+      <p>最直接的应用是让模型学会"如果我向前走一步，我会看到什么"。这种能力对导航至关重要：</p>
+
+      <ul>
+        <li><strong>碰撞避免</strong>：预测下一步是否会撞到障碍物</li>
+        <li><strong>目标接近判断</strong>：预测动作是否让我们更接近目标</li>
+        <li><strong>探索策略</strong>：预测未探索区域可能有什么</li>
+      </ul>
+
+      <p><strong>代表工作：NaVILA (2025)</strong></p>
+      <p>NaVILA训练了一个视觉解码器，能够从当前观测和候选动作预测未来帧。在导航决策时，它生成多个候选动作的"想象结果"，选择与语言指令最匹配的那个。</p>
+
+      <h3>4.2 隐式地图构建（Implicit Mapping）</h3>
+
+      <p>传统SLAM显式维护地图（点云、网格、占据栅格），而世界模型可以隐式地"记住"空间结构：</p>
+
+      <div class="highlight-box">
+        <h4>显式地图 vs 隐式世界模型</h4>
+        <p><strong>显式：</strong>可解释性强，但需要大量内存，更新复杂</p>
+        <p><strong>隐式：</strong>压缩在神经网络参数中，端到端可训练，但可解释性差</p>
+      </div>
+
+      <p><strong>代表工作：UniNav (2024)</strong></p>
+      <p>UniNav将拓扑地图（节点=位置，边=可通行性）与神经网络结合。世界模型负责预测"从A点到B点需要什么样的动作序列"，而不需要显式存储地图的几何细节。</p>
+
+      <h3>4.3 反事实推理（Counterfactual Reasoning）</h3>
+
+      <p>世界模型让机器人能够进行"如果我当时左转而不是右转会怎样"的思考：</p>
+
+      <ul>
+        <li><strong>错误分析</strong>：导航失败后，通过世界模型回溯分析错误决策</li>
+        <li><strong>策略改进</strong>：在想象中尝试不同策略，选择最优的</li>
+        <li><strong>解释生成</strong>：向人类解释"我为什么选择这条路"</li>
+      </ul>
+
+      <h2>五、世界模型的技术挑战</h2>
+
+      <h3>5.1 预测的不确定性</h3>
+
+      <p>真实世界充满不确定性——同样的动作在不同情况下可能导致不同结果。世界模型需要建模这种不确定性：</p>
+
+      <ul>
+        <li><strong>随机性建模</strong>：使用VAE或扩散模型生成多样化的未来预测</li>
+        <li><strong>认知不确定性</strong>：区分"我知道我不知道"和"我以为我知道但其实不知道"</li>
+        <li><strong>长期预测</strong>：多步预测的误差累积问题</li>
+      </ul>
+
+      <h3>5.2 计算成本</h3>
+
+      <p>高质量的世界模型通常需要大量计算：</p>
+
+      <table class="comparison-table">
+        <tr>
+          <th>模型规模</th>
+          <th>单步预测延迟</th>
+          <th>适用场景</th>
+        </tr>
+        <tr>
+          <td>小模型（<1B）</td>
+          <td>~10ms</td>
+          <td>实时避障、局部规划</td>
+        </tr>
+        <tr>
+          <td>中模型（1B-10B）</td>
+          <td>~100ms</td>
+          <td>中等复杂度决策</td>
+        </tr>
+        <tr>
+          <td>大模型（>10B）</td>
+          <td>~1s+</td>
+          <td>复杂推理、离线规划</td>
+        </tr>
+      </table>
+
+      <h3>5.3 Sim2Real Gap</h3>
+
+      <p>世界模型通常在仿真环境中训练，如何迁移到真实世界？</p>
+
+      <ul>
+        <li><strong>域随机化</strong>：训练时引入大量视觉变化</li>
+        <li><strong>适配层</strong>：在真实环境中微调少量参数</li>
+        <li><strong>在线学习</strong>：部署后持续更新世界模型</li>
+      </ul>
+
+      <h2>六、2026年的实践：世界模型如何改变机器人开发</h2>
+
+      <h3>6.1 数据效率的革命</h3>
+
+      <p>传统机器人学习需要大量真实交互数据（昂贵且危险）。世界模型让机器人能够：</p>
+
+      <ul>
+        <li>在仿真中生成无限训练数据</li>
+        <li>通过"想象"进行策略优化</li>
+        <li>将真实数据用于模型校正而非从零学习</li>
+      </ul>
+
+      <p>Figure AI的Helix模型 reportedly 使用了大量仿真数据 + 少量真实数据微调的策略，世界模型是其中的关键组件。</p>
+
+      <h3>6.2 从专用到通用</h3>
+
+      <p>传统机器人系统为每个任务单独设计。世界模型提供了任务无关的环境理解能力：</p>
+
+      <ul>
+        <li>同一个世界模型可以用于导航、抓取、开门等不同任务</li>
+        <li>新任务只需要学习新的"目标函数"，不需要重新学习环境动力学</li>
+        <li>跨机器人迁移：轮式机器人的世界模型知识可以迁移到人形机器人</li>
+      </ul>
+
+      <h3>6.3 人机协作的新可能</h3>
+
+      <p>世界模型让机器人能够向人类"解释"自己的决策：</p>
+
+      <blockquote>
+        "我预测如果我走左边，会在3步后遇到障碍物；走右边虽然绕远，但更安全。"
+      </blockquote>
+
+      <p>这种可解释性对安全关键应用（医疗、工业）至关重要。</p>
+
+      <h2>七、未来展望：世界模型的下一个里程碑</h2>
+
+      <h3>7.1 短期（2026-2027）</h3>
+      <ul>
+        <li>世界模型成为机器人系统的标准组件</li>
+        <li>轻量级世界模型（可在边缘设备运行）出现</li>
+        <li>多模态世界模型（视觉+触觉+听觉）成熟</li>
+      </ul>
+
+      <h3>7.2 中期（2027-2029）</h3>
+      <ul>
+        <li>世界模型与LLM深度整合，形成"认知-感知-行动"闭环</li>
+        <li>跨具身世界模型：不同形态的机器人共享同一个世界模型</li>
+        <li>世界模型驱动的自动课程学习</li>
+      </ul>
+
+      <h3>7.3 长期（2029+）</h3>
+      <ul>
+        <li>通用世界模型：一个模型理解物理世界的所有方面</li>
+        <li>世界模型成为AGI的核心组件</li>
+        <li>机器人能够通过世界模型进行创造性问题解决</li>
+      </ul>
+
+      <h2>八、对开发者的建议</h2>
+
+      <p>如果你是具身智能领域的研究者或工程师，以下是世界模型相关的学习路径：</p>
+
+      <ol>
+        <li><strong>基础</strong>：掌握自监督学习、VAE、扩散模型</li>
+        <li><strong>进阶</strong>：阅读JEPA系列论文，理解联合嵌入预测</li>
+        <li><strong>实践</strong>：在简单环境（如gym-minigrid）中实现一个基础世界模型</li>
+        <li><strong>前沿</strong>：关注Genie 2、NaVILA、π0等最新工作</li>
+      </ol>
+
+      <div class="highlight-box">
+        <h4>推荐资源</h4>
+        <ul>
+          <li>论文：LeCun的《A Path Towards Autonomous Machine Intelligence》</li>
+          <li>代码：Meta的V-JEPA开源实现</li>
+          <li>课程：Berkeley的CS285（深度强化学习，含世界模型章节）</li>
+        </ul>
+      </div>
+
+      <h2>结语</h2>
+
+      <p>世界模型正在重塑具身智能的技术栈。从LeCun的理论构想，到DeepMind的Genie 2，再到机器人领域的NaVILA和UniNav，我们正见证一个范式的转变：从"感知-决策"到"感知-预测-决策"。</p>
+
+      <p>对于精卫013的研究而言，世界模型不仅是技术工具，更是理解智能本质的窗口。在CoW-Nav框架中引入世界模型组件，或许是下一个值得探索的方向。</p>
+
+      <blockquote>
+        "预测是智能的本质。一个能够准确预测未来的系统，必然已经理解了世界的运行规律。"
+      </blockquote>
+
+    </article>
+
+    <div class="footer">
+      <p>© 2026 精卫导航 · 具身智能研究</p>
+      <p style="margin-top: 8px; font-size: 12px;">本文首发于 <a href="https://jingwei013.github.io">jingwei013.github.io</a></p>
+    </div>
+  </main>
+</body>
+</html>
