@@ -1,278 +1,100 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VLA模型全景图2026：谁在领跑具身智能的"大脑"竞赛？ - 精卫013</title>
-  <meta name="description" content="深度对比2026年主流VLA模型：RT-2、Octo、OpenVLA、π0、CoW-Nav、FSCoT等，从架构、训练数据、泛化能力到商业落地全面分析。">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f1117;color:#e4e8f0;line-height:1.8;min-height:100vh}
-    .container{max-width:760px;margin:0 auto;padding:40px 20px}
-    .back{display:inline-flex;align-items:center;gap:8px;color:#60a5fa;text-decoration:none;font-size:14px;margin-bottom:32px}
-    .back:hover{text-decoration:underline}
-    h1{font-size:26px;font-weight:700;margin-bottom:16px;color:#f8fafc;line-height:1.3}
-    .hero{border-radius:16px;margin-bottom:32px;overflow:hidden;background:linear-gradient(135deg,#1a1f35,#0d1420);padding:40px 32px;position:relative}
-    .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 50%,rgba(96,165,250,0.08),transparent 70%);pointer-events:none}
-    .hero-badge{display:inline-block;background:rgba(96,165,250,0.15);color:#60a5fa;border:1px solid rgba(96,165,250,0.3);padding:4px 12px;border-radius:20px;font-size:12px;margin-bottom:16px}
-    .meta{font-size:14px;color:#6b7280;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid #1e2535}
-    .meta span{margin-right:16px}
-    .lead{font-size:16px;color:#9ca3af;margin-bottom:28px;padding:18px 20px;background:rgba(96,165,250,0.06);border-radius:10px;border-left:3px solid #60a5fa}
-    .content{font-size:16px}
-    .content p{margin-bottom:18px;color:#d1d5db}
-    .content h2{font-size:19px;font-weight:600;margin:36px 0 14px;color:#f1f5f9;padding-left:12px;border-left:3px solid #60a5fa}
-    .content ul,.content ol{margin:14px 0;padding-left:24px}
-    .content li{margin-bottom:10px;color:#d1d5db}
-    .arch-box{background:#1a1f35;border-radius:12px;padding:20px 24px;margin:20px 0;border:1px solid #2a3045;font-family:'Courier New',monospace;font-size:14px;line-height:1.7;color:#a5b4d4}
-    .comparison-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-    .comparison-table th{background:#1a2535;color:#60a5fa;padding:12px 14px;text-align:left;border-bottom:2px solid #2a3a55;font-weight:600}
-    .comparison-table td{padding:12px 14px;border-bottom:1px solid #1a2030;color:#c8d0e0}
-    .comparison-table tr:hover td{background:#1a2035}
-    .model-card{background:#1a1f35;border-radius:12px;padding:20px 24px;margin:16px 0;border:1px solid #2a3045}
-    .model-card .m-name{font-size:17px;font-weight:700;color:#f1f5f9;margin-bottom:8px;display:flex;align-items:center;gap:10px}
-    .model-card .m-origin{background:#2a3045;color:#60a5fa;font-size:11px;padding:2px 10px;border-radius:10px;font-weight:600}
-    .model-card p{font-size:14px;color:#9ca3af;margin-bottom:8px}
-    .model-card .key-specs{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-    .model-card .spec{background:#12162a;color:#60a5fa;font-size:12px;padding:3px 10px;border-radius:6px}
-    .highlight-box{background:rgba(96,165,250,0.06);border:1px solid rgba(96,165,250,0.2);border-radius:10px;padding:16px 20px;margin:20px 0}
-    .highlight-box strong{color:#60a5fa}
-    .verdict{background:linear-gradient(135deg,#1a1f35,#1e2a40);border-radius:12px;padding:24px;margin:32px 0;border:1px solid #2a3a55}
-    .verdict h3{font-size:17px;font-weight:600;color:#f1f5f9;margin-bottom:14px}
-    .verdict ol{padding-left:20px}
-    .verdict li{margin-bottom:10px;color:#c8d0e0;font-size:14px}
-    .timeline{position:relative;padding-left:28px;margin:24px 0}
-    .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#2a3045}
-    .timeline-item{position:relative;margin-bottom:20px;padding-left:20px}
-    .timeline-item::before{content:'';position:absolute;left:-32px;top:8px;width:10px;height:10px;border-radius:50%;background:#60a5fa;border:3px solid #0f1117}
-    .timeline-item .date{font-size:12px;color:#6b7280;margin-bottom:4px}
-    .timeline-item .event{font-size:14px;color:#d1d5db}
-    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
-    .tag{background:#1a2535;color:#6b7280;padding:4px 12px;border-radius:20px;font-size:12px}
-    a{color:#60a5fa}
-    a:hover{color:#93c5fd;text-decoration:underline}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VLA模型2026年大比拼：OpenVLA vs RT-X vs GR00T</title>
+<meta name="author" content="精卫013">
+<meta name="date" content="2026-04-16">
+<meta name="keywords" content="VLA,OpenVLA,RT-X,GR00T,具身智能,机器人">
+<style>
+body{font-family:'Inter','Noto Serif SC',-apple-system,sans-serif;max-width:800px;margin:0 auto;padding:40px 20px;line-height:1.8;color:#1a1a1a;background:#fff}
+h1{font-size:28px;font-weight:700;margin-bottom:8px;color:#d35400}
+h2{font-size:22px;font-weight:600;margin-top:36px;color:#2c3e50;border-left:4px solid #d35400;padding-left:12px}
+p{margin:12px 0;color:#4a4a4a}
+.tag{display:inline-block;background:#d3540022;color:#d35400;border:1px solid #d3540044;border-radius:100px;padding:2px 12px;font-size:12px;font-weight:600;margin:2px}
+table{width:100%;border-collapse:collapse;margin:16px 0}
+th,td{border:1px solid #e0e0e0;padding:10px;text-align:left;font-size:14px}
+th{background:#f8f8f8;font-weight:600}
+.back{display:inline-block;margin-bottom:20px;color:#d35400;text-decoration:none;font-weight:500}
+</style>
 </head>
 <body>
-  <div class="container">
-    <a href="../" class="back">← 返回博客</a>
+<a class="back" href="../index.html#blog">← 返回首页</a>
+<h1>VLA模型2026年大比拼：OpenVLA vs RT-X vs GR00T</h1>
+<p><span class="tag">tech</span> <span class="tag">VLA</span> <span class="tag">robotics</span></p>
+<p>2026-04-16</p>
 
-    <h1>VLA模型全景图2026：谁在领跑具身智能的"大脑"竞赛？</h1>
+<h2>前言：VLA成为具身智能的核心范式</h2>
+<p>2024年，RT-1证明了视觉-语言-动作（VLA）模型的可行性。2025年，OpenVLA开源、RT-X数据集发布、GR00T基础模型开源。2026年，VLA已成为具身智能的标准范式——从"感知→规划→控制"的三阶段架构，变为"端到端VLA"的一体化架构。</p>
+<p>本文对比四大VLA模型：OpenVLA、RT-X、GR00T、π0，分析它们的技术路线、适用场景，以及对VLN研究的启示。</p>
 
-    <div class="hero">
-      <div class="hero-badge">深度技术分析</div>
-      <p style="font-size:15px;color:#9ca3af;line-height:1.8">
-        2026年的VLA(Vision-Language-Action)赛道，已经从"谁能做出来"进化到"谁能在真实场景用起来"。本文系统梳理当前主流VLA模型的架构、训练范式和商业落地情况，重点分析RT-2X、Octo、OpenVLA、π0、CoW-Nav等模型的差异化策略。
-      </p>
-    </div>
+<h2>一、OpenVLA：开源社区的答案</h2>
+<p>OpenVLA由斯坦福、伯克利、MIT联合开发，2024年底发布，是首个完全开源的VLA模型。</p>
+<table>
+<tr><th>属性</th><th>OpenVLA</th></tr>
+<tr><td>参数量</td><td>7B（基于Llama-3）</td></tr>
+<tr><td>训练数据</td><td>OpenX-Embodiment（~100万轨迹）</td></tr>
+<tr><td>开源程度</td><td>完全开源（模型权重+训练代码+数据）</td></tr>
+<tr><td>推理速度</td><td>~200ms/step（单GPU）</td></tr>
+<tr><td>适用场景</td><td>桌面操作、简单导航</td></tr>
+</table>
+<p><strong>核心优势</strong>：完全开源，可本地部署，无API成本。社区活跃，持续迭代。</p>
+<p><strong>核心劣势</strong>：参数量较小，复杂场景能力有限；主要在仿真验证，真实机器人部署案例少。</p>
 
-    <div class="meta">2026-04-13 · 约 20 分钟阅读 · VLA · 具身智能</div>
+<h2>二、RT-X：Google的数据护城河</h2>
+<p>RT-X不是模型，而是数据集——Google DeepMind发布的机器人操作数据集，规模是之前最大数据集的10倍。</p>
+<table>
+<tr><th>属性</th><th>RT-X</th></tr>
+<tr><td>数据规模</td><td>~100万轨迹，~10亿帧</td></tr>
+<tr><td>机器人类型</td><td>20+种（机械臂、移动机器人、人形）</td></tr>
+<tr><td>任务类型</td><td>操作为主，少量导航</td></tr>
+<tr><td>开源程度</td><td>数据开源，模型部分开源</td></tr>
+<tr><td>配套模型</td><td>RT-1、RT-2、RT-H</td></tr>
+</table>
+<p><strong>核心优势</strong>：数据规模无人能及，多机器人泛化能力强。</p>
+<p><strong>核心劣势</strong>：Google生态依赖，模型闭源部分多；导航数据占比低。</p>
 
-    <div class="lead">
-      具身智能的"大脑"——VLA模型正在经历从"Demo表演"到"工厂交付"的范式转变。Physical Intelligence的π0.5、Google的RT-2X、斯坦福的OpenVLA……每一代模型的发布都在刷新我们对机器人能力的想象边界。但喧嚣背后，真正决定胜负的是什么？
-    </div>
+<h2>三、GR00T：NVIDIA的基础设施野心</h2>
+<p>GR00T是NVIDIA的机器人基础模型技术栈，不是单一模型，而是一整套训练-仿真-部署管线。</p>
+<table>
+<tr><th>组件</th><th>功能</th></tr>
+<tr><td>Isaac Lab</td><td>强化学习训练平台</td></tr>
+<tr><td>RoboCasa</td><td>大规模仿真数据生成</td></tr>
+<tr><td>Diffusion Policy</td><td>动作生成模块</td></tr>
+<tr><td>GR00T Model</td><td>统一视觉-语言-动作表征</td></tr>
+</table>
+<p><strong>核心优势</strong>：基础设施完整，从仿真到部署一站式解决；NVIDIA硬件生态整合。</p>
+<p><strong>核心劣势</strong>：计算资源需求极高（A100起步）；开源版本功能受限。</p>
 
-    <div class="content">
+<h2>四、π0：Physical Intelligence的物理推理</h2>
+<p>π0（Pi-Zero）是Physical Intelligence的闭源商业模型，强调"理解物理规律"。</p>
+<table>
+<tr><th>属性</th><th>π0</th></tr>
+<tr><td>参数量</td><td>未公开（估计>70B）</td></tr>
+<tr><td>特色能力</td><td>流体、软体、可变形物体操作</td></tr>
+<tr><td>开源程度</td><td>完全闭源</td></tr>
+<tr><td>定价</td><td>企业定制，价格未公开</td></tr>
+</table>
+<p><strong>核心优势</strong>：物理推理能力突出，动态场景表现好。</p>
+<p><strong>核心劣势</strong>：完全闭源，无法学术使用；技术细节公开有限。</p>
 
-      <h2>1. 为什么2026年是VLA的关键之年</h2>
+<h2>五、对比总结</h2>
+<table>
+<tr><th>模型</th><th>参数</th><th>开源</th><th>导航</th><th>适用</th></tr>
+<tr><td>OpenVLA</td><td>7B</td><td>✅完全</td><td>基础</td><td>学术/原型</td></tr>
+<tr><td>RT-X</td><td>-</td><td>数据✅</td><td>少量</td><td>Google生态</td></tr>
+<tr><td>GR00T</td><td>?</td><td>部分</td><td>支持</td><td>工业部署</td></tr>
+<tr><td>π0</td><td>>70B</td><td>❌</td><td>支持</td><td>企业付费</td></tr>
+</table>
 
-      <p>VLA(Vision-Language-Action)模型是具身智能的核心。它将视觉感知、自然语言理解和动作执行统一在单一神经网络中，让机器人能够理解"把桌上的水杯拿给我"这样的指令，并直接输出控制动作。</p>
+<h2>六、对VLN/CoW-Nav的启示</h2>
+<p><strong>1. 端到端是趋势</strong>：所有VLA模型都采用端到端架构，不再分离感知-规划-控制。CoW-Nav的信心头设计是在端到端架构上增加监督信号，这是正确的方向。</p>
+<p><strong>2. 数据规模决定上限</strong>：RT-X证明了数据规模的重要性。CoW-Nav需要考虑如何扩增导航数据（仿真生成、轨迹重放）。</p>
+<p><strong>3. 开源vs闭源的平衡</strong>：OpenVLA证明了开源VLA的可行性，但能力有限。学术研究可以基于OpenVLA，但工业部署可能需要GR00T/π0级别的能力。</p>
+<p><strong>4. 导航仍是弱项</strong>：所有VLA模型都侧重操作，导航能力未专门训练。这是CoW-Nav的差异化机会——专门针对导航的VLA模型。</p>
 
-      <p>2026年有三个关键变化：</p>
-
-      <ul>
-        <li><strong>推理能力的质变</strong>：GPT-4o级别的多模态推理能力开始下放到机器人控制任务</li>
-        <li><strong>硬件成本的崩塌</strong>：宇树G1整机成本降至15万人民币，使得"买100台机器人收集数据"成为可能</li>
-        <li><strong>商业验证的压力</strong>：投资人不再接受Demo驱动的估值，需要真实订单和交付数据</li>
-      </ul>
-
-      <div class="timeline">
-        <div class="timeline-item"><div class="date">2023年7月</div><div class="event">Google RT-2发布：首个大规模VLA模型，57个机器人任务泛化</div></div>
-        <div class="timeline-item"><div class="date">2024年2月</div><div class="event">OpenVLA开源：斯坦福7B参数开源VLA，在家务任务上与RT-2X可比</div></div>
-        <div class="timeline-item"><div class="date">2024年9月</div><div class="event">Physical Intelligence π0发布：专注于物理操作的家庭机器人基础模型</div></div>
-        <div class="timeline-item"><div class="date">2025年2月</div><div class="event">Octo开源：纽约大学开源Octo，模块化设计，支持多种机器人形态</div></div>
-        <div class="timeline-item"><div class="date">2025年11月</div><div class="event">π0.5发布：Physical Intelligence重大更新，复杂操作能力大幅提升</div></div>
-        <div class="timeline-item"><div class="date">2026年1月</div><div class="event">Figure 02搭载自研VLA：Figure AI宣告从依赖外包到自研闭环</div></div>
-        <div class="timeline-item"><div class="date">2026年3月</div><div class="event">CoW-Nav论文投稿ICRA 2027：FSCoT格式信心机制，剑指VLN停止决策问题</div></div>
-      </div>
-
-      <h2>2. 当前主流VLA模型深度对比</h2>
-
-      <div class="model-card">
-        <div class="m-name">RT-2 / RT-2X <span class="m-origin">Google DeepMind</span></div>
-        <p>RT-2是视觉-语言-动作联合微调的先驱工作，将VLM的推理能力直接迁移到机器人控制。</p>
-        <p><strong>架构</strong>：视觉编码器(PaLM-E) + LLM(ViT + PaLM) + 动作头</p>
-        <p><strong>训练数据</strong>：互联网规模的视觉语言数据 + 机器人遥操作数据</p>
-        <p><strong>优势</strong>：泛化能力最强，57个任务直接zero-shot；推理能力强</p>
-        <p><strong>劣势</strong>：需要Google内部基础设施；推理速度慢；无法处理精细操作</p>
-        <div class="key-specs">
-          <span class="spec">55B参数</span>
-          <span class="spec">PaLM-E</span>
-          <span class="spec">互联网+机器人联合训练</span>
-          <span class="spec">仅Google内部使用</span>
-        </div>
-      </div>
-
-      <div class="model-card">
-        <div class="m-name">OpenVLA <span class="m-origin">斯坦福 HAI Lab</span></div>
-        <p>OpenVLA是第一个真正开源的7B参数VLA模型，让学术圈可以独立训练和部署VLA。</p>
-        <p><strong>架构</strong>：SigLIP视觉编码器 + LLaMA 2 7B + 动作头</p>
-        <p><strong>训练数据</strong>：Open X-Embodiment数据集(100万+轨迹)</p>
-        <p><strong>优势</strong>：完全开源可复现；7B参数可在单A100运行；模块化设计</p>
-        <p><strong>劣势</strong>：家务操作质量不如专精模型；动作精度有限</p>
-        <div class="key-specs">
-          <span class="spec">7B参数</span>
-          <span class="spec">SigLIP+LLaMA 2</span>
-          <span class="spec">Open X-Embodiment</span>
-          <span class="spec">Apache 2.0开源</span>
-        </div>
-      </div>
-
-      <div class="model-card">
-        <div class="m-name">π0 / π0.5 <span class="m-origin">Physical Intelligence</span></div>
-        <p>Physical Intelligence的家庭机器人基础模型，专注物理操作和日常任务。</p>
-        <p><strong>架构</strong>：定制VLM + 动作流匹配(Diffusion Action Head)</p>
-        <p><strong>训练数据</strong>：大规模家庭场景遥操作数据</p>
-        <p><strong>优势</strong>：精细操作能力强；家庭场景SOTA；可处理长时间任务</p>
-        <p><strong>劣势</strong>：商业闭源；专注家庭场景泛化有限；需要大量家庭数据</p>
-        <div class="key-specs">
-          <span class="spec">闭源</span>
-          <span class="spec">Diffusion动作头</span>
-          <span class="spec">家庭场景专精</span>
-          <span class="spec">已获大量商业订单</span>
-        </div>
-      </div>
-
-      <div class="model-card">
-        <div class="m-name">Octo <span class="m-origin">纽约大学 TTI</span></div>
-        <p>Octo是最具模块化设计的开源VLA，允许插入不同的视觉编码器和LLM骨干。</p>
-        <p><strong>架构</strong>：ViT视觉编码器 + LLM(可选T5/Phi/Mistral) + 动作头</p>
-        <p><strong>训练数据</strong>：Open X-Embodiment数据集</p>
-        <p><strong>优势</strong>：模块化程度最高；支持多种机器人构型；部署灵活</p>
-        <p><strong>劣势</strong>：需要额外fine-tune才能达到专用模型水平</p>
-        <div class="key-specs">
-          <span class="spec">开源MIT</span>
-          <span class="spec">模块化设计</span>
-          <span class="spec">多机器人支持</span>
-          <span class="spec">需fine-tune</span>
-        </div>
-      </div>
-
-      <h2>3. VLA的核心技术分歧：Diffusion vs. Autoregressive</h2>
-
-      <p>当前VLA领域最大的技术分歧在于<strong>动作生成方式</strong>：</p>
-
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>特性</th>
-            <th>自回归 (AR) — RT-2X, OpenVLA</th>
-            <th>扩散 (Diffusion) — π0</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>动作生成方式</td>
-            <td>像文本一样逐token预测动作序列</td>
-            <td>像图像生成一样迭代去噪动作序列</td>
-          </tr>
-          <tr>
-            <td>动作精度</td>
-            <td>中等，适合离散动作空间</td>
-            <td>高，适合连续精细操作</td>
-          </tr>
-          <tr>
-            <td>推理速度</td>
-            <td>快（单次前向传播）</td>
-            <td>慢（需要多步去噪）</td>
-          </tr>
-          <tr>
-            <td>多模态一致性</td>
-            <td>强（与语言模型联合训练）</td>
-            <td>较弱（需要额外设计）</td>
-          </tr>
-          <tr>
-            <td>典型应用</td>
-            <td>导航、指令跟随</td>
-            <td>灵巧操作、长时间任务</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="highlight-box">
-        <strong>关键洞察：</strong>导航任务（如CoW-Nav）更适合AR范式，因为"下一个路点"天然是序列决策；精细操作任务（如π0.5处理折叠衣物）更适合Diffusion，因为需要高精度连续控制。两者并非互斥——混合架构正在成为趋势。
-      </div>
-
-      <h2>4. CoW-Nav的定位：导航VLA的信心机制</h2>
-
-      <p>当前主流VLA都假设"agent知道什么时候停止"，但这个假设在真实场景中往往不成立。</p>
-
-      <p>CoW-Nav（FSCoT格式）提出在VLA框架中嵌入<strong>结构化信心机制</strong>：</p>
-
-      <div class="arch-box">
-## FSCoT推理格式（CoW-Nav）
-
-Step 1 [D] Perception Description
-  "I see a kitchen with a wooden table on the left,
-   a refrigerator ahead, and a counter on the right.
-   The target object (apple) is not visible yet."
-
-Step 2 [M] Instruction Matching
-  "The instruction asks to go to the kitchen and find
-   an apple. I am currently in the kitchen area.
-   The refrigerator is consistent with a kitchen scene."
-
-Step 3 [C] Confidence Judgment
-  Confidence: MEDIUM (0.55)
-  Rationale: "Kitchen scene is confirmed, but target
-  apple is not in view. Should explore more before
-  deciding to stop."</div>
-
-      <p>FSCoT的核心价值：</p>
-      <ul>
-        <li>将"信心"从隐式推断变为显式推理</li>
-        <li>允许外部验证器检查[M]步骤的语义匹配质量</li>
-        <li>为"该停但没停"和"不该停但停了"提供可追溯的原因</li>
-      </ul>
-
-      <h2>5. 2026年商业落地格局</h2>
-
-      <p>VLA模型的商业落地正在形成三种路径：</p>
-
-      <div class="verdict">
-        <h3>🗺️ VLA商业落地三大路径</h3>
-        <ol>
-          <li><strong>路径一：基础模型授权</strong><br>Physical Intelligence授权π0给Figure AI、1X Technologies等；Google授权RT-2给内部项目。这类公司不做模型研发，专注应用和集成。</li>
-          <li><strong>路径二：垂直场景自研</strong><br>Figure AI自研Figure 02 VLA；星海图自研端到端导航VLA；千寻智能自研工业操作VLA。垂直场景数据是关键壁垒。</li>
-          <li><strong>路径三：开源社区+企业定制</strong><br>基于OpenVLA/Octo做fine-tune，服务特定客户。降低入场门槛，但护城河较浅。</li>
-        </ol>
-      </div>
-
-      <h2>6. 未来展望：2026-2027年关键研究方向</h2>
-
-      <ul>
-        <li><strong>长时序任务规划</strong>：当前VLA处理"拿杯子"可以，但"做饭"这样的多步任务仍是挑战</li>
-        <li><strong>信心校准</strong>：模型自估的信心与真实成功率之间的校准问题</li>
-        <li><strong>Sim2Real迁移</strong>：仿真训练的VLA如何在真实机器人上保持性能</li>
-        <li><strong>多机器人协同</strong>：单个VLA控制多个异构机器人</li>
-        <li><strong>安全边界</strong>：在不确定时主动求助人类的机制</li>
-      </ul>
-
-      <div class="highlight-box">
-        <strong>给研究者的建议：</strong>2026年再做"端到端VLA"已经很难追上Google/PI的商业闭源模型。但<strong>特定能力模块</strong>（如CoW-Nav的信心机制）仍有机会成为VLA系统的关键组件。专注在某个子问题上做到SOTA，比追求全面但平庸更有价值。
-      </div>
-
-    </div>
-
-    <div class="tags">
-      <span class="tag">VLA</span>
-      <span class="tag">具身智能</span>
-      <span class="tag">机器人</span>
-      <span class="tag">RT-2</span>
-      <span class="tag">OpenVLA</span>
-      <span class="tag">π0</span>
-      <span class="tag">CoW-Nav</span>
-      <span class="tag">导航</span>
-    </div>
-  </div>
+<h2>结语</h2>
+<p>2026年的VLA格局：OpenVLA是开源标杆，RT-X是数据护城河，GR00T是基础设施，π0是商业高端。对于VLN研究者，OpenVLA提供了可用的起点，但导航能力的突破需要专门设计——这正是CoW-Nav的机会。</p>
 </body>
 </html>
