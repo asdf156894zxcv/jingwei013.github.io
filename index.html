@@ -1078,19 +1078,19 @@
 
       <div class="stat" onclick="showSection('papers')" title="点击进入论文库">
 
-        <span class="stat-num">44</span><div class="stat-label">高质量论文 →</div>
+        <span class="stat-num">0</span><div class="stat-label">高质量论文 →</div>
 
       </div>
 
       <div class="stat" onclick="showSection('blog')" title="点击查看博客">
 
-        <span class="stat-num">65</span><div class="stat-label">技术博客 →</div>
+        <span class="stat-num">96</span><div class="stat-label">技术博客 →</div>
 
       </div>
 
       <div class="stat" onclick="showSection('cases')" title="点击进入案例库">
 
-        <span class="stat-num">29</span><div class="stat-label">创业案例 →</div>
+        <span class="stat-num">52</span><div class="stat-label">创业案例 →</div>
 
       </div>
 
@@ -3047,1637 +3047,1110 @@ const PDF_AVAILABLE = {
 
 
 const BLOG_POSTS = [
-
-  // ===== 前沿技术 =====
-
-  { cat:'tech', date:'2026-03-25', title:'机器人走到目的地门口，却不知道该停下来',
-
-    desc:'VLN最被忽视的问题：SR=71.9%，但机器人停止位置平均离目标0.8米。走到了，停不住。10年VLN研究，没人认真研究停止决策。博士日记/研究思考。',
-
-    url:'./blog/vln-stopping-problem.html',
-
-    tags:['VLN','停止决策','研究思考','HaltNav','博士日记'] },
-
-  { cat:'tech', date:'2026-03-25', title:'2025 Q1 VLN 研究思考：三个新方向，一个未解之问',
-
-    desc:'SpatialFly从几何表征、HaltNav从停止决策、NavGRPO从训练多样性各自突破VLN鲁棒性。三篇正交方向放一起，揭示了一个未被充分探索的组合空间。',
-
-    url:'./blog/research-thinking-vln-2025q1.html',
-
-    tags:['VLN','研究思考','SpatialFly','HaltNav','NavGRPO','2025'] },
-
-  { cat:'tech', date:'2026-03-25', title:'机器人导航的「世界模型」革命：从"看到哪走到哪"到"想到哪走到哪"',
-
-    desc:'WMNav、ImagiNav、NavigateDiff三篇论文正在把VLN从反应式变成预测式。机器人开始在脑子里"想象"世界，然后再走。导航范式的根本转变。',
-
-    url:'./blog/world-model-nav.html',
-
-    tags:['世界模型','VLN','扩散模型','具身导航','WMNav','ImagiNav'] },
-
-  { cat:'tech', date:'2026-03-25', title:'导航的GPT时刻：NavFoM与具身导航基础模型',
-
-    desc:'北大王鹤团队NavFoM用800万样本训练跨实体跨任务导航基础模型，一个模型同时处理四种机器人、四类任务。这是导航的GPT时刻还是新的起点？',
-
-    url:'./blog/navigation-gpt-moment.html',
-
-    tags:['NavFoM','基础模型','ICLR2026','跨实体','VLN','ObjectNav'] },
-
-  { cat:'tech', date:'2026-03-26', title:'BEV表示学习：鸟瞰视角在导航中的应用',
-
-    desc:'BEV在导航中的三大优势（解决遮挡、尺度感知、动态物体处理），IndoorBEV/BEVNav/GaussianBeV三大技术流派深度解析，含技术对比表格和实践选型指南。',
-
-    url:'./blog/bev-representation-learning-navigation.html',
-
-    tags:['BEV','鸟瞰视角','导航','IndoorBEV','BEVNav','GaussianBeV'] },
-
-  { cat:'tech', date:'2026-03-26', title:'多模态LLM在具身导航中的应用：从理解到行动的关键桥梁',
-
-    desc:'从TopV-Nav的端到端MLLM导航、ImagiNav的子目标分解、到Mem2Ego的记忆增强，三种范式正在重新定义导航研究范式。',
-
-    url:'./blog/mlm-embodied-navigation.html',
-
-    tags:['多模态LLM','具身导航','TopV-Nav','ImagiNav','Mem2Ego'] },
-
-  { cat:'tech', date:'2026-03-26', title:'强化学习+VLN：2025年的两条技术路线',
-
-    desc:'VLN-R1（GRPO强化微调+TDR奖励）vs EvolveNav（自改进CoT推理）深度对比。两条路线6维度对比表格，实践建议：如何选择适合自己的路线。',
-
-    url:'./blog/rl-vln-2025.html',
-
-    tags:['强化学习','VLN','2025','VLN-R1','EvolveNav','GRPO'] },
-
-  { cat:'tech', date:'2026-03-30', title:'FSCoT：机器人"停在哪里"，比"走哪条路"难10倍',
-
-    desc:'VLN停止决策的终极解法。三段式形式化推理链（视觉描述→语义匹配→信心分）+自改进训练+信心头蒸馏，StoP从65%提升到85%。训练-推断不对称设计彻底解决在线CoT崩溃问题。',
-
-    url:'./blog/fscot-stop-reasoning-vln.html',
-
-    tags:['FSCoT','停止决策','CoT推理','自改进','VLN','信心估计'] },
-
-  { cat:'tech', date:'2026-03-29', title:'EvolveNav：让机器人自己学会反思，VLN成功率跳到77%',
-
-    desc:'ICLR 2025。形式化CoT训练+GRPO自改进，无需人工标注推理链。反直觉设计：训练时用CoT，推断时扔掉——为什么这样反而更好？与Aux-Think、VLN-R1的横向对比。',
-
-    url:'./blog/evolvenav-self-improving-cot.html',
-
-    tags:['EvolveNav','CoT推理','GRPO','自改进','ICLR2025','VLN'] },
-
-  { cat:'tech', date:'2026-03-29', title:'VLN停止决策：被所有人忽视的致命瓶颈',
-
-    desc:'HaltNav论文精读。68%成功率的顶级VLN，停止误差平均2.5米——5倍机械臂操作范围。StoP指标首次量化停止质量，揭示SR掩盖的系统性缺陷。3类停止错误分析+研究机会。',
-
-    url:'./blog/haltnav-stop-decision.html',
-
-    tags:['停止决策','HaltNav','StoP指标','VLN','论文精读'] },
-
-  { cat:'tech', date:'2026-03-26', title:'语义地图构建：ObjectNav的核心技术栈',
-
-    desc:'四层技术栈（感知L1/表示L2/探索L3/决策L4），VLFM/SG-Nav/SCOPE/3DGSNav四大代表工作，探索策略对比表，停止决策四种方案，2024-2026三大技术趋势。',
-
-    url:'./blog/semantic-map-objectnav.html',
-
-    tags:['语义地图','ObjectNav','VLFM','SG-Nav','SCOPE','3DGSNav'] },
-
-  { cat:'tech', date:'2026-03-25', title:'VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路',
-
-    desc:'导航机器人最大的问题不是「看不见」，而是「记不住」。MapNav用语义地图、COSMO用状态空间模型、NavRAG重新定义指令——三篇顶会论文的深度解析。',
-
-    url:'./blog/vln-memory-mechanisms.html',
-
-    tags:['VLN','记忆机制','ACL2025','ICCV2025','论文解读'] },
-
-  { cat:'tech', date:'2026-03-24', title:'什么是具身智能？一句话讲清楚',
-
-    desc:'Siri打开空调不是具身智能，一个机器人自己走进房间找到空调按下开关才是。具身智能=有身体的AI，能理解世界+能行动。一句话讲清楚+3个例子+技术分类。',
-
-    url:'./blog/embodied-ai-intro.html',
-
-    tags:['具身智能','VLN','机器人','AI科普'] },
-
-  { cat:'tech', date:'2026-03-24', title:'机器人是怎么"看懂"世界的？VLN视觉语言导航',
-
-    desc:'你家的扫地机器人可能是个"盲人"。VLN让机器人理解"走到客厅右转"这种指令。最新进展：World Model+VLN、思维链推理、RL微调。',
-
-    url:'./blog/vln-explained.html',
-
-    tags:['VLN','具身智能','技术科普','机器人'] },
-
-  { cat:'tech', date:'2026-03-22', title:'为什么 VLN 的「跨模态对齐」是当前最大的难点',
-
-    desc:'视觉语言导航（VLN）十年发展，从 R2P 到 NAVI，跨模态对齐始终是核心挑战。本文梳理了当前主流方法的问题所在，以及 LLM 能带来什么改变。',
-
-    url:'./blog/vln-cross-modal-alignment.html',
-
-    tags:['VLN','论文解读','跨模态'] },
-
-  { cat:'tech', date:'2026-03-21', title:'ObjectNav 的三种主流范式：主动探索、语义推理、记忆增强',
-
-    desc:'目标导航（ObjectNav）是具身导航中最接近实际应用的任务。主流方法分为三类：主动探索最大化信息增益、语义推理利用物体关系、记忆增强处理长序列。',
-
-    url:'./blog/objectnav-paradigms.html',
-
-    tags:['ObjectNav','技术分析'] },
-
-  { cat:'tech', date:'2026-03-20', title:'我的 LLM 导航实验记录（1）：LLaVA-1.5 在 Matterport3D 上的表现',
-
-    desc:'用 LLaVA-1.5 在 Matterport3D 上跑了一个简单实验，记录了视觉语言对齐问题、推理延迟和幻觉问题。结论：LLM 在具身任务上还有很长的路要走。',
-
-    url:'./blog/llm-nav-experiments.html',
-
-    tags:['LLM导航','实验记录','LLaVA'] },
-
-  { cat:'tech', date:'2026-03-19', title:'论文精读：Active Neural SLAM——主动探索如何提升 ObjectNav 效率',
-
-    desc:'这篇 CoRL 2022 的工作将 SLAM 与主动探索结合，让机器人在未知环境中主动寻找信息量大的区域。核心贡献是提出「探索-利用」平衡策略。',
-
-    url:'./blog/active-neural-slam.html',
-
-    tags:['论文精读','ObjectNav','主动探索'] },
-
-  { cat:'tech', date:'2026-03-17', title:'强化学习在 VLN 中的应用现状：为什么 RL 比 IL 难用',
-
-    desc:'模仿学习（IL）在 VLN 中是主流，因为它稳定、数据效率高。强化学习理论上更好，但面临奖励稀疏、探索空间大等挑战。本文分析 RL 在 VLN 中的应用现状。',
-
-    url:'./blog/rl-in-vln.html',
-
-    tags:['RL','VLN','技术分析'] },
-
-
-
-  // ===== 案例分析 =====
-
-  { cat:'case', date:'2026-03-27', title:'每日优鲜死亡复盘：140亿融资烧光，30分钟送货为什么救不了生鲜电商',
-
-    desc:'8年融资140亿，IPO市值32亿美元，退市市值不足200万美元。1925名员工锐减至55人，供应商欠款22.4亿，青岛国资20亿打水漂。前置仓模式的终极教训。',
-
-    url:'./blog/missfresh-death.html',
-
-    tags:['失败案例','生鲜电商','每日优鲜','前置仓','深度复盘'] },
-
-  { cat:'case', date:'2026-03-25', title:'产品市场匹配的7个反面教材：为什么"有人想要"≠ PMF',
-
-    desc:'有试用没复购、免费用户多付费意愿极低、销售卖得出续费却极低……7个"假PMF"反面教材，用真实案例和行为数据教你识别PMF真伪。',
-
-    url:'./blog/pmf-anti-patterns.html',
-
-    tags:['PMF','产品','创业基础','失败案例','SaaS'] },
-
-  { cat:'case', date:'2026-03-25', title:'7大死亡陷阱：AI创业公司的真实墓志铭',
-
-    desc:'Builder.ai融资4.5亿造假倒闭、Humane AI Pin退货超销售、Inflection AI 15亿被微软挖走……7个真实失败模式深度复盘，每个都有具体数字，每个都有人交过学费。',
-
-    url:'./blog/ai-startup-death-traps.html',
-
-    tags:['AI创业','失败案例','深度分析','创业陷阱'] },
-
-  { cat:'case', date:'2026-03-25', title:'25款AI应用集体猝死：腾讯智影、讯飞写作、冒泡鸭全在列',
-
-    desc:'2025下半年，25款AI应用集中关闭。腾讯、阿里、字节、科大讯飞、美团无一幸免。商业化失败、监管收紧、战略调整三大死因，675家AI公司倒闭的行业全景。',
-
-    url:'./blog/ai-apps-death-wave.html',
-
-    tags:['AI行业','创业失败','产品关闭','商业分析'] },
-
-  { cat:'case', date:'2026-03-24', title:'一批机器人公司正在倒闭',
-
-    desc:'2025年十多家机器人公司倒闭。K-Scale Labs融资3轮、订单200万$、OpenAI客户，仍倒闭。资金链断裂+中国供应链冲击+商业化验证失败。',
-
-    url:'./blog/robot-company-closure.html',
-
-    tags:['机器人','创业','失败案例','商业分析'] },
-
-  { cat:'case', date:'2026-03-23', title:'案例分析：K-Scale Labs硅谷明星人形机器人公司的陨落',
-
-    desc:'融资3轮、订单200万$、OpenAI客户、2025年11月倒闭。账上只剩40万$。创始人：中国供应链崛起将主导全球人形机器人生态。',
-
-    url:'./blog/case-k-scale.html',
-
-    tags:['创业案例','失败分析','人形机器人','硅谷'] },
-
-  { cat:'case', date:'2026-03-25', title:'AI独角兽正在倒闭：达闼机器人与2025年的明星公司危机',
-
-    desc:'达闼停摆、澜码欠薪、Stability AI资不抵债……8万家AI企业倒闭、62.4亿亏损。顶级光环救不了它们，4种死亡模式+3条生存教训。',
-
-    url:'./blog/ai-unicorn-collapse.html',
-
-    tags:['创业案例','AI独角兽','倒闭潮','机器人'] },
-
-  { cat:'case', date:'2026-03-23', title:'中国具身智能公司倒闭潮：2025年十多家公司倒掉',
-
-    desc:'达闼、蚕丛机器人、领贝机器人...一个接一个倒下。核心原因：蹭AI热度无核心技术、高估值低营收、订单无含金量。',
-
-    url:'./blog/case-china-robots.html',
-
-    tags:['创业案例','具身智能','中国公司','倒闭潮'] },
-
-
-
-  // ===== 创业基础 =====
-
-  { cat:'startup', date:'2026-03-27', title:'创始人股权分配101：分错一次，公司就没了',
-
-    desc:'23%创业失败归因于团队冲突，均分股权的团队价值低30%。Odeo均分33%导致决策瘫痪、Facebook差点被30%不干活合伙人拖垮。5条黄金法则+不同阶段参考模型。',
-
-    url:'./blog/founder-equity-101.html',
-
-    tags:['创业基础','股权','创始人','公司治理','Vesting'] },
-
-  { cat:'startup', date:'2026-03-29', title:'创始人股权分配的5个死亡陷阱',
-
-    desc:'95%早期团队都会踩。平均分（决策瘫痪）、无Vesting（离职者带走股权）、忘期权池（融资时被稀释）、顾问股权泛滥、忽视控制权设计——每一条都足以毁掉公司。附YC标准参考。',
-
-    url:'./blog/equity-distribution-traps.html',
-
-    tags:['股权分配','创业基础','创始人','Vesting','期权池','控制权'] },
-
-  { cat:'startup', date:'2026-03-24', title:'创业第一课：普通人如何开始第一次创业',
-
-    desc:'重新定义"创业"，普通人创业的三条铁律：从副业开始、不要做大而全、先验证再投入。创业不是赌博，是验证。',
-
-    url:'./blog-startup-basics-01.html',
-
-    tags:['创业基础','副业','MVP','验证'] },
-
-  { cat:'startup', date:'2026-03-24', title:'创业成本拆解：普通人创业到底要花多少钱',
-
-    desc:'轻创业0-5000元，个体户1-10万元，公司化10万元+。2026年创业最大的成本是时间，不是钱。6个月生活费是必须的安全垫。',
-
-    url:'./blog-startup-basics-02.html',
-
-    tags:['创业基础','成本','资金','安全垫'] },
-
-  { cat:'startup', date:'2026-03-24', title:'如何找到适合自己的创业方向',
-
-    desc:'三个问题帮你定位：我会什么？谁需要这个？他们愿意付费吗？四种适合普通人的方向：技能变现、信息差、资源整合、兴趣驱动。',
-
-    url:'./blog-startup-basics-03.html',
-
-    tags:['创业基础','方向','定位','技能变现'] },
-
-  { cat:'startup', date:'2026-03-26', title:'创业融资101：从种子轮到IPO的完整路线图',
-
-    desc:'7个轮次时间线、估值逻辑、稀释路径、6大条款陷阱（对赌/清算优先/反稀释）、融资时机判断。创始人必知的融资真相。',
-
-    url:'./blog/startup-fundraising-101.html',
-
-    tags:['创业融资','种子轮','A轮','估值','条款陷阱'] },
-
-  { cat:'startup', date:'2026-03-26', title:'PMF（产品市场契合）：创业公司唯一重要的指标',
-
-    desc:'从Color.com 4100万美元失败案例切入，系统讲解PMF概念、Sean Ellis 40%法则、四大经典案例（Dropbox/Slack/Airbnb/拼多多）、PMF前后对比。',
-
-    url:'./blog/pmf-the-only-thing-that-matters.html',
-
-    tags:['PMF','产品市场契合','创业基础','Color','Dropbox'] },
-
-  { cat:'startup', date:'2026-03-25', title:'AI创业失败案例分析：17.5亿美元烧光的Quibi教会我们什么',
-
-    desc:'2020年4月上线，10月宣布关闭，6个月烧光17.5亿美元。好莱坞传奇人物联手打造，明星阵容豪华，为什么还是失败了？5条生存法则。',
-
-    url:'./blog/startup-failure-analysis.html',
-
-    tags:['创业案例','AI创业','Quibi','失败分析','产品经理'] },
-
-  { cat:'case', date:'2026-03-25', title:'Quibi：17.5亿美元、6个月关闭——史上最快陨落的创业公司',
-
-    desc:'好莱坞传奇人物Jeffrey Katzenberg和Meg Whitman联手，融资17.5亿美元，明星阵容豪华。2020年4月上线，10月宣布关闭。为什么？',
-
-    url:'./blog/quibi.html',
-
-    tags:['创业案例','失败分析','Quibi','流媒体'] },
-
-  { cat:'case', date:'2026-03-25', title:'Theranos：硅谷最美女骗子的900亿骗局如何骗过所有人',
-
-    desc:'一滴血检测200+指标，估值90亿美元，Elizabeth Holmes被誉为女版乔布斯。骗局如何维持15年？又为何最终败露？',
-
-    url:'./blog/theranos.html',
-
-    tags:['创业案例','失败分析','Theranos','医疗','骗局'] },
-
-  { cat:'case', date:'2026-03-25', title:'柔宇科技：640亿估值的折叠屏先驱，为何比华为三星死得更惨',
-
-    desc:'折叠屏手机先驱，估值640亿人民币，却倒在量产前夜。技术领先却商业化失败，柔宇给中国硬科技创业什么教训？',
-
-    url:'./blog/royole-64-billion-collapse.html',
-
-    tags:['创业案例','失败分析','柔宇科技','硬科技','中国'] },
-
-  { cat:'case', date:'2026-03-25', title:'人形机器人倒闭潮：K-Scale Labs等明星公司为何集体倒下',
-
-    desc:'2025年人形机器人公司倒闭潮。K-Scale Labs、Figure AI等明星公司相继倒下。技术瓶颈还是商业化困境？',
-
-    url:'./blog/humanoid-robot-failure-wave.html',
-
-    tags:['创业案例','失败分析','人形机器人','倒闭潮'] },
-
-  { cat:'tech', date:'2026-03-25', title:'具身智能融资狂潮：2024-2025年钱流向了哪里',
-
-    desc:'具身智能赛道融资数据全景。谁拿到了钱？什么方向最热门？钱从哪来？深度解析具身智能投资趋势。',
-
-    url:'./blog/embodied-ai-funding-frenzy.html',
-
-    tags:['具身智能','融资','投资','趋势'] },
-
-  { cat:'tech', date:'2026-03-25', title:'从CLIP到Qwen2-VL：VLM在导航中的演进',
-
-    desc:'视觉语言模型如何赋能机器人导航？从CLIP到Qwen2-VL的技术演进路线，以及落地实践中的关键挑战。',
-
-    url:'./blog/vlm-navigation-clip-to-qwen2vl.html',
-
-    tags:['VLM','导航','CLIP','Qwen2-VL','技术演进'] },
-
-  { cat:'tech', date:'2026-03-25', title:'ObjectNav vs VLN：两种导航范式的本质区别',
-
-    desc:'ObjectNav和VLN看似相似，实则本质不同。目标驱动vs指令驱动，探索vs跟随，两种范式的技术路线对比。',
-
-    url:'./blog/objectnav-vs-vln.html',
-
-    tags:['ObjectNav','VLN','技术对比','导航'] },
-
-  { cat:'tech', date:'2026-03-25', title:'NavCoT：思维链推理在视觉语言导航中的应用',
-
-    desc:'思维链(CoT)推理如何提升VLN性能？NavCoT方法详解：显式推理步骤、中间监督、可解释性提升。',
-
-    url:'./blog/navcot-chain-of-thought-navigation.html',
-
-    tags:['VLN','CoT','思维链','推理','NavCoT'] },
-
-
-
-
-
-  // ===== AI创业思路 =====
-
-  { cat:'ai', date:'2026-03-22', title:'AI Agent 创业机会分析：具身智能领域的可能路径',
-
-    desc:'基于对 VLN、ObjectNav、LLM 导航的持续跟踪，思考 AI Agent 在机器人领域的落地路径。从技术成熟度、市场需求、商业模式三个维度分析。',
-
-    url:'./blog/ai-agent-opportunities.html',
-
-    tags:['AI创业','具身智能','Agent','商业分析'] },
-
-  { cat:'ai', date:'2026-03-19', title:'从学术研究到产品化：具身导航技术的落地挑战',
-
-    desc:'学术论文中的 SOTA 方法在产品化过程中面临哪些挑战？数据、算力、可靠性、成本四个维度的分析，以及可能的解决方案。',
-
-    url:'./blog/research-to-product.html',
-
-    tags:['学术','产品化','具身智能','落地'] },
-
-  { date:'2026-03-16', title:'视觉语言导航数据集全览：Matterport3D、HM3D、Robo360',
-
-    desc:'数据集是具身导航研究的基础。本文全面梳理主流数据集的规模、评测指标、优缺点，以及如何选择适合自己的实验基准。',
-
-    url:'./blog/vln-datasets.html',
-
-    tags:['数据集','VLN','资源整理'] },
-
-  { date:'2026-03-15', title:'为什么要做「知识创业」：一个博士的第二曲线',
-
-    desc:'科研做得好，不等于能养活自己。我开始探索用知识和内容变现的可能性。目标不是放弃科研，而是让研究与副业相互增强。',
-
-    url:'./blog/why-knowledge-entrepreneurship.html',
-
-    tags:['创业','个人思考'] },
-
-
-
-  {cat:'startup',date:'2026-03-25',title:'AI原生创业的冷启动陷阱：从0到1最难的不是技术',
-    desc:'深入分析Ai Startup Cold Start Trap',
-    url:'./blog/ai-startup-cold-start-trap.html',
-    tags:['AI Startup','Cold Start','PMF','Go-to-Market']},
-
-  {cat:'tech',date:'2026-03-25',title:'宇树科技挑战分析 - 精卫013',
-    desc:'深入分析Case 38 Unitree Robotics',
-    url:'./blog/case-38-unitree-robotics.html',
-    tags:['#宇树科技','#unitree','#具身智能','#创业','#避坑']},
-
-  {cat:'startup',date:'2026-03-25',title:'DeepSeek效应：开源模型如何重塑AI创业竞争格局 | 精卫013',
-    desc:'深入分析Deepseek Effect Ai Startup 2026',
-    url:'./blog/deepseek-effect-ai-startup-2026.html',
-    tags:['AI创业','开源模型','竞争格局']},
-
-  {cat:'tech',date:'2026-03-25',title:'从论文到代码：embodied-slam 7000行代码框架全解析 | 精卫导航',
-    desc:'深度解析embodied-slam项目7000+行Python代码：6大模块如何协同实现视觉-语言-几何三模态融合语义导航，从RGB输入到导航决策的完整数据流与核心算法实现。',
-    url:'./blog/embodied-slam-architecture-deep-dive.html',
-    tags:['代码解析','embodied-slam','语义SLAM','多模态融合']},
-
-  {cat:'tech',date:'2026-03-25',title:'具身SLAM基础：从几何定位到语义导航 | 精卫导航',
-    desc:'具身SLAM是机器人感知与决策的核心技术。本文系统解析几何SLAM→语义SLAM→具身SLAM的演进路径，核心特征，以及在机器人导航、AR/VR、医疗等场景中的应用前景。',
-    url:'./blog/embodied-slam-basics.html',
-    tags:['具身智能','SLAM','语义导航']},
-
-  {cat:'tech',date:'2026-03-25',title:'具身SLAM研究方向 | 精卫导航',
-    desc:'EmbodiedSLAM: Vision-Language-Geometry三模态融合的语义导航研究',
-    url:'./blog/embodied-slam-direction.html',
-    tags:['embodied-slam','语义导航','三模态融合','VLN']},
-
-  {cat:'startup',date:'2026-04-07',title:'2026年独立开发者必备AI工具清单：从0到月入1万的工具栈',desc:'独立开发者工具栈：Cursor/claude code写代码、Perplexity搜资料、ElevenLabs配音、Runway做视频，从0到月入1万的完整工具清单。',url:'./blog/indie-hacker-tools-2026.html',tags:['独立开发','AI工具','工具栈','创业']},
-
-  {cat:'case',date:'2026-03-25',title:'ofo小黄车 - 互动版最终v6',
-    desc:'深入分析Ofo Failure',
-    url:'./blog/ofo-failure.html',
-    tags:['失败案例','创业教训']},
-
-  {cat:'case',date:'2026-03-25',title:'研究进度同步 | 精卫导航',
-    desc:'2026年4月研究进度同步：CoW-Nav论文推进、embodied-slam代码框架、论文库建设',
-    url:'./blog/research-progress-2026-04-02.html',
-    tags:['CoW-Nav','embodied-slam','VLN','具身智能']},
-
-  {cat:'tech',date:'2026-03-25',title:'机器人学习的Sim-to-Real Gap：2026年最新进展与解决方案',
-    desc:'深入分析Robot Learning Sim2Real 2026',
-    url:'./blog/robot-learning-sim2real-2026.html',
-    tags:['tech','机器人','强化学习']},
-
-  {cat:'tech',date:'2026-03-25',title:'时空记忆地图：让机器人记住过去、理解现在、预测未来 | 精卫导航',
-    desc:'传统SLAM地图是静态的、瞬时的。时空记忆地图让机器人能够理解环境的时序变化——哪些是永久结构，哪些是临时变化，从而做出更智能的导航决策。',
-    url:'./blog/spatiotemporal-memory-map.html',
-    tags:['时空记忆','地图表示','动态环境']},
-
-  {cat:'tech',date:'2026-03-25',title:'为什么停止决策是VLN的阿喀琉斯之踵 | 精卫导航',
-    desc:'VLN研究长期关注路径规划，却忽视了\'何时停止\'这一关键问题。本文深度剖析停止决策的三大挑战，并介绍CoW-Nav如何通过FSCoT+信心头突破这一瓶颈。',
-    url:'./blog/stop-decision-achilles-heel.html',
-    tags:['视觉语言导航','VLN','停止决策']},
-
-  {cat:'startup',date:'2026-03-25',title:'技术驱动幻觉：为什么技术天才常常失败',
-    desc:'深入分析Tech Founder Delusion',
-    url:'./blog/tech-founder-delusion.html',
-    tags:['创业思考']},
-
-  {cat:'tech',date:'2026-03-25',title:'多模态融合：Vision-Language-Geometry三位一体的导航框架 | 精卫导航',
-    desc:'为什么单一模态无法满足复杂导航任务？Vision-Language-Geometry三模态融合如何让机器人同时理解视觉场景、响应语言指令、构建几何地图。',
-    url:'./blog/vision-language-geometry-fusion.html',
-    tags:['多模态融合','视觉语言','具身智能']},
-
-  {cat:'tech',date:'2026-03-25',title:'VLM时代：具身导航的GPT时刻到了吗？',
-    desc:'深入分析Vlm Navigation Gpt Moment',
-    url:'./blog/vlm-navigation-gpt-moment.html',
-    tags:['VLM','具身导航','Robot Navigation','SLAM','多模态AI']},
-
-  {cat:'tech',date:'2026-03-25',title:'VLN数据效率的终极解决方案：从10亿样本到零样本',
-    desc:'深入分析Vln Data Efficiency Future',
-    url:'./blog/vln-data-efficiency-future.html',
-    tags:['tech','前沿技术','具身智能']},
-
-  {cat:'tech',date:'2026-03-25',title:'VLN停止决策的隐秘困境：为何更强的VLM不等于更好的导航',
-    desc:'深入分析Vln Stop Decision Vlm Limits',
-    url:'./blog/vln-stop-decision-vlm-limits.html',
-    tags:['Visual Language Navigation','Stop Decision','VLM Reasoning','FSCoT']},
-
-  {cat:'case',date:'2026-03-25',title:'WeWork失败案例 - 精卫013',
-    desc:'深入分析Wework Failure',
-    url:'./blog/wework-failure.html',
-    tags:['#wework','#共享办公','#创业失败','#软银','#避坑']},
-
-  ];
+  {
+    "title": "论文精读：Active Neural SLAM——主动探索如何提升ObjectNav效率 | 精卫013",
+    "url": "blog/active-neural-slam.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "论文精读：Active Neural SLAM——主动探索如何提升ObjectNav效率 | 精卫013"
+  },
+  {
+    "title": "AI Agent创业机会分析：具身智能领域的可能路径 | 精卫013",
+    "url": "blog/ai-agent-opportunities.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "AI Agent创业机会分析：具身智能领域的可能路径 | 精卫013"
+  },
+  {
+    "title": "AI Agent产品的PMF困境：为什么99%的智能体产品都失败了",
+    "url": "blog/ai-agent-product-market-fit-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "AI Agent产品的PMF困境：为什么99%的智能体产品都失败了"
+  },
+  {
+    "title": "AI Agent创业2026：从ChatGPT插件到自主Agent",
+    "url": "blog/ai-agent-startup-2026-landscape.html",
+    "date": "2026-04-16",
+    "tags": [
+      "AI Agent",
+      "创业",
+      "AutoGPT",
+      "CrewAI",
+      "具身智能"
+    ],
+    "desc": "AI Agent创业2026：从ChatGPT插件到自主Agent"
+  },
+  {
+    "title": "25款AI应用集体猝死：2025年AI创业的真实死亡报告 | 精卫013",
+    "url": "blog/ai-apps-death-wave.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "2025年下半年，25款AI应用集中关闭——腾讯智影、讯飞写作、晓象、冒泡鸭……大厂和创业公司无一幸免。商业化失败、监管收紧、战略调整三大死因全解析。"
+  },
+  {
+    "title": "AI产品留存率的真相：为什么日活数据在欺骗你",
+    "url": "blog/ai-product-retention-myths-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "AI产品留存率的真相：为什么日活数据在欺骗你"
+  },
+  {
+    "title": "2026年具身智能创业投资图景：谁在融资、谁在退出",
+    "url": "blog/ai-robot-startup-2026-funding-landscape.html",
+    "date": "2026-04-15",
+    "tags": [
+      "AI创业",
+      "具身智能",
+      "投资",
+      "Figure AI",
+      "1X Technologies"
+    ],
+    "desc": "2026年具身智能创业投资图景：谁在融资、谁在退出"
+  },
+  {
+    "title": "2026年具身AI创业图谱：谁在量产？谁在退场？",
+    "url": "blog/ai-robot-startup-acquisition-analysis-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "2026年具身AI创业图谱：谁在量产？谁在退场？"
+  },
+  {
+    "title": "AI原生创业的冷启动陷阱：从0到1最难的不是技术",
+    "url": "blog/ai-startup-cold-start-trap.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "AI原生创业的冷启动陷阱：从0到1最难的不是技术"
+  },
+  {
+    "title": "7大死亡陷阱：AI创业公司的真实墓志铭 | 精卫013",
+    "url": "blog/ai-startup-death-traps.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "Builder.ai融资4.5亿倒闭、Humane AI Pin烧2.4亿退货超销售、Inflection AI 15亿美元最终被微软挖走……2023-2026年AI创业失败案例深度复盘，7个真实死亡"
+  },
+  {
+    "title": "2026年AI创业生存指南：如何在烧钱竞赛中活下去 | 精卫导航",
+    "url": "blog/ai-startup-survival-guide-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "2025-2026年AI创业公司倒闭潮深度分析：为什么钱越多死得越快？独立开发者如何在资源有限时找到生存空间？"
+  },
+  {
+    "title": "AI创业的\"技术幻觉\"：为什么技术领先≠商业成功 | 精卫导航",
+    "url": "blog/ai-startup-tech-illusion.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "AI创业的\"技术幻觉\"：为什么技术领先≠商业成功 | 精卫导航"
+  },
+  {
+    "title": "AI创业公司的\"技术债\"陷阱：为什么技术越强，死得越快 | 精卫013",
+    "url": "blog/ai-startup-technical-debt-trap.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "AI创业公司的\"技术债\"陷阱：为什么技术越强，死得越快 | 精卫013"
+  },
+  {
+    "title": "AI工具那么多，怎么选？ | 精卫013",
+    "url": "blog/ai-tools-how-to-choose.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "AI工具那么多，怎么选？ | 精卫013"
+  },
+  {
+    "title": "AI独角兽正在倒闭：达闼机器人与2025年的明星公司危机 | 精卫013",
+    "url": "blog/ai-unicorn-collapse.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "达闼机器人停摆、澜码科技欠薪、Stability AI资不抵债……2024-2025年，第一批AI独角兽正在集中倒下。这场危机背后，有哪些共同的死亡模式？"
+  },
+  {
+    "title": "BEV表示学习：鸟瞰视角在机器人导航中的应用 | 精卫013",
+    "url": "blog/bev-representation-learning-navigation.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "BEV表示学习：鸟瞰视角在机器人导航中的应用 | 精卫013"
+  },
+  {
+    "title": "中国具身智能公司倒闭潮：2025年十多家公司倒掉 - 精卫013",
+    "url": "blog/case-china-robots.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "中国具身智能公司倒闭潮：2025年十多家公司倒掉 - 精卫013"
+  },
+  {
+    "title": "案例分析：K-Scale Labs硅谷明星人形机器人公司的陨落 - 精卫013",
+    "url": "blog/case-k-scale.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "案例分析：K-Scale Labs硅谷明星人形机器人公司的陨落 - 精卫013"
+  },
+  {
+    "title": "DeepSeek效应：开源模型如何重塑AI创业竞争格局 | 精卫013",
+    "url": "blog/deepseek-effect-ai-startup-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "DeepSeek效应：开源模型如何重塑AI创业竞争格局 | 精卫013"
+  },
+  {
+    "title": "具身智能泡沫的三阶段：从狂热到理性的必然路径",
+    "url": "blog/embodied-ai-bubble-three-stages.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "具身智能泡沫的三阶段：从狂热到理性的必然路径"
+  },
+  {
+    "title": "具身智能融资狂潮：两个月200亿背后的狂热与隐忧 - 精卫013",
+    "url": "blog/embodied-ai-funding-frenzy.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "2026年开年两个月，具身智能赛道融资超200亿，诞生7家百亿独角兽。但狂欢之下，订单水分、技术瓶颈、商业化困境正在积聚风险。"
+  },
+  {
+    "title": "什么是具身智能？我用3个类比让小白秒懂（附2025最新进展）- 精卫013",
+    "url": "blog/embodied-ai-intro.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "什么是具身智能？我用3个类比让小白秒懂（附2025最新进展）- 精卫013"
+  },
+  {
+    "title": "具身智能机器人的2026年最新突破：从Figure 02到1X Technologies",
+    "url": "blog/embodied-ai-robot-recent-breakthroughs-2026.html",
+    "date": "2026-04-15",
+    "tags": [
+      "具身智能",
+      "机器人",
+      "Figure 02",
+      "1X Technologies",
+      "NVIDIA GR00T",
+      "VLN"
+    ],
+    "desc": "具身智能机器人的2026年最新突破：从Figure 02到1X Technologies"
+  },
+  {
+    "title": "2026具身智能创业地图：谁在烧钱，谁在造血？ - 精卫013",
+    "url": "blog/embodied-ai-startup-map-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "2026年Q1，具身智能赛道融资超300亿，9家百亿独角兽诞生。本文深度分析星海图、千寻智能、自变量机器人等头部玩家的战略差异与生存逻辑。"
+  },
+  {
+    "title": "具身智能教育机器人：为什么 LeRobot 是最佳开源框架 - 精卫013",
+    "url": "blog/embodied-education-robot-platform.html",
+    "date": "2024-01-01",
+    "tags": [
+      "具身智能",
+      "教育机器人",
+      "LeRobot",
+      "HuggingFace",
+      "AlohaMini",
+      "职业教育",
+      "机器人教育",
+      "开源框架"
+    ],
+    "desc": "具身智能教育机器人赛道火热，为什么 LeRobot 是职业院校和本科院校的最佳开源框架选择？本文深度解析 HuggingFace 生态、 AlohaMini 硬件架构和 LeRobot 课程体系。"
+  },
+  {
+    "title": "从论文到代码：embodied-slam 7000行代码框架全解析 | 精卫导航",
+    "url": "blog/embodied-slam-architecture-deep-dive.html",
+    "date": "2024-01-01",
+    "tags": [
+      "embodied-slam",
+      " 具身智能",
+      " 语义SLAM",
+      " 多模态融合",
+      " VLN",
+      " 视觉语言导航",
+      " Python实现"
+    ],
+    "desc": "深度解析embodied-slam项目7000+行Python代码：6大模块如何协同实现视觉-语言-几何三模态融合语义导航，从RGB输入到导航决策的完整数据流与核心算法实现。"
+  },
+  {
+    "title": "具身SLAM基础：从几何定位到语义导航 | 精卫导航",
+    "url": "blog/embodied-slam-basics.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "具身SLAM是机器人感知与决策的核心技术。本文系统解析几何SLAM→语义SLAM→具身SLAM的演进路径，核心特征，以及在机器人导航、AR/VR、医疗等场景中的应用前景。"
+  },
+  {
+    "title": "具身SLAM研究方向 | 精卫导航",
+    "url": "blog/embodied-slam-direction.html",
+    "date": "2024-01-01",
+    "tags": [
+      "具身SLAM",
+      " embodied-slam",
+      " 语义导航",
+      " VLN",
+      " 三模态融合"
+    ],
+    "desc": "EmbodiedSLAM: Vision-Language-Geometry三模态融合的语义导航研究"
+  },
+  {
+    "title": "科技创业公司股权分配避坑指南：创始团队如何分股权才能走得更远 - 精卫013",
+    "url": "blog/equity-allocation-guide-2026.html",
+    "date": "2024-01-01",
+    "tags": [
+      "股权分配",
+      "创业公司",
+      "ESOP",
+      "期权池",
+      "Vesting",
+      "合伙人",
+      "股权激励",
+      "科技创业"
+    ],
+    "desc": "股权分配是科技创业公司最核心的治理问题。创始人该如何分配股权？ESOP怎么设置？合伙人退出机制如何设计？本文结合真实失败案例，深度解析股权分配的正确姿势。"
+  },
+  {
+    "title": "创始人股权分配的5个死亡陷阱 | 精卫导航",
+    "url": "blog/equity-distribution-traps.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "95%的早期创业团队都会踩这5个股权错误。平均分、没有Vesting、忘了期权池、战略资源股权、忽视控制权——每一条都足以毁掉公司。"
+  },
+  {
+    "title": "EvolveNav：让机器人自己学会反思，VLN成功率77% | 精卫导航",
+    "url": "blog/evolvenav-self-improving-cot.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "EvolveNav论文精读：ICLR 2025。形式化CoT训练+自改进机制，无需人工标注，VLN成功率从72%→77%。解析为什么结构化推理比自由推理有效。"
+  },
+  {
+    "title": "Figure AI的IPO之路：人形机器人赛道的资本叙事正在重构",
+    "url": "blog/figure-ai-unitree-ipo-analysis-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "Figure AI的IPO之路：人形机器人赛道的资本叙事正在重构"
+  },
+  {
+    "title": "创始人股权分配101：分错一次，公司就没了 | 精卫013",
+    "url": "blog/founder-equity-101.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "创始人股权分配101：分错一次，公司就没了 | 精卫013"
+  },
+  {
+    "title": "2026年多模态大模型的进化：具身智能的新地基 | 精卫导航",
+    "url": "blog/frontier-multimodal-models-embodied-ai-2026.html",
+    "date": "2024-01-01",
+    "tags": [
+      "多模态大模型",
+      " MLLM",
+      " 具身智能",
+      " VLM",
+      " GPT-4V",
+      " Gemini",
+      " Qwen-VL",
+      " 具身导航",
+      " 机器人",
+      " 视觉语言模型"
+    ],
+    "desc": "从GPT-4V到Gemini 2.5，再到国产GLM-4V和Qwen-VL，2026年的多模态大模型正在从「看图说话」进化到「操控机器人」。本文深度解析最新进展与具身导航的机会窗口。"
+  },
+  {
+    "title": "FSCoT：机器人停在哪里？用稀疏思维链解决VLN最容易被忽视的问题 | 精卫导航",
+    "url": "blog/fscot-stop-reasoning-vln.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "FSCoT（形式化停止思维链）深度解析：为什么VLN中的停止决策比方向决策难10倍？三段式推理+自改进训练+信心头蒸馏，如何把StoP从65%提升到85%？"
+  },
+  {
+    "title": "FSCoT训练悖论：为何越长的推理链反而越难收敛？ | 精卫导航",
+    "url": "blog/fscot-training-strategies-vln-stop-decision.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "深入分析VLN停止决策中Chain-of-Thought推理训练的收敛难题，提出多任务学习、课程学习等解决方向。"
+  },
+  {
+    "title": "VLN停止决策：被忽视的致命瓶颈 | 精卫导航",
+    "url": "blog/haltnav-stop-decision.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "HaltNav论文精读：68%成功率的VLN系统，停止误差平均2.5米。为什么STOP不是普通动作？StoP指标如何量化停止质量？"
+  },
+  {
+    "title": "人形机器人第一波倒闭潮：5条血训 - 精卫013",
+    "url": "blog/humanoid-robot-failure-wave.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "K-Scale Labs有订单照样倒闭、iRobot 30年神话被中国制造终结、Embodied云端依赖变砖头——人形机器人第一波倒闭潮，5条可复用血训。"
+  },
+  {
+    "title": "2026年独立开发者必备AI工具清单：从0到月入1万的工具栈",
+    "url": "blog/indie-hacker-tools-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "2026年独立开发者必备AI工具清单：从0到月入1万的工具栈"
+  },
+  {
+    "title": "我的LLM导航实验记录：LLaVA-1.5在Matterport3D上的表现 | 精卫013",
+    "url": "blog/llm-nav-experiments.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "我的LLM导航实验记录：LLaVA-1.5在Matterport3D上的表现 | 精卫013"
+  },
+  {
+    "title": "每日优鲜死亡复盘：140亿融资烧光，30分钟送货为什么救不了生鲜电商 | 精卫013",
+    "url": "blog/missfresh-death.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "8年融资超140亿，IPO市值32亿美元，2023年退市时市值不足200万美元。1925名员工锐减至55人，供应商欠款22.4亿，青岛国资20亿打水漂。一个天才创始人和他的前置仓帝国，如何用最快的速度"
+  },
+  {
+    "title": "多模态LLM在具身导航中的应用：从理解到行动的关键桥梁 | 精卫导航",
+    "url": "blog/mlm-embodied-navigation.html",
+    "date": "2024-01-01",
+    "tags": [
+      "多模态LLM",
+      " MLLM",
+      " 具身导航",
+      " TopV-Nav",
+      " ImagiNav",
+      " Mem2Ego",
+      " 语义理解"
+    ],
+    "desc": "2025年，多模态大语言模型（MLLM）正在重新定义具身导航的研究方向。从传统VLN的"
+  },
+  {
+    "title": "NavCoT详解：思维链如何提升导航性能 | 精卫013",
+    "url": "blog/navcot-chain-of-thought-navigation.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "NavCoT详解：思维链如何提升导航性能 | 精卫013"
+  },
+  {
+    "title": "导航的GPT时刻：NavFoM与具身导航基础模型 | 精卫013",
+    "url": "blog/navigation-gpt-moment.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "导航的GPT时刻：NavFoM与具身导航基础模型 | 精卫013"
+  },
+  {
+    "title": "Notion的\"慢即是快\"：独立开发者能从中学到什么 | 精卫导航",
+    "url": "blog/notion-slow-growth-lessons.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "Notion的\"慢即是快\"：独立开发者能从中学到什么 | 精卫导航"
+  },
+  {
+    "title": "ObjectNav的三种主流范式：主动探索、语义推理、记忆增强 | 精卫013",
+    "url": "blog/objectnav-paradigms.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "ObjectNav的三种主流范式：主动探索、语义推理、记忆增强 | 精卫013"
+  },
+  {
+    "title": "ObjectNav vs VLN：目标导航和视觉语言导航的本质区别 · 精卫013",
+    "url": "blog/objectnav-vs-vln.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "ObjectNav vs VLN：目标导航和视觉语言导航的本质区别 · 精卫013"
+  },
+  {
+    "title": "ofo小黄车 - 互动版最终v6",
+    "url": "blog/ofo-failure.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "ofo小黄车 - 互动版最终v6"
+  },
+  {
+    "title": "产品市场匹配的7个反面教材：为什么\"有人想要\"≠ PMF | 精卫013",
+    "url": "blog/pmf-anti-patterns.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "产品市场匹配的7个反面教材：为什么\"有人想要\"≠ PMF | 精卫013"
+  },
+  {
+    "title": "PMF：创业公司唯一重要的指标 · 精卫013",
+    "url": "blog/pmf-the-only-thing-that-matters.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "PMF：创业公司唯一重要的指标 · 精卫013"
+  },
+  {
+    "title": "Quibi：17.5亿美元、6个月关闭——史上最快陨落的创业公司 · 精卫013",
+    "url": "blog/quibi.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "Quibi：17.5亿美元、6个月关闭——史上最快陨落的创业公司 · 精卫013"
+  },
+  {
+    "title": "研究方向与进展 | 精卫013",
+    "url": "blog/research-directions-2026-04-06.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "研究方向与进展 | 精卫013"
+  },
+  {
+    "title": "研究进度同步 | 精卫导航",
+    "url": "blog/research-progress-2026-04-02.html",
+    "date": "2024-01-01",
+    "tags": [
+      "研究进度",
+      " CoW-Nav",
+      " embodied-slam",
+      " VLN",
+      " 具身智能"
+    ],
+    "desc": "2026年4月研究进度同步：CoW-Nav论文推进、embodied-slam代码框架、论文库建设"
+  },
+  {
+    "title": "2025 Q1 VLN 研究思考：三个新方向，一个未解之问 | 精卫013",
+    "url": "blog/research-thinking-vln-2025q1.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "2025 Q1 VLN 研究思考：三个新方向，一个未解之问 | 精卫013"
+  },
+  {
+    "title": "从学术研究到产品化：具身导航技术的落地挑战 | 精卫013",
+    "url": "blog/research-to-product.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "从学术研究到产品化：具身导航技术的落地挑战 | 精卫013"
+  },
+  {
+    "title": "强化学习在VLN中的应用现状：为什么RL比IL难用 | 精卫013",
+    "url": "blog/rl-in-vln.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "强化学习在VLN中的应用现状：为什么RL比IL难用 | 精卫013"
+  },
+  {
+    "title": "强化学习+VLN：2025年的两条技术路线 | 精卫013",
+    "url": "blog/rl-vln-2025.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "强化学习+VLN：2025年的两条技术路线 | 精卫013"
+  },
+  {
+    "title": "一批机器人公司正在倒闭 - 精卫013",
+    "url": "blog/robot-company-closure.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "一批机器人公司正在倒闭 - 精卫013"
+  },
+  {
+    "title": "机器人学习的Sim-to-Real Gap：2026年最新进展与解决方案",
+    "url": "blog/robot-learning-sim2real-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "机器人学习的Sim-to-Real Gap：2026年最新进展与解决方案"
+  },
+  {
+    "title": "柔宇科技：640亿估值的折叠屏先驱，为何比华为三星死得更惨 · 精卫013",
+    "url": "blog/royole-64-billion-collapse.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "柔宇科技：640亿估值的折叠屏先驱，为何比华为三星死得更惨 · 精卫013"
+  },
+  {
+    "title": "安全感知机器人导航：SafeMind框架的启示 | 精卫导航",
+    "url": "blog/safe-mind-risk-aware-navigation.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "SafeMind框架将概率控制屏障函数与语义理解结合，为VLN停止决策提供安全机制参考。风险感知控制如何在具身导航中落地？"
+  },
+  {
+    "title": "语义地图构建：ObjectNav的核心技术栈 | 精卫013",
+    "url": "blog/semantic-map-objectnav.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "语义地图构建：ObjectNav的核心技术栈 | 精卫013"
+  },
+  {
+    "title": "世界模型与Sim2Real：机器人从虚拟到现实的最后一公里 | 精卫导航",
+    "url": "blog/sim2real-world-models-robot.html",
+    "date": "2024-01-01",
+    "tags": [
+      "世界模型",
+      " Sim2Real",
+      " 具身智能",
+      " 机器人学习",
+      " ICRA 2026",
+      " Goal-VLA",
+      " 虚拟到现实"
+    ],
+    "desc": "2025-2026年，具身智能领域最大的突破之一是世界模型驱动的Sim2Real。炒得火热的"
+  },
+  {
+    "title": "SpatialMem：一统3D记忆的新范式，VLN的下一个突破口？",
+    "url": "blog/spatialmem-3d-memory-vln-breakthrough-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "SpatialMem：一统3D记忆的新范式，VLN的下一个突破口？"
+  },
+  {
+    "title": "时空记忆地图：让机器人记住过去、理解现在、预测未来 | 精卫导航",
+    "url": "blog/spatiotemporal-memory-map.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "传统SLAM地图是静态的、瞬时的。时空记忆地图让机器人能够理解环境的时序变化——哪些是永久结构，哪些是临时变化，从而做出更智能的导航决策。"
+  },
+  {
+    "title": "AI创业失败案例分析：17.5亿美元烧光的Quibi教会我们什么 | 精卫013",
+    "url": "blog/startup-failure-analysis.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "AI创业失败案例分析：17.5亿美元烧光的Quibi教会我们什么 | 精卫013"
+  },
+  {
+    "title": "创业融资101：从天使轮到IPO的完整地图 | 精卫013",
+    "url": "blog/startup-fundraising-101.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "创业融资101：从天使轮到IPO的完整地图 | 精卫013"
+  },
+  {
+    "title": "为什么停止决策是VLN的阿喀琉斯之踵 | 精卫导航",
+    "url": "blog/stop-decision-achilles-heel.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLN研究长期关注路径规划，却忽视了'何时停止'这一关键问题。本文深度剖析停止决策的三大挑战，并介绍CoW-Nav如何通过FSCoT+信心头突破这一瓶颈。"
+  },
+  {
+    "title": "技术驱动幻觉：为什么技术天才常常失败",
+    "url": "blog/tech-founder-delusion.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "技术驱动幻觉：为什么技术天才常常失败"
+  },
+  {
+    "title": "Theranos：硅谷最美女骗子的900亿骗局如何骗过所有人 · 精卫013",
+    "url": "blog/theranos.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "Theranos：硅谷最美女骗子的900亿骗局如何骗过所有人 · 精卫013"
+  },
+  {
+    "title": "多模态融合：Vision-Language-Geometry三位一体的导航框架 | 精卫导航",
+    "url": "blog/vision-language-geometry-fusion.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "为什么单一模态无法满足复杂导航任务？Vision-Language-Geometry三模态融合如何让机器人同时理解视觉场景、响应语言指令、构建几何地图。"
+  },
+  {
+    "title": "VLA模型2026年大比拼：OpenVLA vs RT-X vs GR00T",
+    "url": "blog/vla-models-comparison-2026.html",
+    "date": "2026-04-16",
+    "tags": [
+      "VLA",
+      "OpenVLA",
+      "RT-X",
+      "GR00T",
+      "具身智能",
+      "机器人"
+    ],
+    "desc": "VLA模型2026年大比拼：OpenVLA vs RT-X vs GR00T"
+  },
+  {
+    "title": "VLA模型深度解析：具身智能的\"圣杯\"正在变成现实",
+    "url": "blog/vla-models-deep-dive-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLA模型深度解析：具身智能的\"圣杯\"正在变成现实"
+  },
+  {
+    "title": "VLA模型革命：具身导航的下一个范式",
+    "url": "blog/vla-models-embodied-navigation-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLA模型革命：具身导航的下一个范式"
+  },
+  {
+    "title": "VLA狂飙：为什么2026年具身智能开始\"知行合一\"？",
+    "url": "blog/vla-revolution-embodied-ai-2026.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLA狂飙：为什么2026年具身智能开始\"知行合一\"？"
+  },
+  {
+    "title": "VLA模型革命：具身导航的\"知行合一\"时代 | 精卫导航",
+    "url": "blog/vla-revolution-embodied-navigation-2026.html",
+    "date": "2024-01-01",
+    "tags": [
+      "VLA",
+      " Vision-Language-Action",
+      " 具身智能",
+      " 机器人导航",
+      " π0",
+      " OpenVLA",
+      " NaVILA",
+      " SpatialVLA",
+      " 多模态模型",
+      " 机器人控制"
+    ],
+    "desc": "2026年，Vision-Language-Action (VLA) 模型正在重塑具身智能。从OpenVLA到π0.5，从NaVILA到SpatialVLA，解析VLA如何让机器人真正"
+  },
+  {
+    "title": "VLM置信度校准：为什么AI越自信越危险 | 精卫导航",
+    "url": "blog/vlm-confidence-calibration-embodied-nav.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLM置信度校准：为什么AI越自信越危险 | 精卫导航"
+  },
+  {
+    "title": "VLM+导航：从CLIP到Qwen2-VL的四年演进 | 精卫013",
+    "url": "blog/vlm-navigation-clip-to-qwen2vl.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLM+导航：从CLIP到Qwen2-VL的四年演进 | 精卫013"
+  },
+  {
+    "title": "VLM时代：具身导航的GPT时刻到了吗？",
+    "url": "blog/vlm-navigation-gpt-moment.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLM时代：具身导航的GPT时刻到了吗？"
+  },
+  {
+    "title": "为什么VLN模型总是\"假装自信\"——一个被忽视的致命缺陷 | 精卫导航",
+    "url": "blog/vln-confidence-calibration-why-fake.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "为什么VLN模型总是\"假装自信\"——一个被忽视的致命缺陷 | 精卫导航"
+  },
+  {
+    "title": "具身智能的\"涌现时刻\"：当语言模型学会物理推理 | 精卫导航",
+    "url": "blog/vln-cot-emergence-physical-reasoning.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "GPT-4V、Gemini等视觉语言模型在机器人导航中展现出惊人的涌现能力。CoT推理如何让VLA实现零样本泛化？"
+  },
+  {
+    "title": "为什么VLN的「跨模态对齐」是当前最大的难点 | 精卫013",
+    "url": "blog/vln-cross-modal-alignment.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "为什么VLN的「跨模态对齐」是当前最大的难点 | 精卫013"
+  },
+  {
+    "title": "VLN数据效率的终极解决方案：从10亿样本到零样本",
+    "url": "blog/vln-data-efficiency-future.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLN数据效率的终极解决方案：从10亿样本到零样本"
+  },
+  {
+    "title": "视觉语言导航数据集全览：Matterport3D、HM3D、Robo360 | 精卫013",
+    "url": "blog/vln-datasets.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "视觉语言导航数据集全览：Matterport3D、HM3D、Robo360 | 精卫013"
+  },
+  {
+    "title": "机器人是怎么\"看懂\"世界的？VLN视觉语言导航 - 精卫013",
+    "url": "blog/vln-explained.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "机器人是怎么\"看懂\"世界的？VLN视觉语言导航 - 精卫013"
+  },
+  {
+    "title": "VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路 | 精卫013",
+    "url": "blog/vln-memory-mechanisms.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路 | 精卫013"
+  },
+  {
+    "title": "VLN的Sim-to-Real为何比普通机器人难10倍：跨模态对齐的特殊挑战 | 精卫导航",
+    "url": "blog/vln-sim2real-crossmodal-gap.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLN的Sim-to-Real为何比普通机器人难10倍：跨模态对齐的特殊挑战 | 精卫导航"
+  },
+  {
+    "title": "VLN停止决策的隐秘困境：为何更强的VLM不等于更好的导航",
+    "url": "blog/vln-stop-decision-vlm-limits.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLN停止决策的隐秘困境：为何更强的VLM不等于更好的导航"
+  },
+  {
+    "title": "为什么VLN任务\"看起来简单，做起来难\"？ | 精卫导航",
+    "url": "blog/vln-stop-decision-why-hard.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "为什么VLN任务\"看起来简单，做起来难\"？ | 精卫导航"
+  },
+  {
+    "title": "为什么你的VLN模型总是停不准？一份来自R2R基准的诊断报告 | 精卫导航",
+    "url": "blog/vln-stop-error-diagnosis-r2r.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "分析了R2R、Matterport3D等VLN基准中的停止误差分布，发现现有方法平均停止误差0.8米。为什么停止决策被忽视了？"
+  },
+  {
+    "title": "机器人走到门口了，不知道该停——VLN最被忽视的问题 | 精卫013",
+    "url": "blog/vln-stopping-problem.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "VLN研究里最蠢的问题：机器人走到目标边上了，却不停。停止决策为什么这么难？为什么SR/SPL这两个指标骗了我们？"
+  },
+  {
+    "title": "WeWork失败案例 - 精卫013",
+    "url": "blog/wework-failure.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "WeWork失败案例 - 精卫013"
+  },
+  {
+    "title": "为什么要做「知识创业」：一个博士的第二曲线 | 精卫013",
+    "url": "blog/why-knowledge-entrepreneurship.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "为什么要做「知识创业」：一个博士的第二曲线 | 精卫013"
+  },
+  {
+    "title": "世界模型时代的具身导航：CoW-Nav的机遇与挑战",
+    "url": "blog/world-model-embodied-nav-cow-nav-opportunity.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "世界模型时代的具身导航：CoW-Nav的机遇与挑战"
+  },
+  {
+    "title": "机器人导航的「世界模型」革命：从\"看到哪走到哪\"到\"想到哪走到哪\" | 精卫013",
+    "url": "blog/world-model-nav.html",
+    "date": "2024-01-01",
+    "tags": [],
+    "desc": "机器人导航的「世界模型」革命：从\"看到哪走到哪\"到\"想到哪走到哪\" | 精卫013"
+  },
+  {
+    "title": "具身智能中的世界模型：从Yann LeCun的预言到2026年的实践 | 精卫导航",
+    "url": "blog/world-models-embodied-ai-2026.html",
+    "date": "2024-01-01",
+    "tags": [
+      "世界模型",
+      " World Model",
+      " JEPA",
+      " Genie 2",
+      " 具身智能",
+      " 机器人",
+      " 视觉导航",
+      " Yann LeCun",
+      " DeepMind",
+      " 预测模型"
+    ],
+    "desc": "世界模型是具身智能的下一个圣杯。从LeCun的JEPA到DeepMind的Genie 2，再到机器人领域的NaVILA和UniNav，本文深度解析世界模型如何在导航、操控和决策中发挥作用。"
+  }
+];
 
 
 
 // ==================== CASES DATA（行业分类：robot/ai/consumer/china/saas）====================
 
 const CASES = [
-
-  // ============ 🦞 机器人 ============
-
   {
-
-    cat: 'comp',
-
-    company: 'iRobot',
-
-    slogan: 'Roomba之父被亚马逊收购失败，裁员31%后挣扎求生',
-
-    type: '机器人',
-
-    typeColor: '#e05a00',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #1a0a00 0%, #3d1500 50%, #6b2600 100%)',
-
-    stats: [
-
-      { num: '$1.3B', label: '亚马逊拟收购价' },
-
-      { num: '31%', label: '裁员比例（2024）' },
-
-      { num: '33年', label: '公司历史' },
-
-      { num: '🦞2.9亿', label: '欧盟阻止收购' },
-
-    ],
-
-    key: '关键问题：单一产品线天花板 + 中国竞争对手把Roomba的护城河打穿',
-
-    story: 'iRobot 1990年由MIT机器人实验室成员创立，2002年推出Roomba，开创了消费机器人市场。但随着石头科技（Roborock）、科沃斯等中国品牌以更低价格+更强功能快速迭代，iRobot的市场份额持续萎缩。2022年亚马逊宣布以13亿美元收购iRobot，被视为救命稻草。但2024年初欧盟以反垄断为由否决收购，iRobot随即宣布裁员31%，CEO Colin Angle辞职。公司陷入生存危机。',
-
-    lesson: '硬件消费品的护城河比软件脆弱得多：中国制造商可以在12-18个月内复制产品，然后以一半的价格出售。iRobot的教训是：创新不能只停留在产品层面，必须建立生态系统壁垒（数据、服务、平台）。',
-
-    date: '2026-03-24',
-
+    "id": 0,
+    "company": "case-01-k-scale",
+    "type": "tech",
+    "url": "cases/case-01-k-scale.md"
   },
-
   {
-
-    cat: 'tech',
-
-    company: 'Plenty',
-
-    slogan: '10亿美元打水漂：垂直农场的梦想为何碎了',
-
-    type: '机器人/AgTech',
-
-    typeColor: '#e05a00',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #001a00 0%, #003a00 50%, #006000 100%)',
-
-    stats: [
-
-      { num: '$1B+', label: '软银领投融资额' },
-
-      { num: '2024', label: '主要业务关闭年份' },
-
-      { num: '50x', label: '宣称单位面积产量提升' },
-
-      { num: '$0', label: '实现规模化盈利的工厂数' },
-
-    ],
-
-    key: '关键问题：自动化垂直农场的单位经济学在现实中根本跑不通',
-
-    story: 'Plenty 2014年成立，获得软银愿景基金领投超10亿美元，目标是用自动化机器人+LED照明+AI系统，在室内垂直农场实现传统农业50倍的单位面积产量。2023年与沃尔玛合作，在新泽西州建设大型垂直农场。但问题接踵而至：电费极高（LED照明24小时消耗），机器人系统故障率远超预期，单位生产成本是传统农业的3-5倍。2024年大规模裁员并关闭大部分业务。',
-
-    lesson: '「技术上可行」和「商业上可行」是两回事。垂直农场的物理约束（电力成本）不能靠软件迭代解决。在资本驱动的硬科技创业中，必须先验证单位经济学，而不是先建工厂。',
-
-    date: '2026-03-24',
-
+    "id": 0,
+    "company": "case-02-china-robots",
+    "type": "tech",
+    "url": "cases/case-02-china-robots.md"
   },
-
   {
-
-    cat: 'pmf',
-
-    company: 'Anki',
-
-    slogan: '1.8亿融资、卖出150万个机器人玩具，还是倒闭了',
-
-    type: '消费机器人',
-
-    typeColor: '#e05a00',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #0a001a 0%, #1a0040 50%, #2a006b 100%)',
-
-    stats: [
-
-      { num: '$182M', label: '融资总额' },
-
-      { num: '150万+', label: '机器人玩具销量' },
-
-      { num: '200人', label: '突然被裁员工' },
-
-      { num: 2019, label: '倒闭年份' },
-
-    ],
-
-    key: '关键问题：硬件+内容的商业模式极难持续，硬件毛利率低且无法支撑研发',
-
-    story: 'Anki 由三位CMU机器人博士创立，产品Anki Drive（赛车）和Cozmo（小机器人）都获得了极高的用户口碑，Cozmo在亚马逊玩具分类长期排名前列。但问题是：消费机器人是玩具，有明显的购买高峰（圣诞节）和生命周期；硬件毛利率极低；研发成本高昂。2019年初，Anki宣布无法获得新一轮融资，立即关闭公司，200名员工突然失业。',
-
-    lesson: '消费硬件不是软件：你不能靠"快速迭代"解决硬件的资本密集性问题。Anki的产品足够好，但商业模式不足以支撑这个层次的研发投入。消费机器人要成立，要么找到稳定的订阅模式，要么把产品真正做成「不可或缺」。',
-
-    date: '2026-03-24',
-
+    "id": 0,
+    "company": "case-03-shape-robotics",
+    "type": "tech",
+    "url": "cases/case-03-shape-robotics.md"
   },
-
   {
-
-    cat: 'pmf',
-
-    company: 'Zume Pizza',
-
-    slogan: '机器人做披萨：2.75亿融资，卖的是「未来」不是披萨',
-
-    type: '餐饮机器人',
-
-    typeColor: '#e05a00',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #2e0a00 0%, #5e1a00 50%, #8a3000 100%)',
-
-    stats: [
-
-      { num: '$375M', label: '融资总额（软银领投）' },
-
-      { num: '$2.25B', label: '2018年估值' },
-
-      { num: '2020', label: '关闭披萨业务' },
-
-      { num: '0', label: '机器人做披萨实现商业化' },
-
-    ],
-
-    key: '关键问题：用餐饮包装一个机器人故事，但餐饮本身的竞争就足以让公司死掉',
-
-    story: 'Zume Pizza 2015年成立，宣称用机器人自动化制作披萨，并在送货途中用车载烤箱完成最后烘焙。吸引了软银2亿美元投资，估值高达22.5亿美元。但实际上，「机器人做披萨」只是噱头：机器人只负责铺酱，人类完成其他步骤；送餐途中烘烤导致披萨质量不稳定；配送成本极高。2020年关闭披萨业务，转型做「可持续包装」，再次融资，但最终在2023年也宣告失败。',
-
-    lesson: '用科技故事包装一个不赚钱的传统业务，本质上是在骗投资人。机器人自动化要降低成本，而不是增加成本。Zume的机器人从未比人类更便宜或更高效。',
-
-    date: '2026-03-24',
-
+    "id": 0,
+    "company": "case-04-lidian",
+    "type": "tech",
+    "url": "cases/case-04-lidian.md"
   },
-
   {
-
-    cat: 'tech',
-
-    company: 'Embark Trucks',
-
-    slogan: '无人驾驶卡车：3亿融资后SPAC上市，随后裁员70%',
-
-    type: '自动驾驶',
-
-    typeColor: '#e05a00',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #001a2e 0%, #002e5e 50%, #00427b 100%)',
-
-    stats: [
-
-      { num: '$300M', label: '融资总额' },
-
-      { num: '5.1B', label: 'SPAC上市估值' },
-
-      { num: '70%', label: '裁员比例（2023）' },
-
-      { num: 2023, label: '关闭年份' },
-
-    ],
-
-    key: '关键问题：自动驾驶卡车的商业化时间表被严重高估，资本耗尽前未能落地',
-
-    story: 'Embark Trucks 2016年成立，2021年以SPAC方式上市，估值51亿美元。公司技术路线是做「半自动」卡车（高速公路段自动，上下高速由人类驾驶员接管）。但商业化进展极慢：监管审批、保险、货运公司的接受度都是障碍。2023年初，Embark宣布无法找到收购方或新融资，裁员70%，并启动关闭程序。技术资产和专利被出售。',
-
-    lesson: '自动驾驶的商业化时间线几乎所有人都判断错了。资本市场给了过于乐观的估值，当现实时间表被拉长，公司在烧完钱之前很难坚持到商业化那一天。',
-
-    date: '2026-03-24',
-
+    "id": 0,
+    "company": "case-05-irobot",
+    "type": "tech",
+    "url": "cases/case-05-irobot.md"
   },
-
-
-
-  // ============ 🦞 AI/科技 ============
-
   {
-
-    cat: 'tech',
-
-    company: 'Theranos',
-
-    slogan: '一滴血检测240种疾病：硅谷史上最大医疗欺诈',
-
-    type: 'HealthTech',
-
-    typeColor: '#f85149',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #2d1b15 0%, #4a1f1f 50%, #7b1f1f 100%)',
-
-    stats: [
-
-      { num: '$9B', label: '最高估值' },
-
-      { num: '$700M+', label: '融资额' },
-
-      { num: '11年', label: '骗局持续' },
-
-      { num: 11, label: 'Holmes被判年限' },
-
-    ],
-
-    key: '关键问题：用"讲故事"的方式掩盖技术根本不可行的事实',
-
-    story: '19 岁斯坦福辍学生 Elizabeth Holmes 创立 Theranos，声称一滴指尖血可以完成 240 种医学检测，比传统方法便宜 90%。靠着强大的叙事能力，她说服了前国务卿舒尔茨、媒体大亨默多克等人投入 7 亿美元，公司估值一度高达 90 亿美元。但真相是：Theranos 自研的 Edison 机器只能做 12 种检测，而且结果严重不准确——用的是西门子商用设备。2015 年《华尔街日报》记者约翰·卡雷鲁揭露内幕，公司崩溃，Holmes 被判处 11 年有期徒刑。',
-
-    lesson: '技术的物理极限是骗不过去的。创业公司的愿景可以超越当前技术，但不能捏造当前能力。Theranos 的另一个教训是：董事会里没有一个医疗技术专家，这是独立监督机制的失败。',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-06-robotics-industry",
+    "type": "tech",
+    "url": "cases/case-06-robotics-industry.md"
   },
-
   {
-
-    cat: 'pmf',
-
-    company: 'InVision',
-
-    slogan: '融资3.5亿、估值19亿，被Figma一个功能打败',
-
-    type: 'SaaS/设计工具',
-
-    typeColor: '#f85149',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #1e0a3c 0%, #330d6b 50%, #4a1a95 100%)',
-
-    stats: [
-
-      { num: '$350M', label: '融资额' },
-
-      { num: '$1.9B', label: '最高估值' },
-
-      { num: 2024, label: '关闭年份' },
-
-      { num: '1个功能', label: 'Figma颠覆InVision的方式' },
-
-    ],
-
-    key: '关键问题：行业标准从"打样"转向"实时协作"，没有及时跟上用户工作流变化',
-
-    story: 'InVision 2011 年成立，当时市场上没有好用的 UI 设计原型工具，InVision 填补了这个空白，融资 3.5 亿美元，估值 19 亿美元。但 Figma 2016 年悄悄上线了一个功能：实时多人协作编辑。这一个功能改变了整个设计工作流——设计师不再需要"导出原型给别人看"，所有人可以直接在 Figma 里实时操作。InVision 的核心价值被一个功能颠覆。2024 年 12 月，InVision 关闭所有服务。',
-
-    lesson: '用户工作流一旦迁移，几乎不可能拉回来。InVision 有充足的时间和资金应对 Figma，但始终没有真正做出"实时协作"——这是产品战略的失败，不是市场的失败。',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-07-quibi",
+    "type": "tech",
+    "url": "cases/case-07-quibi.md"
   },
-
   {
-
-    cat: 'pmf',
-
-    company: 'Quibi',
-
-    slogan: '融资17.5亿、6个月关闭：移动短视频的史诗级失败',
-
-    type: '内容科技',
-
-    typeColor: '#f85149',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
-
-    stats: [
-
-      { num: '$1.75B', label: '融资额' },
-
-      { num: '6个月', label: '运营时间' },
-
-      { num: '$175M', label: '清算损失' },
-
-      { num: 2020, label: '倒闭年份' },
-
-    ],
-
-    key: '关键问题：解决了一个用户并不认为是问题的问题',
-
-    story: 'Quibi 由好莱坞传奇 Jeffrey Katzenberg 和前惠普 CEO Meg Whitman 联合创立，融资 17.5 亿美元，目标是「移动端的 Netflix」，每集 10 分钟以内，专为碎片化时间设计。2020 年 4 月正式上线——恰好撞上新冠疫情，全世界都在家里，没人需要用手机「碎片化」看剧。用户不买账，6 个月后宣告关闭，创始人在给投资人的信中坦言：「我们不知道失败是因为我们的想法本身有问题，还是因为疫情。」',
-
-    lesson: '两个 CEO、顶级团队、17.5 亿美元，都抵不过产品-市场不契合（No PMF）。疫情只是加速器，核心问题是移动短视频场景早已被 TikTok 和 YouTube 占领，没有留给 Quibi 的空间。',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-08-mobile-app",
+    "type": "tech",
+    "url": "cases/case-08-mobile-app.md"
   },
-
   {
-
-    cat: 'cash',
-
-    company: 'Stability AI',
-
-    slogan: 'AI绘画明星独角兽：50亿估值到资不抵债，创始人出逃',
-
-    type: 'AI/生成式模型',
-
-    typeColor: '#f85149',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #0a001f 0%, #1a0040 50%, #2d006b 100%)',
-
-    stats: [
-
-      { num: '$101M', label: '融资额' },
-
-      { num: '$4B', label: '峰值估值（2022）' },
-
-      { num: '$99M', label: '欠款额（2023）' },
-
-      { num: 2024, label: '创始人出局年份' },
-
-    ],
-
-    key: '关键问题：开源模型没有护城河，算力成本失控，商业化路径缺失',
-
-    story: 'Emad Mostaque 在 2022 年发布 Stable Diffusion，一夜之间成为 AI 图像领域最受瞩目的公司。但 Stability AI 的商业逻辑从一开始就存在致命矛盾：把核心模型开源，任何人可以免费使用，但公司却要靠算力维持运营和训练，每月云计算账单高达数百万美元。2023 年内部文件泄露：公司欠亚马逊 AWS 账单约 9900 万美元，濒临资不抵债。投资人逼宫，Emad Mostaque 被迫辞职。2024 年公司卖出旗下部分产品资产，核心团队大规模出走。',
-
-    lesson: '开源是获取关注的最快方式，但不是商业模式。Stability AI 的失败揭示了"开源+算力"创业的根本矛盾：你越成功、用户越多、算力成本越高，而收入却不随用户增长。开源 AI 公司必须在开源之前就想清楚商业化路径。',
-
-    date: '2026-03-25',
-
+    "id": 0,
+    "company": "case-09-yushu-tech",
+    "type": "tech",
+    "url": "cases/case-09-yushu-tech.md"
   },
-
   {
-
-    cat: 'pmf_ok',
-
-    company: 'Midjourney',
-
-    slogan: '11个人、零风险融资，做出了AI图像行业标杆',
-
-    type: 'AI成功',
-
-    typeColor: '#3fb950',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #0a0a2e 0%, #1a1a5e 50%, #2a2a9e 100%)',
-
-    stats: [
-
-      { num: '11人', label: '团队规模' },
-
-      { num: '$0', label: '外部融资' },
-
-      { num: '2亿+', label: '注册用户' },
-
-      { num: '$2亿+', label: '年营收（2023估计）' },
-
-    ],
-
-    key: '关键决策：不融资、保持小团队、用Discord构建付费社区，避开硅谷式烧钱竞争',
-
-    story: 'David Holz 在 2022 年 3 月推出 Midjourney 时，DALL-E 和 Stable Diffusion 已经存在。他做了一个不寻常的决定：把产品直接放进 Discord，没有独立 App，不接受外部融资，不追求增长速度。团队只有 11 人，全是顶尖工程师和艺术家。靠着 Discord 社区的口碑效应，Midjourney 用户在 2022 年底突破 100 万。2023 年估计年营收超过 2 亿美元，团队没有扩张，没有烧钱，完全自负盈亏。',
-
-    lesson: '不融资并不意味着放慢速度——有时候不融资反而是竞争优势。Midjourney 通过保持小团队和强纪律，在 AI 图像这个已经很拥挤的赛道里做出了最被顶级用户认可的产品。',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-10-dji",
+    "type": "tech",
+    "url": "cases/case-10-dji.md"
   },
-
-
-
-  // ============ 🦞 消费品 ============
-
   {
-
-    cat: 'pmf',
-
-    company: 'WeWork',
-
-    slogan: '470亿估值到破产：当"我们"遇见"现实"',
-
-    type: '消费/办公',
-
-    typeColor: '#f85149',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #1a0a2e 0%, #2d1b5e 50%, #4a2280 100%)',
-
-    stats: [
-
-      { num: '$47B', label: '最高估值' },
-
-      { num: '$18.5B', label: '软银总投入' },
-
-      { num: '87%', label: 'IPO前估值跌幅' },
-
-      { num: 2023, label: '申请破产年份' },
-
-    ],
-
-    key: '关键问题：用科技公司的估值逻辑给房地产公司定价',
-
-    story: '创始人 Adam Neumann 把共享办公包装成"生活方式革命"，给公司估值 470 亿美元。2019 年准备 IPO 时，招股书暴露一切：公司长租短租套利模式、Neumann 的个人自我交易（把自己的房产租给公司）、"我们"哲学掩盖下的巨额亏损（2019年亏损19亿美元）。IPO 失败，孙正义亲自飞到纽约谈判，Neumann 以 17 亿美元赔偿金离职。2023 年 WeWork 正式申请破产。',
-
-    lesson: 'WeWork 的核心商业模式（长租短租套利）从未改变，它的"科技溢价"完全建立在叙事而非技术壁垒上。投资人应该问：去掉故事，这门生意的单位经济学是否成立？',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-11-popmart",
+    "type": "tech",
+    "url": "cases/case-11-popmart.md"
   },
-
   {
-
-    cat: 'tech',
-
-    company: 'Juicero',
-
-    slogan: '1.2亿融资做了一台徒手挤和机器效果一样的榨汁机',
-
-    type: '消费硬件',
-
-    typeColor: '#f85149',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #0a2e0a 0%, #1a5e1a 50%, #2a8a2a 100%)',
-
-    stats: [
-
-      { num: '$120M', label: '融资额' },
-
-      { num: '$700', label: '机器售价' },
-
-      { num: '$35/袋', label: '果汁包月费' },
-
-      { num: 2017, label: '倒闭年份' },
-
-    ],
-
-    key: '关键问题：技术复杂度没有创造真实价值，只是创造了更高的成本',
-
-    story: 'Juicero 融资 1.2 亿美元，做了一台需要连 WiFi、能扫码验证的工业级榨汁机，机器售价 700 美元（后降至 400 美元）+每月 35 美元的果汁包订阅。2017 年，Bloomberg 记者偶然发现：把果汁包不放进机器，直接用手挤，出汁速度一模一样。这条新闻让公司成为全球笑柄。几周后宣告关闭，所有资产被当垃圾处理。',
-
-    lesson: '不要用技术解决用户根本不在乎的问题。榨汁机的价值是挤出果汁，而不是"联网的优雅"。产品复杂度的上限是用户感受到的价值，超出这个上限的技术是浪费。',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-12-k-scale-labs",
+    "type": "tech",
+    "url": "cases/case-12-k-scale-labs.md"
   },
-
   {
-
-    cat: 'pmf',
-
-    company: 'Vine',
-
-    slogan: '6秒短视频发明者，却被自己发明的赛道淘汰',
-
-    type: '内容平台',
-
-    typeColor: '#f85149',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #0a2e1a 0%, #1a5e3a 50%, #2a8a5a 100%)',
-
-    stats: [
-
-      { num: '$30M', label: 'Twitter收购价' },
-
-      { num: '2亿', label: '月活用户峰值' },
-
-      { num: '6秒', label: '核心创新' },
-
-      { num: 2016, label: '关闭年份' },
-
-    ],
-
-    key: '关键问题：平台没有给创作者提供变现路径，导致创作者出走，内容生态崩溃',
-
-    story: '2012 年，Vine 被 Twitter 以 3000 万美元收购。随后 Vine 成为第一个真正意义上的短视频平台，催生了一批百万粉丝创作者，这些格式后来成为 TikTok、Reels、Shorts 的原型。但 Twitter 从来没有认真对待 Vine：不给顶级创作者分成，不给广告功能，不允许视频超过 6 秒。Instagram 开始允许 15 秒视频，YouTube 疯狂挖人，Vine 顶级创作者集体出走。2016 年 10 月，Twitter 宣布关闭 Vine，3 个月后正式下线。',
-
-    lesson: '内容平台的本质是创作者和用户的双边市场。没有帮创作者赚钱，就是在慢慢杀死平台。这是所有内容平台都在反复验证的定律。',
-
-    date: '2026-03-22',
-
+    "id": 0,
+    "company": "case-13-ai-apps-death-2025",
+    "type": "tech",
+    "url": "cases/case-13-ai-apps-death-2025.md"
   },
-
   {
-
-    cat: 'pmf_ok',
-
-    company: 'Airbnb',
-
-    slogan: '靠卖麦片撑过早期，如今市值700亿',
-
-    type: '消费平台',
-
-    typeColor: '#3fb950',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #0a1f0a 0%, #1a4a2a 50%, #2a7a4a 100%)',
-
-    stats: [
-
-      { num: '$70B', label: '市值（2024）' },
-
-      { num: '7M+', label: '全球房源' },
-
-      { num: '220+', label: '覆盖国家' },
-
-      { num: 2008, label: '创立年份' },
-
-    ],
-
-    key: '关键决策：早期亲自上门为房东拍照，用高质量图片解决最核心的信任问题',
-
-    story: "2008 年金融危机时，Brian Chesky 和 Joe Gebbia 为了付房租，把气垫床租给参加设计大会的人。早期完全没人用。Y Combinator 的 Paul Graham 直接问：\"你们用户在哪里？\"他们说：\"纽约。\"Graham 说：\"那你们为什么在旧金山？去纽约！\" 两人飞到纽约，亲自拜访房东，用相机给每个房源拍高质量照片，上线后预订量立刻翻了 4 倍。2009 年，为了维持运营，他们设计了 Obama O's 和 Cap'n McCain's 麦片，靠卖麦片筹到了 3 万美元。",
-
-    lesson: '做不能规模化的事（Do Things That Don\'t Scale）是早期增长的关键。Airbnb 成功的本质是：先手工解决最核心的信任问题（好照片），再规模化。',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-14-wave-computing",
+    "type": "tech",
+    "url": "cases/case-14-wave-computing.md"
   },
-
-
-
-  // ============ 🦞🦞 中国案例 ============
-
   {
-
-    cat: 'cash',
-
-    company: 'ofo 小黄车',
-
-    slogan: '2亿用户，押金退不了：共享经济烧钱战争的受害者',
-
-    type: '中国失败',
-
-    typeColor: '#f85149',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #2e1f00 0%, #5e3d00 50%, #8a6000 100%)',
-
-    stats: [
-
-      { num: '￥100亿+', label: '融资总额' },
-
-      { num: '2亿', label: '注册用户' },
-
-      { num: '￥99', label: '押金/人' },
-
-      { num: 2018, label: '资金危机年份' },
-
-    ],
-
-    key: '关键问题：单位经济学根本不成立，靠补贴买来的用户不是真正的用户',
-
-    story: 'ofo 2014 年创立于北大，以"无桩共享"颠覆市场。2017 年巅峰期，阿里巴巴、滴滴相继注资，估值超 30 亿美元。但商业模式存在致命缺陷：单次骑行 1 元，每辆车成本约 300 元，需骑 300 次回本；但车的实际使用寿命只有 3-6 个月。2018 年资金链断裂，数百万人在 App 内等待退押金，排队人数高达 1500 万。创始人戴威多次被列入失信被执行人名单，至今押金问题未完全解决。',
-
-    lesson: '在进入烧钱补贴竞争之前，先算清楚：不烧钱这门生意能活吗？ofo 的模式没有补贴就不可持续，这样的商业模式只有在资本源源不断时才能"看起来"运转。',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-15-adept-ai",
+    "type": "tech",
+    "url": "cases/case-15-adept-ai.md"
   },
-
   {
-
-    cat: 'pmf_ok',
-
-    company: '瑞幸咖啡（重生）',
-
-    slogan: '从造假丑闻到中国最大连锁咖啡品牌：死而复生的奇迹',
-
-    type: '中国成功',
-
-    typeColor: '#3fb950',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #001a3e 0%, #003170 50%, #00469e 100%)',
-
-    stats: [
-
-      { num: '20000+', label: '门店数（2024）' },
-
-      { num: '￥22亿', label: '当年虚报销售额' },
-
-      { num: 2023, label: '实现盈利年份' },
-
-      { num: '￥9.9', label: '标志性定价' },
-
-    ],
-
-    key: '关键决策：换管理层、聚焦产品质量和9.9元定价策略，重建用户信任',
-
-    story: '2020 年瑞幸自爆造假丑闻，从纳斯达克退市，陆正耀出局。新管理层接手，做了两件关键决策：1）放弃追求增长速度，专注产品迭代（生椰拿铁等爆款）；2）推出 9.9 元每天一杯的补贴策略，用价格把星巴克的价格敏感用户彻底吸引过来。2023 年瑞幸实现盈利，全年营收 249 亿元，门店数超过星巴克中国。2024 年门店突破 2 万家，成为中国门店数最多的咖啡品牌。',
-
-    lesson: '一家公司可以因为虚假财务数据倒下，但如果底层有真实的用户需求，公司完全可以在诚实的基础上重建。瑞幸的重生是：别再造假了，老老实实把好喝又便宜的咖啡做好。',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-16-humane-ai-pin",
+    "type": "tech",
+    "url": "cases/case-16-humane-ai-pin.md"
   },
-
   {
-
-    cat: 'pmf_ok',
-
-    company: '石头科技 Roborock',
-
-    slogan: '从小米生态链到全球扫地机一哥，靠技术碾压iRobot',
-
-    type: '中国硬件成功',
-
-    typeColor: '#3fb950',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #001e3a 0%, #003470 50%, #0050a0 100%)',
-
-    stats: [
-
-      { num: '$1.3B', label: '2023年营收' },
-
-      { num: '60+', label: '覆盖国家' },
-
-      { num: 2014, label: '创立年份' },
-
-      { num: '4倍', label: '产品性价比 vs iRobot' },
-
-    ],
-
-    key: '关键决策：从小米生态链独立出来，用持续技术迭代建立硬件品牌护城河',
-
-    story: '石头科技 2014 年成立，最初依托小米生态链推出小米扫地机器人，以499元定价打穿市场。随后逐步建立独立品牌 Roborock，持续加码激光导航、地图建模、自动集尘等技术研发。当 iRobot 的 Roomba 还在靠随机碰撞清扫时，Roborock 早已实现精准路径规划。2021 年在科创板上市，市值峰值超 500 亿元。其成功直接加速了 iRobot 的衰落，用更强的技术+更低的价格占领全球市场。',
-
-    lesson: '中国硬件公司已经不只是"山寨者"——石头科技证明了在细分赛道持续技术投入可以建立真正的国际竞争力。从生态链品牌独立，是石头最关键的一步。',
-
-    date: '2026-03-24',
-
+    "id": 0,
+    "company": "case-17-inflection-ai",
+    "type": "tech",
+    "url": "cases/case-17-inflection-ai.md"
   },
-
-
-
-  // ============ 🦞 SaaS ============
-
   {
-
-    cat: 'pmf_ok',
-
-    company: 'Notion',
-
-    slogan: '从3次重写到10亿美元：慢即是快',
-
-    type: 'SaaS成功',
-
-    typeColor: '#3fb950',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #2a2a4e 100%)',
-
-    stats: [
-
-      { num: '$10B', label: '估值（2021）' },
-
-      { num: '$275M', label: '融资额' },
-
-      { num: '3000万+', label: '注册用户' },
-
-      { num: 2016, label: '正式发布年份' },
-
-    ],
-
-    key: '关键决策：把产品重写了3次，只做2个人的团队直到确认产品-市场契合',
-
-    story: 'Notion 2013 年开始，创始人 Ivan Zhao 一直是一家极小的公司。2015 年，第一个版本发布，反响平平。他们关闭公司，跑到日本京都，重新用 ClojureScript 重写了整个产品，2016 年重新发布。早期团队最多 5 个人，只有 2 个工程师。不做 PR，不买广告，只做产品和社区。靠着口碑传播，2019 年用户突破 100 万，2020 年疫情期间爆发，2021 年估值达到 100 亿美元。',
-
-    lesson: '不是所有增长都需要烧钱换来。Notion 的核心壁垒是产品本身的强大和可定制性，加上用户自发的分享。这证明了：用心做产品，口碑是最好的营销。',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-18-argo-ai",
+    "type": "tech",
+    "url": "cases/case-18-argo-ai.md"
   },
-
   {
-
-    cat: 'tech',
-
-    company: 'Fisker（第二次）',
-
-    slogan: '设计精美、融资充足，但供应链毁了一切',
-
-    type: '硬件/汽车',
-
-    typeColor: '#f85149',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #1a0a00 0%, #3d1a00 50%, #6b2d00 100%)',
-
-    stats: [
-
-      { num: '$1.4B', label: '累计融资' },
-
-      { num: '≈2900辆', label: '实际交付量' },
-
-      { num: '$40K', label: '单车售价' },
-
-      { num: 2024, label: '再次破产' },
-
-    ],
-
-    key: '关键问题：轻资产战略（代工）在供应链危机下完全失效，没有控制权就没有命运',
-
-    story: 'Fisker 第二次创业（2016-2024）最初被看好：设计师出身的 Henrik Fisker 聚焦设计，制造外包给麦格纳，号称"苹果式轻资产造车"。2023 年 Fisker Ocean 正式上市，设计获得好评。但噩梦随即开始：刹车软件故障、信息娱乐系统黑屏、车门自动打开。麦格纳减产，零部件供应商因账期问题停供。2024 年 Fisker 申请破产，手握 4.5 万辆订单却无法交车。',
-
-    lesson: '轻资产模式的代价是：你没有供应链控制权，危机来临时只能等死。汽车是重资产生意，苹果可以外包iPhone组装，但苹果控制了芯片、系统、设计。Fisker 什么都没有控制。',
-
-    date: '2026-03-23',
-
+    "id": 0,
+    "company": "case-19-juicero",
+    "type": "tech",
+    "url": "cases/case-19-juicero.md"
   },
-
-  // ============ 🦞 机器人/消费 ============
-
   {
-
-    cat: 'tech',
-
-    company: 'Zume Pizza',
-
-    slogan: '$446M打造的机器人披萨帝国，不到5年全面崩塌',
-
-    type: '机器人/消费',
-
-    typeColor: '#e05a00',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #1a0500 0%, #3d0e00 50%, #6b1900 100%)',
-
-    stats: [
-
-      { num: '$446M', label: '累计融资额' },
-
-      { num: '$2.25B', label: '巅峰估值' },
-
-      { num: '2023', label: '最终关闭' },
-
-      { num: '5年', label: '从C轮到关门' },
-
-    ],
-
-    key: '关键问题：技术未验证就全速扩张，软银对赌式增长预期催命',
-
-    story: 'Zume Pizza 2015年创立，核心卖点是机器人自动制作披萨+移动披萨车边走边烤。2019年软银领投$375M，估值$2.25B，被视为"餐饮业的Uber"。但现实是：机器人只能完成70%的工序，人工成本没有实质性下降；移动披萨车过重导致油耗极高；在出餐速度和口感上无法与人工店竞争。2020年宣布关闭披萨业务，转型食品包装技术，2023年彻底关门。',
-
-    lesson: '软银模式的副作用：钱来�太快，迫使公司在商业模式验证前就进入超速扩张。技术还没验证就拿着几亿美元大干快上，等于提前锁定了失败的速度。',
-
-    date: '2026-03-27',
-
-
+    "id": 0,
+    "company": "case-20-wework",
+    "type": "tech",
+    "url": "cases/case-20-wework.md"
   },
-
-  // ============ 🦞 AI机器人/消费 ============
-
   {
-
-    cat: 'pmf',
-
-    company: 'Embodied Moxie',
-
-    slogan: '$120M造出最温柔的儿童机器人，却因云端断线而死',
-
-    type: 'AI机器人',
-
-    typeColor: '#7c3aed',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #0a001a 0%, #1a0040 50%, #2d0080 100%)',
-
-    stats: [
-
-      { num: '~$120M', label: '累计融资额' },
-
-      { num: '10年', label: '研发历程' },
-
-      { num: '2024年12月', label: '关闭服务器' },
-
-      { num: '0天', label: '关闭前用户预警' },
-
-    ],
-
-    key: '关键问题：云端依赖=产品不可控，服务器关了机器人变废铁',
-
-    story: 'Embodied 由 USC 机器人学教�授创立，Moxie 是面向儿童的社交情感机器人，售价 $1500，专为有社交障碍的孩子设计。产品口碑极佳，家长反馈孩子与 Moxie 的互动改善了社交能力。但公司在 2024 年 10 月突然宣布关闭，服务器下线后 Moxie 立刻失去所有 AI 功能，变成一块塑料。家长和孩子毫无预警地失去了已经建立情感联系的"朋友"。',
-
-    lesson: 'AI 硬件产品必须设计离线降级方案。当你把产品的核心价值放在云端，关公司=杀死用户手里的产品。消费级 AI 硬件的"云端依赖"是系统性风险，不是技术债。',
-
-    date: '2026-03-27',
-
+    "id": 0,
+    "company": "case-21-theranos",
+    "type": "tech",
+    "url": "cases/case-21-theranos.md"
   },
-
-  // ============ 🦞 消费AI ============
-
   {
-
-    cat: 'cash',
-
-    company: 'Character.AI',
-
-    slogan: '$193M融资，却被Google以$27亿"技术许可"反向收购',
-
-    type: '消费AI',
-
-    typeColor: '#ec4899',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #1a001a 0%, #3d003d 50%, #6b006b 100%)',
-
-    stats: [
-
-      { num: '$193M', label: '累计融资额' },
-
-      { num: '$5B', label: '巅峰估值' },
-
-      { num: '$27亿', label: 'Google技术许可费' },
-
-      { num: '2024年8月', label: '创始人回归Google' },
-
-    ],
-
-    key: '关键问题：推理成本>变现能力，规模越大亏得越快',
-
-    story: 'Character.AI 由前 Google LaMDA 团队创始人创立，2023 年月活达 2000 万，是消费级 AI 对话的现象级产品。但商业模型极其脆弱：每次对话的推理成本约$0.005，用户平均每天发送 200 条消息，订阅费 $9.99/月，算下来每个活跃用户每月亏损约$20。2024 年 8 月，Google 以 $27 亿"技术许可"的方式把创始人和核心技术团队带走，公司实质上被掏空，留给投资人一个没有大脑的空壳。',
-
-    lesson: '消费级 AI 的"规模陷阱"：用户越多，亏得越快。在单位经济模型（Unit Economics）转正之前，增长是毒药。AI 硬件/软件必须先证明：单个用户能盈利，然后再谈规模。',
-
-    date: '2026-03-27',
-
+    "id": 0,
+    "company": "case-22-royole",
+    "type": "tech",
+    "url": "cases/case-22-royole.md"
   },
-
-  // ============ 🦞 AI硬件 ============
-
   {
-
-    cat: 'pmf',
-
-    company: 'Rabbit R1',
-
-    slogan: '$199的AI小方块：CES最火产品，三个月后变成梗图',
-
-    type: 'AI硬件',
-
-    typeColor: '#f59e0b',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #1a1000 0%, #3d2500 50%, #6b4200 100%)',
-
-    stats: [
-
-      { num: '~$30M', label: '融资额（Khosla领投）' },
-
-      { num: '$199', label: '售价' },
-
-      { num: '10万', label: '总注册用户' },
-
-      { num: '0.5%', label: '月活留存率' },
-
-    ],
-
-    key: '关键问题：AI硬件不能靠演示，演示≠产品，实际能力差演示一个量级',
-
-    story: 'Rabbit R1 在 2024 年 CES 上大放异彩：一个橙色的小方块，用"大动作模型（LAM）"控制手机 App，展示了订外卖、叫车、发邮件。发布后两周预订量超 10 万台。但实机体验灾难性：LAM 经常崩溃，响应速度慢，很多功能根本不能用。更致命�是：Wired 发现 R1 的核心功能只是套了皮的 Claude API，完全可以用手机 App 替代。',
-
-    lesson: '演示驱动的 AI 硬件销售模式是一次性的：第一批用户基于演示购买，体验后不推荐。口碑崩塌的速度远快于产品迭代的速度。AI 硬件必须有不可被软件替代的本地能力。',
-
-    date: '2026-03-27',
-
+    "id": 0,
+    "company": "case-23-missfresh",
+    "type": "tech",
+    "url": "cases/case-23-missfresh.md"
   },
-
-  // ============ 🦞 开源AI ============
-
   {
-
-    cat: 'team',
-
-    company: 'Stability AI',
-
-    slogan: '$181M融资，$4B估值，CEO跑路后的开源AI公司怎么活',
-
-    type: '开源AI',
-
-    typeColor: '#06b6d4',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #001a1a 0%, #003d3d 50%, #006b6b 100%)',
-
-    stats: [
-
-      { num: '$181M', label: '累计融资额' },
-
-      { num: '$4B', label: '2022年估值' },
-
-      { num: '2024年3月', label: 'CEO Mostaque辞职' },
-
-      { num: '95%', label: '估值跌幅（传言）' },
-
-    ],
-
-    key: '关键问题：开源≠商业模式，叙事型估值在盈利压力下必然崩塌',
-
-    story: 'Stability AI 凭借 Stable Diffusion 开源图像生成模型在 2022 年红遍全球，Emad Mostaque 以"AI民主化"叙事融到$181M，估值$4B。但开源的代价是：竞争对手（Midjourney、DALL-E）直接用他们的成果建立商业壁垒，Stability AI 自己却没有盈利路径。公司长期入不敷出，2024 年 Mostaque 因"虚报简历"等丑闻辞职，核心团队出走，公司以极低估值重组。',
-
-    lesson: '开源社区影响力和商业价值是两回事。叙事型估值（"我要改变世界"）支撑不了公司的 AWS 账单。在开源战略下建立商业护城河，需要的是差异化服务，而不是更大的开源。',
-
-    date: '2026-03-27',
-
+    "id": 0,
+    "company": "case-24-zume-pizza",
+    "type": "tech",
+    "url": "cases/case-24-zume-pizza.md"
   },
-
-  // ============ 🦞? AR硬件 ============
-
   {
-
-    cat: 'tech',
-
-    company: 'Mojo Vision',
-
-    slogan: '$301M造出隐形眼镜里的AR，但眼球不是屏幕',
-
-    type: 'AR硬件',
-
-    typeColor: '#3fb950',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #001a00 0%, #003d00 50%, #006b00 100%)',
-
-    stats: [
-
-      { num: '~$301M', label: '累计融资额' },
-
-      { num: '2022年', label: '人体测试启动' },
-
-      { num: '2023年', label: '转型MicroLED授权' },
-
-      { num: '8年', label: '研发历程' },
-
-    ],
-
-    key: '关键问题：技术可行≠商业可行，极端的使用场景限制注定市场极小',
-
-    story: 'Mojo Vision 从 2015 年开始研发隐形眼镜形态的 AR 显示设备，核心技术是微型 MicroLED 屏幕直接嵌入隐形眼镜。2022 年 CEO 亲自戴上原型机进行人体测试，引发全球媒体关注。但商业化路径极为狭窄：需要处方配戴流程、眼科医生认证、FDA 审批，而且能显示的信息量极为有限（低分辨率）。2023 年公司宣布放弃 AR 眼镜产品，转型为 MicroLED 技术授权商。',
-
-    lesson: '技术突破和市场需求之间的鸿沟，在医疗器械+消费电子的交叉领域尤为巨大。监管壁垒、使用场景限制、用户习惯——每一个单独都能杀死一个产品，更别说三个叠加。',
-
-    date: '2026-03-27',
-
+    "id": 0,
+    "company": "case-25-embodied-moxie",
+    "type": "tech",
+    "url": "cases/case-25-embodied-moxie.md"
   },
-
-  // ============ 🦞 无人机 ============
-
   {
-
-    cat: 'comp',
-
-    company: 'Skydio',
-
-    slogan: '$570M融资，美国最强无人机公司，却主动放弃消费市场',
-
-    type: '无人机',
-
-    typeColor: '#3b82f6',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #00001a 0%, #00003d 50%, #00006b 100%)',
-
-    stats: [
-
-      { num: '$570M', label: '累计融资额' },
-
-      { num: '$1B+', label: '估值' },
-
-      { num: '2023年10月', label: '宣布退出消费市场' },
-
-      { num: '100%', label: '消费业务占比→0%' },
-
-    ],
-
-    key: '关键问题：to-C和to-G是两种完全不同的公司，不能平滑切换',
-
-    story: 'Skydio 是美国最先进的消费无人机公司，AI 自主避障技术领先大疆。但在消费市场，大�疆以$300-$1500 的价格覆盖了全球市场，而 Skydio 的旗舰产品定价$2499，无论技术多先进都难以撼动大疆的规模优势。2023 年，Skydio 宣布放弃消费市场，全面转向美国政府和军事客户——这是一步活命棋，但也意味着整个产品线、销售团队、品牌定位需要从零重建。',
-
-    lesson: '消费无人机是一场关于成本控制和供应链的战争，不是关于技术领先的战争。而政府/军用无人机是一场关于认证、关系和安全审查的战争。这两场战争的武器完全不同。',
-
-    date: '2026-03-27',
-
+    "id": 0,
+    "company": "case-26-character-ai",
+    "type": "tech",
+    "url": "cases/case-26-character-ai.md"
   },
-
-  // ============ 🦞 人形机器人（成功） ============
-
   {
-
-    cat: 'pmf_ok',
-
-    company: 'Figure AI',
-
-    slogan: '$1.7B融资，宝马工厂实测，人形机器人最接近商业化的公司',
-
-    type: '人形机器人',
-
-    typeColor: '#3fb950',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #001a0a 0%, #003d18 50%, #006b2a 100%)',
-
-    stats: [
-
-      { num: '$1.7B+', label: '累计融资额' },
-
-      { num: '$2.6B', label: '2024年估值' },
-
-      { num: '宝马', label: '战略合作客户' },
-
-      { num: '2025年', label: '工厂部署计划' },
-
-    ],
-
-    key: '成功关键：真实客户合同+战略投资者（OpenAI/微软/英伟达）双保险',
-
-    story: 'Figure AI 2022 年由 Brett Adcock 创立，目标是制造通用人形机器人。关键节点：2024 年 2 月融资$675M，投资方包括 OpenAI、微软、英伟达、贝佐斯——这份投资人名单本身就是最好的信任背书。同年与宝马签订工厂部署协议，Figure 02 在宝马 Spartanburg 工厂实测搬运零部件，这是人形机器人首次在真实工业环境商业化运营。',
-
-    lesson: '人形机器人成功的路径：不要试图一步到位做"通用机器人"，先攻克一个垂直场景（工厂物料搬运）。战略投资者（AI公司+芯片公司）提供技术护城河，企业客户合同提供商业验证。两者缺一不可。',
-
-    date: '2026-03-27',
-
+    "id": 0,
+    "company": "case-27-rabbit-r1",
+    "type": "tech",
+    "url": "cases/case-27-rabbit-r1.md"
   },
-
-  // ============ 🦞 物流机器人 ============
-
   {
-
-    cat: 'cash',
-
-    company: 'Dextrous Robotics',
-
-    slogan: '$30M物流机器人，倒在量产前夜',
-
-    type: '物流机器人',
-
-    typeColor: '#f59e0b',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #1a1000 0%, #3d2800 50%, #6b4500 100%)',
-
-    stats: [
-
-      { num: '~$30M', label: '累计融资额' },
-
-      { num: '2024年', label: '关闭' },
-
-      { num: '5年', label: '成立到关闭' },
-
-      { num: '3', label: '已部署客户数' },
-
-    ],
-
-    key: '关键问题：硬件创业的"鸡和蛋"——没有量产就没有利润，没有利润就没有量产',
-
-    story: 'Dextrous Robotics 专注于电商仓库包裹分拣机器人，技术路线是柔性夹爪+视觉系统，能处理各种形状的包裹。在亚马逊、UPS 等电商物流高速增长的背景下，市场需求真实存在。但公司卡在了硬件创业最典型的死亡螺旋：每套系统成本高（需要客户签大合同）、部署周期长（需要现场集成）、维护要求高（需要本地团队）。融资不足以支撑到规模化，2024 年宣布关闭。',
-
-    lesson: '硬件机器人创业的单位经济学必须在 Series B 之前算清楚：每台机器在几年内能回本？维护成本多少？客户愿意付多少钱？这三个问题没有清晰答案，就不要扩张。',
-
-    date: '2026-03-27',
-
+    "id": 0,
+    "company": "case-28-stability-ai",
+    "type": "tech",
+    "url": "cases/case-28-stability-ai.md"
   },
-
-  // ============ 🦞 农业机器人 ============
-
   {
-
-    cat: 'pmf',
-
-    company: 'Small Robot Company',
-
-    slogan: '英国农业机器人先驱：政府补贴撑起来的"成功"，市场证明不了',
-
-    type: '农业机器人',
-
-    typeColor: '#3fb950',
-
-    emoji: '🦞',
-
-    coverGradient: 'linear-gradient(135deg, #001a00 0%, #003300 50%, #005500 100%)',
-
-    stats: [
-
-      { num: '~￡14M', label: '累计融资额（约$18M）' },
-
-      { num: '2023年', label: '重组为软件公司' },
-
-      { num: '6年', label: '硬件探索历程' },
-
-      { num: '1', label: '活跃硬件产品→0' },
-
-    ],
-
-    key: '关键问题：政府补贴驱动≠市场驱动，农业机器人的ROI周期比农民的耐心更长',
-
-    story: 'Small Robot Company 成立于 2017 年，是英国 AgTech 的明星公司，开发出 Tom（除草机器人）、Dick（种植机器人）和 Harry（土壤检测机器人）。获得了大量政府补贴和奖项，媒体报道频繁。但核心问题是：农民并不买账。机器人需要精确到厘米级的农田地图，前期投入巨大；出故障时农民没有维修能力；ROI 周期 3-5 年，农民更愿意等新的农药。2023 年公司重组，关闭硬件业务，转型为农业数据/软件平台。',
-
-    lesson: '农业机器人的客户（农民）和投资方（政府/VC）之间存在巨大的认知鸿沟。政府关注技术可行性，农民关注明年的收成。融到钱不等于找到客户，奖项不等于PMF。',
-
-    date: '2026-03-27',
-
+    "id": 0,
+    "company": "case-29-mojo-vision",
+    "type": "tech",
+    "url": "cases/case-29-mojo-vision.md"
   },
-
+  {
+    "id": 0,
+    "company": "case-30-skydio",
+    "type": "tech",
+    "url": "cases/case-30-skydio.md"
+  },
+  {
+    "id": 0,
+    "company": "case-31-figure-ai",
+    "type": "tech",
+    "url": "cases/case-31-figure-ai.md"
+  },
+  {
+    "id": 0,
+    "company": "case-32-dextrous-robotics",
+    "type": "tech",
+    "url": "cases/case-32-dextrous-robotics.md"
+  },
+  {
+    "id": 0,
+    "company": "case-33-small-robot-company",
+    "type": "tech",
+    "url": "cases/case-33-small-robot-company.md"
+  },
+  {
+    "id": 0,
+    "company": "case-34-ai-companion-device",
+    "type": "tech",
+    "url": "cases/case-34-ai-companion-device.md"
+  },
+  {
+    "id": 0,
+    "company": "case-36-quibi",
+    "type": "tech",
+    "url": "cases/case-36-quibi.md"
+  },
+  {
+    "id": 0,
+    "company": "case-37-wework",
+    "type": "tech",
+    "url": "cases/case-37-wework.md"
+  },
+  {
+    "id": 0,
+    "company": "case-38-servi-robotics",
+    "type": "机器人",
+    "url": "cases/case-38-servi-robotics.md"
+  },
+  {
+    "id": 0,
+    "company": "case-39-figure-ai",
+    "type": "人形机器人",
+    "url": "cases/case-39-figure-ai.md"
+  },
+  {
+    "id": 0,
+    "company": "case-40-1x-technologies",
+    "type": "人形机器人",
+    "url": "cases/case-40-1x-technologies.md"
+  },
+  {
+    "id": 0,
+    "company": "case-41-agibot",
+    "type": "中国人形机器人",
+    "url": "cases/case-41-agibot.md"
+  },
+  {
+    "id": 0,
+    "company": "case-42-ofo-bicycle",
+    "type": "中国共享经济",
+    "url": "cases/case-42-ofo-bicycle.md"
+  },
+  {
+    "id": 0,
+    "company": "case-43-quibi",
+    "type": "流媒体",
+    "url": "cases/case-43-quibi.md"
+  },
+  {
+    "id": 0,
+    "company": "case-44-covariant-ai-robotics",
+    "type": "tech",
+    "url": "cases/case-44-covariant-ai-robotics.md"
+  },
+  {
+    "id": 0,
+    "company": "Longhair AI（龙跃AI）",
+    "type": "tech",
+    "url": "cases/case-44-longhair-ai.md"
+  },
+  {
+    "id": 0,
+    "company": "case-44-perplexity-ai",
+    "type": "AI搜索引擎",
+    "url": "cases/case-44-perplexity-ai.md"
+  },
+  {
+    "id": 0,
+    "company": "case-46-unitree-robotics",
+    "type": "tech",
+    "url": "cases/case-46-unitree-robotics.md"
+  },
+  {
+    "id": 0,
+    "company": "case-50-robowheel-across-embodiment",
+    "type": "tech",
+    "url": "cases/case-50-robowheel-across-embodiment.md"
+  },
+  {
+    "id": 0,
+    "company": "case-51-pebble-smartwatch",
+    "type": "tech",
+    "url": "cases/case-51-pebble-smartwatch.md"
+  },
+  {
+    "id": 52,
+    "company": "Character.AI——AI陪伴应用先驱如何被Google收购",
+    "type": "comp",
+    "url": "cases/case-52-character-ai.md"
+  },
+  {
+    "id": 53,
+    "company": "AutoGPT——2023年爆火后迅速降温的自主Agent先驱",
+    "type": "team",
+    "url": "cases/case-53-auto-gpt-failure.md"
+  },
+  {
+    "id": 0,
+    "company": "case-54-agibot-zhiyuan-robotics",
+    "type": "tech",
+    "url": "cases/case-54-agibot-zhiyuan-robotics.md"
+  },
+  {
+    "id": 0,
+    "company": "创业素材_20260327",
+    "type": "tech",
+    "url": "cases/创业素材_20260327.md"
+  }
 ];
 
 
