@@ -1,133 +1,112 @@
 {
-  "updated": "2026-04-15 03:55 UTC",
-  "total": 18,
+  "updated": "2026-04-16 04:10 UTC",
+  "total": 15,
   "today_count": 0,
   "papers": [
     {
-      "title": "Lyra 2.0: Explorable Generative 3D Worlds",
-      "date": "2026-04-14",
-      "id": "2604.13036v1",
-      "abstract": "Recent advances in video generation enable a new paradigm for 3D scene creation: generating camera-controlled videos that simulate scene walkthroughs, then lifting them to 3D via feed-forward reconstr",
-      "url": "https://arxiv.org/abs/2604.13036v1"
+      "title": "One Token per Highly Selective Frame: Towards Extreme Compression for Long Video Understanding",
+      "date": "2026-04-15",
+      "id": "2604.14149v1",
+      "abstract": "Long video understanding is inherently challenging for vision-language models (VLMs) because of the extensive number of frames. With each video frame typically expanding into tens or hundreds of token",
+      "url": "https://arxiv.org/abs/2604.14149v1"
     },
     {
-      "title": "SceneCritic: A Symbolic Evaluator for 3D Indoor Scene Synthesis",
-      "date": "2026-04-14",
-      "id": "2604.13035v1",
-      "abstract": "Large Language Models (LLMs) and Vision-Language Models (VLMs) increasingly generate indoor scenes through intermediate structures such as layouts and scene graphs, yet evaluation still relies on LLM ",
-      "url": "https://arxiv.org/abs/2604.13035v1"
+      "title": "Seedance 2.0: Advancing Video Generation for World Complexity",
+      "date": "2026-04-15",
+      "id": "2604.14148v1",
+      "abstract": "Seedance 2.0 is a new native multi-modal audio-video generation model, officially released in China in early February 2026. Compared with its predecessors, Seedance 1.0 and 1.5 Pro, Seedance 2.0 adopt",
+      "url": "https://arxiv.org/abs/2604.14148v1"
     },
     {
-      "title": "DySkew: Dynamic Data Redistribution for Skew-Resilient Snowpark UDF Execution",
-      "date": "2026-04-14",
-      "id": "2604.13034v1",
-      "abstract": "Snowflake revolutionized data warehousing with an elastic architecture that decouples compute and storage, enabling scalable solutions for diverse data analytics needs. Building on this foundation, Sn",
-      "url": "https://arxiv.org/abs/2604.13034v1"
+      "title": "ROSE: Retrieval-Oriented Segmentation Enhancement",
+      "date": "2026-04-15",
+      "id": "2604.14147v1",
+      "abstract": "Existing segmentation models based on multimodal large language models (MLLMs), such as LISA, often struggle with novel or emerging entities due to their inability to incorporate up-to-date knowledge.",
+      "url": "https://arxiv.org/abs/2604.14147v1"
     },
     {
-      "title": "XRZero-G0: Pushing the Frontier of Dexterous Robotic Manipulation with Interfaces, Quality and Ratios",
-      "date": "2026-04-14",
-      "id": "2604.13001v1",
-      "abstract": "The acquisition of high-quality, action-aligned demonstration data remains a fundamental bottleneck in scaling foundation models for dexterous robot manipulation. Although robot-free human demonstrati",
-      "url": "https://arxiv.org/abs/2604.13001v1"
+      "title": "SpatialEvo: Self-Evolving Spatial Intelligence via Deterministic Geometric Environments",
+      "date": "2026-04-15",
+      "id": "2604.14144v1",
+      "abstract": "Spatial reasoning over three-dimensional scenes is a core capability for embodied intelligence, yet continuous model improvement remains bottlenecked by the cost of geometric annotation. The self-evol",
+      "url": "https://arxiv.org/abs/2604.14144v1"
     },
     {
-      "title": "Tree Learning: A Multi-Skill Continual Learning Framework for Humanoid Robots",
-      "date": "2026-04-14",
-      "id": "2604.12909v1",
-      "abstract": "As reinforcement learning for humanoid robots evolves from single-task to multi-skill paradigms, efficiently expanding new skills while avoiding catastrophic forgetting has become a key challenge in e",
-      "url": "https://arxiv.org/abs/2604.12909v1"
+      "title": "LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning",
+      "date": "2026-04-15",
+      "id": "2604.14140v1",
+      "abstract": "As language models are increasingly deployed for complex autonomous tasks, their ability to reason accurately over longer horizons becomes critical. An essential component of this ability is planning ",
+      "url": "https://arxiv.org/abs/2604.14140v1"
     },
     {
-      "title": "OVAL: Open-Vocabulary Augmented Memory Model for Lifelong Object Goal Navigation",
-      "date": "2026-04-14",
-      "id": "2604.12872v1",
-      "abstract": "Object Goal Navigation (ObjectNav) refers to an agent navigating to an object in an unseen environment, which is an ability often required in the accomplishment of complex tasks. While existing method",
-      "url": "https://arxiv.org/abs/2604.12872v1"
+      "title": "HiVLA: A Visual-Grounded-Centric Hierarchical Embodied Manipulation System",
+      "date": "2026-04-15",
+      "id": "2604.14125v1",
+      "abstract": "While end-to-end Vision-Language-Action (VLA) models offer a promising paradigm for robotic manipulation, fine-tuning them on narrow control data often compromises the profound reasoning capabilities ",
+      "url": "https://arxiv.org/abs/2604.14125v1"
     },
     {
-      "title": "Obscured at the Core: Evidence for Nuclear Dust in Reddened Type-1 AGN",
-      "date": "2026-04-14",
-      "id": "2604.13031v1",
-      "abstract": "Reddened Type-1 quasars offer a unique window into the structure and evolution of active galactic nuclei (AGN), yet their physical origin and the source of their reddening remain uncertain. Optical su",
-      "url": "https://arxiv.org/abs/2604.13031v1"
+      "title": "Visplot: A visibility plot and observation scheduling tool for astronomical observatories",
+      "date": "2026-04-15",
+      "id": "2604.14151v1",
+      "abstract": "We present Visplot, a free, open-source, web-based tool for hardware-aware visibility analysis and heuristic scheduling of both sidereal and non-sidereal astronomical observations. Visplot computes vi",
+      "url": "https://arxiv.org/abs/2604.14151v1"
     },
     {
-      "title": "VULCAN: Vision-Language-Model Enhanced Multi-Agent Cooperative Navigation for Indoor Fire-Disaster Response",
-      "date": "2026-04-14",
-      "id": "2604.12831v1",
-      "abstract": "Indoor fire disasters pose severe challenges to autonomous search and rescue due to dense smoke, high temperatures, and dynamically evolving indoor environments. In such time-critical scenarios, multi",
-      "url": "https://arxiv.org/abs/2604.12831v1"
+      "title": "Thermodynamic signatures of non-Hermiticity in Dirac materials via quantum capacitance",
+      "date": "2026-04-15",
+      "id": "2604.14150v1",
+      "abstract": "Non-Hermitian band descriptions capture how loss, gain, and environmental coupling reshape quantum matter, yet most experimental tests rely on wave-based or dynamical probes. Here we establish a new e",
+      "url": "https://arxiv.org/abs/2604.14150v1"
     },
     {
-      "title": "Learning Versatile Humanoid Manipulation with Touch Dreaming",
-      "date": "2026-04-14",
-      "id": "2604.13015v1",
-      "abstract": "Humanoid robots promise general-purpose assistance, yet real-world humanoid loco-manipulation remains challenging because it requires whole-body stability, dexterous hands, and contact-aware perceptio",
-      "url": "https://arxiv.org/abs/2604.13015v1"
+      "title": "Enhancing Local Life Service Recommendation with Agentic Reasoning in Large Language Model",
+      "date": "2026-04-15",
+      "id": "2604.14051v1",
+      "abstract": "Local life service recommendation is distinct from general recommendation scenarios due to its strong living need-driven nature. Fundamentally, accurately identifying a user's immediate living need an",
+      "url": "https://arxiv.org/abs/2604.14051v1"
     },
     {
-      "title": "Inexpensive Optical Projection Tomography on a Mobile Phone Platform",
-      "date": "2026-04-14",
-      "id": "2604.13004v1",
-      "abstract": "This work presents an inexpensive optical projection tomography (OPT) system built on a mobile phone platform for three-dimensional optical microscopy. The system uses an iPhone camera together with a",
-      "url": "https://arxiv.org/abs/2604.13004v1"
+      "title": "Depth-Aware Image and Video Orientation Estimation",
+      "date": "2026-04-15",
+      "id": "2604.13995v1",
+      "abstract": "This paper introduces a novel approach for image and video orientation estimation by leveraging depth distribution in natural images. The proposed method estimates the orientation based on the depth d",
+      "url": "https://arxiv.org/abs/2604.13995v1"
     },
     {
-      "title": "Robotic Manipulation is Vision-to-Geometry Mapping ($f(v) \\rightarrow G$): Vision-Geometry Backbones over Language and Video Models",
-      "date": "2026-04-14",
-      "id": "2604.12908v1",
-      "abstract": "At its core, robotic manipulation is a problem of vision-to-geometry mapping ($f(v) \\rightarrow G$). Physical actions are fundamentally defined by geometric properties like 3D positions and spatial re",
-      "url": "https://arxiv.org/abs/2604.12908v1"
+      "title": "RFID-based Real-Time Geriatric Gait Speed Monitoring System: Design, Implementation and Clinical Evaluation",
+      "date": "2026-04-15",
+      "id": "2604.14023v1",
+      "abstract": "Gait speed is a widely used indicator of functional health and mobility decline, yet in clinical practice it is commonly measured manually using a stopwatch, which limits scalability and measurement f",
+      "url": "https://arxiv.org/abs/2604.14023v1"
     },
     {
-      "title": "Mobile Communications in Intelligent Rail Transit: From LCX to PASS",
-      "date": "2026-04-14",
-      "id": "2604.12899v1",
-      "abstract": "Wireless communications in intelligent rail transit face harsh propagation conditions, including severe penetration loss, frequent blockages, and amplified large-scale fading. Existing leaky coaxial c",
-      "url": "https://arxiv.org/abs/2604.12899v1"
+      "title": "Unsupervised domain transfer: Overcoming signal degradation in sleep monitoring by increasing scoring realism",
+      "date": "2026-04-15",
+      "id": "2604.13988v1",
+      "abstract": "Objective: Investigate whether hypnogram 'realism' can be used to guide an unsupervised method for handling arbitrary types of signal degradation in mobile sleep monitoring.   Approach: Combining a pr",
+      "url": "https://arxiv.org/abs/2604.13988v1"
     },
     {
-      "title": "Lightning OPD: Efficient Post-Training for Large Reasoning Models with Offline On-Policy Distillation",
-      "date": "2026-04-14",
-      "id": "2604.13010v1",
-      "abstract": "On-policy distillation (OPD) has emerged as an efficient post-training paradigm for large language models. However, standard OPD requires a live teacher inference server throughout training, resulting",
-      "url": "https://arxiv.org/abs/2604.13010v1"
+      "title": "From $P(y|x)$ to $P(y)$: Investigating Reinforcement Learning in Pre-train Space",
+      "date": "2026-04-15",
+      "id": "2604.14142v1",
+      "abstract": "While reinforcement learning with verifiable rewards (RLVR) significantly enhances LLM reasoning by optimizing the conditional distribution P(y|x), its potential is fundamentally bounded by the base m",
+      "url": "https://arxiv.org/abs/2604.14142v1"
     },
     {
-      "title": "One Token Away from Collapse: The Fragility of Instruction-Tuned Helpfulness",
-      "date": "2026-04-14",
-      "id": "2604.13006v1",
-      "abstract": "Instruction-tuned large language models produce helpful, structured responses, but how robust is this helpfulness when trivially constrained? We show that simple lexical constraints (banning a single ",
-      "url": "https://arxiv.org/abs/2604.13006v1"
+      "title": "Quantum matter is weakly entangled at low energies",
+      "date": "2026-04-15",
+      "id": "2604.14143v1",
+      "abstract": "We construct upper bounds on entanglement entropies of many-body quantum states that have fixed energy expectation values with respect to geometrically local Hamiltonians. Our focus is on entanglement",
+      "url": "https://arxiv.org/abs/2604.14143v1"
     },
     {
-      "title": "SpotSound: Enhancing Large Audio-Language Models with Fine-Grained Temporal Grounding",
-      "date": "2026-04-14",
-      "id": "2604.13023v1",
-      "abstract": "Large Audio-Language Models (ALMs) have recently demonstrated remarkable capabilities in holistic audio understanding, yet they remain unreliable for temporal grounding, i.e., the task of pinpointing ",
-      "url": "https://arxiv.org/abs/2604.13023v1"
-    },
-    {
-      "title": "Finite element approximation of an anisotropic porous medium equation with fractional pressure",
-      "date": "2026-04-14",
-      "id": "2604.13014v1",
-      "abstract": "We study a nonlocal diffusion equation of porous medium type featuring a generalised fractional pressure with spatial anisotropy. We construct a finite element method for the numerical solution of the",
-      "url": "https://arxiv.org/abs/2604.13014v1"
-    },
-    {
-      "title": "EOM-fpCCSD: An Accurate Alternative to EOM-CCSD for Doubly Excited and Charge-Transfer States",
-      "date": "2026-04-14",
-      "id": "2604.13009v1",
-      "abstract": "We introduce a new equation-of-motion coupled-cluster method based on a pair coupled-cluster doubles (pCCD) reference, termed frozen-pair EOM-CCSD (EOM-fpCCSD). This approach combines the computationa",
-      "url": "https://arxiv.org/abs/2604.13009v1"
-    },
-    {
-      "title": "Asymptotically faster algorithms for recognizing $(k,\\ell)$-sparse graphs",
-      "date": "2026-04-14",
-      "id": "2604.13025v1",
-      "abstract": "The family of $(k,\\ell)$-sparse graphs, introduced by Lorea, plays a central role in combinatorial optimization and has a wide range of applications, particularly in rigidity theory. A key algorithmic",
-      "url": "https://arxiv.org/abs/2604.13025v1"
+      "title": "Geometric Context Transformer for Streaming 3D Reconstruction",
+      "date": "2026-04-15",
+      "id": "2604.14141v1",
+      "abstract": "Streaming 3D reconstruction aims to recover 3D information, such as camera poses and point clouds, from a video stream, which necessitates geometric accuracy, temporal   consistency, and computational",
+      "url": "https://arxiv.org/abs/2604.14141v1"
     }
   ]
 }
