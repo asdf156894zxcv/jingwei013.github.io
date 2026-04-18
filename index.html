@@ -7,7 +7,7 @@
   <meta name="description" content="精卫导航机器人导航研究博客，记录学术探索与前沿思考">
   <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
-  <style>
+<style>
 :root{--accent:#d35400;--accent-hover:#e67e22;--accent-dim:rgba(211,84,0,0.1);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-muted:#757575;--bg-secondary:#f5f5f5;--border:#e0e0e0;--radius:12px;--shadow:0 4px 20px rgba(0,0,0,0.08)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter','Noto Serif SC',-apple-system,sans-serif;background:#fff;color:var(--text-primary);line-height:1.7;min-height:100vh}
@@ -17,48 +17,41 @@ nav{background:#fff;border-bottom:1px solid var(--border);padding:16px 0;positio
 nav .container{display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:18px;font-weight:700}
 nav ul{display:flex;gap:28px;list-style:none}
-nav a{color:var(--text-secondary);font-size:15px;font-weight:500}
-nav a.active,nav a:hover{color:var(--accent)}
+nav a{color:var(--text-secondary);font-size:15px;font-weight:500}nav a.active,nav a:hover{color:var(--accent)}
 .hero{text-align:center;padding:60px 24px 48px}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);color:var(--accent);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:20px}
 .hero h1{font-size:42px;font-weight:700;line-height:1.25;margin-bottom:16px}
 .hero-sub{font-size:17px;color:var(--text-secondary);max-width:620px;margin:0 auto 32px}
 .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-primary,.btn-secondary{padding:12px 24px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:8px}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-secondary{background:var(--bg-secondary);color:var(--text-primary)}
+.btn-primary{background:var(--accent);color:#fff}.btn-secondary{background:var(--bg-secondary);color:var(--text-primary)}
 .hero-stats{display:flex;justify-content:center;gap:48px;margin-top:48px;padding-top:40px;border-top:1px solid var(--border)}
-.stat{text-align:center;cursor:pointer}
-.stat:hover .stat-num{color:var(--accent)}
-.stat-num{font-size:32px;font-weight:700;color:var(--accent)}
-.stat-label{font-size:13px;color:var(--text-muted);margin-top:4px}
+.stat{text-align:center;cursor:pointer}.stat:hover .stat-num{color:var(--accent)}
+.stat-num{font-size:32px;font-weight:700;color:var(--accent)}.stat-label{font-size:13px;color:var(--text-muted);margin-top:4px}
 .divider{border:none;border-top:1px solid var(--border);margin:0}
-section{padding:48px 0}
-section.hidden{display:none}
-.section-header{margin-bottom:28px}
-.section-title{font-size:22px;font-weight:700;margin-bottom:6px}
+section{padding:48px 0}section.hidden{display:none}
+.section-header{margin-bottom:28px}.section-title{font-size:22px;font-weight:700;margin-bottom:6px}
 .section-desc{font-size:14px;color:var(--text-muted)}
 .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all 0.2s;cursor:pointer}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all 0.2s}
 .card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-.card-title{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.4}
-.card-meta{font-size:12px;color:var(--text-muted);margin-bottom:10px}
-.card-tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{font-size:11px;padding:3px 8px;border-radius:10px;color:#fff}
+.card a{display:block;color:inherit;text-decoration:none}
+.card-title{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.4}.card-meta{font-size:12px;color:var(--text-muted);margin-bottom:10px}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:11px;padding:3px 8px;border-radius:10px;color:#fff}
 .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
 .filter-btn{padding:6px 14px;border-radius:6px;font-size:13px;background:var(--bg-secondary);color:var(--text-secondary);cursor:pointer;border:1px solid var(--border)}
 .filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .papers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
 .paper-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px}
 .paper-tag{font-size:11px;padding:3px 8px;border-radius:10px;color:#fff;display:inline-block;margin-bottom:10px}
-.paper-title{font-size:15px;font-weight:600;margin-bottom:6px;line-height:1.4}
-.paper-meta{font-size:12px;color:var(--text-muted);margin-bottom:8px}
+.paper-title{font-size:15px;font-weight:600;margin-bottom:6px;line-height:1.4}.paper-meta{font-size:12px;color:var(--text-muted);margin-bottom:8px}
 footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 0;text-align:center;color:var(--text-muted);font-size:14px}
 footer a{color:var(--text-secondary)}
 @media(max-width:768px){.hero h1{font-size:28px}.hero-stats{flex-wrap:wrap;gap:24px}}
-  </style>
+</style>
 </head>
 <body>
+
 <nav><div class="container">
   <a href="#" class="logo" onclick="showSection('home')">精卫导航</a>
   <ul>
@@ -69,8 +62,8 @@ footer a{color:var(--text-secondary)}
     <li><a href="#" onclick="showSection('about')">关于</a></li>
   </ul>
 </div></nav>
-
 <div class="container">
+
   <div class="hero">
     <div class="hero-badge">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg>
@@ -83,57 +76,23 @@ footer a{color:var(--text-secondary)}
       <a href="#" class="btn-secondary" onclick="showSection('blog')">阅读博客</a>
     </div>
     <div class="hero-stats">
-      <div class="stat" onclick="showSection('papers')">
-        <div class="stat-num">22</div>
-        <div class="stat-label">论文</div>
-      </div>
-      <div class="stat" onclick="showSection('blog')">
-        <div class="stat-num">109</div>
-        <div class="stat-label">博客</div>
-      </div>
-      <div class="stat" onclick="showSection('cases')">
-        <div class="stat-num">67</div>
-        <div class="stat-label">案例</div>
-      </div>
+      <div class="stat" onclick="showSection('papers')"><div class="stat-num">22</div><div class="stat-label">论文</div></div>
+      <div class="stat" onclick="showSection('blog')"><div class="stat-num">109</div><div class="stat-label">博客</div></div>
+      <div class="stat" onclick="showSection('cases')"><div class="stat-num">67</div><div class="stat-label">案例</div></div>
     </div>
   </div>
-
   <hr class="divider">
-
   <section id="research">
-    <div class="section-header">
-      <h2 class="section-title">研究方向</h2>
-      <p class="section-desc">聚焦具身智能导航的核心挑战</p>
-    </div>
+    <div class="section-header"><h2 class="section-title">研究方向</h2><p class="section-desc">聚焦具身智能导航的核心挑战</p></div>
     <div class="card-grid">
-      <div class="card">
-        <div class="card-title">🧠 停止决策 Stop Decision</div>
-        <div class="card-meta">CoW-Nav · FSCoT · 信心头</div>
-        <div class="card-tags"><span class="tag" style="background:#d35400">主动推理</span><span class="tag" style="background:#27ae60">决策理论</span></div>
-        <p style="font-size:13px;color:var(--text-secondary);margin-top:10px">在视觉语言导航任务中，如何让智能体在不确定时主动停下来思考，是提升成功率的关键。</p>
-      </div>
-      <div class="card">
-        <div class="card-title">🗺️ 跨域定位 Cross-Domain Localization</div>
-        <div class="card-meta">BEV-NavLoc · 跨场景泛化</div>
-        <div class="card-tags"><span class="tag" style="background:#2980b9">定位</span><span class="tag" style="background:#8e44ad">泛化</span></div>
-        <p style="font-size:13px;color:var(--text-secondary);margin-top:10px">从模拟环境到真实场景，从室内到室外，跨域定位是具身导航落地的重要瓶颈。</p>
-      </div>
-      <div class="card">
-        <div class="card-title">🔗 思维链地图 CoT-Map</div>
-        <div class="card-meta">时空记忆 · 可解释推理</div>
-        <div class="card-tags"><span class="tag" style="background:#e67e22">记忆</span><span class="tag" style="background:#16a085">推理</span></div>
-        <p style="font-size:13px;color:var(--text-secondary);margin-top:10px">将思维链引入导航记忆构建，实现可解释的时空推理与路径规划。</p>
-      </div>
+      <div class="card" onclick="showSection('papers')"><div class="card-title">停止决策 Stop Decision</div><div class="card-meta">CoW-Nav · FSCoT · 信心头</div><div class="card-tags"><span class="tag" style="background:#d35400">主动推理</span><span class="tag" style="background:#27ae60">决策理论</span></div><p style="font-size:13px;color:var(--text-secondary);margin-top:10px">在视觉语言导航任务中，如何让智能体在不确定时主动停下来思考，是提升成功率的关键。</p></div>
+      <div class="card" onclick="showSection('papers')"><div class="card-title">跨域定位 Cross-Domain Localization</div><div class="card-meta">BEV-NavLoc · 跨场景泛化</div><div class="card-tags"><span class="tag" style="background:#2980b9">定位</span><span class="tag" style="background:#8e44ad">泛化</span></div><p style="font-size:13px;color:var(--text-secondary);margin-top:10px">从模拟环境到真实场景，从室内到室外，跨域定位是具身导航落地的重要瓶颈。</p></div>
+      <div class="card" onclick="showSection('papers')"><div class="card-title">思维链地图 CoT-Map</div><div class="card-meta">时空记忆 · 可解释推理</div><div class="card-tags"><span class="tag" style="background:#e67e22">记忆</span><span class="tag" style="background:#16a085">推理</span></div><p style="font-size:13px;color:var(--text-secondary);margin-top:10px">将思维链引入导航记忆构建，实现可解释的时空推理与路径规划。</p></div>
     </div>
   </section>
 
-  <hr class="divider">
-
   <section id="papers" class="hidden">
-    <div class="section-header">
-      <h2 class="section-title">论文发表</h2>
-      <p class="section-desc">顶会论文与研究产出</p>
-    </div>
+    <div class="section-header"><h2 class="section-title">论文发表</h2><p class="section-desc">顶会论文与研究产出</p></div>
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterPapers('all', this)">全部</button>
       <button class="filter-btn" onclick="filterPapers('CoW-Nav', this)">CoW-Nav</button>
@@ -145,10 +104,7 @@ footer a{color:var(--text-secondary)}
   </section>
 
   <section id="blog" class="hidden">
-    <div class="section-header">
-      <h2 class="section-title">技术博客</h2>
-      <p class="section-desc">记录研究思考与技术探索</p>
-    </div>
+    <div class="section-header"><h2 class="section-title">技术博客</h2><p class="section-desc">记录研究思考与技术探索</p></div>
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterBlog('all', this)">全部</button>
       <button class="filter-btn" onclick="filterBlog('tech', this)">技术</button>
@@ -159,10 +115,7 @@ footer a{color:var(--text-secondary)}
   </section>
 
   <section id="cases" class="hidden">
-    <div class="section-header">
-      <h2 class="section-title">创业案例</h2>
-      <p class="section-desc">机器人与AI创业公司深度分析</p>
-    </div>
+    <div class="section-header"><h2 class="section-title">创业案例</h2><p class="section-desc">机器人与AI创业公司深度分析</p></div>
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterCases('all', this)">全部</button>
       <button class="filter-btn" onclick="filterCases('comp', this)">竞争</button>
@@ -174,32 +127,20 @@ footer a{color:var(--text-secondary)}
   </section>
 
   <section id="about" class="hidden">
-    <div class="section-header">
-      <h2 class="section-title">关于</h2>
-    </div>
-    <div class="card">
-      <div class="card-title">👤 精卫013</div>
-      <div class="card-meta">博士研究生 · 具身智能方向</div>
-      <p style="font-size:14px;color:var(--text-secondary);margin-top:10px">
-        研究方向：视觉语言导航（VLN）、主动推理决策、跨域定位与地图构建。<br>
-        目标：发表高质量SCI论文，探索具身智能落地方向。
-      </p>
-    </div>
+    <div class="section-header"><h2 class="section-title">关于</h2></div>
+    <div class="card"><div class="card-title">精卫013</div><div class="card-meta">博士研究生 · 具身智能方向</div><p style="font-size:14px;color:var(--text-secondary);margin-top:10px">研究方向：视觉语言导航（VLN）、主动推理决策、跨域定位与地图构建。<br>目标：发表高质量SCI论文，探索具身智能落地方向。</p></div>
   </section>
 
-  <footer>
-    <p>精卫导航 · 2026-04-18 · 持续更新中</p>
-  </footer>
+  <footer><p>精卫导航 · 2026年04月18日 · 持续更新中</p></footer>
 </div>
 
 <script>
 var PUBLICATIONS = [
-  {title:"CoW-Nav: Confidence-Weighted Navigation with FSCoT", venue:"ICRA 2027 / RAL", tag:"CoW-Nav", status:"在投", url:"#"},
-  {title:"EmbodiedSLAM: 三模态融合的具身SLAM系统", venue:"ICRA 2027", tag:"EmbodiedSLAM", status:"撰写中", url:"#"},
-  {title:"BEV-NavLoc: 鸟瞰视图跨域定位网络", venue:"IROS 2026 / RAL", tag:"BEV", status:"准备中", url:"#"},
-  {title:"CoT-Map: 思维链增强的时空记忆导航", venue:"CoRL 2026", tag:"CoT", status:"构思中", url:"#"},
+{title:'CoW-Nav: Confidence-Weighted Navigation with FSCoT',venue:'ICRA 2027 / RAL',tag:'CoW-Nav',status:'在投',url:'#'},
+{title:'EmbodiedSLAM: Tri-Modal Fusion for Embodied SLAM',venue:'ICRA 2027',tag:'EmbodiedSLAM',status:'撰写中',url:'#'},
+{title:'BEV-NavLoc: Cross-Domain Localization with Bird\'s Eye View',venue:'IROS 2026 / RAL',tag:'BEV',status:'准备中',url:'#'},
+{title:'CoT-Map: Chain-of-Thought Enhanced Spatial-Temporal Memory',venue:'CoRL 2026',tag:'CoT',status:'构思中',url:'#'}
 ];
-
 var BLOGS = [
 {cat:'tech',title:'研究方向与进展 | 精卫013',date:'2026-04-06',url:'./blog/research-directions-2026-04-06.html',tags:[]},
 {cat:'tech',title:'研究进度同步 | 精卫导航',date:'2026-04-02',url:'./blog/research-progress-2026-04-02.html',tags:["CoW-Nav", "embodied-slam", "VLN", "具身智能"]},
@@ -217,8 +158,8 @@ var BLOGS = [
 {cat:'tech',title:'7大死亡陷阱：AI创业公司的真实墓志铭 | 精卫013',date:'2026-01-01',url:'./blog/ai-startup-death-traps.html',tags:[]},
 {cat:'startup',title:'2026年AI创业生存指南：如何在烧钱竞赛中活下去 | 精卫导航',date:'2026-01-01',url:'./blog/ai-startup-survival-guide-2026.html',tags:["AI创业", "生存指南", "独立开发者"]},
 {cat:'tech',title:'AI创业公司2026年生存法则：从烧钱到赚钱的生死转型',date:'2026-01-01',url:'./blog/ai-startup-survival-rules-2026.html',tags:[]},
-{cat:'startup',title:'AI创业的"技术幻觉"：为什么技术领先≠商业成功 | 精卫导航',date:'2026-01-01',url:'./blog/ai-startup-tech-illusion.html',tags:["AI创业", "技术幻觉", "PMF", "创业避坑"]},
-{cat:'tech',title:'AI创业公司的"技术债"陷阱：为什么技术越强，死得越快 | 精卫013',date:'2026-01-01',url:'./blog/ai-startup-technical-debt-trap.html',tags:[]},
+{cat:'startup',title:'AI创业的\"技术幻觉\"：为什么技术领先≠商业成功 | 精卫导航',date:'2026-01-01',url:'./blog/ai-startup-tech-illusion.html',tags:["AI创业", "技术幻觉", "PMF", "创业避坑"]},
+{cat:'tech',title:'AI创业公司的\"技术债\"陷阱：为什么技术越强，死得越快 | 精卫013',date:'2026-01-01',url:'./blog/ai-startup-technical-debt-trap.html',tags:[]},
 {cat:'tech',title:'AI工具那么多，怎么选？ | 精卫013',date:'2026-01-01',url:'./blog/ai-tools-how-to-choose.html',tags:[]},
 {cat:'tech',title:'AI独角兽正在倒闭：达闼机器人与2025年的明星公司危机 | 精卫013',date:'2026-01-01',url:'./blog/ai-unicorn-collapse.html',tags:[]},
 {cat:'tech',title:'BEV表示学习：鸟瞰视角在机器人导航中的应用 | 精卫013',date:'2026-01-01',url:'./blog/bev-representation-learning-navigation.html',tags:[]},
@@ -255,11 +196,11 @@ var BLOGS = [
 {cat:'tech',title:'多模态LLM在具身导航中的应用：从理解到行动的关键桥梁 | 精卫导航',date:'2026-01-01',url:'./blog/mlm-embodied-navigation.html',tags:[]},
 {cat:'tech',title:'NavCoT详解：思维链如何提升导航性能 | 精卫013',date:'2026-01-01',url:'./blog/navcot-chain-of-thought-navigation.html',tags:[]},
 {cat:'tech',title:'导航的GPT时刻：NavFoM与具身导航基础模型 | 精卫013',date:'2026-01-01',url:'./blog/navigation-gpt-moment.html',tags:[]},
-{cat:'tech',title:'Notion的"慢即是快"：独立开发者能从中学到什么 | 精卫导航',date:'2026-01-01',url:'./blog/notion-slow-growth-lessons.html',tags:["独立开发", "Notion", "慢增长", "PMF"]},
+{cat:'tech',title:'Notion的\"慢即是快\"：独立开发者能从中学到什么 | 精卫导航',date:'2026-01-01',url:'./blog/notion-slow-growth-lessons.html',tags:["独立开发", "Notion", "慢增长", "PMF"]},
 {cat:'tech',title:'ObjectNav的三种主流范式：主动探索、语义推理、记忆增强 | 精卫013',date:'2026-01-01',url:'./blog/objectnav-paradigms.html',tags:["#ObjectNav", "#主动探索", "#语义推理", "#记忆增强"]},
 {cat:'tech',title:'ObjectNav vs VLN：目标导航和视觉语言导航的本质区别 · 精卫013',date:'2026-01-01',url:'./blog/objectnav-vs-vln.html',tags:[]},
 {cat:'tech',title:'ofo小黄车 - 互动版最终v6',date:'2026-01-01',url:'./blog/ofo-failure.html',tags:[]},
-{cat:'case',title:'产品市场匹配的7个反面教材：为什么"有人想要"≠ PMF | 精卫013',date:'2026-01-01',url:'./blog/pmf-anti-patterns.html',tags:["PMF", "产品", "失败案例"]},
+{cat:'case',title:'产品市场匹配的7个反面教材：为什么\"有人想要\"≠ PMF | 精卫013',date:'2026-01-01',url:'./blog/pmf-anti-patterns.html',tags:["PMF", "产品", "失败案例"]},
 {cat:'tech',title:'PMF：创业公司唯一重要的指标 · 精卫013',date:'2026-01-01',url:'./blog/pmf-the-only-thing-that-matters.html',tags:[]},
 {cat:'tech',title:'Quibi：17.5亿美元、6个月关闭——史上最快陨落的创业公司 · 精卫013',date:'2026-01-01',url:'./blog/quibi.html',tags:[]},
 {cat:'tech',title:'2025 Q1 VLN 研究思考：三个新方向，一个未解之问 | 精卫013',date:'2026-01-01',url:'./blog/research-thinking-vln-2025q1.html',tags:["VLN", "SpatialFly", "HaltNav", "NavGRPO"]},
@@ -281,37 +222,36 @@ var BLOGS = [
 {cat:'tech',title:'Theranos：硅谷最美女骗子的900亿骗局如何骗过所有人 · 精卫013',date:'2026-01-01',url:'./blog/theranos.html',tags:[]},
 {cat:'tech',title:'多模态融合：Vision-Language-Geometry三位一体的导航框架 | 精卫导航',date:'2026-01-01',url:'./blog/vision-language-geometry-fusion.html',tags:["多模态融合", "视觉语言", "具身智能"]},
 {cat:'tech',title:'VLA模型2026年大比拼：OpenVLA vs RT-X vs GR00T',date:'2026-01-01',url:'./blog/vla-models-comparison-2026.html',tags:["tech", "VLA", "robotics"]},
-{cat:'tech',title:'VLA模型深度解析：具身智能的"圣杯"正在变成现实',date:'2026-01-01',url:'./blog/vla-models-deep-dive-2026.html',tags:["VLA", "具身智能"]},
+{cat:'tech',title:'VLA模型深度解析：具身智能的\"圣杯\"正在变成现实',date:'2026-01-01',url:'./blog/vla-models-deep-dive-2026.html',tags:["VLA", "具身智能"]},
 {cat:'ai',title:'VLA模型革命：具身导航的下一个范式',date:'2026-01-01',url:'./blog/vla-models-embodied-navigation-2026.html',tags:["VLA", "具身AI", "机器人导航", "多模态"]},
-{cat:'tech',title:'VLA狂飙：为什么2026年具身智能开始"知行合一"？',date:'2026-01-01',url:'./blog/vla-revolution-embodied-ai-2026.html',tags:["VLA", "具身智能", "机器人"]},
-{cat:'tech',title:'VLA模型革命：具身导航的"知行合一"时代 | 精卫导航',date:'2026-01-01',url:'./blog/vla-revolution-embodied-navigation-2026.html',tags:[]},
+{cat:'tech',title:'VLA狂飙：为什么2026年具身智能开始\"知行合一\"？',date:'2026-01-01',url:'./blog/vla-revolution-embodied-ai-2026.html',tags:["VLA", "具身智能", "机器人"]},
+{cat:'tech',title:'VLA模型革命：具身导航的\"知行合一\"时代 | 精卫导航',date:'2026-01-01',url:'./blog/vla-revolution-embodied-navigation-2026.html',tags:[]},
 {cat:'tech',title:'VLA 大模型会杀死 VLN 研究吗？2026年4月实况',date:'2026-01-01',url:'./blog/vla-will-not-kill-vln-april-2026.html',tags:["学术", "VLA", "VLN", "产业观察"]},
 {cat:'tech',title:'VLM置信度校准：为什么AI越自信越危险 | 精卫导航',date:'2026-01-01',url:'./blog/vlm-confidence-calibration-embodied-nav.html',tags:["VLM", "置信度校准", "停止决策", "具身导航"]},
 {cat:'tech',title:'VLM+导航：从CLIP到Qwen2-VL的四年演进 | 精卫013',date:'2026-01-01',url:'./blog/vlm-navigation-clip-to-qwen2vl.html',tags:[]},
 {cat:'tech',title:'VLM时代：具身导航的GPT时刻到了吗？',date:'2026-01-01',url:'./blog/vlm-navigation-gpt-moment.html',tags:["VLM", "具身导航", "Robot Navigation", "SLAM"]},
-{cat:'tech',title:'为什么VLN模型总是"假装自信"——一个被忽视的致命缺陷 | 精卫导航',date:'2026-01-01',url:'./blog/vln-confidence-calibration-why-fake.html',tags:["VLN", "停止决策", "置信度校准", "具身导航"]},
-{cat:'tech',title:'具身智能的"涌现时刻"：当语言模型学会物理推理 | 精卫导航',date:'2026-01-01',url:'./blog/vln-cot-emergence-physical-reasoning.html',tags:["VLN", "VLA", "CoT推理", "具身智能"]},
+{cat:'tech',title:'为什么VLN模型总是\"假装自信\"——一个被忽视的致命缺陷 | 精卫导航',date:'2026-01-01',url:'./blog/vln-confidence-calibration-why-fake.html',tags:["VLN", "停止决策", "置信度校准", "具身导航"]},
+{cat:'tech',title:'具身智能的\"涌现时刻\"：当语言模型学会物理推理 | 精卫导航',date:'2026-01-01',url:'./blog/vln-cot-emergence-physical-reasoning.html',tags:["VLN", "VLA", "CoT推理", "具身智能"]},
 {cat:'tech',title:'为什么VLN的「跨模态对齐」是当前最大的难点 | 精卫013',date:'2026-01-01',url:'./blog/vln-cross-modal-alignment.html',tags:["#VLN", "#跨模态对齐", "#具身智能", "#技术深度"]},
 {cat:'tech',title:'具身导航的2026：为什么VLN仍是皇冠明珠',date:'2026-01-01',url:'./blog/vln-crown-jewel-of-embodied-ai-2026.html',tags:[]},
 {cat:'tech',title:'CVPR 2026 VLN前沿：从AVION到具身多模态融合的新范式',date:'2026-01-01',url:'./blog/vln-cvpr2026-frontier-2026.html',tags:["VLN", "CVPR 2026", "具身智能", "VLA"]},
 {cat:'tech',title:'VLN数据效率的终极解决方案：从10亿样本到零样本',date:'2026-01-01',url:'./blog/vln-data-efficiency-future.html',tags:["tech", "前沿技术", "具身智能"]},
 {cat:'tech',title:'视觉语言导航数据集全览：Matterport3D、HM3D、Robo360 | 精卫013',date:'2026-01-01',url:'./blog/vln-datasets.html',tags:[]},
-{cat:'tech',title:'机器人是怎么"看懂"世界的？VLN视觉语言导航 - 精卫013',date:'2026-01-01',url:'./blog/vln-explained.html',tags:["VLN", "具身智能", "技术科普", "机器人"]},
+{cat:'tech',title:'机器人是怎么\"看懂\"世界的？VLN视觉语言导航 - 精卫013',date:'2026-01-01',url:'./blog/vln-explained.html',tags:["VLN", "具身智能", "技术科普", "机器人"]},
 {cat:'tech',title:'VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路 | 精卫013',date:'2026-01-01',url:'./blog/vln-memory-mechanisms.html',tags:[]},
 {cat:'tech',title:'VLN推理架构演进：从Chain-of-Thought到神经符号混合系统',date:'2026-01-01',url:'./blog/vln-reasoning-architecture-2026.html',tags:["VLN", "具身智能", "推理架构", "神经符号"]},
 {cat:'tech',title:'VLN 研究者在 VLA 时代的生存指南',date:'2026-01-01',url:'./blog/vln-researcher-in-vla-era-2026.html',tags:["学术", "VLN", "VLA", "研究策略"]},
 {cat:'tech',title:'VLN的Sim-to-Real为何比普通机器人难10倍：跨模态对齐的特殊挑战 | 精卫导航',date:'2026-01-01',url:'./blog/vln-sim2real-crossmodal-gap.html',tags:[]},
 {cat:'tech',title:'VLN停止决策的隐秘困境：为何更强的VLM不等于更好的导航',date:'2026-01-01',url:'./blog/vln-stop-decision-vlm-limits.html',tags:["Visual Language Navigation", "Stop Decision", "VLM Reasoning", "FSCoT"]},
-{cat:'ai',title:'为什么VLN任务"看起来简单，做起来难"？ | 精卫导航',date:'2026-01-01',url:'./blog/vln-stop-decision-why-hard.html',tags:["VLN", "具身AI", "研究方法论", "Stop决策"]},
+{cat:'ai',title:'为什么VLN任务\"看起来简单，做起来难\"？ | 精卫导航',date:'2026-01-01',url:'./blog/vln-stop-decision-why-hard.html',tags:["VLN", "具身AI", "研究方法论", "Stop决策"]},
 {cat:'tech',title:'为什么你的VLN模型总是停不准？一份来自R2R基准的诊断报告 | 精卫导航',date:'2026-01-01',url:'./blog/vln-stop-error-diagnosis-r2r.html',tags:["VLN", "R2R基准", "停止决策", "CoW-Nav"]},
 {cat:'tech',title:'机器人走到门口了，不知道该停——VLN最被忽视的问题 | 精卫013',date:'2026-01-01',url:'./blog/vln-stopping-problem.html',tags:["VLN", "具身导航", "停止决策", "HaltNav"]},
 {cat:'startup',title:'WeWork失败案例 - 精卫013',date:'2026-01-01',url:'./blog/wework-failure.html',tags:["#wework", "#共享办公", "#创业失败", "#软银"]},
 {cat:'tech',title:'为什么要做「知识创业」：一个博士的第二曲线 | 精卫013',date:'2026-01-01',url:'./blog/why-knowledge-entrepreneurship.html',tags:[]},
 {cat:'tech',title:'世界模型时代的具身导航：CoW-Nav的机遇与挑战',date:'2026-01-01',url:'./blog/world-model-embodied-nav-cow-nav-opportunity.html',tags:[]},
-{cat:'tech',title:'机器人导航的「世界模型」革命：从"看到哪走到哪"到"想到哪走到哪" | 精卫013',date:'2026-01-01',url:'./blog/world-model-nav.html',tags:["世界模型", "具身导航", "LLM", "VLN"]},
+{cat:'tech',title:'机器人导航的「世界模型」革命：从\"看到哪走到哪\"到\"想到哪走到哪\" | 精卫013',date:'2026-01-01',url:'./blog/world-model-nav.html',tags:["世界模型", "具身导航", "LLM", "VLN"]},
 {cat:'tech',title:'具身智能中的世界模型：从Yann LeCun的预言到2026年的实践 | 精卫导航',date:'2026-01-01',url:'./blog/world-models-embodied-ai-2026.html',tags:[]}
 ];
-
 var CASES = [
 {cat:'comp',title:'案例分析：K-Scale Labs — 硅谷明星人形机器人公司的陨落',date:'2026-01-01',url:'../startup/cases/case-01-k-scale.md'},
 {cat:'comp',title:'案例分析：中国具身智能公司倒闭潮',date:'2026-01-01',url:'../startup/cases/case-02-china-robots.md'},
@@ -325,11 +265,11 @@ var CASES = [
 {cat:'comp',title:'大疆创新：无人机帝国的崛起与焦虑',date:'2026-01-01',url:'../startup/cases/case-10-dji.md'},
 {cat:'comp',title:'泡泡玛特：从杂货铺到千亿潮玩帝国',date:'2026-01-01',url:'../startup/cases/case-11-popmart.md'},
 {cat:'comp',title:'案例分析：K-Scale Labs — 5000万美元估值的开源人形机器人陨落',date:'2026-01-01',url:'../startup/cases/case-12-k-scale-labs.md'},
-{cat:'comp',title:'案例分析：2025年AI应用倒闭潮——25款产品的集体"猝死"',date:'2026-01-01',url:'../startup/cases/case-13-ai-apps-death-2025.md'},
+{cat:'comp',title:'案例分析：2025年AI应用倒闭潮——25款产品的集体\"猝死\"',date:'2026-01-01',url:'../startup/cases/case-13-ai-apps-death-2025.md'},
 {cat:'comp',title:'案例分析：Wave Computing —— 英伟达挑战者的陨落',date:'2026-01-01',url:'../startup/cases/case-14-wave-computing.md'},
 {cat:'pmf',title:'Adept AI — AI Agent先驱的悄然落幕',date:'2026-01-01',url:'../startup/cases/case-15-adept-ai.md'},
 {cat:'comp',title:'Humane AI Pin — 1.8亿美元做出的最贵「退货品」',date:'2026-01-01',url:'../startup/cases/case-16-humane-ai-pin.md'},
-{cat:'comp',title:'Inflection AI：$1.5B融资，微软以6.5亿"租"走核心团队',date:'2026-01-01',url:'../startup/cases/case-17-inflection-ai.md'},
+{cat:'comp',title:'Inflection AI：$1.5B融资，微软以6.5亿\"租\"走核心团队',date:'2026-01-01',url:'../startup/cases/case-17-inflection-ai.md'},
 {cat:'comp',title:'Argo AI — $36亿融资烧光的L4自动驾驶独角兽',date:'2026-01-01',url:'../startup/cases/case-18-argo-ai.md'},
 {cat:'comp',title:'Juicero — $700物联网榨汁机的硅谷最大笑话',date:'2026-01-01',url:'../startup/cases/case-19-juicero.md'},
 {cat:'comp',title:'案例分析：WeWork — $470亿估值神话的崩塌',date:'2026-01-01',url:'../startup/cases/case-20-wework.md'},
@@ -337,8 +277,8 @@ var CASES = [
 {cat:'comp',title:'案例分析：柔宇科技 — 中国折叠屏独角兽的陨落',date:'2026-01-01',url:'../startup/cases/case-22-royole.md'},
 {cat:'comp',title:'案例分析：每日优鲜 — 中国前置仓生鲜电商的崩盘',date:'2026-01-01',url:'../startup/cases/case-23-missfresh.md'},
 {cat:'pmf',title:'Zume Pizza - 软银砸$4.46亿的机器人披萨公司如何归零',date:'2026-01-01',url:'../startup/cases/case-24-zume-pizza.md'},
-{cat:'comp',title:'Embodied (Moxie) - 估值$20亿的儿童情感陪伴机器人如何变"砖"',date:'2026-01-01',url:'../startup/cases/case-25-embodied-moxie.md'},
-{cat:'comp',title:'Character.AI - 从$50亿估值到被Google"反向收购"的AI聊天巨头',date:'2026-01-01',url:'../startup/cases/case-26-character-ai.md'},
+{cat:'comp',title:'Embodied (Moxie) - 估值$20亿的儿童情感陪伴机器人如何变\"砖\"',date:'2026-01-01',url:'../startup/cases/case-25-embodied-moxie.md'},
+{cat:'comp',title:'Character.AI - 从$50亿估值到被Google\"反向收购\"的AI聊天巨头',date:'2026-01-01',url:'../startup/cases/case-26-character-ai.md'},
 {cat:'comp',title:'Case-27: Rabbit R1 — AI硬件从爆款到翻车',date:'2026-01-01',url:'../startup/cases/case-27-rabbit-r1.md'},
 {cat:'comp',title:'Case-28: Stability AI — 开源AI的自毁之路',date:'2026-01-01',url:'../startup/cases/case-28-stability-ai.md'},
 {cat:'comp',title:'Case-29: Mojo Vision — AR隐形眼镜的十年豪赌',date:'2026-01-01',url:'../startup/cases/case-29-mojo-vision.md'},
@@ -357,102 +297,122 @@ var CASES = [
 {cat:'pmf',title:'Quibi：17.5亿美元融资、90天倒闭的流媒体悲剧',date:'2026-01-01',url:'../startup/cases/case-43-quibi.md'},
 {cat:'comp',title:'Case 44: Longhair AI（龙跃AI）',date:'2026-01-01',url:'../startup/cases/case-44-longhair-ai.md'},
 {cat:'comp',title:'Perplexity AI：挑战Google的AI搜索新物种',date:'2026-01-01',url:'../startup/cases/case-44-perplexity-ai.md'},
-{cat:'comp',title:'创业案例 #45：Figure AI — 人形机器人赛道的"特斯拉挑战者"',date:'2026-01-01',url:'../startup/cases/case-45-figure-ai.md'},
-{cat:'comp',title:'Case-46: Unitree Robotics — 人形机器人赛道的"大疆模式"能否复制？',date:'2026-01-01',url:'../startup/cases/case-46-unitree-robotics.md'},
+{cat:'comp',title:'创业案例 #45：Figure AI — 人形机器人赛道的\"特斯拉挑战者\"',date:'2026-01-01',url:'../startup/cases/case-45-figure-ai.md'},
+{cat:'comp',title:'Case-46: Unitree Robotics — 人形机器人赛道的\"大疆模式\"能否复制？',date:'2026-01-01',url:'../startup/cases/case-46-unitree-robotics.md'},
 {cat:'pmf',title:'Case 47: Yupp — AI评测独角兽22个月倒闭',date:'2026-01-01',url:'../startup/cases/case-47-yupp.md'},
-{cat:'comp',title:'Case 48: 深度机智 (DeepCybo) — 3个月3轮的"物理AI"黑马',date:'2026-01-01',url:'../startup/cases/case-48-deepcybo.md'},
+{cat:'comp',title:'Case 48: 深度机智 (DeepCybo) — 3个月3轮的\"物理AI\"黑马',date:'2026-01-01',url:'../startup/cases/case-48-deepcybo.md'},
 {cat:'comp',title:'案例49：星海图（STARSHIP）——国内估值最高的具身智能独角兽',date:'2026-01-01',url:'../startup/cases/case-49-starship.md'},
-{cat:'comp',title:'案例50：枢途科技——从人类视频中"偷师"的机器人数据工厂',date:'2026-01-01',url:'../startup/cases/case-50-robowheel-across-embodiment.md'},
-{cat:'pmf',title:'Case 51: Physical Intelligence — 具身AI的"全栈式"创业范式',date:'2026-01-01',url:'../startup/cases/case-51-physical-intelligence-pi.md'},
+{cat:'comp',title:'案例50：枢途科技——从人类视频中\"偷师\"的机器人数据工厂',date:'2026-01-01',url:'../startup/cases/case-50-robowheel-across-embodiment.md'},
+{cat:'pmf',title:'Case 51: Physical Intelligence — 具身AI的\"全栈式\"创业范式',date:'2026-01-01',url:'../startup/cases/case-51-physical-intelligence-pi.md'},
 {cat:'comp',title:'Case 52: Character.AI——AI陪伴应用先驱如何被Google收购',date:'2026-01-01',url:'../startup/cases/case-52-character-ai.md'},
 {cat:'pmf',title:'Skild AI: 30亿美元估值的一般机器人「大脑」',date:'2026-01-01',url:'../startup/cases/case-52-skild-ai.md'},
 {cat:'comp',title:'Case 53: 1X Technologies — 从轮式到双足，具身AI的工业落地样本',date:'2026-01-01',url:'../startup/cases/case-53-1x-technologies.md'},
 {cat:'comp',title:'Case 53: AutoGPT——2023年爆火后迅速降温的自主Agent先驱',date:'2026-01-01',url:'../startup/cases/case-53-auto-gpt-failure.md'},
-{cat:'comp',title:'case-54-agibot-zhiyuan-robotics.md',date:'2026-01-01',url:'../startup/cases/case-54-agibot-zhiyuan-robotics.md'},
+{cat:'pmf',title:'case-54-agibot-zhiyuan-robotics.md',date:'2026-01-01',url:'../startup/cases/case-54-agibot-zhiyuan-robotics.md'},
 {cat:'comp',title:'case-55-zhongqing-robotics.md',date:'2026-01-01',url:'../startup/cases/case-55-zhongqing-robotics.md'},
 {cat:'comp',title:'case-56-zmo-ai-failure.md',date:'2026-01-01',url:'../startup/cases/case-56-zmo-ai-failure.md'},
-{cat:'comp',title:'案例57：Character.AI —— AI对话独角兽的"提前套现"之路',date:'2026-01-01',url:'../startup/cases/case-57-character-ai.md'},
+{cat:'comp',title:'案例57：Character.AI —— AI对话独角兽的\"提前套现\"之路',date:'2026-01-01',url:'../startup/cases/case-57-character-ai.md'},
 {cat:'comp',title:'Case-58: Wayve — 端到端自动驾驶的神经网络赌注',date:'2026-01-01',url:'../startup/cases/case-58-wayve.md'},
-{cat:'comp',title:'Case-59: 它石智航 — 具身智能赛道的融资狂飙与"梦之队"赌注',date:'2026-01-01',url:'../startup/cases/case-59-tashi-zhihang.md'},
+{cat:'comp',title:'Case-59: 它石智航 — 具身智能赛道的融资狂飙与\"梦之队\"赌注',date:'2026-01-01',url:'../startup/cases/case-59-tashi-zhihang.md'},
 {cat:'comp',title:'case-60-xinghai-robotics.md',date:'2026-01-01',url:'../startup/cases/case-60-xinghai-robotics.md'},
 {cat:'comp',title:'case-61-unitree-robotics',date:'2026-01-01',url:'../startup/cases/case-61-unitree-robotics.md'},
 {cat:'comp',title:'Case #62: Orion Robotics — Humanoid Robot VLN Pioneer',date:'2026-01-01',url:'../startup/cases/case-62-orion-robotics.md'},
 {cat:'comp',title:'Case #63: 它石智航 (TARS) — 中国具身智能融资之王',date:'2026-01-01',url:'../startup/cases/case-63-tars-robotics.md'},
-{cat:'comp',title:'Case #64: 加速进化 (Accelerated Evolution) — 北京具身智能"最会踢球"的机器人',date:'2026-01-01',url:'../startup/cases/case-64-accelerated-evolution.md'},
+{cat:'comp',title:'Case #64: 加速进化 (Accelerated Evolution) — 北京具身智能\"最会踢球\"的机器人',date:'2026-01-01',url:'../startup/cases/case-64-accelerated-evolution.md'},
 {cat:'comp',title:'案例库素材提供 - 2026年3月27日',date:'2026-01-01',url:'../startup/cases/创业素材_20260327.md'}
 ];
-
-var currentFilter = { blog: 'all', paper: 'all', case: 'all' };
+var currentFilter = { blog: 'all', paper: 'all', caseFilter: 'all' };
 
 function showSection(name) {
-  ['research','papers','blog','cases','about'].forEach(function(s){
+  var sections = ['research','papers','blog','cases','about'];
+  sections.forEach(function(s) {
     var el = document.getElementById(s);
-    if(el) el.classList.toggle('hidden', s !== name && s !== 'research');
+    if (el) {
+      var show = (s === name || (name === 'home' && s === 'research'));
+      el.classList.toggle('hidden', !show);
+    }
   });
-  document.querySelectorAll('nav a').forEach(function(a){ a.classList.remove('active'); });
+  // Update active nav link
+  document.querySelectorAll('nav li a').forEach(function(a) {
+    a.classList.remove('active');
+  });
+  document.querySelectorAll('nav a').forEach(function(a) {
+    if (a.getAttribute('onclick') && a.getAttribute('onclick').indexOf("'" + name + "'") > -1) {
+      a.classList.add('active');
+    }
+  });
 }
 
 function filterBlog(cat, btn) {
   currentFilter.blog = cat;
-  document.querySelectorAll('#blog .filter-btn').forEach(function(b){ b.classList.remove('active'); });
-  btn.classList.add('active');
+  document.querySelectorAll('#blog .filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
   renderBlog();
 }
 
 function filterCases(cat, btn) {
-  currentFilter.case = cat;
-  document.querySelectorAll('#cases .filter-btn').forEach(function(b){ b.classList.remove('active'); });
-  btn.classList.add('active');
+  currentFilter.caseFilter = cat;
+  document.querySelectorAll('#cases .filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
   renderCases();
 }
 
 function filterPapers(tag, btn) {
   currentFilter.paper = tag;
-  document.querySelectorAll('#papers .filter-btn').forEach(function(b){ b.classList.remove('active'); });
-  btn.classList.add('active');
+  document.querySelectorAll('#papers .filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
   renderPapers();
 }
 
 function renderPapers() {
-  var grid = document.getElementById('papersGrid');
-  if(!grid) return;
-  var filtered = PUBLICATIONS.filter(function(p){ return currentFilter.paper === 'all' || p.tag === currentFilter.paper; });
-  var tagColors = {'CoW-Nav':'#d35400','EmbodiedSLAM':'#2980b9','BEV':'#27ae60','CoT':'#8e44ad'};
-  var html = '';
-  filtered.forEach(function(p){
-    var bg = tagColors[p.tag] || '#7f8c8d';
-    html += '<div class="paper-card"><span class="paper-tag" style="background:'+bg+'">'+p.tag+'</span><div class="paper-title">'+p.title+'</div><div class="paper-meta">'+p.venue+' · '+p.status+'</div></div>';
+  var g = document.getElementById('papersGrid');
+  if (!g) return;
+  var f = PUBLICATIONS.filter(function(p) {
+    return currentFilter.paper === 'all' || p.tag === currentFilter.paper;
   });
-  grid.innerHTML = html;
+  var c = {'CoW-Nav':'#d35400','EmbodiedSLAM':'#2980b9','BEV':'#27ae60','CoT':'#8e44ad'};
+  var h = '';
+  f.forEach(function(p) {
+    var bg = c[p.tag] || '#7f8c8d';
+    h += '<div class="paper-card"><span class="paper-tag" style="background:' + bg + '">' + p.tag + '</span><div class="paper-title">' + p.title + '</div><div class="paper-meta">' + p.venue + ' · ' + p.status + '</div></div>';
+  });
+  g.innerHTML = h;
 }
 
 function renderBlog() {
-  var grid = document.getElementById('blogGrid');
-  if(!grid) return;
-  var filtered = BLOGS.filter(function(b){ return currentFilter.blog === 'all' || b.cat === currentFilter.blog; });
-  var catColors = {tech:'#2980b9', startup:'#8e44ad', ai:'#e67e22', case:'#27ae60'};
-  var html = '';
-  filtered.slice(0,50).forEach(function(b){
-    var bg = catColors[b.cat] || '#7f8c8d';
-    var tags = (b.tags||[]).map(function(t){ return '<span class="tag" style="background:'+bg+'">'+t+'</span>'; }).join('');
-    html += '<div class="card" onclick="location.href=''+b.url+''"><div class="card-title">'+b.title+'</div><div class="card-meta">'+b.date+'</div><div class="card-tags">'+tags+'</div></div>';
+  var g = document.getElementById('blogGrid');
+  if (!g) return;
+  var f = BLOGS.filter(function(b) {
+    return currentFilter.blog === 'all' || b.cat === currentFilter.blog;
   });
-  grid.innerHTML = html;
+  var c = {tech:'#2980b9', startup:'#8e44ad', ai:'#e67e22', case:'#27ae60'};
+  var h = '';
+  f.slice(0, 50).forEach(function(b) {
+    var bg = c[b.cat] || '#7f8c8d';
+    var tags = (b.tags || []).map(function(t) {
+      return '<span class="tag" style="background:' + bg + '">' + t + '</span>';
+    }).join('');
+    h += '<div class="card"><a href="' + b.url + '"><div class="card-title">' + b.title + '</div><div class="card-meta">' + b.date + '</div><div class="card-tags">' + tags + '</div></a></div>';
+  });
+  g.innerHTML = h;
 }
 
 function renderCases() {
-  var grid = document.getElementById('casesGrid');
-  if(!grid) return;
-  var catColors = {comp:'#c0392b', pmf:'#27ae60', team:'#2980b9', cash:'#8e44ad'};
-  var filtered = CASES.filter(function(c){ return currentFilter.case === 'all' || c.cat === currentFilter.case; });
-  var html = '';
-  filtered.forEach(function(c){
-    var bg = catColors[c.cat] || '#7f8c8d';
-    html += '<div class="card" onclick="location.href=''+c.url+''"><div class="card-title">'+c.title+'</div><div class="card-meta">'+c.date+'</div></div>';
+  var g = document.getElementById('casesGrid');
+  if (!g) return;
+  var c = {comp:'#c0392b', pmf:'#27ae60', team:'#2980b9', cash:'#8e44ad'};
+  var f = CASES.filter(function(x) {
+    return currentFilter.caseFilter === 'all' || x.cat === currentFilter.caseFilter;
   });
-  grid.innerHTML = html;
+  var h = '';
+  f.forEach(function(x) {
+    h += '<div class="card"><a href="' + x.url + '"><div class="card-title">' + x.title + '</div><div class="card-meta">' + x.date + '</div></a></div>';
+  });
+  g.innerHTML = h;
 }
 
+// Initialize on page load
+showSection('research');
 renderPapers();
 renderBlog();
 renderCases();
