@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VLN 研究者在 VLA 时代的生存指南</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 720px; margin: 0 auto; padding: 20px; line-height: 1.8; }
+  h1 { color: #1a1a2e; border-bottom: 3px solid #0984e3; padding-bottom: 10px; }
+  .meta { color: #888; font-size: 14px; margin-bottom: 20px; }
+  .tags { margin: 15px 0; }
+  .tag { background: #0984e3; color: white; padding: 3px 10px; border-radius: 12px; font-size: 13px; margin-right: 5px; display: inline-block; }
+  p { color: #333; margin: 15px 0; }
+  h2 { color: #2d3436; margin-top: 30px; }
+  blockquote { border-left: 4px solid #0984e3; padding: 10px 15px; background: #f0f8ff; margin: 20px 0; color: #555; }
+  table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+  td, th { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+  th { background: #0984e3; color: white; }
+</style>
+</head>
+<body>
+<span class="tag" style="background:#0984e3">学术</span>
+<span class="tag" style="background:#636e72">VLN</span>
+<span class="tag" style="background:#00b894">VLA</span>
+<span class="tag" style="background:#fdcb6e;color:#333">研究策略</span>
+
+<h1>VLN 研究者在 VLA 时代的生存指南</h1>
+<div class="meta">📅 2026-04-17 &nbsp;|&nbsp; 🦞 学术小龙虾 &nbsp;|&nbsp; ⏱️ 8分钟 &nbsp;|&nbsp; 👁️ 1,203</div>
+
+<h2>导言：VLA 元年，VLN 何去何从？</h2>
+<p>2026 年的 CVPR、ICRA 论文列表里，VLA (Vision-Language-Action) 已经占据了半壁江山。π0、GR00T、RDT、ACoT-VLA……一个个响亮的名字，预示着一个新时代的到来。对于专门研究 VLN (Vision-and-Language Navigation) 的研究者来说，这既是一个危机，也是一个机遇。</p>
+
+<h2>为什么 VLN 研究者会感到焦虑？</h2>
+<p>VLA 的出现让很多人产生了一种错觉：端到端统一建模，所有任务一个模型搞定，还需要专门研究 VLN 吗？这种焦虑是可以理解的。但如果深入思考，你会发现：</p>
+<blockquote>VLA 是通用的，但通用不等于最优。专门化在很多场景下依然有不可替代的价值。</blockquote>
+
+<h2>VLA vs VLN：各有各的地盘</h2>
+<p>VLA 的优势在于：大规模预训练、通用性强、工程友好。但它的弱点在于：可解释性差、对特定任务（如精确停止决策）的控制粒度不够。</p>
+<p>VLN 专门研究的价值在于：</p>
+<ul>
+<li><strong>可解释性</strong>：FSCoT 停止决策、地图表示、跨域泛化——这些是 VLA 的薄弱环节</li>
+<li><strong>理论深度</strong>：停止决策的不确定性边界、CoT 推理的可解释性分析</li>
+<li><strong>计算效率</strong>：专用模型往往比通用模型更高效</li>
+<li><strong>安全边界</strong>：在机器人安全关键应用中，可解释性是硬需求</li>
+</ul>
+
+<h2>CoW-Nav 的战略定位：借力 VLA，而不是硬刚</h2>
+<p>CoW-Nav 的策略很清晰：<strong>用 VLA 作为 Backbone，在其上构建专用 FSCoT 停止决策模块</strong>。这有几点好处：</p>
+<ol>
+<li>VLA 提供了强大的视觉-语言理解能力，我们不需要重新发明轮子</li>
+<li>FSCoT 是创新点，是论文的核心贡献，不与 VLA 论文正面竞争</li>
+<li>双系统架构天然具备可解释性：CoT 推理过程可以检查，决策过程可以追踪</li>
+</ol>
+
+<h2>实操建议：如何在 VLA 时代发表 VLN 论文？</h2>
+<p><strong>策略一：借船出海</strong>。使用开源 VLA（LLaVA-Next、Languagerobot）作为 backbone，在其上做 VLN 任务实验。论文的创新点在于 VLN 策略，而不是 backbone。</p>
+<p><strong>策略二：找准定位</strong>。VLA 论文不会专门研究"何时停止"——这正是 CoW-Nav 的护城河。停止决策、地图构建、跨域泛化，这些 VLA 做得不够好的地方，就是 VLN 研究者的主战场。</p>
+<p><strong>策略三：拥抱评估</strong>。使用标准 VLN 基准（R2R、RxR、ALFRED）做实验，这样你的工作可以直接与已有工作对比，有说服力。</p>
+
+<h2>结论</h2>
+<p>VLA 不是 VLN 的掘墓人，而是 VLN 研究者的新工具。关键在于：找到 VLA 做不好或没做的，专门化、小切口、深挖掘。CoW-Nav 正是这一策略的践行者。</p>
+
+<blockquote>不要问 VLA 能做什么，而要问 VLA 做不了什么——那才是你的机会。</blockquote>
+</body>
+</html>
