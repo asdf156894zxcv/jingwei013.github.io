@@ -1,161 +1,98 @@
 {
-  "updated": "2026-04-19 04:10 UTC",
-  "total": 22,
+  "updated": "2026-04-20 04:15 UTC",
+  "total": 13,
   "today_count": 0,
   "papers": [
     {
-      "title": "Gravitational-wave lensing beyond rays: a disordered-system approach",
-      "date": "2026-04-16",
-      "id": "2604.15313v1",
-      "abstract": "We develop a framework to describe gravitational wave propagation through a stochastic distribution of weak gravitational lenses beyond the geometric optics limit. We model the lens distribution as a ",
-      "url": "https://arxiv.org/abs/2604.15313v1"
+      "title": "Repurposing 3D Generative Model for Autoregressive Layout Generation",
+      "date": "2026-04-17",
+      "id": "2604.16299v1",
+      "abstract": "We introduce LaviGen, a framework that repurposes 3D generative models for 3D layout generation. Unlike previous methods that infer object layouts from textual descriptions, LaviGen operates directly ",
+      "url": "https://arxiv.org/abs/2604.16299v1"
     },
     {
-      "title": "Bidirectional Cross-Modal Prompting for Event-Frame Asymmetric Stereo",
-      "date": "2026-04-16",
-      "id": "2604.15312v1",
-      "abstract": "Conventional frame-based cameras capture rich contextual information but suffer from limited temporal resolution and motion blur in dynamic scenes. Event cameras offer an alternative visual representa",
-      "url": "https://arxiv.org/abs/2604.15312v1"
+      "title": "FineCog-Nav: Integrating Fine-grained Cognitive Modules for Zero-shot Multimodal UAV Navigation",
+      "date": "2026-04-17",
+      "id": "2604.16298v1",
+      "abstract": "UAV vision-language navigation (VLN) requires an agent to navigate complex 3D environments from an egocentric perspective while following ambiguous multi-step instructions over long horizons. Existing",
+      "url": "https://arxiv.org/abs/2604.16298v1"
     },
     {
-      "title": "LeapAlign: Post-Training Flow Matching Models at Any Generation Step by Building Two-Step Trajectories",
-      "date": "2026-04-16",
-      "id": "2604.15311v1",
-      "abstract": "This paper focuses on the alignment of flow matching models with human preferences. A promising way is fine-tuning by directly backpropagating reward gradients through the differentiable generation pr",
-      "url": "https://arxiv.org/abs/2604.15311v1"
+      "title": "NaijaS2ST: A Multi-Accent Benchmark for Speech-to-Speech Translation in Low-Resource Nigerian Languages",
+      "date": "2026-04-17",
+      "id": "2604.16287v1",
+      "abstract": "Speech translation for low-resource languages remains fundamentally limited by the scarcity of high-quality, diverse parallel speech data, a challenge that is especially pronounced in African linguist",
+      "url": "https://arxiv.org/abs/2604.16287v1"
     },
     {
-      "title": "R3D: Revisiting 3D Policy Learning",
-      "date": "2026-04-16",
-      "id": "2604.15281v1",
-      "abstract": "3D policy learning promises superior generalization and cross-embodiment transfer, but progress has been hindered by training instabilities and severe overfitting, precluding the adoption of powerful ",
-      "url": "https://arxiv.org/abs/2604.15281v1"
+      "title": "Semantic Area Graph Reasoning for Multi-Robot Language-Guided Search",
+      "date": "2026-04-17",
+      "id": "2604.16263v1",
+      "abstract": "Coordinating multi-robot systems (MRS) to search in unknown environments is particularly challenging for tasks that require semantic reasoning beyond geometric exploration. Classical coordination stra",
+      "url": "https://arxiv.org/abs/2604.16263v1"
     },
     {
-      "title": "New frontiers in quantum science and technology using van der Waals Josephson junctions",
-      "date": "2026-04-16",
-      "id": "2604.15276v1",
-      "abstract": "Over the last decade, the development of Josephson devices based on van der Waals (vdW) materials has advanced rapidly, representing a paradigm shift driven by the advent of 2D materials. The diverse ",
-      "url": "https://arxiv.org/abs/2604.15276v1"
+      "title": "SocialGrid: A Benchmark for Planning and Social Reasoning in Embodied Multi-Agent Systems",
+      "date": "2026-04-17",
+      "id": "2604.16022v1",
+      "abstract": "As Large Language Models (LLMs) transition from text processors to autonomous agents, evaluating their social reasoning in embodied multi-agent settings becomes critical. We introduce SocialGrid, an e",
+      "url": "https://arxiv.org/abs/2604.16022v1"
     },
     {
-      "title": "RL-STPA: Adapting System-Theoretic Hazard Analysis for Safety-Critical Reinforcement Learning",
-      "date": "2026-04-16",
-      "id": "2604.15201v1",
-      "abstract": "As reinforcement learning (RL) deployments expand into safety-critical domains, existing evaluation methods fail to systematically identify hazards arising from the black-box nature of neural network ",
-      "url": "https://arxiv.org/abs/2604.15201v1"
+      "title": "Resolution-Agnostic Lensless Imaging via Fourier Neural Operators",
+      "date": "2026-04-17",
+      "id": "2604.16295v1",
+      "abstract": "Lensless cameras based on thin diffusers offer a compact alternative to conventional refractive imaging but rely on computational reconstruction, since the diffuser's point spread function (PSF) globa",
+      "url": "https://arxiv.org/abs/2604.16295v1"
     },
     {
-      "title": "TokenLight: Precise Lighting Control in Images using Attribute Tokens",
-      "date": "2026-04-16",
-      "id": "2604.15310v1",
-      "abstract": "This paper presents a method for image relighting that enables precise and continuous control over multiple illumination attributes in a photograph. We formulate relighting as a conditional image gene",
-      "url": "https://arxiv.org/abs/2604.15310v1"
+      "title": "DENALI: A Dataset Enabling Non-Line-of-Sight Spatial Reasoning with Low-Cost LiDARs",
+      "date": "2026-04-17",
+      "id": "2604.16201v1",
+      "abstract": "Consumer LiDARs in mobile devices and robots typically output a single depth value per pixel. Yet internally, they record full time-resolved histograms containing direct and multi-bounce light returns",
+      "url": "https://arxiv.org/abs/2604.16201v1"
     },
     {
-      "title": "AD4AD: Benchmarking Visual Anomaly Detection Models for Safer Autonomous Driving",
-      "date": "2026-04-16",
-      "id": "2604.15291v1",
-      "abstract": "The reliability of a machine vision system for autonomous driving depends heavily on its training data distribution. When a vehicle encounters significantly different conditions, such as atypical obst",
-      "url": "https://arxiv.org/abs/2604.15291v1"
+      "title": "Renormalised thermodynamics for Bose gases from low to critical temperatures",
+      "date": "2026-04-17",
+      "id": "2604.16290v1",
+      "abstract": "We compute thermodynamic properties of dilute Bose gases using non-perturbative approximations of the two-particle irreducible (2PI) effective action. It is shown how to systematically renormalise the",
+      "url": "https://arxiv.org/abs/2604.16290v1"
     },
     {
-      "title": "Roadmap on Attosecond Science",
-      "date": "2026-04-16",
-      "id": "2604.15085v1",
-      "abstract": "Twenty-five years have passed since the first experimental demonstration of attosecond pulses, marking the advent of our ability to resolve and control electron motion in real time. What began as a te",
-      "url": "https://arxiv.org/abs/2604.15085v1"
+      "title": "Atomistic Mechanisms of Stress-Dependent Molten Salt Corrosion in NiCr Alloys",
+      "date": "2026-04-17",
+      "id": "2604.16261v1",
+      "abstract": "Ni-based structural alloys in molten salt environments often experience simultaneous mechanical loading and corrosive attack, yet the mechanisms governing stress-corrosion interactions remain unclear.",
+      "url": "https://arxiv.org/abs/2604.16261v1"
     },
     {
-      "title": "Abstract Sim2Real through Approximate Information States",
-      "date": "2026-04-16",
-      "id": "2604.15289v1",
-      "abstract": "In recent years, reinforcement learning (RL) has shown remarkable success in robotics when a fast and accurate simulator is available for a given task. When using RL and simulation, more simulator rea",
-      "url": "https://arxiv.org/abs/2604.15289v1"
+      "title": "Correcting socioeconomic bias in mobile phone mobility estimates using multilevel regression and poststratification",
+      "date": "2026-04-17",
+      "id": "2604.16193v1",
+      "abstract": "Call detail records (CDR) from mobile phone networks are widely used to study human mobility however CDR data from a single mobile operator are inherently biased because the observed users do not mirr",
+      "url": "https://arxiv.org/abs/2604.16193v1"
     },
     {
-      "title": "Vision-Based Safe Human-Robot Collaboration with Uncertainty Guarantees",
-      "date": "2026-04-16",
-      "id": "2604.15221v1",
-      "abstract": "We propose a framework for vision-based human pose estimation and motion prediction that gives conformal prediction guarantees for certifiably safe human-robot collaboration. Our framework combines al",
-      "url": "https://arxiv.org/abs/2604.15221v1"
+      "title": "ASMR-Bench: Auditing for Sabotage in ML Research",
+      "date": "2026-04-17",
+      "id": "2604.16286v1",
+      "abstract": "As AI systems are increasingly used to conduct research autonomously, misaligned systems could introduce subtle flaws that produce misleading results while evading detection. We introduce ASMR-Bench (",
+      "url": "https://arxiv.org/abs/2604.16286v1"
     },
     {
-      "title": "UrbanClipAtlas: A Visual Analytics Framework for Event and Scene Retrieval in Urban Videos",
-      "date": "2026-04-16",
-      "id": "2604.15225v1",
-      "abstract": "Extracting actionable insights from long-duration urban videos is often labor-intensive: analysts must manually sift through raw footage to pinpoint target events or uncover broader behavioral trends.",
-      "url": "https://arxiv.org/abs/2604.15225v1"
+      "title": "Fluctuating Pair Density Wave in Finite-temperature Phase Diagram of the $t$-$t^\\prime$ Hubbard Model",
+      "date": "2026-04-17",
+      "id": "2604.16293v1",
+      "abstract": "The Hubbard model and its extensions are canonical theoretical frameworks for understanding correlated electronic states, including those in high-$T_c$ cuprates. Here, we use state-of-the-art thermal ",
+      "url": "https://arxiv.org/abs/2604.16293v1"
     },
     {
-      "title": "Low-Cost System for Automatic Recognition of Driving Pattern in Assessing Interurban Mobility using Geo-Information",
-      "date": "2026-04-16",
-      "id": "2604.15216v1",
-      "abstract": "Mobility in urban and interurban areas, mainly by cars, is a day-to-day activity of many people. However, some of its main drawbacks are traffic jams and accidents. Newly made vehicles have pre-instal",
-      "url": "https://arxiv.org/abs/2604.15216v1"
-    },
-    {
-      "title": "Passivity-Driven Order--Disorder Transitions in Self-Aligning Active Matter",
-      "date": "2026-04-16",
-      "id": "2604.15105v1",
-      "abstract": "We study dense mixtures of passive and active self-aligning disks with isotropic or anisotropic mobility. We find that the passive fraction controls an order-disorder transition that is continuous in ",
-      "url": "https://arxiv.org/abs/2604.15105v1"
-    },
-    {
-      "title": "Generalization in LLM Problem Solving: The Case of the Shortest Path",
-      "date": "2026-04-16",
-      "id": "2604.15306v1",
-      "abstract": "Whether language models can systematically generalize remains actively debated. Yet empirical performance is jointly shaped by multiple factors such as training data, training paradigms, and inference",
-      "url": "https://arxiv.org/abs/2604.15306v1"
-    },
-    {
-      "title": "Diagnosing LLM Judge Reliability: Conformal Prediction Sets and Transitivity Violations",
-      "date": "2026-04-16",
-      "id": "2604.15302v1",
-      "abstract": "LLM-as-judge frameworks are increasingly used for automatic NLG evaluation, yet their per-instance reliability remains poorly understood. We present a two-pronged diagnostic toolkit applied to SummEva",
-      "url": "https://arxiv.org/abs/2604.15302v1"
-    },
-    {
-      "title": "How Do LLMs and VLMs Understand Viewpoint Rotation Without Vision? An Interpretability Study",
-      "date": "2026-04-16",
-      "id": "2604.15294v1",
-      "abstract": "Over the past year, spatial intelligence has drawn increasing attention. Many prior works study it from the perspective of visual-spatial intelligence, where models have access to visuospatial informa",
-      "url": "https://arxiv.org/abs/2604.15294v1"
-    },
-    {
-      "title": "Borel--Bernstein and Hirst-type Theorems for Nearest-Integer Complex Continued Fractions over Euclidean Imaginary Quadratic Fields",
-      "date": "2026-04-16",
-      "id": "2604.15293v1",
-      "abstract": "For each $d \\in {1,2,3,7,11}$, let $T_d$ be the nearest-integer complex continued fraction map associated with the Euclidean ring $\\mathcal{O}*d$, and let $(a_n)$ be its digit sequence. We prove two m",
-      "url": "https://arxiv.org/abs/2604.15293v1"
-    },
-    {
-      "title": "AnimationBench: Are Video Models Good at Character-Centric Animation?",
-      "date": "2026-04-16",
-      "id": "2604.15299v1",
-      "abstract": "Video generation has advanced rapidly, with recent methods producing increasingly convincing animated results. However, existing benchmarks-largely designed for realistic videos-struggle to evaluate a",
-      "url": "https://arxiv.org/abs/2604.15299v1"
-    },
-    {
-      "title": "Generalization of Pearl's Front-Door Criterion",
-      "date": "2026-04-16",
-      "id": "2604.15288v1",
-      "abstract": "Pearl's front-door criterion provides a set of sufficient conditions for estimating the total causal effect from observational data in the presence of latent confounding, using the functional P(y | do",
-      "url": "https://arxiv.org/abs/2604.15288v1"
-    },
-    {
-      "title": "Superstatistical Approach to Turbulent Circulation Fluctuations",
-      "date": "2026-04-16",
-      "id": "2604.15277v1",
-      "abstract": "Recent investigations of turbulent circulation fluctuations have uncovered substantial insights into the statistical organization of flow structures and revealed unexpected geometric features of turbu",
-      "url": "https://arxiv.org/abs/2604.15277v1"
-    },
-    {
-      "title": "Heuristic Search for Minimum-Distance Upper-Bound Witnesses in Quantum APM-LDPC Codes",
-      "date": "2026-04-16",
-      "id": "2604.15307v1",
-      "abstract": "This paper investigates certified upper bounds on the minimum distance of an explicit family of Calderbank-Shor-Steane quantum LDPC codes constructed from affine permutation matrices. All codes consid",
-      "url": "https://arxiv.org/abs/2604.15307v1"
+      "title": "VEFX-Bench: A Holistic Benchmark for Generic Video Editing and Visual Effects",
+      "date": "2026-04-17",
+      "id": "2604.16272v1",
+      "abstract": "As AI-assisted video creation becomes increasingly practical, instruction-guided video editing has become essential for refining generated or captured footage to meet professional requirements. Yet th",
+      "url": "https://arxiv.org/abs/2604.16272v1"
     }
   ]
 }
