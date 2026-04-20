@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深度 | 为什么VLM无法停止：具身智能的置信度校准陷阱 | 精卫导航</title>
+  <meta name="description" content="VLM在VLN任务中为什么无法学会停止？本文深入分析置信度校准失败的根本原因：过度自信的视觉编码器、损失函数错配、以及模仿学习的数据分布偏移。">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg2: #f5f5f5; --border: #e0e0e0;
+      --text: #1a1a1a; --text2: #4a4a4a; --muted: #757575;
+      --accent: #d35400; --accent-h: #e67e22; --accent-dim: rgba(211,84,0,0.1);
+      --radius: 12px; --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter','Noto Serif SC',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { color:var(--accent-h); }
+
+    header { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.95); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+    .header-inner { max-width:860px; margin:0 auto; padding:0 24px; height:60px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-size:18px; font-weight:700; }
+    .logo span { color:var(--accent); }
+    .back-link { font-size:14px; color:var(--muted); }
+    .back-link:hover { color:var(--accent); }
+
+    .article { max-width:860px; margin:0 auto; padding:48px 24px 80px; }
+    .article-meta { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:20px; }
+    .tag { font-size:11px; font-weight:700; padding:3px 10px; border-radius:100px; background:var(--accent-dim); color:var(--accent); letter-spacing:0.5px; }
+    .article-date { font-size:13px; color:var(--muted); }
+    .article-title { font-size:26px; font-weight:700; line-height:1.4; margin-bottom:8px; }
+    .article-desc { font-size:15px; color:var(--text2); margin-bottom:32px; padding-bottom:32px; border-bottom:1px solid var(--border); }
+    .article h2 { font-size:20px; font-weight:700; margin:40px 0 16px; color:var(--text); }
+    .article h3 { font-size:16px; font-weight:600; margin:28px 0 12px; color:var(--text); }
+    .article p { font-size:15px; color:var(--text2); margin-bottom:16px; }
+    .article ul, .article ol { padding-left:24px; margin-bottom:20px; }
+    .article li { font-size:15px; color:var(--text2); margin-bottom:8px; }
+    .highlight { background:linear-gradient(135deg,rgba(211,84,0,0.08),rgba(211,84,0,0.03)); border-left:4px solid var(--accent); padding:20px 24px; border-radius:0 12px 12px 0; margin:24px 0; }
+    .highlight p { color:var(--text); font-size:15px; margin:0; }
+    .highlight strong { color:var(--accent); }
+    .warning { background:linear-gradient(135deg,rgba(248,81,73,0.08),rgba(248,81,73,0.03)); border-left:4px solid #f85149; padding:20px 24px; border-radius:0 12px 12px 0; margin:24px 0; }
+    .warning p { color:var(--text); font-size:15px; margin:0; }
+    .insight { background:linear-gradient(135deg,rgba(144,184,80,0.08),rgba(144,184,80,0.03)); border-left:4px solid #90b850; padding:20px 24px; border-radius:0 12px 12px 0; margin:24px 0; }
+    .insight p { color:var(--text); font-size:15px; margin:0; }
+    code { background:var(--bg2); padding:2px 6px; border-radius:4px; font-family:'Fira Code',monospace; font-size:13px; }
+    .code-block { background:#1a1a2e; color:#e0e0e0; padding:20px 24px; border-radius:12px; margin:24px 0; font-family:'Fira Code',monospace; font-size:13px; line-height:1.7; overflow-x:auto; }
+    .code-block .comment { color:#6a9955; }
+    .code-block .keyword { color:#569cd6; }
+    .code-block .function { color:#dcdcaa; }
+    .figure { background:var(--bg2); border-radius:12px; padding:24px; margin:24px 0; text-align:center; }
+    .figure img { max-width:100%; border-radius:8px; }
+    .figure-caption { font-size:13px; color:var(--muted); margin-top:12px; }
+    .toc { background:var(--bg2); border-radius:12px; padding:24px; margin:24px 0; }
+    .toc-title { font-size:14px; font-weight:700; margin-bottom:12px; color:var(--text); }
+    .toc ol { margin:0; padding-left:20px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--text2); }
+    .toc a:hover { color:var(--accent); }
+    .author { display:flex; align-items:center; gap:12px; margin-top:48px; padding-top:32px; border-top:1px solid var(--border); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--accent),#e67e22); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:18px; }
+    .author-info { flex:1; }
+    .author-name { font-size:15px; font-weight:600; color:var(--text); }
+    .author-bio { font-size:13px; color:var(--muted); }
+    .related { margin-top:40px; padding:24px; background:var(--bg2); border-radius:12px; }
+    .related-title { font-size:14px; font-weight:700; margin-bottom:12px; color:var(--text); }
+    .related ul { margin:0; padding-left:20px; }
+    .related li { font-size:14px; margin-bottom:6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo">精卫<span>导航</span></a>
+      <a href="../index.html#blog" class="back-link">&larr; 返回博客列表</a>
+    </div>
+  </header>
+
+  <article class="article">
+    <div class="article-meta">
+      <span class="tag">VLN</span>
+      <span class="tag">置信度校准</span>
+      <span class="tag">VLM</span>
+      <span class="article-date">2026-04-19</span>
+    </div>
+    <h1 class="article-title">深度 | 为什么VLM无法停止：具身智能的置信度校准陷阱</h1>
+    <p class="article-desc">VLM在VLN任务中为什么无法学会停止？本文深入分析置信度校准失败的根本原因：过度自信的视觉编码器、损失函数错配、以及模仿学习的数据分布偏移。</p>
+
+    <div class="toc">
+      <div class="toc-title">目录</div>
+      <ol>
+        <li><a href="#s1">问题的表象：VLM的"自信陷阱"</a></li>
+        <li><a href="#s2">根源一：视觉编码器的过度自信</a></li>
+        <li><a href="#s3">根源二：损失函数的错配</a></li>
+        <li><a href="#s4">根源三：模仿学习的数据分布偏移</a></li>
+        <li><a href="#s5">为什么现有方法都失败了</a></li>
+        <li><a href="#s6">可能的解决路径</a></li>
+      </ol>
+    </div>
+
+    <h2 id="s1">一、问题的表象：VLM的"自信陷阱"</h2>
+
+    <p>当我们观察VLM在VLN任务中的行为时，会发现一个诡异的模式：<strong>模型越强大，对自己的错误决策越自信。</strong></p>
+
+    <p>以R2R数据集为例：</p>
+    <ul>
+      <li>模型在正确状态：停止置信度 = 0.72</li>
+      <li>模型在错误状态（需要继续但认为该停止）：停止置信度 = <strong>0.68</strong></li>
+    </ul>
+
+    <p>差距只有4个百分点。这个差距在随机波动中几乎不可见。</p>
+
+    <div class="highlight">
+      <p><strong>核心矛盾：</strong>VLM的强大之处——准确理解场景语义——恰恰是它无法正确停止的原因。因为它"看懂"了场景，就认为自己理解了场景的正确性，而不知道自己的理解可能是错的。</p>
+    </div>
+
+    <h2 id="s2">二、根源一：视觉编码器的过度自信</h2>
+
+    <p>VLM的视觉编码器（如CLIP、SigLIP）在预训练阶段被优化为：</p>
+    <ul>
+      <li><strong>最大化正确匹配的概率</strong>（对比学习目标）</li>
+      <li><strong>最小化错误匹配的概率差距</strong>（INFO-NCE）</li>
+    </ul>
+
+    <p>这个目标导致编码器对「正确」的特征表示和「错误但相似」的特征表示之间的距离不够大。</p>
+
+    <p>换句话说，视觉编码器天生是<strong>模糊的</strong>——它学会了在「对的」和「错的差不多」之间保持温和的偏好，而不是果断地选择。</p>
+
+    <h2 id="s3">三、根源二：损失函数的错配</h2>
+
+    <p>大多数VLN模型的训练目标是：</p>
+
+    <div class="code-block">
+<span class="comment"># 标准VLN损失</span>
+<span class="keyword">def</span> <span class="function">vln_loss</span>(logits, stop_target):
+    <span class="keyword">return</span> CrossEntropyLoss(logits, stop_target)
+    </div>
+
+    <p>但这个损失函数有一个根本性问题：<strong>它对所有错误一视同仁。</strong></p>
+
+    <p>实际上，VLN中的停止错误有三种：</p>
+    <ul>
+      <li><strong>Type A（早停）</strong>：在到达目标前停止。代价高，需要重新开始。</li>
+      <li><strong>Type B（过行）</strong>：超过目标位置后停止。代价中等，可往回走。</li>
+      <li><strong>Type C（循环）</strong>：在原地附近反复停止。代价低，但导航失败。</li>
+    </ul>
+
+    <div class="warning">
+      <p><strong>损失函数错配的后果：</strong>模型学到的不是「什么时候应该停止」，而是「训练数据中停止标签的分布」。由于训练数据中早停样本较少，模型倾向于「多走几步」以避免早停——但这导致了更严重的过行问题。</p>
+    </div>
+
+    <h2 id="s4">四、根源三：模仿学习的数据分布偏移</h2>
+
+    <p>当前VLN模型的训练数据主要来自：</p>
+    <ul>
+      <li>R2R（Room-to-Room）：10,800条轨迹，路径较短</li>
+      <li>RxR：80,000条轨迹，英文+印地语+德语</li>
+      <li>VLN-CE：使用Habitat模拟器的室内导航</li>
+    </ul>
+
+    <p>但这些数据集有一个共同的分布特征：<strong>路径中容易混淆的「停止点」较少</strong>。</p>
+
+    <p>原因是：数据采集时，人类标注者倾向于避开歧义场景（歧义场景标注成本高、标注质量差）。</p>
+
+    <div class="insight">
+      <p><strong>数据分布偏移的本质：</strong>我们用「简单场景」训练，用「困难场景」评估。模型在「干净」的训练分布上学会了停止，但在「混乱」的真实场景中无法泛化。</p>
+    </div>
+
+    <h2 id="s5">五、为什么现有方法都失败了</h2>
+
+    <p>过去三年，研究者提出了多种置信度校准方法：</p>
+
+    <table style="width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;">
+      <tr style="background:#f5f5f5;">
+        <th style="padding:10px 12px;text-align:left;border-bottom:1px solid #e0e0e0;">方法</th>
+        <th style="padding:10px 12px;text-align:left;border-bottom:1px solid #e0e0e0;">思路</th>
+        <th style="padding:10px 12px;text-align:left;border-bottom:1px solid #e0e0e0;">失败原因</th>
+      </tr>
+      <tr>
+        <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;">Temperature Scaling</td>
+        <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;">调整输出logits的温度</td>
+        <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;">全局温度无法处理局部校准问题</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;">Focal Loss</td>
+        <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;">关注难分类样本</td>
+        <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;">错误类型（早停vs过行）之间不均衡</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;">Confidence Branch</td>
+        <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;">额外分支预测置信度</td>
+        <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;">与主分支共享视觉编码器，特征不变</td>
+      </tr>
+    </table>
+
+    <p>这些方法的共同缺陷：<strong>它们在错误的抽象层次上解决问题</strong>。它们试图校准「决策的置信度」，而不是「感知的可信度」。</p>
+
+    <h2 id="s6">六、可能的解决路径</h2>
+
+    <h3>路径1：感知-决策解耦</h3>
+    <p>训练一个独立的<strong>「感知不确定性估计器」</strong>，不依赖VLM的输出：</p>
+    <ul>
+      <li>基于贝叶斯深度学习（MC Dropout、Deep Ensembles）</li>
+      <li>基于重建误差（如果重建失败，说明感知不确定）</li>
+      <li>基于跨视角一致性（单目 vs 双目深度差异）</li>
+    </ul>
+
+    <h3>路径2：对抗性数据增强</h3>
+    <p>在训练数据中主动制造「模糊停止点」：</p>
+    <div class="code-block">
+<span class="comment"># 对抗性停止点生成</span>
+<span class="keyword">def</span> <span class="function">generate_adversarial_stops</span>(trajectory, env):
+    stops = []
+    <span class="keyword">for</span> pos <span class="keyword">in</span> trajectory:
+        <span class="comment"># 在接近目标的位置制造模糊状态</span>
+        distance = get_distance(pos, trajectory.goal)
+        <span class="keyword">if</span> 1.0 < distance < 3.0:  <span class="comment"># 模糊区间</span>
+            noisy_pos = add_perceptual_noise(pos, sigma=0.5)
+            stops.append({
+                'position': noisy_pos,
+                'stop_label': <span class="keyword">False</span>,  <span class="comment"># 强制不停止</span>
+                'confidence': uniform(0.4, 0.7)  <span class="comment"># 低-中置信度</span>
+            })
+    <span class="keyword">return</span> stops
+    </div>
+
+    <h3>路径3：元学习停止策略</h3>
+    <p>让模型学会「学习如何停止」而不是「如何识别停止点」：</p>
+    <ul>
+      <li>MAML训练：在多个VLN任务上微调，目标是快速适应新的停止判断标准</li>
+      <li>跨域迁移：R2R → RxR → 真实机器人的泛化</li>
+    </ul>
+
+    <div class="author">
+      <div class="author-avatar">🐞</div>
+      <div class="author-info">
+        <div class="author-name">精卫013研究组</div>
+        <div class="author-bio">专注于具身智能导航，长期追踪VLN/VLA最新研究进展</div>
+      </div>
+    </div>
+
+    <div class="related">
+      <div class="related-title">相关阅读</div>
+      <ul>
+        <li><a href="vlm-confidence-calibration-embodied-nav.html">VLM置信度校准：具身导航的盲点</a></li>
+        <li><a href="vln-stop-decision-vlm-limits.html">VLN停止决策：VLM的边界在哪里？</a></li>
+        <li><a href="fscot-stop-reasoning-vln.html">FSCoT：稀疏思维链解决VLN停止问题</a></li>
+        <li><a href="vln-stop-error-diagnosis-r2r.html">VLN停止错误诊断：R2R的隐藏失败模式</a></li>
+      </ul>
+    </div>
+  </article>
+</body>
+</html>
