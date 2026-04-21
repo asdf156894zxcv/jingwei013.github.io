@@ -1,98 +1,126 @@
 {
-  "updated": "2026-04-20 04:15 UTC",
-  "total": 13,
+  "updated": "2026-04-21 03:59 UTC",
+  "total": 17,
   "today_count": 0,
   "papers": [
     {
-      "title": "Repurposing 3D Generative Model for Autoregressive Layout Generation",
-      "date": "2026-04-17",
-      "id": "2604.16299v1",
-      "abstract": "We introduce LaviGen, a framework that repurposes 3D generative models for 3D layout generation. Unlike previous methods that infer object layouts from textual descriptions, LaviGen operates directly ",
-      "url": "https://arxiv.org/abs/2604.16299v1"
+      "title": "MathNet: a Global Multimodal Benchmark for Mathematical Reasoning and Retrieval",
+      "date": "2026-04-20",
+      "id": "2604.18584v1",
+      "abstract": "Mathematical problem solving remains a challenging test of reasoning for large language and multimodal models, yet existing benchmarks are limited in size, language coverage, and task diversity. We in",
+      "url": "https://arxiv.org/abs/2604.18584v1"
     },
     {
-      "title": "FineCog-Nav: Integrating Fine-grained Cognitive Modules for Zero-shot Multimodal UAV Navigation",
-      "date": "2026-04-17",
-      "id": "2604.16298v1",
-      "abstract": "UAV vision-language navigation (VLN) requires an agent to navigate complex 3D environments from an egocentric perspective while following ambiguous multi-step instructions over long horizons. Existing",
-      "url": "https://arxiv.org/abs/2604.16298v1"
+      "title": "MUA: Mobile Ultra-detailed Animatable Avatars",
+      "date": "2026-04-20",
+      "id": "2604.18583v1",
+      "abstract": "Building photorealistic, animatable full-body digital humans remains a longstanding challenge in computer graphics and vision. Recent advances in animatable avatar modeling have largely progressed alo",
+      "url": "https://arxiv.org/abs/2604.18583v1"
     },
     {
-      "title": "NaijaS2ST: A Multi-Accent Benchmark for Speech-to-Speech Translation in Low-Resource Nigerian Languages",
-      "date": "2026-04-17",
-      "id": "2604.16287v1",
-      "abstract": "Speech translation for low-resource languages remains fundamentally limited by the scarcity of high-quality, diverse parallel speech data, a challenge that is especially pronounced in African linguist",
-      "url": "https://arxiv.org/abs/2604.16287v1"
+      "title": "Sessa: Selective State Space Attention",
+      "date": "2026-04-20",
+      "id": "2604.18580v1",
+      "abstract": "Modern sequence models are dominated by Transformers, where self-attention mixes information from the visible context in an input-dependent way. However, when retrieval is not sharp and attention rema",
+      "url": "https://arxiv.org/abs/2604.18580v1"
     },
     {
-      "title": "Semantic Area Graph Reasoning for Multi-Robot Language-Guided Search",
-      "date": "2026-04-17",
-      "id": "2604.16263v1",
-      "abstract": "Coordinating multi-robot systems (MRS) to search in unknown environments is particularly challenging for tasks that require semantic reasoning beyond geometric exploration. Classical coordination stra",
-      "url": "https://arxiv.org/abs/2604.16263v1"
+      "title": "SynAgent: Generalizable Cooperative Humanoid Manipulation via Solo-to-Cooperative Agent Synergy",
+      "date": "2026-04-20",
+      "id": "2604.18557v1",
+      "abstract": "Controllable cooperative humanoid manipulation is a fundamental yet challenging problem for embodied intelligence, due to severe data scarcity, complexities in multi-agent coordination, and limited ge",
+      "url": "https://arxiv.org/abs/2604.18557v1"
     },
     {
-      "title": "SocialGrid: A Benchmark for Planning and Social Reasoning in Embodied Multi-Agent Systems",
-      "date": "2026-04-17",
-      "id": "2604.16022v1",
-      "abstract": "As Large Language Models (LLMs) transition from text processors to autonomous agents, evaluating their social reasoning in embodied multi-agent settings becomes critical. We introduce SocialGrid, an e",
-      "url": "https://arxiv.org/abs/2604.16022v1"
+      "title": "OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation",
+      "date": "2026-04-20",
+      "id": "2604.18486v1",
+      "abstract": "Chain-of-Thought (CoT) reasoning has become a powerful driver of trajectory prediction in VLA-based autonomous driving, yet its autoregressive nature imposes a latency cost that is prohibitive for rea",
+      "url": "https://arxiv.org/abs/2604.18486v1"
     },
     {
-      "title": "Resolution-Agnostic Lensless Imaging via Fourier Neural Operators",
-      "date": "2026-04-17",
-      "id": "2604.16295v1",
-      "abstract": "Lensless cameras based on thin diffusers offer a compact alternative to conventional refractive imaging but rely on computational reconstruction, since the diffuser's point spread function (PSF) globa",
-      "url": "https://arxiv.org/abs/2604.16295v1"
+      "title": "XEmbodied: A Foundation Model with Enhanced Geometric and Physical Cues for Large-Scale Embodied Environments",
+      "date": "2026-04-20",
+      "id": "2604.18484v1",
+      "abstract": "Vision-Language-Action (VLA) models drive next-generation autonomous systems, but training them requires scalable, high-quality annotations from complex environments. Current cloud pipelines rely on g",
+      "url": "https://arxiv.org/abs/2604.18484v1"
     },
     {
-      "title": "DENALI: A Dataset Enabling Non-Line-of-Sight Spatial Reasoning with Low-Cost LiDARs",
-      "date": "2026-04-17",
-      "id": "2604.16201v1",
-      "abstract": "Consumer LiDARs in mobile devices and robots typically output a single depth value per pixel. Yet internally, they record full time-resolved histograms containing direct and multi-bounce light returns",
-      "url": "https://arxiv.org/abs/2604.16201v1"
+      "title": "Bounded Ratio Reinforcement Learning",
+      "date": "2026-04-20",
+      "id": "2604.18578v1",
+      "abstract": "Proximal Policy Optimization (PPO) has become the predominant algorithm for on-policy reinforcement learning due to its scalability and empirical robustness across domains. However, there is a signifi",
+      "url": "https://arxiv.org/abs/2604.18578v1"
     },
     {
-      "title": "Renormalised thermodynamics for Bose gases from low to critical temperatures",
-      "date": "2026-04-17",
-      "id": "2604.16290v1",
-      "abstract": "We compute thermodynamic properties of dilute Bose gases using non-perturbative approximations of the two-particle irreducible (2PI) effective action. It is shown how to systematically renormalise the",
-      "url": "https://arxiv.org/abs/2604.16290v1"
+      "title": "T-REN: Learning Text-Aligned Region Tokens Improves Dense Vision-Language Alignment and Scalability",
+      "date": "2026-04-20",
+      "id": "2604.18573v1",
+      "abstract": "Despite recent progress, vision-language encoders struggle with two core limitations: (1) weak alignment between language and dense vision features, which hurts tasks like open-vocabulary semantic seg",
+      "url": "https://arxiv.org/abs/2604.18573v1"
     },
     {
-      "title": "Atomistic Mechanisms of Stress-Dependent Molten Salt Corrosion in NiCr Alloys",
-      "date": "2026-04-17",
-      "id": "2604.16261v1",
-      "abstract": "Ni-based structural alloys in molten salt environments often experience simultaneous mechanical loading and corrosive attack, yet the mechanisms governing stress-corrosion interactions remain unclear.",
-      "url": "https://arxiv.org/abs/2604.16261v1"
+      "title": "Forecasting Ionospheric Irregularities on GNSS Lines of Sight Using Dynamic Graphs with Ephemeris Conditioning",
+      "date": "2026-04-20",
+      "id": "2604.18379v1",
+      "abstract": "Most data-driven ionospheric forecasting models operate on gridded products, which do not preserve the time-varying sampling structure of satellite-based sensing. We instead model the ionosphere as a ",
+      "url": "https://arxiv.org/abs/2604.18379v1"
     },
     {
-      "title": "Correcting socioeconomic bias in mobile phone mobility estimates using multilevel regression and poststratification",
-      "date": "2026-04-17",
-      "id": "2604.16193v1",
-      "abstract": "Call detail records (CDR) from mobile phone networks are widely used to study human mobility however CDR data from a single mobile operator are inherently biased because the observed users do not mirr",
-      "url": "https://arxiv.org/abs/2604.16193v1"
+      "title": "DAG-STL: A Hierarchical Framework for Zero-Shot Trajectory Planning under Signal Temporal Logic Specifications",
+      "date": "2026-04-20",
+      "id": "2604.18343v1",
+      "abstract": "Signal Temporal Logic (STL) is a powerful language for specifying temporally structured robotic tasks. Planning executable trajectories under STL constraints remains difficult when system dynamics and",
+      "url": "https://arxiv.org/abs/2604.18343v1"
     },
     {
-      "title": "ASMR-Bench: Auditing for Sabotage in ML Research",
-      "date": "2026-04-17",
-      "id": "2604.16286v1",
-      "abstract": "As AI systems are increasingly used to conduct research autonomously, misaligned systems could introduce subtle flaws that produce misleading results while evading detection. We introduce ASMR-Bench (",
-      "url": "https://arxiv.org/abs/2604.16286v1"
+      "title": "Enhancing Glass Surface Reconstruction via Depth Prior for Robot Navigation",
+      "date": "2026-04-20",
+      "id": "2604.18336v1",
+      "abstract": "Indoor robot navigation is often compromised by glass surfaces, which severely corrupt depth sensor measurements. While foundation models like Depth Anything 3 provide excellent geometric priors, they",
+      "url": "https://arxiv.org/abs/2604.18336v1"
     },
     {
-      "title": "Fluctuating Pair Density Wave in Finite-temperature Phase Diagram of the $t$-$t^\\prime$ Hubbard Model",
-      "date": "2026-04-17",
-      "id": "2604.16293v1",
-      "abstract": "The Hubbard model and its extensions are canonical theoretical frameworks for understanding correlated electronic states, including those in high-$T_c$ cuprates. Here, we use state-of-the-art thermal ",
-      "url": "https://arxiv.org/abs/2604.16293v1"
+      "title": "MultiWorld: Scalable Multi-Agent Multi-View Video World Models",
+      "date": "2026-04-20",
+      "id": "2604.18564v1",
+      "abstract": "Video world models have achieved remarkable success in simulating environmental dynamics in response to actions by users or agents. They are modeled as action-conditioned video generation models that ",
+      "url": "https://arxiv.org/abs/2604.18564v1"
     },
     {
-      "title": "VEFX-Bench: A Holistic Benchmark for Generic Video Editing and Visual Effects",
-      "date": "2026-04-17",
-      "id": "2604.16272v1",
-      "abstract": "As AI-assisted video creation becomes increasingly practical, instruction-guided video editing has become essential for refining generated or captured footage to meet professional requirements. Yet th",
-      "url": "https://arxiv.org/abs/2604.16272v1"
+      "title": "Agentic Forecasting using Sequential Bayesian Updating of Linguistic Beliefs",
+      "date": "2026-04-20",
+      "id": "2604.18576v1",
+      "abstract": "We present BLF (Bayesian Linguistic Forecaster), an agentic system for binary forecasting that achieves state-of-the-art performance on the ForecastBench benchmark. The system is built on three ideas.",
+      "url": "https://arxiv.org/abs/2604.18576v1"
+    },
+    {
+      "title": "ReCap: Lightweight Referential Grounding for Coherent Story Visualization",
+      "date": "2026-04-20",
+      "id": "2604.18575v1",
+      "abstract": "Story Visualization aims to generate a sequence of images that faithfully depicts a textual narrative that preserve character identity, spatial configuration, and stylistic coherence as the narratives",
+      "url": "https://arxiv.org/abs/2604.18575v1"
+    },
+    {
+      "title": "If at First You Don't Succeed, Trispectrum: I. Estimating the Matter Power Spectrum Covariance with Higher-Order Statistics",
+      "date": "2026-04-20",
+      "id": "2604.18581v1",
+      "abstract": "We present a method to estimate non-Gaussian power spectrum covariance matrices by directly measuring the response of the small-scale power spectrum to long-wavelength perturbations via bispectrum and",
+      "url": "https://arxiv.org/abs/2604.18581v1"
+    },
+    {
+      "title": "A multimodal and temporal foundation model for virtual patient representations at healthcare system scale",
+      "date": "2026-04-20",
+      "id": "2604.18570v1",
+      "abstract": "Modern medicine generates vast multimodal data across siloed systems, yet no existing model integrates the full breadth and temporal depth of the clinical record into a unified patient representation.",
+      "url": "https://arxiv.org/abs/2604.18570v1"
+    },
+    {
+      "title": "Back into Plato's Cave: Examining Cross-modal Representational Convergence at Scale",
+      "date": "2026-04-20",
+      "id": "2604.18572v1",
+      "abstract": "The Platonic Representation Hypothesis suggests that neural networks trained on different modalities (e.g., text and images) align and eventually converge toward the same representation of reality. If",
+      "url": "https://arxiv.org/abs/2604.18572v1"
     }
   ]
 }
