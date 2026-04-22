@@ -1,126 +1,91 @@
 {
-  "updated": "2026-04-21 03:59 UTC",
-  "total": 17,
+  "updated": "2026-04-22 03:55 UTC",
+  "total": 12,
   "today_count": 0,
   "papers": [
     {
-      "title": "MathNet: a Global Multimodal Benchmark for Mathematical Reasoning and Retrieval",
-      "date": "2026-04-20",
-      "id": "2604.18584v1",
-      "abstract": "Mathematical problem solving remains a challenging test of reasoning for large language and multimodal models, yet existing benchmarks are limited in size, language coverage, and task diversity. We in",
-      "url": "https://arxiv.org/abs/2604.18584v1"
+      "title": "Tstars-Tryon 1.0: Robust and Realistic Virtual Try-On for Diverse Fashion Items",
+      "date": "2026-04-21",
+      "id": "2604.19748v1",
+      "abstract": "Recent advances in image generation and editing have opened new opportunities for virtual try-on. However, existing methods still struggle to meet complex real-world demands. We present Tstars-Tryon 1",
+      "url": "https://arxiv.org/abs/2604.19748v1"
     },
     {
-      "title": "MUA: Mobile Ultra-detailed Animatable Avatars",
-      "date": "2026-04-20",
-      "id": "2604.18583v1",
-      "abstract": "Building photorealistic, animatable full-body digital humans remains a longstanding challenge in computer graphics and vision. Recent advances in animatable avatar modeling have largely progressed alo",
-      "url": "https://arxiv.org/abs/2604.18583v1"
+      "title": "AnyRecon: Arbitrary-View 3D Reconstruction with Video Diffusion Model",
+      "date": "2026-04-21",
+      "id": "2604.19747v1",
+      "abstract": "Sparse-view 3D reconstruction is essential for modeling scenes from casual captures, but remain challenging for non-generative reconstruction. Existing diffusion-based approaches mitigates this issues",
+      "url": "https://arxiv.org/abs/2604.19747v1"
     },
     {
-      "title": "Sessa: Selective State Space Attention",
-      "date": "2026-04-20",
-      "id": "2604.18580v1",
-      "abstract": "Modern sequence models are dominated by Transformers, where self-attention mixes information from the visible context in an input-dependent way. However, when retrieval is not sharp and attention rema",
-      "url": "https://arxiv.org/abs/2604.18580v1"
+      "title": "PlayCoder: Making LLM-Generated GUI Code Playable",
+      "date": "2026-04-21",
+      "id": "2604.19742v1",
+      "abstract": "Large language models (LLMs) have achieved strong results in code generation, but their ability to generate GUI applications, especially games, remains insufficiently studied. Existing benchmarks main",
+      "url": "https://arxiv.org/abs/2604.19742v1"
     },
     {
-      "title": "SynAgent: Generalizable Cooperative Humanoid Manipulation via Solo-to-Cooperative Agent Synergy",
-      "date": "2026-04-20",
-      "id": "2604.18557v1",
-      "abstract": "Controllable cooperative humanoid manipulation is a fundamental yet challenging problem for embodied intelligence, due to severe data scarcity, complexities in multi-agent coordination, and limited ge",
-      "url": "https://arxiv.org/abs/2604.18557v1"
+      "title": "CityRAG: Stepping Into a City via Spatially-Grounded Video Generation",
+      "date": "2026-04-21",
+      "id": "2604.19741v1",
+      "abstract": "We address the problem of generating a 3D-consistent, navigable environment that is spatially grounded: a simulation of a real location. Existing video generative models can produce a plausible sequen",
+      "url": "https://arxiv.org/abs/2604.19741v1"
     },
     {
-      "title": "OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation",
-      "date": "2026-04-20",
-      "id": "2604.18486v1",
-      "abstract": "Chain-of-Thought (CoT) reasoning has become a powerful driver of trajectory prediction in VLA-based autonomous driving, yet its autoregressive nature imposes a latency cost that is prohibitive for rea",
-      "url": "https://arxiv.org/abs/2604.18486v1"
+      "title": "UniT: Toward a Unified Physical Language for Human-to-Humanoid Policy Learning and World Modeling",
+      "date": "2026-04-21",
+      "id": "2604.19734v1",
+      "abstract": "Scaling humanoid foundation models is bottlenecked by the scarcity of robotic data. While massive egocentric human data offers a scalable alternative, bridging the cross-embodiment chasm remains a fun",
+      "url": "https://arxiv.org/abs/2604.19734v1"
     },
     {
-      "title": "XEmbodied: A Foundation Model with Enhanced Geometric and Physical Cues for Large-Scale Embodied Environments",
-      "date": "2026-04-20",
-      "id": "2604.18484v1",
-      "abstract": "Vision-Language-Action (VLA) models drive next-generation autonomous systems, but training them requires scalable, high-quality annotations from complex environments. Current cloud pipelines rely on g",
-      "url": "https://arxiv.org/abs/2604.18484v1"
+      "title": "Direct RNA sequence design under codon constraints using expressive tensor-based secondary structure models",
+      "date": "2026-04-21",
+      "id": "2604.19718v1",
+      "abstract": "Nucleic acid sequence design via codon optimization is a fundamental task with applications across synthetic biology, mRNA therapeutics, and vaccine design. Given a target protein, it is a major open ",
+      "url": "https://arxiv.org/abs/2604.19718v1"
     },
     {
-      "title": "Bounded Ratio Reinforcement Learning",
-      "date": "2026-04-20",
-      "id": "2604.18578v1",
-      "abstract": "Proximal Policy Optimization (PPO) has become the predominant algorithm for on-policy reinforcement learning due to its scalability and empirical robustness across domains. However, there is a signifi",
-      "url": "https://arxiv.org/abs/2604.18578v1"
+      "title": "Safe Continual Reinforcement Learning in Non-stationary Environments",
+      "date": "2026-04-21",
+      "id": "2604.19737v1",
+      "abstract": "Reinforcement learning (RL) offers a compelling data-driven paradigm for synthesizing controllers for complex systems when accurate physical models are unavailable; however, most existing control-orie",
+      "url": "https://arxiv.org/abs/2604.19737v1"
     },
     {
-      "title": "T-REN: Learning Text-Aligned Region Tokens Improves Dense Vision-Language Alignment and Scalability",
-      "date": "2026-04-20",
-      "id": "2604.18573v1",
-      "abstract": "Despite recent progress, vision-language encoders struggle with two core limitations: (1) weak alignment between language and dense vision features, which hurts tasks like open-vocabulary semantic seg",
-      "url": "https://arxiv.org/abs/2604.18573v1"
+      "title": "Generative Drifting for Conditional Medical Image Generation",
+      "date": "2026-04-21",
+      "id": "2604.19736v1",
+      "abstract": "Conditional medical image generation plays an important role in many clinically relevant imaging tasks. However, existing methods still face a fundamental challenge in balancing inference efficiency, ",
+      "url": "https://arxiv.org/abs/2604.19736v1"
     },
     {
-      "title": "Forecasting Ionospheric Irregularities on GNSS Lines of Sight Using Dynamic Graphs with Ephemeris Conditioning",
-      "date": "2026-04-20",
-      "id": "2604.18379v1",
-      "abstract": "Most data-driven ionospheric forecasting models operate on gridded products, which do not preserve the time-varying sampling structure of satellite-based sensing. We instead model the ionosphere as a ",
-      "url": "https://arxiv.org/abs/2604.18379v1"
+      "title": "Calibration-Induced Systematics in SALT3 Training and Their Impact on Dark Energy Constraints from Stage IV Supernova Surveys",
+      "date": "2026-04-21",
+      "id": "2604.19746v1",
+      "abstract": "In the coming years, the Vera Rubin Observatory's Legacy Survey of Space and Time (Rubin-LSST) and the Nancy Grace Roman Space Telescope's (Roman) High Latitude Time Domain Survey (HLTDS) are expected",
+      "url": "https://arxiv.org/abs/2604.19746v1"
     },
     {
-      "title": "DAG-STL: A Hierarchical Framework for Zero-Shot Trajectory Planning under Signal Temporal Logic Specifications",
-      "date": "2026-04-20",
-      "id": "2604.18343v1",
-      "abstract": "Signal Temporal Logic (STL) is a powerful language for specifying temporally structured robotic tasks. Planning executable trajectories under STL constraints remains difficult when system dynamics and",
-      "url": "https://arxiv.org/abs/2604.18343v1"
+      "title": "Safety-Critical Contextual Control via Online Riemannian Optimization with World Models",
+      "date": "2026-04-21",
+      "id": "2604.19639v1",
+      "abstract": "Modern world models are becoming too complex to admit explicit dynamical descriptions. We study safety-critical contextual control, where a Planner must optimize a task objective using only feasibilit",
+      "url": "https://arxiv.org/abs/2604.19639v1"
     },
     {
-      "title": "Enhancing Glass Surface Reconstruction via Depth Prior for Robot Navigation",
-      "date": "2026-04-20",
-      "id": "2604.18336v1",
-      "abstract": "Indoor robot navigation is often compromised by glass surfaces, which severely corrupt depth sensor measurements. While foundation models like Depth Anything 3 provide excellent geometric priors, they",
-      "url": "https://arxiv.org/abs/2604.18336v1"
+      "title": "FASTER: Value-Guided Sampling for Fast RL",
+      "date": "2026-04-21",
+      "id": "2604.19730v1",
+      "abstract": "Some of the most performant reinforcement learning algorithms today can be prohibitively expensive as they use test-time scaling methods such as sampling multiple action candidates and selecting the b",
+      "url": "https://arxiv.org/abs/2604.19730v1"
     },
     {
-      "title": "MultiWorld: Scalable Multi-Agent Multi-View Video World Models",
-      "date": "2026-04-20",
-      "id": "2604.18564v1",
-      "abstract": "Video world models have achieved remarkable success in simulating environmental dynamics in response to actions by users or agents. They are modeled as action-conditioned video generation models that ",
-      "url": "https://arxiv.org/abs/2604.18564v1"
-    },
-    {
-      "title": "Agentic Forecasting using Sequential Bayesian Updating of Linguistic Beliefs",
-      "date": "2026-04-20",
-      "id": "2604.18576v1",
-      "abstract": "We present BLF (Bayesian Linguistic Forecaster), an agentic system for binary forecasting that achieves state-of-the-art performance on the ForecastBench benchmark. The system is built on three ideas.",
-      "url": "https://arxiv.org/abs/2604.18576v1"
-    },
-    {
-      "title": "ReCap: Lightweight Referential Grounding for Coherent Story Visualization",
-      "date": "2026-04-20",
-      "id": "2604.18575v1",
-      "abstract": "Story Visualization aims to generate a sequence of images that faithfully depicts a textual narrative that preserve character identity, spatial configuration, and stylistic coherence as the narratives",
-      "url": "https://arxiv.org/abs/2604.18575v1"
-    },
-    {
-      "title": "If at First You Don't Succeed, Trispectrum: I. Estimating the Matter Power Spectrum Covariance with Higher-Order Statistics",
-      "date": "2026-04-20",
-      "id": "2604.18581v1",
-      "abstract": "We present a method to estimate non-Gaussian power spectrum covariance matrices by directly measuring the response of the small-scale power spectrum to long-wavelength perturbations via bispectrum and",
-      "url": "https://arxiv.org/abs/2604.18581v1"
-    },
-    {
-      "title": "A multimodal and temporal foundation model for virtual patient representations at healthcare system scale",
-      "date": "2026-04-20",
-      "id": "2604.18570v1",
-      "abstract": "Modern medicine generates vast multimodal data across siloed systems, yet no existing model integrates the full breadth and temporal depth of the clinical record into a unified patient representation.",
-      "url": "https://arxiv.org/abs/2604.18570v1"
-    },
-    {
-      "title": "Back into Plato's Cave: Examining Cross-modal Representational Convergence at Scale",
-      "date": "2026-04-20",
-      "id": "2604.18572v1",
-      "abstract": "The Platonic Representation Hypothesis suggests that neural networks trained on different modalities (e.g., text and images) align and eventually converge toward the same representation of reality. If",
-      "url": "https://arxiv.org/abs/2604.18572v1"
+      "title": "VLA Foundry: A Unified Framework for Training Vision-Language-Action Models",
+      "date": "2026-04-21",
+      "id": "2604.19728v1",
+      "abstract": "We present VLA Foundry, an open-source framework that unifies LLM, VLM, and VLA training in a single codebase. Most open-source VLA efforts specialize on the action training stage, often stitching tog",
+      "url": "https://arxiv.org/abs/2604.19728v1"
     }
   ]
 }
