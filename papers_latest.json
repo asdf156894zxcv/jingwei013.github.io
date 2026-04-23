@@ -1,91 +1,119 @@
 {
-  "updated": "2026-04-22 03:55 UTC",
-  "total": 12,
+  "updated": "2026-04-23 04:01 UTC",
+  "total": 16,
   "today_count": 0,
   "papers": [
     {
-      "title": "Tstars-Tryon 1.0: Robust and Realistic Virtual Try-On for Diverse Fashion Items",
-      "date": "2026-04-21",
-      "id": "2604.19748v1",
-      "abstract": "Recent advances in image generation and editing have opened new opportunities for virtual try-on. However, existing methods still struggle to meet complex real-world demands. We present Tstars-Tryon 1",
-      "url": "https://arxiv.org/abs/2604.19748v1"
+      "title": "SpeechParaling-Bench: A Comprehensive Benchmark for Paralinguistic-Aware Speech Generation",
+      "date": "2026-04-22",
+      "id": "2604.20842v1",
+      "abstract": "Paralinguistic cues are essential for natural human-computer interaction, yet their evaluation in Large Audio-Language Models (LALMs) remains limited by coarse feature coverage and the inherent subjec",
+      "url": "https://arxiv.org/abs/2604.20842v1"
     },
     {
-      "title": "AnyRecon: Arbitrary-View 3D Reconstruction with Video Diffusion Model",
-      "date": "2026-04-21",
-      "id": "2604.19747v1",
-      "abstract": "Sparse-view 3D reconstruction is essential for modeling scenes from casual captures, but remain challenging for non-generative reconstruction. Existing diffusion-based approaches mitigates this issues",
-      "url": "https://arxiv.org/abs/2604.19747v1"
+      "title": "DeVI: Physics-based Dexterous Human-Object Interaction via Synthetic Video Imitation",
+      "date": "2026-04-22",
+      "id": "2604.20841v1",
+      "abstract": "Recent advances in video generative models enable the synthesis of realistic human-object interaction videos across a wide range of scenarios and object categories, including complex dexterous manipul",
+      "url": "https://arxiv.org/abs/2604.20841v1"
     },
     {
-      "title": "PlayCoder: Making LLM-Generated GUI Code Playable",
-      "date": "2026-04-21",
-      "id": "2604.19742v1",
-      "abstract": "Large language models (LLMs) have achieved strong results in code generation, but their ability to generate GUI applications, especially games, remains insufficiently studied. Existing benchmarks main",
-      "url": "https://arxiv.org/abs/2604.19742v1"
+      "title": "Parallel-SFT: Improving Zero-Shot Cross-Programming-Language Transfer for Code RL",
+      "date": "2026-04-22",
+      "id": "2604.20835v1",
+      "abstract": "Modern language models demonstrate impressive coding capabilities in common programming languages (PLs), such as C++ and Python, but their performance in lower-resource PLs is often limited by trainin",
+      "url": "https://arxiv.org/abs/2604.20835v1"
     },
     {
-      "title": "CityRAG: Stepping Into a City via Spatially-Grounded Video Generation",
-      "date": "2026-04-21",
-      "id": "2604.19741v1",
-      "abstract": "We address the problem of generating a 3D-consistent, navigable environment that is spatially grounded: a simulation of a real location. Existing video generative models can produce a plausible sequen",
-      "url": "https://arxiv.org/abs/2604.19741v1"
+      "title": "PokeVLA: Empowering Pocket-Sized Vision-Language-Action Model with Comprehensive World Knowledge Guidance",
+      "date": "2026-04-22",
+      "id": "2604.20834v1",
+      "abstract": "Recent advances in Vision-Language-Action (VLA) models have opened new avenues for robot manipulation, yet existing methods exhibit limited efficiency and a lack of high-level knowledge and spatial aw",
+      "url": "https://arxiv.org/abs/2604.20834v1"
     },
     {
-      "title": "UniT: Toward a Unified Physical Language for Human-to-Humanoid Policy Learning and World Modeling",
-      "date": "2026-04-21",
-      "id": "2604.19734v1",
-      "abstract": "Scaling humanoid foundation models is bottlenecked by the scarcity of robotic data. While massive egocentric human data offers a scalable alternative, bridging the cross-embodiment chasm remains a fun",
-      "url": "https://arxiv.org/abs/2604.19734v1"
+      "title": "ParetoSlider: Diffusion Models Post-Training for Continuous Reward Control",
+      "date": "2026-04-22",
+      "id": "2604.20816v1",
+      "abstract": "Reinforcement Learning (RL) post-training has become the standard for aligning generative models with human preferences, yet most methods rely on a single scalar reward. When multiple criteria matter,",
+      "url": "https://arxiv.org/abs/2604.20816v1"
     },
     {
-      "title": "Direct RNA sequence design under codon constraints using expressive tensor-based secondary structure models",
-      "date": "2026-04-21",
-      "id": "2604.19718v1",
-      "abstract": "Nucleic acid sequence design via codon optimization is a fundamental task with applications across synthetic biology, mRNA therapeutics, and vaccine design. Given a target protein, it is a major open ",
-      "url": "https://arxiv.org/abs/2604.19718v1"
+      "title": "Designing a Visualization Atlas: Lessons & Reflections from The UK Co-Benefits Atlas for Climate Mitigation",
+      "date": "2026-04-22",
+      "id": "2604.20781v1",
+      "abstract": "This paper reports on the process of designing the UK Co-Benefits Atlas, which communicates and publicizes data for climate mitigation. Visualization atlases -- an emerging type of platform to make da",
+      "url": "https://arxiv.org/abs/2604.20781v1"
     },
     {
-      "title": "Safe Continual Reinforcement Learning in Non-stationary Environments",
-      "date": "2026-04-21",
-      "id": "2604.19737v1",
-      "abstract": "Reinforcement learning (RL) offers a compelling data-driven paradigm for synthesizing controllers for complex systems when accurate physical models are unavailable; however, most existing control-orie",
-      "url": "https://arxiv.org/abs/2604.19737v1"
+      "title": "Solving Minimax Problems with Bilinear Objectives with ADMM",
+      "date": "2026-04-22",
+      "id": "2604.20832v1",
+      "abstract": "We consider minimax (saddle-point) problems of the form max_{c \\in C} min_{β\\in S} g(c; β), where C and S are compact convex sets, and g is concave-convex. Applying the Alternating Direction Method of",
+      "url": "https://arxiv.org/abs/2604.20832v1"
     },
     {
-      "title": "Generative Drifting for Conditional Medical Image Generation",
-      "date": "2026-04-21",
-      "id": "2604.19736v1",
-      "abstract": "Conditional medical image generation plays an important role in many clinically relevant imaging tasks. However, existing methods still face a fundamental challenge in balancing inference efficiency, ",
-      "url": "https://arxiv.org/abs/2604.19736v1"
+      "title": "Self-regulated galaxy evolution within a self-consistently varying galaxy-wide IMF",
+      "date": "2026-04-22",
+      "id": "2604.20843v1",
+      "abstract": "Semi-analytical evolution models of galaxies are a useful and computationally inexpensive tool for fast assessment of individual properties and their evolution. In this work, specifically the influenc",
+      "url": "https://arxiv.org/abs/2604.20843v1"
     },
     {
-      "title": "Calibration-Induced Systematics in SALT3 Training and Their Impact on Dark Energy Constraints from Stage IV Supernova Surveys",
-      "date": "2026-04-21",
-      "id": "2604.19746v1",
-      "abstract": "In the coming years, the Vera Rubin Observatory's Legacy Survey of Space and Time (Rubin-LSST) and the Nancy Grace Roman Space Telescope's (Roman) High Latitude Time Domain Survey (HLTDS) are expected",
-      "url": "https://arxiv.org/abs/2604.19746v1"
+      "title": "Model Predictive Communication for Timely Status Updates in Low-Altitude Networks",
+      "date": "2026-04-22",
+      "id": "2604.20610v1",
+      "abstract": "Timely information delivery in low-altitude networks is critical for many time-sensitive applications, such as unmanned aerial vehicle (UAV) navigation, inspection, and surveillance. The key challenge",
+      "url": "https://arxiv.org/abs/2604.20610v1"
     },
     {
-      "title": "Safety-Critical Contextual Control via Online Riemannian Optimization with World Models",
-      "date": "2026-04-21",
-      "id": "2604.19639v1",
-      "abstract": "Modern world models are becoming too complex to admit explicit dynamical descriptions. We study safety-critical contextual control, where a Planner must optimize a task objective using only feasibilit",
-      "url": "https://arxiv.org/abs/2604.19639v1"
+      "title": "A Hough transform approach to safety-aware scalar field mapping using Gaussian Processes",
+      "date": "2026-04-22",
+      "id": "2604.20799v1",
+      "abstract": "This paper presents a framework for mapping unknown scalar fields using a sensor-equipped autonomous robot operating in unsafe environments. The unsafe regions are defined as regions of high-intensity",
+      "url": "https://arxiv.org/abs/2604.20799v1"
     },
     {
-      "title": "FASTER: Value-Guided Sampling for Fast RL",
-      "date": "2026-04-21",
-      "id": "2604.19730v1",
-      "abstract": "Some of the most performant reinforcement learning algorithms today can be prohibitively expensive as they use test-time scaling methods such as sampling multiple action candidates and selecting the b",
-      "url": "https://arxiv.org/abs/2604.19730v1"
+      "title": "Lifecycle-Aware Federated Continual Learning in Mobile Autonomous Systems",
+      "date": "2026-04-22",
+      "id": "2604.20745v1",
+      "abstract": "Federated continual learning (FCL) allows distributed autonomous fleets to adapt collaboratively to evolving terrain types across extended mission lifecycles. However, current approaches face several ",
+      "url": "https://arxiv.org/abs/2604.20745v1"
     },
     {
-      "title": "VLA Foundry: A Unified Framework for Training Vision-Language-Action Models",
-      "date": "2026-04-21",
-      "id": "2604.19728v1",
-      "abstract": "We present VLA Foundry, an open-source framework that unifies LLM, VLM, and VLA training in a single codebase. Most open-source VLA efforts specialize on the action training stage, often stitching tog",
-      "url": "https://arxiv.org/abs/2604.19728v1"
+      "title": "Diagnosing CFG Interpretation in LLMs",
+      "date": "2026-04-22",
+      "id": "2604.20811v1",
+      "abstract": "As LLMs are increasingly integrated into agentic systems, they must adhere to dynamically defined, machine-interpretable interfaces. We evaluate LLMs as in-context interpreters: given a novel context-",
+      "url": "https://arxiv.org/abs/2604.20811v1"
+    },
+    {
+      "title": "AVISE: Framework for Evaluating the Security of AI Systems",
+      "date": "2026-04-22",
+      "id": "2604.20833v1",
+      "abstract": "As artificial intelligence (AI) systems are increasingly deployed across critical domains, their security vulnerabilities pose growing risks of high-profile exploits and consequential system failures.",
+      "url": "https://arxiv.org/abs/2604.20833v1"
+    },
+    {
+      "title": "Global Offshore Wind Infrastructure: Deployment and Operational Dynamics from Dense Sentinel-1 Time Series",
+      "date": "2026-04-22",
+      "id": "2604.20822v1",
+      "abstract": "The offshore wind energy sector is expanding rapidly, increasing the need for independent, high-temporal-resolution monitoring of infrastructure deployment and operation at global scale. While Earth O",
+      "url": "https://arxiv.org/abs/2604.20822v1"
+    },
+    {
+      "title": "Stream-CQSA: Avoiding Out-of-Memory in Attention Computation via Flexible Workload Scheduling",
+      "date": "2026-04-22",
+      "id": "2604.20819v1",
+      "abstract": "The scalability of long-context large language models is fundamentally limited by the quadratic memory cost of exact self-attention, which often leads to out-of-memory (OOM) failures on modern hardwar",
+      "url": "https://arxiv.org/abs/2604.20819v1"
+    },
+    {
+      "title": "High-Girth Regular Quantum LDPC Codes from Affine-Coset Structures",
+      "date": "2026-04-22",
+      "id": "2604.20838v1",
+      "abstract": "We construct a quantum low-density parity-check code family from a length-512 Calderbank-Shor-Steane base matrix pair. The base pair is $(3,8)$-regular, both Tanner graphs have girth 8 , and the base ",
+      "url": "https://arxiv.org/abs/2604.20838v1"
     }
   ]
 }
