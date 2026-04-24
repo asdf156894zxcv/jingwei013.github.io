@@ -1,119 +1,147 @@
 {
-  "updated": "2026-04-23 04:01 UTC",
-  "total": 16,
+  "updated": "2026-04-24 04:13 UTC",
+  "total": 20,
   "today_count": 0,
   "papers": [
     {
-      "title": "SpeechParaling-Bench: A Comprehensive Benchmark for Paralinguistic-Aware Speech Generation",
-      "date": "2026-04-22",
-      "id": "2604.20842v1",
-      "abstract": "Paralinguistic cues are essential for natural human-computer interaction, yet their evaluation in Large Audio-Language Models (LALMs) remains limited by coarse feature coverage and the inherent subjec",
-      "url": "https://arxiv.org/abs/2604.20842v1"
+      "title": "Seeing Fast and Slow: Learning the Flow of Time in Videos",
+      "date": "2026-04-23",
+      "id": "2604.21931v1",
+      "abstract": "How can we tell whether a video has been sped up or slowed down? How can we generate videos at different speeds? Although videos have been central to modern computer vision research, little attention ",
+      "url": "https://arxiv.org/abs/2604.21931v1"
     },
     {
-      "title": "DeVI: Physics-based Dexterous Human-Object Interaction via Synthetic Video Imitation",
-      "date": "2026-04-22",
-      "id": "2604.20841v1",
-      "abstract": "Recent advances in video generative models enable the synthesis of realistic human-object interaction videos across a wide range of scenarios and object categories, including complex dexterous manipul",
-      "url": "https://arxiv.org/abs/2604.20841v1"
+      "title": "Evaluation of Automatic Speech Recognition Using Generative Large Language Models",
+      "date": "2026-04-23",
+      "id": "2604.21928v1",
+      "abstract": "Automatic Speech Recognition (ASR) is traditionally evaluated using Word Error Rate (WER), a metric that is insensitive to meaning. Embedding-based semantic metrics are better correlated with human pe",
+      "url": "https://arxiv.org/abs/2604.21928v1"
     },
     {
-      "title": "Parallel-SFT: Improving Zero-Shot Cross-Programming-Language Transfer for Code RL",
-      "date": "2026-04-22",
-      "id": "2604.20835v1",
-      "abstract": "Modern language models demonstrate impressive coding capabilities in common programming languages (PLs), such as C++ and Python, but their performance in lower-resource PLs is often limited by trainin",
-      "url": "https://arxiv.org/abs/2604.20835v1"
+      "title": "Seeing Without Eyes: 4D Human-Scene Understanding from Wearable IMUs",
+      "date": "2026-04-23",
+      "id": "2604.21926v1",
+      "abstract": "Understanding human activities and their surrounding environments typically relies on visual perception, yet cameras pose persistent challenges in privacy, safety, energy efficiency, and scalability. ",
+      "url": "https://arxiv.org/abs/2604.21926v1"
     },
     {
-      "title": "PokeVLA: Empowering Pocket-Sized Vision-Language-Action Model with Comprehensive World Knowledge Guidance",
-      "date": "2026-04-22",
-      "id": "2604.20834v1",
-      "abstract": "Recent advances in Vision-Language-Action (VLA) models have opened new avenues for robot manipulation, yet existing methods exhibit limited efficiency and a lack of high-level knowledge and spatial aw",
-      "url": "https://arxiv.org/abs/2604.20834v1"
+      "title": "Long-Horizon Manipulation via Trace-Conditioned VLA Planning",
+      "date": "2026-04-23",
+      "id": "2604.21924v1",
+      "abstract": "Long-horizon manipulation remains challenging for vision-language-action (VLA) policies: real tasks are multi-step, progress-dependent, and brittle to compounding execution errors. We present LoHo-Man",
+      "url": "https://arxiv.org/abs/2604.21924v1"
     },
     {
-      "title": "ParetoSlider: Diffusion Models Post-Training for Continuous Reward Control",
-      "date": "2026-04-22",
-      "id": "2604.20816v1",
-      "abstract": "Reinforcement Learning (RL) post-training has become the standard for aligning generative models with human preferences, yet most methods rely on a single scalar reward. When multiple criteria matter,",
-      "url": "https://arxiv.org/abs/2604.20816v1"
+      "title": "The Dyson Minds 2025 Workshop: SETI around Black Holes",
+      "date": "2026-04-23",
+      "id": "2604.21886v1",
+      "abstract": "The Dyson Minds 2025 Workshop, held at the Center for Brains, Minds & Machines at MIT and organized by Penn State, MIT, and The Ultraintelligence Foundation, brought together researchers in astrophysi",
+      "url": "https://arxiv.org/abs/2604.21886v1"
     },
     {
-      "title": "Designing a Visualization Atlas: Lessons & Reflections from The UK Co-Benefits Atlas for Climate Mitigation",
-      "date": "2026-04-22",
-      "id": "2604.20781v1",
-      "abstract": "This paper reports on the process of designing the UK Co-Benefits Atlas, which communicates and publicizes data for climate mitigation. Visualization atlases -- an emerging type of platform to make da",
-      "url": "https://arxiv.org/abs/2604.20781v1"
+      "title": "TraceScope: Interactive URL Triage via Decoupled Checklist Adjudication",
+      "date": "2026-04-23",
+      "id": "2604.21840v1",
+      "abstract": "Modern phishing campaigns increasingly evade snapshot-based URL classifiers using interaction gates (e.g., checkbox/slider challenges), delayed content rendering, and logo-less credential harvesters. ",
+      "url": "https://arxiv.org/abs/2604.21840v1"
     },
     {
-      "title": "Solving Minimax Problems with Bilinear Objectives with ADMM",
-      "date": "2026-04-22",
-      "id": "2604.20832v1",
-      "abstract": "We consider minimax (saddle-point) problems of the form max_{c \\in C} min_{β\\in S} g(c; β), where C and S are compact convex sets, and g is concave-convex. Applying the Alternating Direction Method of",
-      "url": "https://arxiv.org/abs/2604.20832v1"
+      "title": "Characterizing Streaming Decidability of CSPs via Non-Redundancy",
+      "date": "2026-04-23",
+      "id": "2604.21922v1",
+      "abstract": "We study the single-pass streaming complexity of deciding satisfiability of Constraint Satisfaction Problems (CSPs). A CSP is specified by a constraint language $Γ$, that is, a finite set of $k$-ary r",
+      "url": "https://arxiv.org/abs/2604.21922v1"
     },
     {
-      "title": "Self-regulated galaxy evolution within a self-consistently varying galaxy-wide IMF",
-      "date": "2026-04-22",
-      "id": "2604.20843v1",
-      "abstract": "Semi-analytical evolution models of galaxies are a useful and computationally inexpensive tool for fast assessment of individual properties and their evolution. In this work, specifically the influenc",
-      "url": "https://arxiv.org/abs/2604.20843v1"
+      "title": "Dual-use quantum hardware for quantum resource generation and energy storage",
+      "date": "2026-04-23",
+      "id": "2604.21913v1",
+      "abstract": "Quantum resources such as entanglement form the backbone of quantum technologies and their efficient generation is a central objective of modern quantum platforms. Independently, quantum batteries hav",
+      "url": "https://arxiv.org/abs/2604.21913v1"
     },
     {
-      "title": "Model Predictive Communication for Timely Status Updates in Low-Altitude Networks",
-      "date": "2026-04-22",
-      "id": "2604.20610v1",
-      "abstract": "Timely information delivery in low-altitude networks is critical for many time-sensitive applications, such as unmanned aerial vehicle (UAV) navigation, inspection, and surveillance. The key challenge",
-      "url": "https://arxiv.org/abs/2604.20610v1"
+      "title": "Temporal Taskification in Streaming Continual Learning: A Source of Evaluation Instability",
+      "date": "2026-04-23",
+      "id": "2604.21930v1",
+      "abstract": "Streaming Continual Learning (CL) typically converts a continuous stream into a sequence of discrete tasks through temporal partitioning. We argue that this temporal taskification step is not a neutra",
+      "url": "https://arxiv.org/abs/2604.21930v1"
     },
     {
-      "title": "A Hough transform approach to safety-aware scalar field mapping using Gaussian Processes",
-      "date": "2026-04-22",
-      "id": "2604.20799v1",
-      "abstract": "This paper presents a framework for mapping unknown scalar fields using a sensor-equipped autonomous robot operating in unsafe environments. The unsafe regions are defined as regions of high-intensity",
-      "url": "https://arxiv.org/abs/2604.20799v1"
+      "title": "Alignment has a Fantasia Problem",
+      "date": "2026-04-23",
+      "id": "2604.21827v1",
+      "abstract": "Modern AI assistants are trained to follow instructions, implicitly assuming that users can clearly articulate their goals and the kind of assistance they need. Decades of behavioral research, however",
+      "url": "https://arxiv.org/abs/2604.21827v1"
     },
     {
-      "title": "Lifecycle-Aware Federated Continual Learning in Mobile Autonomous Systems",
-      "date": "2026-04-22",
-      "id": "2604.20745v1",
-      "abstract": "Federated continual learning (FCL) allows distributed autonomous fleets to adapt collaboratively to evolving terrain types across extended mission lifecycles. However, current approaches face several ",
-      "url": "https://arxiv.org/abs/2604.20745v1"
+      "title": "Physics of Computation and Behavior in Plants",
+      "date": "2026-04-23",
+      "id": "2604.21763v1",
+      "abstract": "Plants solve complex problems without centralized control, relying instead on growth-driven dynamics to sense, navigate, and optimize resource acquisition. This review presents a unified physical fram",
+      "url": "https://arxiv.org/abs/2604.21763v1"
     },
     {
-      "title": "Diagnosing CFG Interpretation in LLMs",
-      "date": "2026-04-22",
-      "id": "2604.20811v1",
-      "abstract": "As LLMs are increasingly integrated into agentic systems, they must adhere to dynamically defined, machine-interpretable interfaces. We evaluate LLMs as in-context interpreters: given a novel context-",
-      "url": "https://arxiv.org/abs/2604.20811v1"
+      "title": "VistaBot: View-Robust Robot Manipulation via Spatiotemporal-Aware View Synthesis",
+      "date": "2026-04-23",
+      "id": "2604.21914v1",
+      "abstract": "Recently, end-to-end robotic manipulation models have gained significant attention for their generalizability and scalability. However, they often suffer from limited robustness to camera viewpoint ch",
+      "url": "https://arxiv.org/abs/2604.21914v1"
     },
     {
-      "title": "AVISE: Framework for Evaluating the Security of AI Systems",
-      "date": "2026-04-22",
-      "id": "2604.20833v1",
-      "abstract": "As artificial intelligence (AI) systems are increasingly deployed across critical domains, their security vulnerabilities pose growing risks of high-profile exploits and consequential system failures.",
-      "url": "https://arxiv.org/abs/2604.20833v1"
+      "title": "Task-Driven Co-Design of Heterogeneous Multi-Robot Systems",
+      "date": "2026-04-23",
+      "id": "2604.21894v1",
+      "abstract": "Designing multi-agent robotic systems requires reasoning across tightly coupled decisions spanning heterogeneous domains, including robot design, fleet composition, and planning. Much effort has been ",
+      "url": "https://arxiv.org/abs/2604.21894v1"
     },
     {
-      "title": "Global Offshore Wind Infrastructure: Deployment and Operational Dynamics from Dense Sentinel-1 Time Series",
-      "date": "2026-04-22",
-      "id": "2604.20822v1",
-      "abstract": "The offshore wind energy sector is expanding rapidly, increasing the need for independent, high-temporal-resolution monitoring of infrastructure deployment and operation at global scale. While Earth O",
-      "url": "https://arxiv.org/abs/2604.20822v1"
+      "title": "Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics",
+      "date": "2026-04-23",
+      "id": "2604.21912v1",
+      "abstract": "Rhombohedral multilayer graphene (RMG) offers a highly tunable platform for correlated electron physics, featuring field-effect control of magnetic, superconducting, and topological phases[1-24]. The ",
+      "url": "https://arxiv.org/abs/2604.21912v1"
     },
     {
-      "title": "Stream-CQSA: Avoiding Out-of-Memory in Attention Computation via Flexible Workload Scheduling",
-      "date": "2026-04-22",
-      "id": "2604.20819v1",
-      "abstract": "The scalability of long-context large language models is fundamentally limited by the quadratic memory cost of exact self-attention, which often leads to out-of-memory (OOM) failures on modern hardwar",
-      "url": "https://arxiv.org/abs/2604.20819v1"
+      "title": "Ion Channel Dynamics in Temperature-Dependent Weibel Instability Saturation",
+      "date": "2026-04-23",
+      "id": "2604.21875v1",
+      "abstract": "We present 1X2V continuum Vlasov-Maxwell simulations of interpenetrating plasma beams with mobile ions. While the early-time evolution is similar to the stationary-ion case, the late-time dynamics are",
+      "url": "https://arxiv.org/abs/2604.21875v1"
     },
     {
-      "title": "High-Girth Regular Quantum LDPC Codes from Affine-Coset Structures",
-      "date": "2026-04-22",
-      "id": "2604.20838v1",
-      "abstract": "We construct a quantum low-density parity-check code family from a length-512 Calderbank-Shor-Steane base matrix pair. The base pair is $(3,8)$-regular, both Tanner graphs have girth 8 , and the base ",
-      "url": "https://arxiv.org/abs/2604.20838v1"
+      "title": "MathDuels: Evaluating LLMs as Problem Posers and Solvers",
+      "date": "2026-04-23",
+      "id": "2604.21916v1",
+      "abstract": "As frontier language models attain near-ceiling performance on static mathematical benchmarks, existing evaluations are increasingly unable to differentiate model capabilities, largely because they ca",
+      "url": "https://arxiv.org/abs/2604.21916v1"
+    },
+    {
+      "title": "A structure-preserving semi-implicit finite volume scheme on vertex-staggered unstructured meshes",
+      "date": "2026-04-23",
+      "id": "2604.21906v1",
+      "abstract": "We present a novel structure-preserving semi-implicit finite volume method on vertex-based staggered meshes for the compatible discretization of first order systems of time-dependent partial different",
+      "url": "https://arxiv.org/abs/2604.21906v1"
+    },
+    {
+      "title": "Three-periodic helices on elliptic curves and their associated regular algebras",
+      "date": "2026-04-23",
+      "id": "2604.21900v1",
+      "abstract": "Let $k$ denote an algebraically closed field of characteristic zero and let $X$ denote a smooth elliptic curve over $k$. Given a three-periodic elliptic helix $\\underline{\\mathcal{E}}$ of vector bundl",
+      "url": "https://arxiv.org/abs/2604.21900v1"
+    },
+    {
+      "title": "CrossCommitVuln-Bench: A Dataset of Multi-Commit Python Vulnerabilities Invisible to Per-Commit Static Analysis",
+      "date": "2026-04-23",
+      "id": "2604.21917v1",
+      "abstract": "We present CrossCommitVuln-Bench, a curated benchmark of 15 real-world Python vulnerabilities (CVEs) in which the exploitable condition was introduced across multiple commits - each individually benig",
+      "url": "https://arxiv.org/abs/2604.21917v1"
+    },
+    {
+      "title": "Vista4D: Video Reshooting with 4D Point Clouds",
+      "date": "2026-04-23",
+      "id": "2604.21915v1",
+      "abstract": "We present Vista4D, a robust and flexible video reshooting framework that grounds the input video and target cameras in a 4D point cloud. Specifically, given an input video, our method re-synthesizes ",
+      "url": "https://arxiv.org/abs/2604.21915v1"
     }
   ]
 }
