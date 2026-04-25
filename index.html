@@ -86,13 +86,13 @@ footer a{color:var(--text-secondary)}
     </div>
     <div class="hero-stats">
       <div class="stat" onclick="showSection('papers')" title="点击查看论文">
-        <span class="stat-num">98</span><div class="stat-label">论文</div>
+        <span class="stat-num">14</span><div class="stat-label">论文</div>
       </div>
       <div class="stat" onclick="showSection('blog')" title="点击查看博客">
-        <span class="stat-num">137</span><div class="stat-label">博客</div>
+        <span class="stat-num">138</span><div class="stat-label">博客</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击查看案例">
-        <span class="stat-num">94</span><div class="stat-label">案例分析</div>
+        <span class="stat-num">95</span><div class="stat-label">案例分析</div>
       </div>
     </div>
   </div>
@@ -189,8 +189,8 @@ const PAPERS=[
 {cats:'vla',tag:'VLA',cls:'#16a085',title:'OpenVLA: Open VLAs',meta:'2024 | VLA',url:'#'},
 ];
 
-const BLOGS=[
-{cats:'tech',tag:'Tech',cls:'#3498db',title:'active-neural-slam',meta:'2026-04-25',url:'./blog/active-neural-slam.html'},
+const BLOGS=[{cat:'research',title:'物理基础化：VLA时代VLN研究者的下一个主战场',date:'2026-04-25',url:'./blog/physical-grounding-vln-next-frontier-2026.html'},
+    {cats:'tech',tag:'Tech',cls:'#3498db',title:'active-neural-slam',meta:'2026-04-25',url:'./blog/active-neural-slam.html'},
 {cats:'tech',tag:'Tech',cls:'#3498db',title:'ai-agent-opportunities',meta:'2026-04-25',url:'./blog/ai-agent-opportunities.html'},
 {cats:'tech',tag:'Tech',cls:'#3498db',title:'ai-agent-product-market-fit-2026',meta:'2026-04-25',url:'./blog/ai-agent-product-market-fit-2026.html'},
 {cats:'tech',tag:'Tech',cls:'#3498db',title:'ai-agent-productization-challenges-2026',meta:'2026-04-25',url:'./blog/ai-agent-productization-challenges-2026.html'},
@@ -239,11 +239,10 @@ const BLOGS=[
 {cats:'tech',tag:'Tech',cls:'#3498db',title:'embodied-slam-direction',meta:'2026-04-25',url:'./blog/embodied-slam-direction.html'},
 {cats:'tech',tag:'Tech',cls:'#3498db',title:'embodied-splat-interleave-vla-cvpr-iclr-2026',meta:'2026-04-25',url:'./blog/embodied-splat-interleave-vla-cvpr-iclr-2026.html'},
 {cats:'tech',tag:'Tech',cls:'#3498db',title:'embodiedsplat-online-3d-semantic-reconstruction',meta:'2026-04-25',url:'./blog/embodiedsplat-online-3d-semantic-reconstruction.html'},
-{cats:'tech',tag:'Tech',cls:'#3498db',title:'equity-allocation-guide-2026',meta:'2026-04-25',url:'./blog/equity-allocation-guide-2026.html'}
-];
+{cats:'tech',tag:'Tech',cls:'#3498db',title:'equity-allocation-guide-2026',meta:'2026-04-25',url:'./blog/equity-allocation-guide-2026.html'}];
 
-const CASES = [
-{cat: 'comp',title: '案例分析:case-01-k-scale',date: '2026-01-01',url: '../cases/case-01-k-scale.md'},
+const CASES = [{cat:'comp',title:'StarMARS Robotics: Space-Grade Humanoid的资本赌注',date:'2026-04-25',url:'../startup/cases/case-88-starmars-robotics.md'},
+    {cat: 'comp',title: '案例分析:case-01-k-scale',date: '2026-01-01',url: '../cases/case-01-k-scale.md'},
 {cat: 'comp',title: '案例分析:case-02-china-robots',date: '2026-01-01',url: '../cases/case-02-china-robots.md'},
 {cat: 'comp',title: '案例分析:case-03-shape-robotics',date: '2026-01-01',url: '../cases/case-03-shape-robotics.md'},
 {cat: 'comp',title: '案例分析:case-04-lidian',date: '2026-01-01',url: '../cases/case-04-lidian.md'},
@@ -336,8 +335,7 @@ const CASES = [
 {cat: 'comp',title: '案例分析:case-85-kuaishou-ai-content-creation',date: '2026-01-01',url: '../cases/case-85-kuaishou-ai-content-creation.md'},
 {cat: 'comp',title: '案例分析:case-86-dexterity-robotics-hand-commercialization',date: '2026-01-01',url: '../cases/case-86-dexterity-robotics-hand-commercialization.md'},
 {cat: 'comp',title: '案例分析:case-87-irobot-market-struggle',date: '2026-01-01',url: '../cases/case-87-irobot-market-struggle.md'},
-{cat: 'comp',title: '案例分析:创业素材_20260327',date: '2026-01-01',url: '../cases/创业素材_20260327.md'}
-];];
+{cat: 'comp',title: '案例分析:创业素材_20260327',date: '2026-01-01',url: '../cases/创业素材_20260327.md'}];];
 
 function renderPapers(){
   document.getElementById('papersGrid').innerHTML=PAPERS.map(p=>`
