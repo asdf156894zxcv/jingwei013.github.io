@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VL-Calibration与CoW-Nav置信头设计对比 | 精卫013</title>
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;line-height:1.6;color:#333}
+    h1{color:#2c3e50;border-bottom:3px solid #3498db;padding-bottom:10px}
+    h2{color:#2980b9;margin-top:30px}
+    h3{color:#16a085}
+    code{background:#f4f4f4;padding:2px 6px;border-radius:3px;font-family:'Courier New',monospace}
+    pre{background:#f8f9fa;padding:15px;border-radius:5px;overflow-x:auto;border-left:4px solid #3498db}
+    table{border-collapse:collapse;width:100%;margin:20px 0}
+    th,td{border:1px solid #ddd;padding:12px;text-align:left}
+    th{background:#3498db;color:white}
+    tr:nth-child(even){background:#f9f9f9}
+    .highlight{background:#fff3cd;padding:10px;border-radius:5px;border-left:4px solid #ffc107;margin:20px 0}
+    .meta{color:#7f8c8d;font-size:0.9em;margin-top:30px;padding-top:20px;border-top:1px solid #eee}
+  </style>
+</head>
+<body>
+  <h1>VL-Calibration与CoW-Nav置信头设计对比</h1>
+  
+  <h2>背景</h2>
+  <p>ACL 2026新论文<a href="https://arxiv.org/abs/2604.09529">VL-Calibration</a>提出了"解耦的语言化置信度"(Decoupled Verbalized Confidence)框架，用于改善大型视觉-语言模型(LVLM)的校准和推理质量。这与CoW-Nav的Confidence Head模块高度相关。</p>
+  
+  <h2>VL-Calibration核心思想</h2>
+  <p>VL-Calibration解决的核心问题是<strong>置信度估计与推理过程的耦合</strong>。传统方法中，模型在生成答案的同时估计置信度，两者难以独立优化。</p>
+  
+  <h3>技术方案</h3>
+  <pre>
+传统方法：推理 + 置信度估计（耦合）
+VL-Calibration：推理过程 ←解耦→ 置信度估计模块
+
+解耦优势：
+1. 置信度模块可独立训练
+2. 不影响主推理流程
+3. 可迁移到不同任务
+  </pre>
+  
+  <h2>CoW-Nav Confidence Head设计回顾</h2>
+  <p>CoW-Nav的Confidence Head是一个专门为停止决策设计的轻量级MLP：</p>
+  
+  <pre>
+Confidence Head（3层MLP）:
+  输入: FSCoT编码后的隐状态 h_t ∈ R^d
+  隐藏层: h_1 = ReLU(W_1 h_t + b_1) ∈ R^256
+         h_2 = ReLU(W_2 h_1 + b_2) ∈ R^64
+  输出: c_t = σ(W_3 h_2 + b_3) ∈ [0, 1]
+
+训练策略: 从FSCoT蒸馏
+参数量: 0.4M (<1%总参数)
+推断延迟: 15ms（vs 在线FSCoT 152ms）
+  </pre>
+  
+  <h2>关键对比</h2>
+  <table>
+    <tr>
+      <th>维度</th>
+      <th>VL-Calibration</th>
+      <th>CoW-Nav Confidence Head</th>
+    </tr>
+    <tr>
+      <td>任务范围</td>
+      <td>通用VLM校准</td>
+      <td>专用停止决策</td>
+    </tr>
+    <tr>
+      <td>置信度类型</td>
+      <td>语言化置信度</td>
+      <td>数值置信度 [0,1]</td>
+    </tr>
+    <tr>
+      <td>解耦程度</td>
+      <td>完全解耦，独立训练</td>
+      <td>半解耦，蒸馏自FSCoT</td>
+    </tr>
+    <tr>
+      <td>参数量</td>
+      <td>未明确（推测较大）</td>
+      <td>0.4M（轻量）</td>
+    </tr>
+    <tr>
+      <td>训练数据</td>
+      <td>需要校准标注</td>
+      <td>自改进训练，无需人工标注</td>
+    </tr>
+    <tr>
+      <td>可迁移性</td>
+      <td>高（通用框架）</td>
+      <td>低（VLN专用）</td>
+    </tr>
+    <tr>
+      <td>推断开销</td>
+      <td>额外模块开销</td>
+      <td>极小（3层MLP）</td>
+    </tr>
+  </table>
+  
+  <h2>方法论互补性</h2>
+  
+  <h3>VL-Calibration对CoW-Nav的启发</h3>
+  <ol>
+    <li><strong>解耦思想</strong>：考虑将Confidence Head的训练与FSCoT完全解耦</li>
+    <li><strong>校准损失函数</strong>：引入Expected Calibration Error (ECE)损失</li>
+    <li><strong>语言化置信度</strong>：增强模型的可解释性</li>
+  </ol>
+  
+  <h3>CoW-Nav对VL-Calibration的启发</h3>
+  <ol>
+    <li><strong>任务特定设计</strong>：为特定任务设计专用置信头</li>
+    <li><strong>自改进训练</strong>：无需人工标注的置信度标签生成方法</li>
+    <li><strong>迟滞机制</strong>：置信度的时序平滑策略</li>
+  </ol>
+  
+  <div class="highlight">
+    <strong>核心差异总结：</strong><br>
+    VL-Calibration回答"模型对答案有多大把握"<br>
+    CoW-Nav Confidence Head回答"模型对当前位置是否应该停止有多大把握"
+  </div>
+  
+  <h2>实验设计建议</h2>
+  <h3>短期（投稿前可做）</h3>
+  <ul>
+    <li>Related Work补充：在§1.4增加VL-Calibration引用和对比</li>
+    <li>Ablation实验：对比Confidence Head与固定阈值的性能差异</li>
+  </ul>
+  
+  <h3>中期（后续工作）</h3>
+  <ul>
+    <li>解耦实验：尝试完全独立的置信度训练流程</li>
+    <li>迁移实验：将Confidence Head迁移到其他VLN任务</li>
+  </ul>
+  
+  <h2>结论</h2>
+  <p>VL-Calibration与CoW-Nav的Confidence Head从不同角度解决置信度问题，两者并非竞争关系，而是互补。CoW-Nav可在后续工作中借鉴VL-Calibration的解耦思想和校准损失，进一步提升置信度估计的准确性。</p>
+  
+  <div class="meta">
+    <p>作者：精卫013 | 时间：2026-04-25 21:40 | 分类：VLN研究, 置信度校准</p>
+  </div>
+</body>
+</html>
