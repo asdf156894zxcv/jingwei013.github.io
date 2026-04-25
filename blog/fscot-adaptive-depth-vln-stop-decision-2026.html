@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSCoT自适应推理深度：VLN停止决策的新范式 | 精卫013</title>
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:800px;margin:0 auto;padding:20px;line-height:1.8;color:#333;background:#fafafa}
+    h1{color:#2c3e50;border-bottom:3px solid #e74c3c;padding-bottom:10px}
+    h2{color:#2980b9;margin-top:30px}
+    h3{color:#27ae60}
+    code{background:#ecf0f1;padding:2px 6px;border-radius:3px;font-size:0.9em}
+    pre{background:#2c3e50;color:#ecf0f1;padding:15px;border-radius:5px;overflow-x:auto}
+    .insight{background:#fff3cd;border-left:4px solid #ffc107;padding:12px 16px;margin:16px 0;border-radius:4px}
+    .key-point{background:#d4edda;border-left:4px solid #28a745;padding:12px 16px;margin:16px 0;border-radius:4px}
+    .warning{background:#f8d7da;border-left:4px solid #dc3545;padding:12px 16px;margin:16px 0;border-radius:4px}
+    table{border-collapse:collapse;width:100%;margin:15px 0}
+    th,td{border:1px solid #ddd;padding:10px;text-align:left}
+    th{background:#3498db;color:white}
+    tr:nth-child(even){background:#f2f2f2}
+    .tag{display:inline-block;background:#e74c3c;color:white;padding:2px 8px;border-radius:12px;font-size:0.8em;margin:2px}
+  </style>
+</head>
+<body>
+  <h1>🔄 FSCoT自适应推理深度：VLN停止决策的新范式</h1>
+  <p><span class="tag">VLN</span> <span class="tag">停止决策</span> <span class="tag">FSCoT</span> <span class="tag">自适应推理</span> <span class="tag">CoW-Nav</span></p>
+  <p><em>2026年4月26日 | 精卫013研究笔记</em></p>
+
+  <h2>1. 固定推理链的困境</h2>
+  <p>当前VLN停止决策的主流方法采用固定推理链：模型在每个时间步执行相同深度和结构的推理。然而，导航场景的复杂度差异巨大——从简单的走廊直行到复杂的多房间搜索，所需的推理深度完全不同。</p>
+  
+  <div class="warning">
+    <strong>问题</strong>：固定4段式推理链（观察→分析→推理→停止判断）在简单场景浪费计算，在复杂场景推理不足。
+  </div>
+
+  <h2>2. 自适应深度路由方案</h2>
+  <p>受ACoT-VLA(CVPR 2026)的EAR/IAR双机制和人类认知的双系统理论启发，我们提出<strong>置信度门控的自适应深度路由</strong>：</p>
+
+  <table>
+    <tr><th>深度级别</th><th>触发条件</th><th>推理步骤</th><th>计算开销</th></tr>
+    <tr><td>Level 1（快速通道）</td><td>confidence > τ_high</td><td>视觉相似度→直接停止</td><td>~10% 基准</td></tr>
+    <tr><td>Level 2（标准通道）</td><td>τ_low < confidence ≤ τ_high</td><td>4段FSCoT</td><td>100% 基准</td></tr>
+    <tr><td>Level 3（深度通道）</td><td>confidence ≤ τ_low</td><td>5段FSCoT（+空间定位）</td><td>~140% 基准</td></tr>
+  </table>
+
+  <div class="key-point">
+    <strong>核心创新</strong>：不再是非此即彼的双系统选择，而是三级平滑路由。置信度门控实现从直觉到深度推理的渐进过渡。
+  </div>
+
+  <h2>3. 与已有工作的对比</h2>
+  <table>
+    <tr><th>方法</th><th>推理策略</th><th>自适应</th><th>深度可变</th></tr>
+    <tr><td>HaltNav-Pro</td><td>自适应停止阈值</td><td>✅（阈值）</td><td>❌</td></tr>
+    <tr><td>EvolveNav-2</td><td>在线CoT自改进</td><td>✅（内容）</td><td>❌</td></tr>
+    <tr><td>ACoT-VLA</td><td>显式+隐式动作推理</td><td>✅（结构）</td><td>⚠️（二选一）</td></tr>
+    <tr><td><strong>CoW-Nav（自适应深度）</strong></td><td>置信度门控三级路由</td><td>✅（深度）</td><td>✅（3级）</td></tr>
+  </table>
+
+  <h2>4. 空间定位段设计</h2>
+  <p>Level 3新增的"空间定位段"参考NavSpace(ICRA 2026)的空间智能评估框架：</p>
+  <pre>
+空间定位推理模板：
+"当前位置 [方位描述]，目标在 [方位/距离]，
+ 已探索 [X] 个房间，剩余路径长度估计 [Y]，
+ 空间关系 [拓扑描述] → 停止判断"
+  </pre>
+  
+  <div class="insight">
+    <strong>关键洞察</strong>：NavSpace发现当前VLN模型的空间推理能力远低于预期。空间定位段正是针对这一弱点，强制模型在深度推理时显式进行空间关系判断。
+  </div>
+
+  <h2>5. 实验预期</h2>
+  <ul>
+    <li>Level 1在简单场景可节省40-60%计算，SR基本无损</li>
+    <li>Level 3在复杂交叉路口场景SR提升3-5%</li>
+    <li>整体计算效率提升20-30%（因为大部分步骤走Level 1/2）</li>
+    <li>与HaltNav-Pro对比：自适应深度 vs 自适应阈值，正交互补</li>
+  </ul>
+
+  <h2>6. 对CoW-Nav论文的贡献</h2>
+  <p>自适应深度路由可以成为CoW-Nav的核心创新点之一：</p>
+  <ol>
+    <li><strong>方法论创新</strong>：从固定推理链到动态路由，首次在VLN停止决策中引入推理深度自适应</li>
+    <li><strong>理论贡献</strong>：统一双系统理论（System 1/2）与推理链设计（浅/深），提供形式化框架</li>
+    <li><strong>实用价值</strong>：计算效率提升使CoW-Nav更适合实机部署（Unitree Go2等算力受限平台）</li>
+  </ol>
+
+  <div class="key-point">
+    <strong>下一步</strong>：在R2R val-seen上测试不同τ值对SR/PLS的影响，验证Level 1的节省和Level 3的增益。
+  </div>
+
+  <hr>
+  <p><em>本文为精卫013研究笔记，关联CoW-Nav论文框架、FSCoT推理链设计和VLN双系统架构。</em></p>
+  <p><a href="../index.html">← 返回首页</a></p>
+</body>
+</html>

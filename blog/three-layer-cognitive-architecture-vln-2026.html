@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>具身智能的三层认知架构：从感知映射到物理基础化</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #14141f;
+            --border: #2a2a3f;
+            --text: #e0e0f0;
+            --text-dim: #8888aa;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --code-bg: #1e1e2e;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        h1 { 
+            font-size: 1.8rem; 
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .meta { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem; }
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        p { margin-bottom: 1rem; }
+        ul, ol { margin: 1rem 0; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        code {
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .highlight {
+            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(167,139,250,0.15));
+            border-left: 3px solid var(--accent);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <span class="tag">深度技术</span>
+    <span class="tag">VLN</span>
+    <h1>具身智能的三层认知架构：从感知映射到物理基础化</h1>
+    <p class="meta">2026-04-25 · 深夜的研究思考</p>
+
+<h2>引言：为什么需要认知架构？</h2>
+<p>具身智能（Embodied AI）的核心挑战在于：智能体如何在物理世界中理解环境、推理行动并做出决策过去五年，VLN（Vision-Language Navigation）领域经历了从简单感知-动作映射到复杂推理架构的演进。本文提出一个统一框架：<strong>具身智能的三层认知架构</strong>。</p>
+
+<h2>第一层：感知-动作映射派</h2>
+<p>这是VLN研究的起点，代表工作包括经典的Seq2Seq模型、Speaker-Follower模型等。</p>
+<p><strong>核心思想</strong>：将视觉观察直接映射为动作序列。</p>
+<ul>
+<li><strong>优点</strong>：简单、易训练、推理速度快</li>
+<li><strong>局限性</strong>：缺乏长期推理能力，对环境变化敏感度高，泛化能力有限</li>
+</ul>
+<p>这一层的典型问题是：当环境出现未见过的物体或布局时，模型往往完全失效。</p>
+
+<h2>第二层：语言引导的推理派</h2>
+<p>从2021年开始，以Aux-Think、EvolveNav、CoW-Nav为代表的工作引入了中间推理过程。</p>
+<p><strong>核心思想</strong>：将导航决策分解为「观察→推理→动作」的可解释步骤。</p>
+<div class="highlight">
+<strong>Auxiliary Thinker vs CoW-Nav</strong><br>
+- Aux-Think: 端到端隐式推理，黑盒模型<br>
+- CoW-Nav: 两阶段显式推理，可解释架构
+</div>
+<p><strong>代表进展</strong>：</p>
+<ul>
+<li><strong>Aux-Think</strong>：引入Auxiliary Thinker模块，辅助主策略网络</li>
+<li><strong>EvolveNav</strong>：渐进式视觉语言融合，适应未知环境</li>
+<li><strong>CoW-Nav</strong>：跨模态不确定性对齐 + 双阶段决策</li>
+</ul>
+<p>第二层的核心优势是可解释性：我们可以观察thought序列，理解智能体的推理过程。</p>
+
+<h2>第三层：具身认知派（未来方向）</h2>
+<p>这是当前最前沿的研究方向，核心命题是：智能体需要理解<strong>物理约束</strong>。</p>
+<p><strong>三个关键问题</strong>：</p>
+<ol>
+<li><strong>Affordance（可操作性）</strong>：这个物体能做什么？杯子可以盛水，椅子可以坐</li>
+<li><strong>语义继承（Semantic Inheritance）</strong>：物体属性如何传递？打开抽屉，里面的物体也属于该抽屉</li>
+<li><strong>物理因果（Physical Causality）</strong>：推动物体A会碰撞物体B吗？</li>
+</ol>
+<p>第三层的研究尚处于早期，但预示着VLN的终极目标：让智能体像人类一样理解物理世界。</p>
+
+<h2>三层架构的统一视角</h2>
+<pre><code>第一层：Observation → Action（感知-动作）
+第二层：Observation → Thought → Action（推理-动作）
+第三层：Observation + Physical Knowledge → Thought → Action（认知-动作）</code></pre>
+<p>三层架构代表VLN研究的演进路径，也对应着智能体认知能力的三个层次。</p>
+
+<h2>对CoW-Nav研究的启示</h2>
+<p>CoW-Nav处于第二层（推理派）向第三层（认知派）过渡的关键位置：</p>
+<ul>
+<li><strong>跨模态不确定性对齐</strong>：解决视觉与语言的分布差距</li>
+<li><strong>双阶段决策</strong>：可解释的推理架构</li>
+<li><strong>物理基础化方向</strong>：引入affordance推理，提高泛化能力</li>
+</ul>
+<p>Related Work的写作需要明确CoW-Nav在三层架构中的位置，并与各层代表性工作进行对比。</p>
+
+<h2>结论</h2>
+<p>具身智能的三层认知架构提供了一个统一视角，理解VLN五年来的演进路径：</p>
+<ul>
+<li>第一层解决「怎么做」</li>
+<li>第二层解决「为什么这么做」</li>
+<li>第三层解决「理解物理世界」</li>
+</ul>
+<p>CoW-Nav的贡献在于：为第二层提供可解释的双阶段架构，同时为第三层奠定物理基础化的基础。</p>
+
+<hr>
+<p style="color: var(--text-dim); margin-top: 2rem;">
+    <strong>作者注</strong>：深夜的思考，整理自CoW-Nav Related Work补充方向。系列文章第三篇。
+</p>
+</body>
+</html>
