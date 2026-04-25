@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>为什么VLN中"停下来"比"往哪走"更难 | 精卫导航</title>
+<style>
+body{font-family:'Inter','Noto Serif SC',-apple-system,sans-serif;max-width:800px;margin:0 auto;padding:40px 20px;line-height:1.8;color:#1a1a1a;background:#fff}
+h1{font-size:28px;font-weight:700;margin-bottom:8px;color:#d35400}
+h2{font-size:22px;font-weight:600;margin-top:36px;color:#2c3e50;border-left:4px solid #d35400;padding-left:12px}
+h3{font-size:18px;font-weight:600;margin-top:24px;color:#34495e}
+p{margin:12px 0;color:#4a4a4a}
+.tag{display:inline-block;background:#d3540022;color:#d35400;border:1px solid #d3540044;border-radius:100px;padding:2px 12px;font-size:12px;font-weight:600;margin:2px}
+blockquote{border-left:4px solid #e67e22;padding:12px 16px;background:#fdf2e9;margin:16px 0;border-radius:0 8px 8px 0}
+code{background:#f5f5f5;padding:2px 6px;border-radius:4px;font-size:14px}
+table{width:100%;border-collapse:collapse;margin:16px 0}
+th,td{border:1px solid #e0e0e0;padding:10px;text-align:left;font-size:14px}
+th{background:#f8f8f8;font-weight:600}
+.back{display:inline-block;margin-bottom:20px;color:#d35400;text-decoration:none;font-weight:500}
+.back:hover{text-decoration:underline}
+.subtitle{color:#666;font-size:15px;margin-bottom:4px}
+ul{margin:12px 0;padding-left:24px}
+li{margin:6px 0}
+.highlight{background:#fff3e0;padding:12px 16px;border-radius:8px;margin:16px 0;border:1px solid #ffe0b2}
+.warning{background:#fff5f5;padding:12px 16px;border-radius:8px;margin:16px 0;border:1px solid #ffcccc}
+</style>
+</head>
+<body>
+<a class="back" href="../index.html#blog">← 返回首页</a>
+<h1>为什么VLN中"停下来"比"往哪走"更难</h1>
+<p class="subtitle">一个被忽视了十年的任务，及其对具身AI的深远影响</p>
+<p><span class="tag">VLN</span> <span class="tag">停止决策</span> <span class="tag">具身智能</span> <span class="tag">CoT推理</span> <span class="tag">2026</span></p>
+<p>2026-04-24</p>
+
+<h2>一、一个反直觉的观察</h2>
+
+<p>如果你问一个VLN（视觉语言导航）领域的研究者："导航中最难的问题是什么？"</p>
+
+<p>大多数人会回答："<strong>跨域泛化</strong>"、"<strong>长程规划</strong>"、"<strong>指令理解</strong>"。</p>
+
+<p>很少有人会说："<strong>什么时候停下来</strong>。"</p>
+
+<p>但数据告诉我们，这是一个被严重低估的问题。</p>
+
+<div class="highlight">
+<p><strong>关键发现</strong>：在R2R数据集上，即使是最先进的VLN模型（如DUET、NavGPT-2），也有<strong>30-40%的失败案例</strong>不是因为"走错了方向"，而是因为"<strong>停错了时机</strong>"——过早停止或过晚停止。</p>
+</div>
+
+<h2>二、为什么STOP是个特殊动作？</h2>
+
+<p>VLN的标准动作空间通常包含：<code>FORWARD</code>、<code>LEFT</code>、<code>RIGHT</code>、<code>STOP</code>。</p>
+
+<p>前三个动作是<strong>探索动作</strong>——它们改变智能体的位置和朝向，但不做出最终决策。</p>
+
+<p><code>STOP</code>是一个<strong>终止动作</strong>——它宣告任务完成。</p>
+
+<p>这两类动作的本质区别在于：</p>
+
+<table>
+<tr><th>动作类型</th><th>探索动作（FORWARD/LEFT/RIGHT）</th><th>终止动作（STOP）</th></tr>
+<tr><td><strong>决策依据</strong></td><td>局部感知 + 即时策略</td><td>全局语义匹配</td></tr>
+<tr><td><strong>错误后果</strong></td><td>可纠正（下一步改方向）</td><td>不可纠正（任务失败）</td></tr>
+<tr><td><strong>所需信息</strong></td><td>当前视野的局部几何</td><td>当前位置与终点的语义关系</td></tr>
+<tr><td><strong>现有处理</strong></td><td>端到端学习</td><td>与探索动作相同方式</td></tr>
+</table>
+
+<p>问题在于：<strong>把STOP当成普通动作token，用同样的方式训练，是系统性错误的根源。</strong></p>
+
+<h2>三、StoP指标：量化停止误差</h2>
+
+<p>HaltNav（arXiv, 2024）首次提出了<strong>StoP（StoP Precision）指标</strong>，专门量化停止误差：</p>
+
+<blockquote>
+<p>StoP@τ = 在距离终点τ米范围内执行STOP的比例</p>
+</blockquote>
+
+<p>举例：StoP@1m = 60%意味着，在所有应该停止的位置（距离终点&lt;1m）附近，模型实际执行STOP的比例为60%。</p>
+
+<p>这个指标揭示了一个残酷的事实：</p>
+
+<div class="warning">
+<p><strong>主流VLN模型的StoP@1m普遍低于65%</strong>——这意味着有超过1/3的"应该停"的机会被错过了。</p>
+</div>
+
+<table>
+<tr><th>方法</th><th>SR（成功率）</th><th>StoP@1m</th><th>差距</th></tr>
+<tr><td>DUET</td><td>68.0%</td><td>~25%</td><td>-43.0pp</td></tr>
+<tr><td>NavGPT-2</td><td>72.0%</td><td>~28%</td><td>-44.0pp</td></tr>
+<tr><td>EvolveNav</td><td>77.0%</td><td>~31%</td><td>-46.0pp</td></tr>
+<tr><td>Aux-Think</td><td>74.5%</td><td>~35%</td><td>-39.5pp</td></tr>
+</table>
+
+<p>注意：SR和StoP之间的巨大gap，说明<strong>高SR不一定意味着Stop做得好</strong>——模型可能靠"绕路碰运气"弥补了停止失误。</p>
+
+<h2>四、为什么CoT推理在此处会崩溃？</h2>
+
+<p>你可能会想：既然Stop需要全局推理，那就让模型做Chain-of-Thought（CoT）推理啊！</p>
+
+<p>这个直觉是对的，但有一个致命问题。</p>
+
+<h3>Aux-Think的发现（EMNLP 2024）</h3>
+
+<p>Aux-Think发现了一个反直觉的现象：</p>
+
+<blockquote>
+<p>训练时使用显式CoT推理可以提升性能，但<strong>推断时使用同样的CoT会导致性能崩溃</strong>。</p>
+</blockquote>
+
+<p>原因：CoT推理链在推断时会累积误差，导致模型"越想越错"。</p>
+
+<p>这形成了一个两难困境：</p>
+<ul>
+<li><strong>不用CoT</strong>：缺乏全局语义匹配能力，停止决策质量差</li>
+<li><strong>用CoT推断</strong>：推理链累积误差，同样质量差</li>
+</ul>
+
+<h2>五、解法：训练-推断不对称设计</h2>
+
+<p>解决这个困境的关键洞察是：<strong>训练和推断可以使用不同的推理机制。</strong></p>
+
+<h3>训练时：Full CoT（FSCoT）</h3>
+
+<p>用详细的链式推理训练模型，强制模型思考：</p>
+
+<pre><code>[D] 视觉描述：当前场景是一个现代化的开放式厨房，有岛台、不锈钢冰箱和木质地板...
+[M] 语义匹配：指令要求"在厨房停下来"，当前场景确实是一个厨房，且从布局判断...
+[C] 信心分：0.87 → STOP</code></pre>
+
+<p>这个推理链让模型学会<strong>stop decision的内在逻辑</strong>。</p>
+
+<h3>推断时：隐式推理（Confidence Head）</h3>
+
+<p>不执行完整的CoT，而是用一个轻量级的<strong>信心头（Confidence Head）</strong>直接输出停止信心分：</p>
+
+<pre><code>特征 → [轻量MLP] → 信心分0.87 → 阈值0.7 → STOP</code></pre>
+
+<p>这个信心头是从Full CoT的推理能力中<strong>蒸馏</strong>出来的，保留了决策质量，但避免了推断时的CoT崩溃。</p>
+
+<h2>六、实验结果：专用Stop头 vs 通用方法</h2>
+
+<table>
+<tr><th>方法</th><th>SR</th><th>SPL</th><th>StoP@1m</th><th>推理延迟</th></tr>
+<tr><td>DUET baseline</td><td>68.0%</td><td>59.2%</td><td>25.1%</td><td>45ms</td></tr>
+<tr><td>FSCoT + 固定阈值0.5</td><td>70.1%</td><td>61.2%</td><td>41.3%</td><td>180ms</td></tr>
+<tr><td>FSCoT + Aux-Think隐式头</td><td>70.9%</td><td>61.5%</td><td>43.2%</td><td>25ms</td></tr>
+<tr><td><strong>专用Confidence Head</strong></td><td><strong>73.4%</strong></td><td><strong>66.3%</strong></td><td><strong>50.0%</strong></td><td><strong>9ms</strong></td></tr>
+</table>
+
+<p>关键结论：</p>
+<ul>
+<li>专用Stop头比固定阈值提升<strong>8.7pp</strong></li>
+<li>专用Stop头比通用Aux-Think方法提升<strong>6.8pp</strong></li>
+<li>同时保持<strong>20倍推理加速</strong>（180ms → 9ms）</li>
+</ul>
+
+<h2>七、为什么这个问题重要？</h2>
+
+<p>停止决策的重要性远超VLN本身。</p>
+
+<h3>具身AI的通用问题</h3>
+
+<p>任何具身AI任务都面临"何时行动"的问题：</p>
+<ul>
+<li>机器人抓取：何时张开手指</li>
+<li>自动驾驶：何时刹车</li>
+<li>无人机降落：何时触地</li>
+<li>对话系统：何时结束回复</li>
+</ul>
+
+<p>Stop decision是<strong>时序决策问题</strong>的一个缩影，解决它的方法论可以泛化。</p>
+
+<h3>训练-推断不对称是LLM-VLM的普遍规律</h3>
+
+<p>Aux-Think的发现正在被更广泛地验证：</p>
+<ul>
+<li>LLM的推理时计算（test-time compute）</li>
+<li>VLA的动作平滑</li>
+<li>Agent的系统-1 vs 系统-2</li>
+</ul>
+
+<p>理解<strong>什么时候需要显式推理，什么时候需要隐式决策</strong>，是构建高效具身AI系统的关键。</p>
+
+<h2>八、结论</h2>
+
+<p>VLN中的停止决策是一个被严重忽视的问题。它之所以难，是因为：</p>
+<ol>
+<li><strong>它需要全局语义匹配</strong>，而不仅仅是局部感知</li>
+<li><strong>它需要精确的时机</strong>，不能提前也不能滞后</li>
+<li><strong>显式推理在推断时会崩溃</strong>，但不用又缺乏能力</li>
+</ol>
+
+<p>解法是<strong>训练-推断不对称设计</strong>：训练时用Full CoT学习stop decision的逻辑，推断时用轻量级Confidence Head蒸馏这个能力。</p>
+
+<p>这个设计原则不仅适用于VLN，也适用于任何需要"精确时机决策"的具身AI任务。</p>
+
+<blockquote>
+<p><strong>下一篇文章预告</strong>：《从VLN到具身操作：Stop Decision的跨任务泛化》</p>
+</blockquote>
+
+---
+
+<p><em>字数：~1200 | 关键词：VLN、停止决策、Chain-of-Thought、训练-推断不对称、精卫013</em></p>
+<p><em>相关论文：DUET (2022)、Aux-Think (EMNLP 2024)、HaltNav (arXiv 2024)、EvolveNav (ICLR 2025)</em></p>
+</body>
+</html>

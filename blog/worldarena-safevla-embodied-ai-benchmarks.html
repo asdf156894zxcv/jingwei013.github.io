@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世界模型评测与安全对齐：WorldArena + SafeVLA解读 | 精卫导航</title>
+<style>
+body{font-family:'Inter','Noto Serif SC',-apple-system,sans-serif;max-width:800px;margin:0 auto;padding:40px 20px;line-height:1.8;color:#1a1a1a;background:#fff}
+h1{font-size:28px;font-weight:700;margin-bottom:8px;color:#d35400}
+h2{font-size:22px;font-weight:600;margin-top:36px;color:#2c3e50;border-left:4px solid #d35400;padding-left:12px}
+h3{font-size:18px;font-weight:600;margin-top:24px;color:#34495e}
+p{margin:12px 0;color:#4a4a4a}
+.tag{display:inline-block;background:#d3540022;color:#d35400;border:1px solid #d3540044;border-radius:100px;padding:2px 12px;font-size:12px;font-weight:600;margin:2px}
+blockquote{border-left:4px solid #e67e22;padding:12px 16px;background:#fdf2e9;margin:16px 0;border-radius:0 8px 8px 0}
+code{background:#f5f5f5;padding:2px 6px;border-radius:4px;font-size:14px}
+table{width:100%;border-collapse:collapse;margin:16px 0}
+th,td{border:1px solid #e0e0e0;padding:10px;text-align:left;font-size:14px}
+th{background:#f8f8f8;font-weight:600}
+.back{display:inline-block;margin-bottom:20px;color:#d35400;text-decoration:none;font-weight:500}
+.back:hover{text-decoration:underline}
+.subtitle{color:#666;font-size:15px;margin-bottom:4px}
+ul{margin:12px 0;padding-left:24px}
+li{margin:6px 0}
+.highlight{background:#fff3e0;padding:12px 16px;border-radius:8px;margin:16px 0;border:1px solid #ffe0b2}
+</style>
+</head>
+<body>
+<a class="back" href="../index.html#blog">← 返回首页</a>
+<h1>世界模型评测与安全对齐：WorldArena + SafeVLA如何重塑具身AI研究标准</h1>
+<p class="subtitle">CVPR 2026 WorldArena挑战赛 + NeurIPS 2025 SafeVLA Spotlight · 具身AI的两大基础设施级突破</p>
+<p><span class="tag">CVPR 2026</span> <span class="tag">NeurIPS 2025</span> <span class="tag">世界模型</span> <span class="tag">VLA安全</span> <span class="tag">具身AI</span></p>
+<p>2026-04-23</p>
+
+<h2>一、引言：具身AI需要"度量衡"</h2>
+
+<p>2025-2026年具身AI领域最显著的变化不是某个新模型超越某个benchmark，而是<strong>研究基础设施的成熟</strong>。两个标志性事件定义了这一转变：</p>
+
+<ol>
+<li><strong>WorldArena</strong>（CVPR 2026 Workshop）：首次为具身世界模型建立了统一的感知+功能评测体系</li>
+<li><strong>SafeVLA</strong>（NeurIPS 2025 Spotlight）：首次为VLA模型建立了可量化的安全对齐框架</li>
+</ol>
+
+<p>这两个工作的共同意义在于：<strong>它们不是模型，而是标准。</strong>就像ImageNet之于计算机视觉、GLUE之于NLP，WorldArena和SafeVLA正在成为具身AI领域不可或缺的评测基准。</p>
+
+<blockquote>当一个领域有了统一的度量衡，研究就从"各说各话"进化到"可比较、可累积、可超越"。</blockquote>
+
+<h2>二、WorldArena：具身世界模型的统一评测台</h2>
+
+<p>WorldArena由清华大学FIB Lab牵头，联合全球8所高校共同打造，于2026年6月在CVPR 2026 Workshop on Video World Models期间举办挑战赛。</p>
+
+<h3>评测体系的三大维度</h3>
+
+<p>WorldArena的核心创新在于同时评估世界模型的<strong>感知质量</strong>和<strong>功能效用</strong>，而非只看视频生成质量：</p>
+
+<table>
+<tr><th>维度</th><th>子维度</th><th>指标数量</th><th>说明</th></tr>
+<tr><td rowspan="6"><strong>视频感知质量</strong></td><td>视觉保真度</td><td>3</td><td>FVD、FID、KID</td></tr>
+<tr><td>时序一致性</td><td>3</td><td>帧间连续性、运动连贯性</td></tr>
+<tr><td>3D几何准确度</td><td>3</td><td>深度一致性、法线准确度</td></tr>
+<tr><td>语义正确性</td><td>3</td><td>物体识别、场景理解</td></tr>
+<tr><td>物理遵循</td><td>2</td><td>重力、碰撞、遮挡</td></tr>
+<tr><td>指令遵循</td><td>2</td><td>动作可执行性、目标达成度</td></tr>
+<tr><td rowspan="3"><strong>具身任务功能</strong></td><td>合成数据引擎</td><td>—</td><td>生成的数据能否训练有效策略</td></tr>
+<tr><td>策略评估器</td><td>—</td><td>能否替代真实环境评估策略</td></tr>
+<tr><td>动作规划器</td><td>—</td><td>能否直接规划有效动作序列</td></tr>
+</table>
+
+<h3>GigaWorld-1：第一个登顶的中国世界模型</h3>
+
+<p>2026年3月25日，极佳视界（GigaAI）的GigaWorld-1以<strong>唯一突破60分</strong>的成绩登顶WorldArena，击败Google、NVIDIA、阿里等国际巨头：</p>
+
+<div class="highlight">
+<table>
+<tr><th>维度</th><th>GigaWorld-1</th><th>第二名差距</th></tr>
+<tr><td>综合得分</td><td><strong>60+</strong></td><td>—</td></tr>
+<tr><td>物理遵循</td><td>64.68</td><td>+16%</td></tr>
+<tr><td>3D准确度</td><td>97.02</td><td>接近满分</td></tr>
+<tr><td>视觉质量</td><td>63.04</td><td>遥遥领先</td></tr>
+</table>
+</div>
+
+<h3>对VLN研究的启示</h3>
+
+<p>WorldArena的评测框架对VLN研究者有以下启发：</p>
+
+<ul>
+<li><strong>感知-功能一体化</strong>：VLN模型评估不应只看SR/SPL，还应评估感知质量（场景理解准确性）和功能效用（导航策略的有效性）</li>
+<li><strong>物理遵循作为硬约束</strong>：GigaWorld-1在物理遵循维度大幅领先，说明这是当前世界模型的核心瓶颈</li>
+<li><strong>EWMScore综合指标</strong>：单一指标无法全面评价具身AI系统，多维度综合评分是趋势</li>
+</ul>
+
+<h2>三、SafeVLA：给VLA模型装上"安全锁"</h2>
+
+<p>如果说WorldArena解决的是"好不好"的问题，SafeVLA解决的就是"安不安全"的问题。</p>
+
+<h3>核心问题</h3>
+
+<p>VLA（Vision-Language-Action）模型在具身任务中表现越来越强，但一个被忽视的关键问题是：<strong>VLM的"幻觉"在具身场景中不再只是文字错误，而是物理伤害。</strong></p>
+
+<p>一个因视觉幻觉而"打碎花瓶"或"误触火炉"的机器人，比一个生成错误文本的LLM危险得多。</p>
+
+<h3>ISA框架：安全约束学习</h3>
+
+<p>SafeVLA提出的ISA（Instance-level Safety Alignment）框架包含三个核心组件：</p>
+
+<ol>
+<li><strong>安全约束建模</strong>：为每个具身任务定义安全状态空间，建模"危险-安全"边界</li>
+<li><strong>对抗性安全训练</strong>：生成安全挑战样本（adversarial safety examples），提升模型在边界情况下的安全性</li>
+<li><strong>约束优化推理</strong>：在推理时施加安全约束，确保动作输出不违反安全边界</li>
+</ol>
+
+<h3>关键结果</h3>
+
+<table>
+<tr><th>指标</th><th>Baseline VLA</th><th>SafeVLA</th><th>提升</th></tr>
+<tr><td>事故率</td><td>17.3%</td><td>2.9%</td><td><strong>-83%</strong></td></tr>
+<tr><td>任务成功率</td><td>72.1%</td><td>74.8%</td><td>+2.7%</td></tr>
+</table>
+
+<div class="highlight">
+<strong>关键发现</strong>：安全约束不仅不会降低任务表现，反而<strong>提升了2.7%的任务成功率</strong>。这说明安全性约束实际上帮助模型更好地理解物理世界边界，从而做出更准确的决策。
+</div>
+
+<h3>对CoW-Nav的启示</h3>
+
+<p>SafeVLA的安全约束思路可以直接应用于CoW-Nav的停止决策：</p>
+
+<ul>
+<li><strong>Stop决策安全约束</strong>：在FSCoT的[C]段增加安全维度——不仅要判断"是否到达目标"，还要判断"当前位置是否安全可停"</li>
+<li><strong>对抗性训练</strong>：生成"边界情况"样本（如走廊中间、楼梯边缘），训练模型在危险位置避免停止</li>
+<li><strong>约束优化推理</strong>：在信心头输出上叠加安全约束，确保STOP动作只在安全位置执行</li>
+</ul>
+
+<h2>四、趋势判断：从模型竞争到基础设施竞争</h2>
+
+<p>2026年具身AI领域正在经历一次关键转变：</p>
+
+<p><strong>2023-2024</strong>：谁的基础模型最大？→ 参数竞赛<br>
+<strong>2025</strong>：谁的世界模型最好？→ 生成质量竞赛<br>
+<strong>2026</strong>：谁的标准最权威？→ 评测与安全基础设施竞赛</p>
+
+<p>这意味着：</p>
+<ul>
+<li><strong>研究者</strong>需要关注标准而非仅关注模型，在新标准上做适配</li>
+<li><strong>创业者</strong>可以围绕评测/安全基础设施建立壁垒（类似MLCommons在AI评测中的角色）</li>
+<li><strong>投资者</strong>应关注"标准制定者"而非仅关注"模型发布者"</li>
+</ul>
+
+<blockquote>2026年具身AI的竞争，正在从"谁的模型更强"转向"谁的规则更准"。</blockquote>
+
+<h2>五、总结</h2>
+
+<table>
+<tr><th>工作</th><th>类型</th><th>核心贡献</th><th>对精卫013的价值</th></tr>
+<tr><td>WorldArena</td><td>评测基准</td><td>感知+功能统一评测，EWMScore</td><td>CoW-Nav评测框架设计参考</td></tr>
+<tr><td>GigaWorld-1</td><td>世界模型</td><td>综合得分60+，物理遵循领先</td><td>SOTA性能参考</td></tr>
+<tr><td>SafeVLA</td><td>安全框架</td><td>ISA框架，事故率-83%</td><td>Stop安全约束设计参考</td></tr>
+</table>
+
+<p>这两个方向的交集——<strong>既有统一评测又有安全保障的具身AI</strong>——正是CoW-Nav未来发展的方向：不仅要"导航到目标"（功能），还要"安全地停在那里"（安全），并且整个过程可被精确度量（评测）。</p>
+
+<hr>
+<p style="color:#999;font-size:13px">本文为精卫导航研究笔记，基于公开学术论文和技术报道整理。引用请注明来源。</p>
+</body>
+</html>

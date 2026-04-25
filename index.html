@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -86,13 +86,13 @@ footer a{color:var(--text-secondary)}
     </div>
     <div class="hero-stats">
       <div class="stat" onclick="showSection('papers')" title="点击查看论文">
-        <span class="stat-num">47</span><div class="stat-label">论文</div>
+        <span class="stat-num">97</span><div class="stat-label">论文</div>
       </div>
       <div class="stat" onclick="showSection('blog')" title="点击查看博客">
-        <span class="stat-num">131</span><div class="stat-label">博客</div>
+        <span class="stat-num">133</span><div class="stat-label">博客</div>
       </div>
       <div class="stat" onclick="showSection('cases')" title="点击查看案例">
-        <span class="stat-num">85</span><div class="stat-label">案例分析</div>
+        <span class="stat-num">92</span><div class="stat-label">案例分析</div>
       </div>
     </div>
   </div>
@@ -173,7 +173,7 @@ footer a{color:var(--text-secondary)}
 <footer>
   <div class="container">
     <p>© 2024-2026 精卫导航 | <a href="https://jingwei013.github.io">jingwei013.github.io</a></p>
-    <p>Last Update: 2026-04-24</p>
+    <p>Last Update: 2026-04-25</p>
   </div>
 </footer>
 
@@ -319,92 +319,100 @@ const BLOGS=[
   },
 ];
 
-const CASES = [{cat: 'comp',title: '案例分析:K-Scale Labs - 硅谷明星人形机器人公司的陨落',date: '2026-01-01',url: '../startup/cases/case-01-k-scale.md'},
-{cat: 'comp',title: '案例分析:中国具身智能公司倒闭潮',date: '2026-01-01',url: '../startup/cases/case-02-china-robots.md'},
-{cat: 'comp',title: '案例分析:Shape Robotics - 教育机器人先驱的陨落',date: '2026-01-01',url: '../startup/cases/case-03-shape-robotics.md'},
-{cat: 'comp',title: '案例分析:Lidian - 中国自动驾驶先驱的陨落',date: '2026-01-01',url: '../startup/cases/case-04-lidian.md'},
-{cat: 'comp',title: '案例分析:iRobot - 消费级机器人先驱的衰落',date: '2026-01-01',url: '../startup/cases/case-05-irobot.md'},
-{cat: 'comp',title: '行业深度分析:机器人创业失败启示录',date: '2026-01-01',url: '../startup/cases/case-06-robotics-industry.md'},
-{cat: 'comp',title: '案例分析:Quibi - 史上最快陨落的流媒体巨头',date: '2026-01-01',url: '../startup/cases/case-07-quibi.md'},
-{cat: 'comp',title: '行业深度分析:移动应用创业失败启示录',date: '2026-01-01',url: '../startup/cases/case-08-mobile-app.md'},
-{cat: 'comp',title: '宇树科技:王兴兴的硬核创业路',date: '2026-01-01',url: '../startup/cases/case-09-yushu-tech.md'},
-{cat: 'comp',title: '大疆创新:无人机帝国的崛起与焦虑',date: '2026-01-01',url: '../startup/cases/case-10-dji.md'},
-{cat: 'comp',title: '泡泡玛特:从杂货铺到千亿潮玩帝国',date: '2026-01-01',url: '../startup/cases/case-11-popmart.md'},
-{cat: 'comp',title: '案例分析:K-Scale Labs - 5000万美元估值的开源人形机器人陨落',date: '2026-01-01',url: '../startup/cases/case-12-k-scale-labs.md'},
-{cat: 'comp',title: '案例分析:2025年AI应用倒闭潮--25款产品的集体"猝死"',date: '2026-01-01',url: '../startup/cases/case-13-ai-apps-death-2025.md'},
-{cat: 'comp',title: '案例分析:Wave Computing -- 英伟达挑战者的陨落',date: '2026-01-01',url: '../startup/cases/case-14-wave-computing.md'},
-{cat: 'pmf',title: 'Adept AI - AI Agent先驱的悄然落幕',date: '2026-01-01',url: '../startup/cases/case-15-adept-ai.md'},
-{cat: 'comp',title: 'Humane AI Pin - 1.8亿美元做出的最贵「退货品」',date: '2026-01-01',url: '../startup/cases/case-16-humane-ai-pin.md'},
-{cat: 'comp',title: 'Inflection AI:$1.5B融资,微软以6.5亿"租"走核心团队',date: '2026-01-01',url: '../startup/cases/case-17-inflection-ai.md'},
-{cat: 'comp',title: 'Argo AI - $36亿融资烧光的L4自动驾驶独角兽',date: '2026-01-01',url: '../startup/cases/case-18-argo-ai.md'},
-{cat: 'comp',title: 'Juicero - $700物联网榨汁机的硅谷最大笑话',date: '2026-01-01',url: '../startup/cases/case-19-juicero.md'},
-{cat: 'comp',title: '案例分析:WeWork - $470亿估值神话的崩塌',date: '2026-01-01',url: '../startup/cases/case-20-wework.md'},
-{cat: 'comp',title: '案例分析:Theranos - 硅谷史上最大医疗骗局',date: '2026-01-01',url: '../startup/cases/case-21-theranos.md'},
-{cat: 'comp',title: '案例分析:柔宇科技 - 中国折叠屏独角兽的陨落',date: '2026-01-01',url: '../startup/cases/case-22-royole.md'},
-{cat: 'comp',title: '案例分析:每日优鲜 - 中国前置仓生鲜电商的崩盘',date: '2026-01-01',url: '../startup/cases/case-23-missfresh.md'},
-{cat: 'pmf',title: 'Zume Pizza - 软银砸$4.46亿的机器人披萨公司如何归零',date: '2026-01-01',url: '../startup/cases/case-24-zume-pizza.md'},
-{cat: 'comp',title: 'Embodied (Moxie) - 估值$20亿的儿童情感陪伴机器人如何变"砖"',date: '2026-01-01',url: '../startup/cases/case-25-embodied-moxie.md'},
-{cat: 'comp',title: 'Character.AI - 从$50亿估值到被Google"反向收购"的AI聊天巨头',date: '2026-01-01',url: '../startup/cases/case-26-character-ai.md'},
-{cat: 'comp',title: 'Case-27: Rabbit R1 - AI硬件从爆款到翻车',date: '2026-01-01',url: '../startup/cases/case-27-rabbit-r1.md'},
-{cat: 'comp',title: 'Case-28: Stability AI - 开源AI的自毁之路',date: '2026-01-01',url: '../startup/cases/case-28-stability-ai.md'},
-{cat: 'comp',title: 'Case-29: Mojo Vision - AR隐形眼镜的十年豪赌',date: '2026-01-01',url: '../startup/cases/case-29-mojo-vision.md'},
-{cat: 'comp',title: 'Case-30: Skydio - 消费无人机到军工的生死转型',date: '2026-01-01',url: '../startup/cases/case-30-skydio.md'},
-{cat: 'comp',title: 'Case-31: Figure AI - 人形机器人的资本狂飙',date: '2026-01-01',url: '../startup/cases/case-31-figure-ai.md'},
-{cat: 'comp',title: 'Case-32: Dextrous Robotics - 物流机器人的沉默出局',date: '2026-01-01',url: '../startup/cases/case-32-dextrous-robotics.md'},
-{cat: 'comp',title: 'Case-33: Small Robot Company - 英国农业机器人的信念与现实',date: '2026-01-01',url: '../startup/cases/case-33-small-robot-company.md'},
-{cat: 'comp',title: 'Case-34: AI Companion Device Startup - 硬件AI助手的困局',date: '2026-01-01',url: '../startup/cases/case-34-ai-companion-device.md'},
-{cat: 'comp',title: 'Quibi:17.5亿美元烧出来的6个月',date: '2026-01-01',url: '../startup/cases/case-36-quibi.md'},
-{cat: 'comp',title: 'WeWork:从470亿美元到破产,孙正义160亿学费买来的教训',date: '2026-01-01',url: '../startup/cases/case-37-wework.md'},
-{cat: 'comp',title: 'case-38-servi-robotics.md',date: '2026-01-01',url: '../startup/cases/case-38-servi-robotics.md'},
-{cat: 'comp',title: 'case-39-figure-ai.md',date: '2026-01-01',url: '../startup/cases/case-39-figure-ai.md'},
-{cat: 'comp',title: 'case-40-1x-technologies.md',date: '2026-01-01',url: '../startup/cases/case-40-1x-technologies.md'},
-{cat: 'comp',title: 'case-41-agibot.md',date: '2026-01-01',url: '../startup/cases/case-41-agibot.md'},
-{cat: 'comp',title: 'ofo小黄车:从共享经济明星到欠债15亿的溃败启示录',date: '2026-01-01',url: '../startup/cases/case-42-ofo-bicycle.md'},
-{cat: 'pmf',title: 'Quibi:17.5亿美元融资、90天倒闭的流媒体悲剧',date: '2026-01-01',url: '../startup/cases/case-43-quibi.md'},
-{cat: 'comp',title: 'Case 44: Longhair AI(龙跃AI)',date: '2026-01-01',url: '../startup/cases/case-44-longhair-ai.md'},
-{cat: 'comp',title: 'Perplexity AI:挑战Google的AI搜索新物种',date: '2026-01-01',url: '../startup/cases/case-44-perplexity-ai.md'},
-{cat: 'comp',title: '创业案例 #45:Figure AI - 人形机器人赛道的"特斯拉挑战者"',date: '2026-01-01',url: '../startup/cases/case-45-figure-ai.md'},
-{cat: 'comp',title: 'Case-46: Unitree Robotics - 人形机器人赛道的"大疆模式"能否复制?',date: '2026-01-01',url: '../startup/cases/case-46-unitree-robotics.md'},
-{cat: 'pmf',title: 'Case 47: Yupp - AI评测独角兽22个月倒闭',date: '2026-01-01',url: '../startup/cases/case-47-yupp.md'},
-{cat: 'comp',title: 'Case 48: 深度机智 (DeepCybo) - 3个月3轮的"物理AI"黑马',date: '2026-01-01',url: '../startup/cases/case-48-deepcybo.md'},
-{cat: 'comp',title: '案例49:星海图(STARSHIP)--国内估值最高的具身智能独角兽',date: '2026-01-01',url: '../startup/cases/case-49-starship.md'},
-{cat: 'comp',title: '案例50:枢途科技--从人类视频中"偷师"的机器人数据工厂',date: '2026-01-01',url: '../startup/cases/case-50-robowheel-across-embodiment.md'},
-{cat: 'pmf',title: 'Case 51: Physical Intelligence - 具身AI的"全栈式"创业范式',date: '2026-01-01',url: '../startup/cases/case-51-physical-intelligence-pi.md'},
-{cat: 'comp',title: 'Case 52: Character.AI--AI陪伴应用先驱如何被Google收购',date: '2026-01-01',url: '../startup/cases/case-52-character-ai.md'},
-{cat: 'pmf',title: 'Skild AI: 30亿美元估值的一般机器人「大脑」',date: '2026-01-01',url: '../startup/cases/case-52-skild-ai.md'},
-{cat: 'comp',title: 'Case 53: 1X Technologies - 从轮式到双足,具身AI的工业落地样本',date: '2026-01-01',url: '../startup/cases/case-53-1x-technologies.md'},
-{cat: 'comp',title: 'Case 53: AutoGPT--2023年爆火后迅速降温的自主Agent先驱',date: '2026-01-01',url: '../startup/cases/case-53-auto-gpt-failure.md'},
-{cat: 'comp',title: 'case-54-agibot-zhiyuan-robotics.md',date: '2026-01-01',url: '../startup/cases/case-54-agibot-zhiyuan-robotics.md'},
-{cat: 'comp',title: 'case-55-zhongqing-robotics.md',date: '2026-01-01',url: '../startup/cases/case-55-zhongqing-robotics.md'},
-{cat: 'comp',title: 'case-56-zmo-ai-failure.md',date: '2026-01-01',url: '../startup/cases/case-56-zmo-ai-failure.md'},
-{cat: 'comp',title: '案例57:Character.AI -- AI对话独角兽的"提前套现"之路',date: '2026-01-01',url: '../startup/cases/case-57-character-ai.md'},
-{cat: 'comp',title: 'Case-58: Wayve - 端到端自动驾驶的神经网络赌注',date: '2026-01-01',url: '../startup/cases/case-58-wayve.md'},
-{cat: 'comp',title: 'Case-59: 它石智航 - 具身智能赛道的融资狂飙与"梦之队"赌注',date: '2026-01-01',url: '../startup/cases/case-59-tashi-zhihang.md'},
-{cat: 'comp',title: 'case-60-xinghai-robotics.md',date: '2026-01-01',url: '../startup/cases/case-60-xinghai-robotics.md'},
-{cat: 'comp',title: 'case-61-unitree-robotics',date: '2026-01-01',url: '../startup/cases/case-61-unitree-robotics.md'},
-{cat: 'comp',title: 'Case #62: Orion Robotics - Humanoid Robot VLN Pioneer',date: '2026-01-01',url: '../startup/cases/case-62-orion-robotics.md'},
-{cat: 'comp',title: 'Case #63: 它石智航 (TARS) - 中国具身智能融资之王',date: '2026-01-01',url: '../startup/cases/case-63-tars-robotics.md'},
-{cat: 'comp',title: 'Case #64: 加速进化 (Accelerated Evolution) - 北京具身智能"最会踢球"的机器人',date: '2026-01-01',url: '../startup/cases/case-64-accelerated-evolution.md'},
-{cat: 'comp',title: 'Case 65: Figure AI - 从估值 26 亿美元到与 BMW 合作的具身智能独角兽',date: '2026-01-01',url: '../startup/cases/case-65-figure-ai.md'},
-{cat: 'comp',title: 'Case 66: Skild AI - 拒绝26亿美元收购的具身智能基础设施独角兽',date: '2026-01-01',url: '../startup/cases/case-66-skild-ai.md'},
-{cat: 'pmf',title: 'Spirit AI(原 Fable Studio):从AI互动叙事到游戏AI基础设施的转型之路',date: '2026-01-01',url: '../startup/cases/case-67-spirit-ai.md'},
-{cat: 'comp',title: 'case-68-nova-mind-robotics.md',date: '2026-01-01',url: '../startup/cases/case-68-nova-mind-robotics.md'},
-{cat: 'comp',title: 'Case 69: Physical Intelligence (π)',date: '2026-01-01',url: '../startup/cases/case-69-physical-intelligence.md'},
-{cat: 'comp',title: 'Case 70: StarVLA (港科大开源项目)',date: '2026-01-01',url: '../startup/cases/case-70-starvla-hkust.md'},
-{cat: 'comp',title: 'Case 71: Covariant AI',date: '2026-01-01',url: '../startup/cases/case-71-covariant-ai.md'},
-{cat: 'comp',title: 'Case 72: Skild AI',date: '2026-01-01',url: '../startup/cases/case-72-skild-ai.md'},
-{cat: 'comp',title: 'Case #73: Hugging Face - From Open Source ML Platform to AI Infrastructure Giant',date: '2026-01-01',url: '../startup/cases/case-73-hugging-face.md'},
-{cat: 'comp',title: '案例74:自变量机器人 - 唯一获四家大厂同时投资的具身智能独角兽',date: '2026-01-01',url: '../startup/cases/case-74-zibox-robot.md'},
-{cat: 'comp',title: '案例75:它石智航(TARS) - 中国具身智能史上最大单笔融资纪录创造者',date: '2026-01-01',url: '../startup/cases/case-75-tars-intelligence.md'},
-{cat: 'comp',title: '案例库素材提供 - 2026年3月27日',date: '2026-01-01',url: '../startup/cases/创业素材_20260327.md'},
-{cat: 'comp',title: 'Case 81: Neo Robotics - 农业机器人的垂直突围之路',date: '2026-04-24',url: '../startup/cases/case-81-neo-robotics-agriculture.md'},
-{cat: 'comp',title: 'Case 77: Physical Intelligence (π0) - 具身智能领域的OpenAI',date: '2026-04-23',url: '../startup/cases/case-77-physical-intelligence.md',,
-  {
-    cat: 'comp',
-    title: 'Case 80: 星动医疗 - 中国手术机器人的农村包围城市策略',
-    date: '2026-04-24',
-    url: '../startup/cases/case-80-starmed-robotics.md'
-  }
+const CASES = [
+{cat: 'comp',title:'案例 01 k scale',date:'2026-01-01',url:'../cases/case-01-k-scale.md'},
+{cat: 'comp',title:'案例 02 china robots',date:'2026-01-01',url:'../cases/case-02-china-robots.md'},
+{cat: 'comp',title:'案例 03 shape robotics',date:'2026-01-01',url:'../cases/case-03-shape-robotics.md'},
+{cat: 'comp',title:'案例 04 lidian',date:'2026-01-01',url:'../cases/case-04-lidian.md'},
+{cat: 'comp',title:'案例 05 irobot',date:'2026-01-01',url:'../cases/case-05-irobot.md'},
+{cat: 'comp',title:'案例 06 robotics industry',date:'2026-01-01',url:'../cases/case-06-robotics-industry.md'},
+{cat: 'comp',title:'案例 07 quibi',date:'2026-01-01',url:'../cases/case-07-quibi.md'},
+{cat: 'comp',title:'案例 08 mobile app',date:'2026-01-01',url:'../cases/case-08-mobile-app.md'},
+{cat: 'comp',title:'案例 09 yushu tech',date:'2026-01-01',url:'../cases/case-09-yushu-tech.md'},
+{cat: 'comp',title:'案例 10 dji',date:'2026-01-01',url:'../cases/case-10-dji.md'},
+{cat: 'comp',title:'案例 11 popmart',date:'2026-01-01',url:'../cases/case-11-popmart.md'},
+{cat: 'comp',title:'案例 12 k scale labs',date:'2026-01-01',url:'../cases/case-12-k-scale-labs.md'},
+{cat: 'comp',title:'案例 13 ai apps death 2025',date:'2026-01-01',url:'../cases/case-13-ai-apps-death-2025.md'},
+{cat: 'comp',title:'案例 14 wave computing',date:'2026-01-01',url:'../cases/case-14-wave-computing.md'},
+{cat: 'comp',title:'案例 15 adept ai',date:'2026-01-01',url:'../cases/case-15-adept-ai.md'},
+{cat: 'comp',title:'案例 16 humane ai pin',date:'2026-01-01',url:'../cases/case-16-humane-ai-pin.md'},
+{cat: 'comp',title:'案例 17 inflection ai',date:'2026-01-01',url:'../cases/case-17-inflection-ai.md'},
+{cat: 'comp',title:'案例 18 argo ai',date:'2026-01-01',url:'../cases/case-18-argo-ai.md'},
+{cat: 'comp',title:'案例 19 juicero',date:'2026-01-01',url:'../cases/case-19-juicero.md'},
+{cat: 'comp',title:'案例 20 wework',date:'2026-01-01',url:'../cases/case-20-wework.md'},
+{cat: 'comp',title:'案例 21 theranos',date:'2026-01-01',url:'../cases/case-21-theranos.md'},
+{cat: 'comp',title:'案例 22 royole',date:'2026-01-01',url:'../cases/case-22-royole.md'},
+{cat: 'comp',title:'案例 23 missfresh',date:'2026-01-01',url:'../cases/case-23-missfresh.md'},
+{cat: 'comp',title:'案例 24 zume pizza',date:'2026-01-01',url:'../cases/case-24-zume-pizza.md'},
+{cat: 'comp',title:'案例 25 embodied moxie',date:'2026-01-01',url:'../cases/case-25-embodied-moxie.md'},
+{cat: 'comp',title:'案例 26 character ai',date:'2026-01-01',url:'../cases/case-26-character-ai.md'},
+{cat: 'comp',title:'案例 27 rabbit r1',date:'2026-01-01',url:'../cases/case-27-rabbit-r1.md'},
+{cat: 'comp',title:'案例 28 stability ai',date:'2026-01-01',url:'../cases/case-28-stability-ai.md'},
+{cat: 'comp',title:'案例 29 mojo vision',date:'2026-01-01',url:'../cases/case-29-mojo-vision.md'},
+{cat: 'comp',title:'案例 30 skydio',date:'2026-01-01',url:'../cases/case-30-skydio.md'},
+{cat: 'comp',title:'案例 31 figure ai',date:'2026-01-01',url:'../cases/case-31-figure-ai.md'},
+{cat: 'comp',title:'案例 32 dextrous robotics',date:'2026-01-01',url:'../cases/case-32-dextrous-robotics.md'},
+{cat: 'comp',title:'案例 33 small robot company',date:'2026-01-01',url:'../cases/case-33-small-robot-company.md'},
+{cat: 'comp',title:'案例 34 ai companion device',date:'2026-01-01',url:'../cases/case-34-ai-companion-device.md'},
+{cat: 'comp',title:'案例 36 quibi',date:'2026-01-01',url:'../cases/case-36-quibi.md'},
+{cat: 'comp',title:'案例 37 wework',date:'2026-01-01',url:'../cases/case-37-wework.md'},
+{cat: 'comp',title:'案例 38 servi robotics',date:'2026-01-01',url:'../cases/case-38-servi-robotics.md'},
+{cat: 'comp',title:'案例 39 figure ai',date:'2026-01-01',url:'../cases/case-39-figure-ai.md'},
+{cat: 'comp',title:'案例 40 1x technologies',date:'2026-01-01',url:'../cases/case-40-1x-technologies.md'},
+{cat: 'comp',title:'案例 41 agibot',date:'2026-01-01',url:'../cases/case-41-agibot.md'},
+{cat: 'comp',title:'案例 42 ofo bicycle',date:'2026-01-01',url:'../cases/case-42-ofo-bicycle.md'},
+{cat: 'comp',title:'案例 43 quibi',date:'2026-01-01',url:'../cases/case-43-quibi.md'},
+{cat: 'comp',title:'案例 44 covariant ai robotics',date:'2026-01-01',url:'../cases/case-44-covariant-ai-robotics.md'},
+{cat: 'comp',title:'案例 44 longhair ai',date:'2026-01-01',url:'../cases/case-44-longhair-ai.md'},
+{cat: 'comp',title:'案例 44 perplexity ai',date:'2026-01-01',url:'../cases/case-44-perplexity-ai.md'},
+{cat: 'comp',title:'案例 45 figure ai',date:'2026-01-01',url:'../cases/case-45-figure-ai.md'},
+{cat: 'comp',title:'案例 46 unitree robotics',date:'2026-01-01',url:'../cases/case-46-unitree-robotics.md'},
+{cat: 'comp',title:'案例 47 yupp',date:'2026-01-01',url:'../cases/case-47-yupp.md'},
+{cat: 'comp',title:'案例 48 deepcybo',date:'2026-01-01',url:'../cases/case-48-deepcybo.md'},
+{cat: 'comp',title:'案例 49 starship',date:'2026-01-01',url:'../cases/case-49-starship.md'},
+{cat: 'comp',title:'案例 50 robowheel across embodiment',date:'2026-01-01',url:'../cases/case-50-robowheel-across-embodiment.md'},
+{cat: 'comp',title:'案例 51 pebble smartwatch',date:'2026-01-01',url:'../cases/case-51-pebble-smartwatch.md'},
+{cat: 'comp',title:'案例 51 physical intelligence pi',date:'2026-01-01',url:'../cases/case-51-physical-intelligence-pi.md'},
+{cat: 'comp',title:'案例 52 character ai',date:'2026-01-01',url:'../cases/case-52-character-ai.md'},
+{cat: 'comp',title:'案例 52 skild ai',date:'2026-01-01',url:'../cases/case-52-skild-ai.md'},
+{cat: 'comp',title:'案例 53 1x technologies',date:'2026-01-01',url:'../cases/case-53-1x-technologies.md'},
+{cat: 'comp',title:'案例 53 auto gpt failure',date:'2026-01-01',url:'../cases/case-53-auto-gpt-failure.md'},
+{cat: 'comp',title:'案例 54 agibot zhiyuan robotics',date:'2026-01-01',url:'../cases/case-54-agibot-zhiyuan-robotics.md'},
+{cat: 'comp',title:'案例 55 zhongqing robotics',date:'2026-01-01',url:'../cases/case-55-zhongqing-robotics.md'},
+{cat: 'comp',title:'案例 56 zmo ai failure',date:'2026-01-01',url:'../cases/case-56-zmo-ai-failure.md'},
+{cat: 'comp',title:'案例 57 character ai',date:'2026-01-01',url:'../cases/case-57-character-ai.md'},
+{cat: 'comp',title:'案例 58 wayve',date:'2026-01-01',url:'../cases/case-58-wayve.md'},
+{cat: 'comp',title:'案例 59 tashi zhihang',date:'2026-01-01',url:'../cases/case-59-tashi-zhihang.md'},
+{cat: 'comp',title:'案例 60 figure ai',date:'2026-01-01',url:'../cases/case-60-figure-ai.md'},
+{cat: 'comp',title:'案例 60 xinghai robotics',date:'2026-01-01',url:'../cases/case-60-xinghai-robotics.md'},
+{cat: 'comp',title:'案例 61 unitree robotics',date:'2026-01-01',url:'../cases/case-61-unitree-robotics.md'},
+{cat: 'comp',title:'案例 62 orion robotics',date:'2026-01-01',url:'../cases/case-62-orion-robotics.md'},
+{cat: 'comp',title:'案例 63 tars robotics',date:'2026-01-01',url:'../cases/case-63-tars-robotics.md'},
+{cat: 'comp',title:'案例 64 accelerated evolution',date:'2026-01-01',url:'../cases/case-64-accelerated-evolution.md'},
+{cat: 'comp',title:'案例 65 figure ai',date:'2026-01-01',url:'../cases/case-65-figure-ai.md'},
+{cat: 'comp',title:'案例 65 irobot bankruptcy robotics lesson',date:'2026-01-01',url:'../cases/case-65-irobot-bankruptcy-robotics-lesson.md'},
+{cat: 'comp',title:'案例 66 skild ai',date:'2026-01-01',url:'../cases/case-66-skild-ai.md'},
+{cat: 'comp',title:'案例 67 spirit ai',date:'2026-01-01',url:'../cases/case-67-spirit-ai.md'},
+{cat: 'comp',title:'案例 68 nova mind robotics',date:'2026-01-01',url:'../cases/case-68-nova-mind-robotics.md'},
+{cat: 'comp',title:'案例 69 physical intelligence',date:'2026-01-01',url:'../cases/case-69-physical-intelligence.md'},
+{cat: 'comp',title:'案例 70 starvla hkust',date:'2026-01-01',url:'../cases/case-70-starvla-hkust.md'},
+{cat: 'comp',title:'案例 71 covariant ai',date:'2026-01-01',url:'../cases/case-71-covariant-ai.md'},
+{cat: 'comp',title:'案例 72 skild ai',date:'2026-01-01',url:'../cases/case-72-skild-ai.md'},
+{cat: 'comp',title:'案例 73 hugging face',date:'2026-01-01',url:'../cases/case-73-hugging-face.md'},
+{cat: 'comp',title:'案例 74 zibox robot',date:'2026-01-01',url:'../cases/case-74-zibox-robot.md'},
+{cat: 'comp',title:'案例 75 tars intelligence',date:'2026-01-01',url:'../cases/case-75-tars-intelligence.md'},
+{cat: 'comp',title:'案例 76 galaxea ai',date:'2026-01-01',url:'../cases/case-76-galaxea-ai.md'},
+{cat: 'comp',title:'案例 77 physical intelligence',date:'2026-01-01',url:'../cases/case-77-physical-intelligence.md'},
+{cat: 'comp',title:'案例 78 tars intelligence',date:'2026-01-01',url:'../cases/case-78-tars-intelligence.md'},
+{cat: 'comp',title:'案例 79 gigaai worldarena',date:'2026-01-01',url:'../cases/case-79-gigaai-worldarena.md'},
+{cat: 'comp',title:'案例 80 pdd theta drone',date:'2026-01-01',url:'../cases/case-80-pdd-theta-drone.md'},
+{cat: 'comp',title:'案例 80 starmed robotics',date:'2026-01-01',url:'../cases/case-80-starmed-robotics.md'},
+{cat: 'comp',title:'案例 81 neo robotics agriculture',date:'2026-01-01',url:'../cases/case-81-neo-robotics-agriculture.md'},
+{cat: 'comp',title:'案例 82 skydio defense pivot',date:'2026-01-01',url:'../cases/case-82-skydio-defense-pivot.md'},
+{cat: 'comp',title:'案例 83 engineai humanoid robot',date:'2026-01-01',url:'../cases/case-83-engineai-humanoid-robot.md'},
+{cat: 'comp',title:'案例 84 tars intelligence embodied ai',date:'2026-01-01',url:'../cases/case-84-tars-intelligence-embodied-ai.md'},
+{cat: 'comp',title:'案例 85 kuaishou ai content creation',date:'2026-01-01',url:'../cases/case-85-kuaishou-ai-content-creation.md'},
+{cat: 'comp',title:'创业素材_20260327',date:'2026-01-01',url:'../cases/创业素材_20260327.md'}
 ];];
 
 function renderPapers(){
