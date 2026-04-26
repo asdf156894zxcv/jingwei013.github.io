@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>从"能不能走"到"该不该走"：Rule-VLN与VLN社会合规导航 | 景纬学术博客</title>
+<style>
+body{font-family:Georgia,'Noto Serif SC',serif;max-width:720px;margin:0 auto;padding:2em;line-height:1.8;color:#333;background:#fafafa}
+h1{font-size:1.6em;color:#2c3e50;border-bottom:2px solid #3498db;padding-bottom:.3em}
+h2{font-size:1.3em;color:#2980b9;margin-top:1.5em}
+h3{font-size:1.1em;color:#27ae60}
+code{background:#ecf0f1;padding:2px 6px;border-radius:3px;font-size:.9em}
+blockquote{border-left:4px solid #3498db;padding:.5em 1em;margin:1em 0;color:#555;background:#f0f4f8}
+.meta{color:#7f8c8d;font-size:.85em;margin-bottom:1.5em}
+.tag{display:inline-block;background:#3498db;color:white;padding:2px 8px;border-radius:10px;font-size:.75em;margin-right:.5em}
+</style>
+</head>
+<body>
+<h1>从"能不能走"到"该不该走"：Rule-VLN与VLN社会合规导航</h1>
+<p class="meta">2026-04-27 | VLN · 社会合规 · 停止决策 · Rule-VLN</p>
+<p><span class="tag">VLN</span><span class="tag">社会合规</span><span class="tag">停止决策</span><span class="tag">Rule-VLN</span></p>
+
+<h2>1. 范式转变：可达性→合规性</h2>
+<p>传统VLN任务的核心问题是"可达性"：给定语言指令，agent能否到达目标位置？R2R、REVERIE等基准的SPL、SR指标都在衡量这一点。但2026年4月的Rule-VLN（arXiv:2604.16993）提出了一个根本性追问：<strong>到达目标就够了，还是必须合规地到达？</strong></p>
+
+<blockquote>当前agent陷入"目标驱动陷阱"（Goal-Driven Trap）：优先考虑物理几何（"能不能走？"）而忽视语义规则（"该不该走？"）。</blockquote>
+
+<p>这不仅是学术概念的升级——当VLN从仿真走向真实世界部署，"走禁行道""闯红灯""逆行"等违规行为的安全后果远比"绕路"严重。</p>
+
+<h2>2. Rule-VLN基准设计</h2>
+<p>Rule-VLN构建了迄今最大规模的城市合规导航基准：</p>
+<ul>
+<li><strong>29k节点</strong>的大规模城市环境</li>
+<li><strong>177种法规类别</strong>覆盖交通、区域、行为约束</li>
+<li><strong>8k约束节点</strong>嵌入四层课程难度</li>
+<li>约束从简单（单行道）到复杂（时段+天气+行为组合）</li>
+</ul>
+
+<p>四层课程设计值得注意：</p>
+<ol>
+<li><strong>Level 1</strong>: 单一视觉约束（如"禁止通行"标志）</li>
+<li><strong>Level 2</strong>: 行为+视觉组合（如"限速区+转弯限制"）</li>
+<li><strong>Level 3</strong>: 多约束推理（如"公交车道+时段限制+天气条件"）</li>
+<li><strong>Level 4</strong>: 隐含规则推理（如"学校区域应减速"但无显式标志）</li>
+</ol>
+
+<h2>3. SNRM：零样本合规修复模块</h2>
+<p>SNRM（Semantic Navigation Rectification Module）是Rule-VLN的核心方法贡献：</p>
+
+<h3>3.1 Coarse-to-Fine VLM感知</h3>
+<p>粗阶段用VLM快速扫描场景，识别潜在约束区域；细阶段对候选区域进行语义推理，判断具体规则类型。这种分层感知策略在延迟和精度间取得平衡。</p>
+
+<h3>3.2 认知地图+动态绕路</h3>
+<p>SNRM维护一个认知地图（Epistemic Mental Map），记录已发现的约束。当检测到前方路径违规时，触发动态绕路规划——不是简单地停止，而是找到合规替代路径。</p>
+
+<h3>3.3 实验结果</h3>
+<ul>
+<li>CVR（Constraint Violation Rate）<strong>降低19.26%</strong></li>
+<li>TC（Task Completion）<strong>提升5.97%</strong></li>
+<li>作为零样本模块，可即插即用于任何预训练VLN agent</li>
+</ul>
+
+<h2>4. 与CoW-Nav停止决策的深层联系</h2>
+<p>Rule-VLN的社会合规视角对CoW-Nav的停止决策有直接启发：</p>
+
+<h3>4.1 停止决策不仅是"到没到"</h3>
+<p>传统停止决策只判断"是否到达目标位置"。但Rule-VLN启示：<strong>在违规位置停止本身就是错误</strong>——即使agent认为自己到了目标，如果该位置违反语义规则，这个停止决策就是失败的。</p>
+
+<h3>4.2 双头置信度架构</h3>
+<p>CoW-Nav的置信度头可以扩展为双头设计：</p>
+<ul>
+<li><strong>目标置信度头</strong>：预测"是否到达目标"（原有功能）</li>
+<li><strong>合规置信度头</strong>：预测"在此处停止是否合规"（新增）</li>
+</ul>
+<p>两个置信度的融合决策：仅当目标置信度高且合规置信度高时才执行停止。</p>
+
+<h3>4.3 Dual-Anchoring的状态漂移补充</h3>
+<p>Dual-Anchoring（2026-04-19）解决了VLN中的状态漂移问题。这与置信度校准形成互补：</p>
+<ul>
+<li>Dual-Anchoring改善<strong>状态表示质量</strong>（减少漂移）</li>
+<li>FSCoT改善<strong>置信度估计质量</strong>（提高校准度）</li>
+<li>停止决策质量 = 状态质量 × 置信度质量</li>
+</ul>
+
+<h2>5. 更广的视野：从导航合规到具身智能安全</h2>
+<p>Rule-VLN的"社会合规"概念可以泛化到整个具身智能领域：</p>
+<ul>
+<li><strong>机器人操作</strong>：不仅"能不能抓"，还要"该不该抓"（如易碎品、危险品）</li>
+<li><strong>自动驾驶</strong>：不仅"能不能到"，还要"是否遵守交规"（Rule-VLN的城市设定天然对齐）</li>
+<li><strong>家庭服务机器人</strong>：不仅"能不能完成家务"，还要"是否尊重隐私边界"</li>
+</ul>
+
+<p>这指向一个更根本的研究方向：<strong>具身智能的约束推理</strong>（Constraint Reasoning for Embodied AI）。不是让agent更聪明地到达目标，而是让agent在约束下智慧地行动。</p>
+
+<h2>6. 总结</h2>
+<p>Rule-VLN的"社会合规"范式将VLN从纯粹的可达性问题升级为合规导航问题。这对CoW-Nav的启示是：</p>
+<ol>
+<li>停止决策需要语义约束，不仅是置信度阈值</li>
+<li>双头置信度架构（目标+合规）是自然的扩展方向</li>
+<li>与Dual-Anchoring的状态漂移修复互补，形成"状态稳定+置信度校准+合规约束"三重保障</li>
+</ol>
+
+<p>从"能不能走"到"该不该走"——这是VLN走向真实世界部署必须跨越的鸿沟。</p>
+
+<hr>
+<p><em>本文基于Rule-VLN (arXiv:2604.16993)、Dual-Anchoring (2026-04-19)等最新论文分析，结合CoW-Nav停止决策研究思考写成。</em></p>
+</body>
+</html>
