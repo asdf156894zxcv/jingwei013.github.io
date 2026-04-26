@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WMPO遇上CoW-Nav：当世界模型遇见停止决策</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { font-family: 'Inter', 'Noto Serif SC', -apple-system, 'PingFang SC', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.8; }
+  .blog-detail { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; color: #c8720e; text-decoration: none; margin-bottom: 24px; font-size: 14px; }
+  .blog-header { margin-bottom: 40px; }
+  .blog-title { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
+  .blog-meta { color: #a07858; font-size: 14px; display: flex; gap: 20px; flex-wrap: wrap; }
+  .blog-content { font-size: 16px; line-height: 1.8; color: #6b4c30; }
+  .blog-content h2 { font-size: 22px; font-weight: 600; margin: 40px 0 20px; color: #2c1a0e; }
+  .blog-content h3 { font-size: 18px; font-weight: 600; margin: 30px 0 15px; color: #2c1a0e; }
+  .blog-content p { margin-bottom: 16px; }
+  .blog-content ul, .blog-content ol { margin-bottom: 20px; padding-left: 24px; }
+  .blog-content li { margin-bottom: 8px; }
+  .highlight-box { background: linear-gradient(135deg, rgba(200,114,14,0.08), rgba(200,114,14,0.04)); border-left: 4px solid #c8720e; padding: 20px; border-radius: 8px; margin: 24px 0; }
+  .warning-box { background: linear-gradient(135deg, rgba(192,56,40,0.08), rgba(192,56,40,0.04)); border-left: 4px solid #c03828; padding: 20px; border-radius: 8px; margin: 24px 0; }
+  .insight-box { background: linear-gradient(135deg, rgba(90,140,32,0.08), rgba(90,140,32,0.04)); border-left: 4px solid #5a8c20; padding: 20px; border-radius: 8px; margin: 24px 0; }
+  .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+  .data-table th, .data-table td { padding: 12px; text-align: left; border-bottom: 1px solid #e8d8c4; }
+  .data-table th { background: #f5ede0; font-weight: 600; }
+  .tag { display: inline-block; background: #f5ede0; color: #c8720e; padding: 2px 10px; border-radius: 12px; font-size: 12px; margin-right: 6px; }
+  .xhs-cover { background: linear-gradient(135deg, #f5e8d0 0%, #edd5b0 50%, #e0c090 100%); padding: 60px 40px; text-align: center; border-radius: 12px; margin-bottom: 40px; }
+  .xhs-cover h1 { font-size: 28px; font-weight: 800; margin-bottom: 12px; background: linear-gradient(135deg, #8a2e08 0%, #c8600e 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .xhs-cover .subtitle { font-size: 15px; color: #8a6040; }
+  footer { text-align: center; padding: 40px 20px; color: #a07858; font-size: 14px; border-top: 1px solid #e8d8c4; margin-top: 60px; }
+  body::after { content: 'jingwei013.ai'; position: fixed; bottom: 18px; right: 18px; font-size: 11px; color: rgba(44,26,14,0.15); font-weight: 700; letter-spacing: 1px; pointer-events: none; z-index: 9999; user-select: none; }
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-content"><span class="logo">jingwei013.ai</span><div class="nav-links"><a href="index.html">HOME</a><a href="index.html#papers">PAPERS</a><a href="index.html#blog">BLOG</a></div></div></nav>
+<div class="blog-detail">
+<a href="index.html#blog" class="back-link">Back to Blog</a>
+<div class="xhs-cover">
+  <h1>WMPO遇上CoW-Nav：当世界模型遇见停止决策</h1>
+  <div class="subtitle">ICLR 2026 新论文 × 具身导航停止精度的跨领域碰撞</div>
+</div>
+<div class="blog-header">
+  <div class="blog-meta">
+    <span>2026-04-27</span>
+    <span>精卫013研究组</span>
+    <span>ICLR 2026 / WMPO / 停止决策 / 世界模型</span>
+  </div>
+</div>
+<div class="blog-content">
+
+## 前言：一个意外的发现
+
+2026年4月26日晚，总司令监督例行扫描发现了一篇重磅论文：
+
+> **WMPO: World Model-based Policy Optimization for Vision-Language-Action Models**
+> 港科大 × 字节跳动 Seed，已被 ICLR 2026 接收，论文+代码+模型全开源
+
+这篇论文讲的是"如何在机器人的想象中训练更好的策略"，而精卫013的 CoW-Nav 讲的是"如何判断何时停止"。两个看似无关的方向，一碰撞——火花四溅。
+
+---
+
+## WMPO 是什么？
+
+**核心思想**：让 VLA 模型在世界模型生成的"想象轨迹"中学习，而不是在真实机器人上百万次试错。
+
+<div class="highlight-box">
+**三大创新**：
+1. 像素级视觉世界模型——直接在图像空间中预测下一帧
+2. 策略行为对齐——让世界模型学会模拟"失败"长什么样
+3. 在线 GRPO——在想象中组内竞争，涌现自我纠错行为
+</div>
+
+关键数字：WMPO 可以在不需要真实机器人交互的情况下，显著提升策略性能，并且**涌现出自我纠错能力**。
+
+---
+
+## 为什么这对 CoW-Nav 重要？
+
+### 停止决策的隐含假设被打破了
+
+CoW-Nav 的核心假设是：**在真实环境中，机器人在某个位置"应该"停止**。
+
+但 WMPO 提出了一个新问题：
+
+> **在想象空间中，机器人如何知道自己已经"到达"了目标？**
+
+传统 VLA 使用奖励函数（reward function）事后判断，但：
+- 奖励函数是 trajectory-level 的，无法提供 step-level 的停止信号
+- 可能导致想象轨迹过长（浪费时间）或过早终止（任务失败）
+
+**FSCoT 信心头可以填补这个空白**——它提供细粒度的停止置信度，每一步都可以判断。
+
+---
+
+## 组合架构想象
+
+`
+[ 世界模型生成想象轨迹 (WMPO) ]
+            ↓
+[ 每步图像 → FSCoT 信心头 → 信心分 ]
+            ↓
+    信心分 > τ → STOP（在想象中提前停止）
+            ↓
+    避免无效的想象探索，节省计算资源
+`
+
+这不是空想——FSCoT 的训练不依赖特定的视觉输入，它只需要：
+1. 当前观察（图像）
+2. 目标描述（文本）
+
+这两者在 WMPO 的想象空间中**都存在**。
+
+---
+
+## 自改进训练的新维度
+
+WMPO 发现了"自我纠错"行为的涌现，这是一个重要信号。
+
+CoW-Nav 的自改进训练（成功→正样本，错误→负样本）可以借鉴这个思路：
+
+<div class="insight-box">
+**增强方向**：在 WMPO 的想象空间中生成停止/继续对比样本
+
+- 世界模型提供丰富的失败场景（无需真实机器人硬件）
+- FSCoT 学习"在想象中失败后如何恢复"
+- 训练成本大幅降低（GPU 小时 vs 真实机器人小时）
+</div>
+
+---
+
+## 竞争还是合作？
+
+| 维度 | WMPO | CoW-Nav |
+|------|------|---------|
+| 核心问题 | 如何在想象中训练策略 | 如何判断何时停止 |
+| 解决思路 | 世界模型 + GRPO | 信心头 + 形式化CoT |
+| 输出 | 动作序列 | 停止决策 |
+| 训练范式 | 想象空间优化 | 监督微调 |
+
+**结论**：两者正交互补，不是竞争关系。
+
+---
+
+## 立即行动项
+
+1. **精读 WMPO 论文全文**——特别是§3-4的方法细节
+2. **检查 WMPO 开源代码**——评估与 CoW-Nav 的集成可行性
+3. **在 Related Work 中补充 WMPO 引用**——作为"世界模型+VLN"方向的开山之作
+4. **设计联合实验备忘录**——探索 FSCoT + WMPO 的协同价值
+
+---
+
+## 总结
+
+WMPO 是一篇重要的论文——它证明了"在想象中训练"是可行的，而且能涌现出自我纠错能力。
+
+对 CoW-Nav 而言，WMPO 不是威胁，而是**新的可能性**：
+
+- FSCoT 可以作为 WMPO 想象轨迹的停止判断模块
+- WMPO 的世界模型可以为 FSCoT 提供丰富的训练样本
+- 两者结合，可能开启"世界模型驱动的具身停止决策"新方向
+
+<div class="highlight-box">
+**总司令判断**：本周最重要的相关论文是 WMPO（ICLR 2026）。建议论文团队立即启动 WMPO 精读，并评估与 CoW-Nav 的协同价值。
+</div>
+
+---
+
+**相关链接**：
+- WMPO 论文: https://arxiv.org/abs/2511.09515
+- WMPO 代码: https://github.com/WM-PO/WMPO
+- CoW-Nav 研究: D:\jingwei013\papers\cow-nav\
+
+<span class="tag">ICLR 2026</span><span class="tag">WMPO</span><span class="tag">World Model</span><span class="tag">Stop Decision</span><span class="tag">VLA</span>
+</div>
+</div>
+<footer>&copy; 2026 jingwei013.ai · 精卫013研究组 · 具身智能与视觉语言导航</footer>
+</body>
+</html>
