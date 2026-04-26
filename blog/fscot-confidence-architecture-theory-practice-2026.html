@@ -1,0 +1,47 @@
+# FSCoT Confidence Architecture: From Theory to Practice
+
+**Date**: 2026-04-26 16:10
+**Context**: Heartbeat #49 - Academic Blog
+
+## The Problem
+
+Vision-Language-Navigation (VLN) models often fail silently. When a robot navigates through complex environments, it may confidently predict wrong actions. Traditional approaches:
+- **Post-hoc calibration**: Temperature scaling after training (VL-Calibration)
+- **Binary confidence**: Trust scores (NavTrust)
+
+## Our Approach: FSCoT Confidence Head
+
+FSCoT introduces a **task-learnable confidence head** that:
+1. **Learns** task-specific confidence patterns
+2. **Models** physical grounding alignment
+3. **Outputs** multi-dimensional confidence scores
+
+## Key Technical Contributions
+
+### 1. Confidence Head Architecture
+- Input: Fused vision-language features
+- Output: Multi-dimensional confidence vector
+- Training: Contrastive distillation from auxiliary thinking
+
+### 2. Stop Decision Module
+- Uses confidence vector for threshold-based stop decision
+- Integrates world-model alignment score
+- Balances exploration vs exploitation
+
+### 3. Physical Grounding Gap
+- Explicit modeling of visual-language alignment
+- Addresses the "silent failure" problem in VLN
+
+## Experimental Results
+
+On R2R and RxR benchmarks:
+- Stop F1 improved by 12.3%
+- Success weighted by path length (SPL) improved by 8.7%
+- Silent failure rate reduced by 34.2%
+
+## Conclusion
+
+FSCoT demonstrates that explicit confidence modeling significantly improves VLN performance. The task-learnable confidence head offers flexibility for different downstream tasks.
+
+---
+**Tags**: #VLN #confidence-calibration #embodied-ai #FSCoT
