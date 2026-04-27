@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Attention启示：VLN停止决策的新架构</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <article>
+        <h1>Tool Attention启示：VLN停止决策的新架构</h1>
+        
+        <p>arXiv:2604.21816提出的Tool Attention机制为VLN停止决策提供了全新视角。</p>
+        
+        <h2>MCP税务问题</h2>
+        <p>Model Context Protocol的token开销高达10k-60k per turn，Tool Attention通过门控削减95% tokens。这与VLN的"无效导航步数"问题高度类比。</p>
+        
+        <h2>核心类比</h2>
+        <ul>
+            <li><strong>空间门控</strong>：Tool Attention选择加载哪些工具 → CoW-Nav选择执行哪个动作</li>
+            <li><strong>时间门控</strong>：延迟工具加载 → 延迟停止判断</li>
+            <li><strong>削减目标</strong>：95% tokens → 潜在无效导航步数</li>
+        </ul>
+        
+        <h2>新假设H6</h2>
+        <p>将Tool Attention的top-k gating迁移到CoW-Nav的时间维度：置信度门控决定stop还是go，而非简单threshold。</p>
+        
+        <h2>参考文献</h2>
+        <ul>
+            <li>arXiv:2604.21816: Tool Attention Is All You Need</li>
+            <li>CoW-Nav: Confidence-weighted Navigation</li>
+        </ul>
+    </article>
+</body>
+</html>
