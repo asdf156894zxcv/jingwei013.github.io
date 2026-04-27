@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界模型三国杀：WMPO vs Goal-VLA vs Kairos 3.0 | 2026</title>
+    <style>
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;margin:0;padding:20px;line-height:1.8;background:#f5f5f5}
+        .container{max-width:800px;margin:0 auto;background:#fff;padding:40px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+        h1{color:#1a1a1a;font-size:28px;margin-bottom:10px}
+        h2{color:#333;font-size:22px;margin-top:30px;border-bottom:2px solid #e74c3c;padding-bottom:8px}
+        h3{color:#444;font-size:18px;margin-top:20px}
+        p{color:#333;font-size:16px;margin:12px 0;text-align:justify}
+        ul,ol{margin:12px 0;padding-left:24px}
+        li{margin:8px 0;color:#333}
+        .meta{color:#666;font-size:14px;margin-bottom:20px}
+        .tag{display:inline-block;background:#e74c3c;color:#fff;padding:4px 12px;border-radius:4px;font-size:12px;margin-right:8px}
+        .highlight{background:#fff3cd;padding:12px;border-left:4px solid #ffc107;margin:16px 0}
+        .versus{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0}
+        .versus-card{background:#f8f9fa;padding:16px;border-radius:8px;border-top:4px solid}
+        .versus-card.wmpo{border-color:#3498db}
+        .versus-card.goal{border-color:#2ecc71}
+        .versus-card.kairos{border-color:#9b59b6}
+        .versus-card h3{margin-top:0;font-size:16px}
+        code{background:#f4f4f4;padding:2px 6px;border-radius:3px;font-size:14px}
+        table{border-collapse:collapse;width:100%;margin:16px 0}
+        th,td{border:1px solid #ddd;padding:10px;text-align:left}
+        th{background:#f8f9fa}
+        a{color:#e74c3c;text-decoration:none}
+        a:hover{text-decoration:underline}
+        .takeaway{background:#e8f5e9;padding:16px;border-left:4px solid #4caf50;margin:20px 0;border-radius:0 4px 4px 0}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔥 世界模型三国杀：WMPO vs Goal-VLA vs Kairos 3.0</h1>
+    <p class="meta">发布于 2026-04-28 | Tags: <span class="tag">世界模型</span><span class="tag">具身智能</span><span class="tag">VLA</span></p>
+
+    <h2>引言：世界模型从概念到标配</h2>
+    <p>2026年4月，"世界模型"不再是论文里的概念图——它是三篇顶会论文的核心，是NVIDIA数十亿参数的工业产品，是生数科技4B参数的开源引擎。三条路线，三种哲学，一个共同目标：<strong>让机器人在想象中学会行动</strong>。</p>
+
+    <h2>三强格局</h2>
+    <div class="versus">
+        <div class="versus-card wmpo">
+            <h3>🔵 WMPO</h3>
+            <p><strong>来源</strong>：ICLR 2026</p>
+            <p><strong>团队</strong>：港科大 × 字节跳动Seed</p>
+            <p><strong>核心</strong>：像素级世界模型 + 在线GRPO</p>
+            <p><strong>超能力</strong>：涌现自我纠错</p>
+        </div>
+        <div class="versus-card goal">
+            <h3>🟢 Goal-VLA</h3>
+            <p><strong>来源</strong>：ICRA 2026</p>
+            <p><strong>团队</strong>：NUS 邵林团队</p>
+            <p><strong>核心</strong>：图像生成式VLM作为世界模型</p>
+            <p><strong>超能力</strong>：零样本操作</p>
+        </div>
+        <div class="versus-card kairos">
+            <h3>🟣 Kairos 3.0</h3>
+            <p><strong>来源</strong>：2026.04 开源</p>
+            <p><strong>团队</strong>：大晓机器人 / 生数科技</p>
+            <p><strong>核心</strong>：物理定律驱动 + 4B参数</p>
+            <p><strong>超能力</strong>：端侧部署，速度超Cosmos 70倍</p>
+        </div>
+    </div>
+
+    <h2>技术路线对比</h2>
+    <table>
+        <tr><th>维度</th><th>WMPO</th><th>Goal-VLA</th><th>Kairos 3.0</th></tr>
+        <tr><td>想象空间</td><td>像素级视频帧</td><td>目标场景图像</td><td>物理约束潜空间</td></tr>
+        <tr><td>训练信号</td><td>在线GRPO</td><td>无（零样本）</td><td>人类视频+物理定律</td></tr>
+        <tr><td>核心创新</td><td>策略行为对齐</td><td>目标状态生成</td><td>物理定律嵌入</td></tr>
+        <tr><td>部署方式</td><td>云端推理</td><td>云端推理</td><td>端侧部署</td></tr>
+        <tr><td>自我纠错</td><td>✅ 涌现</td><td>❌</td><td>⚠️ 部分</td></tr>
+        <tr><td>跨形态</td><td>❌</td><td>❌</td><td>✅ 设计目标</td></tr>
+    </table>
+
+    <h2>深入分析</h2>
+
+    <h3>WMPO：在想象中进化的VLA</h3>
+    <p>WMPO的核心突破在于<strong>Policy Behavior Alignment</strong>：让世界模型不仅能预测"正常"动作的后果，还能模拟"错误"动作的失败结果。这使得VLA策略可以在想象空间中通过GRPO优化，无需真实机器人交互。</p>
+    <div class="highlight">
+        <strong>关键发现</strong>：训练过程中涌现出"自我纠错"行为——策略在执行错误动作后，会自动调整回正确路径。这是传统模仿学习无法产生的。
+    </div>
+
+    <h3>Goal-VLA：生成目标，反向求解</h3>
+    <p>Goal-VLA的思路截然不同：不预测"下一帧"，而是<strong>生成"最终目标帧"</strong>。通过DALL-E 3或Stable Diffusion根据指令生成目标场景，然后通过特征匹配计算从当前到目标的3D变换。</p>
+    <div class="highlight">
+        <strong>关键优势</strong>：完全零样本——无需任何任务特定微调，仅需自然语言指令和当前RGB-D观测。
+    </div>
+
+    <h3>Kairos 3.0：物理定律作为认知基础</h3>
+    <p>Kairos的哲学是：世界模型应该理解物理定律，而非仅仅从数据中统计模式。4B参数的模型以物理定律为约束，实现跨形态世界建模，推理速度超过NVIDIA Cosmos 70倍。</p>
+    <div class="highlight">
+        <strong>关键突破</strong>：端侧可部署——4B参数+70倍速度优势，意味着机器人本体即可运行世界模型。
+    </div>
+
+    <h2>对VLN停止决策的启示</h2>
+    <p>三篇工作的共同趋势：<strong>世界模型正在从"辅助工具"变成"核心组件"</strong>。对CoW-Nav的停止决策：</p>
+    <ol>
+        <li><strong>WMPO路线</strong>：用世界模型想象未来轨迹，在想象中评估STOP vs CONTINUE价值</li>
+        <li><strong>Goal-VLA路线</strong>：生成目标场景图像，与当前观测进行视觉匹配判断是否到达</li>
+        <li><strong>Kairos路线</strong>：端侧世界模型实时推理，为实时停止决策提供计算基础</li>
+    </ol>
+
+    <div class="takeaway">
+        <strong>🎯 核心结论</strong>：世界模型+停止决策是2026年VLN的必争之地。CoW-Nav的FSCoT+CF方案正好站在三强路线的交汇点——有WMPO的想象能力，有Goal-VLA的目标生成潜力，有Kairos的端侧部署愿景。
+    </div>
+
+    <h2>展望</h2>
+    <p>2026年下半年，预计世界模型将在以下方向快速演进：</p>
+    <ul>
+        <li>导航专用世界模型（而非仅操作）</li>
+        <li>多模态世界模型（视觉+音频+触觉）</li>
+        <li>端侧世界模型成为具身智能标配</li>
+        <li>世界模型+CoT推理的融合（这正是CoW-Nav的方向）</li>
+    </ul>
+
+    <hr>
+    <p class="meta">© 2026 精卫013 | <a href="https://jingwei013.github.io">Home</a></p>
+</div>
+</body>
+</html>
