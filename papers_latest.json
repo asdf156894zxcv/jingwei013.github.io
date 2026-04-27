@@ -1,147 +1,126 @@
 {
-  "updated": "2026-04-26 04:18 UTC",
-  "total": 20,
+  "updated": "2026-04-27 04:25 UTC",
+  "total": 17,
   "today_count": 0,
   "papers": [
     {
-      "title": "Seeing Fast and Slow: Learning the Flow of Time in Videos",
-      "date": "2026-04-23",
-      "id": "2604.21931v1",
-      "abstract": "How can we tell whether a video has been sped up or slowed down? How can we generate videos at different speeds? Although videos have been central to modern computer vision research, little attention ",
-      "url": "https://arxiv.org/abs/2604.21931v1"
+      "title": "How Do AI Agents Spend Your Money? Analyzing and Predicting Token Consumption in Agentic Coding Tasks",
+      "date": "2026-04-24",
+      "id": "2604.22750v1",
+      "abstract": "The wide adoption of AI agents in complex human workflows is driving rapid growth in LLM token consumption. When agents are deployed on tasks that require a significant amount of tokens, three questio",
+      "url": "https://arxiv.org/abs/2604.22750v1"
     },
     {
-      "title": "Evaluation of Automatic Speech Recognition Using Generative Large Language Models",
-      "date": "2026-04-23",
-      "id": "2604.21928v1",
-      "abstract": "Automatic Speech Recognition (ASR) is traditionally evaluated using Word Error Rate (WER), a metric that is insensitive to meaning. Embedding-based semantic metrics are better correlated with human pe",
-      "url": "https://arxiv.org/abs/2604.21928v1"
+      "title": "Representational Harms in LLM-Generated Narratives Against Global Majority Nationalities",
+      "date": "2026-04-24",
+      "id": "2604.22749v1",
+      "abstract": "Large language models (LLMs) are increasingly used for text generation tasks from everyday use to high-stakes enterprise and government applications, including simulated interviews with asylum seekers",
+      "url": "https://arxiv.org/abs/2604.22749v1"
     },
     {
-      "title": "Seeing Without Eyes: 4D Human-Scene Understanding from Wearable IMUs",
-      "date": "2026-04-23",
-      "id": "2604.21926v1",
-      "abstract": "Understanding human activities and their surrounding environments typically relies on visual perception, yet cameras pose persistent challenges in privacy, safety, energy efficiency, and scalability. ",
-      "url": "https://arxiv.org/abs/2604.21926v1"
+      "title": "Agentic World Modeling: Foundations, Capabilities, Laws, and Beyond",
+      "date": "2026-04-24",
+      "id": "2604.22748v1",
+      "abstract": "As AI systems move from generating text to accomplishing goals through sustained interaction, the ability to model environment dynamics becomes a central bottleneck. Agents that manipulate objects, na",
+      "url": "https://arxiv.org/abs/2604.22748v1"
     },
     {
-      "title": "Long-Horizon Manipulation via Trace-Conditioned VLA Planning",
-      "date": "2026-04-23",
-      "id": "2604.21924v1",
-      "abstract": "Long-horizon manipulation remains challenging for vision-language-action (VLA) policies: real tasks are multi-step, progress-dependent, and brittle to compounding execution errors. We present LoHo-Man",
-      "url": "https://arxiv.org/abs/2604.21924v1"
+      "title": "COMPASS: A Unified Decision-Intelligence System for Navigating Performance Trade-off in HPC",
+      "date": "2026-04-24",
+      "id": "2604.22688v1",
+      "abstract": "HPC systems expose many configuration parameters that jointly drive competing objectives. Existing tools such as autotuners recommend good configurations but do not identify minimal changes for a near",
+      "url": "https://arxiv.org/abs/2604.22688v1"
     },
     {
-      "title": "The Dyson Minds 2025 Workshop: SETI around Black Holes",
-      "date": "2026-04-23",
-      "id": "2604.21886v1",
-      "abstract": "The Dyson Minds 2025 Workshop, held at the Center for Brains, Minds & Machines at MIT and organized by Penn State, MIT, and The Ultraintelligence Foundation, brought together researchers in astrophysi",
-      "url": "https://arxiv.org/abs/2604.21886v1"
+      "title": "Alterations in Conformations of Poly(3-hexylthiophene) on Au(111) Induced by Annealing",
+      "date": "2026-04-24",
+      "id": "2604.22687v1",
+      "abstract": "Employing high-vacuum electrospray deposition and scanning tunneling microscopy, we investigated how individual poly(3-hexylthiophene) (P3HT) chains navigated on the periodic energy landscape of a rec",
+      "url": "https://arxiv.org/abs/2604.22687v1"
     },
     {
-      "title": "TraceScope: Interactive URL Triage via Decoupled Checklist Adjudication",
-      "date": "2026-04-23",
-      "id": "2604.21840v1",
-      "abstract": "Modern phishing campaigns increasingly evade snapshot-based URL classifiers using interaction gates (e.g., checkbox/slider challenges), delayed content rendering, and logo-less credential harvesters. ",
-      "url": "https://arxiv.org/abs/2604.21840v1"
+      "title": "Relaxation-Informed Training of Neural Network Surrogate Models",
+      "date": "2026-04-24",
+      "id": "2604.22746v1",
+      "abstract": "ReLU neural networks trained as surrogate models can be embedded exactly in mixed-integer linear programs (MILPs), enabling global optimization over the learned function. The tractability of the resul",
+      "url": "https://arxiv.org/abs/2604.22746v1"
     },
     {
-      "title": "Characterizing Streaming Decidability of CSPs via Non-Redundancy",
-      "date": "2026-04-23",
-      "id": "2604.21922v1",
-      "abstract": "We study the single-pass streaming complexity of deciding satisfiability of Constraint Satisfaction Problems (CSPs). A CSP is specified by a constraint language $Γ$, that is, a finite set of $k$-ary r",
-      "url": "https://arxiv.org/abs/2604.21922v1"
+      "title": "An Undecidability Proof for the Plan Existence Problem",
+      "date": "2026-04-24",
+      "id": "2604.22736v1",
+      "abstract": "The plan existence problem asks, given a goal in the form of a formula in modal logic, an initial epistemic state (a pointed Kripke model), and a set of epistemic actions, whether there exists a seque",
+      "url": "https://arxiv.org/abs/2604.22736v1"
     },
     {
-      "title": "Dual-use quantum hardware for quantum resource generation and energy storage",
-      "date": "2026-04-23",
-      "id": "2604.21913v1",
-      "abstract": "Quantum resources such as entanglement form the backbone of quantum technologies and their efficient generation is a central objective of modern quantum platforms. Independently, quantum batteries hav",
-      "url": "https://arxiv.org/abs/2604.21913v1"
+      "title": "GCImOpt: Learning efficient goal-conditioned policies by imitating optimal trajectories",
+      "date": "2026-04-24",
+      "id": "2604.22724v1",
+      "abstract": "Imitation learning is a well-established approach for machine-learning-based control. However, its applicability depends on having access to demonstrations, which are often expensive to collect and/or",
+      "url": "https://arxiv.org/abs/2604.22724v1"
     },
     {
-      "title": "Temporal Taskification in Streaming Continual Learning: A Source of Evaluation Instability",
-      "date": "2026-04-23",
-      "id": "2604.21930v1",
-      "abstract": "Streaming Continual Learning (CL) typically converts a continuous stream into a sequence of discrete tasks through temporal partitioning. We argue that this temporal taskification step is not a neutra",
-      "url": "https://arxiv.org/abs/2604.21930v1"
+      "title": "A Vehicle Routing Problem for Human-Centered Electric Mobility",
+      "date": "2026-04-24",
+      "id": "2604.22737v1",
+      "abstract": "In this paper, we present the Electric Mobility Dial-a-Ride Problem (EM-DARP), which extends the Electric Vehicle Dial-a-Ride Problem (EV-DARP) to better accommodate human-focused mobility services. T",
+      "url": "https://arxiv.org/abs/2604.22737v1"
     },
     {
-      "title": "Alignment has a Fantasia Problem",
-      "date": "2026-04-23",
-      "id": "2604.21827v1",
-      "abstract": "Modern AI assistants are trained to follow instructions, implicitly assuming that users can clearly articulate their goals and the kind of assistance they need. Decades of behavioral research, however",
-      "url": "https://arxiv.org/abs/2604.21827v1"
+      "title": "When AI Meets Terahertz: A Survey on the Symbiosis of Artificial Intelligence and Terahertz Networks",
+      "date": "2026-04-24",
+      "id": "2604.22706v1",
+      "abstract": "The Terahertz (THz) band (0.1-10 THz) has emerged as a critical frontier for future communication systems, offering ultra-wide bandwidths that enable Terabits-per-second (Tbps) wireless links and high",
+      "url": "https://arxiv.org/abs/2604.22706v1"
     },
     {
-      "title": "Physics of Computation and Behavior in Plants",
-      "date": "2026-04-23",
-      "id": "2604.21763v1",
-      "abstract": "Plants solve complex problems without centralized control, relying instead on growth-driven dynamics to sense, navigate, and optimize resource acquisition. This review presents a unified physical fram",
-      "url": "https://arxiv.org/abs/2604.21763v1"
+      "title": "Mobility Aware Power Control for VCSEL Based Indoor OWC",
+      "date": "2026-04-24",
+      "id": "2604.22682v1",
+      "abstract": "Optical wireless communication (OWC) is a promising technology for supporting data intensive services in indoor environments due to its large unregulated spectrum, high spatial reuse, and potential fo",
+      "url": "https://arxiv.org/abs/2604.22682v1"
     },
     {
-      "title": "VistaBot: View-Robust Robot Manipulation via Spatiotemporal-Aware View Synthesis",
-      "date": "2026-04-23",
-      "id": "2604.21914v1",
-      "abstract": "Recently, end-to-end robotic manipulation models have gained significant attention for their generalizability and scalability. However, they often suffer from limited robustness to camera viewpoint ch",
-      "url": "https://arxiv.org/abs/2604.21914v1"
+      "title": "Carrollian quantum states and flat space holography",
+      "date": "2026-04-24",
+      "id": "2604.22745v1",
+      "abstract": "We study free Carrollian quantum field theories from an algebraic perspective and explore their implications for flat space holography. As explicit examples, we construct the electric and magnetic Car",
+      "url": "https://arxiv.org/abs/2604.22745v1"
     },
     {
-      "title": "Task-Driven Co-Design of Heterogeneous Multi-Robot Systems",
-      "date": "2026-04-23",
-      "id": "2604.21894v1",
-      "abstract": "Designing multi-agent robotic systems requires reasoning across tightly coupled decisions spanning heterogeneous domains, including robot design, fleet composition, and planning. Much effort has been ",
-      "url": "https://arxiv.org/abs/2604.21894v1"
+      "title": "Code for All: Educational Applications of the \"Vibe Coding\" Hackathon in Programming Education across All Skill Levels",
+      "date": "2026-04-24",
+      "id": "2604.22747v1",
+      "abstract": "The emergence of large language models has enabled vibe coding, a natural language approach to programming in which users describe intent and AI generates or revises code, potentially broadening acces",
+      "url": "https://arxiv.org/abs/2604.22747v1"
     },
     {
-      "title": "Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics",
-      "date": "2026-04-23",
-      "id": "2604.21912v1",
-      "abstract": "Rhombohedral multilayer graphene (RMG) offers a highly tunable platform for correlated electron physics, featuring field-effect control of magnetic, superconducting, and topological phases[1-24]. The ",
-      "url": "https://arxiv.org/abs/2604.21912v1"
+      "title": "Inter-Stance: A Dyadic Multimodal Corpus for Conversational Stance Analysis",
+      "date": "2026-04-24",
+      "id": "2604.22739v1",
+      "abstract": "Social interactions dominate our perceptions of the world and shape our daily behavior by attaching social meaning to acts as simple and spontaneous as gestures, facial expressions, voice, and speech.",
+      "url": "https://arxiv.org/abs/2604.22739v1"
     },
     {
-      "title": "Ion Channel Dynamics in Temperature-Dependent Weibel Instability Saturation",
-      "date": "2026-04-23",
-      "id": "2604.21875v1",
-      "abstract": "We present 1X2V continuum Vlasov-Maxwell simulations of interpenetrating plasma beams with mobile ions. While the early-time evolution is similar to the stationary-ion case, the late-time dynamics are",
-      "url": "https://arxiv.org/abs/2604.21875v1"
+      "title": "Spectral-Domain Local Statistics with Missing-Data Support for Cartesian and Polar Grids",
+      "date": "2026-04-24",
+      "id": "2604.22721v1",
+      "abstract": "This paper presents a method for computing local mean, variance, standard deviation, and effective sample count on incomplete gridded data using boundary-aware spectral operators. The framework combin",
+      "url": "https://arxiv.org/abs/2604.22721v1"
     },
     {
-      "title": "MathDuels: Evaluating LLMs as Problem Posers and Solvers",
-      "date": "2026-04-23",
-      "id": "2604.21916v1",
-      "abstract": "As frontier language models attain near-ceiling performance on static mathematical benchmarks, existing evaluations are increasingly unable to differentiate model capabilities, largely because they ca",
-      "url": "https://arxiv.org/abs/2604.21916v1"
+      "title": "Aligning Dense Retrievers with LLM Utility via DistillationAligning Dense Retrievers with LLM Utility via Distillation",
+      "date": "2026-04-24",
+      "id": "2604.22722v1",
+      "abstract": "Dense vector retrieval is the practical backbone of Retrieval- Augmented Generation (RAG), but similarity search can suffer from precision limitations. Conversely, utility-based approaches leveraging ",
+      "url": "https://arxiv.org/abs/2604.22722v1"
     },
     {
-      "title": "A structure-preserving semi-implicit finite volume scheme on vertex-staggered unstructured meshes",
-      "date": "2026-04-23",
-      "id": "2604.21906v1",
-      "abstract": "We present a novel structure-preserving semi-implicit finite volume method on vertex-based staggered meshes for the compatible discretization of first order systems of time-dependent partial different",
-      "url": "https://arxiv.org/abs/2604.21906v1"
-    },
-    {
-      "title": "Three-periodic helices on elliptic curves and their associated regular algebras",
-      "date": "2026-04-23",
-      "id": "2604.21900v1",
-      "abstract": "Let $k$ denote an algebraically closed field of characteristic zero and let $X$ denote a smooth elliptic curve over $k$. Given a three-periodic elliptic helix $\\underline{\\mathcal{E}}$ of vector bundl",
-      "url": "https://arxiv.org/abs/2604.21900v1"
-    },
-    {
-      "title": "CrossCommitVuln-Bench: A Dataset of Multi-Commit Python Vulnerabilities Invisible to Per-Commit Static Analysis",
-      "date": "2026-04-23",
-      "id": "2604.21917v1",
-      "abstract": "We present CrossCommitVuln-Bench, a curated benchmark of 15 real-world Python vulnerabilities (CVEs) in which the exploitable condition was introduced across multiple commits - each individually benig",
-      "url": "https://arxiv.org/abs/2604.21917v1"
-    },
-    {
-      "title": "Vista4D: Video Reshooting with 4D Point Clouds",
-      "date": "2026-04-23",
-      "id": "2604.21915v1",
-      "abstract": "We present Vista4D, a robust and flexible video reshooting framework that grounds the input video and target cameras in a 4D point cloud. Specifically, given an input video, our method re-synthesizes ",
-      "url": "https://arxiv.org/abs/2604.21915v1"
+      "title": "Approximation algorithms and ratios for multiple domination in graphs",
+      "date": "2026-04-24",
+      "id": "2604.22720v1",
+      "abstract": "We analyse approximation algorithms (greedy heuristics) for the classical domination number and two multiple domination numbers in simple graphs. First, we present a short self-contained proof of the ",
+      "url": "https://arxiv.org/abs/2604.22720v1"
     }
   ]
 }
