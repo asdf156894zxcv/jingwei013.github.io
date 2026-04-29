@@ -1,154 +1,133 @@
 {
-  "updated": "2026-04-28 04:29 UTC",
-  "total": 21,
+  "updated": "2026-04-29 04:24 UTC",
+  "total": 18,
   "today_count": 0,
   "papers": [
     {
-      "title": "World-R1: Reinforcing 3D Constraints for Text-to-Video Generation",
-      "date": "2026-04-27",
-      "id": "2604.24764v1",
-      "abstract": "Recent video foundation models demonstrate impressive visual synthesis but frequently suffer from geometric inconsistencies. While existing methods attempt to inject 3D priors via architectural modifi",
-      "url": "https://arxiv.org/abs/2604.24764v1"
+      "title": "Recursive Multi-Agent Systems",
+      "date": "2026-04-28",
+      "id": "2604.25917v1",
+      "abstract": "Recursive or looped language models have recently emerged as a new scaling axis by iteratively refining the same model computation over latent states to deepen reasoning. We extend such scaling princi",
+      "url": "https://arxiv.org/abs/2604.25917v1"
     },
     {
-      "title": "Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding and Generation",
-      "date": "2026-04-27",
-      "id": "2604.24763v1",
-      "abstract": "Unified multimodal models typically rely on pretrained vision encoders and use separate visual representations for understanding and generation, creating misalignment between the two tasks and prevent",
-      "url": "https://arxiv.org/abs/2604.24763v1"
+      "title": "DV-World: Benchmarking Data Visualization Agents in Real-World Scenarios",
+      "date": "2026-04-28",
+      "id": "2604.25914v1",
+      "abstract": "Real-world data visualization (DV) requires native environmental grounding, cross-platform evolution, and proactive intent alignment. Yet, existing benchmarks often suffer from code-sandbox confinemen",
+      "url": "https://arxiv.org/abs/2604.25914v1"
     },
     {
-      "title": "OmniShotCut: Holistic Relational Shot Boundary Detection with Shot-Query Transformer",
-      "date": "2026-04-27",
-      "id": "2604.24762v1",
-      "abstract": "Shot Boundary Detection (SBD) aims to automatically identify shot changes and divide a video into coherent shots. While SBD was widely studied in the literature, existing state-of-the-art methods ofte",
-      "url": "https://arxiv.org/abs/2604.24762v1"
+      "title": "Make Any Collection Navigable: Methods for Constructing and Evaluating Hypergraph of Text",
+      "date": "2026-04-28",
+      "id": "2604.25906v1",
+      "abstract": "One reason the Web is more useful than a simple collection of documents is that the structure created by hyperlinks enables flexible navigation from one web page to another. However, hyperlinks are ty",
+      "url": "https://arxiv.org/abs/2604.25906v1"
     },
     {
-      "title": "SpecRLBench: A Benchmark for Generalization in Specification-Guided Reinforcement Learning",
-      "date": "2026-04-27",
-      "id": "2604.24729v1",
-      "abstract": "Specification-guided reinforcement learning (RL) provides a principled framework for encoding complex, temporally extended tasks using formal specifications such as linear temporal logic (LTL). While ",
-      "url": "https://arxiv.org/abs/2604.24729v1"
+      "title": "Hands-on PDC in Undergraduate Computing Education",
+      "date": "2026-04-28",
+      "id": "2604.25812v1",
+      "abstract": "Parallel and Distributed Computing (PDC) is a critical yet conceptually challenging area of the undergraduate computer science curriculum. While students often encounter these concepts in theory, few ",
+      "url": "https://arxiv.org/abs/2604.25812v1"
     },
     {
-      "title": "Passage-Aware Structural Mapping for RGB-D Visual SLAM",
-      "date": "2026-04-27",
-      "id": "2604.24707v1",
-      "abstract": "Doorways and passages are critical structural elements for indoor robot navigation, yet they remain underexplored in modern Visual SLAM (VSLAM) frameworks. This paper presents a passage-aware structur",
-      "url": "https://arxiv.org/abs/2604.24707v1"
+      "title": "KinDER: A Physical Reasoning Benchmark for Robot Learning and Planning",
+      "date": "2026-04-28",
+      "id": "2604.25788v1",
+      "abstract": "Robotic systems that interact with the physical world must reason about kinematic and dynamic constraints imposed by their own embodiment, their environment, and the task at hand. We introduce KinDER,",
+      "url": "https://arxiv.org/abs/2604.25788v1"
     },
     {
-      "title": "Can Current Agents Close the Discovery-to-Application Gap? A Case Study in Minecraft",
-      "date": "2026-04-27",
-      "id": "2604.24697v1",
-      "abstract": "Discovering causal regularities and applying them to build functional systems--the discovery-to-application loop--is a hallmark of general intelligence, yet evaluating this capacity has been hindered ",
-      "url": "https://arxiv.org/abs/2604.24697v1"
+      "title": "JOYS+ analyses of OCN$^-$, N$_2$O, NO, and complex cyanides in ices -- Thermal processing results in modest enhancement of OCN$^-$ ice",
+      "date": "2026-04-28",
+      "id": "2604.25915v1",
+      "abstract": "Nitrogen-bearing molecules are more difficult to observe than oxygen-bearing ones, mainly due to the lower abundance of nitrogen in the interstellar medium. Therefore, the formation pathways of many o",
+      "url": "https://arxiv.org/abs/2604.25915v1"
     },
     {
-      "title": "The impact of disorder and non-convex interactions on delocalisation of height functions",
-      "date": "2026-04-27",
-      "id": "2604.24743v1",
-      "abstract": "We study the behaviour of four spins systems (the XY model, the Villain model, the XY height function and the integer-valued Gaussian free field) in the presence of a non-elliptic quenched disorder. I",
-      "url": "https://arxiv.org/abs/2604.24743v1"
+      "title": "$H^2$ Stabilization of the $2$-D and $3$-D Heat Equation via Modal Decomposition",
+      "date": "2026-04-28",
+      "id": "2604.25909v1",
+      "abstract": "Boundary controllers have been recently proposed in the literature, via modal decomposition, to achieve $H^1$ stabilization of linear parabolic equations in two and three dimensions. In one dimension ",
+      "url": "https://arxiv.org/abs/2604.25909v1"
     },
     {
-      "title": "Analysis of the Gaia DR3 planetary nebula candidates and the possible symbiotic stars among them",
-      "date": "2026-04-27",
-      "id": "2604.24730v1",
-      "abstract": "The Gaia DR3, released in June 2022, included low-resolution BP/RP (XP) spectra that have been exploited for the classification of various types of emission-line objects using machine-learning techniq",
-      "url": "https://arxiv.org/abs/2604.24730v1"
+      "title": "Credit Limits beyond Full Collateralization in Decentralized Micropayments: Incentive Conditions",
+      "date": "2026-04-28",
+      "id": "2604.25913v1",
+      "abstract": "In decentralized non-custodial micropayments, the central challenge is not whether payments can be executed directly, but under what conditions such systems can offer credit limits without requiring f",
+      "url": "https://arxiv.org/abs/2604.25913v1"
     },
     {
-      "title": "Cosmological Impact of Redshift-Dependent Type Ia Supernovae Calibration",
-      "date": "2026-04-27",
-      "id": "2604.24761v1",
-      "abstract": "Type Ia supernovae (SNIa) play a central role in constraining the late-time expansion history of the Universe and are directly implicated in current cosmological tensions. Motivated by the possibility",
-      "url": "https://arxiv.org/abs/2604.24761v1"
+      "title": "Universal transport of active colloids with sensory delay in motility landscapes",
+      "date": "2026-04-28",
+      "id": "2604.25745v1",
+      "abstract": "We experimentally, numerically and analytically explore the diffusive transport of active colloidal particles with sensory delay, navigating motility landscapes in which the self-propulsion speed depe",
+      "url": "https://arxiv.org/abs/2604.25745v1"
     },
     {
-      "title": "CAbLECAR: efficiently scheduling QLDPC codes on a tileable spin qubit chip with shuttling",
-      "date": "2026-04-27",
-      "id": "2604.24739v1",
-      "abstract": "Semiconductor spin qubits are a promising platform for large-scale quantum computing, but have yet to take full advantage of the broad class of quantum low-density parity check (QLDPC) codes, which pr",
-      "url": "https://arxiv.org/abs/2604.24739v1"
+      "title": "TSN-Affinity: Similarity-Driven Parameter Reuse for Continual Offline Reinforcement Learning",
+      "date": "2026-04-28",
+      "id": "2604.25898v1",
+      "abstract": "Continual offline reinforcement learning (CORL) aims to learn a sequence of tasks from datasets collected over time while preserving performance on previously learned tasks. This setting corresponds t",
+      "url": "https://arxiv.org/abs/2604.25898v1"
     },
     {
-      "title": "Physical Basis for Band Transport and Dimensionality in Amorphous Oxide Semiconductor Field-Effect Transistors",
-      "date": "2026-04-27",
-      "id": "2604.24641v1",
-      "abstract": "A consistent and widely accepted physical basis for interpretation of charge transport in amorphous oxide semiconductor (AOS) field-effect transistors (FETs), and more generally device physics, has be",
-      "url": "https://arxiv.org/abs/2604.24641v1"
+      "title": "Variational Neural Belief Parameterizations for Robust Dexterous Grasping under Multimodal Uncertainty",
+      "date": "2026-04-28",
+      "id": "2604.25897v1",
+      "abstract": "Contact variability, sensing uncertainty, and external disturbances make grasp execution stochastic. Expected-quality objectives ignore tail outcomes and often select grasps that fail under adverse co",
+      "url": "https://arxiv.org/abs/2604.25897v1"
     },
     {
-      "title": "Less Is More: Engineering Challenges of On-Device Small Language Model Integration in a Mobile Application",
-      "date": "2026-04-27",
-      "id": "2604.24636v1",
-      "abstract": "On-device Small Language Models (SLMs) promise fully offline, private AI experiences for mobile users (no cloud dependency, no data leaving the device). But is this promise achievable in practice? Thi",
-      "url": "https://arxiv.org/abs/2604.24636v1"
+      "title": "de Sitter in String Theory vs. Gibbons & Hawking",
+      "date": "2026-04-28",
+      "id": "2604.25918v1",
+      "abstract": "This paper corroborates a statement that perturbative string theory does not admit a solution whose spacetime metric is de Sitter times a closed manifold, to all orders in the $α'$ and $g_s$ expansion",
+      "url": "https://arxiv.org/abs/2604.25918v1"
     },
     {
-      "title": "CF-VLA: Efficient Coarse-to-Fine Action Generation for Vision-Language-Action Policies",
-      "date": "2026-04-27",
-      "id": "2604.24622v1",
-      "abstract": "Flow-based vision-language-action (VLA) policies offer strong expressivity for action generation, but suffer from a fundamental inefficiency: multi-step inference is required to recover action structu",
-      "url": "https://arxiv.org/abs/2604.24622v1"
+      "title": "QAROO: AI-Driven Online Task Offloading for Energy-Efficient and Sustainable MEC Networks",
+      "date": "2026-04-28",
+      "id": "2604.25740v1",
+      "abstract": "With the rapid advancement of artificial intelligence (AI) and intelligent science, intelligent edge computing has been widely adopted. However, the limitations of traditional methods, such as poor ad",
+      "url": "https://arxiv.org/abs/2604.25740v1"
     },
     {
-      "title": "Long-Context Aware Upcycling: A New Frontier for Hybrid LLM Scaling",
-      "date": "2026-04-27",
-      "id": "2604.24715v1",
-      "abstract": "Hybrid sequence models that combine efficient Transformer components with linear sequence modeling blocks are a promising alternative to pure Transformers, but most are still pretrained from scratch a",
-      "url": "https://arxiv.org/abs/2604.24715v1"
+      "title": "Collective and separate metal-insulator transitions in correlated vanadium dioxide",
+      "date": "2026-04-28",
+      "id": "2604.25638v1",
+      "abstract": "Deciphering the complicated interplay between collective and separate behaviors lies at the heart of first-order metal-insulator transition (MIT) in correlated electron systems, enabling the rational ",
+      "url": "https://arxiv.org/abs/2604.25638v1"
     },
     {
-      "title": "When Prompt Under-Specification Improves Code Correctness: An Exploratory Study of Prompt Wording and Structure Effects on LLM-Based Code Generation",
-      "date": "2026-04-27",
-      "id": "2604.24712v1",
-      "abstract": "Large language models are increasingly used for code generation, yet the correctness of their outputs depends not only on model capability but also on how tasks are specified. Prior studies demonstrat",
-      "url": "https://arxiv.org/abs/2604.24712v1"
+      "title": "Carbon-Taxed Transformers: A Green Compression Pipeline for Overgrown Language Models",
+      "date": "2026-04-28",
+      "id": "2604.25903v1",
+      "abstract": "The accelerating adoption of Large Language Models (LLMs) in software engineering (SE) has brought with it a silent crisis: unsustainable computational cost. While these models demonstrate remarkable ",
+      "url": "https://arxiv.org/abs/2604.25903v1"
     },
     {
-      "title": "Distributional Robustness of Linear Contracts",
-      "date": "2026-04-27",
-      "id": "2604.24732v1",
-      "abstract": "Linear contracts are ubiquitous in practice, yet optimal contract theory often prescribes complex, nonlinear structures. We provide a distributional robustness justification for linear contracts. We s",
-      "url": "https://arxiv.org/abs/2604.24732v1"
+      "title": "Pythia: Toward Predictability-Driven Agent-Native LLM Serving",
+      "date": "2026-04-28",
+      "id": "2604.25899v1",
+      "abstract": "As LLM applications grow more complex, developers are increasingly adopting multi-agent architectures to decompose workflows into specialized, collaborative components, introducing structure that cons",
+      "url": "https://arxiv.org/abs/2604.25899v1"
     },
     {
-      "title": "The Optimal Sample Complexity of Multiclass and List Learning",
-      "date": "2026-04-27",
-      "id": "2604.24749v1",
-      "abstract": "While the optimal sample complexity of binary classification in terms of the VC dimension is well-established, determining the optimal sample complexity of multiclass classification has remained open.",
-      "url": "https://arxiv.org/abs/2604.24749v1"
+      "title": "Testing a continuous-variable Bell-like inequality with a hybrid-encoded system",
+      "date": "2026-04-28",
+      "id": "2604.25901v1",
+      "abstract": "Continuous-variable quantum systems are promising candidates for quantum computing and quantum information processing. It is widely known that quadrature measurements on Gaussian continuous-variable s",
+      "url": "https://arxiv.org/abs/2604.25901v1"
     },
     {
-      "title": "How Quantum Contextuality disappears in the Classical Limit",
-      "date": "2026-04-27",
-      "id": "2604.24735v1",
-      "abstract": "The emergence of classicality is fundamentally driven by the interaction between a quantum system and its environment. Foundational open-system approaches, notably the Caldeira-Leggett model, successf",
-      "url": "https://arxiv.org/abs/2604.24735v1"
-    },
-    {
-      "title": "Non-Abelian Particle-Loop, Fracton, and Planon Condensation in Cage-Net Models",
-      "date": "2026-04-27",
-      "id": "2604.24755v1",
-      "abstract": "We present a framework for non-Abelian p-loop, fracton, and planon condensation in 3+1 dimensions by constructing extended cage-net fracton models using decoupled layers of the Hu-Geer-Wu (HGW) string",
-      "url": "https://arxiv.org/abs/2604.24755v1"
-    },
-    {
-      "title": "Connecting the dusty dots: dust depletion and extinction of local interstellar clouds",
-      "date": "2026-04-27",
-      "id": "2604.24752v1",
-      "abstract": "Investigating the chemical complexity of the interstellar medium (ISM) is key for understanding its physical nature and evolution. In this work, we study parsec-scale interstellar dust clouds in the n",
-      "url": "https://arxiv.org/abs/2604.24752v1"
-    },
-    {
-      "title": "WildLIFT: Lifting monocular drone video to 3D for species-agnostic wildlife monitoring",
-      "date": "2026-04-27",
-      "id": "2604.24718v1",
-      "abstract": "Monocular RGB cameras mounted on drones are widely used for wildlife monitoring, yet most analytical pipelines remain confined to two-dimensional image space, leaving geometric information in video un",
-      "url": "https://arxiv.org/abs/2604.24718v1"
+      "title": "How Fast Should a Model Commit to Supervision? Training Reasoning Models on the Tsallis Loss Continuum",
+      "date": "2026-04-28",
+      "id": "2604.25907v1",
+      "abstract": "Adapting reasoning models to new tasks during post-training with only output-level supervision stalls under reinforcement learning from verifiable rewards (RLVR) when the initial success probability $",
+      "url": "https://arxiv.org/abs/2604.25907v1"
     }
   ]
 }
