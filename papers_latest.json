@@ -1,133 +1,119 @@
 {
-  "updated": "2026-04-29 04:24 UTC",
-  "total": 18,
+  "updated": "2026-04-30 04:27 UTC",
+  "total": 16,
   "today_count": 0,
   "papers": [
     {
-      "title": "Recursive Multi-Agent Systems",
-      "date": "2026-04-28",
-      "id": "2604.25917v1",
-      "abstract": "Recursive or looped language models have recently emerged as a new scaling axis by iteratively refining the same model computation over latent states to deepen reasoning. We extend such scaling princi",
-      "url": "https://arxiv.org/abs/2604.25917v1"
+      "title": "Turning the TIDE: Cross-Architecture Distillation for Diffusion Large Language Models",
+      "date": "2026-04-29",
+      "id": "2604.26951v1",
+      "abstract": "Diffusion large language models (dLLMs) offer parallel decoding and bidirectional context, but state-of-the-art dLLMs require billions of parameters for competitive performance. While existing distill",
+      "url": "https://arxiv.org/abs/2604.26951v1"
     },
     {
-      "title": "DV-World: Benchmarking Data Visualization Agents in Real-World Scenarios",
-      "date": "2026-04-28",
-      "id": "2604.25914v1",
-      "abstract": "Real-world data visualization (DV) requires native environmental grounding, cross-platform evolution, and proactive intent alignment. Yet, existing benchmarks often suffer from code-sandbox confinemen",
-      "url": "https://arxiv.org/abs/2604.25914v1"
+      "title": "Three-Step Nav: A Hierarchical Global-Local Planner for Zero-Shot Vision-and-Language Navigation",
+      "date": "2026-04-29",
+      "id": "2604.26946v1",
+      "abstract": "Breakthrough progress in vision-based navigation through unknown environments has been achieved by using multimodal large language models (MLLMs). These models can plan a sequence of motions by evalua",
+      "url": "https://arxiv.org/abs/2604.26946v1"
     },
     {
-      "title": "Make Any Collection Navigable: Methods for Constructing and Evaluating Hypergraph of Text",
-      "date": "2026-04-28",
-      "id": "2604.25906v1",
-      "abstract": "One reason the Web is more useful than a simple collection of documents is that the structure created by hyperlinks enables flexible navigation from one web page to another. However, hyperlinks are ty",
-      "url": "https://arxiv.org/abs/2604.25906v1"
+      "title": "ProcFunc: Function-Oriented Abstractions for Procedural 3D Generation in Python",
+      "date": "2026-04-29",
+      "id": "2604.26943v1",
+      "abstract": "We introduce ProcFunc, a library for Blender-based procedural 3D generation in Python. ProcFunc provides a library of easy-to-use Python functions, which streamline creating, combining, analyzing, and",
+      "url": "https://arxiv.org/abs/2604.26943v1"
     },
     {
-      "title": "Hands-on PDC in Undergraduate Computing Education",
-      "date": "2026-04-28",
-      "id": "2604.25812v1",
-      "abstract": "Parallel and Distributed Computing (PDC) is a critical yet conceptually challenging area of the undergraduate computer science curriculum. While students often encounter these concepts in theory, few ",
-      "url": "https://arxiv.org/abs/2604.25812v1"
+      "title": "Safe Navigation using Neural Radiance Fields via Reachable Sets",
+      "date": "2026-04-29",
+      "id": "2604.26899v1",
+      "abstract": "Safe navigation in cluttered environments is an important challenge for autonomous systems. Robots navigating through obstacle ridden scenarios need to be able to navigate safely in the presence of ob",
+      "url": "https://arxiv.org/abs/2604.26899v1"
     },
     {
-      "title": "KinDER: A Physical Reasoning Benchmark for Robot Learning and Planning",
-      "date": "2026-04-28",
-      "id": "2604.25788v1",
-      "abstract": "Robotic systems that interact with the physical world must reason about kinematic and dynamic constraints imposed by their own embodiment, their environment, and the task at hand. We introduce KinDER,",
-      "url": "https://arxiv.org/abs/2604.25788v1"
+      "title": "Walk With Me: Long-Horizon Social Navigation for Human-Centric Outdoor Assistance",
+      "date": "2026-04-29",
+      "id": "2604.26839v1",
+      "abstract": "Assisting humans in open-world outdoor environments requires robots to translate high-level natural-language intentions into safe, long-horizon, and socially compliant navigation behavior. Existing ma",
+      "url": "https://arxiv.org/abs/2604.26839v1"
     },
     {
-      "title": "JOYS+ analyses of OCN$^-$, N$_2$O, NO, and complex cyanides in ices -- Thermal processing results in modest enhancement of OCN$^-$ ice",
-      "date": "2026-04-28",
-      "id": "2604.25915v1",
-      "abstract": "Nitrogen-bearing molecules are more difficult to observe than oxygen-bearing ones, mainly due to the lower abundance of nitrogen in the interstellar medium. Therefore, the formation pathways of many o",
-      "url": "https://arxiv.org/abs/2604.25915v1"
+      "title": "Optimizing Dynamic Metasurface Antenna Configurations for Direction-of-Arrival and Polarization Estimation Using an Experimentally Calibrated Multiport-Network Model",
+      "date": "2026-04-29",
+      "id": "2604.26948v1",
+      "abstract": "Sensing the direction of arrival and polarization of impinging signals is a key prerequisite for beamforming and interference mitigation in modern wireless communication systems. Dynamic metasurface a",
+      "url": "https://arxiv.org/abs/2604.26948v1"
     },
     {
-      "title": "$H^2$ Stabilization of the $2$-D and $3$-D Heat Equation via Modal Decomposition",
-      "date": "2026-04-28",
-      "id": "2604.25909v1",
-      "abstract": "Boundary controllers have been recently proposed in the literature, via modal decomposition, to achieve $H^1$ stabilization of linear parabolic equations in two and three dimensions. In one dimension ",
-      "url": "https://arxiv.org/abs/2604.25909v1"
+      "title": "Outer-Crust Equations of State for Neutron Stars",
+      "date": "2026-04-29",
+      "id": "2604.26952v1",
+      "abstract": "We construct and systematically assess four outer-crust equations of state based on relativistic nuclear mass models and a machine-learning mass table. Our aim is to quantify the sensitivity of the eq",
+      "url": "https://arxiv.org/abs/2604.26952v1"
     },
     {
-      "title": "Credit Limits beyond Full Collateralization in Decentralized Micropayments: Incentive Conditions",
-      "date": "2026-04-28",
-      "id": "2604.25913v1",
-      "abstract": "In decentralized non-custodial micropayments, the central challenge is not whether payments can be executed directly, but under what conditions such systems can offer credit limits without requiring f",
-      "url": "https://arxiv.org/abs/2604.25913v1"
+      "title": "Anomalous Transport and Explicit Symmetry Breaking in Holography",
+      "date": "2026-04-29",
+      "id": "2604.26949v1",
+      "abstract": "We consider a holographic Einstein-Maxwell model in five dimensions with pure gauge and mixed gauge-gravitational Chern-Simons terms to study anomaly-induced transport in the presence of explicit symm",
+      "url": "https://arxiv.org/abs/2604.26949v1"
     },
     {
-      "title": "Universal transport of active colloids with sensory delay in motility landscapes",
-      "date": "2026-04-28",
-      "id": "2604.25745v1",
-      "abstract": "We experimentally, numerically and analytically explore the diffusive transport of active colloidal particles with sensory delay, navigating motility landscapes in which the self-propulsion speed depe",
-      "url": "https://arxiv.org/abs/2604.25745v1"
+      "title": "Bi-Level Optimization for Contact and Motion Planning in Rope-Assisted Legged Robots",
+      "date": "2026-04-29",
+      "id": "2604.26910v1",
+      "abstract": "This paper presents a planning pipeline framework for locomotion in rope-assisted robots climbing vertical surfaces. The proposed framework is formulated as a bi-level optimization scheme that address",
+      "url": "https://arxiv.org/abs/2604.26910v1"
     },
     {
-      "title": "TSN-Affinity: Similarity-Driven Parameter Reuse for Continual Offline Reinforcement Learning",
-      "date": "2026-04-28",
-      "id": "2604.25898v1",
-      "abstract": "Continual offline reinforcement learning (CORL) aims to learn a sequence of tasks from datasets collected over time while preserving performance on previously learned tasks. This setting corresponds t",
-      "url": "https://arxiv.org/abs/2604.25898v1"
+      "title": "STARRY: Spatial-Temporal Action-Centric World Modeling for Robotic Manipulation",
+      "date": "2026-04-29",
+      "id": "2604.26848v1",
+      "abstract": "Robotic manipulation critically requires reasoning about future spatial-temporal interactions, yet existing VLA policies and world-model-enhanced policies do not fully model action-relevant spatial-te",
+      "url": "https://arxiv.org/abs/2604.26848v1"
     },
     {
-      "title": "Variational Neural Belief Parameterizations for Robust Dexterous Grasping under Multimodal Uncertainty",
-      "date": "2026-04-28",
-      "id": "2604.25897v1",
-      "abstract": "Contact variability, sensing uncertainty, and external disturbances make grasp execution stochastic. Expected-quality objectives ignore tail outcomes and often select grasps that fail under adverse co",
-      "url": "https://arxiv.org/abs/2604.25897v1"
+      "title": "Catching the Fly: Practical Challenges in Making Blockchain FlyClient Real",
+      "date": "2026-04-29",
+      "id": "2604.26736v1",
+      "abstract": "FlyClient is a lightweight blockchain verification protocol that enables proof-of-work validation using minimal data, making it ideal for resource-constrained environments like mobile wallets, Interne",
+      "url": "https://arxiv.org/abs/2604.26736v1"
     },
     {
-      "title": "de Sitter in String Theory vs. Gibbons & Hawking",
-      "date": "2026-04-28",
-      "id": "2604.25918v1",
-      "abstract": "This paper corroborates a statement that perturbative string theory does not admit a solution whose spacetime metric is de Sitter times a closed manifold, to all orders in the $α'$ and $g_s$ expansion",
-      "url": "https://arxiv.org/abs/2604.25918v1"
+      "title": "Select to Think: Unlocking SLM Potential with Local Sufficiency",
+      "date": "2026-04-29",
+      "id": "2604.26940v1",
+      "abstract": "Small language models (SLMs) offer computational efficiency for scalable deployment, yet they often fall short of the reasoning power exhibited by their larger counterparts (LLMs). To mitigate this ga",
+      "url": "https://arxiv.org/abs/2604.26940v1"
     },
     {
-      "title": "QAROO: AI-Driven Online Task Offloading for Energy-Efficient and Sustainable MEC Networks",
-      "date": "2026-04-28",
-      "id": "2604.25740v1",
-      "abstract": "With the rapid advancement of artificial intelligence (AI) and intelligent science, intelligent edge computing has been widely adopted. However, the limitations of traditional methods, such as poor ad",
-      "url": "https://arxiv.org/abs/2604.25740v1"
+      "title": "ClassEval-Pro: A Cross-Domain Benchmark for Class-Level Code Generation",
+      "date": "2026-04-29",
+      "id": "2604.26923v1",
+      "abstract": "LLMs have achieved strong results on both function-level code synthesis and repository-level code modification, yet a capability that falls between these two extremes -- compositional code creation, i",
+      "url": "https://arxiv.org/abs/2604.26923v1"
     },
     {
-      "title": "Collective and separate metal-insulator transitions in correlated vanadium dioxide",
-      "date": "2026-04-28",
-      "id": "2604.25638v1",
-      "abstract": "Deciphering the complicated interplay between collective and separate behaviors lies at the heart of first-order metal-insulator transition (MIT) in correlated electron systems, enabling the rational ",
-      "url": "https://arxiv.org/abs/2604.25638v1"
+      "title": "Weighted Linearization of Vector Fields via a Formal Moser Trick",
+      "date": "2026-04-29",
+      "id": "2604.26950v1",
+      "abstract": "Many well-known theorems establish sufficient criteria for linearizability of a vector field in terms of the eigenvalues of its linear approximation. By attaching weights to coordinates so that some d",
+      "url": "https://arxiv.org/abs/2604.26950v1"
     },
     {
-      "title": "Carbon-Taxed Transformers: A Green Compression Pipeline for Overgrown Language Models",
-      "date": "2026-04-28",
-      "id": "2604.25903v1",
-      "abstract": "The accelerating adoption of Large Language Models (LLMs) in software engineering (SE) has brought with it a silent crisis: unsustainable computational cost. While these models demonstrate remarkable ",
-      "url": "https://arxiv.org/abs/2604.25903v1"
+      "title": "Schwinger-Keldysh Path Integral for Gauge theories",
+      "date": "2026-04-29",
+      "id": "2604.26941v1",
+      "abstract": "We develop the Schwinger-Keldysh path-integral formalism for open non-Abelian gauge theories that are gauge-fixed via the BRST method in covariant gauges. We focus on generic initial states, pure and ",
+      "url": "https://arxiv.org/abs/2604.26941v1"
     },
     {
-      "title": "Pythia: Toward Predictability-Driven Agent-Native LLM Serving",
-      "date": "2026-04-28",
-      "id": "2604.25899v1",
-      "abstract": "As LLM applications grow more complex, developers are increasingly adopting multi-agent architectures to decompose workflows into specialized, collaborative components, introducing structure that cons",
-      "url": "https://arxiv.org/abs/2604.25899v1"
-    },
-    {
-      "title": "Testing a continuous-variable Bell-like inequality with a hybrid-encoded system",
-      "date": "2026-04-28",
-      "id": "2604.25901v1",
-      "abstract": "Continuous-variable quantum systems are promising candidates for quantum computing and quantum information processing. It is widely known that quadrature measurements on Gaussian continuous-variable s",
-      "url": "https://arxiv.org/abs/2604.25901v1"
-    },
-    {
-      "title": "How Fast Should a Model Commit to Supervision? Training Reasoning Models on the Tsallis Loss Continuum",
-      "date": "2026-04-28",
-      "id": "2604.25907v1",
-      "abstract": "Adapting reasoning models to new tasks during post-training with only output-level supervision stalls under reinforcement learning from verifiable rewards (RLVR) when the initial success probability $",
-      "url": "https://arxiv.org/abs/2604.25907v1"
+      "title": "World2VLM: Distilling World Model Imagination into VLMs for Dynamic Spatial Reasoning",
+      "date": "2026-04-29",
+      "id": "2604.26934v1",
+      "abstract": "Vision-language models (VLMs) have shown strong performance on static visual understanding, yet they still struggle with dynamic spatial reasoning that requires imagining how scenes evolve under egoce",
+      "url": "https://arxiv.org/abs/2604.26934v1"
     }
   ]
 }
