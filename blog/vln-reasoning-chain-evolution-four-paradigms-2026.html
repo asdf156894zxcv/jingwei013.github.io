@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VLN推理链架构四代进化：为什么CoW-Nav选择FSCoT</title>
+<meta name="description" content="从朴素CoT到世界模型预测，VLN推理链架构的四种范式对比，以及CoW-Nav的差异化定位">
+<style>
+body {font-family: -apple-system, "Microsoft YaHei", sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; background: #fafafa;}
+h1 {color: #1a1a2e; border-bottom: 3px solid #4a90d9; padding-bottom: 10px; font-size: 1.6em;}
+h2 {color: #16213e; margin-top: 30px;}
+h3 {color: #0f3460;}
+.meta {color: #888; font-size: 0.9em; margin-bottom: 20px;}
+.tag {display: inline-block; background: #e3f2fd; color: #1565c0; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; margin-right: 5px;}
+.content {background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);}
+.quote {border-left: 4px solid #4a90d9; padding: 12px 20px; background: #f0f7ff; margin: 15px 0; font-style: italic;}
+.highlight {background: #fff8e1; padding: 2px 6px; border-radius: 3px;}
+.toc {background: #f5f5f5; padding: 15px 20px; border-radius: 8px; margin: 20px 0;}
+.toc li {margin: 5px 0;}
+table {width: 100%; border-collapse: collapse; margin: 15px 0;}
+th, td {border: 1px solid #ddd; padding: 10px; text-align: left;}
+th {background: #1a1a2e; color: white;}
+tr:nth-child(even) {background: #f9f9f9;}
+.back {display: inline-block; margin-top: 20px; color: #4a90d9; text-decoration: none;}
+</style>
+</head>
+<body>
+<div class="content">
+<h1>VLN推理链架构四代进化：为什么CoW-Nav选择FSCoT</h1>
+<div class="meta">2026-04-30 | 标签：<span class="tag">VLN</span><span class="tag">CoT</span><span class="tag">CoW-Nav</span><span class="tag">推理架构</span></div>
+
+<div class="toc">
+<strong>目录</strong>
+<ol>
+<li><a href="#gen1">第一代：朴素CoT — 完整但不可控</a></li>
+<li><a href="#gen2">第二代：受限CoT — FSCoT的结构化方案</a></li>
+<li><a href="#gen3">第三代：置信度门控 — 自适应计算预算</a></li>
+<li><a href="#gen4">第四代：世界模型预测 — 长期规划能力</a></li>
+<li><a href="#cow">CoW-Nav的定位：站在第二代与第三代之间</a></li>
+<li><a href="#future">第五代假设：推理编译器</a></li>
+</ol>
+</div>
+
+<h2 id="gen1">一、第一代：朴素CoT — 完整但不可控</h2>
+
+<p>2023-2024年的VLN研究普遍采用朴素Chain-of-Thought（CoT），代表工作包括EVAPORATE和Aux-Think。</p>
+
+<p><strong>核心思路</strong>：让VLM在每一步推理时输出完整的思考链，类似人类的"自言自语"：</p>
+
+<div class="quote">
+"我现在在走廊中段，看到左侧有一扇门，右侧是开放的房间。根据指令'去厨房'，厨房通常在开放空间的尽头，所以应该继续直行而不是左转..."
+</div>
+
+<p><strong>优势</strong>：推理过程透明，可调试，可解释。</p>
+
+<p><strong>致命缺陷</strong>：训练-推断不对称（Train-Test Inference Asymmetry）。Aux-Think论文明确指出：</p>
+
+<ul>
+<li>训练时：CoT teacher强制输出完整推理链</li>
+<li>推断时：模型倾向于"跳过"推理直接输出动作</li>
+<li>结果：训练时学到的推理能力在推断时崩溃</li>
+</ul>
+
+<h2 id="gen2">二、第二代：受限CoT — FSCoT的结构化方案</h2>
+
+<p>FSCoT（Fixed-Structure Chain-of-Thought）的核心洞察是：<span class="highlight">不是减少推理，而是约束推理的结构</span>。</p>
+
+<p>CoW-Nav采用FSCoT，将推理链分解为4个固定段：</p>
+
+<table>
+<tr><th>推理段</th><th>内容</th><th>Token预算</th></tr>
+<tr><td>感知段</td><td>当前视觉观察 + 文本指令</td><td>~128</td></tr>
+<tr><td>定位段</td><td>拓扑位置 + 场景识别</td><td>~64</td></tr>
+<tr><td>规划段</td><td>下一步动作候选</td><td>~64</td></tr>
+<tr><td>停止段</td><td>置信度评估 + 停止/继续决策</td><td>~32</td></tr>
+</table>
+
+<p><strong>关键改进</strong>：训练时严格遵循4段结构，推断时同样严格遵循，完全对称，消除了第一代的崩溃问题。</p>
+
+<h2 id="gen3">三、第三代：置信度门控 — 自适应计算预算</h2>
+
+<p>Rule-VLN和VLLR代表了另一条路线：用置信度分数决定是否触发深度推理。</p>
+
+<p><strong>核心思路</strong>：简单场景走快速通道（低推理开销），复杂场景才触发慢速通道（高推理开销）。</p>
+
+<p>这与人类的认知模式高度一致：我们不会对每个决策都深思熟虑——熟悉的任务靠直觉，陌生的任务才启动系统2。</p>
+
+<p><strong>CoW-Nav的置信度头</strong>正是第三代范式的实现：</p>
+
+<ul>
+<li>置信度分数 < 0.7 → 快速通道（单步动作）</li>
+<li>置信度分数 ≥ 0.7 → 慢速通道（FSCoT完整推理）</li>
+</ul>
+
+<h2 id="gen4">四、第四代：世界模型预测 — 长期规划能力</h2>
+
+<p>DreamNav和WorldSense尝试用世界模型预测未来状态，再决定当前动作。</p>
+
+<p><strong>核心思路</strong>：不只是"我现在在哪里"，还要预测"如果我往左走，3步后会到达哪里"。</p>
+
+<p>这带来了更强的长期规划能力，但代价是推理开销指数级增长——每一步都需要模拟多条可能的未来轨迹。</p>
+
+<h2 id="cow">五、CoW-Nav的定位：站在第二代与第三代之间</h2>
+
+<p>当前的CoW-Nav正处于<span class="highlight">第二代→第三代的过渡阶段</span>：</p>
+
+<ul>
+<li><strong>FSCoT（✅ 已实现）</strong>：结构化4段推理链，训练-推断对称</li>
+<li><strong>置信度头（🔄 进行中）</strong>：自适应深度路由，根据场景难度选择推理深度</li>
+<li><strong>世界模型（⏳ 待探索）</strong>：长期规划能力，推理开销大</li>
+</ul>
+
+<p>这个定位是经过深思熟虑的：</p>
+
+<ul>
+<li>不盲目追求第四代（推理开销太大，实机部署困难）</li>
+<li>但也不停留在第一代（训练-推断不对称，效果不稳定）</li>
+<li>在效率和精度之间找到平衡点</li>
+</ul>
+
+<h2 id="future">六、第五代假设：推理编译器</h2>
+
+<p>Tool Attention（arXiv:2604.21816）给了我一个新思路：</p>
+
+<div class="quote">
+传统VLM推理：输入 → 完整CoT → 输出<br>
+Tool Attention：输入 → 推理IR → 编译优化 → 输出（削减97% token）
+</div>
+
+<p><strong>类比到CoW-Nav：</strong></p>
+
+<ul>
+<li><strong>当前版本</strong>：FSCoT → 固定4段推理 → 停止判断</li>
+<li><strong>升级版本</strong>：FSCoT → 可学习推理IR → 编译优化 → 自适应停止边界</li>
+</ul>
+
+<p>核心升级点：推理段长度由置信度动态决定，而非预定义的固定4段。</p>
+
+<h2>结论</h2>
+
+<p>VLN推理链架构的进化史，本质上是"效率与精度的博弈史"。</p>
+
+<p>CoW-Nav选择FSCoT作为基座，是因为它解决了第一代的核心问题（训练-推断对称），同时为第三代（置信度门控）提供了结构化接口。</p>
+
+<p>这个选择务实且有前瞻性——既能在当前硬件条件下高效部署，又为未来的世界模型集成留下了扩展空间。</p>
+
+<a href="index.html" class="back">← 返回首页</a>
+</div>
+</body>
+</html>
