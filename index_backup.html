@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>精卫导航 | Embodied Intelligence & Robot Navigation Research</title>
+  <meta name="description" content="精卫导航机器人导航研究博客,记录学术探索与前沿思考">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+:root{--accent:#d35400;--accent-hover:#e67e22;--accent-dim:rgba(211,84,0,0.1);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-muted:#757575;--bg-secondary:#f5f5f5;--border:#e0e0e0;--radius:12px;--shadow:0 4px 20px rgba(0,0,0,0.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Noto Serif SC',-apple-system,sans-serif;background:#fff;color:var(--text-primary);line-height:1.7;min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover)}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{background:#fff;border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:18px;font-weight:700}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--text-secondary);font-size:15px;font-weight:500}
+nav a.active,nav a:hover{color:var(--accent)}
+.hero{text-align:center;padding:60px 24px 48px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);color:var(--accent);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:20px}
+.hero h1{font-size:42px;font-weight:700;line-height:1.25;margin-bottom:16px}
+.hero-sub{font-size:17px;color:var(--text-secondary);max-width:620px;margin:0 auto 32px}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary,.btn-secondary{padding:12px 24px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-secondary{background:var(--bg-secondary);color:var(--text-primary)}
+.hero-stats{display:flex;justify-content:center;gap:48px;margin-top:48px;padding-top:40px;border-top:1px solid var(--border)}
+.stat{text-align:center;cursor:pointer}
+.stat:hover .stat-num{color:var(--accent)}
+.stat-num{font-size:32px;font-weight:700;color:var(--accent)}
+.stat-label{font-size:13px;color:var(--text-muted);margin-top:4px}
+.divider{border:none;border-top:1px solid var(--border);margin:0}
+section{padding:48px 0}
+section.hidden{display:none}
+.section-header{margin-bottom:28px}
+.section-title{font-size:22px;font-weight:700;margin-bottom:6px}
+.section-desc{font-size:14px;color:var(--text-muted)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all 0.2s}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.card-title{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.4}
+.card-meta{font-size:12px;color:var(--text-muted);margin-bottom:10px}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;padding:3px 8px;border-radius:10px;color:#fff}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.filter-btn{padding:6px 14px;border-radius:6px;font-size:13px;background:var(--bg-secondary);color:var(--text-secondary);cursor:pointer;border:1px solid var(--border)}
+.filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.papers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.paper-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.paper-tag{font-size:11px;padding:3px 8px;border-radius:10px;color:#fff;display:inline-block;margin-bottom:10px}
+.paper-title{font-size:15px;font-weight:600;margin-bottom:6px;line-height:1.4}
+.paper-meta{font-size:12px;color:var(--text-muted);margin-bottom:8px}
+footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 0;text-align:center;color:var(--text-muted);font-size:14px}
+footer a{color:var(--text-secondary)}
+@media(max-width:768px){.hero h1{font-size:28px}.hero-stats{flex-wrap:wrap;gap:24px}}
+  </style>
+</head>
+<body>
+<nav><div class="container">
+  <a href="#" class="logo" onclick="showSection('home')">精卫导航</a>
+  <ul>
+    <li><a href="#" onclick="showSection('research')">研究方向</a></li>
+    <li><a href="#" onclick="showSection('papers')">论文</a></li>
+    <li><a href="#" onclick="showSection('blog')">博客</a></li>
+    <li><a href="#" onclick="showSection('cases')">案例</a></li>
+    <li><a href="#" onclick="showSection('about')">关于</a></li>
+  </ul>
+</div></nav>
+
+<div class="container">
+  <div class="hero">
+    <div class="hero-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg>
+      具身智能 · Embodied Intelligence
+    </div>
+    <h1>精卫导航<br>一个研究者的数字空间</h1>
+    <p class="hero-sub">探索具身智能与视觉语言导航(VLN)、目标导航(ObjectNav)和LLM导航的前沿技术,记录学术探索与前沿思考。</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="showSection('papers')">查看论文</button>
+      <button class="btn-secondary" onclick="showSection('cases')">查看案例分析</button>
+      <button class="btn-secondary" onclick="showSection('research')">研究方向</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat" onclick="showSection('papers')" title="点击查看论文">
+        <span class="stat-num">21</span><div class="stat-label">论文</div>
+      </div>
+      <div class="stat" onclick="showSection('blog')" title="点击查看博客">
+        <span class="stat-num">153</span><div class="stat-label">博客</div>
+      </div>
+      <div class="stat" onclick="showSection('cases')" title="点击查看案例">
+        <span class="stat-num">103</span><div class="stat-label">案例分析</div>
+      </div>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <section id="research">
+    <div class="section-header">
+      <div class="section-title">研究方向 · Research</div>
+      <div class="section-desc">具身智能、视觉语言导航、目标导航、LLM导航、强化学习</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <h3 class="card-title">视觉语言导航 (VLN)</h3>
+        <div class="card-meta">Vision-Language Navigation</div>
+        <div class="card-tags"><span class="tag" style="background:#c0392b">VLN</span><span class="tag" style="background:#27ae60">LLM</span></div>
+      </div>
+      <div class="card">
+        <h3 class="card-title">目标导航 (ObjectNav)</h3>
+        <div class="card-meta">Object Goal Navigation</div>
+        <div class="card-tags"><span class="tag" style="background:#8e44ad">ObjectNav</span><span class="tag" style="background:#c0392b">RL</span></div>
+      </div>
+      <div class="card">
+        <h3 class="card-title">置信度校准</h3>
+        <div class="card-meta">Confidence Calibration</div>
+        <div class="card-tags"><span class="tag" style="background:#2980b9">Perception</span><span class="tag" style="background:#f39c12">World Model</span></div>
+      </div>
+      <div class="card">
+        <h3 class="card-title">世界模型</h3>
+        <div class="card-meta">World Models</div>
+        <div class="card-tags"><span class="tag" style="background:#f39c12">World Model</span><span class="tag" style="background:#16a085">VLA</span></div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <section id="papers" class="hidden">
+    <div class="section-header">
+      <div class="section-title">论文 · Papers</div>
+      <div class="section-desc">追踪 VLN / ObjectNav / LLM导航 / 世界模型 / VLA</div>
+    </div>
+    <div class="papers-grid" id="papersGrid"></div>
+  </section>
+  <hr class="divider">
+
+  <section id="blog" class="hidden">
+    <div class="section-header">
+      <div class="section-title">博客 · Blog</div>
+      <div class="section-desc">前沿技术 · 案例分析 · 创业基础 · AI创业</div>
+    </div>
+    <div class="filter-bar" id="blogFilter">
+      <button class="filter-btn active" onclick="filterBlog('all')">全部</button>
+      <button class="filter-btn" onclick="filterBlog('tech')">前沿技术</button>
+      <button class="filter-btn" onclick="filterBlog('case')">案例分析</button>
+      <button class="filter-btn" onclick="filterBlog('startup')">创业基础</button>
+      <button class="filter-btn" onclick="filterBlog('ai')">AI创业</button>
+    </div>
+    <div class="card-grid" id="blogGrid"></div>
+  </section>
+  <hr class="divider">
+
+  <section id="cases" class="hidden">
+    <div class="section-header">
+      <div class="section-title">案例分析 · Cases</div>
+      <div class="section-desc">创业案例、技术复盘、行业分析</div>
+    </div>
+    <div class="card-grid" id="casesGrid"></div>
+  </section>
+  <hr class="divider">
+
+  <section id="about" class="hidden">
+    <div class="section-header">
+      <div class="section-title">关于 · About</div>
+    </div>
+    <p>精卫导航是一个专注于具身智能和机器人导航研究的个人博客。</p>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2024-2026 精卫导航 | <a href="https://jingwei013.github.io">jingwei013.github.io</a></p>
+    <p>Last Update: 2026-04-30</p>
+  </div>
+</footer>
+
+<script>
+const PAPERS=[
+{cats:'survey',tag:'Survey',cls:'#d35400',title:'Vision-Language Navigation: A Survey',meta:'2022-2024 | Survey',url:'#'},
+{cats:'vln',tag:'VLN',cls:'#c0392b',title:'Contrastive Language-Agent Pretraining',meta:'2022 | VLN',url:'#'},
+{cats:'vln',tag:'VLN',cls:'#c0392b',title:'EnvEdit: Environment Editing',meta:'2022 | VLN',url:'#'},
+{cats:'obj',tag:'ObjectNav',cls:'#8e44ad',title:'Semantic Curiosity-Driven Exploration',meta:'2022 | ObjectNav',url:'#'},
+{cats:'llm',tag:'LLM Nav',cls:'#27ae60',title:'LLM as Agent Brain',meta:'2023 | LLM',url:'#'},
+{cats:'vla',tag:'VLA',cls:'#16a085',title:'VLA Models Survey',meta:'2024 | VLA',url:'#'},
+{cats:'vln',tag:'VLN',cls:'#c0392b',title:'CoW-Nav: Confidence Head',meta:'2024 | VLN',url:'#'},
+{cats:'vla',tag:'VLA',cls:'#16a085',title:'OpenVLA: Open VLAs',meta:'2024 | VLA',url:'#'},
+];
+
+const BLOGS=[
+{cat:'tech',title:'论文精读：Active Neural SLAM——主动探索如何提升ObjectNav效率',date:'2026-04-26',url:'./blog/active-neural-slam.html'},
+{cat:'startup',title:'AI Agent创业机会分析：具身智能领域的可能路径',date:'2026-04-26',url:'./blog/ai-agent-opportunities.html'},
+{cat:'startup',title:'ai-agent-product-market-fit-2026',date:'2026-04-26',url:'./blog/ai-agent-product-market-fit-2026.html'},
+{cat:'startup',title:'ai-agent-productization-challenges-2026',date:'2026-04-26',url:'./blog/ai-agent-productization-challenges-2026.html'},
+{cat:'startup',title:'ai-agent-startup-2026-landscape',date:'2026-04-26',url:'./blog/ai-agent-startup-2026-landscape.html'},
+{cat:'startup',title:'25款AI应用集体猝死：2025年AI创业的真实死亡报告',date:'2026-04-26',url:'./blog/ai-apps-death-wave.html'},
+{cat:'startup',title:'AI硬件创业危机：从百亿估值到破产清算的真实教训',date:'2026-04-26',url:'./blog/ai-hardware-startup-crisis-2026.html'},
+{cat:'startup',title:'ai-product-retention-myths-2026',date:'2026-04-26',url:'./blog/ai-product-retention-myths-2026.html'},
+{cat:'startup',title:'VLN创业红宝书：从学术论文到10亿美元市场的完整路径',date:'2026-04-27',url:'./blog/vln-startup-ai-navigation-market-2026.html'},
+{cat:'startup',title:'ai-robot-startup-2026-funding-landscape',date:'2026-04-26',url:'./blog/ai-robot-startup-2026-funding-landscape.html'},
+{cat:'startup',title:'ai-robot-startup-acquisition-analysis-2026',date:'2026-04-26',url:'./blog/ai-robot-startup-acquisition-analysis-2026.html'},
+{cat:'startup',title:'ai-startup-2026-death-report',date:'2026-04-26',url:'./blog/ai-startup-2026-death-report.html'},
+{cat:'startup',title:'精卫013',date:'2026-04-26',url:'./blog/ai-startup-2026-q1-funding-landscape.html'},
+{cat:'startup',title:'ai-startup-cold-start-trap',date:'2026-04-26',url:'./blog/ai-startup-cold-start-trap.html'},
+{cat:'startup',title:'7大死亡陷阱：AI创业公司的真实墓志铭',date:'2026-04-26',url:'./blog/ai-startup-death-traps.html'},
+{cat:'startup',title:'AI创业的代际革命：为什么现在是第三个"窗口期"',date:'2026-04-26',url:'./blog/ai-startup-generational-revolution-2026.html'},
+{cat:'startup',title:'AI创业2026年Q2拐点：从通用具身智能到垂直场景的必经之路',date:'2026-04-26',url:'./blog/ai-startup-q2-2026-from-embodied-to-vertical.html'},
+{cat:'startup',title:'2026年AI创业生存指南：如何在烧钱竞赛中活下去',date:'2026-04-26',url:'./blog/ai-startup-survival-guide-2026.html'},
+{cat:'startup',title:'ai-startup-survival-rules-2026',date:'2026-04-26',url:'./blog/ai-startup-survival-rules-2026.html'},
+{cat:'startup',title:'AI创业的"技术幻觉"：为什么技术领先≠商业成功',date:'2026-04-26',url:'./blog/ai-startup-tech-illusion.html'},
+{cat:'startup',title:'AI创业公司的"技术债"陷阱：为什么技术越强，死得越快',date:'2026-04-26',url:'./blog/ai-startup-technical-debt-trap.html'},
+{cat:'startup',title:'AI工具那么多，怎么选？',date:'2026-04-26',url:'./blog/ai-tools-how-to-choose.html'},
+{cat:'startup',title:'AI独角兽正在倒闭：达闼机器人与2025年的明星公司危机',date:'2026-04-26',url:'./blog/ai-unicorn-collapse.html'},
+{cat:'tech',title:'BEV表示学习：鸟瞰视角在机器人导航中的应用',date:'2026-04-26',url:'./blog/bev-representation-learning-navigation.html'},
+{cat:'tech',title:'case-38-unitree-robotics',date:'2026-04-26',url:'./blog/case-38-unitree-robotics.html'},
+{cat:'tech',title:'case-china-robots',date:'2026-04-26',url:'./blog/case-china-robots.html'},
+{cat:'tech',title:'case-k-scale',date:'2026-04-26',url:'./blog/case-k-scale.html'},
+{cat:'tech',title:'cross-modal-drift-vln-sim2real-deep-analysis',date:'2026-04-26',url:'./blog/cross-modal-drift-vln-sim2real-deep-analysis.html'},
+{cat:'startup',title:'DeepSeek效应：开源模型如何重塑AI创业竞争格局',date:'2026-04-26',url:'./blog/deepseek-effect-ai-startup-2026.html'},
+{cat:'startup',title:'具身AI 2026Q1深度复盘：资本狂热、模型跃迁与技术瓶颈三重奏',date:'2026-04-26',url:'./blog/embodied-ai-2026-q1-deep-review.html'},
+{cat:'startup',title:'精卫013',date:'2026-04-26',url:'./blog/embodied-ai-300-billion-q1-2026-deep-analysis.html'},
+{cat:'startup',title:'embodied-ai-bubble-three-stages',date:'2026-04-26',url:'./blog/embodied-ai-bubble-three-stages.html'},
+{cat:'startup',title:'精卫013',date:'2026-04-26',url:'./blog/embodied-ai-capital-explosion-2026.html'},
+{cat:'startup',title:'精卫013',date:'2026-04-26',url:'./blog/embodied-ai-commercialization-frontier-2026.html'},
+{cat:'startup',title:'embodied-ai-funding-2026-q1',date:'2026-04-26',url:'./blog/embodied-ai-funding-2026-q1.html'},
+{cat:'startup',title:'embodied-ai-funding-frenzy',date:'2026-04-26',url:'./blog/embodied-ai-funding-frenzy.html'},
+{cat:'startup',title:'embodied-ai-intro',date:'2026-04-26',url:'./blog/embodied-ai-intro.html'},
+{cat:'startup',title:'深度',date:'2026-04-26',url:'./blog/embodied-ai-robot-ipo-wave-2026.html'},
+{cat:'startup',title:'embodied-ai-robot-recent-breakthroughs-2026',date:'2026-04-26',url:'./blog/embodied-ai-robot-recent-breakthroughs-2026.html'},
+{cat:'startup',title:'具身智能2026创业格局：智元领跑、行业洗牌与创业机会',date:'2026-04-26',url:'./blog/embodied-ai-startup-2026-apr.html'},
+{cat:'startup',title:'具身智能创业下半场：从通用Demo到垂直深潜',date:'2026-04-26',url:'./blog/embodied-ai-startup-h2-2026-vertical-deep-dive.html'},
+{cat:'startup',title:'embodied-ai-startup-hardware-software-stack-2026',date:'2026-04-26',url:'./blog/embodied-ai-startup-hardware-software-stack-2026.html'},
+{cat:'startup',title:'embodied-ai-startup-map-2026',date:'2026-04-26',url:'./blog/embodied-ai-startup-map-2026.html'},
+{cat:'startup',title:'embodied-ai-startup-one-year-survival',date:'2026-04-26',url:'./blog/embodied-ai-startup-one-year-survival.html'},
+{cat:'tech',title:'精卫013',date:'2026-04-26',url:'./blog/embodied-cot-reasoning-revolution-2026.html'},
+{cat:'tech',title:'embodied-education-robot-platform',date:'2026-04-26',url:'./blog/embodied-education-robot-platform.html'},
+{cat:'tech',title:'从论文到代码：embodied-slam 7000行代码框架全解析',date:'2026-04-26',url:'./blog/embodied-slam-architecture-deep-dive.html'},
+{cat:'tech',title:'具身SLAM基础：从几何定位到语义导航',date:'2026-04-26',url:'./blog/embodied-slam-basics.html'},
+{cat:'tech',title:'具身SLAM研究方向',date:'2026-04-26',url:'./blog/embodied-slam-direction.html'},
+{cat:'tech',title:'CVPR/ICLR 2026双杀：EmbodiedSplat与Interleave-VLA',date:'2026-04-26',url:'./blog/embodied-splat-interleave-vla-cvpr-iclr-2026.html'},
+{cat:'tech',title:'在线3D语义重建：EmbodiedSplat如何让机器人边走边理解场景',date:'2026-04-26',url:'./blog/embodiedsplat-online-3d-semantic-reconstruction.html'},
+{cat:'tech',title:'equity-allocation-guide-2026',date:'2026-04-26',url:'./blog/equity-allocation-guide-2026.html'},
+{cat:'tech',title:'创始人股权分配的5个死亡陷阱',date:'2026-04-26',url:'./blog/equity-distribution-traps.html'},
+{cat:'tech',title:'EvolveNav：让机器人自己学会反思，VLN成功率77%',date:'2026-04-26',url:'./blog/evolvenav-self-improving-cot.html'},
+{cat:'startup',title:'figure-ai-unitree-ipo-analysis-2026',date:'2026-04-26',url:'./blog/figure-ai-unitree-ipo-analysis-2026.html'},
+{cat:'tech',title:'创始人股权分配101：分错一次，公司就没了',date:'2026-04-26',url:'./blog/founder-equity-101.html'},
+{cat:'startup',title:'2026年多模态大模型的进化：具身智能的新地基',date:'2026-04-26',url:'./blog/frontier-multimodal-models-embodied-ai-2026.html'},
+{cat:'tech',title:'FSCoT自适应推理深度：VLN停止决策的新范式',date:'2026-04-26',url:'./blog/fscot-adaptive-depth-vln-stop-decision-2026.html'},
+{cat:'tech',title:'FSCoT：机器人停在哪里？用稀疏思维链解决VLN最容易被忽视的问题',date:'2026-04-26',url:'./blog/fscot-stop-reasoning-vln.html'},
+{cat:'tech',title:'FSCoT训练悖论：为何越长的推理链反而越难收敛？',date:'2026-04-26',url:'./blog/fscot-training-strategies-vln-stop-decision.html'},
+{cat:'tech',title:'VLN停止决策：被忽视的致命瓶颈',date:'2026-04-26',url:'./blog/haltnav-stop-decision.html'},
+{cat:'tech',title:'humanoid-robot-failure-wave',date:'2026-04-26',url:'./blog/humanoid-robot-failure-wave.html'},
+{cat:'tech',title:'humanoid-robot-marathon-commercialization',date:'2026-04-26',url:'./blog/humanoid-robot-marathon-commercialization.html'},
+{cat:'tech',title:'indie-hacker-tools-2026',date:'2026-04-26',url:'./blog/indie-hacker-tools-2026.html'},
+{cat:'tech',title:'我的LLM导航实验记录：LLaVA-1.5在Matterport3D上的表现',date:'2026-04-26',url:'./blog/llm-nav-experiments.html'},
+{cat:'tech',title:'每日优鲜死亡复盘：140亿融资烧光，30分钟送货为什么救不了生鲜电商',date:'2026-04-26',url:'./blog/missfresh-death.html'},
+{cat:'tech',title:'多模态LLM在具身导航中的应用：从理解到行动的关键桥梁',date:'2026-04-26',url:'./blog/mlm-embodied-navigation.html'},
+{cat:'tech',title:'NavCoT详解：思维链如何提升导航性能',date:'2026-04-26',url:'./blog/navcot-chain-of-thought-navigation.html'},
+{cat:'tech',title:'导航的GPT时刻：NavFoM与具身导航基础模型',date:'2026-04-26',url:'./blog/navigation-gpt-moment.html'},
+{cat:'tech',title:'Notion的"慢即是快"：独立开发者能从中学到什么',date:'2026-04-26',url:'./blog/notion-slow-growth-lessons.html'},
+{cat:'tech',title:'ObjectNav的三种主流范式：主动探索、语义推理、记忆增强',date:'2026-04-26',url:'./blog/objectnav-paradigms.html'},
+{cat:'tech',title:'objectnav-vs-vln',date:'2026-04-26',url:'./blog/objectnav-vs-vln.html'},
+{cat:'tech',title:'ofo-failure',date:'2026-04-26',url:'./blog/ofo-failure.html'},
+{cat:'tech',title:'physical-grounding-vln-next-frontier-2026',date:'2026-04-26',url:'./blog/physical-grounding-vln-next-frontier-2026.html'},
+{cat:'tech',title:'产品市场匹配的7个反面教材：为什么"有人想要"≠ PMF',date:'2026-04-26',url:'./blog/pmf-anti-patterns.html'},
+{cat:'tech',title:'pmf-the-only-thing-that-matters',date:'2026-04-26',url:'./blog/pmf-the-only-thing-that-matters.html'},
+{cat:'tech',title:'quibi',date:'2026-04-26',url:'./blog/quibi.html'},
+{cat:'tech',title:'研究方向与进展',date:'2026-04-26',url:'./blog/research-directions-2026-04-06.html'},
+{cat:'tech',title:'研究进度同步',date:'2026-04-26',url:'./blog/research-progress-2026-04-02.html'},
+{cat:'tech',title:'2025 Q1 VLN 研究思考：三个新方向，一个未解之问',date:'2026-04-26',url:'./blog/research-thinking-vln-2025q1.html'},
+{cat:'tech',title:'从学术研究到产品化：具身导航技术的落地挑战',date:'2026-04-26',url:'./blog/research-to-product.html'},
+{cat:'tech',title:'强化学习在VLN中的应用现状：为什么RL比IL难用',date:'2026-04-26',url:'./blog/rl-in-vln.html'},
+{cat:'tech',title:'强化学习+VLN：2025年的两条技术路线',date:'2026-04-26',url:'./blog/rl-vln-2025.html'},
+{cat:'tech',title:'robot-company-closure',date:'2026-04-26',url:'./blog/robot-company-closure.html'},
+{cat:'tech',title:'robot-learning-sim2real-2026',date:'2026-04-26',url:'./blog/robot-learning-sim2real-2026.html'},
+{cat:'tech',title:'royole-64-billion-collapse',date:'2026-04-26',url:'./blog/royole-64-billion-collapse.html'},
+{cat:'tech',title:'安全感知机器人导航：SafeMind框架的启示',date:'2026-04-26',url:'./blog/safe-mind-risk-aware-navigation.html'},
+{cat:'tech',title:'语义地图构建：ObjectNav的核心技术栈',date:'2026-04-26',url:'./blog/semantic-map-objectnav.html'},
+{cat:'tech',title:'深度',date:'2026-04-26',url:'./blog/sim2real-gap-frontier-2026.html'},
+{cat:'tech',title:'Sim2Real迁移：VLN模型为何在真实世界"水土不服"？',date:'2026-04-26',url:'./blog/sim2real-gap-vln-2026.html'},
+{cat:'tech',title:'世界模型与Sim2Real：机器人从虚拟到现实的最后一公里',date:'2026-04-26',url:'./blog/sim2real-world-models-robot.html'},
+{cat:'tech',title:'spatialmem-3d-memory-vln-breakthrough-2026',date:'2026-04-26',url:'./blog/spatialmem-3d-memory-vln-breakthrough-2026.html'},
+{cat:'tech',title:'时空记忆地图：让机器人记住过去、理解现在、预测未来',date:'2026-04-26',url:'./blog/spatiotemporal-memory-map.html'},
+{cat:'startup',title:'AI创业失败案例分析：17.5亿美元烧光的Quibi教会我们什么',date:'2026-04-26',url:'./blog/startup-failure-analysis.html'},
+{cat:'startup',title:'创业融资101：从天使轮到IPO的完整地图',date:'2026-04-26',url:'./blog/startup-fundraising-101.html'},
+{cat:'tech',title:'为什么停止决策是VLN的阿喀琉斯之踵',date:'2026-04-26',url:'./blog/stop-decision-achilles-heel.html'},
+{cat:'tech',title:'tech-founder-delusion',date:'2026-04-26',url:'./blog/tech-founder-delusion.html'},
+{cat:'tech',title:'特斯拉Optimus V3量产倒计时：人形机器人产业化的临界点',date:'2026-04-26',url:'./blog/tesla-optimus-v3-mass-production-2026.html'},
+{cat:'tech',title:'theranos',date:'2026-04-26',url:'./blog/theranos.html'},
+{cat:'tech',title:'three-layer-cognitive-architecture-vln-2026',date:'2026-04-26',url:'./blog/three-layer-cognitive-architecture-vln-2026.html'},
+{cat:'tech',title:'VLN中的不确定性量化：从置信度到贝叶斯推理',date:'2026-04-26',url:'./blog/uncertainty-quantification-vln-navigation.html'},
+{cat:'tech',title:'多模态融合：Vision-Language-Geometry三位一体的导航框架',date:'2026-04-26',url:'./blog/vision-language-geometry-fusion.html'},
+{cat:'tech',title:'VL-Calibration与CoW-Nav置信头设计对比',date:'2026-04-26',url:'./blog/vl-calibration-cow-nav-confidence-head-comparison-2026.html'},
+{cat:'tech',title:'精卫013',date:'2026-04-26',url:'./blog/vla-architecture-evolution-uninavid-starvla.html'},
+{cat:'startup',title:'精卫013',date:'2026-04-26',url:'./blog/vla-era-embodied-startup-opportunities-2026.html'},
+{cat:'tech',title:'深度',date:'2026-04-26',url:'./blog/vla-era-re-shaping-embodied-ai.html'},
+{cat:'tech',title:'精卫013',date:'2026-04-26',url:'./blog/vla-models-2026-technical-deep-dive.html'},
+{cat:'tech',title:'vla-models-comparison-2026',date:'2026-04-26',url:'./blog/vla-models-comparison-2026.html'},
+{cat:'tech',title:'vla-models-deep-dive-2026',date:'2026-04-26',url:'./blog/vla-models-deep-dive-2026.html'},
+{cat:'tech',title:'vla-models-embodied-navigation-2026',date:'2026-04-26',url:'./blog/vla-models-embodied-navigation-2026.html'},
+{cat:'startup',title:'vla-revolution-embodied-ai-2026',date:'2026-04-26',url:'./blog/vla-revolution-embodied-ai-2026.html'},
+{cat:'tech',title:'VLA模型革命：具身导航的"知行合一"时代',date:'2026-04-26',url:'./blog/vla-revolution-embodied-navigation-2026.html'},
+{cat:'tech',title:'vla-will-not-kill-vln-april-2026',date:'2026-04-26',url:'./blog/vla-will-not-kill-vln-april-2026.html'},
+{cat:'tech',title:'VLM置信度校准：为什么AI越自信越危险',date:'2026-04-26',url:'./blog/vlm-confidence-calibration-embodied-nav.html'},
+{cat:'tech',title:'VLM+导航：从CLIP到Qwen2-VL的四年演进',date:'2026-04-26',url:'./blog/vlm-navigation-clip-to-qwen2vl.html'},
+{cat:'tech',title:'vlm-navigation-gpt-moment',date:'2026-04-26',url:'./blog/vlm-navigation-gpt-moment.html'},
+{cat:'tech',title:'深度',date:'2026-04-26',url:'./blog/vlm-stop-failure-confidence-trap.html'},
+{cat:'tech',title:'为什么VLN模型总是"假装自信"——一个被忽视的致命缺陷',date:'2026-04-26',url:'./blog/vln-confidence-calibration-why-fake.html'},
+{cat:'tech',title:'具身智能的"涌现时刻"：当语言模型学会物理推理',date:'2026-04-26',url:'./blog/vln-cot-emergence-physical-reasoning.html'},
+{cat:'tech',title:'VLN中CoT推理的视觉幻觉问题——FantasyVLA的警示',date:'2026-04-26',url:'./blog/vln-cot-hallucination-fantasyvla-2026.html'},
+{cat:'tech',title:'为什么VLN的「跨模态对齐」是当前最大的难点',date:'2026-04-26',url:'./blog/vln-cross-modal-alignment.html'},
+{cat:'startup',title:'vln-crown-jewel-of-embodied-ai-2026',date:'2026-04-26',url:'./blog/vln-crown-jewel-of-embodied-ai-2026.html'},
+{cat:'tech',title:'vln-cvpr-iclr-2026-action-chain-of-thought-analysis',date:'2026-04-26',url:'./blog/vln-cvpr-iclr-2026-action-chain-of-thought-analysis.html'},
+{cat:'tech',title:'vln-cvpr2026-frontier-2026',date:'2026-04-26',url:'./blog/vln-cvpr2026-frontier-2026.html'},
+{cat:'tech',title:'vln-data-efficiency-future',date:'2026-04-26',url:'./blog/vln-data-efficiency-future.html'},
+{cat:'tech',title:'视觉语言导航数据集全览：Matterport3D、HM3D、Robo360',date:'2026-04-26',url:'./blog/vln-datasets.html'},
+{cat:'tech',title:'vln-explained',date:'2026-04-26',url:'./blog/vln-explained.html'},
+{cat:'tech',title:'VLN的记忆革命：2025年最新论文告诉你机器人如何「记」路',date:'2026-04-26',url:'./blog/vln-memory-mechanisms.html'},
+{cat:'tech',title:'vln-physical-common-sense-reasoning-2026',date:'2026-04-26',url:'./blog/vln-physical-common-sense-reasoning-2026.html'},
+{cat:'tech',title:'vln-reasoning-architecture-2026',date:'2026-04-26',url:'./blog/vln-reasoning-architecture-2026.html'},
+{cat:'tech',title:'vln-researcher-in-vla-era-2026',date:'2026-04-26',url:'./blog/vln-researcher-in-vla-era-2026.html'},
+{cat:'tech',title:'VLN的Sim-to-Real为何比普通机器人难10倍：跨模态对齐的特殊挑战',date:'2026-04-26',url:'./blog/vln-sim2real-crossmodal-gap.html'},
+{cat:'tech',title:'vln-stop-decision-vlm-limits',date:'2026-04-26',url:'./blog/vln-stop-decision-vlm-limits.html'},
+{cat:'tech',title:'为什么VLN任务"看起来简单，做起来难"？',date:'2026-04-26',url:'./blog/vln-stop-decision-why-hard.html'},
+{cat:'tech',title:'为什么你的VLN模型总是停不准？一份来自R2R基准的诊断报告',date:'2026-04-26',url:'./blog/vln-stop-error-diagnosis-r2r.html'},
+{cat:'tech',title:'机器人走到门口了，不知道该停——VLN最被忽视的问题',date:'2026-04-26',url:'./blog/vln-stopping-problem.html'},
+{cat:'tech',title:'为什么VLN中"停下来"比"往哪走"更难',date:'2026-04-26',url:'./blog/vlp-stop-decision-underestimated-problem.html'},
+{cat:'tech',title:'wework-failure',date:'2026-04-26',url:'./blog/wework-failure.html'},
+{cat:'startup',title:'为什么要做「知识创业」：一个博士的第二曲线',date:'2026-04-26',url:'./blog/why-knowledge-entrepreneurship.html'},
+{cat:'tech',title:'world-model-embodied-nav-cow-nav-opportunity',date:'2026-04-26',url:'./blog/world-model-embodied-nav-cow-nav-opportunity.html'},
+{cat:'tech',title:'机器人导航的「世界模型」革命：从"看到哪走到哪"到"想到哪走到哪"',date:'2026-04-26',url:'./blog/world-model-nav.html'},
+{cat:'startup',title:'具身智能中的世界模型：从Yann LeCun的预言到2026年的实践',date:'2026-04-26',url:'./blog/world-models-embodied-ai-2026.html'},
+{cat:'startup',title:'世界模型评测与安全对齐：WorldArena + SafeVLA解读',date:'2026-04-26',url:'./blog/worldarena-safevla-embodied-ai-benchmarks.html'},{cat:'tech',title:'FSCoT vs FantasyVLN：VLN停止决策的双轨竞争格局',date:'2026-04-26',url:'./blog/fscot-vs-fantasyvln-vln-cot-2026.html'}
+];
+
+const CASES = [
+{cat: 'cash',title: '案例分析:案例分析：K-Scale Labs — 硅谷明星人形机器人公司的陨落',date: '2026-01-01',url: '../startup/cases/case-01-k-scale.md'},
+{cat: 'cash',title: '案例分析:案例分析：中国具身智能公司倒闭潮',date: '2026-01-01',url: '../startup/cases/case-02-china-robots.md'},
+{cat: 'tech',title: '案例分析:案例分析：Shape Robotics — 教育机器人先驱的陨落',date: '2026-01-01',url: '../startup/cases/case-03-shape-robotics.md'},
+{cat: 'tech',title: '案例分析:案例分析：Lidian — 中国自动驾驶先驱的陨落',date: '2026-01-01',url: '../startup/cases/case-04-lidian.md'},
+{cat: 'tech',title: '案例分析:案例分析：iRobot — 消费级机器人先驱的衰落',date: '2026-01-01',url: '../startup/cases/case-05-irobot.md'},
+{cat: 'tech',title: '案例分析:行业深度分析：机器人创业失败启示录',date: '2026-01-01',url: '../startup/cases/case-06-robotics-industry.md'},
+{cat: 'cash',title: '案例分析:案例分析：Quibi — 史上最快陨落的流媒体巨头',date: '2026-01-01',url: '../startup/cases/case-07-quibi.md'},
+{cat: 'comp',title: '案例分析:行业深度分析：移动应用创业失败启示录',date: '2026-01-01',url: '../startup/cases/case-08-mobile-app.md'},
+{cat: 'cash',title: '案例分析:宇树科技：王兴兴的硬核创业路',date: '2026-01-01',url: '../startup/cases/case-09-yushu-tech.md'},
+{cat: 'comp',title: '案例分析:大疆创新：无人机帝国的崛起与焦虑',date: '2026-01-01',url: '../startup/cases/case-10-dji.md'},
+{cat: 'comp',title: '案例分析:泡泡玛特：从杂货铺到千亿潮玩帝国',date: '2026-01-01',url: '../startup/cases/case-11-popmart.md'},
+{cat: 'team',title: '案例分析:案例分析：K-Scale Labs — 5000万美元估值的开源人形机器人陨落',date: '2026-01-01',url: '../startup/cases/case-12-k-scale-labs.md'},
+{cat: 'cash',title: '案例分析:案例分析：2025年AI应用倒闭潮——25款产品的集体"猝死"',date: '2026-01-01',url: '../startup/cases/case-13-ai-apps-death-2025.md'},
+{cat: 'cash',title: '案例分析:案例分析：Wave Computing —— 英伟达挑战者的陨落',date: '2026-01-01',url: '../startup/cases/case-14-wave-computing.md'},
+{cat: 'team',title: '案例分析:Adept AI — AI Agent先驱的悄然落幕',date: '2026-01-01',url: '../startup/cases/case-15-adept-ai.md'},
+{cat: 'tech',title: '案例分析:Humane AI Pin — 1.8亿美元做出的最贵「退货品」',date: '2026-01-01',url: '../startup/cases/case-16-humane-ai-pin.md'},
+{cat: 'team',title: '案例分析:Inflection AI：$1.5B融资，微软以6.5亿"租"走核心团队',date: '2026-01-01',url: '../startup/cases/case-17-inflection-ai.md'},
+{cat: 'tech',title: '案例分析:Argo AI — $36亿融资烧光的L4自动驾驶独角兽',date: '2026-01-01',url: '../startup/cases/case-18-argo-ai.md'},
+{cat: 'tech',title: '案例分析:Juicero — $700物联网榨汁机的硅谷最大笑话',date: '2026-01-01',url: '../startup/cases/case-19-juicero.md'},
+{cat: 'cash',title: '案例分析:案例分析：WeWork — $470亿估值神话的崩塌',date: '2026-01-01',url: '../startup/cases/case-20-wework.md'},
+{cat: 'cash',title: '案例分析:案例分析：Theranos — 硅谷史上最大医疗骗局',date: '2026-01-01',url: '../startup/cases/case-21-theranos.md'},
+{cat: 'cash',title: '案例分析:案例分析：柔宇科技 — 中国折叠屏独角兽的陨落',date: '2026-01-01',url: '../startup/cases/case-22-royole.md'},
+{cat: 'cash',title: '案例分析:案例分析：每日优鲜 — 中国前置仓生鲜电商的崩盘',date: '2026-01-01',url: '../startup/cases/case-23-missfresh.md'},
+{cat: 'tech',title: '案例分析:Zume Pizza - 软银砸$4.46亿的机器人披萨公司如何归零',date: '2026-01-01',url: '../startup/cases/case-24-zume-pizza.md'},
+{cat: 'tech',title: '案例分析:Embodied (Moxie) - 估值$20亿的儿童情感陪伴机器人如何变"砖"',date: '2026-01-01',url: '../startup/cases/case-25-embodied-moxie.md'},
+{cat: 'cash',title: '案例分析:Character.AI - 从$50亿估值到被Google"反向收购"的AI聊天巨头',date: '2026-01-01',url: '../startup/cases/case-26-character-ai.md'},
+{cat: 'tech',title: '案例分析:Case-27: Rabbit R1 — AI硬件从爆款到翻车',date: '2026-01-01',url: '../startup/cases/case-27-rabbit-r1.md'},
+{cat: 'cash',title: '案例分析:Case-28: Stability AI — 开源AI的自毁之路',date: '2026-01-01',url: '../startup/cases/case-28-stability-ai.md'},
+{cat: 'cash',title: '案例分析:Case-29: Mojo Vision — AR隐形眼镜的十年豪赌',date: '2026-01-01',url: '../startup/cases/case-29-mojo-vision.md'},
+{cat: 'tech',title: '案例分析:Case-30: Skydio — 消费无人机到军工的生死转型',date: '2026-01-01',url: '../startup/cases/case-30-skydio.md'},
+{cat: 'cash',title: '案例分析:Case-31: Figure AI — 人形机器人的资本狂飙',date: '2026-01-01',url: '../startup/cases/case-31-figure-ai.md'},
+{cat: 'tech',title: '案例分析:Case-32: Dextrous Robotics — 物流机器人的沉默出局',date: '2026-01-01',url: '../startup/cases/case-32-dextrous-robotics.md'},
+{cat: 'tech',title: '案例分析:Case-33: Small Robot Company — 英国农业机器人的信念与现实',date: '2026-01-01',url: '../startup/cases/case-33-small-robot-company.md'},
+{cat: 'tech',title: '案例分析:Case-34: AI Companion Device Startup — 硬件AI助手的困局',date: '2026-01-01',url: '../startup/cases/case-34-ai-companion-device.md'},
+{cat: 'team',title: '案例分析:Quibi：17.5亿美元烧出来的6个月',date: '2026-01-01',url: '../startup/cases/case-36-quibi.md'},
+{cat: 'cash',title: '案例分析:WeWork：从470亿美元到破产，孙正义160亿学费买来的教训',date: '2026-01-01',url: '../startup/cases/case-37-wework.md'},
+{cat: 'tech',title: '案例分析:case-38-servi-robotics',date: '2026-01-01',url: '../startup/cases/case-38-servi-robotics.md'},
+{cat: 'cash',title: '案例分析:case-39-figure-ai',date: '2026-01-01',url: '../startup/cases/case-39-figure-ai.md'},
+{cat: 'tech',title: '案例分析:case-40-1x-technologies',date: '2026-01-01',url: '../startup/cases/case-40-1x-technologies.md'},
+{cat: 'tech',title: '案例分析:case-41-agibot',date: '2026-01-01',url: '../startup/cases/case-41-agibot.md'},
+{cat: 'team',title: '案例分析:ofo小黄车：从共享经济明星到欠债15亿的溃败启示录',date: '2026-01-01',url: '../startup/cases/case-42-ofo-bicycle.md'},
+{cat: 'cash',title: '案例分析:Quibi：17.5亿美元融资、90天倒闭的流媒体悲剧',date: '2026-01-01',url: '../startup/cases/case-43-quibi.md'},
+{cat: 'cash',title: '案例分析:Case 44: Covariant AI — 2.22亿美元融资的机器人AI公司，能否找到商业出口？',date: '2026-01-01',url: '../startup/cases/case-44-covariant-ai-robotics.md'},
+{cat: 'cash',title: '案例分析:Case 44: Longhair AI（龙跃AI）',date: '2026-01-01',url: '../startup/cases/case-44-longhair-ai.md'},
+{cat: 'cash',title: '案例分析:Perplexity AI：挑战Google的AI搜索新物种',date: '2026-01-01',url: '../startup/cases/case-44-perplexity-ai.md'},
+{cat: 'tech',title: '案例分析:创业案例 #45：Figure AI — 人形机器人赛道的"特斯拉挑战者"',date: '2026-01-01',url: '../startup/cases/case-45-figure-ai.md'},
+{cat: 'tech',title: '案例分析:Case-46: Unitree Robotics — 人形机器人赛道的"大疆模式"能否复制？',date: '2026-01-01',url: '../startup/cases/case-46-unitree-robotics.md'},
+{cat: 'cash',title: '案例分析:Case 47: Yupp — AI评测独角兽22个月倒闭',date: '2026-01-01',url: '../startup/cases/case-47-yupp.md'},
+{cat: 'comp',title: '案例分析:Case 48: 深度机智 (DeepCybo) — 3个月3轮的"物理AI"黑马',date: '2026-01-01',url: '../startup/cases/case-48-deepcybo.md'},
+{cat: 'tech',title: '案例分析:案例49：星海图（STARSHIP）——国内估值最高的具身智能独角兽',date: '2026-01-01',url: '../startup/cases/case-49-starship.md'},
+{cat: 'tech',title: '案例分析:案例50：枢途科技——从人类视频中"偷师"的机器人数据工厂',date: '2026-01-01',url: '../startup/cases/case-50-robowheel-across-embodiment.md'},
+{cat: 'tech',title: '案例分析:Case 51: Pebble智能手表——Kickstarter传奇为何败给Apple Watch',date: '2026-01-01',url: '../startup/cases/case-51-pebble-smartwatch.md'},
+{cat: 'tech',title: '案例分析:Case 51: Physical Intelligence — 具身AI的"全栈式"创业范式',date: '2026-01-01',url: '../startup/cases/case-51-physical-intelligence-pi.md'},
+{cat: 'team',title: '案例分析:Case 52: Character.AI——AI陪伴应用先驱如何被Google收购',date: '2026-01-01',url: '../startup/cases/case-52-character-ai.md'},
+{cat: 'team',title: '案例分析:Skild AI: 30亿美元估值的一般机器人「大脑」',date: '2026-01-01',url: '../startup/cases/case-52-skild-ai.md'},
+{cat: 'tech',title: '案例分析:Case 53: 1X Technologies — 从轮式到双足，具身AI的工业落地样本',date: '2026-01-01',url: '../startup/cases/case-53-1x-technologies.md'},
+{cat: 'team',title: '案例分析:Case 53: AutoGPT——2023年爆火后迅速降温的自主Agent先驱',date: '2026-01-01',url: '../startup/cases/case-53-auto-gpt-failure.md'},
+{cat: 'tech',title: '案例分析:case-54-agibot-zhiyuan-robotics.md',date: '2026-01-01',url: '../startup/cases/case-54-agibot-zhiyuan-robotics.md'},
+{cat: 'tech',title: '案例分析:case-55-zhongqing-robotics.md',date: '2026-01-01',url: '../startup/cases/case-55-zhongqing-robotics.md'},
+{cat: 'team',title: '案例分析:案例56：ZMO.AI —— 电商AI模特的技术理想主义者的失败',date: '2026-01-01',url: '../startup/cases/case-56-zmo-ai-failure.md'},
+{cat: 'team',title: '案例分析:案例57：Character.AI —— AI对话独角兽的"提前套现"之路',date: '2026-01-01',url: '../startup/cases/case-57-character-ai.md'},
+{cat: 'comp',title: '案例分析:Case-58: Wayve — 端到端自动驾驶的神经网络赌注',date: '2026-01-01',url: '../startup/cases/case-58-wayve.md'},
+{cat: 'cash',title: '案例分析:Case-59: 它石智航 — 具身智能赛道的融资狂飙与"梦之队"赌注',date: '2026-01-01',url: '../startup/cases/case-59-tashi-zhihang.md'},
+{cat: 'cash',title: '案例分析:Case 60: Figure AI — 人形机器人赛道的融资冠军与商业化悖论',date: '2026-01-01',url: '../startup/cases/case-60-figure-ai.md'},
+{cat: 'tech',title: '案例分析:案例60：星海图机器人——2026年中国具身智能最大黑马',date: '2026-01-01',url: '../startup/cases/case-60-xinghai-robotics.md'},
+{cat: 'tech',title: '案例分析:case-61-unitree-robotics',date: '2026-01-01',url: '../startup/cases/case-61-unitree-robotics.md'},
+{cat: 'tech',title: '案例分析:Case #62: Orion Robotics — Humanoid Robot VLN Pioneer',date: '2026-01-01',url: '../startup/cases/case-62-orion-robotics.md'},
+{cat: 'tech',title: '案例分析:Case #63: 它石智航 (TARS) — 中国具身智能融资之王',date: '2026-01-01',url: '../startup/cases/case-63-tars-robotics.md'},
+{cat: 'tech',title: '案例分析:Case #64: 加速进化 (Accelerated Evolution) — 北京具身智能"最会踢球"的机器人',date: '2026-01-01',url: '../startup/cases/case-64-accelerated-evolution.md'},
+{cat: 'tech',title: '案例分析:Case 65: Figure AI — 从估值 26 亿美元到与 BMW 合作的具身智能独角兽',date: '2026-01-01',url: '../startup/cases/case-65-figure-ai.md'},
+{cat: 'tech',title: '案例分析:Case #65: iRobot 破产 — 机器人行业最惨痛的教训',date: '2026-01-01',url: '../startup/cases/case-65-irobot-bankruptcy-robotics-lesson.md'},
+{cat: 'cash',title: '案例分析:Case 66: Skild AI — 拒绝26亿美元收购的具身智能基础设施独角兽',date: '2026-01-01',url: '../startup/cases/case-66-skild-ai.md'},
+{cat: 'comp',title: '案例分析:Spirit AI（原 Fable Studio）：从AI互动叙事到游戏AI基础设施的转型之路',date: '2026-01-01',url: '../startup/cases/case-67-spirit-ai.md'},
+{cat: 'tech',title: '案例分析:case-68-nova-mind-robotics.md',date: '2026-01-01',url: '../startup/cases/case-68-nova-mind-robotics.md'},
+{cat: 'comp',title: '案例分析:Case 69: Physical Intelligence (π)',date: '2026-01-01',url: '../startup/cases/case-69-physical-intelligence.md'},
+{cat: 'comp',title: '案例分析:Case 70: StarVLA (港科大开源项目)',date: '2026-01-01',url: '../startup/cases/case-70-starvla-hkust.md'},
+{cat: 'team',title: '案例分析:Case 71: Covariant AI',date: '2026-01-01',url: '../startup/cases/case-71-covariant-ai.md'},
+{cat: 'tech',title: '案例分析:Case 72: Skild AI',date: '2026-01-01',url: '../startup/cases/case-72-skild-ai.md'},
+{cat: 'comp',title: '案例分析:Case #73: Hugging Face — From Open Source ML Platform to AI Infrastructure Giant',date: '2026-01-01',url: '../startup/cases/case-73-hugging-face.md'},
+{cat: 'tech',title: '案例分析:案例74：自变量机器人 — 唯一获四家大厂同时投资的具身智能独角兽',date: '2026-01-01',url: '../startup/cases/case-74-zibox-robot.md'},
+{cat: 'tech',title: '案例分析:案例75：它石智航（TARS） — 中国具身智能史上最大单笔融资纪录创造者',date: '2026-01-01',url: '../startup/cases/case-75-tars-intelligence.md'},
+{cat: 'cash',title: '案例分析:案例76：Galaxea AI — 2026年人形机器人最大单笔融资',date: '2026-01-01',url: '../startup/cases/case-76-galaxea-ai.md'},
+{cat: 'cash',title: '案例分析:Case 77: Physical Intelligence (π0) - 具身智能领域的"OpenAI"',date: '2026-01-01',url: '../startup/cases/case-77-physical-intelligence.md'},
+{cat: 'team',title: '案例分析:Case-78: 它石智航（TARS Intelligence）',date: '2026-01-01',url: '../startup/cases/case-78-tars-intelligence.md'},
+{cat: 'comp',title: '案例分析:案例79：GigaAI极佳视界 — 中国世界模型登顶WorldArena榜首',date: '2026-01-01',url: '../startup/cases/case-79-gigaai-worldarena.md'},
+{cat: 'comp',title: '案例分析:Case 80: PDD Thetha - 拼多多无人机配送的失败实验',date: '2026-01-01',url: '../startup/cases/case-80-pdd-theta-drone.md'},
+{cat: 'tech',title: '案例分析:Case 81: Neo Robotics - 农业机器人的垂直突围之路',date: '2026-01-01',url: '../startup/cases/case-81-neo-robotics-agriculture.md'},
+{cat: 'team',title: '案例分析:Case 82: Skydio - 从消费无人机到国防转型的战略抉择',date: '2026-01-01',url: '../startup/cases/case-82-skydio-defense-pivot.md'},
+{cat: 'cash',title: '案例分析:Case 83: 众擎机器人 (EngineAI) — 十亿融资冲刺百亿估值的人形机器人新势力',date: '2026-01-01',url: '../startup/cases/case-83-engineai-humanoid-robot.md'},
+{cat: 'tech',title: '案例分析:Case 84: 它石智航 (TARS Intelligence) — 14个月从0到180亿，中国具身智能融资速度的极限',date: '2026-01-01',url: '../startup/cases/case-84-tars-intelligence-embodied-ai.md'},
+{cat: 'cash',title: '案例分析:案例分析 #85：快手可灵AI——短视频平台的生成式AI转型',date: '2026-01-01',url: '../startup/cases/case-85-kuaishou-ai-content-creation.md'},
+{cat: 'tech',title: '案例分析:Case-86: Dexterity Robotics — 灵巧手商业化先驱的得与失',date: '2026-01-01',url: '../startup/cases/case-86-dexterity-robotics-hand-commercialization.md'},
+{cat: 'tech',title: '案例分析:Case-87: iRobot破产危机 - 机器人巨头的市场教训',date: '2026-01-01',url: '../startup/cases/case-87-irobot-market-struggle.md'},
+{cat: 'tech',title: '案例分析:Case 88: StarMARS Robotics — 太空级人形机器人的资本豪赌',date: '2026-01-01',url: '../startup/cases/case-88-starmars-robotics.md'},
+{cat: 'tech',title: '案例分析:Case 89: 它石智航（Tashi Robotics）—— 中国具身智能融资新王',date: '2026-01-01',url: '../startup/cases/case-89-tashi-robotics-physical-ai.md'},
+{cat: 'tech',title: '案例分析:Yuhan Robotics — 从技术领先到商业化迷途',date: '2026-01-01',url: '../startup/cases/case-90-yuhan-robotics-commercialization.md'},
+{cat: 'cash',title: '案例分析:案例库素材提供 - 2026年4月27日',date: '2026-01-01',url: '../startup/cases/创业素材_20260327.md'},
+{cat: 'cash',title: '案例分析:#96 它石智航 — Pre-A轮4.55亿美元创中国具身智能融资纪录',date: '2026-04-27',url: '../startup/cases/case-96-tashi-zhihang-4.55-billion-pre-a.md'}
+];];
+
+function renderPapers(){
+  document.getElementById('papersGrid').innerHTML=PAPERS.map(p=>`
+<div class="paper-card">
+  <span class="paper-tag" style="background:${p.cls}">${p.tag}</span>
+  <div class="paper-title"><a href="${p.url}">${p.title}</a></div>
+  <div class="paper-meta">${p.meta}</div>
+</div>`).join('');
+}
+
+function renderBlog(filter='all'){
+  const filtered=filter==='all'?BLOGS:BLOGS.filter(b=>b.cat===filter);
+  document.getElementById('blogGrid').innerHTML=filtered.map(b=>`
+<div class="card">
+  <a href="${b.url}" class="card-title">${b.title}</a>
+  <div class="card-meta">${b.date}</div>
+  <div class="card-tags">${b.tags.map(t=>`<span class="tag" style="background:var(--accent)">${t}</span>`).join('')}</div>
+</div>`).join('');
+}
+
+function filterBlog(cat){
+  document.querySelectorAll('#blogFilter .filter-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderBlog(cat);
+}
+
+function renderCases(){
+  document.getElementById('casesGrid').innerHTML=CASES.map(c=>`
+<div class="card">
+  <a href="${c.url}" class="card-title">${c.title}</a>
+  <div class="card-meta">${c.date}</div>
+</div>`).join('');
+}
+
+function showSection(name){
+  document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
+  document.getElementById(name).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(name==='papers')renderPapers();
+  if(name==='blog')renderBlog();
+  if(name==='cases')renderCases();
+}
+
+renderPapers();renderBlog();renderCases();
+</script>
+</body>
+</html>
+
