@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层次化停止决策：VLN导航的多尺度推理框架 | 精卫013</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fafafa;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 1.8em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        code {
+            background: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Monaco", "Menlo", monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.85em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #ecf0f1;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .key-insight {
+            background: #d4edda;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 20px 0;
+        }
+        .meta {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+        .tag {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>层次化停止决策：VLN导航的多尺度推理框架</h1>
+    
+    <div class="meta">
+        <span class="tag">VLN研究</span>
+        <span class="tag">停止决策</span>
+        <span class="tag">层次化规划</span>
+        <span class="tag">CoW-Nav</span>
+        <br><br>
+        发布时间：2026年5月1日 | 阅读时间：8分钟
+    </div>
+
+    <h2>摘要</h2>
+    <p>本文提出层次化停止决策框架，将VLN导航的停止判断从单一动作空间扩展到"任务-子目标-动作"三层结构。每层独立产生停止信号，最终通过自适应权重融合，实现更精准、更可解释的导航终止决策。该方法与CoW-Nav的双系统架构天然契合，为长距离导航提供了新的解决方案。</p>
+
+    <h2>1. 引言：为什么需要层次化停止决策？</h2>
+    <p>传统的VLN停止决策方法（如HaltNav、EvolveNav-2）在底层动作空间做判断，存在三大局限：</p>
+    <ul>
+        <li><strong>累积误差</strong>：长距离导航中，底层判断容易受噪声干扰</li>
+        <li><strong>缺乏全局视角</strong>：无法判断"已到达目标区域但未到达精确位置"的场景</li>
+        <li><strong>语义鸿沟</strong>：自然语言指令包含多粒度信息，单层判断难以充分利用</li>
+    </ul>
+
+    <div class="highlight">
+        <strong>核心问题</strong>：如何在导航过程中利用多粒度信息，实现更精准的停止决策？
+    </div>
+
+    <h2>2. 层次化框架设计</h2>
+
+    <h3>2.1 三层停止信号</h3>
+    <table>
+        <tr>
+            <th>层级</th>
+            <th>停止条件</th>
+            <th>置信度来源</th>
+            <th>响应时间</th>
+        </tr>
+        <tr>
+            <td><strong>高层（任务级）</strong></td>
+            <td>任务目标完成</td>
+            <td>语义相似度（指令 vs 场景描述）</td>
+            <td>~50ms</td>
+        </tr>
+        <tr>
+            <td><strong>中层（子目标级）</strong></td>
+            <td>子目标达成</td>
+            <td>拓扑图节点匹配</td>
+            <td>~20ms</td>
+        </tr>
+        <tr>
+            <td><strong>底层（动作级）</strong></td>
+            <td>精确位置到达</td>
+            <td>视觉特征匹配 + FSCoT推理</td>
+            <td>~10ms</td>
+        </tr>
+    </table>
+
+    <h3>2.2 自适应融合策略</h3>
+    <pre><code>Stop_Decision = α·High_Level + β·Mid_Level + γ·Low_Level
+
+权重调整策略：
+- 短距离（<5步）：γ=0.7, β=0.2, α=0.1（底层主导）
+- 中距离（5-15步）：γ=0.4, β=0.4, α=0.2（均衡融合）
+- 长距离（>15步）：γ=0.2, β=0.3, α=0.5（高层主导）
+
+动态调整：根据导航进度和置信度分布实时优化权重</code></pre>
+
+    <h2>3. 与CoW-Nav双系统架构的融合</h2>
+
+    <div class="key-insight">
+        <strong>关键洞察</strong>：层次化停止决策与CoW-Nav的双系统架构天然契合。系统1（快速通道）处理底层判断，系统2（慢速通道）执行层次化FSCoT推理。
+    </div>
+
+    <h3>3.1 双系统分工</h3>
+    <table>
+        <tr>
+            <th>系统</th>
+            <th>职责</th>
+            <th>处理层级</th>
+            <th>延迟</th>
+        </tr>
+        <tr>
+            <td><strong>系统1（快速通道）</strong></td>
+            <td>即时视觉相似度判断</td>
+            <td>底层</td>
+            <td>&lt;10ms</td>
+        </tr>
+        <tr>
+            <td><strong>系统2（慢速通道）</strong></td>
+            <td>层次化FSCoT推理</td>
+            <td>高/中/底层</td>
+            <td>~200ms</td>
+        </tr>
+    </table>
+
+    <h3>3.2 推理链扩展</h3>
+    <p>传统FSCoT三段式推理：</p>
+    <pre><code>Observation → Reasoning → Decision</code></pre>
+    
+    <p>层次化FSCoT扩展：</p>
+    <pre><code>High_Observation → High_Reasoning → High_Decision (α)
+          ↓
+Mid_Observation → Mid_Reasoning → Mid_Decision (β)
+          ↓
+Low_Observation → Low_Reasoning → Low_Decision (γ)
+          ↓
+Final_Stop = α·High + β·Mid + γ·Low</code></pre>
+
+    <h2>4. 实验设计</h2>
+
+    <h3>4.1 数据集选择</h3>
+    <table>
+        <tr>
+            <th>数据集</th>
+            <th>平均步数</th>
+            <th>主导层级</th>
+            <th>评估重点</th>
+        </tr>
+        <tr>
+            <td>R2R</td>
+            <td>6-8步</td>
+            <td>底层</td>
+            <td>精确停止能力</td>
+        </tr>
+        <tr>
+            <td>R4R</td>
+            <td>12-16步</td>
+            <td>中层</td>
+            <td>子目标分解能力</td>
+        </tr>
+        <tr>
+            <td>RxR</td>
+            <td>20+步</td>
+            <td>高层</td>
+            <td>任务级理解能力</td>
+        </tr>
+    </table>
+
+    <h3>4.2 新增评估指标</h3>
+    <p>除传统SPL、nDTW外，引入<strong>分层停止准确率</strong>：</p>
+    <ul>
+        <li><strong>High-SA</strong>：任务级停止判断正确率</li>
+        <li><strong>Mid-SA</strong>：子目标级停止判断正确率</li>
+        <li><strong>Low-SA</strong>：动作级停止判断正确率</li>
+    </ul>
+
+    <h2>5. 关键挑战与解决方案</h2>
+
+    <h3>5.1 子目标自动分解</h3>
+    <p>如何从自然语言指令自动生成子目标序列？</p>
+    <ul>
+        <li><strong>方案1</strong>：LLM子目标生成（GPT-4提示工程）</li>
+        <li><strong>方案2</strong>：从数据中学习（R2R→R4R子目标标注）</li>
+        <li><strong>方案3</strong>：在线聚类（导航过程中动态生成）</li>
+    </ul>
+
+    <h3>5.2 拓扑图构建</h3>
+    <p>中层级需要环境拓扑图支持。三种方案：</p>
+    <ul>
+        <li>传统方法：手工标注拓扑节点（精度高，成本高）</li>
+        <li>学习方法：神经网络隐式表示（端到端，可解释性差）</li>
+        <li>混合方法：关键帧聚类 + 语义标签（推荐）</li>
+    </ul>
+
+    <h3>5.3 计算效率优化</h3>
+    <p>三层推理的开销控制策略：</p>
+    <ul>
+        <li><strong>并行化</strong>：三层独立推理，最后融合</li>
+        <li><strong>早停机制</strong>：高层置信度>0.9时跳过中底层</li>
+        <li><strong>缓存机制</strong>：相似场景复用高层推理结果</li>
+    </ul>
+
+    <h2>6. 与相关工作对比</h2>
+    <table>
+        <tr>
+            <th>方法</th>
+            <th>层次化</th>
+            <th>动态权重</th>
+            <th>子目标分解</th>
+            <th>世界模型</th>
+        </tr>
+        <tr>
+            <td>HaltNav-Pro</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <td>EvolveNav-2</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <td>WMPO</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <td><strong>CoW-Nav (层次化)</strong></td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+        </tr>
+    </table>
+
+    <h2>7. 总结与展望</h2>
+    <p>层次化停止决策框架为VLN导航提供了新的研究视角：</p>
+    <ul>
+        <li><strong>理论贡献</strong>：将停止决策从单层扩展到多层，更符合人类导航认知</li>
+        <li><strong>技术贡献</strong>：自适应融合策略平衡精度与效率</li>
+        <li><strong>实践价值</strong>：为长距离导航提供了可落地的解决方案</li>
+    </ul>
+
+    <div class="key-insight">
+        <strong>下一步行动</strong>：
+        <ol>
+            <li>理论完善：形式化三层融合的数学模型</li>
+            <li>代码实现：扩展CoW-Nav支持层次化推理</li>
+            <li>实验验证：R2R/R4R/RxR基准测试</li>
+            <li>论文写作：Related Work新增"层次化规划"章节</li>
+        </ol>
+    </div>
+
+    <hr>
+    <p style="color: #7f8c8d; font-size: 0.85em;">
+        参考文献：hierarchical-planning-vln-survey-2026.md | embodied-navigation-papers-2026-05-01-morning.md | NavSpace (ICRA 2026) | WMPO (NeurIPS 2025)
+    </p>
+</body>
+</html>
