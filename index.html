@@ -827,6 +827,10 @@ function renderHomeBlogs() {
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
   renderHomeBlogs();
+  // 预渲染所有内容，确保页面显示正常
+  renderPapers();
+  renderBlog('all');
+  renderCases('all');
 });
 </script>
 </body>
