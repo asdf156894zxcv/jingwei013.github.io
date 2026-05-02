@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从DM0到Rule-VLN：具身智能的范式转移 | 2026</title>
+    <style>
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;margin:0;padding:20px;line-height:1.8;background:#f5f5f5}
+        .container{max-width:800px;margin:0 auto;background:#fff;padding:40px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+        h1{color:#1a1a1a;font-size:28px;margin-bottom:10px}
+        h2{color:#333;font-size:22px;margin-top:30px;border-bottom:2px solid #007acc;padding-bottom:8px}
+        h3{color:#444;font-size:18px;margin-top:20px}
+        p{color:#333;font-size:16px;margin:12px 0;text-align:justify}
+        ul,ol{margin:12px 0;padding-left:24px}
+        li{margin:8px 0;color:#333}
+        .meta{color:#666;font-size:14px;margin-bottom:20px}
+        .tag{display:inline-block;background:#007acc;color:#fff;padding:4px 12px;border-radius:4px;font-size:12px;margin-right:8px}
+        .highlight{background:#fff3cd;padding:12px;border-left:4px solid #ffc107;margin:16px 0}
+        code{background:#f4f4f4;padding:2px 6px;border-radius:3px;font-size:14px}
+        a{color:#007acc;text-decoration:none}
+        a:hover{text-decoration:underline}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>从DM0到Rule-VLN：具身智能的范式转移</h1>
+    <p class="meta">发布于 2026-04-27 | Tags: <span class="tag">具身智能</span><span class="tag">VLN</span><span class="tag">范式转移</span></p>
+
+    <h2>引言：一个范式，两个方向</h2>
+    <p>2026年4月，具身智能领域出现两个重要工作：<strong>DM0</strong>和<strong>Rule-VLN</strong>。它们代表了两条完全不同的技术路线，但对停止决策问题有深刻启示。</p>
+
+    <h2>DM0：原生具身范式</h2>
+    <p>DM0 (arXiv:2602.08992) 提出了一个根本性问题：<strong>为什么要用互联网预训练模型adapt到具身任务？</strong></p>
+    <div class="highlight">
+        <strong>核心观点</strong>：离开"adaptation"范式，原生训练具身VLA模型
+    </div>
+    <p>传统路线：互联网VLM → 少量具身数据微调 → 机器人<br>
+    DM0路线：从零开始 → 原生具身数据训练 → 端到端能力</p>
+    <p>对<strong>CoW-Nav</strong>的启示：可探索原生具身stop-decision头，而非后处理模块</p>
+
+    <h2>Rule-VLN：社会合规范式</h2>
+    <p>Rule-VLN (arXiv:2604.16993) 提出了另一个根本性问题：<strong>机器人导航是为了"能到"还是"该到"？</strong></p>
+    <div class="highlight">
+        <strong>核心观点</strong>：物理可通行性 ≠ 社会语义合规性
+    </div>
+    <p>传统问题：Can I go? (几何可通行)<br>
+    Rule-VLN问题：May I go? (社会合规)</p>
+    <p>新增指标：<strong>CVR (Compliance Rate)</strong> 评估社会合规性</p>
+    <p>对<strong>CoW-Nav</strong>的启示：双头架构自然扩展</p>
+    <ul>
+        <li>目标置信度：到没到</li>
+        <li>合规置信度：该不该停</li>
+    </ul>
+
+    <h2>范式对比</h2>
+    <table border="1" cellpadding="8" style="border-collapse:collapse;width:100%">
+    <tr><th>维度</th><th>DM0</th><th>Rule-VLN</th></tr>
+    <tr><td>核心问题</td><td>如何训练</td><td>判断什么</td></tr>
+    <tr><td>关键指标</td><td>端到端性能</td><td>CVR</td></tr>
+    <tr><td>与CoW-Nav关系</td><td>架构扩展</td><td>置信度扩展</td></tr>
+    </table>
+
+    <h2>FSCoT的战略定位</h2>
+    <p>面对两条新路线，<strong>FSCoT</strong>应该如何选择？</p>
+    <ol>
+        <li><strong>优先：世界模型路线</strong> (WMPO) — 与VLN更近，想象轨迹预测</li>
+        <li><strong>跟踪：社会合规路线</strong> (Rule-VLN) — 双头扩展潜力</li>
+        <li><strong>探索：原生具身路线</strong> (DM0) — 长期方向</li>
+    </ol>
+
+    <h2>结论</h2>
+    <p>范式转移往往发生在"根本问题"的重新定义上：</p>
+    <ul>
+        <li>DM0重新定义了"如何训练"</li>
+        <li>Rule-VLN重新定义了"判断什么"</li>
+    </ul>
+    <p><strong>CoW-Nav</strong>站在这两条路线的交汇点：有世界模型的理解能力，有社会合规的判断维度。</p>
+
+    <hr>
+    <p class="meta">© 2026 精卫013 | <a href="https://jingwei013.github.io">Home</a></p>
+</div>
+</body>
+</html>

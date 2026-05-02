@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveVLN vs CoW-Nav: 两种停止决策方法的深度对比</title>
+    <style>
+        :root { --bg: #f8f9fa; --card: #ffffff; --text: #333333; --accent: #0066cc; --border: #e0e0e0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 1.8em; margin-bottom: 0.5em; color: var(--accent); }
+        h2 { font-size: 1.4em; margin: 1.5em 0 0.5em; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.3em; }
+        h3 { font-size: 1.2em; margin: 1em 0 0.5em; color: #555; }
+        p { margin-bottom: 1em; }
+        ul, ol { margin: 1em 0 1em 2em; }
+        li { margin-bottom: 0.5em; }
+        .card { background: var(--card); border-radius: 8px; padding: 20px; margin: 1em 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+        th, td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+        th { background: var(--bg); font-weight: 600; }
+        code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-family: "SF Mono", Consolas, monospace; font-size: 0.9em; }
+        .meta { color: #888; font-size: 0.9em; margin-bottom: 1em; }
+        .tag { display: inline-block; background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LiveVLN vs CoW-Nav: 两种停止决策方法的深度对比</h1>
+        <p class="meta">发布时间：2026-04-26 | 作者：量子研究 | 标签：VLN | CoW-Nav | 论文解读</p>
+        
+        <div class="card">
+            <p>在Vision-Language Navigation (VLN) 领域，停止决策（stop decision）是一个核心问题。近期在arXiv发现两篇与此高度相关的论文：<strong>LiveVLN</strong> (CVPR 2026) 和 <strong>Hierarchical Cognition</strong>。本文从方法论角度进行深度对比分析。</p>
+        </div>
+
+        <h2>1. 问题背景</h2>
+        
+        <div class="card">
+            <h3>1.1 LiveVLN的核心观点</h3>
+            <p>真实部署中，VLN系统普遍存在"停-停-走走"（stop-and-go）的问题。根因在于 sense-inference-execution 循环仍然是<strong>阻塞式</strong>的：每次新观察后，控制器必须等待感知、传输和推理完成后才能继续运动。</p>
+            <p><strong>解决思路</strong>：减少动作生成成本，实现连续动作生成。</p>
+            <p><strong>角度</strong>：效率驱动（efficiency-driven）</p>
+        </div>
+
+        <div class="card">
+            <h3>1.2 CoW-Nav的核心观点</h3>
+            <p>何时应该停止？应该由<strong>置信度</strong>来判断。当导航置信度低于阈值时，智能体应该主动停止或请求人类确认，而不是盲目继续前进。</p>
+            <p><strong>解决思路</strong>：引入置信度头（confidence head），基于内部状态判断是否停止。</p>
+            <p><strong>角度</strong>：置信度驱动（confidence-driven）</p>
+        </div>
+
+        <h2>2. 方法论对比</h2>
+
+        <div class="card">
+            <table>
+                <tr>
+                    <th>维度</th>
+                    <th>LiveVLN</th>
+                    <th>CoW-Nav</th>
+                </tr>
+                <tr>
+                    <td><strong>Stop依据</strong></td>
+                    <td>效率成本</td>
+                    <td>置信度</td>
+                </tr>
+                <tr>
+                    <td><strong>决策方式</strong></td>
+                    <td>外部优化</td>
+                    <td>内部判断</td>
+                </tr>
+                <tr>
+                    <td><strong>目标</strong></td>
+                    <td>连续动作</td>
+                    <td>准确停止</td>
+                </tr>
+                <tr>
+                    <td><strong>适用场景</strong></td>
+                    <td>实时部署、机器人竞赛</td>
+                    <td>复杂推理、室内导航</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>3. 战略定位：互补而非竞争</h2>
+
+        <div class="card">
+            <p>CoW-Nav与LiveVLN是<strong>互补关系</strong>而非竞争关系。</p>
+            <ul>
+                <li><strong>CoW-Nav</strong> 适合需要高推理准确性的场景（如室内导航、物体搜索）：需要理解复杂指令、判断目标位置</li>
+                <li><strong>LiveVLN</strong> 适合需要高实时性的场景（如机器人竞赛、动态环境）：需要快速响应、最小化延迟</li>
+            </ul>
+        </div>
+
+        <h2>4. 论文写作建议</h2>
+
+        <div class="card">
+            <p>在CoW-Nav Paper的Related Work中，可以增加一节专门对比stop decision的不同方法：</p>
+            <ol>
+                <li><strong>效率驱动方法</strong>（如LiveVLN）：优化推理延迟，实现连续动作</li>
+                <li><strong>置信度驱动方法</strong>（如CoW-Nav）：基于内部状态判断，准确性优先</li>
+                <li><strong>混合方法</strong>：结合效率与置信度，实现自适应停止策略</li>
+            </ol>
+        </div>
+
+        <h2>5. 结论</h2>
+
+        <div class="card">
+            <p>Stop decision是VLN系统的核心问题。LiveVLN从效率角度解决，CoW-Nav从置信度角度解决。两者不是竞争关系，而是适用于不同场景的互补方法。</p>
+            <p><strong>CoW-Nav的差异化定位</strong>：在需要高推理准确性的场景中，提供可靠的置信度判断，让智能体能够在不确定时主动停下。</p>
+        </div>
+
+        <div class="meta" style="margin-top: 2em;">
+            <p>© 2026 景伟研究 | 仅作为学术研究使用</p>
+        </div>
+    </div>
+</body>
+</html>
