@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>具身导航研究快照：CVPR 2026前沿进展 | 精卫013</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .blog-detail { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+    .blog-header { margin-bottom: 40px; }
+    .blog-title { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
+    .blog-meta { color: var(--text-muted); font-size: 14px; display: flex; gap: 20px; flex-wrap: wrap; }
+    .blog-content { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .blog-content h2 { font-size: 22px; font-weight: 600; margin: 40px 0 20px; color: var(--text-primary); }
+    .blog-content h3 { font-size: 18px; font-weight: 600; margin: 30px 0 15px; color: var(--text-primary); }
+    .blog-content p { margin-bottom: 16px; }
+    .blog-content ul, .blog-content ol { margin-bottom: 20px; padding-left: 24px; }
+    .blog-content li { margin-bottom: 8px; }
+    .highlight-box { background: linear-gradient(135deg, rgba(232,162,48,0.12), rgba(232,162,48,0.06)); border-left: 4px solid var(--accent); padding: 20px; border-radius: 8px; margin: 24px 0; }
+    .warning-box { background: linear-gradient(135deg, rgba(248,81,73,0.1), rgba(248,81,73,0.05)); border-left: 4px solid #f85149; padding: 20px; border-radius: 8px; margin: 24px 0; }
+    .insight-box { background: linear-gradient(135deg, rgba(144,184,80,0.12), rgba(144,184,80,0.06)); border-left: 4px solid #90b850; padding: 20px; border-radius: 8px; margin: 24px 0; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+    .data-table th, .data-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border-color); }
+    .data-table th { background: var(--bg-secondary); font-weight: 600; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-color); text-decoration: none; margin-bottom: 24px; }
+    .xhs-cover { background: linear-gradient(135deg, #1c1510 0%, #2b1a08 50%, #3d2510 100%); padding: 60px 40px; text-align: center; border-radius: 12px; margin-bottom: 40px; position: relative; overflow: hidden; }
+    .xhs-cover::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(232,162,48,0.12) 0%, transparent 70%); animation: pulse 4s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 0.8; } }
+    .xhs-cover h1 { font-size: 32px; font-weight: 800; margin-bottom: 16px; background: linear-gradient(135deg, #f5ead8 0%, #e8a230 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; position: relative; z-index: 1; }
+    .xhs-cover .subtitle { font-size: 16px; color: #9a8060; position: relative; z-index: 1; }
+    .paper-card { background: var(--bg-secondary); border-radius: 12px; padding: 24px; margin: 20px 0; border-left: 4px solid var(--accent); }
+    .paper-card h4 { font-size: 18px; margin-bottom: 12px; color: var(--text-primary); }
+    .paper-card .meta { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+    .paper-card .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .paper-card .tag { background: rgba(232,162,48,0.15); color: var(--accent); padding: 4px 12px; border-radius: 16px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-content">
+      <a href="../index.html" class="logo">精卫013</a>
+      <div class="nav-links">
+        <a href="../index.html#research">研究方向</a>
+        <a href="../index.html#papers">论文库</a>
+        <a href="../index.html#cases">案例库</a>
+        <a href="../index.html#blog">博客</a>
+        <a href="../index.html#about">关于</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container blog-detail">
+    <a href="../index.html#blog" class="back-link">← 返回博客列表</a>
+    
+    <article class="blog-header">
+      <div class="xhs-cover">
+        <h1>🚀 CVPR 2026具身导航前沿<br>10篇重磅论文速览</h1>
+        <p class="subtitle">从空中导航到触觉操作，具身智能研究全景扫描</p>
+      </div>
+      
+      <h1 class="blog-title">具身导航研究快照：CVPR 2026前沿进展</h1>
+      <div class="blog-meta">
+        <span>📅 2026-05-02</span>
+        <span>🏷️ 具身智能·CVPR·导航·操作</span>
+        <span>⏱️ 阅读约 8 分钟</span>
+      </div>
+    </article>
+
+    <div class="blog-content">
+      <p><strong>一句话总结：</strong>CVPR 2026在具身导航领域涌现出一批创新工作，从无人机空中导航到触觉灵巧操作，从多模态融合到3D语义重建，研究范式正在从"推高benchmark"转向"重写默认设定"。</p>
+
+      <h2>🎯 核心论文速览</h2>
+
+      <div class="paper-card">
+        <h4>1. APEX: 空中目标导航的异步架构</h4>
+        <div class="meta">CVPR 2026 | 哈工大深圳杨朔团队</div>
+        <p>针对无人机在复杂室外环境中仅凭视觉和语言描述（如"寻找红色帐篷"）自主搜索目标的挑战，提出APEX分层智能体。核心创新：</p>
+        <ul>
+          <li><strong>动态时空语义映射</strong>：构建环境记忆表征</li>
+          <li><strong>解耦动作决策</strong>：分离高层规划与底层控制</li>
+          <li><strong>异步并行框架</strong>：解决VLM推理延迟与实时控制矛盾</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Aerial Navigation</span>
+          <span class="tag">VLM</span>
+          <span class="tag">Asynchronous</span>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <h4>2. SAVN-CE: 连续环境语义视听导航</h4>
+        <div class="meta">CVPR 2026 | GitHub开源</div>
+        <p>首个在连续环境下融合音频和视觉信息进行语义导航的工作。支持连续动作空间，打破离散网格限制。</p>
+        <div class="tags">
+          <span class="tag">Audio-Visual</span>
+          <span class="tag">Continuous Space</span>
+          <span class="tag">Semantic Nav</span>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <h4>3. EmbodiedSplat: 单卡实时语义高斯</h4>
+        <div class="meta">CVPR 2026 | 3D重建</div>
+        <p>单GPU训练的实时在线前馈语义高斯，用于具身智能场景的快速3D语义重建，支持在线增量更新。</p>
+        <div class="tags">
+          <span class="tag">3D Gaussian</span>
+          <span class="tag">Semantic</span>
+          <span class="tag">Real-time</span>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <h4>4. HiMaCon: 层次化操作概念发现</h4>
+        <div class="meta">NeurIPS 2025 | 无监督学习</div>
+        <p>从无标注多模态数据中自动发现层次化操作概念，支持复杂操作任务的技能组合。</p>
+        <div class="tags">
+          <span class="tag">Manipulation</span>
+          <span class="tag">Hierarchical</span>
+          <span class="tag">Unsupervised</span>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <h4>5. Feel Robot Feels: 触觉反馈手套</h4>
+        <div class="meta">RSS 2026 Oral | 灵巧操作</div>
+        <p>触觉反馈阵列手套，提供丰富的触觉信号，支持精细物体操作任务。RSS 2026 Oral Presentation。</p>
+        <div class="tags">
+          <span class="tag">Tactile</span>
+          <span class="tag">Dexterous</span>
+          <span class="tag">Haptic</span>
+        </div>
+      </div>
+
+      <h2>📊 研究趋势观察</h2>
+
+      <div class="insight-box">
+        <strong>💡 范式转变：从Benchmark到新考题</strong><br><br>
+        CVPR 2026的一个明显趋势是：研究者开始超越传统benchmark指标的优化，转向重新审视底层假设。<br><br>
+        过去几年：模型做大 → 数据堆多 → 指标推高<br>
+        现在：重新思考"默认设定"，探索新范式
+      </div>
+
+      <h3>三大方向演进</h3>
+
+      <table class="data-table">
+        <tr>
+          <th>方向</th>
+          <th>过去</th>
+          <th>现在</th>
+        </tr>
+        <tr>
+          <td><strong>导航</strong></td>
+          <td>离散网格、纯视觉</td>
+          <td>连续空间、多模态、主动探索</td>
+        </tr>
+        <tr>
+          <td><strong>操作</strong></td>
+          <td>单一技能、有监督</td>
+          <td>层次化概念、无监督发现</td>
+        </tr>
+        <tr>
+          <td><strong>感知</strong></td>
+          <td>离线重建</td>
+          <td>在线增量、语义融合</td>
+        </tr>
+      </table>
+
+      <h2>🔍 关键技术洞察</h2>
+
+      <h3>1. 异步架构的必要性</h3>
+      <p>APEX论文揭示了一个关键问题：<strong>VLM推理延迟 vs 实时控制</strong>的矛盾。异步并行框架成为解决这一矛盾的必要设计。</p>
+
+      <div class="highlight-box">
+        <strong>📌 设计模式：</strong><br>
+        高层规划（慢，VLM）∥ 底层控制（快，传统控制器）<br>
+        通过异步通信解耦，保证实时性
+      </div>
+
+      <h3>2. 多模态融合的深化</h3>
+      <p>从纯视觉导航 → 视听导航 → 视听触多模态。SAVN-CE引入音频，Feel Robot Feels引入触觉，模态融合正在深化。</p>
+
+      <h3>3. 从有监督到无监督</h3>
+      <p>HiMaCon代表了另一个趋势：从依赖大量标注数据，转向从无标注数据中自动发现结构。这对于机器人学习尤为重要——真实世界的数据标注成本极高。</p>
+
+      <h2>🚧 开放问题</h2>
+
+      <ul>
+        <li><strong>Sim-to-Real差距</strong>：APEX在仿真中表现优异，真实环境部署仍需验证</li>
+        <li><strong>泛化能力</strong>：新场景、新物体类别的零样本泛化</li>
+        <li><strong>计算效率</strong>：边缘设备上的实时性能</li>
+        <li><strong>长程任务</strong>：复杂任务序列的规划和执行</li>
+      </ul>
+
+      <h2>📚 推荐阅读顺序</h2>
+
+      <ol>
+        <li><strong>入门</strong>：SAVN-CE（视听导航基础）</li>
+        <li><strong>进阶</strong>：APEX（异步架构设计）</li>
+        <li><strong>深入</strong>：HiMaCon（层次化概念学习）</li>
+        <li><strong>应用</strong>：Feel Robot Feels（触觉操作）</li>
+      </ol>
+
+      <h2>🔗 资源链接</h2>
+
+      <ul>
+        <li><a href="https://github.com/yichenzeng24/SAVN-CE">SAVN-CE GitHub</a></li>
+        <li><a href="https://github.com/zrllrz/HiMaCon">HiMaCon GitHub</a></li>
+        <li><a href="https://yangsizhe.github.io/">Feel Robot Feels Project Page</a></li>
+        <li><a href="https://blog.csdn.net/amusi1994/article/details/158454789">APEX CSDN解读</a></li>
+      </ul>
+
+      <hr style="border-color:var(--border);margin:40px 0;">
+
+      <p style="font-size:14px;color:var(--text-muted);">
+        <strong>关于作者：</strong>精卫013，具身智能导航方向博主。精选论文，记录思考与启发。<br>
+        <strong>联系方式：</strong>微信 jingwei013 | GitHub @Jingwei013
+      </p>
+    </div>
+  </div>
+
+  <footer style="text-align:center;padding:40px 20px;color:var(--text-muted);font-size:14px;border-top:1px solid var(--border);margin-top:60px;">
+    <p>© 2026 精卫013 | 用AI探索具身智能的边界</p>
+  </footer>
+</body>
+</html>
