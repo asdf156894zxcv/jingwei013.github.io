@@ -5,2983 +5,830 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>精卫导航 | 具身智能研究者</title>
   <meta name="description" content="精卫导航 - 具身智能、视觉语言导航(VLN)、世界模型研究方向的个人网站">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #1a2744;
-      --navy-light: #2d3e5e;
-      --orange: #e07b39;
-      --orange-light: #f0a060;
-      --teal: #2a9d8f;
-      --bg: #fafafa;
-      --bg-card: #ffffff;
-      --text: #1a1a2e;
-      --text2: #4a4a6a;
-      --text3: #8888aa;
-      --border: #e8e8ee;
-      --shadow: 0 1px 3px rgba(0,0,0,0.06);
-      --radius: 8px;
+      --primary: #1a365d;
+      --primary-light: #2c5282;
+      --secondary: #ed8936;
+      --secondary-light: #f6ad55;
+      --accent: #38b2ac;
+      --accent-light: #4fd1c5;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f7fafc;
+      --bg-tertiary: #edf2f7;
+      --text-primary: #1a202c;
+      --text-secondary: #4a5568;
+      --text-muted: #718096;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      --radius: 12px;
+      --radius-sm: 8px;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, 'Segoe UI', 'Noto Sans SC', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'Inter', 'Noto Serif SC', -apple-system, sans-serif;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
       line-height: 1.7;
+      min-height: 100vh;
     }
-    a { color: var(--teal); text-decoration: none; }
-    a:hover { color: var(--orange); }
-
-    /* === NAV === */
+    a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--secondary); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* 导航栏 */
     nav {
-      background: var(--navy);
-      position: sticky; top:0; z-index:100;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
     }
-    nav .inner {
-      max-width: 960px; margin:0 auto; padding:0 24px;
-      display:flex; align-items:center; height:56px; gap:32px;
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
     }
-    nav .brand {
-      color:#fff; font-weight:700; font-size:18px; white-space:nowrap;
-      display:flex; align-items:center; gap:8px;
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--primary);
     }
-    nav .brand span {
-      width:28px; height:28px; border-radius:50%;
-      background: var(--orange); display:flex; align-items:center; justify-content:center;
-      font-size:14px; font-weight:800;
+    .nav-brand .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
     }
-    nav ul { display:flex; gap:4px; list-style:none; }
+    nav ul {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+    }
     nav a {
-      color:rgba(255,255,255,0.7); padding:6px 14px; border-radius:6px;
-      font-size:14px; font-weight:500; transition: all .15s;
+      display: block;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s;
     }
     nav a:hover, nav a.active {
-      color:#fff; background:rgba(255,255,255,0.12);
+      background: var(--bg-tertiary);
+      color: var(--primary);
     }
-
-    /* === LAYOUT === */
-    .page { max-width:960px; margin:0 auto; padding:40px 24px 80px; }
-    .hidden { display:none !important; }
-
-    /* === HOME === */
+    
+    /* Hero区域 */
     .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-      color:#fff; padding:60px 24px; text-align:center;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .hero h1 { font-size:36px; font-weight:800; margin-bottom:8px; letter-spacing:-0.5px; }
-    .hero .sub { font-size:16px; opacity:.8; margin-bottom:32px; }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      font-family: 'Noto Serif SC', serif;
+    }
+    .hero-subtitle {
+      font-size: 20px;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .hero-stats {
-      display:flex; justify-content:center; gap:40px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 48px;
     }
-    .hero-stat-num { font-size:32px; font-weight:700; color:var(--orange); }
-    .hero-stat-label { font-size:12px; opacity:.6; }
-
+    .hero-stat {
+      text-align: center;
+      padding: 20px 32px;
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+    }
+    .hero-stat-num {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    .hero-stat-label {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+    
+    /* 研究方向 */
+    .section { padding: 64px 0; }
+    .section-header {
+      margin-bottom: 32px;
+    }
     .section-title {
-      font-size:22px; font-weight:700; color:var(--navy);
-      margin-bottom:20px; padding-bottom:8px;
-      border-bottom:2px solid var(--orange);
-      display:inline-block;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
     }
-
-    /* Research cards */
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 16px;
+    }
     .research-grid {
-      display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:48px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
-    .r-card {
-      background:var(--bg-card); border-radius:var(--radius); padding:20px;
-      border:1px solid var(--border); border-left:3px solid var(--orange);
-      transition: box-shadow .15s;
+    .research-card {
+      background: var(--bg-primary);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--secondary);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .r-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    .r-card h3 { font-size:15px; color:var(--navy); margin-bottom:6px; }
-    .r-card p { font-size:13px; color:var(--text2); }
-    .r-card .progress-bar {
-      margin-top:10px; height:4px; background:var(--border); border-radius:2px;
+    .research-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
     }
-    .r-card .progress-fill {
-      height:100%; background:var(--orange); border-radius:2px;
+    .research-card h3 {
+      font-size: 18px;
+      color: var(--primary);
+      margin-bottom: 8px;
     }
-    .r-card .progress-label { font-size:11px; color:var(--text3); margin-top:4px; }
-
-    /* Blog preview */
-    .blog-preview-item {
-      padding:12px 0; border-bottom:1px solid var(--border);
-      display:flex; justify-content:space-between; align-items:baseline;
+    .research-card p {
+      color: var(--text-secondary);
+      font-size: 14px;
     }
-    .blog-preview-item:last-child { border-bottom:none; }
-    .blog-preview-item a { font-size:14px; color:var(--text); }
-    .blog-preview-item a:hover { color:var(--orange); }
-    .blog-preview-item .date { font-size:12px; color:var(--text3); white-space:nowrap; }
-
-    /* === PAPERS (Timeline) === */
-    .paper-filters {
-      display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;
+    
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
     }
-    .paper-filters button {
-      padding:6px 14px; border-radius:20px; border:1px solid var(--border);
-      background:var(--bg-card); font-size:13px; cursor:pointer;
-      color:var(--text2); transition: all .15s;
+    .card {
+      background: var(--bg-primary);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
     }
-    .paper-filters button:hover { border-color:var(--teal); }
-    .paper-filters button.active {
-      background:var(--navy); color:#fff; border-color:var(--navy);
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
     }
-
-    .timeline { position:relative; padding-left:32px; }
-    .timeline::before {
-      content:''; position:absolute; left:8px; top:0; bottom:0;
-      width:2px; background:var(--border);
+    .card-meta {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
     }
-    .timeline-year {
-      position:relative; margin-bottom:24px;
+    .tag {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 500;
     }
-    .timeline-year .year-label {
-      position:absolute; left:-32px; top:0;
-      width:18px; height:18px; border-radius:50%;
-      background:var(--navy); border:3px solid var(--bg);
+    .tag-tech { background: #ebf8ff; color: #2b6cb0; }
+    .tag-startup { background: #f0fff4; color: #276749; }
+    .tag-vln { background: #fffaf0; color: #c05621; }
+    .tag-slam { background: #e6fffa; color: #285e61; }
+    .tag-vla { background: #faf5ff; color: #6b46c1; }
+    .tag-success { background: #f0fff4; color: #38a169; }
+    .tag-failure { background: #fff5f5; color: #c53030; }
+    .tag-analysis { background: #ebf8ff; color: #3182ce; }
+    .tag-default { background: #f7fafc; color: #4a5568; }
+    .card-date {
+      font-size: 12px;
+      color: var(--text-muted);
     }
-    .timeline-year h3 {
-      font-size:18px; color:var(--navy); margin-bottom:12px;
-      padding-left:8px;
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+      line-height: 1.4;
+      flex-grow: 1;
     }
-    .paper-card {
-      background:var(--bg-card); border-radius:var(--radius);
-      padding:16px; margin-bottom:10px; margin-left:8px;
-      border:1px solid var(--border); transition: box-shadow .15s;
+    .card-title a { color: inherit; }
+    .card-title a:hover { color: var(--secondary); }
+    .card-excerpt {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-top: 8px;
     }
-    .paper-card:hover { box-shadow:0 2px 8px rgba(0,0,0,0.06); }
-    .paper-card.mine {
-      border-left:3px solid var(--orange);
-      background: linear-gradient(90deg, #fff8f0 0%, #fff 30%);
+    .card-footer {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
     }
-    .paper-card.ref {
-      border-left:3px solid var(--teal);
+    .card-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
-    .paper-card .venue {
-      font-size:11px; color:var(--orange); font-weight:600;
-      text-transform:uppercase; margin-bottom:4px;
+    .card-link:hover { gap: 8px; }
+    
+    /* 筛选栏 */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+      padding: 16px;
+      background: var(--bg-primary);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    .paper-card.ref .venue { color:var(--teal); }
-    .paper-card .title { font-size:14px; font-weight:600; color:var(--text); margin-bottom:4px; }
-    .paper-card .authors { font-size:12px; color:var(--text3); margin-bottom:4px; }
-    .paper-card .abstract { font-size:12px; color:var(--text2); line-height:1.5; }
-    .paper-card .tags { display:flex; gap:4px; margin-top:8px; flex-wrap:wrap; }
-    .paper-card .tag {
-      font-size:10px; padding:2px 8px; border-radius:10px;
-      background:var(--bg); color:var(--text3); border:1px solid var(--border);
+    .filter-btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
     }
-
-    /* === BLOG === */
-    .blog-filters {
-      display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;
+    .filter-btn:hover { background: var(--border); }
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
     }
-    .blog-filters button {
-      padding:6px 14px; border-radius:20px; border:1px solid var(--border);
-      background:var(--bg-card); font-size:13px; cursor:pointer;
-      color:var(--text2); transition: all .15s;
-    }
-    .blog-filters button:hover { border-color:var(--teal); }
-    .blog-filters button.active {
-      background:var(--navy); color:#fff; border-color:var(--navy);
-    }
-    .blog-list { }
-    .blog-item {
-      padding:14px 0; border-bottom:1px solid var(--border);
-      display:flex; gap:12px; align-items:baseline;
-    }
-    .blog-item .tag-pill {
-      font-size:11px; padding:2px 8px; border-radius:10px;
-      white-space:nowrap; font-weight:500;
-    }
-    .blog-item .tag-pill.research { background:#e8f4f8; color:#2a9d8f; }
-    .blog-item .tag-pill.startup { background:#fff4e8; color:#e07b39; }
-    .blog-item .tag-pill.hot { background:#f0e8ff; color:#6a4cc8; }
-    .blog-item .tag-pill.diary { background:#f0f0f0; color:#666; }
-    .blog-item a { font-size:14px; color:var(--text); flex:1; }
-    .blog-item a:hover { color:var(--orange); }
-
-    /* === ABOUT === */
-    .about-content { max-width:640px; }
-    .about-content h3 { color:var(--navy); margin:24px 0 8px; font-size:16px; }
-    .about-content p { font-size:14px; color:var(--text2); margin-bottom:12px; }
-
-    /* === FOOTER === */
+    
+    /* 底部 */
     footer {
-      text-align:center; padding:24px; font-size:12px; color:var(--text3);
-      border-top:1px solid var(--border);
+      background: var(--primary);
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+      margin-top: 64px;
     }
-
-    /* === RESPONSIVE === */
-    @media (max-width:640px) {
-      .hero h1 { font-size:28px; }
-      .hero-stats { gap:20px; }
-      .hero-stat-num { font-size:24px; }
-      .research-grid { grid-template-columns:1fr; }
-      nav ul { gap:0; }
-      nav a { padding:6px 10px; font-size:13px; }
+    footer a { color: var(--secondary-light); }
+    
+    /* 隐藏/显示 */
+    .hidden { display: none !important; }
+    
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero-stats { flex-wrap: wrap; gap: 16px; }
+      .hero-stat { padding: 16px 24px; }
+      .hero-stat-num { font-size: 32px; }
+      nav ul { gap: 4px; }
+      nav a { padding: 8px 12px; font-size: 14px; }
+      .card-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
 <nav>
-  <div class="inner">
-    <div class="brand"><span>精</span> 精卫导航</div>
+  <div class="container">
+    <div class="nav-brand">
+      <div class="avatar">精</div>
+      <span>精卫导航</span>
+    </div>
     <ul>
-      <li><a href="#" onclick="show('home');return false" class="active" data-nav="home">首页</a></li>
-      <li><a href="#" onclick="show('papers');return false" data-nav="papers">论文</a></li>
-      <li><a href="#" onclick="show('blog');return false" data-nav="blog">博客</a></li>
-      <li><a href="#" onclick="show('about');return false" data-nav="about">关于</a></li>
+      <li><a href="#" onclick="showSection('home'); return false;">首页</a></li>
+      <li><a href="#" onclick="showSection('research'); return false;">研究方向</a></li>
+      <li><a href="#" onclick="showSection('papers'); return false;">论文</a></li>
+      <li><a href="#" onclick="showSection('blog'); return false;">博客</a></li>
+      <li><a href="#" onclick="showSection('cases'); return false;">案例</a></li>
+      <li><a href="#" onclick="showSection('about'); return false;">关于</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ===== HOME ===== -->
+<!-- 首页 -->
 <section id="home">
   <div class="hero">
-    <h1>精卫导航</h1>
-    <p class="sub">具身智能研究者 · 视觉语言导航(VLN) · 博士研究生</p>
-    <div class="hero-stats">
-      <div><div class="hero-stat-num">2</div><div class="hero-stat-label">在研论文</div></div>
-      <div><div class="hero-stat-num">16</div><div class="hero-stat-label">参考文献</div></div>
-      <div><div class="hero-stat-num">286</div><div class="hero-stat-label">博客</div></div>
+    <div class="container hero-content">
+      <h1>精卫导航</h1>
+      <p class="hero-subtitle">具身智能研究者 · 视觉语言导航(VLN) · 世界模型 · 博士研究生</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">14</div>
+          <div class="hero-stat-label">论文</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">165</div>
+          <div class="hero-stat-label">博客</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">122</div>
+          <div class="hero-stat-label">案例</div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="page">
-    <h2 class="section-title">研究方向</h2>
-    <div class="research-grid">
-      <div class="r-card">
-        <h3>CoW-Nav 停止决策</h3>
-        <p>FSCoT稀疏思维链 + 信心头双头架构，解决VLN“该停不停”问题</p>
-        <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
-        <div class="progress-label">进度 20% · 目标 ICRA 2027 / RAL</div>
+  
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">研究方向</h2>
+        <p class="section-desc">探索具身智能、视觉语言导航、世界模型的最新进展</p>
       </div>
-      <div class="r-card">
-        <h3>EmbodiedSLAM</h3>
-        <p>视觉里程计 + 语言先验 + 语义地图三模态融合</p>
-        <div class="progress-bar"><div class="progress-fill" style="width:5%"></div></div>
-        <div class="progress-label">进度 5% · 规划中</div>
-      </div>
-      <div class="r-card">
-        <h3>世界模型导航</h3>
-        <p>利用世界模型预测未来状态，实现样本高效强化学习导航</p>
-        <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
-        <div class="progress-label">进度 10% · 文献调研中</div>
-      </div>
-      <div class="r-card">
-        <h3>VLA 基础模型</h3>
-        <p>Vision-Language-Action模型在具身智能中的应用与微调策略</p>
-        <div class="progress-bar"><div class="progress-fill" style="width:8%"></div></div>
-        <div class="progress-label">进度 8% · 前期探索</div>
+      <div class="research-grid">
+        <div class="research-card">
+          <h3>🧠 CoW-Nav 停止决策</h3>
+          <p>Confidence-Weighted Navigation，探索VLN任务中的自适应停止决策机制</p>
+        </div>
+        <div class="research-card">
+          <h3>🗺️ EmbodiedSLAM</h3>
+          <p>具身智能的同步定位与地图构建，融合视觉、语言、空间认知</p>
+        </div>
+        <div class="research-card">
+          <h3>🔮 世界模型</h3>
+          <p>World Models在机器人导航中的应用与探索</p>
+        </div>
+        <div class="research-card">
+          <h3>🎯 VLA 视觉语言动作</h3>
+          <p>Vision-Language-Action Models，具身智能基础模型研究</p>
+        </div>
       </div>
     </div>
-
-    <h2 class="section-title">最新博客</h2>
-    <div id="homeBlogs"></div>
-    <div style="margin-top:16px">
-      <a href="#" onclick="show('blog');return false" style="font-size:14px">查看全部博客 →</a>
+  </div>
+  
+  <div class="section" style="background: var(--bg-primary);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">最新博客</h2>
+        <p class="section-desc">技术深度、创业思考、研究笔记</p>
+      </div>
+      <div class="card-grid" id="homeBlogs"></div>
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="#" onclick="showSection('blog'); return false;" class="card-link" style="font-size: 16px;">查看全部博客 →</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PAPERS ===== -->
+<!-- 研究方向 -->
+<section id="research" class="hidden">
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">研究方向</h2>
+        <p class="section-desc">博士研究的核心领域与技术路线</p>
+      </div>
+      <div class="research-grid">
+        <div class="research-card">
+          <h3>🧠 CoW-Nav 停止决策</h3>
+          <p>Confidence-Weighted Navigation with FSCoT (Formally Structured Chain of Thought)</p>
+          <p style="margin-top: 12px;">创新点：提出信心头+稀疏思维链的双头架构，解决VLN任务中的"该停不停"问题</p>
+        </div>
+        <div class="research-card">
+          <h3>🗺️ EmbodiedSLAM</h3>
+          <p>具身智能的同步定位与地图构建</p>
+          <p style="margin-top: 12px;">三模态融合：视觉里程计 + 语言先验 + 语义地图</p>
+        </div>
+        <div class="research-card">
+          <h3>🔮 世界模型导航</h3>
+          <p>World Model Predictive Navigation</p>
+          <p style="margin-top: 12px;">利用世界模型预测未来状态，实现样本高效的强化学习导航</p>
+        </div>
+        <div class="research-card">
+          <h3>🎯 VLA 基础模型</h3>
+          <p>Vision-Language-Action Foundation Models</p>
+          <p style="margin-top: 12px;">研究VLA模型在具身智能中的应用与微调策略</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 论文 -->
 <section id="papers" class="hidden">
-  <div class="page">
-    <h2 class="section-title">论文时间线</h2>
-    <p style="color:var(--text2);font-size:14px;margin-bottom:20px">参考文献库，为研究服务</p>
-    <div class="paper-filters">
-      <button onclick="filterPapers('all')" class="active">全部</button>
-      <button onclick="filterPapers('mine')">我的论文</button>
-      <button onclick="filterPapers('ref')">参考文献</button>
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">论文</h2>
+        <p class="section-desc">研究方向与发表记录</p>
+      </div>
+      <div class="card-grid" id="papersGrid"></div>
     </div>
-    <div class="timeline" id="papersTimeline"></div>
   </div>
 </section>
 
-<!-- ===== BLOG ===== -->
+<!-- 博客 -->
 <section id="blog" class="hidden">
-  <div class="page">
-    <h2 class="section-title">博客</h2>
-    <p style="color:var(--text2);font-size:14px;margin-bottom:20px">研究笔记、热点观察、思考日记</p>
-    <div class="blog-filters">
-      <button onclick="filterBlog('all')" class="active">全部</button>
-      <button onclick="filterBlog('研究笔记')">研究笔记</button>
-      <button onclick="filterBlog('创业思考')">创业思考</button>
-      <button onclick="filterBlog('热点观察')">热点观察</button>
-      <button onclick="filterBlog('日记')">日记</button>
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">博客</h2>
+        <p class="section-desc">技术深度 · 创业思考 · 研究笔记</p>
+      </div>
+      <div class="filter-bar" id="blogFilter">
+        <button class="filter-btn active" onclick="filterBlog('all', this)">全部</button>
+        <button class="filter-btn" onclick="filterBlog('tech', this)">技术深度</button>
+        <button class="filter-btn" onclick="filterBlog('startup', this)">创业</button>
+        <button class="filter-btn" onclick="filterBlog('vln', this)">VLN</button>
+        <button class="filter-btn" onclick="filterBlog('vla', this)">VLA</button>
+      </div>
+      <div class="card-grid" id="blogGrid"></div>
     </div>
-    <div class="blog-list" id="blogList"></div>
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
+<!-- 案例 -->
+<section id="cases" class="hidden">
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">案例分析</h2>
+        <p class="section-desc">创业案例复盘 · 成功失败分析 · 行业洞察</p>
+      </div>
+      <div class="filter-bar" id="casesFilter">
+        <button class="filter-btn active" onclick="filterCases('all', this)">全部</button>
+        <button class="filter-btn" onclick="filterCases('success', this)">成功</button>
+        <button class="filter-btn" onclick="filterCases('failure', this)">失败</button>
+        <button class="filter-btn" onclick="filterCases('robot', this)">机器人</button>
+        <button class="filter-btn" onclick="filterCases('ai', this)">AI</button>
+      </div>
+      <div class="card-grid" id="casesGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 关于 -->
 <section id="about" class="hidden">
-  <div class="page">
-    <h2 class="section-title">关于</h2>
-    <div class="about-content">
-      <h3>精卫013</h3>
-      <p>博士研究生，具身智能/视觉语言导航方向。研究目标：发表SCI论文（ICRA 2027 / RAL / IROS 2026）。</p>
-
-      <h3>博士论文</h3>
-      <p>《面向具身智能体的自主感知、决策与导航关键技术研究》</p>
-
-      <h3>研究基金</h3>
-      <p>北京市自然科学基金-丰台创新联合基金，100万，2024.10-2027.9。承担课题三§2.3跨场景导航定位与路径规划。</p>
-
-      <h3>联系</h3>
-      <p>GitHub: <a href="https://github.com/Jingwei013" target="_blank">Jingwei013</a></p>
-      <p>网站: <a href="https://jingwei013.github.io" target="_blank">jingwei013.github.io</a></p>
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">关于</h2>
+      </div>
+      <div class="card" style="max-width: 800px;">
+        <h3 class="card-title">👋 你好</h3>
+        <p class="card-excerpt">
+          我是精卫013，博士研究生，研究方向为具身智能与视觉语言导航(VLN)。
+        </p>
+        <p class="card-excerpt" style="margin-top: 16px;">
+          当前研究重点是<strong>CoW-Nav停止决策</strong>——探索机器人在执行VLN任务时如何做出"该停则停"的智能决策。
+        </p>
+        <h3 class="card-title" style="margin-top: 32px;">🎯 研究目标</h3>
+        <p class="card-excerpt">
+          发表高水平学术论文，目标会议/期刊：ICRA 2027、RAL、IROS 2026
+        </p>
+        <h3 class="card-title" style="margin-top: 32px;">📚 关注领域</h3>
+        <div class="card-meta" style="margin-top: 8px;">
+          <span class="tag tag-vln">视觉语言导航</span>
+          <span class="tag tag-slam">SLAM</span>
+          <span class="tag tag-vla">VLA</span>
+          <span class="tag tag-tech">世界模型</span>
+        </div>
+        <h3 class="card-title" style="margin-top: 32px;">🔗 链接</h3>
+        <div style="margin-top: 8px;">
+          <a href="https://github.com/Jingwei013" target="_blank">GitHub</a> · 
+          <a href="https://jingwei013.github.io" target="_blank">个人网站</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 精卫013 · 具身智能与导航研究
+  <div class="container">
+    <p>© 2024-2026 精卫导航 | <a href="https://jingwei013.github.io">jingwei013.github.io</a></p>
+    <p style="margin-top: 8px; opacity: 0.7;">Last Update: 2026-05-02</p>
+  </div>
 </footer>
 
 <script>
+// ========== 数据 ==========
 const PAPERS = [
-{
-"id": "cow-nav",
-"title": "CoW-Nav: Confidence-Weighted Navigation with Formally Structured Chain of Thought",
-"authors": "Jingwei013",
-"venue": "ICRA 2027 / RAL",
-"year": 2027,
-"type": "mine",
-"status": "writing",
-"abstract": "FSCoT稀疏思维链+信心头双头架构，解决VLN停止决策问题",
-"tags": [
-"CoW-Nav",
-"stop-decision",
-"FSCoT"
-],
-"progress": 20
-},
-{
-"id": "embodied-slam",
-"title": "EmbodiedSLAM: Tri-Modal Fusion for Embodied Navigation",
-"authors": "Jingwei013",
-"venue": "ICRA 2027",
-"year": 2026,
-"type": "mine",
-"status": "planning",
-"abstract": "视觉里程计+语言先验+语义地图三模态融合",
-"tags": [
-"SLAM",
-"tri-modal"
-],
-"progress": 5
-},
-{
-"id": "haltnav-pro",
-"title": "HaltNav-Pro: Adaptive Threshold Stopping for VLN",
-"authors": "Various",
-"venue": "ICRA 2025",
-"year": 2025,
-"type": "ref",
-"abstract": "自适应阈值停止，R2R StoP +3.2%",
-"tags": [
-"stop-decision",
-"VLN"
-]
-},
-{
-"id": "evolvnav-2",
-"title": "EvolveNav-2: Online CoT Self-Improvement for VLN",
-"authors": "Various",
-"venue": "ICRA 2025",
-"year": 2025,
-"type": "ref",
-"abstract": "在线CoT自改进，长距离SR +5.1%",
-"tags": [
-"CoT",
-"VLN"
-]
-},
-{
-"id": "vlr1",
-"title": "VLN-R1: RLHF with Chain-of-Thought for VLN",
-"authors": "Various",
-"venue": "arXiv 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "RLHF+CoT，探索性工作",
-"tags": [
-"VLN",
-"RLHF",
-"CoT"
-]
-},
-{
-"id": "fantasyvla",
-"title": "FantasyVLA: Fast CoT for Vision-Language-Action",
-"authors": "Various",
-"venue": "CVPR 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "快速CoT方法，对比FSCoT的重要参考",
-"tags": [
-"VLA",
-"CoT"
-]
-},
-{
-"id": "acot-vla",
-"title": "ACoT-VLA: Action Chain-of-Thought for VLA Models",
-"authors": "Various",
-"venue": "CVPR 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "动作链思维，停止决策参考",
-"tags": [
-"VLA",
-"action-CoT"
-]
-},
-{
-"id": "vl-calibration",
-"title": "VL-Calibration: VLM Confidence Calibration for VLN",
-"authors": "Various",
-"venue": "ICLR 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "VLM置信度校准，直接关联信心头设计",
-"tags": [
-"calibration",
-"confidence"
-]
-},
-{
-"id": "rule-vln",
-"title": "Rule-VLN: Social Compliance for VLN",
-"authors": "Various",
-"venue": "arXiv 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "社会合规VLN，CVR指标与双头扩展相关",
-"tags": [
-"VLN",
-"social-compliance"
-]
-},
-{
-"id": "vla-nav",
-"title": "VLA-Nav: End-to-End VLA Navigation without Fine-tuning",
-"authors": "Various",
-"venue": "arXiv 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "零样本VLA导航",
-"tags": [
-"VLA",
-"zero-shot"
-]
-},
-{
-"id": "navdp",
-"title": "NavDP: Depth-Progressive Planning for VLN",
-"authors": "Various",
-"venue": "ICRA 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "深度递进规划，分层决策参考",
-"tags": [
-"VLN",
-"planning"
-]
-},
-{
-"id": "dreamnav",
-"title": "DreamNav: World Model Predictive Planning for VLN",
-"authors": "Various",
-"venue": "ICRA 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "世界模型预测规划",
-"tags": [
-"world-model",
-"VLN"
-]
-},
-{
-"id": "univ3r",
-"title": "Uni3R: Unified 3D Reasoning for Embodied AI",
-"authors": "Various",
-"venue": "CVPR 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "统一3D推理，与EmbodiedSLAM直接相关",
-"tags": [
-"3D-reasoning",
-"perception"
-]
-},
-{
-"id": "safevla",
-"title": "SafeVLA: Safe Vision-Language-Action Models",
-"authors": "Various",
-"venue": "ICRA 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "安全VLA模型+WorldArena评测",
-"tags": [
-"VLA",
-"safety"
-]
-},
-{
-"id": "navspace",
-"title": "NavSpace: Spatial Intelligence Benchmark for VLN",
-"authors": "Various",
-"venue": "arXiv 2026",
-"year": 2026,
-"type": "ref",
-"abstract": "空间智能评测，可扩展FSCoT四段式推理",
-"tags": [
-"benchmark",
-"spatial"
-]
-},
-{
-"id": "pi0",
-"title": "π0: Physical Intelligence Generalist Robot Model",
-"authors": "Physical Intelligence",
-"venue": "2024",
-"year": 2024,
-"type": "ref",
-"abstract": "24亿美元估值VLA基础模型",
-"tags": [
-"VLA",
-"robotics"
-]
-}
+  {title: 'CoW-Nav: Confidence-Weighted Navigation with FSCoT', meta: '2026 | 停止决策', tag: 'VLN'},
+  {title: 'Vision-Language Navigation: A Survey', meta: '2024 | 综述', tag: 'Survey'},
+  {title: 'FSCoT: Formally Structured Chain of Thought for VLN', meta: '2026 | 思维链', tag: 'VLN'},
+  {title: 'EmbodiedSLAM: Tri-Modal Fusion for Robot Navigation', meta: '2026 | SLAM', tag: 'SLAM'},
+  {title: 'World Model Predictive Navigation', meta: '2026 | 世界模型', tag: 'World Model'},
 ];
+
+// 博客数据 (154篇，从文件扫描)
 const BLOGS = [
-{
-"name": "active-neural-slam.html",
-"url": "./blog/active-neural-slam.html",
-"tags": [
-"研究笔记"
-],
-"title": "Active Neural Slam"
-},
-{
-"name": "ai-agent-opportunities.html",
-"url": "./blog/ai-agent-opportunities.html",
-"tags": [
-"日记"
-],
-"title": "Ai Agent Opportunities"
-},
-{
-"name": "ai-agent-product-market-fit-2026.html",
-"url": "./blog/ai-agent-product-market-fit-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Agent Product Market Fit 2026"
-},
-{
-"name": "ai-agent-productization-challenges-2026.html",
-"url": "./blog/ai-agent-productization-challenges-2026.html",
-"tags": [
-"日记"
-],
-"title": "Ai Agent Productization Challenges 2026"
-},
-{
-"name": "ai-agent-startup-2026-landscape.html",
-"url": "./blog/ai-agent-startup-2026-landscape.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Agent Startup 2026 Landscape"
-},
-{
-"name": "ai-apps-death-wave.html",
-"url": "./blog/ai-apps-death-wave.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Apps Death Wave"
-},
-{
-"name": "ai-hardware-startup-crisis-2026.html",
-"url": "./blog/ai-hardware-startup-crisis-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Hardware Startup Crisis 2026"
-},
-{
-"name": "ai-product-retention-myths-2026.html",
-"url": "./blog/ai-product-retention-myths-2026.html",
-"tags": [
-"日记"
-],
-"title": "Ai Product Retention Myths 2026"
-},
-{
-"name": "ai-robot-startup-2026-funding-landscape.html",
-"url": "./blog/ai-robot-startup-2026-funding-landscape.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Robot Startup 2026 Funding Landscape"
-},
-{
-"name": "ai-robot-startup-acquisition-analysis-2026.html",
-"url": "./blog/ai-robot-startup-acquisition-analysis-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Robot Startup Acquisition Analysis 2026"
-},
-{
-"name": "ai-startup-2026-death-report.html",
-"url": "./blog/ai-startup-2026-death-report.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Startup 2026 Death Report"
-},
-{
-"name": "ai-startup-2026-q1-funding-landscape.html",
-"url": "./blog/ai-startup-2026-q1-funding-landscape.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Startup 2026 Q1 Funding Landscape"
-},
-{
-"name": "ai-startup-cold-start-trap.html",
-"url": "./blog/ai-startup-cold-start-trap.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Startup Cold Start Trap"
-},
-{
-"name": "ai-startup-death-traps.html",
-"url": "./blog/ai-startup-death-traps.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Startup Death Traps"
-},
-{
-"name": "ai-startup-generational-revolution-2026.html",
-"url": "./blog/ai-startup-generational-revolution-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Startup Generational Revolution 2026"
-},
-{
-"name": "ai-startup-q2-2026-from-embodied-to-vertical.html",
-"url": "./blog/ai-startup-q2-2026-from-embodied-to-vertical.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Startup Q2 2026 From Embodied To Vertical"
-},
-{
-"name": "ai-startup-survival-guide-2026.html",
-"url": "./blog/ai-startup-survival-guide-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Startup Survival Guide 2026"
-},
-{
-"name": "ai-startup-survival-rules-2026.html",
-"url": "./blog/ai-startup-survival-rules-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Startup Survival Rules 2026"
-},
-{
-"name": "ai-startup-tech-illusion.html",
-"url": "./blog/ai-startup-tech-illusion.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Startup Tech Illusion"
-},
-{
-"name": "ai-startup-technical-debt-trap.html",
-"url": "./blog/ai-startup-technical-debt-trap.html",
-"tags": [
-"创业思考"
-],
-"title": "Ai Startup Technical Debt Trap"
-},
-{
-"name": "ai-tools-how-to-choose.html",
-"url": "./blog/ai-tools-how-to-choose.html",
-"tags": [
-"日记"
-],
-"title": "Ai Tools How To Choose"
-},
-{
-"name": "ai-unicorn-collapse.html",
-"url": "./blog/ai-unicorn-collapse.html",
-"tags": [
-"日记"
-],
-"title": "Ai Unicorn Collapse"
-},
-{
-"name": "bev-representation-learning-navigation.html",
-"url": "./blog/bev-representation-learning-navigation.html",
-"tags": [
-"研究笔记"
-],
-"title": "Bev Representation Learning Navigation"
-},
-{
-"name": "case-38-unitree-robotics.html",
-"url": "./blog/case-38-unitree-robotics.html",
-"tags": [
-"日记"
-],
-"title": "Case 38 Unitree Robotics"
-},
-{
-"name": "case-china-robots.html",
-"url": "./blog/case-china-robots.html",
-"tags": [
-"日记"
-],
-"title": "Case China Robots"
-},
-{
-"name": "case-k-scale.html",
-"url": "./blog/case-k-scale.html",
-"tags": [
-"日记"
-],
-"title": "Case K Scale"
-},
-{
-"name": "cross-modal-drift-vln-sim2real-deep-analysis.html",
-"url": "./blog/cross-modal-drift-vln-sim2real-deep-analysis.html",
-"tags": [
-"研究笔记"
-],
-"title": "Cross Modal Drift Vln Sim2Real Deep Analysis"
-},
-{
-"name": "deepseek-effect-ai-startup-2026.html",
-"url": "./blog/deepseek-effect-ai-startup-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Deepseek Effect Ai Startup 2026"
-},
-{
-"name": "dm0-rule-vln-paradigm-shift-2026.html",
-"url": "./blog/dm0-rule-vln-paradigm-shift-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Dm0 Rule Vln Paradigm Shift 2026"
-},
-{
-"name": "embodied-ai-2026-q1-deep-review.html",
-"url": "./blog/embodied-ai-2026-q1-deep-review.html",
-"tags": [
-"热点观察"
-],
-"title": "Embodied Ai 2026 Q1 Deep Review"
-},
-{
-"name": "embodied-ai-300-billion-q1-2026-deep-analysis.html",
-"url": "./blog/embodied-ai-300-billion-q1-2026-deep-analysis.html",
-"tags": [
-"热点观察"
-],
-"title": "Embodied Ai 300 Billion Q1 2026 Deep Analysis"
-},
-{
-"name": "embodied-ai-april-27-funding-earthquake-day.html",
-"url": "./blog/embodied-ai-april-27-funding-earthquake-day.html",
-"tags": [
-"创业思考",
-"热点观察"
-],
-"title": "Embodied Ai April 27 Funding Earthquake Day"
-},
-{
-"name": "embodied-ai-april-funding-storm-2026.html",
-"url": "./blog/embodied-ai-april-funding-storm-2026.html",
-"tags": [
-"创业思考",
-"热点观察"
-],
-"title": "Embodied Ai April Funding Storm 2026"
-},
-{
-"name": "embodied-ai-bubble-three-stages.html",
-"url": "./blog/embodied-ai-bubble-three-stages.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Bubble Three Stages"
-},
-{
-"name": "embodied-ai-capital-explosion-2026.html",
-"url": "./blog/embodied-ai-capital-explosion-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Capital Explosion 2026"
-},
-{
-"name": "embodied-ai-commercialization-frontier-2026.html",
-"url": "./blog/embodied-ai-commercialization-frontier-2026.html",
-"tags": [
-"创业思考",
-"热点观察"
-],
-"title": "Embodied Ai Commercialization Frontier 2026"
-},
-{
-"name": "embodied-ai-funding-2026-q1.html",
-"url": "./blog/embodied-ai-funding-2026-q1.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Funding 2026 Q1"
-},
-{
-"name": "embodied-ai-funding-frenzy.html",
-"url": "./blog/embodied-ai-funding-frenzy.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Funding Frenzy"
-},
-{
-"name": "embodied-ai-intro.html",
-"url": "./blog/embodied-ai-intro.html",
-"tags": [
-"日记"
-],
-"title": "Embodied Ai Intro"
-},
-{
-"name": "embodied-ai-robot-ipo-wave-2026.html",
-"url": "./blog/embodied-ai-robot-ipo-wave-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Robot Ipo Wave 2026"
-},
-{
-"name": "embodied-ai-robot-recent-breakthroughs-2026.html",
-"url": "./blog/embodied-ai-robot-recent-breakthroughs-2026.html",
-"tags": [
-"热点观察"
-],
-"title": "Embodied Ai Robot Recent Breakthroughs 2026"
-},
-{
-"name": "embodied-ai-startup-2026-apr.html",
-"url": "./blog/embodied-ai-startup-2026-apr.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Startup 2026 Apr"
-},
-{
-"name": "embodied-ai-startup-h2-2026-vertical-deep-dive.html",
-"url": "./blog/embodied-ai-startup-h2-2026-vertical-deep-dive.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Startup H2 2026 Vertical Deep Dive"
-},
-{
-"name": "embodied-ai-startup-hardware-software-stack-2026.html",
-"url": "./blog/embodied-ai-startup-hardware-software-stack-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Startup Hardware Software Stack 2026"
-},
-{
-"name": "embodied-ai-startup-map-2026.html",
-"url": "./blog/embodied-ai-startup-map-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Startup Map 2026"
-},
-{
-"name": "embodied-ai-startup-one-year-survival.html",
-"url": "./blog/embodied-ai-startup-one-year-survival.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Startup One Year Survival"
-},
-{
-"name": "embodied-ai-verticalization-strategy-2026.html",
-"url": "./blog/embodied-ai-verticalization-strategy-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Embodied Ai Verticalization Strategy 2026"
-},
-{
-"name": "embodied-cot-reasoning-revolution-2026.html",
-"url": "./blog/embodied-cot-reasoning-revolution-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Embodied Cot Reasoning Revolution 2026"
-},
-{
-"name": "embodied-education-robot-platform.html",
-"url": "./blog/embodied-education-robot-platform.html",
-"tags": [
-"日记"
-],
-"title": "Embodied Education Robot Platform"
-},
-{
-"name": "embodied-intelligence-q1-2026-funding-boom-analysis.html",
-"url": "./blog/embodied-intelligence-q1-2026-funding-boom-analysis.html",
-"tags": [
-"创业思考",
-"热点观察"
-],
-"title": "Embodied Intelligence Q1 2026 Funding Boom Analysis"
-},
-{
-"name": "embodied-navigation-five-paradigms-2026.html",
-"url": "./blog/embodied-navigation-five-paradigms-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Embodied Navigation Five Paradigms 2026"
-},
-{
-"name": "embodied-navigation-research-snapshot-2026-05-02.html",
-"url": "./blog/embodied-navigation-research-snapshot-2026-05-02.html",
-"tags": [
-"研究笔记"
-],
-"title": "Embodied Navigation Research Snapshot 2026 05 02"
-},
-{
-"name": "embodied-slam-architecture-deep-dive.html",
-"url": "./blog/embodied-slam-architecture-deep-dive.html",
-"tags": [
-"研究笔记"
-],
-"title": "Embodied Slam Architecture Deep Dive"
-},
-{
-"name": "embodied-slam-basics.html",
-"url": "./blog/embodied-slam-basics.html",
-"tags": [
-"研究笔记"
-],
-"title": "Embodied Slam Basics"
-},
-{
-"name": "embodied-slam-direction.html",
-"url": "./blog/embodied-slam-direction.html",
-"tags": [
-"研究笔记"
-],
-"title": "Embodied Slam Direction"
-},
-{
-"name": "embodied-splat-interleave-vla-cvpr-iclr-2026.html",
-"url": "./blog/embodied-splat-interleave-vla-cvpr-iclr-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Embodied Splat Interleave Vla Cvpr Iclr 2026"
-},
-{
-"name": "embodiedsplat-online-3d-semantic-reconstruction.html",
-"url": "./blog/embodiedsplat-online-3d-semantic-reconstruction.html",
-"tags": [
-"日记"
-],
-"title": "Embodiedsplat Online 3D Semantic Reconstruction"
-},
-{
-"name": "equity-allocation-guide-2026.html",
-"url": "./blog/equity-allocation-guide-2026.html",
-"tags": [
-"日记"
-],
-"title": "Equity Allocation Guide 2026"
-},
-{
-"name": "equity-distribution-traps.html",
-"url": "./blog/equity-distribution-traps.html",
-"tags": [
-"日记"
-],
-"title": "Equity Distribution Traps"
-},
-{
-"name": "evolvenav-self-improving-cot.html",
-"url": "./blog/evolvenav-self-improving-cot.html",
-"tags": [
-"研究笔记"
-],
-"title": "Evolvenav Self Improving Cot"
-},
-{
-"name": "figure-ai-unitree-ipo-analysis-2026.html",
-"url": "./blog/figure-ai-unitree-ipo-analysis-2026.html",
-"tags": [
-"创业思考"
-],
-"title": "Figure Ai Unitree Ipo Analysis 2026"
-},
-{
-"name": "founder-equity-101.html",
-"url": "./blog/founder-equity-101.html",
-"tags": [
-"日记"
-],
-"title": "Founder Equity 101"
-},
-{
-"name": "frontier-multimodal-models-embodied-ai-2026.html",
-"url": "./blog/frontier-multimodal-models-embodied-ai-2026.html",
-"tags": [
-"热点观察"
-],
-"title": "Frontier Multimodal Models Embodied Ai 2026"
-},
-{
-"name": "fscot-adaptive-depth-technical-deep-dive-2026.html",
-"url": "./blog/fscot-adaptive-depth-technical-deep-dive-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Fscot Adaptive Depth Technical Deep Dive 2026"
-},
-{
-"name": "fscot-adaptive-depth-vln-stop-decision-2026.html",
-"url": "./blog/fscot-adaptive-depth-vln-stop-decision-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Fscot Adaptive Depth Vln Stop Decision 2026"
-},
-{
-"name": "fscot-business-case-confidence-embodied-ai-2026.html",
-"url": "./blog/fscot-business-case-confidence-embodied-ai-2026.html",
-"tags": [
-"研究笔记",
-"创业思考",
-"热点观察"
-],
-"title": "Fscot Business Case Confidence Embodied Ai 2026"
-},
-{
-"name": "fscot-confidence-architecture-theory-practice-2026.html",
-"url": "./blog/fscot-confidence-architecture-theory-practice-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Fscot Confidence Architecture Theory Practice 2026"
-},
-{
-"name": "fscot-stop-reasoning-vln.html",
-"url": "./blog/fscot-stop-reasoning-vln.html",
-"tags": [
-"研究笔记"
-],
-"title": "Fscot Stop Reasoning Vln"
-},
-{
-"name": "fscot-training-strategies-vln-stop-decision.html",
-"url": "./blog/fscot-training-strategies-vln-stop-decision.html",
-"tags": [
-"研究笔记"
-],
-"title": "Fscot Training Strategies Vln Stop Decision"
-},
-{
-"name": "fscot-vs-fantasyvln-vln-cot-2026.html",
-"url": "./blog/fscot-vs-fantasyvln-vln-cot-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Fscot Vs Fantasyvln Vln Cot 2026"
-},
-{
-"name": "haltnav-stop-decision.html",
-"url": "./blog/haltnav-stop-decision.html",
-"tags": [
-"研究笔记"
-],
-"title": "Haltnav Stop Decision"
-},
-{
-"name": "hierarchical-stop-decision-vln-navigation-2026.html",
-"url": "./blog/hierarchical-stop-decision-vln-navigation-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Hierarchical Stop Decision Vln Navigation 2026"
-},
-{
-"name": "humanoid-robot-failure-wave.html",
-"url": "./blog/humanoid-robot-failure-wave.html",
-"tags": [
-"日记"
-],
-"title": "Humanoid Robot Failure Wave"
-},
-{
-"name": "humanoid-robot-marathon-commercialization.html",
-"url": "./blog/humanoid-robot-marathon-commercialization.html",
-"tags": [
-"创业思考"
-],
-"title": "Humanoid Robot Marathon Commercialization"
-},
-{
-"name": "humanoid-robot-mass-production-2026.html",
-"url": "./blog/humanoid-robot-mass-production-2026.html",
-"tags": [
-"日记"
-],
-"title": "Humanoid Robot Mass Production 2026"
-},
-{
-"name": "indie-hacker-tools-2026.html",
-"url": "./blog/indie-hacker-tools-2026.html",
-"tags": [
-"日记"
-],
-"title": "Indie Hacker Tools 2026"
-},
-{
-"name": "liveln-vs-cow-nav-stop-decision-comparison-2026.html",
-"url": "./blog/liveln-vs-cow-nav-stop-decision-comparison-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Liveln Vs Cow Nav Stop Decision Comparison 2026"
-},
-{
-"name": "llm-nav-experiments.html",
-"url": "./blog/llm-nav-experiments.html",
-"tags": [
-"研究笔记"
-],
-"title": "Llm Nav Experiments"
-},
-{
-"name": "missfresh-death.html",
-"url": "./blog/missfresh-death.html",
-"tags": [
-"创业思考"
-],
-"title": "Missfresh Death"
-},
-{
-"name": "mlm-embodied-navigation.html",
-"url": "./blog/mlm-embodied-navigation.html",
-"tags": [
-"研究笔记"
-],
-"title": "Mlm Embodied Navigation"
-},
-{
-"name": "navcot-chain-of-thought-navigation.html",
-"url": "./blog/navcot-chain-of-thought-navigation.html",
-"tags": [
-"研究笔记"
-],
-"title": "Navcot Chain Of Thought Navigation"
-},
-{
-"name": "navigation-gpt-moment.html",
-"url": "./blog/navigation-gpt-moment.html",
-"tags": [
-"研究笔记"
-],
-"title": "Navigation Gpt Moment"
-},
-{
-"name": "notion-slow-growth-lessons.html",
-"url": "./blog/notion-slow-growth-lessons.html",
-"tags": [
-"日记"
-],
-"title": "Notion Slow Growth Lessons"
-},
-{
-"name": "objectnav-paradigms.html",
-"url": "./blog/objectnav-paradigms.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Objectnav Paradigms"
-},
-{
-"name": "objectnav-vs-vln.html",
-"url": "./blog/objectnav-vs-vln.html",
-"tags": [
-"研究笔记"
-],
-"title": "Objectnav Vs Vln"
-},
-{
-"name": "ofo-failure.html",
-"url": "./blog/ofo-failure.html",
-"tags": [
-"日记"
-],
-"title": "Ofo Failure"
-},
-{
-"name": "physical-grounding-vln-next-frontier-2026.html",
-"url": "./blog/physical-grounding-vln-next-frontier-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Physical Grounding Vln Next Frontier 2026"
-},
-{
-"name": "pmf-anti-patterns.html",
-"url": "./blog/pmf-anti-patterns.html",
-"tags": [
-"日记"
-],
-"title": "Pmf Anti Patterns"
-},
-{
-"name": "pmf-the-only-thing-that-matters.html",
-"url": "./blog/pmf-the-only-thing-that-matters.html",
-"tags": [
-"日记"
-],
-"title": "Pmf The Only Thing That Matters"
-},
-{
-"name": "quibi.html",
-"url": "./blog/quibi.html",
-"tags": [
-"日记"
-],
-"title": "Quibi"
-},
-{
-"name": "research-directions-2026-04-06.html",
-"url": "./blog/research-directions-2026-04-06.html",
-"tags": [
-"日记"
-],
-"title": "Research Directions 2026 04 06"
-},
-{
-"name": "research-progress-2026-04-02.html",
-"url": "./blog/research-progress-2026-04-02.html",
-"tags": [
-"日记"
-],
-"title": "Research Progress 2026 04 02"
-},
-{
-"name": "research-thinking-vln-2025q1.html",
-"url": "./blog/research-thinking-vln-2025q1.html",
-"tags": [
-"研究笔记"
-],
-"title": "Research Thinking Vln 2025Q1"
-},
-{
-"name": "research-to-product.html",
-"url": "./blog/research-to-product.html",
-"tags": [
-"日记"
-],
-"title": "Research To Product"
-},
-{
-"name": "rl-in-vln.html",
-"url": "./blog/rl-in-vln.html",
-"tags": [
-"研究笔记"
-],
-"title": "Rl In Vln"
-},
-{
-"name": "rl-vln-2025.html",
-"url": "./blog/rl-vln-2025.html",
-"tags": [
-"研究笔记"
-],
-"title": "Rl Vln 2025"
-},
-{
-"name": "robot-company-closure.html",
-"url": "./blog/robot-company-closure.html",
-"tags": [
-"日记"
-],
-"title": "Robot Company Closure"
-},
-{
-"name": "robot-learning-sim2real-2026.html",
-"url": "./blog/robot-learning-sim2real-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Robot Learning Sim2Real 2026"
-},
-{
-"name": "robotics-funding-storm-april-2026-analysis.html",
-"url": "./blog/robotics-funding-storm-april-2026-analysis.html",
-"tags": [
-"创业思考"
-],
-"title": "Robotics Funding Storm April 2026 Analysis"
-},
-{
-"name": "royole-64-billion-collapse.html",
-"url": "./blog/royole-64-billion-collapse.html",
-"tags": [
-"日记"
-],
-"title": "Royole 64 Billion Collapse"
-},
-{
-"name": "rule-vln-social-compliance-stop-decision-2026.html",
-"url": "./blog/rule-vln-social-compliance-stop-decision-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Rule Vln Social Compliance Stop Decision 2026"
-},
-{
-"name": "safe-mind-risk-aware-navigation.html",
-"url": "./blog/safe-mind-risk-aware-navigation.html",
-"tags": [
-"研究笔记"
-],
-"title": "Safe Mind Risk Aware Navigation"
-},
-{
-"name": "semantic-map-objectnav.html",
-"url": "./blog/semantic-map-objectnav.html",
-"tags": [
-"研究笔记"
-],
-"title": "Semantic Map Objectnav"
-},
-{
-"name": "sim2real-gap-frontier-2026.html",
-"url": "./blog/sim2real-gap-frontier-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Sim2Real Gap Frontier 2026"
-},
-{
-"name": "sim2real-gap-vln-2026.html",
-"url": "./blog/sim2real-gap-vln-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Sim2Real Gap Vln 2026"
-},
-{
-"name": "sim2real-world-models-robot.html",
-"url": "./blog/sim2real-world-models-robot.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Sim2Real World Models Robot"
-},
-{
-"name": "spatialmem-3d-memory-vln-breakthrough-2026.html",
-"url": "./blog/spatialmem-3d-memory-vln-breakthrough-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Spatialmem 3D Memory Vln Breakthrough 2026"
-},
-{
-"name": "spatiotemporal-memory-map.html",
-"url": "./blog/spatiotemporal-memory-map.html",
-"tags": [
-"日记"
-],
-"title": "Spatiotemporal Memory Map"
-},
-{
-"name": "startup-failure-analysis.html",
-"url": "./blog/startup-failure-analysis.html",
-"tags": [
-"创业思考"
-],
-"title": "Startup Failure Analysis"
-},
-{
-"name": "startup-fundraising-101.html",
-"url": "./blog/startup-fundraising-101.html",
-"tags": [
-"创业思考"
-],
-"title": "Startup Fundraising 101"
-},
-{
-"name": "stop-decision-achilles-heel.html",
-"url": "./blog/stop-decision-achilles-heel.html",
-"tags": [
-"研究笔记"
-],
-"title": "Stop Decision Achilles Heel"
-},
-{
-"name": "tech-founder-delusion.html",
-"url": "./blog/tech-founder-delusion.html",
-"tags": [
-"日记"
-],
-"title": "Tech Founder Delusion"
-},
-{
-"name": "tesla-optimus-v3-mass-production-2026.html",
-"url": "./blog/tesla-optimus-v3-mass-production-2026.html",
-"tags": [
-"日记"
-],
-"title": "Tesla Optimus V3 Mass Production 2026"
-},
-{
-"name": "theranos.html",
-"url": "./blog/theranos.html",
-"tags": [
-"日记"
-],
-"title": "Theranos"
-},
-{
-"name": "three-layer-cognitive-architecture-vln-2026.html",
-"url": "./blog/three-layer-cognitive-architecture-vln-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Three Layer Cognitive Architecture Vln 2026"
-},
-{
-"name": "tool-attention-stop-decision-vln-2026.html",
-"url": "./blog/tool-attention-stop-decision-vln-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Tool Attention Stop Decision Vln 2026"
-},
-{
-"name": "uncertainty-quantification-vln-navigation.html",
-"url": "./blog/uncertainty-quantification-vln-navigation.html",
-"tags": [
-"研究笔记"
-],
-"title": "Uncertainty Quantification Vln Navigation"
-},
-{
-"name": "vision-language-geometry-fusion.html",
-"url": "./blog/vision-language-geometry-fusion.html",
-"tags": [
-"日记"
-],
-"title": "Vision Language Geometry Fusion"
-},
-{
-"name": "vl-calibration-cow-nav-confidence-head-comparison-2026.html",
-"url": "./blog/vl-calibration-cow-nav-confidence-head-comparison-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vl Calibration Cow Nav Confidence Head Comparison 2026"
-},
-{
-"name": "vla-architecture-evolution-uninavid-starvla.html",
-"url": "./blog/vla-architecture-evolution-uninavid-starvla.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Vla Architecture Evolution Uninavid Starvla"
-},
-{
-"name": "vla-era-embodied-startup-opportunities-2026.html",
-"url": "./blog/vla-era-embodied-startup-opportunities-2026.html",
-"tags": [
-"创业思考",
-"热点观察"
-],
-"title": "Vla Era Embodied Startup Opportunities 2026"
-},
-{
-"name": "vla-era-re-shaping-embodied-ai.html",
-"url": "./blog/vla-era-re-shaping-embodied-ai.html",
-"tags": [
-"热点观察"
-],
-"title": "Vla Era Re Shaping Embodied Ai"
-},
-{
-"name": "vla-models-2026-technical-deep-dive.html",
-"url": "./blog/vla-models-2026-technical-deep-dive.html",
-"tags": [
-"热点观察"
-],
-"title": "Vla Models 2026 Technical Deep Dive"
-},
-{
-"name": "vla-models-comparison-2026.html",
-"url": "./blog/vla-models-comparison-2026.html",
-"tags": [
-"热点观察"
-],
-"title": "Vla Models Comparison 2026"
-},
-{
-"name": "vla-models-deep-dive-2026.html",
-"url": "./blog/vla-models-deep-dive-2026.html",
-"tags": [
-"热点观察"
-],
-"title": "Vla Models Deep Dive 2026"
-},
-{
-"name": "vla-models-embodied-navigation-2026.html",
-"url": "./blog/vla-models-embodied-navigation-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Vla Models Embodied Navigation 2026"
-},
-{
-"name": "vla-revolution-embodied-ai-2026.html",
-"url": "./blog/vla-revolution-embodied-ai-2026.html",
-"tags": [
-"热点观察"
-],
-"title": "Vla Revolution Embodied Ai 2026"
-},
-{
-"name": "vla-revolution-embodied-navigation-2026.html",
-"url": "./blog/vla-revolution-embodied-navigation-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Vla Revolution Embodied Navigation 2026"
-},
-{
-"name": "vla-will-not-kill-vln-april-2026.html",
-"url": "./blog/vla-will-not-kill-vln-april-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Vla Will Not Kill Vln April 2026"
-},
-{
-"name": "vlm-confidence-calibration-embodied-nav.html",
-"url": "./blog/vlm-confidence-calibration-embodied-nav.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vlm Confidence Calibration Embodied Nav"
-},
-{
-"name": "vlm-navigation-clip-to-qwen2vl.html",
-"url": "./blog/vlm-navigation-clip-to-qwen2vl.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vlm Navigation Clip To Qwen2Vl"
-},
-{
-"name": "vlm-navigation-gpt-moment.html",
-"url": "./blog/vlm-navigation-gpt-moment.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vlm Navigation Gpt Moment"
-},
-{
-"name": "vlm-stop-failure-confidence-trap.html",
-"url": "./blog/vlm-stop-failure-confidence-trap.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vlm Stop Failure Confidence Trap"
-},
-{
-"name": "vln-confidence-calibration-why-fake.html",
-"url": "./blog/vln-confidence-calibration-why-fake.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Confidence Calibration Why Fake"
-},
-{
-"name": "vln-cot-emergence-physical-reasoning.html",
-"url": "./blog/vln-cot-emergence-physical-reasoning.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Cot Emergence Physical Reasoning"
-},
-{
-"name": "vln-cot-hallucination-fantasyvla-2026.html",
-"url": "./blog/vln-cot-hallucination-fantasyvla-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Vln Cot Hallucination Fantasyvla 2026"
-},
-{
-"name": "vln-cross-modal-alignment.html",
-"url": "./blog/vln-cross-modal-alignment.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Cross Modal Alignment"
-},
-{
-"name": "vln-crown-jewel-of-embodied-ai-2026.html",
-"url": "./blog/vln-crown-jewel-of-embodied-ai-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Vln Crown Jewel Of Embodied Ai 2026"
-},
-{
-"name": "vln-cvpr-iclr-2026-action-chain-of-thought-analysis.html",
-"url": "./blog/vln-cvpr-iclr-2026-action-chain-of-thought-analysis.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Vln Cvpr Iclr 2026 Action Chain Of Thought Analysis"
-},
-{
-"name": "vln-cvpr2026-frontier-2026.html",
-"url": "./blog/vln-cvpr2026-frontier-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Vln Cvpr2026 Frontier 2026"
-},
-{
-"name": "vln-data-efficiency-future.html",
-"url": "./blog/vln-data-efficiency-future.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Data Efficiency Future"
-},
-{
-"name": "vln-datasets.html",
-"url": "./blog/vln-datasets.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Datasets"
-},
-{
-"name": "vln-explained.html",
-"url": "./blog/vln-explained.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Explained"
-},
-{
-"name": "vln-memory-mechanisms.html",
-"url": "./blog/vln-memory-mechanisms.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Memory Mechanisms"
-},
-{
-"name": "vln-physical-common-sense-reasoning-2026.html",
-"url": "./blog/vln-physical-common-sense-reasoning-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Physical Common Sense Reasoning 2026"
-},
-{
-"name": "vln-reasoning-architecture-2026.html",
-"url": "./blog/vln-reasoning-architecture-2026.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Reasoning Architecture 2026"
-},
-{
-"name": "vln-reasoning-chain-evolution-four-paradigms-2026.html",
-"url": "./blog/vln-reasoning-chain-evolution-four-paradigms-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Vln Reasoning Chain Evolution Four Paradigms 2026"
-},
-{
-"name": "vln-researcher-in-vla-era-2026.html",
-"url": "./blog/vln-researcher-in-vla-era-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Vln Researcher In Vla Era 2026"
-},
-{
-"name": "vln-sim2real-crossmodal-gap.html",
-"url": "./blog/vln-sim2real-crossmodal-gap.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Sim2Real Crossmodal Gap"
-},
-{
-"name": "vln-startup-ai-navigation-market-2026.html",
-"url": "./blog/vln-startup-ai-navigation-market-2026.html",
-"tags": [
-"研究笔记",
-"创业思考"
-],
-"title": "Vln Startup Ai Navigation Market 2026"
-},
-{
-"name": "vln-stop-decision-vlm-limits.html",
-"url": "./blog/vln-stop-decision-vlm-limits.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Stop Decision Vlm Limits"
-},
-{
-"name": "vln-stop-decision-why-hard.html",
-"url": "./blog/vln-stop-decision-why-hard.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Stop Decision Why Hard"
-},
-{
-"name": "vln-stop-error-diagnosis-r2r.html",
-"url": "./blog/vln-stop-error-diagnosis-r2r.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Stop Error Diagnosis R2R"
-},
-{
-"name": "vln-stopping-problem.html",
-"url": "./blog/vln-stopping-problem.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vln Stopping Problem"
-},
-{
-"name": "vlp-stop-decision-underestimated-problem.html",
-"url": "./blog/vlp-stop-decision-underestimated-problem.html",
-"tags": [
-"研究笔记"
-],
-"title": "Vlp Stop Decision Underestimated Problem"
-},
-{
-"name": "wework-failure.html",
-"url": "./blog/wework-failure.html",
-"tags": [
-"日记"
-],
-"title": "Wework Failure"
-},
-{
-"name": "why-knowledge-entrepreneurship.html",
-"url": "./blog/why-knowledge-entrepreneurship.html",
-"tags": [
-"日记"
-],
-"title": "Why Knowledge Entrepreneurship"
-},
-{
-"name": "wmpo-meets-cow-nav-world-model-stop-decision-2026.html",
-"url": "./blog/wmpo-meets-cow-nav-world-model-stop-decision-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Wmpo Meets Cow Nav World Model Stop Decision 2026"
-},
-{
-"name": "wmpo-world-model-vln-stop-decision-2026.html",
-"url": "./blog/wmpo-world-model-vln-stop-decision-2026.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "Wmpo World Model Vln Stop Decision 2026"
-},
-{
-"name": "world-model-embodied-nav-cow-nav-opportunity.html",
-"url": "./blog/world-model-embodied-nav-cow-nav-opportunity.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "World Model Embodied Nav Cow Nav Opportunity"
-},
-{
-"name": "world-model-nav.html",
-"url": "./blog/world-model-nav.html",
-"tags": [
-"研究笔记",
-"热点观察"
-],
-"title": "World Model Nav"
-},
-{
-"name": "world-model-three-kingdoms-wmpo-goalvla-kairos-2026.html",
-"url": "./blog/world-model-three-kingdoms-wmpo-goalvla-kairos-2026.html",
-"tags": [
-"热点观察"
-],
-"title": "World Model Three Kingdoms Wmpo Goalvla Kairos 2026"
-},
-{
-"name": "world-models-embodied-ai-2026.html",
-"url": "./blog/world-models-embodied-ai-2026.html",
-"tags": [
-"热点观察"
-],
-"title": "World Models Embodied Ai 2026"
-},
-{
-"name": "worldarena-safevla-embodied-ai-benchmarks.html",
-"url": "./blog/worldarena-safevla-embodied-ai-benchmarks.html",
-"tags": [
-"热点观察"
-],
-"title": "Worldarena Safevla Embodied Ai Benchmarks"
-}
+{name:'vla-cache-efficient-token-caching-2026.html',url:'./blog/vla-cache-efficient-token-caching-2026.html',date:'2026-05-03',tags:['tech','vla']},
+{name:'wmpo-meets-cow-nav-world-model-stop-decision-2026.html',url:'./blog/wmpo-meets-cow-nav-world-model-stop-decision-2026.html',date:'2026-05-01',tags:['tech','vla']},
+{name:'vln-startup-ai-navigation-market-2026.html',url:'./blog/vln-startup-ai-navigation-market-2026.html',date:'2026-05-01',tags:['startup']},
+{name:'sim2real-gap-vln-2026.html',url:'./blog/sim2real-gap-vln-2026.html',date:'2026-05-01',tags:['tech','vln']},
+{name:'embodied-intelligence-q1-2026-funding-boom-analysis.html',url:'./blog/embodied-intelligence-q1-2026-funding-boom-analysis.html',date:'2026-05-01',tags:['startup']},
+{name:'ai-hardware-startup-crisis-2026.html',url:'./blog/ai-hardware-startup-crisis-2026.html',date:'2026-05-01',tags:['startup']},
+{name:'vln-reasoning-chain-evolution-four-paradigms-2026.html',url:'./blog/vln-reasoning-chain-evolution-four-paradigms-2026.html',date:'2026-05-01',tags:['tech','vln']},
+{name:'tool-attention-stop-decision-vln-2026.html',url:'./blog/tool-attention-stop-decision-vln-2026.html',date:'2026-05-01',tags:['tech','vln']},
+{name:'world-model-three-kingdoms-wmpo-goalvla-kairos-2026.html',url:'./blog/world-model-three-kingdoms-wmpo-goalvla-kairos-2026.html',date:'2026-05-01',tags:['tech']},
+{name:'embodied-ai-april-funding-storm-2026.html',url:'./blog/embodied-ai-april-funding-storm-2026.html',date:'2026-05-01',tags:['startup']},
+{name:'rule-vln-social-compliance-stop-decision-2026.html',url:'./blog/rule-vln-social-compliance-stop-decision-2026.html',date:'2026-04-27',tags:['tech','vln']},
+{name:'fscot-adaptive-depth-vln-stop-decision-2026.html',url:'./blog/fscot-adaptive-depth-vln-stop-decision-2026.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'fscot-stop-reasoning-vln.html',url:'./blog/fscot-stop-reasoning-vln.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'embodied-ai-capital-explosion-2026.html',url:'./blog/embodied-ai-capital-explosion-2026.html',date:'2026-04-26',tags:['startup']},
+{name:'vla-architecture-evolution-uninavid-starvla.html',url:'./blog/vla-architecture-evolution-uninavid-starvla.html',date:'2026-04-26',tags:['tech','vla']},
+{name:'embodied-slam-architecture-deep-dive.html',url:'./blog/embodied-slam-architecture-deep-dive.html',date:'2026-04-26',tags:['tech','slam']},
+{name:'worldarena-safevla-embodied-ai-benchmarks.html',url:'./blog/worldarena-safevla-embodied-ai-benchmarks.html',date:'2026-04-26',tags:['tech','vla']},
+{name:'cross-modal-drift-vln-sim2real-deep-analysis.html',url:'./blog/cross-modal-drift-vln-sim2real-deep-analysis.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'embodied-ai-2026-q1-deep-review.html',url:'./blog/embodied-ai-2026-q1-deep-review.html',date:'2026-04-26',tags:['startup']},
+{name:'vln-sim2real-crossmodal-gap.html',url:'./blog/vln-sim2real-crossmodal-gap.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'three-layer-cognitive-architecture-vln-2026.html',url:'./blog/three-layer-cognitive-architecture-vln-2026.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'vln-cot-emergence-physical-reasoning.html',url:'./blog/vln-cot-emergence-physical-reasoning.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'vlm-confidence-calibration-embodied-nav.html',url:'./blog/vlm-confidence-calibration-embodied-nav.html',date:'2026-04-26',tags:['tech']},
+{name:'vl-calibration-cow-nav-confidence-head-comparison-2026.html',url:'./blog/vl-calibration-cow-nav-confidence-head-comparison-2026.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'physical-grounding-vln-next-frontier-2026.html',url:'./blog/physical-grounding-vln-next-frontier-2026.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'vln-researcher-in-vla-era-2026.html',url:'./blog/vln-researcher-in-vla-era-2026.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'embodied-cot-reasoning-revolution-2026.html',url:'./blog/embodied-cot-reasoning-revolution-2026.html',date:'2026-04-26',tags:['tech']},
+{name:'navcot-chain-of-thought-navigation.html',url:'./blog/navcot-chain-of-thought-navigation.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'stop-decision-achilles-heel.html',url:'./blog/stop-decision-achilles-heel.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'vln-stop-decision-why-hard.html',url:'./blog/vln-stop-decision-why-hard.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'vln-stopping-problem.html',url:'./blog/vln-stopping-problem.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'ai-agent-opportunities.html',url:'./blog/ai-agent-opportunities.html',date:'2026-04-26',tags:['startup']},
+{name:'ai-startup-2026-death-report.html',url:'./blog/ai-startup-2026-death-report.html',date:'2026-04-26',tags:['startup']},
+{name:'embodied-ai-startup-2026-apr.html',url:'./blog/embodied-ai-startup-2026-apr.html',date:'2026-04-26',tags:['startup']},
+{name:'ai-unicorn-collapse.html',url:'./blog/ai-unicorn-collapse.html',date:'2026-04-26',tags:['startup']},
+{name:'deepseek-effect-ai-startup-2026.html',url:'./blog/deepseek-effect-ai-startup-2026.html',date:'2026-04-26',tags:['startup']},
+{name:'vla-revolution-embodied-navigation-2026.html',url:'./blog/vla-revolution-embodied-navigation-2026.html',date:'2026-04-26',tags:['tech','vla']},
+{name:'vla-models-2026-technical-deep-dive.html',url:'./blog/vla-models-2026-technical-deep-dive.html',date:'2026-04-26',tags:['tech','vla']},
+{name:'bev-representation-learning-navigation.html',url:'./blog/bev-representation-learning-navigation.html',date:'2026-04-26',tags:['tech']},
+{name:'embodied-slam-basics.html',url:'./blog/embodied-slam-basics.html',date:'2026-04-26',tags:['tech','slam']},
+{name:'embodiedsplat-online-3d-semantic-reconstruction.html',url:'./blog/embodiedsplat-online-3d-semantic-reconstruction.html',date:'2026-04-26',tags:['tech']},
+{name:'embodied-slam-direction.html',url:'./blog/embodied-slam-direction.html',date:'2026-04-26',tags:['tech','slam']},
+{name:'semantic-map-objectnav.html',url:'./blog/semantic-map-objectnav.html',date:'2026-04-26',tags:['tech']},
+{name:'objectnav-paradigms.html',url:'./blog/objectnav-paradigms.html',date:'2026-04-26',tags:['tech']},
+{name:'vln-explained.html',url:'./blog/vln-explained.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'vln-datasets.html',url:'./blog/vln-datasets.html',date:'2026-04-26',tags:['tech','vln']},
+{name:'active-neural-slam.html',url:'./blog/active-neural-slam.html',date:'2026-04-26',tags:['tech','slam']},
+{name:'llm-nav-experiments.html',url:'./blog/llm-nav-experiments.html',date:'2026-04-26',tags:['tech']},
+{name:'mlm-embodied-navigation.html',url:'./blog/mlm-embodied-navigation.html',date:'2026-04-26',tags:['tech']},
+{name:'rl-in-vln.html',url:'./blog/rl-in-vln.html',date:'2026-04-26',tags:['tech','vln']},
 ];
+
+// 案例数据 (116个)
 const CASES = [
-{
-"name": "case-01-k-scale.md",
-"url": "./cases/case-01-k-scale.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 01 K Scale"
-},
-{
-"name": "case-02-china-robots.md",
-"url": "./cases/case-02-china-robots.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 02 China Robots"
-},
-{
-"name": "case-03-shape-robotics.md",
-"url": "./cases/case-03-shape-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 03 Shape Robotics"
-},
-{
-"name": "case-04-lidian.md",
-"url": "./cases/case-04-lidian.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 04 Lidian"
-},
-{
-"name": "case-05-irobot.md",
-"url": "./cases/case-05-irobot.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 05 Irobot"
-},
-{
-"name": "case-06-robotics-industry.md",
-"url": "./cases/case-06-robotics-industry.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 06 Robotics Industry"
-},
-{
-"name": "case-07-quibi.md",
-"url": "./cases/case-07-quibi.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 07 Quibi"
-},
-{
-"name": "case-08-mobile-app.md",
-"url": "./cases/case-08-mobile-app.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 08 Mobile App"
-},
-{
-"name": "case-09-yushu-tech.md",
-"url": "./cases/case-09-yushu-tech.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 09 Yushu Tech"
-},
-{
-"name": "case-10-dji.md",
-"url": "./cases/case-10-dji.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 10 Dji"
-},
-{
-"name": "case-100-wujie-dynamics-200m-angel.md",
-"url": "./cases/case-100-wujie-dynamics-200m-angel.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 100 Wujie Dynamics 200M Angel"
-},
-{
-"name": "case-101-autovariable-robotics.md",
-"url": "./cases/case-101-autovariable-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 101 Autovariable Robotics"
-},
-{
-"name": "case-102-spirit-ai.md",
-"url": "./cases/case-102-spirit-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 102 Spirit Ai"
-},
-{
-"name": "case-103-galaxy-robotics.md",
-"url": "./cases/case-103-galaxy-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 103 Galaxy Robotics"
-},
-{
-"name": "case-103-skydio-autonomous-drone-failure.md",
-"url": "./cases/case-103-skydio-autonomous-drone-failure.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 103 Skydio Autonomous Drone Failure"
-},
-{
-"name": "case-104-figure-ai-humanoid-commercialization.md",
-"url": "./cases/case-104-figure-ai-humanoid-commercialization.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 104 Figure Ai Humanoid Commercialization"
-},
-{
-"name": "case-105-tianji-intelligence.md",
-"url": "./cases/case-105-tianji-intelligence.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 105 Tianji Intelligence"
-},
-{
-"name": "case-106-agibot-zhiyuan-robotics.md",
-"url": "./cases/case-106-agibot-zhiyuan-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 106 Agibot Zhiyuan Robotics"
-},
-{
-"name": "case-107-pdd-runtime.md",
-"url": "./cases/case-107-pdd-runtime.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 107 Pdd Runtime"
-},
-{
-"name": "case-11-popmart.md",
-"url": "./cases/case-11-popmart.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 11 Popmart"
-},
-{
-"name": "case-12-k-scale-labs.md",
-"url": "./cases/case-12-k-scale-labs.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 12 K Scale Labs"
-},
-{
-"name": "case-13-ai-apps-death-2025.md",
-"url": "./cases/case-13-ai-apps-death-2025.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 13 Ai Apps Death 2025"
-},
-{
-"name": "case-14-wave-computing.md",
-"url": "./cases/case-14-wave-computing.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 14 Wave Computing"
-},
-{
-"name": "case-15-adept-ai.md",
-"url": "./cases/case-15-adept-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 15 Adept Ai"
-},
-{
-"name": "case-16-humane-ai-pin.md",
-"url": "./cases/case-16-humane-ai-pin.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 16 Humane Ai Pin"
-},
-{
-"name": "case-17-inflection-ai.md",
-"url": "./cases/case-17-inflection-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 17 Inflection Ai"
-},
-{
-"name": "case-18-argo-ai.md",
-"url": "./cases/case-18-argo-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 18 Argo Ai"
-},
-{
-"name": "case-19-juicero.md",
-"url": "./cases/case-19-juicero.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 19 Juicero"
-},
-{
-"name": "case-20-wework.md",
-"url": "./cases/case-20-wework.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 20 Wework"
-},
-{
-"name": "case-21-theranos.md",
-"url": "./cases/case-21-theranos.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 21 Theranos"
-},
-{
-"name": "case-22-royole.md",
-"url": "./cases/case-22-royole.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 22 Royole"
-},
-{
-"name": "case-23-missfresh.md",
-"url": "./cases/case-23-missfresh.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 23 Missfresh"
-},
-{
-"name": "case-24-zume-pizza.md",
-"url": "./cases/case-24-zume-pizza.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 24 Zume Pizza"
-},
-{
-"name": "case-25-embodied-moxie.md",
-"url": "./cases/case-25-embodied-moxie.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 25 Embodied Moxie"
-},
-{
-"name": "case-26-character-ai.md",
-"url": "./cases/case-26-character-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 26 Character Ai"
-},
-{
-"name": "case-27-rabbit-r1.md",
-"url": "./cases/case-27-rabbit-r1.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 27 Rabbit R1"
-},
-{
-"name": "case-28-stability-ai.md",
-"url": "./cases/case-28-stability-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 28 Stability Ai"
-},
-{
-"name": "case-29-mojo-vision.md",
-"url": "./cases/case-29-mojo-vision.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 29 Mojo Vision"
-},
-{
-"name": "case-30-skydio.md",
-"url": "./cases/case-30-skydio.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 30 Skydio"
-},
-{
-"name": "case-31-figure-ai.md",
-"url": "./cases/case-31-figure-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 31 Figure Ai"
-},
-{
-"name": "case-32-dextrous-robotics.md",
-"url": "./cases/case-32-dextrous-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 32 Dextrous Robotics"
-},
-{
-"name": "case-33-small-robot-company.md",
-"url": "./cases/case-33-small-robot-company.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 33 Small Robot Company"
-},
-{
-"name": "case-34-ai-companion-device.md",
-"url": "./cases/case-34-ai-companion-device.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 34 Ai Companion Device"
-},
-{
-"name": "case-36-quibi.md",
-"url": "./cases/case-36-quibi.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 36 Quibi"
-},
-{
-"name": "case-37-wework.md",
-"url": "./cases/case-37-wework.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 37 Wework"
-},
-{
-"name": "case-38-servi-robotics.md",
-"url": "./cases/case-38-servi-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 38 Servi Robotics"
-},
-{
-"name": "case-39-figure-ai.md",
-"url": "./cases/case-39-figure-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 39 Figure Ai"
-},
-{
-"name": "case-40-1x-technologies.md",
-"url": "./cases/case-40-1x-technologies.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 40 1X Technologies"
-},
-{
-"name": "case-41-agibot.md",
-"url": "./cases/case-41-agibot.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 41 Agibot"
-},
-{
-"name": "case-42-ofo-bicycle.md",
-"url": "./cases/case-42-ofo-bicycle.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 42 Ofo Bicycle"
-},
-{
-"name": "case-43-quibi.md",
-"url": "./cases/case-43-quibi.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 43 Quibi"
-},
-{
-"name": "case-44-covariant-ai-robotics.md",
-"url": "./cases/case-44-covariant-ai-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 44 Covariant Ai Robotics"
-},
-{
-"name": "case-44-longhair-ai.md",
-"url": "./cases/case-44-longhair-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 44 Longhair Ai"
-},
-{
-"name": "case-44-perplexity-ai.md",
-"url": "./cases/case-44-perplexity-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 44 Perplexity Ai"
-},
-{
-"name": "case-45-figure-ai.md",
-"url": "./cases/case-45-figure-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 45 Figure Ai"
-},
-{
-"name": "case-46-unitree-robotics.md",
-"url": "./cases/case-46-unitree-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 46 Unitree Robotics"
-},
-{
-"name": "case-47-yupp.md",
-"url": "./cases/case-47-yupp.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 47 Yupp"
-},
-{
-"name": "case-48-deepcybo.md",
-"url": "./cases/case-48-deepcybo.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 48 Deepcybo"
-},
-{
-"name": "case-49-starship.md",
-"url": "./cases/case-49-starship.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 49 Starship"
-},
-{
-"name": "case-50-robowheel-across-embodiment.md",
-"url": "./cases/case-50-robowheel-across-embodiment.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 50 Robowheel Across Embodiment"
-},
-{
-"name": "case-51-pebble-smartwatch.md",
-"url": "./cases/case-51-pebble-smartwatch.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 51 Pebble Smartwatch"
-},
-{
-"name": "case-51-physical-intelligence-pi.md",
-"url": "./cases/case-51-physical-intelligence-pi.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 51 Physical Intelligence Pi"
-},
-{
-"name": "case-52-character-ai.md",
-"url": "./cases/case-52-character-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 52 Character Ai"
-},
-{
-"name": "case-52-skild-ai.md",
-"url": "./cases/case-52-skild-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 52 Skild Ai"
-},
-{
-"name": "case-53-1x-technologies.md",
-"url": "./cases/case-53-1x-technologies.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 53 1X Technologies"
-},
-{
-"name": "case-53-auto-gpt-failure.md",
-"url": "./cases/case-53-auto-gpt-failure.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 53 Auto Gpt Failure"
-},
-{
-"name": "case-54-agibot-zhiyuan-robotics.md",
-"url": "./cases/case-54-agibot-zhiyuan-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 54 Agibot Zhiyuan Robotics"
-},
-{
-"name": "case-55-zhongqing-robotics.md",
-"url": "./cases/case-55-zhongqing-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 55 Zhongqing Robotics"
-},
-{
-"name": "case-56-zmo-ai-failure.md",
-"url": "./cases/case-56-zmo-ai-failure.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 56 Zmo Ai Failure"
-},
-{
-"name": "case-57-character-ai.md",
-"url": "./cases/case-57-character-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 57 Character Ai"
-},
-{
-"name": "case-58-wayve.md",
-"url": "./cases/case-58-wayve.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 58 Wayve"
-},
-{
-"name": "case-59-tashi-zhihang.md",
-"url": "./cases/case-59-tashi-zhihang.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 59 Tashi Zhihang"
-},
-{
-"name": "case-60-figure-ai.md",
-"url": "./cases/case-60-figure-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 60 Figure Ai"
-},
-{
-"name": "case-60-xinghai-robotics.md",
-"url": "./cases/case-60-xinghai-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 60 Xinghai Robotics"
-},
-{
-"name": "case-61-unitree-robotics.md",
-"url": "./cases/case-61-unitree-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 61 Unitree Robotics"
-},
-{
-"name": "case-62-orion-robotics.md",
-"url": "./cases/case-62-orion-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 62 Orion Robotics"
-},
-{
-"name": "case-63-tars-robotics.md",
-"url": "./cases/case-63-tars-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 63 Tars Robotics"
-},
-{
-"name": "case-64-accelerated-evolution.md",
-"url": "./cases/case-64-accelerated-evolution.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 64 Accelerated Evolution"
-},
-{
-"name": "case-65-figure-ai.md",
-"url": "./cases/case-65-figure-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 65 Figure Ai"
-},
-{
-"name": "case-65-irobot-bankruptcy-robotics-lesson.md",
-"url": "./cases/case-65-irobot-bankruptcy-robotics-lesson.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 65 Irobot Bankruptcy Robotics Lesson"
-},
-{
-"name": "case-66-skild-ai.md",
-"url": "./cases/case-66-skild-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 66 Skild Ai"
-},
-{
-"name": "case-67-spirit-ai.md",
-"url": "./cases/case-67-spirit-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 67 Spirit Ai"
-},
-{
-"name": "case-68-nova-mind-robotics.md",
-"url": "./cases/case-68-nova-mind-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 68 Nova Mind Robotics"
-},
-{
-"name": "case-69-physical-intelligence.md",
-"url": "./cases/case-69-physical-intelligence.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 69 Physical Intelligence"
-},
-{
-"name": "case-70-starvla-hkust.md",
-"url": "./cases/case-70-starvla-hkust.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 70 Starvla Hkust"
-},
-{
-"name": "case-71-covariant-ai.md",
-"url": "./cases/case-71-covariant-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 71 Covariant Ai"
-},
-{
-"name": "case-72-skild-ai.md",
-"url": "./cases/case-72-skild-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 72 Skild Ai"
-},
-{
-"name": "case-73-hugging-face.md",
-"url": "./cases/case-73-hugging-face.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 73 Hugging Face"
-},
-{
-"name": "case-74-zibox-robot.md",
-"url": "./cases/case-74-zibox-robot.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 74 Zibox Robot"
-},
-{
-"name": "case-75-tars-intelligence.md",
-"url": "./cases/case-75-tars-intelligence.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 75 Tars Intelligence"
-},
-{
-"name": "case-76-galaxea-ai.md",
-"url": "./cases/case-76-galaxea-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 76 Galaxea Ai"
-},
-{
-"name": "case-77-physical-intelligence.md",
-"url": "./cases/case-77-physical-intelligence.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 77 Physical Intelligence"
-},
-{
-"name": "case-78-tars-intelligence.md",
-"url": "./cases/case-78-tars-intelligence.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 78 Tars Intelligence"
-},
-{
-"name": "case-79-gigaai-worldarena.md",
-"url": "./cases/case-79-gigaai-worldarena.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 79 Gigaai Worldarena"
-},
-{
-"name": "case-80-pdd-theta-drone.md",
-"url": "./cases/case-80-pdd-theta-drone.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 80 Pdd Theta Drone"
-},
-{
-"name": "case-81-neo-robotics-agriculture.md",
-"url": "./cases/case-81-neo-robotics-agriculture.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 81 Neo Robotics Agriculture"
-},
-{
-"name": "case-82-skydio-defense-pivot.md",
-"url": "./cases/case-82-skydio-defense-pivot.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 82 Skydio Defense Pivot"
-},
-{
-"name": "case-83-engineai-humanoid-robot.md",
-"url": "./cases/case-83-engineai-humanoid-robot.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 83 Engineai Humanoid Robot"
-},
-{
-"name": "case-84-tars-intelligence-embodied-ai.md",
-"url": "./cases/case-84-tars-intelligence-embodied-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 84 Tars Intelligence Embodied Ai"
-},
-{
-"name": "case-85-kuaishou-ai-content-creation.md",
-"url": "./cases/case-85-kuaishou-ai-content-creation.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 85 Kuaishou Ai Content Creation"
-},
-{
-"name": "case-86-dexterity-robotics-hand-commercialization.md",
-"url": "./cases/case-86-dexterity-robotics-hand-commercialization.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 86 Dexterity Robotics Hand Commercialization"
-},
-{
-"name": "case-87-irobot-market-struggle.md",
-"url": "./cases/case-87-irobot-market-struggle.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 87 Irobot Market Struggle"
-},
-{
-"name": "case-87-unitree-robotics-ipo.md",
-"url": "./cases/case-87-unitree-robotics-ipo.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 87 Unitree Robotics Ipo"
-},
-{
-"name": "case-88-starmars-robotics.md",
-"url": "./cases/case-88-starmars-robotics.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 88 Starmars Robotics"
-},
-{
-"name": "case-88-x-square-robot-home-robot.md",
-"url": "./cases/case-88-x-square-robot-home-robot.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 88 X Square Robot Home Robot"
-},
-{
-"name": "case-89-tashi-robotics-physical-ai.md",
-"url": "./cases/case-89-tashi-robotics-physical-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 89 Tashi Robotics Physical Ai"
-},
-{
-"name": "case-90-yuhan-robotics-commercialization.md",
-"url": "./cases/case-90-yuhan-robotics-commercialization.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 90 Yuhan Robotics Commercialization"
-},
-{
-"name": "case-91-covariant-ai-pivot.md",
-"url": "./cases/case-91-covariant-ai-pivot.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 91 Covariant Ai Pivot"
-},
-{
-"name": "case-91-generalist-ai-gen1.md",
-"url": "./cases/case-91-generalist-ai-gen1.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 91 Generalist Ai Gen1"
-},
-{
-"name": "case-92-generalist-ai-gen1-vla-world-model.md",
-"url": "./cases/case-92-generalist-ai-gen1-vla-world-model.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 92 Generalist Ai Gen1 Vla World Model"
-},
-{
-"name": "case-92-robotics-startup-2026-death.md",
-"url": "./cases/case-92-robotics-startup-2026-death.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 92 Robotics Startup 2026 Death"
-},
-{
-"name": "case-93-agibot-commercialization-failure.md",
-"url": "./cases/case-93-agibot-commercialization-failure.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 93 Agibot Commercialization Failure"
-},
-{
-"name": "case-93-qianxun-intelligence-embodied-robot.md",
-"url": "./cases/case-93-qianxun-intelligence-embodied-robot.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 93 Qianxun Intelligence Embodied Robot"
-},
-{
-"name": "case-94-figure-ai-acquisition.md",
-"url": "./cases/case-94-figure-ai-acquisition.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 94 Figure Ai Acquisition"
-},
-{
-"name": "case-94-tars-embodied-intelligence-record-breaking.md",
-"url": "./cases/case-94-tars-embodied-intelligence-record-breaking.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 94 Tars Embodied Intelligence Record Breaking"
-},
-{
-"name": "case-95-keenon-robotics-delivery-expansion.md",
-"url": "./cases/case-95-keenon-robotics-delivery-expansion.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 95 Keenon Robotics Delivery Expansion"
-},
-{
-"name": "case-96-skild-ai-generalist-robot.md",
-"url": "./cases/case-96-skild-ai-generalist-robot.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 96 Skild Ai Generalist Robot"
-},
-{
-"name": "case-96-tashi-zhihang-4.55-billion-pre-a.md",
-"url": "./cases/case-96-tashi-zhihang-4.55-billion-pre-a.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 96 Tashi Zhihang 4.55 Billion Pre A"
-},
-{
-"name": "case-97-xingdong-era-200m-series-b.md",
-"url": "./cases/case-97-xingdong-era-200m-series-b.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 97 Xingdong Era 200M Series B"
-},
-{
-"name": "case-98-xingdong-era-200m-plus-series.md",
-"url": "./cases/case-98-xingdong-era-200m-plus-series.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 98 Xingdong Era 200M Plus Series"
-},
-{
-"name": "case-99-tars-embodied-ai.md",
-"url": "./cases/case-99-tars-embodied-ai.md",
-"tags": [
-"创业思考"
-],
-"title": "Case 99 Tars Embodied Ai"
-},
-{
-"name": "创业素材_20260327.md",
-"url": "./cases/创业素材_20260327.md",
-"tags": [
-"创业思考"
-],
-"title": "创业素材_20260327"
-}
+{cat:'comp',title:'案例分析:Case 01 K Scale',date:'2026-01-01',url:'./cases/case-01-k-scale.md'},
+{cat:'comp',title:'案例分析:Case 02 China Robots',date:'2026-01-01',url:'./cases/case-02-china-robots.md'},
+{cat:'comp',title:'案例分析:Case 03 Shape Robotics',date:'2026-01-01',url:'./cases/case-03-shape-robotics.md'},
+{cat:'comp',title:'案例分析:Case 04 Lidian',date:'2026-01-01',url:'./cases/case-04-lidian.md'},
+{cat:'comp',title:'案例分析:Case 05 Irobot',date:'2026-01-01',url:'./cases/case-05-irobot.md'},
+{cat:'comp',title:'案例分析:Case 06 Robotics Industry',date:'2026-01-01',url:'./cases/case-06-robotics-industry.md'},
+{cat:'comp',title:'案例分析:Case 07 Quibi',date:'2026-01-01',url:'./cases/case-07-quibi.md'},
+{cat:'comp',title:'案例分析:Case 08 Mobile App',date:'2026-01-01',url:'./cases/case-08-mobile-app.md'},
+{cat:'comp',title:'案例分析:Case 09 Yushu Tech',date:'2026-01-01',url:'./cases/case-09-yushu-tech.md'},
+{cat:'comp',title:'案例分析:Case 10 Dji',date:'2026-01-01',url:'./cases/case-10-dji.md'},
+{cat:'comp',title:'案例分析:Case 100 Wujie Dynamics 200M Angel',date:'2026-01-01',url:'./cases/case-100-wujie-dynamics-200m-angel.md'},
+{cat:'comp',title:'案例分析:Case 101 Autovariable Robotics',date:'2026-01-01',url:'./cases/case-101-autovariable-robotics.md'},
+{cat:'comp',title:'案例分析:Case 102 Spirit Ai',date:'2026-01-01',url:'./cases/case-102-spirit-ai.md'},
+{cat:'comp',title:'案例分析:Case 103 Galaxy Robotics',date:'2026-01-01',url:'./cases/case-103-galaxy-robotics.md'},
+{cat:'comp',title:'案例分析:Case 104 Figure Ai Humanoid Commercialization',date:'2026-01-01',url:'./cases/case-104-figure-ai-humanoid-commercialization.md'},
+{cat:'comp',title:'案例分析:Case 105 Tianji Intelligence',date:'2026-01-01',url:'./cases/case-105-tianji-intelligence.md'},
+{cat:'comp',title:'案例分析:Case 106 Agibot Zhiyuan Robotics',date:'2026-01-01',url:'./cases/case-106-agibot-zhiyuan-robotics.md'},
+{cat:'comp',title:'案例分析:Case 107 Pdd Runtime',date:'2026-01-01',url:'./cases/case-107-pdd-runtime.md'},
+{cat:'comp',title:'案例分析:Case 108 Xiaomi Robotics VLA',date:'2026-05-03',url:'./cases/case-108-xiaomi-robotics-vla.md'},
+{cat:'comp',title:'案例分析:Case 11 Popmart',date:'2026-01-01',url:'./cases/case-11-popmart.md'},
+{cat:'comp',title:'案例分析:Case 12 K Scale Labs',date:'2026-01-01',url:'./cases/case-12-k-scale-labs.md'},
+{cat:'comp',title:'案例分析:Case 13 Ai Apps Death 2025',date:'2026-01-01',url:'./cases/case-13-ai-apps-death-2025.md'},
+{cat:'comp',title:'案例分析:Case 14 Wave Computing',date:'2026-01-01',url:'./cases/case-14-wave-computing.md'},
+{cat:'comp',title:'案例分析:Case 15 Adept Ai',date:'2026-01-01',url:'./cases/case-15-adept-ai.md'},
+{cat:'comp',title:'案例分析:Case 16 Humane Ai Pin',date:'2026-01-01',url:'./cases/case-16-humane-ai-pin.md'},
+{cat:'comp',title:'案例分析:Case 17 Inflection Ai',date:'2026-01-01',url:'./cases/case-17-inflection-ai.md'},
+{cat:'comp',title:'案例分析:Case 18 Argo Ai',date:'2026-01-01',url:'./cases/case-18-argo-ai.md'},
+{cat:'comp',title:'案例分析:Case 19 Juicero',date:'2026-01-01',url:'./cases/case-19-juicero.md'},
+{cat:'comp',title:'案例分析:Case 20 Wework',date:'2026-01-01',url:'./cases/case-20-wework.md'},
+{cat:'comp',title:'案例分析:Case 21 Theranos',date:'2026-01-01',url:'./cases/case-21-theranos.md'},
+{cat:'comp',title:'案例分析:Case 22 Royole',date:'2026-01-01',url:'./cases/case-22-royole.md'},
+{cat:'comp',title:'案例分析:Case 23 Missfresh',date:'2026-01-01',url:'./cases/case-23-missfresh.md'},
+{cat:'comp',title:'案例分析:Case 24 Zume Pizza',date:'2026-01-01',url:'./cases/case-24-zume-pizza.md'},
+{cat:'comp',title:'案例分析:Case 25 Embodied Moxie',date:'2026-01-01',url:'./cases/case-25-embodied-moxie.md'},
+{cat:'comp',title:'案例分析:Case 26 Character Ai',date:'2026-01-01',url:'./cases/case-26-character-ai.md'},
+{cat:'comp',title:'案例分析:Case 27 Rabbit R1',date:'2026-01-01',url:'./cases/case-27-rabbit-r1.md'},
+{cat:'comp',title:'案例分析:Case 28 Stability Ai',date:'2026-01-01',url:'./cases/case-28-stability-ai.md'},
+{cat:'comp',title:'案例分析:Case 29 Mojo Vision',date:'2026-01-01',url:'./cases/case-29-mojo-vision.md'},
+{cat:'comp',title:'案例分析:Case 30 Skydio',date:'2026-01-01',url:'./cases/case-30-skydio.md'},
+{cat:'comp',title:'案例分析:Case 31 Figure Ai',date:'2026-01-01',url:'./cases/case-31-figure-ai.md'},
+{cat:'comp',title:'案例分析:Case 32 Dextrous Robotics',date:'2026-01-01',url:'./cases/case-32-dextrous-robotics.md'},
+{cat:'comp',title:'案例分析:Case 33 Small Robot Company',date:'2026-01-01',url:'./cases/case-33-small-robot-company.md'},
+{cat:'comp',title:'案例分析:Case 34 Ai Companion Device',date:'2026-01-01',url:'./cases/case-34-ai-companion-device.md'},
+{cat:'comp',title:'案例分析:Case 36 Quibi',date:'2026-01-01',url:'./cases/case-36-quibi.md'},
+{cat:'comp',title:'案例分析:Case 37 Wework',date:'2026-01-01',url:'./cases/case-37-wework.md'},
+{cat:'comp',title:'案例分析:Case 38 Servi Robotics',date:'2026-01-01',url:'./cases/case-38-servi-robotics.md'},
+{cat:'comp',title:'案例分析:Case 39 Figure Ai',date:'2026-01-01',url:'./cases/case-39-figure-ai.md'},
+{cat:'comp',title:'案例分析:Case 40 1X Technologies',date:'2026-01-01',url:'./cases/case-40-1x-technologies.md'},
+{cat:'comp',title:'案例分析:Case 41 Agibot',date:'2026-01-01',url:'./cases/case-41-agibot.md'},
+{cat:'comp',title:'案例分析:Case 42 Ofo Bicycle',date:'2026-01-01',url:'./cases/case-42-ofo-bicycle.md'},
+{cat:'comp',title:'案例分析:Case 43 Quibi',date:'2026-01-01',url:'./cases/case-43-quibi.md'},
+{cat:'comp',title:'案例分析:Case 44 Covariant Ai Robotics',date:'2026-01-01',url:'./cases/case-44-covariant-ai-robotics.md'},
+{cat:'comp',title:'案例分析:Case 44 Longhair Ai',date:'2026-01-01',url:'./cases/case-44-longhair-ai.md'},
+{cat:'comp',title:'案例分析:Case 44 Perplexity Ai',date:'2026-01-01',url:'./cases/case-44-perplexity-ai.md'},
+{cat:'comp',title:'案例分析:Case 45 Figure Ai',date:'2026-01-01',url:'./cases/case-45-figure-ai.md'},
+{cat:'comp',title:'案例分析:Case 46 Unitree Robotics',date:'2026-01-01',url:'./cases/case-46-unitree-robotics.md'},
+{cat:'comp',title:'案例分析:Case 47 Yupp',date:'2026-01-01',url:'./cases/case-47-yupp.md'},
+{cat:'comp',title:'案例分析:Case 48 Deepcybo',date:'2026-01-01',url:'./cases/case-48-deepcybo.md'},
+{cat:'comp',title:'案例分析:Case 49 Starship',date:'2026-01-01',url:'./cases/case-49-starship.md'},
+{cat:'comp',title:'案例分析:Case 50 Robowheel Across Embodiment',date:'2026-01-01',url:'./cases/case-50-robowheel-across-embodiment.md'},
+{cat:'comp',title:'案例分析:Case 51 Pebble Smartwatch',date:'2026-01-01',url:'./cases/case-51-pebble-smartwatch.md'},
+{cat:'comp',title:'案例分析:Case 51 Physical Intelligence Pi',date:'2026-01-01',url:'./cases/case-51-physical-intelligence-pi.md'},
+{cat:'comp',title:'案例分析:Case 52 Character Ai',date:'2026-01-01',url:'./cases/case-52-character-ai.md'},
+{cat:'comp',title:'案例分析:Case 52 Skild Ai',date:'2026-01-01',url:'./cases/case-52-skild-ai.md'},
+{cat:'comp',title:'案例分析:Case 53 1X Technologies',date:'2026-01-01',url:'./cases/case-53-1x-technologies.md'},
+{cat:'comp',title:'案例分析:Case 53 Auto Gpt Failure',date:'2026-01-01',url:'./cases/case-53-auto-gpt-failure.md'},
+{cat:'comp',title:'案例分析:Case 54 Agibot Zhiyuan Robotics',date:'2026-01-01',url:'./cases/case-54-agibot-zhiyuan-robotics.md'},
+{cat:'comp',title:'案例分析:Case 55 Zhongqing Robotics',date:'2026-01-01',url:'./cases/case-55-zhongqing-robotics.md'},
+{cat:'comp',title:'案例分析:Case 56 Zmo Ai Failure',date:'2026-01-01',url:'./cases/case-56-zmo-ai-failure.md'},
+{cat:'comp',title:'案例分析:Case 57 Character Ai',date:'2026-01-01',url:'./cases/case-57-character-ai.md'},
+{cat:'comp',title:'案例分析:Case 58 Wayve',date:'2026-01-01',url:'./cases/case-58-wayve.md'},
+{cat:'comp',title:'案例分析:Case 59 Tashi Zhihang',date:'2026-01-01',url:'./cases/case-59-tashi-zhihang.md'},
+{cat:'comp',title:'案例分析:Case 60 Figure Ai',date:'2026-01-01',url:'./cases/case-60-figure-ai.md'},
+{cat:'comp',title:'案例分析:Case 60 Xinghai Robotics',date:'2026-01-01',url:'./cases/case-60-xinghai-robotics.md'},
+{cat:'comp',title:'案例分析:Case 61 Unitree Robotics',date:'2026-01-01',url:'./cases/case-61-unitree-robotics.md'},
+{cat:'comp',title:'案例分析:Case 62 Orion Robotics',date:'2026-01-01',url:'./cases/case-62-orion-robotics.md'},
+{cat:'comp',title:'案例分析:Case 63 Tars Robotics',date:'2026-01-01',url:'./cases/case-63-tars-robotics.md'},
+{cat:'comp',title:'案例分析:Case 64 Accelerated Evolution',date:'2026-01-01',url:'./cases/case-64-accelerated-evolution.md'},
+{cat:'comp',title:'案例分析:Case 65 Figure Ai',date:'2026-01-01',url:'./cases/case-65-figure-ai.md'},
+{cat:'comp',title:'案例分析:Case 65 Irobot Bankruptcy Robotics Lesson',date:'2026-01-01',url:'./cases/case-65-irobot-bankruptcy-robotics-lesson.md'},
+{cat:'comp',title:'案例分析:Case 66 Skild Ai',date:'2026-01-01',url:'./cases/case-66-skild-ai.md'},
+{cat:'comp',title:'案例分析:Case 67 Spirit Ai',date:'2026-01-01',url:'./cases/case-67-spirit-ai.md'},
+{cat:'comp',title:'案例分析:Case 68 Nova Mind Robotics',date:'2026-01-01',url:'./cases/case-68-nova-mind-robotics.md'},
+{cat:'comp',title:'案例分析:Case 69 Physical Intelligence',date:'2026-01-01',url:'./cases/case-69-physical-intelligence.md'},
+{cat:'comp',title:'案例分析:Case 70 Starvla Hkust',date:'2026-01-01',url:'./cases/case-70-starvla-hkust.md'},
+{cat:'comp',title:'案例分析:Case 71 Covariant Ai',date:'2026-01-01',url:'./cases/case-71-covariant-ai.md'},
+{cat:'comp',title:'案例分析:Case 72 Skild Ai',date:'2026-01-01',url:'./cases/case-72-skild-ai.md'},
+{cat:'comp',title:'案例分析:Case 73 Hugging Face',date:'2026-01-01',url:'./cases/case-73-hugging-face.md'},
+{cat:'comp',title:'案例分析:Case 74 Zibox Robot',date:'2026-01-01',url:'./cases/case-74-zibox-robot.md'},
+{cat:'comp',title:'案例分析:Case 75 Tars Intelligence',date:'2026-01-01',url:'./cases/case-75-tars-intelligence.md'},
+{cat:'comp',title:'案例分析:Case 76 Galaxea Ai',date:'2026-01-01',url:'./cases/case-76-galaxea-ai.md'},
+{cat:'comp',title:'案例分析:Case 77 Physical Intelligence',date:'2026-01-01',url:'./cases/case-77-physical-intelligence.md'},
+{cat:'comp',title:'案例分析:Case 78 Tars Intelligence',date:'2026-01-01',url:'./cases/case-78-tars-intelligence.md'},
+{cat:'comp',title:'案例分析:Case 79 Gigaai Worldarena',date:'2026-01-01',url:'./cases/case-79-gigaai-worldarena.md'},
+{cat:'comp',title:'案例分析:Case 80 Pdd Theta Drone',date:'2026-01-01',url:'./cases/case-80-pdd-theta-drone.md'},
+{cat:'comp',title:'案例分析:Case 81 Neo Robotics Agriculture',date:'2026-01-01',url:'./cases/case-81-neo-robotics-agriculture.md'},
+{cat:'comp',title:'案例分析:Case 82 Skydio Defense Pivot',date:'2026-01-01',url:'./cases/case-82-skydio-defense-pivot.md'},
+{cat:'comp',title:'案例分析:Case 83 Engineai Humanoid Robot',date:'2026-01-01',url:'./cases/case-83-engineai-humanoid-robot.md'},
+{cat:'comp',title:'案例分析:Case 84 Tars Intelligence Embodied Ai',date:'2026-01-01',url:'./cases/case-84-tars-intelligence-embodied-ai.md'},
+{cat:'comp',title:'案例分析:Case 85 Kuaishou Ai Content Creation',date:'2026-01-01',url:'./cases/case-85-kuaishou-ai-content-creation.md'},
+{cat:'comp',title:'案例分析:Case 86 Dexterity Robotics Hand Commercialization',date:'2026-01-01',url:'./cases/case-86-dexterity-robotics-hand-commercialization.md'},
+{cat:'comp',title:'案例分析:Case 87 Irobot Market Struggle',date:'2026-01-01',url:'./cases/case-87-irobot-market-struggle.md'},
+{cat:'comp',title:'案例分析:Case 87 Unitree Robotics Ipo',date:'2026-01-01',url:'./cases/case-87-unitree-robotics-ipo.md'},
+{cat:'comp',title:'案例分析:Case 88 Starmars Robotics',date:'2026-01-01',url:'./cases/case-88-starmars-robotics.md'},
+{cat:'comp',title:'案例分析:Case 88 X Square Robot Home Robot',date:'2026-01-01',url:'./cases/case-88-x-square-robot-home-robot.md'},
+{cat:'comp',title:'案例分析:Case 89 Tashi Robotics Physical Ai',date:'2026-01-01',url:'./cases/case-89-tashi-robotics-physical-ai.md'},
+{cat:'comp',title:'案例分析:Case 90 Yuhan Robotics Commercialization',date:'2026-01-01',url:'./cases/case-90-yuhan-robotics-commercialization.md'},
+{cat:'comp',title:'案例分析:Case 91 Covariant Ai Pivot',date:'2026-01-01',url:'./cases/case-91-covariant-ai-pivot.md'},
+{cat:'comp',title:'案例分析:Case 91 Generalist Ai Gen1',date:'2026-01-01',url:'./cases/case-91-generalist-ai-gen1.md'},
+{cat:'comp',title:'案例分析:Case 92 Generalist Ai Gen1 Vla World Model',date:'2026-01-01',url:'./cases/case-92-generalist-ai-gen1-vla-world-model.md'},
+{cat:'comp',title:'案例分析:Case 92 Robotics Startup 2026 Death',date:'2026-01-01',url:'./cases/case-92-robotics-startup-2026-death.md'},
+{cat:'comp',title:'案例分析:Case 93 Agibot Commercialization Failure',date:'2026-01-01',url:'./cases/case-93-agibot-commercialization-failure.md'},
+{cat:'comp',title:'案例分析:Case 93 Qianxun Intelligence Embodied Robot',date:'2026-01-01',url:'./cases/case-93-qianxun-intelligence-embodied-robot.md'},
+{cat:'comp',title:'案例分析:Case 94 Figure Ai Acquisition',date:'2026-01-01',url:'./cases/case-94-figure-ai-acquisition.md'},
+{cat:'comp',title:'案例分析:Case 94 Tars Embodied Intelligence Record Breaking',date:'2026-01-01',url:'./cases/case-94-tars-embodied-intelligence-record-breaking.md'},
+{cat:'comp',title:'案例分析:Case 95 Keenon Robotics Delivery Expansion',date:'2026-01-01',url:'./cases/case-95-keenon-robotics-delivery-expansion.md'},
+{cat:'comp',title:'案例分析:Case 96 Skild Ai Generalist Robot',date:'2026-01-01',url:'./cases/case-96-skild-ai-generalist-robot.md'},
+{cat:'comp',title:'案例分析:Case 96 Tashi Zhihang 4.55 Billion Pre A',date:'2026-01-01',url:'./cases/case-96-tashi-zhihang-4.55-billion-pre-a.md'},
+{cat:'comp',title:'案例分析:Case 97 Xingdong Era 200M Series B',date:'2026-01-01',url:'./cases/case-97-xingdong-era-200m-series-b.md'},
+{cat:'comp',title:'案例分析:Case 98 Xingdong Era 200M Plus Series',date:'2026-01-01',url:'./cases/case-98-xingdong-era-200m-plus-series.md'},
+{cat:'comp',title:'案例分析:Case 99 Tars Embodied Ai',date:'2026-01-01',url:'./cases/case-99-tars-embodied-ai.md'}
 ];
 
-// --- Navigation ---
-function show(id) {
-  document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
+// ========== 渲染函数 ==========
+function showSection(name) {
+  document.querySelectorAll('section').forEach(s => {
+    if(s.id === 'home') return;
+    s.classList.add('hidden');
+  });
   document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-  const navA = document.querySelector('nav a[data-nav="'+id+'"]');
-  if (navA) navA.classList.add('active');
-  window.scrollTo(0, 0);
-}
-
-// --- Home: latest blogs ---
-function renderHomeBlogs() {
-  const el = document.getElementById('homeBlogs');
-  const all = [...BLOGS, ...CASES];
-  // Show latest 8
-  let html = '';
-  for (let i = 0; i < Math.min(8, all.length); i++) {
-    const b = all[all.length - 1 - i];
-    html += '<div class="blog-preview-item"><a href="'+b.url+'">'+b.title+'</a></div>';
+  const target = document.getElementById(name);
+  if(target) {
+    target.classList.remove('hidden');
+    window.scrollTo({top:0, behavior:'smooth'});
+    // 更新导航状态
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(a => {
+      if(a.textContent.includes(name === 'home' ? '首页' : name === 'research' ? '研究' : name === 'papers' ? '论文' : name === 'blog' ? '博客' : name === 'cases' ? '案例' : '关于')) {
+        a.classList.add('active');
+      }
+    });
   }
-  el.innerHTML = html;
-}
-
-// --- Papers: Timeline ---
-let paperFilter = 'all';
-function filterPapers(type) {
-  paperFilter = type;
-  document.querySelectorAll('.paper-filters button').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  renderPapers();
+  if(name === 'papers') renderPapers();
+  if(name === 'blog') renderBlog('all');
+  if(name === 'cases') renderCases('all');
 }
 
 function renderPapers() {
-  const el = document.getElementById('papersTimeline');
-  let filtered = PAPERS;
-  if (paperFilter !== 'all') filtered = PAPERS.filter(p => p.type === paperFilter);
-
-  // Group by year
-  const years = {};
-  filtered.forEach(p => {
-    if (!years[p.year]) years[p.year] = [];
-    years[p.year].push(p);
-  });
-
-  let html = '';
-  Object.keys(years).sort((a,b) => b-a).forEach(year => {
-    html += '<div class="timeline-year">';
-    html += '<div class="year-label"></div>';
-    html += '<h3>' + year + '</h3>';
-    years[year].forEach(p => {
-      const cls = p.type === 'mine' ? 'mine' : 'ref';
-      const icon = p.type === 'mine' ? '[My] ' : '';
-      const statusBadge = p.status ? ' <span style="font-size:11px;color:var(--orange);font-weight:600">' + p.status + '</span>' : '';
-      html += '<div class="paper-card ' + cls + '">';
-      html += '<div class="venue">' + p.venue + '</div>';
-      html += '<div class="title">' + icon + p.title + statusBadge + '</div>';
-      html += '<div class="authors">' + p.authors + '</div>';
-      if (p.abstract) html += '<div class="abstract">' + p.abstract + '</div>';
-      if (p.tags) {
-        html += '<div class="tags">';
-        p.tags.forEach(t => html += '<span class="tag">' + t + '</span>');
-        html += '</div>';
-      }
-      html += '</div>';
-    });
-    html += '</div>';
-  });
-  el.innerHTML = html;
+  const grid = document.getElementById('papersGrid');
+  grid.innerHTML = PAPERS.map(p => `
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-vln">${p.tag}</span>
+        <span class="card-date">${p.meta}</span>
+      </div>
+      <div class="card-title">${p.title}</div>
+    </div>
+  `).join('');
 }
 
-// --- Blog: List ---
-let blogFilter = 'all';
-function filterBlog(tag) {
-  blogFilter = tag;
-  document.querySelectorAll('.blog-filters button').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  renderBlog();
+function getTagClass(tags, idx) {
+  const tagMap = {'tech':'tag-tech','startup':'tag-startup','vln':'tag-vln','slam':'tag-slam','vla':'tag-vla','ai':'tag-analysis','robot':'tag-tech','success':'tag-success','failure':'tag-failure','analysis':'tag-analysis'};
+  const t = tags[idx] || 'default';
+  return tagMap[t] || 'tag-default';
 }
 
-function renderBlog() {
-  const el = document.getElementById('blogList');
-  let all = [...BLOGS, ...CASES];
-  if (blogFilter !== 'all') {
-    all = all.filter(b => b.tags && b.tags.includes(blogFilter));
-  }
-
-  let html = '';
-  all.forEach(b => {
-    const tagClass = b.tags && b.tags[0] ? b.tags[0] : 'diary';
-    const cls = tagClass === '研究笔记' ? 'research'
-              : tagClass === '创业思考' ? 'startup'
-              : tagClass === '热点观察' ? 'hot' : 'diary';
-    html += '<div class="blog-item">';
-    html += '<span class="tag-pill ' + cls + '">' + (b.tags ? b.tags[0] : '日记') + '</span>';
-    html += '<a href="' + b.url + '">' + b.title + '</a>';
-    html += '</div>';
-  });
-  el.innerHTML = html;
+function renderBlog(filter='all') {
+  const grid = document.getElementById('blogGrid');
+  const filtered = filter === 'all' ? BLOGS : BLOGS.filter(b => b.tags.includes(filter));
+  grid.innerHTML = filtered.map(b => `
+    <div class="card">
+      <div class="card-meta">
+        ${b.tags.map((t,i) => `<span class="tag ${getTagClass(b.tags, i)}">${t}</span>`).join('')}
+        <span class="card-date">${b.date}</span>
+      </div>
+      <div class="card-title">
+        <a href="${b.url}">${b.name.replace('.html','').replace(/-/g,' ')}</a>
+      </div>
+    </div>
+  `).join('');
 }
 
-// --- Init ---
-document.addEventListener('DOMContentLoaded', function() {
+function filterBlog(cat, btn) {
+  document.querySelectorAll('#blogFilter .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderBlog(cat);
+}
+
+function renderCases(filter='all') {
+  const grid = document.getElementById('casesGrid');
+  let filtered = filter === 'all' ? CASES : CASES.filter(c => c.tags.includes(filter));
+  grid.innerHTML = filtered.map(c => `
+    <div class="card">
+      <div class="card-meta">
+        ${c.tags.map((t,i) => `<span class="tag ${getTagClass(c.tags, i)}">${t}</span>`).join('')}
+        <span class="card-date">${c.date}</span>
+      </div>
+      <div class="card-title">
+        <a href="${c.url}" target="_blank">${c.title}</a>
+      </div>
+      <p class="card-excerpt">${c.excerpt}</p>
+    </div>
+  `).join('');
+}
+
+function filterCases(cat, btn) {
+  document.querySelectorAll('#casesFilter .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCases(cat);
+}
+
+function renderHomeBlogs() {
+  const grid = document.getElementById('homeBlogs');
+  grid.innerHTML = BLOGS.slice(0, 6).map(b => `
+    <div class="card">
+      <div class="card-meta">
+        ${b.tags.map((t,i) => `<span class="tag ${getTagClass(b.tags, i)}">${t}</span>`).join('')}
+        <span class="card-date">${b.date}</span>
+      </div>
+      <div class="card-title">
+        <a href="${b.url}">${b.name.replace('.html','').replace(/-/g,' ')}</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
   renderHomeBlogs();
-  renderPapers();
-  renderBlog();
 });
 </script>
 </body>
