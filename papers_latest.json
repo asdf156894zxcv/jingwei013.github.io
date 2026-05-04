@@ -1,98 +1,119 @@
 {
-  "updated": "2026-05-03 04:35 UTC",
-  "total": 13,
+  "updated": "2026-05-04 04:35 UTC",
+  "total": 16,
   "today_count": 0,
   "papers": [
     {
-      "title": "HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation",
-      "date": "2026-04-30",
-      "id": "2604.28196v1",
-      "abstract": "Driving world models serve as a pivotal technology for autonomous driving by simulating environmental dynamics. However, existing approaches predominantly focus on future scene generation, often overl",
-      "url": "https://arxiv.org/abs/2604.28196v1"
+      "title": "Posterior Augmented Flow Matching",
+      "date": "2026-05-01",
+      "id": "2605.00825v1",
+      "abstract": "Flow matching (FM) trains a time-dependent vector field that transports samples from a simple prior to a complex data distribution. However, for high-dimensional images, each training sample supervise",
+      "url": "https://arxiv.org/abs/2605.00825v1"
     },
     {
-      "title": "OmniRobotHome: A Multi-Camera Platform for Real-Time Multiadic Human-Robot Interaction",
-      "date": "2026-04-30",
-      "id": "2604.28197v1",
-      "abstract": "Human-robot collaboration has been studied primarily in dyadic or sequential settings. However, real homes require multiadic collaboration, where multiple humans and robots share a workspace, acting c",
-      "url": "https://arxiv.org/abs/2604.28197v1"
+      "title": "When LLMs Stop Following Steps: A Diagnostic Study of Procedural Execution in Language Models",
+      "date": "2026-05-01",
+      "id": "2605.00817v1",
+      "abstract": "Large language models (LLMs) often achieve strong performance on reasoning benchmarks, but final-answer accuracy alone does not show whether they faithfully execute the procedure specified in a prompt",
+      "url": "https://arxiv.org/abs/2605.00817v1"
     },
     {
-      "title": "Generalizable Sparse-View 3D Reconstruction from Unconstrained Images",
-      "date": "2026-04-30",
-      "id": "2604.28193v1",
-      "abstract": "Reconstructing 3D scenes from sparse, unposed images remains challenging under real-world conditions with varying illumination and transient occlusions. Existing methods rely on scene-specific optimiz",
-      "url": "https://arxiv.org/abs/2604.28193v1"
+      "title": "Persistent Visual Memory: Sustaining Perception for Deep Generation in LVLMs",
+      "date": "2026-05-01",
+      "id": "2605.00814v1",
+      "abstract": "While autoregressive Large Vision-Language Models (LVLMs) demonstrate remarkable proficiency in multimodal tasks, they face a \"Visual Signal Dilution\" phenomenon, where the accumulation of textual his",
+      "url": "https://arxiv.org/abs/2605.00814v1"
     },
     {
-      "title": "Synthetic Computers at Scale for Long-Horizon Productivity Simulation",
-      "date": "2026-04-30",
-      "id": "2604.28181v1",
-      "abstract": "Realistic long-horizon productivity work is strongly conditioned on user-specific computer environments, where much of the work context is stored and organized through directory structures and content",
-      "url": "https://arxiv.org/abs/2604.28181v1"
+      "title": "Can Coding Agents Reproduce Findings in Computational Materials Science?",
+      "date": "2026-05-01",
+      "id": "2605.00803v1",
+      "abstract": "Large language models are increasingly deployed as autonomous coding agents and have achieved remarkably strong performance on software engineering benchmarks. However, it is unclear whether such succ",
+      "url": "https://arxiv.org/abs/2605.00803v1"
     },
     {
-      "title": "Stop Holding Your Breath: CT-Informed Gaussian Splatting for Dynamic Bronchoscopy",
-      "date": "2026-04-30",
-      "id": "2604.28179v1",
-      "abstract": "Bronchoscopic navigation relies on registering endoscopic video to a preoperative CT scan, but respiratory motion deforms the airway by 5-20 mm, creating CT-to-body divergence that limits localization",
-      "url": "https://arxiv.org/abs/2604.28179v1"
+      "title": "SC-Taxo: Hierarchical Taxonomy Generation under Semantic Consistency Constraints using Large Language Models",
+      "date": "2026-05-01",
+      "id": "2605.00620v1",
+      "abstract": "Scientific literature is expanding at an unprecedented pace, making it increasingly challenging to efficiently organize and access domain knowledge. A high-quality scientific taxonomy offers a structu",
+      "url": "https://arxiv.org/abs/2605.00620v1"
     },
     {
-      "title": "Essential, Yet Overlooked: Identity Verification Barriers for Blind and Low Vision People in Government Services",
-      "date": "2026-04-30",
-      "id": "2604.28166v1",
-      "abstract": "Identity verification is a critical gateway to accessing government services and public benefits, yet contemporary systems are typically designed around visual interaction, leaving blind and low visio",
-      "url": "https://arxiv.org/abs/2604.28166v1"
+      "title": "Silicon Showdown: Performance, Efficiency, and Ecosystem Barriers in Consumer-Grade LLM Inference",
+      "date": "2026-05-01",
+      "id": "2605.00519v1",
+      "abstract": "The operational landscape of local Large Language Model (LLM) inference has shifted from lightweight models to datacenter-class weights exceeding 70B parameters, creating profound systems challenges f",
+      "url": "https://arxiv.org/abs/2605.00519v1"
     },
     {
-      "title": "Representation Fréchet Loss for Visual Generation",
-      "date": "2026-04-30",
-      "id": "2604.28190v1",
-      "abstract": "We show that Fréchet Distance (FD), long considered impractical as a training objective, can in fact be effectively optimized in the representation space. Our idea is simple: decouple the population s",
-      "url": "https://arxiv.org/abs/2604.28190v1"
+      "title": "Let ViT Speak: Generative Language-Image Pre-training",
+      "date": "2026-05-01",
+      "id": "2605.00809v1",
+      "abstract": "In this paper, we present \\textbf{Gen}erative \\textbf{L}anguage-\\textbf{I}mage \\textbf{P}re-training (GenLIP), a minimalist generative pretraining framework for Vision Transformers (ViTs) designed for",
+      "url": "https://arxiv.org/abs/2605.00809v1"
     },
     {
-      "title": "Covariant Locally Localized Gravity and vDVZ Continuity",
-      "date": "2026-04-30",
-      "id": "2604.28194v1",
-      "abstract": "The Karch-Randall braneworld concerns the physics of an AdS$_{d}$ brane embedded in an ambient gravitational AdS$_{d+1}$ spacetime. The gravitational theory induced on the AdS$_{d}$ brane has a very l",
-      "url": "https://arxiv.org/abs/2604.28194v1"
+      "title": "High-Dimensional Multivariate VAR Estimation with Spatio-Temporal Structure",
+      "date": "2026-05-01",
+      "id": "2605.00806v1",
+      "abstract": "High-dimensional vector autoregressive (VAR) models provide a flexible framework for characterizing dynamic dependence in multivariate spatio-temporal systems, but their unrestricted estimation become",
+      "url": "https://arxiv.org/abs/2605.00806v1"
     },
     {
-      "title": "LaST-R1: Reinforcing Action via Adaptive Physical Latent Reasoning for VLA Models",
-      "date": "2026-04-30",
-      "id": "2604.28192v1",
-      "abstract": "Vision-Language-Action (VLA) models have increasingly incorporated reasoning mechanisms for complex robotic manipulation. However, existing approaches share a critical limitation: whether employing ex",
-      "url": "https://arxiv.org/abs/2604.28192v1"
+      "title": "Reliability, Robustness, and Resilience Modeling for Surveillance System in Advanced Air Mobility Operations",
+      "date": "2026-05-01",
+      "id": "2605.00823v1",
+      "abstract": "Ensuring the safe and efficient operation of Advanced Air Mobility (AAM) in low-altitude airspace requires a reliable, robust, and resilient surveillance system capable of continuously detecting, iden",
+      "url": "https://arxiv.org/abs/2605.00823v1"
     },
     {
-      "title": "Optimal Transmitter Placement in Realistic Urban Environments",
-      "date": "2026-04-30",
-      "id": "2604.28153v1",
-      "abstract": "In a wireless network, the spatial location of the transmitters has a large impact on the achievable rate at each user location. The optimal placement of -- for example -- cellular base stations is a ",
-      "url": "https://arxiv.org/abs/2604.28153v1"
+      "title": "PEARLS: Two Distinct Populations of AGN Hosts Moving Between Star Formation and Quiescence",
+      "date": "2026-05-01",
+      "id": "2605.00822v1",
+      "abstract": "We present the results of AGN--host-galaxy decomposition using JWST/NIRCam, HST/ACS, and HST/WFC3 imaging of the North Ecliptic Pole Time Domain Field (NEP-TDF). The light-profiles of 36 NIRCam-select",
+      "url": "https://arxiv.org/abs/2605.00822v1"
     },
     {
-      "title": "Observation of the Magnus Nonlinear Hall effect from Chiral Weyl Monopoles",
-      "date": "2026-04-30",
-      "id": "2604.28091v1",
-      "abstract": "The nonlinear Hall effect (NLHE) connects crystalline symmetry to quantum geometry, offering a probe of band topology beyond linear transport. While most studies have focused on the Berry curvature di",
-      "url": "https://arxiv.org/abs/2604.28091v1"
+      "title": "The NIKA2 Cosmological Legacy Survey in COSMOS: Final 1.2mm and 2mm source catalogs and redshift distribution of dusty star-forming galaxies",
+      "date": "2026-05-01",
+      "id": "2605.00659v1",
+      "abstract": "We present the final 1.2mm and 2mm source catalogs and the redshift distribution of the mm-selected population from the NIKA2 Cosmological Legacy Survey (N2CLS) in the COSMOS field. Our aim is to prov",
+      "url": "https://arxiv.org/abs/2605.00659v1"
     },
     {
-      "title": "Exploration Hacking: Can LLMs Learn to Resist RL Training?",
-      "date": "2026-04-30",
-      "id": "2604.28182v1",
-      "abstract": "Reinforcement learning (RL) has become essential to the post-training of large language models (LLMs) for reasoning, agentic capabilities and alignment. Successful RL relies on sufficient exploration ",
-      "url": "https://arxiv.org/abs/2604.28182v1"
+      "title": "Oxygen Vacancies at Dislocation Core Modulate Plasticity in Strontium Titanate",
+      "date": "2026-05-01",
+      "id": "2605.00801v1",
+      "abstract": "Dislocation core chemistry in oxides critically influences mechanical behavior and functionality; yet the evolution of core chemistry during the dislocation motion in them has not been directly observ",
+      "url": "https://arxiv.org/abs/2605.00801v1"
     },
     {
-      "title": "Uniaxial strain-driven ferroelastic domain control in LaAlO3",
-      "date": "2026-04-30",
-      "id": "2604.28183v1",
-      "abstract": "Multiferroic domain walls in functional oxides exhibit properties distinct from the bulk and are increasingly exploited as active elements in nanoelectronic and photonic devices. Deterministic control",
-      "url": "https://arxiv.org/abs/2604.28183v1"
+      "title": "Multi-Regional Traffic Control with Travel and Charging Demand Co-Management",
+      "date": "2026-05-01",
+      "id": "2605.00726v1",
+      "abstract": "Urban traffic management is essential for reducing congestion and supporting sustainable mobility. However, the task is becoming more challenging due to the growing penetration of electric vehicles an",
+      "url": "https://arxiv.org/abs/2605.00726v1"
+    },
+    {
+      "title": "CustomDancer: Customized Dance Recommendation by Text-Dance Retrieval",
+      "date": "2026-05-01",
+      "id": "2605.00824v1",
+      "abstract": "Dance serves as both a cultural cornerstone and a medium for personal expression, yet the rapid growth of online dance content has made personalized discovery increasingly difficult. Text-based dance ",
+      "url": "https://arxiv.org/abs/2605.00824v1"
+    },
+    {
+      "title": "Make Your LVLM KV Cache More Lightweight",
+      "date": "2026-05-01",
+      "id": "2605.00789v1",
+      "abstract": "Key-Value (KV) cache has become a de facto component of modern Large Vision-Language Models (LVLMs) for inference. While it enhances decoding efficiency in Large Language Models (LLMs), its direct ado",
+      "url": "https://arxiv.org/abs/2605.00789v1"
+    },
+    {
+      "title": "Statistical mechanics for Scrabble predicts strategy, entropy and language",
+      "date": "2026-05-01",
+      "id": "2605.00813v1",
+      "abstract": "The crossword-like patterns of tiles in Scrabble form connected graphs of occupied sites on a square lattice. We find the most structureless description that reproduces means and covariances observed ",
+      "url": "https://arxiv.org/abs/2605.00813v1"
     }
   ]
 }
