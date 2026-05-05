@@ -1,119 +1,84 @@
 {
-  "updated": "2026-05-04 04:35 UTC",
-  "total": 16,
+  "updated": "2026-05-05 04:18 UTC",
+  "total": 11,
   "today_count": 0,
   "papers": [
     {
-      "title": "Posterior Augmented Flow Matching",
-      "date": "2026-05-01",
-      "id": "2605.00825v1",
-      "abstract": "Flow matching (FM) trains a time-dependent vector field that transports samples from a simple prior to a complex data distribution. However, for high-dimensional images, each training sample supervise",
-      "url": "https://arxiv.org/abs/2605.00825v1"
+      "title": "MolmoAct2: Action Reasoning Models for Real-world Deployment",
+      "date": "2026-05-04",
+      "id": "2605.02881v1",
+      "abstract": "Vision-Language-Action (VLA) models aim to provide a single generalist controller for robots, but today's systems fall short on the criteria that matter for real-world deployment. Frontier models are ",
+      "url": "https://arxiv.org/abs/2605.02881v1"
     },
     {
-      "title": "When LLMs Stop Following Steps: A Diagnostic Study of Procedural Execution in Language Models",
-      "date": "2026-05-01",
-      "id": "2605.00817v1",
-      "abstract": "Large language models (LLMs) often achieve strong performance on reasoning benchmarks, but final-answer accuracy alone does not show whether they faithfully execute the procedure specified in a prompt",
-      "url": "https://arxiv.org/abs/2605.00817v1"
+      "title": "Enhancing RL Generalizability in Robotics through SHAP Analysis of Algorithms and Hyperparameters",
+      "date": "2026-05-04",
+      "id": "2605.02867v1",
+      "abstract": "Despite significant advances in Reinforcement Learning (RL), model performance remains highly sensitive to algorithm and hyperparameter configurations, while generalization gaps across environments co",
+      "url": "https://arxiv.org/abs/2605.02867v1"
     },
     {
-      "title": "Persistent Visual Memory: Sustaining Perception for Deep Generation in LVLMs",
-      "date": "2026-05-01",
-      "id": "2605.00814v1",
-      "abstract": "While autoregressive Large Vision-Language Models (LVLMs) demonstrate remarkable proficiency in multimodal tasks, they face a \"Visual Signal Dilution\" phenomenon, where the accumulation of textual his",
-      "url": "https://arxiv.org/abs/2605.00814v1"
+      "title": "Semantic Risk-Aware Heuristic Planning for Robotic Navigation in Dynamic Environments: An LLM-Inspired Approach",
+      "date": "2026-05-04",
+      "id": "2605.02862v1",
+      "abstract": "The integration of Large Language Model (LLM) reasoning principles into classical robot path planning represents a rapidly emerging research direction. In this paper, we propose a Semantic Risk-Aware ",
+      "url": "https://arxiv.org/abs/2605.02862v1"
     },
     {
-      "title": "Can Coding Agents Reproduce Findings in Computational Materials Science?",
-      "date": "2026-05-01",
-      "id": "2605.00803v1",
-      "abstract": "Large language models are increasingly deployed as autonomous coding agents and have achieved remarkably strong performance on software engineering benchmarks. However, it is unclear whether such succ",
-      "url": "https://arxiv.org/abs/2605.00803v1"
+      "title": "AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion",
+      "date": "2026-05-04",
+      "id": "2605.02892v1",
+      "abstract": "Personalized image completion aims to restore occluded regions in personal photos while preserving identity and appearance. Existing methods either rely on generic inpainting models that often fail to",
+      "url": "https://arxiv.org/abs/2605.02892v1"
     },
     {
-      "title": "SC-Taxo: Hierarchical Taxonomy Generation under Semantic Consistency Constraints using Large Language Models",
-      "date": "2026-05-01",
-      "id": "2605.00620v1",
-      "abstract": "Scientific literature is expanding at an unprecedented pace, making it increasingly challenging to efficiently organize and access domain knowledge. A high-quality scientific taxonomy offers a structu",
-      "url": "https://arxiv.org/abs/2605.00620v1"
+      "title": "SpecKV: Adaptive Speculative Decoding with Compression-Aware Gamma Selection",
+      "date": "2026-05-04",
+      "id": "2605.02888v1",
+      "abstract": "Speculative decoding accelerates large language model (LLM) inference by using a small draft model to propose candidate tokens that a larger target model verifies. A critical hyperparameter in this pr",
+      "url": "https://arxiv.org/abs/2605.02888v1"
     },
     {
-      "title": "Silicon Showdown: Performance, Efficiency, and Ecosystem Barriers in Consumer-Grade LLM Inference",
-      "date": "2026-05-01",
-      "id": "2605.00519v1",
-      "abstract": "The operational landscape of local Large Language Model (LLM) inference has shifted from lightweight models to datacenter-class weights exceeding 70B parameters, creating profound systems challenges f",
-      "url": "https://arxiv.org/abs/2605.00519v1"
+      "title": "Open-Closed-Open Triality Beyond Matrix Models",
+      "date": "2026-05-04",
+      "id": "2605.02885v1",
+      "abstract": "We explore the ideas of open-closed-open triality within twisted holography. Starting from two transverse stacks of branes in the B-model on the resolved conifold, we obtain two equivalent open string",
+      "url": "https://arxiv.org/abs/2605.02885v1"
     },
     {
-      "title": "Let ViT Speak: Generative Language-Image Pre-training",
-      "date": "2026-05-01",
-      "id": "2605.00809v1",
-      "abstract": "In this paper, we present \\textbf{Gen}erative \\textbf{L}anguage-\\textbf{I}mage \\textbf{P}re-training (GenLIP), a minimalist generative pretraining framework for Vision Transformers (ViTs) designed for",
-      "url": "https://arxiv.org/abs/2605.00809v1"
+      "title": "FlexSQL: Flexible Exploration and Execution Make Better Text-to-SQL Agents",
+      "date": "2026-05-04",
+      "id": "2605.02815v1",
+      "abstract": "Text-to-SQL over large analytical databases requires navigating complex schemas, resolving ambiguous queries, and grounding decisions in actual data. Most current systems follow a fixed pipeline where",
+      "url": "https://arxiv.org/abs/2605.02815v1"
     },
     {
-      "title": "High-Dimensional Multivariate VAR Estimation with Spatio-Temporal Structure",
-      "date": "2026-05-01",
-      "id": "2605.00806v1",
-      "abstract": "High-dimensional vector autoregressive (VAR) models provide a flexible framework for characterizing dynamic dependence in multivariate spatio-temporal systems, but their unrestricted estimation become",
-      "url": "https://arxiv.org/abs/2605.00806v1"
+      "title": "LiDAR Teach, Radar Repeat: Robust Cross-Modal Navigation in Degenerate and Varying Environments",
+      "date": "2026-05-04",
+      "id": "2605.02809v1",
+      "abstract": "Long-term autonomy requires robust navigation in environments subject to dynamic and static changes, as well as adverse weather conditions. Teach-and-Repeat (T\\&R) navigation offers a reliable and cos",
+      "url": "https://arxiv.org/abs/2605.02809v1"
     },
     {
-      "title": "Reliability, Robustness, and Resilience Modeling for Surveillance System in Advanced Air Mobility Operations",
-      "date": "2026-05-01",
-      "id": "2605.00823v1",
-      "abstract": "Ensuring the safe and efficient operation of Advanced Air Mobility (AAM) in low-altitude airspace requires a reliable, robust, and resilient surveillance system capable of continuously detecting, iden",
-      "url": "https://arxiv.org/abs/2605.00823v1"
+      "title": "Interlayer Five-Spin Polaron in Superconducting Bilayer Nickelates",
+      "date": "2026-05-04",
+      "id": "2605.02891v1",
+      "abstract": "The discovery of high-$T_c$ superconductivity in Ruddlesden-Popper nickelates has sparked substantial effort towards understanding unconventional electronic states beyond a traditional cuprate-like d^",
+      "url": "https://arxiv.org/abs/2605.02891v1"
     },
     {
-      "title": "PEARLS: Two Distinct Populations of AGN Hosts Moving Between Star Formation and Quiescence",
-      "date": "2026-05-01",
-      "id": "2605.00822v1",
-      "abstract": "We present the results of AGN--host-galaxy decomposition using JWST/NIRCam, HST/ACS, and HST/WFC3 imaging of the North Ecliptic Pole Time Domain Field (NEP-TDF). The light-profiles of 36 NIRCam-select",
-      "url": "https://arxiv.org/abs/2605.00822v1"
+      "title": "CityOS: Privacy Architecture for Urban Sensing",
+      "date": "2026-05-04",
+      "id": "2605.02886v1",
+      "abstract": "Cities are rapidly deploying sensing infrastructure -- cameras, environmental sensors, and connected kiosks -- that continuously observe public spaces, yet they lack a system architecture governing ho",
+      "url": "https://arxiv.org/abs/2605.02886v1"
     },
     {
-      "title": "The NIKA2 Cosmological Legacy Survey in COSMOS: Final 1.2mm and 2mm source catalogs and redshift distribution of dusty star-forming galaxies",
-      "date": "2026-05-01",
-      "id": "2605.00659v1",
-      "abstract": "We present the final 1.2mm and 2mm source catalogs and the redshift distribution of the mm-selected population from the NIKA2 Cosmological Legacy Survey (N2CLS) in the COSMOS field. Our aim is to prov",
-      "url": "https://arxiv.org/abs/2605.00659v1"
-    },
-    {
-      "title": "Oxygen Vacancies at Dislocation Core Modulate Plasticity in Strontium Titanate",
-      "date": "2026-05-01",
-      "id": "2605.00801v1",
-      "abstract": "Dislocation core chemistry in oxides critically influences mechanical behavior and functionality; yet the evolution of core chemistry during the dislocation motion in them has not been directly observ",
-      "url": "https://arxiv.org/abs/2605.00801v1"
-    },
-    {
-      "title": "Multi-Regional Traffic Control with Travel and Charging Demand Co-Management",
-      "date": "2026-05-01",
-      "id": "2605.00726v1",
-      "abstract": "Urban traffic management is essential for reducing congestion and supporting sustainable mobility. However, the task is becoming more challenging due to the growing penetration of electric vehicles an",
-      "url": "https://arxiv.org/abs/2605.00726v1"
-    },
-    {
-      "title": "CustomDancer: Customized Dance Recommendation by Text-Dance Retrieval",
-      "date": "2026-05-01",
-      "id": "2605.00824v1",
-      "abstract": "Dance serves as both a cultural cornerstone and a medium for personal expression, yet the rapid growth of online dance content has made personalized discovery increasingly difficult. Text-based dance ",
-      "url": "https://arxiv.org/abs/2605.00824v1"
-    },
-    {
-      "title": "Make Your LVLM KV Cache More Lightweight",
-      "date": "2026-05-01",
-      "id": "2605.00789v1",
-      "abstract": "Key-Value (KV) cache has become a de facto component of modern Large Vision-Language Models (LVLMs) for inference. While it enhances decoding efficiency in Large Language Models (LLMs), its direct ado",
-      "url": "https://arxiv.org/abs/2605.00789v1"
-    },
-    {
-      "title": "Statistical mechanics for Scrabble predicts strategy, entropy and language",
-      "date": "2026-05-01",
-      "id": "2605.00813v1",
-      "abstract": "The crossword-like patterns of tiles in Scrabble form connected graphs of occupied sites on a square lattice. We find the most structureless description that reproduces means and covariances observed ",
-      "url": "https://arxiv.org/abs/2605.00813v1"
+      "title": "EvoPoC: Automated Exploit Synthesis for DeFi Smart Contracts via Hierarchical Knowledge Graphs",
+      "date": "2026-05-04",
+      "id": "2605.02868v1",
+      "abstract": "Smart contract vulnerabilities in Decentralized Finance caused over billions of dollars losses every year, yet the security community faces a critical bottleneck: identifying a vulnerability is not th",
+      "url": "https://arxiv.org/abs/2605.02868v1"
     }
   ]
 }
