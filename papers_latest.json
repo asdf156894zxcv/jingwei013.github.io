@@ -1,84 +1,182 @@
 {
-  "updated": "2026-05-05 04:18 UTC",
-  "total": 11,
+  "updated": "2026-05-06 04:29 UTC",
+  "total": 25,
   "today_count": 0,
   "papers": [
     {
-      "title": "MolmoAct2: Action Reasoning Models for Real-world Deployment",
-      "date": "2026-05-04",
-      "id": "2605.02881v1",
-      "abstract": "Vision-Language-Action (VLA) models aim to provide a single generalist controller for robots, but today's systems fall short on the criteria that matter for real-world deployment. Frontier models are ",
-      "url": "https://arxiv.org/abs/2605.02881v1"
+      "title": "Audio-Visual Intelligence in Large Foundation Models",
+      "date": "2026-05-05",
+      "id": "2605.04045v1",
+      "abstract": "Audio-Visual Intelligence (AVI) has emerged as a central frontier in artificial intelligence, bridging auditory and visual modalities to enable machines that can perceive, generate, and interact in th",
+      "url": "https://arxiv.org/abs/2605.04045v1"
     },
     {
-      "title": "Enhancing RL Generalizability in Robotics through SHAP Analysis of Algorithms and Hyperparameters",
-      "date": "2026-05-04",
-      "id": "2605.02867v1",
-      "abstract": "Despite significant advances in Reinforcement Learning (RL), model performance remains highly sensitive to algorithm and hyperparameter configurations, while generalization gaps across environments co",
-      "url": "https://arxiv.org/abs/2605.02867v1"
+      "title": "UniCorrn: Unified Correspondence Transformer Across 2D and 3D",
+      "date": "2026-05-05",
+      "id": "2605.04044v1",
+      "abstract": "Visual correspondence across image-to-image (2D-2D), image-to-point cloud (2D-3D), and point cloud-to-point cloud (3D-3D) geometric matching forms the foundation for numerous 3D vision tasks. Despite ",
+      "url": "https://arxiv.org/abs/2605.04044v1"
     },
     {
-      "title": "Semantic Risk-Aware Heuristic Planning for Robotic Navigation in Dynamic Environments: An LLM-Inspired Approach",
-      "date": "2026-05-04",
-      "id": "2605.02862v1",
-      "abstract": "The integration of Large Language Model (LLM) reasoning principles into classical robot path planning represents a rapidly emerging research direction. In this paper, we propose a Semantic Risk-Aware ",
-      "url": "https://arxiv.org/abs/2605.02862v1"
+      "title": "Large Language Models are Universal Reasoners for Visual Generation",
+      "date": "2026-05-05",
+      "id": "2605.04040v1",
+      "abstract": "Text-to-image generation has advanced rapidly with diffusion models, progressing from CLIP and T5 conditioning to unified systems where a single LLM backbone handles both visual understanding and gene",
+      "url": "https://arxiv.org/abs/2605.04040v1"
     },
     {
-      "title": "AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion",
-      "date": "2026-05-04",
-      "id": "2605.02892v1",
-      "abstract": "Personalized image completion aims to restore occluded regions in personal photos while preserving identity and appearance. Existing methods either rely on generic inpainting models that often fail to",
-      "url": "https://arxiv.org/abs/2605.02892v1"
+      "title": "Deco: Extending Personal Physical Objects into Pervasive AI Companion through a Dual-Embodiment Framework",
+      "date": "2026-05-05",
+      "id": "2605.03882v1",
+      "abstract": "Individuals frequently form deep attachments to physical objects (e.g., plush toys) that usually cannot sense or respond to their emotions. While AI companions offer responsiveness and personalization",
+      "url": "https://arxiv.org/abs/2605.03882v1"
     },
     {
-      "title": "SpecKV: Adaptive Speculative Decoding with Compression-Aware Gamma Selection",
-      "date": "2026-05-04",
-      "id": "2605.02888v1",
-      "abstract": "Speculative decoding accelerates large language model (LLM) inference by using a small draft model to propose candidate tokens that a larger target model verifies. A critical hyperparameter in this pr",
-      "url": "https://arxiv.org/abs/2605.02888v1"
+      "title": "Bodyless Presence: Reconsidering the Minimal Self in Immersive Video",
+      "date": "2026-05-05",
+      "id": "2605.03873v1",
+      "abstract": "Immersive video, namely 180-degree and 360-degree video designed to be viewed through head-mounted displays, constitutes a boundary case between interactive VR and conventional two-dimensional video f",
+      "url": "https://arxiv.org/abs/2605.03873v1"
     },
     {
-      "title": "Open-Closed-Open Triality Beyond Matrix Models",
-      "date": "2026-05-04",
-      "id": "2605.02885v1",
-      "abstract": "We explore the ideas of open-closed-open triality within twisted holography. Starting from two transverse stacks of branes in the B-model on the resolved conifold, we obtain two equivalent open string",
-      "url": "https://arxiv.org/abs/2605.02885v1"
+      "title": "Probabilistic-bit Guided CDCL for SAT Solving using Ising Consensus Assumptions",
+      "date": "2026-05-05",
+      "id": "2605.04033v1",
+      "abstract": "Boolean satisfiability (SAT) solvers are widely used in hardware verification, cryptanalysis, automatic test-pattern generation, and side-channel reasoning workflows. Modern conflict-driven clause-lea",
+      "url": "https://arxiv.org/abs/2605.04033v1"
     },
     {
-      "title": "FlexSQL: Flexible Exploration and Execution Make Better Text-to-SQL Agents",
-      "date": "2026-05-04",
-      "id": "2605.02815v1",
-      "abstract": "Text-to-SQL over large analytical databases requires navigating complex schemas, resolving ambiguous queries, and grounding decisions in actual data. Most current systems follow a fixed pipeline where",
-      "url": "https://arxiv.org/abs/2605.02815v1"
+      "title": "Redefining AI Red Teaming in the Agentic Era: From Weeks to Hours",
+      "date": "2026-05-05",
+      "id": "2605.04019v1",
+      "abstract": "AI systems are entering critical domains like healthcare, finance, and defense, yet remain vulnerable to adversarial attacks. While AI red teaming is a primary defense, current approaches force operat",
+      "url": "https://arxiv.org/abs/2605.04019v1"
     },
     {
-      "title": "LiDAR Teach, Radar Repeat: Robust Cross-Modal Navigation in Degenerate and Varying Environments",
-      "date": "2026-05-04",
-      "id": "2605.02809v1",
-      "abstract": "Long-term autonomy requires robust navigation in environments subject to dynamic and static changes, as well as adverse weather conditions. Teach-and-Repeat (T\\&R) navigation offers a reliable and cos",
-      "url": "https://arxiv.org/abs/2605.02809v1"
+      "title": "Optimized Nanogap Thermophotovoltaic Devices for Waste Heat Recovery",
+      "date": "2026-05-05",
+      "id": "2605.03988v1",
+      "abstract": "Nanogap thermophotovoltaic (TPV) devices can deliver high power densities even with the medium-temperature heat sources. As such, these devices are very promising for recovering industrial waste heat.",
+      "url": "https://arxiv.org/abs/2605.03988v1"
     },
     {
-      "title": "Interlayer Five-Spin Polaron in Superconducting Bilayer Nickelates",
-      "date": "2026-05-04",
-      "id": "2605.02891v1",
-      "abstract": "The discovery of high-$T_c$ superconductivity in Ruddlesden-Popper nickelates has sparked substantial effort towards understanding unconventional electronic states beyond a traditional cuprate-like d^",
-      "url": "https://arxiv.org/abs/2605.02891v1"
+      "title": "FTPrimitiveBench: A Benchmark Suite For Logical Computation Under Hardware-Motivated and Biased Noise Models",
+      "date": "2026-05-05",
+      "id": "2605.04049v1",
+      "abstract": "Fault-tolerant quantum computing requires understanding how error-correcting codes perform on diverse physical hardware. This is typically assessed via noisy stabilizer simulation of logical circuits ",
+      "url": "https://arxiv.org/abs/2605.04049v1"
     },
     {
-      "title": "CityOS: Privacy Architecture for Urban Sensing",
-      "date": "2026-05-04",
-      "id": "2605.02886v1",
-      "abstract": "Cities are rapidly deploying sensing infrastructure -- cameras, environmental sensors, and connected kiosks -- that continuously observe public spaces, yet they lack a system architecture governing ho",
-      "url": "https://arxiv.org/abs/2605.02886v1"
+      "title": "Catastrophe-dispersion models in random and varying environments across generations",
+      "date": "2026-05-05",
+      "id": "2605.04048v1",
+      "abstract": "We study a class of branching processes in which the offspring distribution is not specified directly but is induced by a cycle of internal colony growth, catastrophic reduction and structured dispers",
+      "url": "https://arxiv.org/abs/2605.04048v1"
     },
     {
-      "title": "EvoPoC: Automated Exploit Synthesis for DeFi Smart Contracts via Hierarchical Knowledge Graphs",
-      "date": "2026-05-04",
-      "id": "2605.02868v1",
-      "abstract": "Smart contract vulnerabilities in Decentralized Finance caused over billions of dollars losses every year, yet the security community faces a critical bottleneck: identifying a vulnerability is not th",
-      "url": "https://arxiv.org/abs/2605.02868v1"
+      "title": "KVerus: Scalable and Resilient Formal Verification Proof Generation for Rust Code",
+      "date": "2026-05-05",
+      "id": "2605.03822v1",
+      "abstract": "Formal verification provides the highest assurance of software correctness and security, but its application to large-scale, evolving systems remains a major challenge. While large language models (LL",
+      "url": "https://arxiv.org/abs/2605.03822v1"
+    },
+    {
+      "title": "What You Think is What You See: Driving Exploration in VLM Agents via Visual-Linguistic Curiosity",
+      "date": "2026-05-05",
+      "id": "2605.03782v1",
+      "abstract": "To navigate partially observable visual environments, recent VLM agents increasingly internalize world modeling capabilities into their policies via explicit CoT reasoning, enabling them to mentally s",
+      "url": "https://arxiv.org/abs/2605.03782v1"
+    },
+    {
+      "title": "StateVLM: A State-Aware Vision-Language Model for Robotic Affordance Reasoning",
+      "date": "2026-05-05",
+      "id": "2605.03927v1",
+      "abstract": "Vision-language models (VLMs) have shown remarkable performance in various robotic tasks, as they can perceive visual information and understand natural language instructions. However, when applied to",
+      "url": "https://arxiv.org/abs/2605.03927v1"
+    },
+    {
+      "title": "Task-Aware Scanning Parameter Configuration for Robotic Inspection Using Vision Language Embeddings and Hyperdimensional Computing",
+      "date": "2026-05-05",
+      "id": "2605.03909v1",
+      "abstract": "Robotic laser profiling is widely used for dimensional verification and surface inspection, yet measurement fidelity is often dominated by sensor configuration rather than robot motion. Industrial pro",
+      "url": "https://arxiv.org/abs/2605.03909v1"
+    },
+    {
+      "title": "Jordan Frame in Supergravity and Cosmology",
+      "date": "2026-05-05",
+      "id": "2605.04041v1",
+      "abstract": "The superconformal action can be gauge-fixed in a gauge where is leads to the Einstein frame supergravity defined by a \\K potential $\\mathcal{K}(z, \\bar z)$, or in a gauge where it leads to a Jordan f",
+      "url": "https://arxiv.org/abs/2605.04041v1"
+    },
+    {
+      "title": "Decentralized Edge Caching under Budget and Storage Constraints: A Game-Theoretic Approach",
+      "date": "2026-05-05",
+      "id": "2605.04023v1",
+      "abstract": "The rapid growth of mobile social networks (MSNs) has significantly increased the demand for low-latency and reliable content delivery, motivating the deployment of edge caching systems. In practice, ",
+      "url": "https://arxiv.org/abs/2605.04023v1"
+    },
+    {
+      "title": "Magneto Transport and Spin Reorientation in Pt Co78Ho22 Heterostructures Near the Sublattice Compensation Temperature",
+      "date": "2026-05-05",
+      "id": "2605.03982v1",
+      "abstract": "Metallic amorphous ferrimagnets of 3d transition metals (TM) and rare earths (RE) with 4f electrons exhibit rich magneto transport behavior due to the interplay between the 3d and 4f magnetic sublatti",
+      "url": "https://arxiv.org/abs/2605.03982v1"
+    },
+    {
+      "title": "Anomalous Conductivity and Anisotropic Transport of Nonrelativistic Electrons in Plasma with Magnetostatic Weibel-Generated Turbulence",
+      "date": "2026-05-05",
+      "id": "2605.03926v1",
+      "abstract": "The anisotropic diffusion of electrons with various rigidity and the anomalous conductivity of a collisionless plasma in the presence of Weibel-generated quasi-static turbulent and uniform external ma",
+      "url": "https://arxiv.org/abs/2605.03926v1"
+    },
+    {
+      "title": "Safety and accuracy follow different scaling laws in clinical large language models",
+      "date": "2026-05-05",
+      "id": "2605.04039v1",
+      "abstract": "Clinical LLMs are often scaled by increasing model size, context length, retrieval complexity, or inference-time compute, with the implicit expectation that higher accuracy implies safer behavior. Thi",
+      "url": "https://arxiv.org/abs/2605.04039v1"
+    },
+    {
+      "title": "Sequential vs. Simultaneous Entanglement Swapping under Optimal Link-Layer Control",
+      "date": "2026-05-05",
+      "id": "2605.04047v1",
+      "abstract": "Connection-less, packet-switched quantum network architectures distribute entanglement across multi-hop paths through sequential entanglement swapping, in which each node acts on purely local state in",
+      "url": "https://arxiv.org/abs/2605.04047v1"
+    },
+    {
+      "title": "Can Transformers predict system collapse in dynamical systems?",
+      "date": "2026-05-05",
+      "id": "2605.04024v1",
+      "abstract": "Transformer architectures have recently surged as promising solutions for nonlinear dynamical systems, proposed as foundation models capable of zero-shot dynamics reconstruction and forecasting. Despi",
+      "url": "https://arxiv.org/abs/2605.04024v1"
+    },
+    {
+      "title": "Ergotropy Protection via Cavity Detuning in Collective Open Quantum Batteries",
+      "date": "2026-05-05",
+      "id": "2605.04042v1",
+      "abstract": "This study investigates the performance and ergotropy protection of open collective quantum batteries subject to superradiant decay. By employing a passive spectral detuning strategy within an interme",
+      "url": "https://arxiv.org/abs/2605.04042v1"
+    },
+    {
+      "title": "Localic Relations with Open Cones",
+      "date": "2026-05-05",
+      "id": "2605.04038v1",
+      "abstract": "Localic relations are relations internal to the category of locales, forming the point-free analogues of set-theoretic relations, and providing the general backdrop of localic order theory. This work ",
+      "url": "https://arxiv.org/abs/2605.04038v1"
+    },
+    {
+      "title": "A Closed-Form Adaptive-Landmark Kernel for Certified Point-Cloud and Graph Classification",
+      "date": "2026-05-05",
+      "id": "2605.04046v1",
+      "abstract": "We introduce PALACE (Persistence Adaptive-Landmark Analytic Classification Engine), the data-adaptive companion to PLACE, paying a small cross-validation tier on three knobs (budget, radii, bandwidth;",
+      "url": "https://arxiv.org/abs/2605.04046v1"
+    },
+    {
+      "title": "OpenSeeker-v2: Pushing the Limits of Search Agents with Informative and High-Difficulty Trajectories",
+      "date": "2026-05-05",
+      "id": "2605.04036v1",
+      "abstract": "Deep search capabilities have become an indispensable competency for frontier Large Language Model (LLM) agents, yet their development remains dominated by industrial giants. The typical industry reci",
+      "url": "https://arxiv.org/abs/2605.04036v1"
     }
   ]
 }
