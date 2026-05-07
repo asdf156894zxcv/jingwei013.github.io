@@ -1,182 +1,189 @@
 {
-  "updated": "2026-05-06 04:29 UTC",
-  "total": 25,
+  "updated": "2026-05-07 04:29 UTC",
+  "total": 26,
   "today_count": 0,
   "papers": [
     {
-      "title": "Audio-Visual Intelligence in Large Foundation Models",
-      "date": "2026-05-05",
-      "id": "2605.04045v1",
-      "abstract": "Audio-Visual Intelligence (AVI) has emerged as a central frontier in artificial intelligence, bridging auditory and visual modalities to enable machines that can perceive, generate, and interact in th",
-      "url": "https://arxiv.org/abs/2605.04045v1"
+      "title": "Syn4D: A Multiview Synthetic 4D Dataset",
+      "date": "2026-05-06",
+      "id": "2605.05207v1",
+      "abstract": "Dense 3D reconstruction and tracking of dynamic scenes from monocular video remains an important open challenge in computer vision. Progress in this area has been constrained by the scarcity of high-q",
+      "url": "https://arxiv.org/abs/2605.05207v1"
     },
     {
-      "title": "UniCorrn: Unified Correspondence Transformer Across 2D and 3D",
-      "date": "2026-05-05",
-      "id": "2605.04044v1",
-      "abstract": "Visual correspondence across image-to-image (2D-2D), image-to-point cloud (2D-3D), and point cloud-to-point cloud (3D-3D) geometric matching forms the foundation for numerous 3D vision tasks. Despite ",
-      "url": "https://arxiv.org/abs/2605.04044v1"
+      "title": "Taming Outlier Tokens in Diffusion Transformers",
+      "date": "2026-05-06",
+      "id": "2605.05206v1",
+      "abstract": "We study outlier tokens in Diffusion Transformers (DiTs) for image generation. Prior work has shown that Vision Transformers (ViTs) can produce a small number of high-norm tokens that attract dispropo",
+      "url": "https://arxiv.org/abs/2605.05206v1"
     },
     {
-      "title": "Large Language Models are Universal Reasoners for Visual Generation",
-      "date": "2026-05-05",
-      "id": "2605.04040v1",
-      "abstract": "Text-to-image generation has advanced rapidly with diffusion models, progressing from CLIP and T5 conditioning to unified systems where a single LLM backbone handles both visual understanding and gene",
-      "url": "https://arxiv.org/abs/2605.04040v1"
+      "title": "D-OPSD: On-Policy Self-Distillation for Continuously Tuning Step-Distilled Diffusion Models",
+      "date": "2026-05-06",
+      "id": "2605.05204v1",
+      "abstract": "The landscape of high-performance image generation models is currently shifting from the inefficient multi-step ones to the efficient few-step counterparts (e.g, Z-Image-Turbo and FLUX.2-klein). Howev",
+      "url": "https://arxiv.org/abs/2605.05204v1"
     },
     {
-      "title": "Deco: Extending Personal Physical Objects into Pervasive AI Companion through a Dual-Embodiment Framework",
-      "date": "2026-05-05",
-      "id": "2605.03882v1",
-      "abstract": "Individuals frequently form deep attachments to physical objects (e.g., plush toys) that usually cannot sense or respond to their emotions. While AI companions offer responsiveness and personalization",
-      "url": "https://arxiv.org/abs/2605.03882v1"
+      "title": "PhysForge: Generating Physics-Grounded 3D Assets for Interactive Virtual World",
+      "date": "2026-05-06",
+      "id": "2605.05163v1",
+      "abstract": "Synthesizing physics-grounded 3D assets is a critical bottleneck for interactive virtual worlds and embodied AI. Existing methods predominantly focus on static geometry, overlooking the functional pro",
+      "url": "https://arxiv.org/abs/2605.05163v1"
     },
     {
-      "title": "Bodyless Presence: Reconsidering the Minimal Self in Immersive Video",
-      "date": "2026-05-05",
-      "id": "2605.03873v1",
-      "abstract": "Immersive video, namely 180-degree and 360-degree video designed to be viewed through head-mounted displays, constitutes a boundary case between interactive VR and conventional two-dimensional video f",
-      "url": "https://arxiv.org/abs/2605.03873v1"
+      "title": "The Pinocchio Dimension: Phenomenality of Experience as the Primary Axis of LLM Psychometric Differences",
+      "date": "2026-05-06",
+      "id": "2605.05080v1",
+      "abstract": "We administer 45 validated psychometric questionnaires to 50 large language models (LLMs) to identify the dimensions along which LLMs differ psychometrically. Using Supervised Semantic Differential (S",
+      "url": "https://arxiv.org/abs/2605.05080v1"
     },
     {
-      "title": "Probabilistic-bit Guided CDCL for SAT Solving using Ising Consensus Assumptions",
-      "date": "2026-05-05",
-      "id": "2605.04033v1",
-      "abstract": "Boolean satisfiability (SAT) solvers are widely used in hardware verification, cryptanalysis, automatic test-pattern generation, and side-channel reasoning workflows. Modern conflict-driven clause-lea",
-      "url": "https://arxiv.org/abs/2605.04033v1"
+      "title": "Position: Embodied AI Requires a Privacy-Utility Trade-off",
+      "date": "2026-05-06",
+      "id": "2605.05017v1",
+      "abstract": "Embodied AI (EAI) systems are rapidly transitioning from simulations into real-world domestic and other sensitive environments. However, recent EAI solutions have largely demonstrated advancements wit",
+      "url": "https://arxiv.org/abs/2605.05017v1"
     },
     {
-      "title": "Redefining AI Red Teaming in the Agentic Era: From Weeks to Hours",
-      "date": "2026-05-05",
-      "id": "2605.04019v1",
-      "abstract": "AI systems are entering critical domains like healthcare, finance, and defense, yet remain vulnerable to adversarial attacks. While AI red teaming is a primary defense, current approaches force operat",
-      "url": "https://arxiv.org/abs/2605.04019v1"
+      "title": "S-LCG: Structured Linear Congruential Generator-Based Deterministic Algorithm for Search and Optimization",
+      "date": "2026-05-06",
+      "id": "2605.05198v1",
+      "abstract": "This study presents a novel deterministic optimization algorithm based on a special variant of the Linear Congruential Generator (LCG). While conventional algorithms generally operate within the searc",
+      "url": "https://arxiv.org/abs/2605.05198v1"
     },
     {
-      "title": "Optimized Nanogap Thermophotovoltaic Devices for Waste Heat Recovery",
-      "date": "2026-05-05",
-      "id": "2605.03988v1",
-      "abstract": "Nanogap thermophotovoltaic (TPV) devices can deliver high power densities even with the medium-temperature heat sources. As such, these devices are very promising for recovering industrial waste heat.",
-      "url": "https://arxiv.org/abs/2605.03988v1"
+      "title": "Stable homotopy theory of higher categories",
+      "date": "2026-05-06",
+      "id": "2605.05195v1",
+      "abstract": "Stable homotopy theory is governed by the principle that after inverting loop spaces, homotopy types become the representing objects for homology theories. We show that this principle extends to highe",
+      "url": "https://arxiv.org/abs/2605.05195v1"
     },
     {
-      "title": "FTPrimitiveBench: A Benchmark Suite For Logical Computation Under Hardware-Motivated and Biased Noise Models",
-      "date": "2026-05-05",
-      "id": "2605.04049v1",
-      "abstract": "Fault-tolerant quantum computing requires understanding how error-correcting codes perform on diverse physical hardware. This is typically assessed via noisy stabilizer simulation of logical circuits ",
-      "url": "https://arxiv.org/abs/2605.04049v1"
+      "title": "Local and global optimization in Parallel Minority Games",
+      "date": "2026-05-06",
+      "id": "2605.05141v1",
+      "abstract": "The Parallel Minority Game (PMG) refers to a set of Minority Games (MG), played in parallel, where each agent only has two choices to pick from, but each choice can host agents of many kind i.e., thei",
+      "url": "https://arxiv.org/abs/2605.05141v1"
     },
     {
-      "title": "Catastrophe-dispersion models in random and varying environments across generations",
-      "date": "2026-05-05",
-      "id": "2605.04048v1",
-      "abstract": "We study a class of branching processes in which the offspring distribution is not specified directly but is induced by a cycle of internal colony growth, catastrophic reduction and structured dispers",
-      "url": "https://arxiv.org/abs/2605.04048v1"
+      "title": "Mixed-Parity Altermagnetism in Collinear Spin-Orbital Magnets",
+      "date": "2026-05-06",
+      "id": "2605.05205v1",
+      "abstract": "Altermagnetism has so far mainly been understood in its even- and odd-parity forms. We show that collinear antiferromagnets with zero net magnetization can also host mixed-parity spin splitting, namel",
+      "url": "https://arxiv.org/abs/2605.05205v1"
     },
     {
-      "title": "KVerus: Scalable and Resilient Formal Verification Proof Generation for Rust Code",
-      "date": "2026-05-05",
-      "id": "2605.03822v1",
-      "abstract": "Formal verification provides the highest assurance of software correctness and security, but its application to large-scale, evolving systems remains a major challenge. While large language models (LL",
-      "url": "https://arxiv.org/abs/2605.03822v1"
+      "title": "Fast Full-Wave Simulation of Indoor RSS Maps for Pre-Measurement Validation in Device-Free Localization",
+      "date": "2026-05-06",
+      "id": "2605.04958v1",
+      "abstract": "Human localization is gaining momentum in security, healthcare, logistics, and smart spaces applications. While global navigation systems are unreliable indoor, device-free (a.k.a. passive) localizati",
+      "url": "https://arxiv.org/abs/2605.04958v1"
     },
     {
-      "title": "What You Think is What You See: Driving Exploration in VLM Agents via Visual-Linguistic Curiosity",
-      "date": "2026-05-05",
-      "id": "2605.03782v1",
-      "abstract": "To navigate partially observable visual environments, recent VLM agents increasingly internalize world modeling capabilities into their policies via explicit CoT reasoning, enabling them to mentally s",
-      "url": "https://arxiv.org/abs/2605.03782v1"
+      "title": "Scalar and Vector Airborne Platform Calibration Using Quantum and Classical Magnetometers and Inertial Sensors",
+      "date": "2026-05-06",
+      "id": "2605.04951v1",
+      "abstract": "Airborne magnetometry requires rigorous calibration to isolate geomagnetic signals from sensor errors and platform magnetic fields. This magnetic compensation is needed for applications like geophysic",
+      "url": "https://arxiv.org/abs/2605.04951v1"
     },
     {
-      "title": "StateVLM: A State-Aware Vision-Language Model for Robotic Affordance Reasoning",
-      "date": "2026-05-05",
-      "id": "2605.03927v1",
-      "abstract": "Vision-language models (VLMs) have shown remarkable performance in various robotic tasks, as they can perceive visual information and understand natural language instructions. However, when applied to",
-      "url": "https://arxiv.org/abs/2605.03927v1"
+      "title": "A Hierarchical Agent System with Reinforcement Learning for Multivariate Time Series Data Cleaning",
+      "date": "2026-05-06",
+      "id": "2605.04902v1",
+      "abstract": "Multivariate time series (MTS) are frequently affected by co-occurring quality issues, such as missing values, outliers, and constraint violations, which significantly undermine downstream analytics. ",
+      "url": "https://arxiv.org/abs/2605.04902v1"
     },
     {
-      "title": "Task-Aware Scanning Parameter Configuration for Robotic Inspection Using Vision Language Embeddings and Hyperdimensional Computing",
-      "date": "2026-05-05",
-      "id": "2605.03909v1",
-      "abstract": "Robotic laser profiling is widely used for dimensional verification and surface inspection, yet measurement fidelity is often dominated by sensor configuration rather than robot motion. Industrial pro",
-      "url": "https://arxiv.org/abs/2605.03909v1"
+      "title": "A Closed-Form Dual-Barrier CBF Safety Filter for Holonomic Robots on Incrementally Built Occupancy Grid Maps",
+      "date": "2026-05-06",
+      "id": "2605.05182v1",
+      "abstract": "We present a dual-barrier control barrier function (CBF) safety filter for real-time, safety-critical velocity control of holonomic robots operating in incrementally built occupancy grid maps. As a ro",
+      "url": "https://arxiv.org/abs/2605.05182v1"
     },
     {
-      "title": "Jordan Frame in Supergravity and Cosmology",
-      "date": "2026-05-05",
-      "id": "2605.04041v1",
-      "abstract": "The superconformal action can be gauge-fixed in a gauge where is leads to the Einstein frame supergravity defined by a \\K potential $\\mathcal{K}(z, \\bar z)$, or in a gauge where it leads to a Jordan f",
-      "url": "https://arxiv.org/abs/2605.04041v1"
+      "title": "When Life Gives You BC, Make Q-functions: Extracting Q-values from Behavior Cloning for On-Robot Reinforcement Learning",
+      "date": "2026-05-06",
+      "id": "2605.05172v1",
+      "abstract": "Behavior Cloning (BC) has emerged as a highly effective paradigm for robot learning. However, BC lacks a self-guided mechanism for online improvement after demonstrations have been collected. Existing",
+      "url": "https://arxiv.org/abs/2605.05172v1"
     },
     {
-      "title": "Decentralized Edge Caching under Budget and Storage Constraints: A Game-Theoretic Approach",
-      "date": "2026-05-05",
-      "id": "2605.04023v1",
-      "abstract": "The rapid growth of mobile social networks (MSNs) has significantly increased the demand for low-latency and reliable content delivery, motivating the deployment of edge caching systems. In practice, ",
-      "url": "https://arxiv.org/abs/2605.04023v1"
+      "title": "ConsisVLA-4D: Advancing Spatiotemporal Consistency in Efficient 3D-Perception and 4D-Reasoning for Robotic Manipulation",
+      "date": "2026-05-06",
+      "id": "2605.05126v1",
+      "abstract": "Current Vision-Language-Action (VLA) models primarily focus on mapping 2D observations to actions, but exhibit notable limitations in spatiotemporal perception and reasoning: 1) spatial representation",
+      "url": "https://arxiv.org/abs/2605.05126v1"
     },
     {
-      "title": "Magneto Transport and Spin Reorientation in Pt Co78Ho22 Heterostructures Near the Sublattice Compensation Temperature",
-      "date": "2026-05-05",
-      "id": "2605.03982v1",
-      "abstract": "Metallic amorphous ferrimagnets of 3d transition metals (TM) and rare earths (RE) with 4f electrons exhibit rich magneto transport behavior due to the interplay between the 3d and 4f magnetic sublatti",
-      "url": "https://arxiv.org/abs/2605.03982v1"
+      "title": "LineRides: Line-Guided Reinforcement Learning for Bicycle Robot Stunts",
+      "date": "2026-05-06",
+      "id": "2605.05110v1",
+      "abstract": "Designing reward functions for agile robotic maneuvers in reinforcement learning remains difficult, and demonstration-based approaches often require reference motions that are unavailable for novel pl",
+      "url": "https://arxiv.org/abs/2605.05110v1"
     },
     {
-      "title": "Anomalous Conductivity and Anisotropic Transport of Nonrelativistic Electrons in Plasma with Magnetostatic Weibel-Generated Turbulence",
-      "date": "2026-05-05",
-      "id": "2605.03926v1",
-      "abstract": "The anisotropic diffusion of electrons with various rigidity and the anomalous conductivity of a collisionless plasma in the presence of Weibel-generated quasi-static turbulent and uniform external ma",
-      "url": "https://arxiv.org/abs/2605.03926v1"
+      "title": "Look Once, Beam Twice: Camera-Primed Real-Time Double-Directional mmWave Beam Management for Vehicular Connectivity",
+      "date": "2026-05-06",
+      "id": "2605.05071v1",
+      "abstract": "Millimeter-wave (mmWave) frequencies promise multi-gigabit connectivity for vehicle-to-everything (V2X) networks, but face challenges in terms of severe path loss and mobility-related beam misalignmen",
+      "url": "https://arxiv.org/abs/2605.05071v1"
     },
     {
-      "title": "Safety and accuracy follow different scaling laws in clinical large language models",
-      "date": "2026-05-05",
-      "id": "2605.04039v1",
-      "abstract": "Clinical LLMs are often scaled by increasing model size, context length, retrieval complexity, or inference-time compute, with the implicit expectation that higher accuracy implies safer behavior. Thi",
-      "url": "https://arxiv.org/abs/2605.04039v1"
+      "title": "MRI-Eval: A Tiered Benchmark for Evaluating LLM Performance on MRI Physics and GE Scanner Operations Knowledge",
+      "date": "2026-05-06",
+      "id": "2605.05175v1",
+      "abstract": "Background: Existing MRI LLM benchmarks rely mainly on review-book multiple-choice questions, where top proprietary models already score highly, limiting discrimination. No systematic benchmark has ev",
+      "url": "https://arxiv.org/abs/2605.05175v1"
     },
     {
-      "title": "Sequential vs. Simultaneous Entanglement Swapping under Optimal Link-Layer Control",
-      "date": "2026-05-05",
-      "id": "2605.04047v1",
-      "abstract": "Connection-less, packet-switched quantum network architectures distribute entanglement across multi-hop paths through sequential entanglement swapping, in which each node acts on purely local state in",
-      "url": "https://arxiv.org/abs/2605.04047v1"
+      "title": "Design Conductor 2.0: An agent builds a TurboQuant inference accelerator in 80 hours",
+      "date": "2026-05-06",
+      "id": "2605.05170v1",
+      "abstract": "Driven by a rapid co-evolution of both harness and underlying models, LLM agents are improving at a dizzying pace. In our prior work (performed in Dec. 2025), we introduced \"Design Conductor\" (or just",
+      "url": "https://arxiv.org/abs/2605.05170v1"
     },
     {
-      "title": "Can Transformers predict system collapse in dynamical systems?",
-      "date": "2026-05-05",
-      "id": "2605.04024v1",
-      "abstract": "Transformer architectures have recently surged as promising solutions for nonlinear dynamical systems, proposed as foundation models capable of zero-shot dynamics reconstruction and forecasting. Despi",
-      "url": "https://arxiv.org/abs/2605.04024v1"
+      "title": "A Pinned Local Langlands Correspondence for Depth-Zero Supercuspidal Representations",
+      "date": "2026-05-06",
+      "id": "2605.05201v1",
+      "abstract": "We construct a pinned local Langlands correspondence for depth-zero supercuspidal representations of a connected reductive group over a non-archimedean local field. After fixing a pinned splitting of ",
+      "url": "https://arxiv.org/abs/2605.05201v1"
     },
     {
-      "title": "Ergotropy Protection via Cavity Detuning in Collective Open Quantum Batteries",
-      "date": "2026-05-05",
-      "id": "2605.04042v1",
-      "abstract": "This study investigates the performance and ergotropy protection of open collective quantum batteries subject to superradiant decay. By employing a passive spectral detuning strategy within an interme",
-      "url": "https://arxiv.org/abs/2605.04042v1"
+      "title": "Field-induced asymmetric band flattening and ideal quantum geometry in rhombohedral graphene",
+      "date": "2026-05-06",
+      "id": "2605.05199v1",
+      "abstract": "Rhombohedral graphene exhibits an exceptionally diverse array of correlated phases that depend sensitively on the displacement field. Compiling reported phases into a unified phase diagram reveals a p",
+      "url": "https://arxiv.org/abs/2605.05199v1"
     },
     {
-      "title": "Localic Relations with Open Cones",
-      "date": "2026-05-05",
-      "id": "2605.04038v1",
-      "abstract": "Localic relations are relations internal to the category of locales, forming the point-free analogues of set-theoretic relations, and providing the general backdrop of localic order theory. This work ",
-      "url": "https://arxiv.org/abs/2605.04038v1"
+      "title": "OpenSearch-VL: An Open Recipe for Frontier Multimodal Search Agents",
+      "date": "2026-05-06",
+      "id": "2605.05185v1",
+      "abstract": "Deep search has become a crucial capability for frontier multimodal agents, enabling models to solve complex questions through active search, evidence verification, and multi-step reasoning. Despite r",
+      "url": "https://arxiv.org/abs/2605.05185v1"
     },
     {
-      "title": "A Closed-Form Adaptive-Landmark Kernel for Certified Point-Cloud and Graph Classification",
-      "date": "2026-05-05",
-      "id": "2605.04046v1",
-      "abstract": "We introduce PALACE (Persistence Adaptive-Landmark Analytic Classification Engine), the data-adaptive companion to PLACE, paying a small cross-validation tier on three knobs (budget, radii, bandwidth;",
-      "url": "https://arxiv.org/abs/2605.04046v1"
+      "title": "LongSeeker: Elastic Context Orchestration for Long-Horizon Search Agents",
+      "date": "2026-05-06",
+      "id": "2605.05191v1",
+      "abstract": "Long-horizon search agents must manage a rapidly growing working context as they reason, call tools, and observe information. Naively accumulating all intermediate content can overwhelm the agent, inc",
+      "url": "https://arxiv.org/abs/2605.05191v1"
     },
     {
-      "title": "OpenSeeker-v2: Pushing the Limits of Search Agents with Informative and High-Difficulty Trajectories",
-      "date": "2026-05-05",
-      "id": "2605.04036v1",
-      "abstract": "Deep search capabilities have become an indispensable competency for frontier Large Language Model (LLM) agents, yet their development remains dominated by industrial giants. The typical industry reci",
-      "url": "https://arxiv.org/abs/2605.04036v1"
+      "title": "Sharp Capacity Thresholds in Linear Associative Memory: From Winner-Take-All to Listwise Retrieval",
+      "date": "2026-05-06",
+      "id": "2605.05189v1",
+      "abstract": "How many key-value associations can a $d\\times d$ linear memory store? We show that the answer depends not only on the $d^2$ degrees of freedom in the memory matrix, but also on the retrieval criterio",
+      "url": "https://arxiv.org/abs/2605.05189v1"
+    },
+    {
+      "title": "Implicit Representations of Grammaticality in Language Models",
+      "date": "2026-05-06",
+      "id": "2605.05197v1",
+      "abstract": "Grammaticality and likelihood are distinct notions in human language. Pretrained language models (LMs), which are probabilistic models of language fitted to maximize corpus likelihood, generate gramma",
+      "url": "https://arxiv.org/abs/2605.05197v1"
     }
   ]
 }
