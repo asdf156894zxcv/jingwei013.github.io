@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 具身智能开源日报 - 2026-05-08</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 { font-size: 32px; margin-bottom: 10px; font-weight: 700; }
+        .header .date { font-size: 18px; opacity: 0.9; }
+        .header .subtitle { margin-top: 15px; font-size: 14px; opacity: 0.8; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .stat-num { font-size: 36px; font-weight: 700; color: #667eea; margin-bottom: 5px; }
+        .stat-label { font-size: 14px; color: #666; }
+        .content { padding: 30px; }
+        .section { margin-bottom: 40px; }
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        .section-title .emoji { margin-right: 10px; }
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .project-card.hot { border-left-color: #ff6b6b; background: linear-gradient(to right, #fff5f5 0%, #ffffff 100%); }
+        .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .project-name { font-size: 20px; font-weight: 700; color: #333; margin-bottom: 5px; }
+        .project-name a { color: #667eea; text-decoration: none; }
+        .project-name a:hover { text-decoration: underline; }
+        .project-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+        .badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .badge-type { background: #e3f2fd; color: #1976d2; }
+        .badge-stars { background: #fff3e0; color: #f57c00; }
+        .badge-humanoid { background: #e8f5e9; color: #388e3c; }
+        .badge-conference { background: #fce4ec; color: #c2185b; }
+        .project-desc { font-size: 15px; color: #666; margin-bottom: 15px; line-height: 1.6; }
+        .project-links { display: flex; gap: 15px; flex-wrap: wrap; }
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+            color: white;
+        }
+        .link-btn:hover { filter: brightness(0.9); }
+        .link-btn.github { background: #24292e; }
+        .link-btn.paper { background: #4caf50; }
+        .project-highlights { margin-top: 15px; padding: 15px; background: white; border-radius: 8px; }
+        .project-highlights h4 { font-size: 14px; color: #333; margin-bottom: 10px; }
+        .project-highlights ul { list-style: none; padding-left: 0; }
+        .project-highlights li { font-size: 13px; color: #666; padding: 5px 0; padding-left: 20px; position: relative; }
+        .project-highlights li::before { content: "✓"; position: absolute; left: 0; color: #667eea; font-weight: 700; }
+        .papers-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .papers-table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .papers-table td { padding: 12px; border-bottom: 1px solid #eee; font-size: 14px; vertical-align: middle; }
+        .papers-table tr:hover { background: #f8f9fa; }
+        .papers-table a { color: #667eea; text-decoration: none; }
+        .papers-table a:hover { text-decoration: underline; }
+        .papers-table .links-cell { white-space: nowrap; }
+        .news-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+        }
+        .news-emoji { font-size: 32px; flex-shrink: 0; }
+        .news-content h4 { font-size: 16px; color: #333; margin-bottom: 8px; }
+        .news-content p { font-size: 14px; color: #666; line-height: 1.6; }
+        .analysis-box { background: #f8f9fa; padding: 25px; border-radius: 12px; line-height: 1.8; color: #333; }
+        .analysis-box h3 { margin-bottom: 15px; color: #667eea; }
+        .analysis-box ul { margin-bottom: 20px; padding-left: 20px; }
+        .analysis-box li { margin-bottom: 6px; }
+        .footer { background: #f8f9fa; padding: 30px; text-align: center; color: #666; font-size: 14px; }
+        .footer .next-scan { color: #667eea; font-weight: 600; }
+        @media (max-width: 600px) {
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .project-header { flex-direction: column; }
+            .project-links { flex-direction: column; }
+            .papers-table { font-size: 12px; }
+            .papers-table th, .papers-table td { padding: 8px 6px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🤖 具身智能开源日报</h1>
+            <div class="date">2026-05-08</div>
+            <div class="subtitle">每日监控全网最新开源项目 | 聚焦轮式人形机器人应用</div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-num">8</div>
+                <div class="stat-label">开源项目</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">5+</div>
+                <div class="stat-label">论文发布</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">2</div>
+                <div class="stat-label">有Demo视频</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">4</div>
+                <div class="stat-label">轮式人形相关</div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Top Projects -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">🔥</span>今日推荐 Top 5</h2>
+
+                <!-- SocialNav - HOT -->
+                <div class="project-card hot">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-name">
+                                <a href="https://github.com/AMAP-EAI/SocialNav" target="_blank">SocialNav - 社交感知导航基础模型</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge badge-type">🧭 导航</span>
+                                <span class="badge badge-conference">CVPR 2026 Oral 🎉</span>
+                                <span class="badge badge-humanoid">✅ 轮式人形适用</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-desc">
+                        高德地图联合中科院自动化所推出的社交感知导航基础模型，训练人类启发的导航策略。CVPR 2026 Oral 论文，顶级会议口头报告。
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/AMAP-EAI/SocialNav" target="_blank" class="link-btn github">🔗 GitHub</a>
+                        <a href="https://arxiv.org/abs/2511.21135" target="_blank" class="link-btn paper">📄 arXiv:2511.21135</a>
+                    </div>
+                    <div class="project-highlights">
+                        <h4>关键亮点</h4>
+                        <ul>
+                            <li>CVPR 2026 Oral 论文（顶级会议口头报告）</li>
+                            <li>高德地图 + 中科院自动化所联合出品</li>
+                            <li>社交感知导航（Socially-Aware Embodied Navigation）</li>
+                            <li>基础模型架构，支持迁移学习</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- AerialVLA -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-name">
+                                <a href="https://github.com/XuPeng23/AerialVLA" target="_blank">AerialVLA - 无人机导航VLA模型</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge badge-type">🦾 VLA</span>
+                                <span class="badge badge-stars">36 commits</span>
+                                <span class="badge badge-humanoid">⚠️ 可迁移</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-desc">
+                        极简端到端视觉-语言-动作模型，专为无人机导航设计。有Demo视频展示，架构简洁易于部署。
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/XuPeng23/AerialVLA" target="_blank" class="link-btn github">🔗 GitHub</a>
+                        <a href="https://arxiv.org/abs/2603.14363" target="_blank" class="link-btn paper">📄 arXiv:2603.14363</a>
+                    </div>
+                    <div class="project-highlights">
+                        <h4>关键亮点</h4>
+                        <ul>
+                            <li>端到端 VLA 架构，极简设计</li>
+                            <li>无人机导航场景（可迁移到地面机器人）</li>
+                            <li>有 demo 视频展示</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- BYOVLA -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-name">
+                                <a href="https://github.com/irom-princeton/byovla" target="_blank">BYOVLA - VLA模型运行时干预方案</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge badge-type">🤖 VLA优化</span>
+                                <span class="badge badge-conference">arXiv 2024</span>
+                                <span class="badge badge-humanoid">✅ 轮式人形适用</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-desc">
+                        Princeton大学出品，无需微调的 VLA 模型运行时干预方案，显著提升干扰场景下的性能表现。
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/irom-princeton/byovla" target="_blank" class="link-btn github">🔗 GitHub</a>
+                    </div>
+                    <div class="project-highlights">
+                        <h4>关键亮点</h4>
+                        <ul>
+                            <li>无需微调，无需访问模型权重</li>
+                            <li>提升干扰物体/背景场景下的性能</li>
+                            <li>Princeton 大学出品</li>
+                            <li>适用于任何 VLA 模型</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RoboGen -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-name">
+                                <a href="https://github.com/Genesis-Embodied-AI/RoboGen" target="_blank">RoboGen - 自引导机器人智能体</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge badge-type">🤖 通用模型</span>
+                                <span class="badge badge-stars">27 commits</span>
+                                <span class="badge badge-humanoid">✅ 轮式人形适用</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-desc">
+                        生成式自引导机器人智能体，能够无限提出并掌握新技能。支持移动（locomotion）和操作（manipulation）两大场景。
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Genesis-Embodied-AI/RoboGen" target="_blank" class="link-btn github">🔗 GitHub</a>
+                        <a href="https://arxiv.org/abs/2311.01455" target="_blank" class="link-btn paper">📄 arXiv:2311.01455</a>
+                    </div>
+                    <div class="project-highlights">
+                        <h4>关键亮点</h4>
+                        <ul>
+                            <li>自引导学习（Self-Guided）</li>
+                            <li>自动生成新任务并学习</li>
+                            <li>支持移动和操作双场景</li>
+                            <li>Genesis 生成式仿真引擎</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quantum Deep RL -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-name">
+                                <a href="https://github.com/romerik/Quantum_Deep_Reinforcement" target="_blank">Quantum Deep RL - 量子强化学习导航</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge badge-type">🧭 导航</span>
+                                <span class="badge badge-humanoid">⚠️ 足式相关</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-desc">
+                        量子计算 + 深度强化学习在人形机器人导航中的应用。基于 MuJoco Humanoid-v4 和 Walker2d-v4 环境。
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/romerik/Quantum_Deep_Reinforcement" target="_blank" class="link-btn github">🔗 GitHub</a>
+                    </div>
+                    <div class="project-highlights">
+                        <h4>关键亮点</h4>
+                        <ul>
+                            <li>量子计算 + 深度强化学习</li>
+                            <li>Humanoid-v4 和 Walker2d-v4 环境</li>
+                            <li>创新性技术路线</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Papers -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">📚</span>论文/技术速递</h2>
+                <table class="papers-table">
+                    <thead>
+                        <tr>
+                            <th style="width:28%">论文/项目</th>
+                            <th style="width:12%">来源</th>
+                            <th style="width:40%">核心亮点</th>
+                            <th style="width:20%">链接</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>SocialNav</strong><br><span style="color:#c2185b;font-size:12px;">CVPR 2026 Oral</span></td>
+                            <td>高德+中科院</td>
+                            <td>社交感知导航基础模型，层级脑-动作架构，人类启发策略</td>
+                            <td class="links-cell">
+                                <a href="https://github.com/AMAP-EAI/SocialNav" target="_blank">GitHub</a><br>
+                                <a href="https://arxiv.org/abs/2511.21135" target="_blank">arXiv</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>AerialVLA</strong></td>
+                            <td>arXiv:2603.14363</td>
+                            <td>极简端到端VLA，无人机导航，AirSim模拟器，TravelUAV基准</td>
+                            <td class="links-cell">
+                                <a href="https://github.com/XuPeng23/AerialVLA" target="_blank">GitHub</a><br>
+                                <a href="https://arxiv.org/abs/2603.14363" target="_blank">arXiv</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>BYOVLA</strong></td>
+                            <td>Princeton</td>
+                            <td>无需微调的VLA运行时干预，Grounded-SAM-2集成，提升干扰场景性能</td>
+                            <td class="links-cell">
+                                <a href="https://github.com/irom-princeton/byovla" target="_blank">GitHub</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>RoboGen</strong><br><span style="color:#c2185b;font-size:12px;">ICML 2024</span></td>
+                            <td>CMU/MIT/清华</td>
+                            <td>自引导机器人智能体，生成式仿真，Genesis引擎，支持移动+操作</td>
+                            <td class="links-cell">
+                                <a href="https://github.com/Genesis-Embodied-AI/RoboGen" target="_blank">GitHub</a><br>
+                                <a href="https://arxiv.org/abs/2311.01455" target="_blank">arXiv</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>RWM - Robotic World Model</strong></td>
+                            <td>ETH苏黎世</td>
+                            <td>零样本部署四足和人形机器人，世界模型导航，"学会想象"</td>
+                            <td class="links-cell">
+                                <a href="https://github.com/romerik/Quantum_Deep_Reinforcement" target="_blank">GitHub</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Industry News -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">🎬</span>产业动态</h2>
+
+                <div class="news-item">
+                    <div class="news-emoji">🏪</div>
+                    <div class="news-content">
+                        <h4>宇树科技开放 UniStore - 全球首个机器人应用商店</h4>
+                        <p>宇树科技开放全球首个人形机器人应用商店 UniStore，支持 H1 人形机器人。开发者上传、用户一键下载任务动作应用，类似手机应用商店模式。内置舞蹈、武术、作业等预设动作。</p>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-emoji">🏆</div>
+                    <div class="news-content">
+                        <h4>AGIBOT WORLD CHALLENGE@ICRA 2026 比赛放榜</h4>
+                        <p>智元机器人主办的比赛公布初赛结果。World Model 赛道共 336 支团队角逐，中科院自动化所 + 高德地图联合团队斩获冠军。</p>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-emoji">💰</div>
+                    <div class="news-content">
+                        <h4>世界模型融资热潮 - 单月超 70 亿元</h4>
+                        <p>ETH苏黎世发布 RWM 框架，晨昏线科技发布 GCWM1。世界模型单月融资超 70 亿元，资本高度关注这一方向。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">📝</span>技术趋势分析</h2>
+                <div class="analysis-box">
+                    <h3>VLA 成为主流方向</h3>
+                    <ul>
+                        <li>OpenVLA（70亿参数）树立开源标杆</li>
+                        <li>StarVLA 推动框架标准化</li>
+                        <li>BYOVLA 提供免微调优化方案</li>
+                        <li>AerialVLA 展示跨平台应用潜力</li>
+                    </ul>
+
+                    <h3>世界模型融资热潮</h3>
+                    <ul>
+                        <li>ETH苏黎世 RWM 框架：零样本部署</li>
+                        <li>晨昏线科技 GCWM1：因果推理</li>
+                        <li>单月融资超70亿元，资本高度关注</li>
+                    </ul>
+
+                    <h3>导航领域突破</h3>
+                    <ul>
+                        <li>SocialNav（CVPR 2026 Oral）：社交感知成为新方向</li>
+                        <li>高德地图 + 中科院自动化所：产学研结合</li>
+                    </ul>
+
+                    <h3>对轮式人形机器人的启示</h3>
+                    <ul>
+                        <li><strong>SocialNav</strong> 的社交感知导航直接适用于室内服务机器人</li>
+                        <li><strong>BYOVLA</strong> 的运行时干预方案可提升复杂环境下的鲁棒性</li>
+                        <li><strong>AerialVLA</strong> 的极简端到端设计值得借鉴</li>
+                        <li><strong>RoboGen</strong> 的自引导学习可用于技能自动生成</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="generated-time">生成时间：2026-05-08 20:30</div>
+            <div>数据源：GitHub Trending · arXiv · 技术博客 · 产业新闻</div>
+            <div style="margin-top: 10px;">下次扫描：<span class="next-scan">明天 08:00</span></div>
+        </div>
+    </div>
+</body>
+</html>
