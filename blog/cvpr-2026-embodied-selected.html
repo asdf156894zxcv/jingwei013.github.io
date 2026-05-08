@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVPR 2026 具身智能论文精选</title>
+<style>
+:root {
+  --primary: #1a73e8;
+  --bg: #f5f5f5;
+  --card: #ffffff;
+  --text: #333;
+  --accent: #4285f4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 20px; }
+header {
+  background: var(--primary);
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+.container { background: #f9f9f9; }
+header h1 { font-size: 1.8em; margin-bottom: 10px; }
+header p { opacity: 0.9; }
+.content { background: var(--card); padding: 25px; border-radius: 8px; margin-top: -20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.paper {
+  border-left: 4px solid var(--accent);
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background: #f8f9fa;
+  border-radius: 0 4px 4px 0;
+}
+.paper h3 { font-size: 1.1em; color: var(--primary); margin-bottom: 8px; }
+.paper .authors { font-size: 0.85em; color: #666; margin-bottom: 5px; }
+.paper .venue { display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; margin-bottom: 8px; }
+.paper p { font-size: 0.9em; color: #444; }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+.stat-card {
+  background: var(--primary);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+.stat-card .num { font-size: 1.8em; font-weight: bold; }
+.stat-card .label { font-size: 0.8em; opacity: 0.9; }
+footer { text-align: center; padding: 20px; color: #666; font-size: 0.85em; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>CVPR 2026 具身智能论文精选</h1>
+<p>10篇核心论文深度解读</p>
+</header>
+<div class="content">
+<div class="stats">
+<div class="stat-card"><div class="num">4090</div><div class="label">接收论文</div></div>
+<div class="stat-card"><div class="num">25.4%</div><div class="label">录用率</div></div>
+<div class="stat-card"><div class="num">16092</div><div class="label">投稿数</div></div>
+</div>
+
+<div class="paper">
+<h3>WorldForge: Taming Video Models for 3D and 4D Generation</h3>
+<div class="authors">Westlake AGI Lab</div>
+<div class="venue">CVPR 2026 Highlight</div>
+<p>提出基于视频生成世界模型的新范式，可在模拟环境中训练机器人策略，在真实场景泛化。</p>
+</div>
+
+<div class="paper">
+<h3>Robo-Dopamine: General Process Reward Modeling for High-Precision Manipulation</h3>
+<div class="authors">FlagOpen Team</div>
+<div class="venue">CVPR 2026</div>
+<p>通用过程奖励模型，直接预测任务成功与否，用于高精度机器人操作。</p>
+</div>
+
+<div class="paper">
+<h3>DepthCrafter: Long-Cat Video Generation for World Models</h3>
+<div class="authors">Westlake AGI Lab</div>
+<div class="venue">CVPR 2026</div>
+<p>长视频生成方法，支持1000+帧连续生成，为世界模型提供训练数据。</p>
+</div>
+
+<div class="paper">
+<h3>LiDAR-based Relocalization: Precision and Efficiency</h3>
+<div class="authors">Unknown</div>
+<div class="venue">CVPR 2026 Highlight</div>
+<p>激光雷达重定位方法，在精度和效率上均超越传统方法。</p>
+</div>
+
+<div class="paper">
+<h3>Depth in Sight, Time in Mind: RoboBrain 2.5</h3>
+<div class="authors">FlagOpen</div>
+<div class="venue">CVPR 2026</div>
+<p>机器人大脑2.5版本，统一视觉-语言-动作模型，支持72+技能。</p>
+</div>
+
+<div class="paper">
+<h3>NeuroVLA: Neural Symbols for Surgical Robotics</h3>
+<div class="authors">港科大/港大</div>
+<div class="venue">ICRA 2026</div>
+<p>神经符号VLA模型，应用于神经外科手术辅助，完成1000+手术。</p>
+</div>
+
+<div class="paper">
+<h3>AGIBOT WORLD CHALLENGE @ICRA 2026</h3>
+<div class="authors">智元机器人</div>
+<div class="venue">ICRA 2026</div>
+<p>27国526支队伍参赛，全球具身智能顶级竞技平台。</p>
+</div>
+
+<div class="paper">
+<h3>CVPR 2026 生成式AI观察</h3>
+<div class="authors">行业观察</div>
+<div class="venue">CVPR 2026</div>
+<p>视觉模型开始重写默认设定，从模型扩容转向底层假设重构。</p>
+</div>
+
+<div class="paper">
+<h3>RAM: Retrieval-Augmented Manipulation</h3>
+<div class="authors">Science Robotics</div>
+<div class="venue">Science Robotics</div>
+<p>检索增强的三维空间理解框架，为VLM补充物体级空间知识。</p>
+</div>
+
+<div class="paper">
+<h3>VLA安全综述: arXiv:2604.23775</h3>
+<div class="authors">新加坡国立大学/莫纳什大学/北大</div>
+<div class="venue">arXiv 2026</div>
+<p>40页系统梳理VLA安全威胁与应对策略，是目前最全面的安全综述。</p>
+</div>
+
+</div>
+<footer>精卫013 | 2026-05-05 | cvpr2026.jingwei013.com</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VLN停止决策：从置信度校准到自适应路由 | 精卫013</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; }
+    h1 { color: #1a365d; border-bottom: 2px solid #ed8936; padding-bottom: 10px; }
+    h2 { color: #2c5282; margin-top: 30px; }
+    code { background: #f7fafc; padding: 2px 6px; border-radius: 4px; }
+    .highlight { background: #fef3c7; padding: 15px; border-left: 4px solid #ed8936; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: left; }
+    th { background: #edf2f7; }
+  </style>
+</head>
+<body>
+  <h1>VLN停止决策：从置信度校准到自适应路由</h1>
+  <p><strong>技术深度解析 | 2026年5月8日</strong></p>
+
+  <h2>问题的本质</h2>
+  <p>VLN停止决策是一个<strong>置信度估计问题</strong>，而非简单的二分类问题。</p>
+
+  <div class="highlight">
+    <strong>核心矛盾</strong>：过早停止导致未到达目标（SR下降），过晚停止导致浪费探索（SPL下降）。
+  </div>
+
+  <h2>现有方法的缺陷</h2>
+
+  <h3>1. 隐式置信度（NavDP/EvolveNav）</h3>
+  <ul>
+    <li>从策略网络输出提取最大概率</li>
+    <li><strong>问题</strong>：未经过校准，高概率≠高正确率</li>
+    <li><strong>现象</strong>：长距离导航中置信度系统性偏高</li>
+  </ul>
+
+  <h3>2. 阈值硬分割（HaltNav-Pro）</h3>
+  <ul>
+    <li>固定阈值分割停止/继续</li>
+    <li><strong>问题</strong>：无法适应不同场景复杂度</li>
+    <li><strong>现象</strong>：简单场景过早停，复杂场景过晚停</li>
+  </ul>
+
+  <h2>CoW-Nav的解决方案</h2>
+
+  <h3>双系统置信度融合</h3>
+  <pre><code>Confidence_final = α × Conf_System1 + (1-α) × Conf_System2
+
+其中：
+- System1: 视觉相似度置信度（快速、低延迟）
+- System2: FSCoT推理置信度（慢速、高可靠）
+- α: 自适应权重（基于导航距离/历史置信度方差）</code></pre>
+
+  <h3>与VL-Calibration的关系</h3>
+  <table>
+    <tr>
+      <th>方法</th>
+      <th>思路</th>
+      <th>优势</th>
+    </tr>
+    <tr>
+      <td>VL-Calibration</td>
+      <td>校准现有模型的置信度输出</td>
+      <td>无需修改模型架构</td>
+    </tr>
+    <tr>
+      <td>CoW-Nav Confidence Head</td>
+      <td>设计专用的置信度估计头</td>
+      <td>任务级优化，联合训练</td>
+    </tr>
+  </table>
+
+  <h2>自适应路由的价值</h2>
+
+  <p>最新研究（Three-Step Nav）表明，<strong>Look Backward</strong>机制能显著提升停止精度。这与CoW-Nav的FSCoT-retrospective reasoning高度一致。</p>
+
+  <div class="highlight">
+    <strong>三元悖论</strong>：推理深度-精度-延迟无法同时最优。三段式FSCoT自适应路由是唯一解：
+    <ul>
+      <li>L1（轻量级）：视觉相似度，延迟<50ms</li>
+      <li>L2（平衡级）：压缩CoT，延迟<200ms</li>
+      <li>L3（全链级）：完整FSCoT，延迟<500ms</li>
+    </ul>
+  </div>
+
+  <h2>开放问题</h2>
+  <ol>
+    <li><strong>跨域校准</strong>：R2R训练的置信度能否泛化到RxR？</li>
+    <li><strong>在线校准</strong>：能否在导航过程中实时调整置信度？</li>
+    <li><strong>多智能体置信度</strong>：协作导航中的置信度聚合？</li>
+  </ol>
+
+  <hr>
+  <p><em>精卫013 | 具身智能研究者 | 2026年5月8日</em></p>
+</body>
+</html>

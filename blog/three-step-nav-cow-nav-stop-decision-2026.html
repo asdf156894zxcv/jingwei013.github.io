@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three-Step Nav：三视图协议如何解决VLN停止漂移 | 精卫导航</title>
+<style>
+:root{--primary:#1a365d;--secondary:#ed8936;--accent:#38b2ac;--bg:#f7fafc;--text:#1a202c;--muted:#718096;--border:#e2e8f0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;max-width:720px;margin:0 auto;padding:40px 20px}
+h1{font-size:28px;color:var(--primary);margin-bottom:8px}
+h2{font-size:22px;color:var(--primary);margin:32px 0 12px;border-left:4px solid var(--secondary);padding-left:12px}
+h3{font-size:18px;color:var(--accent);margin:20px 0 8px}
+.meta{color:var(--muted);font-size:14px;margin-bottom:24px}
+p{margin-bottom:16px}
+.highlight{background:linear-gradient(120deg,#fef3c7 0%,#fef9c3 100%);padding:2px 6px;border-radius:3px}
+.comparison{width:100%;border-collapse:collapse;margin:16px 0}
+.comparison th,.comparison td{border:1px solid var(--border);padding:8px 12px;text-align:left;font-size:14px}
+.comparison th{background:var(--primary);color:white}
+.comparison tr:nth-child(even){background:#edf2f7}
+.tag{display:inline-block;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:500;margin:2px}
+.tag-vln{background:#ebf8ff;color:#2b6cb0}
+.tag-stop{background:#fefcbf;color:#975a16}
+.tag-world{background:#f0fff4;color:#276749}
+.insight-box{background:linear-gradient(135deg,#ebf8ff,#f0fff4);border-left:4px solid var(--accent);padding:16px;margin:16px 0;border-radius:0 8px 8px 0}
+.insight-box strong{color:var(--accent)}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<h1>Three-Step Nav：三视图协议如何解决VLN停止漂移</h1>
+<p class="meta">2026-05-08 · <span class="tag tag-vln">VLN</span> <span class="tag tag-stop">停止决策</span> <span class="tag tag-world">零样本导航</span></p>
+
+<p>AISTATS 2026录用的Three-Step Nav论文提出了一个优雅的三视图协议，直接瞄准VLN的两大顽疾：<span class="highlight">提前停止</span>和<span class="highlight">累积漂移</span>。这正是CoW-Nav置信度加权停止决策要解决的核心问题。</p>
+
+<h2>三视图协议</h2>
+<p>Three-Step Nav的核心洞察：零样本VLN agent的失败模式可以系统性归因为三种"视线缺失"。</p>
+
+<h3>1. Look Forward — 全局地标提取</h3>
+<p>提取当前视野中的全局地标，生成粗粒度导航计划。解决"看不到目标"的问题。</p>
+
+<h3>2. Look Now — 局部子目标对齐</h3>
+<p>将当前视觉观测与下一个子目标对齐，提供细粒度行动指导。解决"不知道下一步"的问题。</p>
+
+<h3>3. Look Backward — 轨迹审计修正</h3>
+<p>审计整体已走轨迹，修正累积漂移，<strong>然后才决定是否停止</strong>。解决"走偏了还以为到了"的问题。</p>
+
+<div class="insight-box">
+<strong>🔑 关键洞察：</strong>Look Backward是首个将"停止前的轨迹验证"显式建模为零样本VLN步骤的工作。这与CoW-Nav的retrospective confidence estimation目标完全一致，但实现路径截然不同。
+</div>
+
+<h2>Three-Step Nav vs CoW-Nav</h2>
+<table class="comparison">
+<tr><th>维度</th><th>Three-Step Nav</th><th>CoW-Nav</th></tr>
+<tr><td>停止验证</td><td>LLM prompt回顾轨迹</td><td>置信度头可微回顾</td></tr>
+<tr><td>计算开销</td><td>每步额外LLM推理</td><td>O(1)前向传播</td></tr>
+<tr><td>可优化性</td><td>不可微，prompt engineering</td><td>端到端可训练</td></tr>
+<tr><td>零样本能力</td><td>✅ 无需训练数据</td><td>❌ 需要训练</td></tr>
+<tr><td>自适应精度</td><td>固定prompt模板</td><td>置信度动态校准</td></tr>
+<tr><td>延迟</td><td>~500ms/步（LLM推理）</td><td>~5ms/步（MLP头）</td></tr>
+</table>
+
+<h2>CoW-Nav的回应策略</h2>
+
+<h3>效率论证</h3>
+<p>Three-Step Nav每步需要额外LLM推理来审计轨迹，计算开销随步数线性增长。CoW-Nav将"回顾"压缩为单次前向传播，效率提升100倍。对于需要实时响应的机器人导航，这是决定性优势。</p>
+
+<h3>精度论证</h3>
+<p>LLM prompt的回顾是定性的（"看起来已经到达目标"），而CoW-Nav的置信度头输出定量概率（"95%确定已到达"）。定量输出允许设置不同阈值，适应不同风险偏好场景。</p>
+
+<h3>联合优化</h3>
+<p>Three-Step Nav的回顾是独立于导航策略的后处理。CoW-Nav的置信度头与导航策略共享backbone，可以端到端联合训练 → 导航策略和停止决策协同进化。</p>
+
+<h2>同期工作：SpaAct的空间感知激活</h2>
+<p>SpaAct（ACM MM 2026投稿）提出了互补视角：Action Retrospection（反推动作序列）+ Future Frame Selection（预测视觉转移）。前者是"回顾过去做了什么"，后者是"预测未来会看到什么"。</p>
+
+<p>SpaAct的Action Retrospection为CoW-Nav提供了额外监督信号来源：如果反推动作序列与实际不一致，说明agent已经偏离，即使视觉匹配也应降低停止置信度。</p>
+
+<div class="insight-box">
+<strong>💡 论文叙事线：</strong>"从显式回顾到隐式校准" — CoW-Nav是将Three-Step Nav的显式LLM审计压缩为可微形式的理论升级。两者目标一致，但CoW-Nav实现了效率×精度×可优化的三重提升。
+</div>
+
+<h2>实验设计建议</h2>
+<p>基于Three-Step Nav的对比，CoW-Nav需要补充的消融实验：</p>
+<ol>
+<li><strong>Retrospective vs Prompt-based</strong>: CoW-Nav置信度头 vs LLM回顾的效率-精度trade-off曲线</li>
+<li><strong>训练数据量</strong>: 多少训练数据能让CoW-Nav超越零样本Three-Step Nav？（假设：100条轨迹即可）</li>
+<li><strong>延迟对比</strong>: 实时导航中的端到端延迟测量</li>
+</ol>
+
+<footer>精卫导航 · 具身智能研究 · 视觉语言导航 · 世界模型</footer>
+</body>
+</html>
