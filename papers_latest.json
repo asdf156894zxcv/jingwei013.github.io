@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-08 04:16 UTC",
-  "total": 6,
+  "updated": "2026-05-09 04:18 UTC",
+  "total": 18,
   "today_count": 0,
   "papers": [
     {
@@ -25,13 +25,6 @@
       "url": "https://arxiv.org/abs/2605.06663v1"
     },
     {
-      "title": "Multi-Robot Coordination in V2X Environments",
-      "date": "2026-05-07",
-      "id": "2605.06662v1",
-      "abstract": "This paper presents a Vehicle-to-Everything (V2X) communication framework that enables decentralized cooperation among social robots operating in complex urban traffic environments. Building on ETSI C",
-      "url": "https://arxiv.org/abs/2605.06662v1"
-    },
-    {
       "title": "Superintelligent Retrieval Agent: The Next Frontier of Information Retrieval",
       "date": "2026-05-07",
       "id": "2605.06647v1",
@@ -44,6 +37,97 @@
       "id": "2605.06623v1",
       "abstract": "Large language model (LLM)-based Multi-agent systems (MAS) have shown promise in tackling complex collaborative tasks, where agents are typically orchestrated via role-specific prompts. While the qual",
       "url": "https://arxiv.org/abs/2605.06623v1"
+    },
+    {
+      "title": "Cross-Modal Navigation with Multi-Agent Reinforcement Learning",
+      "date": "2026-05-07",
+      "id": "2605.06595v1",
+      "abstract": "Robust embodied navigation relies on complementary sensory cues. However, high-quality and well-aligned multi-modal data is often difficult to obtain in practice. Training a monolithic model is also c",
+      "url": "https://arxiv.org/abs/2605.06595v1"
+    },
+    {
+      "title": "Relit-LiVE: Relight Video by Jointly Learning Environment Video",
+      "date": "2026-05-07",
+      "id": "2605.06658v1",
+      "abstract": "Recent advances have shown that large-scale video diffusion models can be repurposed as neural renderers by first decomposing videos into intrinsic scene representations and then performing forward re",
+      "url": "https://arxiv.org/abs/2605.06658v1"
+    },
+    {
+      "title": "A preliminary exploration of the effects of baseline length for the LIFE space mission",
+      "date": "2026-05-07",
+      "id": "2605.06648v1",
+      "abstract": "By aiming to find and characterise dozens of habitable exoplanets through the technique of nulling interferometry, the LIFE space mission will produce transformational science. One of the key paramete",
+      "url": "https://arxiv.org/abs/2605.06648v1"
+    },
+    {
+      "title": "Rational homology disk degenerations of elliptic surfaces",
+      "date": "2026-05-07",
+      "id": "2605.06668v1",
+      "abstract": "In this paper, a $\\mathbb{Q}$HD singularity is a weighted homogeneous normal surface singularity admitting a rational homology disk ($\\mathbb{Q}$HD) smoothing. These singularities are rational but oft",
+      "url": "https://arxiv.org/abs/2605.06668v1"
+    },
+    {
+      "title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
+      "date": "2026-05-07",
+      "id": "2605.06665v1",
+      "abstract": "Modern Mixture-of-Experts (MoE) architectures allocate expert capacity through a rigid per-layer rule: each transformer layer owns a separate expert set. This convention couples depth scaling with lin",
+      "url": "https://arxiv.org/abs/2605.06665v1"
+    },
+    {
+      "title": "Multi-Robot Coordination in V2X Environments",
+      "date": "2026-05-07",
+      "id": "2605.06662v1",
+      "abstract": "This paper presents a Vehicle-to-Everything (V2X) communication framework that enables decentralized cooperation among social robots operating in complex urban traffic environments. Building on ETSI C",
+      "url": "https://arxiv.org/abs/2605.06662v1"
+    },
+    {
+      "title": "Delay-Robust Deep Reinforcement Learning for Ranging-Free Channel Access under Mobility in Underwater Acoustic Networks",
+      "date": "2026-05-07",
+      "id": "2605.06536v1",
+      "abstract": "Long propagation delays in underwater acoustic networks (UWANs) cause spatio-temporal uncertainty, constraining channel utilization in medium access control (MAC) protocols. Node mobility within auton",
+      "url": "https://arxiv.org/abs/2605.06536v1"
+    },
+    {
+      "title": "OA-WAM: Object-Addressable World Action Model for Robust Robot Manipulation",
+      "date": "2026-05-07",
+      "id": "2605.06481v1",
+      "abstract": "World Action Models (WAMs) enhance Vision-Language-Action policies by jointly predicting scene evolution and robot actions, but existing methods usually represent the predicted world as holistic image",
+      "url": "https://arxiv.org/abs/2605.06481v1"
+    },
+    {
+      "title": "Verifier-Backed Hard Problem Generation for Mathematical Reasoning",
+      "date": "2026-05-07",
+      "id": "2605.06660v1",
+      "abstract": "Large Language Models (LLMs) demonstrate strong capabilities for solving scientific and mathematical problems, yet they struggle to produce valid, challenging, and novel problems - an essential compon",
+      "url": "https://arxiv.org/abs/2605.06660v1"
+    },
+    {
+      "title": "Why Global LLM Leaderboards Are Misleading: Small Portfolios for Heterogeneous Supervised ML",
+      "date": "2026-05-07",
+      "id": "2605.06656v1",
+      "abstract": "Ranking LLMs via pairwise human feedback underpins current leaderboards for open-ended tasks, such as creative writing and problem-solving. We analyze ~89K comparisons in 116 languages from 52 LLMs fr",
+      "url": "https://arxiv.org/abs/2605.06656v1"
+    },
+    {
+      "title": "Optimizer-Model Consistency: Full Finetuning with the Same Optimizer as Pretraining Forgets Less",
+      "date": "2026-05-07",
+      "id": "2605.06654v1",
+      "abstract": "Optimizers play an important role in both pretraining and finetuning stages when training large language models (LLMs). In this paper, we present an observation that full finetuning with the same opti",
+      "url": "https://arxiv.org/abs/2605.06654v1"
+    },
+    {
+      "title": "AI Co-Mathematician: Accelerating Mathematicians with Agentic AI",
+      "date": "2026-05-07",
+      "id": "2605.06651v1",
+      "abstract": "We introduce the AI co-mathematician, a workbench for mathematicians to interactively leverage AI agents to pursue open-ended research. The AI co-mathematician is optimized to provide holistic support",
+      "url": "https://arxiv.org/abs/2605.06651v1"
+    },
+    {
+      "title": "The Pulsar Radial Acceleration Relation",
+      "date": "2026-05-07",
+      "id": "2605.06659v1",
+      "abstract": "The radial acceleration relation (RAR) links observed and baryonic accelerations, and is best established in rotation curves of late-type galaxies. Pulsar timing, which measures line-of-sight (LOS) di",
+      "url": "https://arxiv.org/abs/2605.06659v1"
     }
   ]
 }
