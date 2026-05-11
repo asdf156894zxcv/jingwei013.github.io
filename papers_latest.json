@@ -1,133 +1,161 @@
 {
-  "updated": "2026-05-10 04:38 UTC",
-  "total": 18,
+  "updated": "2026-05-11 04:53 UTC",
+  "total": 22,
   "today_count": 0,
   "papers": [
     {
-      "title": "ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation",
-      "date": "2026-05-07",
-      "id": "2605.06667v1",
-      "abstract": "For artistic applications, video generation requires fine-grained control over both performance and cinematography, i.e., the actor's motion and the camera trajectory. We present ActCam, a zero-shot m",
-      "url": "https://arxiv.org/abs/2605.06667v1"
+      "title": "123D: Unifying Multi-Modal Autonomous Driving Data at Scale",
+      "date": "2026-05-08",
+      "id": "2605.08084v1",
+      "abstract": "The pursuit of autonomous driving has produced one of the richest sensor data collections in all of robotics. However, its scale and diversity remain largely untapped. Each dataset adopts different 2D",
+      "url": "https://arxiv.org/abs/2605.08084v1"
     },
     {
-      "title": "BAMI: Training-Free Bias Mitigation in GUI Grounding",
-      "date": "2026-05-07",
-      "id": "2605.06664v1",
-      "abstract": "GUI grounding is a critical capability for enabling GUI agents to execute tasks such as clicking and dragging. However, in complex scenarios like the ScreenSpot-Pro benchmark, existing models often su",
-      "url": "https://arxiv.org/abs/2605.06664v1"
+      "title": "LLMs Improving LLMs: Agentic Discovery for Test-Time Scaling",
+      "date": "2026-05-08",
+      "id": "2605.08083v1",
+      "abstract": "Test-time scaling (TTS) has become an effective approach for improving large language model performance by allocating additional computation during inference. However, existing TTS strategies are larg",
+      "url": "https://arxiv.org/abs/2605.08083v1"
     },
     {
-      "title": "EMO: Pretraining Mixture of Experts for Emergent Modularity",
-      "date": "2026-05-07",
-      "id": "2605.06663v1",
-      "abstract": "Large language models are typically deployed as monolithic systems, requiring the full model even when applications need only a narrow subset of capabilities, e.g., code, math, or domain-specific know",
-      "url": "https://arxiv.org/abs/2605.06663v1"
+      "title": "Normalizing Trajectory Models",
+      "date": "2026-05-08",
+      "id": "2605.08078v1",
+      "abstract": "Diffusion-based models decompose sampling into many small Gaussian denoising steps -- an assumption that breaks down when generation is compressed to a few coarse transitions. Existing few-step method",
+      "url": "https://arxiv.org/abs/2605.08078v1"
     },
     {
-      "title": "Superintelligent Retrieval Agent: The Next Frontier of Information Retrieval",
-      "date": "2026-05-07",
-      "id": "2605.06647v1",
-      "abstract": "Retrieval-augmented agents are increasingly the interface to large organizational knowledge bases, yet most still treat retrieval as a black box: they issue exploratory queries, inspect returned snipp",
-      "url": "https://arxiv.org/abs/2605.06647v1"
+      "title": "Active Embodiment Identification with Reinforcement Learning for Legged Robots",
+      "date": "2026-05-08",
+      "id": "2605.08020v1",
+      "abstract": "We present an active embodiment identification method for legged robots that jointly learns information-seeking behavior and explicit embodiment prediction. Using a history-augmented URMA architecture",
+      "url": "https://arxiv.org/abs/2605.08020v1"
     },
     {
-      "title": "MASPO: Joint Prompt Optimization for LLM-based Multi-Agent Systems",
-      "date": "2026-05-07",
-      "id": "2605.06623v1",
-      "abstract": "Large language model (LLM)-based Multi-agent systems (MAS) have shown promise in tackling complex collaborative tasks, where agents are typically orchestrated via role-specific prompts. While the qual",
-      "url": "https://arxiv.org/abs/2605.06623v1"
+      "title": "TAVIS: A Benchmark for Egocentric Active Vision and Anticipatory Gaze in Imitation Learning",
+      "date": "2026-05-08",
+      "id": "2605.07943v1",
+      "abstract": "Active vision -- where a policy controls its own gaze during manipulation -- has emerged as a key capability for imitation learning, with multiple independent systems demonstrating its benefits in the",
+      "url": "https://arxiv.org/abs/2605.07943v1"
     },
     {
-      "title": "Cross-Modal Navigation with Multi-Agent Reinforcement Learning",
-      "date": "2026-05-07",
-      "id": "2605.06595v1",
-      "abstract": "Robust embodied navigation relies on complementary sensory cues. However, high-quality and well-aligned multi-modal data is often difficult to obtain in practice. Training a monolithic model is also c",
-      "url": "https://arxiv.org/abs/2605.06595v1"
+      "title": "Trajectory as the Teacher: Few-Step Discrete Flow Matching via Energy-Navigated Distillation",
+      "date": "2026-05-08",
+      "id": "2605.07924v1",
+      "abstract": "Discrete flow matching generates text by iteratively transforming noise tokens into coherent language, but may require hundreds of forward passes. Distillation uses the multi-step trajectory to train ",
+      "url": "https://arxiv.org/abs/2605.07924v1"
     },
     {
-      "title": "Relit-LiVE: Relight Video by Jointly Learning Environment Video",
-      "date": "2026-05-07",
-      "id": "2605.06658v1",
-      "abstract": "Recent advances have shown that large-scale video diffusion models can be repurposed as neural renderers by first decomposing videos into intrinsic scene representations and then performing forward re",
-      "url": "https://arxiv.org/abs/2605.06658v1"
+      "title": "Empirical Bayes Rebiasing",
+      "date": "2026-05-08",
+      "id": "2605.08069v1",
+      "abstract": "We study methods for simultaneous analysis of many noisy and biased estimates, each paired with an even noisier estimate of its own bias. The analyst's goal is to construct short calibrated intervals ",
+      "url": "https://arxiv.org/abs/2605.08069v1"
     },
     {
-      "title": "A preliminary exploration of the effects of baseline length for the LIFE space mission",
-      "date": "2026-05-07",
-      "id": "2605.06648v1",
-      "abstract": "By aiming to find and characterise dozens of habitable exoplanets through the technique of nulling interferometry, the LIFE space mission will produce transformational science. One of the key paramete",
-      "url": "https://arxiv.org/abs/2605.06648v1"
+      "title": "Fermionic trace relations and supersymmetric indices at finite $N$",
+      "date": "2026-05-08",
+      "id": "2605.08085v1",
+      "abstract": "We study invariants of bosonic and fermionic (Grassmann-valued) matrices under the adjoint action of $U(N)$, weighted by the fermion number. Such models naturally appear as the supersymmetric indices ",
+      "url": "https://arxiv.org/abs/2605.08085v1"
     },
     {
-      "title": "Rational homology disk degenerations of elliptic surfaces",
-      "date": "2026-05-07",
-      "id": "2605.06668v1",
-      "abstract": "In this paper, a $\\mathbb{Q}$HD singularity is a weighted homogeneous normal surface singularity admitting a rational homology disk ($\\mathbb{Q}$HD) smoothing. These singularities are rational but oft",
-      "url": "https://arxiv.org/abs/2605.06668v1"
+      "title": "Strategies for Collecting Multi-Institutional Data in Discipline-Based Education Research",
+      "date": "2026-05-08",
+      "id": "2605.07747v1",
+      "abstract": "Multi-institutional studies are critical for advancing discipline-based education research (DBER) because they allow us to determine where and for whom research findings are applicable. Despite this b",
+      "url": "https://arxiv.org/abs/2605.07747v1"
     },
     {
-      "title": "UniPool: A Globally Shared Expert Pool for Mixture-of-Experts",
-      "date": "2026-05-07",
-      "id": "2605.06665v1",
-      "abstract": "Modern Mixture-of-Experts (MoE) architectures allocate expert capacity through a rigid per-layer rule: each transformer layer owns a separate expert set. This convention couples depth scaling with lin",
-      "url": "https://arxiv.org/abs/2605.06665v1"
+      "title": "Stochastic Differential Dynamic Programming for Trajectory Optimization under Partial Observability",
+      "date": "2026-05-08",
+      "id": "2605.07529v1",
+      "abstract": "Designing spacecraft trajectories remains challenging in the presence of stochastic effects such as maneuver execution errors and observation uncertainties. Although covariance control and belief-spac",
+      "url": "https://arxiv.org/abs/2605.07529v1"
     },
     {
-      "title": "Multi-Robot Coordination in V2X Environments",
-      "date": "2026-05-07",
-      "id": "2605.06662v1",
-      "abstract": "This paper presents a Vehicle-to-Everything (V2X) communication framework that enables decentralized cooperation among social robots operating in complex urban traffic environments. Building on ETSI C",
-      "url": "https://arxiv.org/abs/2605.06662v1"
+      "title": "Evaluation of an Actuated Spine in Agile Quadruped Locomotion",
+      "date": "2026-05-08",
+      "id": "2605.07988v1",
+      "abstract": "The spine plays a crucial role in the dynamic locomotion of quadrupedal animals, improving the stability, speed, and efficiency of their gait, especially for fast-paced and highly agile movements. The",
+      "url": "https://arxiv.org/abs/2605.07988v1"
     },
     {
-      "title": "Delay-Robust Deep Reinforcement Learning for Ranging-Free Channel Access under Mobility in Underwater Acoustic Networks",
-      "date": "2026-05-07",
-      "id": "2605.06536v1",
-      "abstract": "Long propagation delays in underwater acoustic networks (UWANs) cause spatio-temporal uncertainty, constraining channel utilization in medium access control (MAC) protocols. Node mobility within auton",
-      "url": "https://arxiv.org/abs/2605.06536v1"
+      "title": "Anisotropic Defect Diffusion in Layered CsPbBr$_\\mathrm{x}$I$_\\mathrm{3-x}$ Perovskites",
+      "date": "2026-05-08",
+      "id": "2605.08055v1",
+      "abstract": "Mixed-halide perovskites offer a route to enhance phase stability and modify optoelectronic properties. Here, we use large-scale molecular dynamics simulations with a reactive force field to investiga",
+      "url": "https://arxiv.org/abs/2605.08055v1"
     },
     {
-      "title": "OA-WAM: Object-Addressable World Action Model for Robust Robot Manipulation",
-      "date": "2026-05-07",
-      "id": "2605.06481v1",
-      "abstract": "World Action Models (WAMs) enhance Vision-Language-Action policies by jointly predicting scene evolution and robot actions, but existing methods usually represent the predicted world as holistic image",
-      "url": "https://arxiv.org/abs/2605.06481v1"
+      "title": "Joint Beamforming and Antenna Placement Optimization in Pinching Antenna Systems with User Mobility: A Deep Reinforcement Learning Approach",
+      "date": "2026-05-08",
+      "id": "2605.08039v1",
+      "abstract": "Recently, the pinching antenna systems (PASS) have attracted significant attention due to their ability to exploit dynamically reconfigurable pinching points along waveguides for flexible signal trans",
+      "url": "https://arxiv.org/abs/2605.08039v1"
     },
     {
-      "title": "Verifier-Backed Hard Problem Generation for Mathematical Reasoning",
-      "date": "2026-05-07",
-      "id": "2605.06660v1",
-      "abstract": "Large Language Models (LLMs) demonstrate strong capabilities for solving scientific and mathematical problems, yet they struggle to produce valid, challenging, and novel problems - an essential compon",
-      "url": "https://arxiv.org/abs/2605.06660v1"
+      "title": "One Token Per Frame: Reconsidering Visual Bandwidth in World Models for VLA Policy",
+      "date": "2026-05-08",
+      "id": "2605.07931v1",
+      "abstract": "Vision-language-action (VLA) models increasingly rely on auxiliary world modules to plan over long horizons, yet how such modules should be parameterized on top of a pretrained VLA remains an open des",
+      "url": "https://arxiv.org/abs/2605.07931v1"
     },
     {
-      "title": "Why Global LLM Leaderboards Are Misleading: Small Portfolios for Heterogeneous Supervised ML",
-      "date": "2026-05-07",
-      "id": "2605.06656v1",
-      "abstract": "Ranking LLMs via pairwise human feedback underpins current leaderboards for open-ended tasks, such as creative writing and problem-solving. We analyze ~89K comparisons in 116 languages from 52 LLMs fr",
-      "url": "https://arxiv.org/abs/2605.06656v1"
+      "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection",
+      "date": "2026-05-08",
+      "id": "2605.08070v1",
+      "abstract": "A standard technique for scaling inference-time reasoning is Self-Consistency, whereby multiple candidate answers are sampled from an LLM and the most common answer is selected. More recently, it has ",
+      "url": "https://arxiv.org/abs/2605.08070v1"
     },
     {
-      "title": "Optimizer-Model Consistency: Full Finetuning with the Same Optimizer as Pretraining Forgets Less",
-      "date": "2026-05-07",
-      "id": "2605.06654v1",
-      "abstract": "Optimizers play an important role in both pretraining and finetuning stages when training large language models (LLMs). In this paper, we present an observation that full finetuning with the same opti",
-      "url": "https://arxiv.org/abs/2605.06654v1"
+      "title": "Unlocking vacuum entanglement",
+      "date": "2026-05-08",
+      "id": "2605.08076v1",
+      "abstract": "The structure of entanglement in the ground state of the harmonic chain is studied. A class of two-mode squeezed states, useful for this purpose, is identified. The entanglement of the local modes at ",
+      "url": "https://arxiv.org/abs/2605.08076v1"
     },
     {
-      "title": "AI Co-Mathematician: Accelerating Mathematicians with Agentic AI",
-      "date": "2026-05-07",
-      "id": "2605.06651v1",
-      "abstract": "We introduce the AI co-mathematician, a workbench for mathematicians to interactively leverage AI agents to pursue open-ended research. The AI co-mathematician is optimized to provide holistic support",
-      "url": "https://arxiv.org/abs/2605.06651v1"
+      "title": "Advances in quantum learning theory with bosonic systems",
+      "date": "2026-05-08",
+      "id": "2605.08082v1",
+      "abstract": "This paper reviews recent advances in quantum learning theory for continuous-variable (CV) systems. Quantum learning theory investigates how to extract classical information from quantum systems as ef",
+      "url": "https://arxiv.org/abs/2605.08082v1"
     },
     {
-      "title": "The Pulsar Radial Acceleration Relation",
-      "date": "2026-05-07",
-      "id": "2605.06659v1",
-      "abstract": "The radial acceleration relation (RAR) links observed and baryonic accelerations, and is best established in rotation curves of late-type galaxies. Pulsar timing, which measures line-of-sight (LOS) di",
-      "url": "https://arxiv.org/abs/2605.06659v1"
+      "title": "EmambaIR: Efficient Visual State Space Model for Event-guided Image Reconstruction",
+      "date": "2026-05-08",
+      "id": "2605.08073v1",
+      "abstract": "Recent event-based image reconstruction methods predominantly rely on Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) to process complementary event information. However, these arc",
+      "url": "https://arxiv.org/abs/2605.08073v1"
+    },
+    {
+      "title": "Proxy3D: Efficient 3D Representations for Vision-Language Models via Semantic Clustering and Alignment",
+      "date": "2026-05-08",
+      "id": "2605.08064v1",
+      "abstract": "Spatial intelligence in vision-language models (VLMs) attracts research interest with the practical demand to reason in the 3D world.Despite promising results, most existing methods follow the convent",
+      "url": "https://arxiv.org/abs/2605.08064v1"
+    },
+    {
+      "title": "Conformal Path Reasoning: Trustworthy Knowledge Graph Question Answering via Path-Level Calibration",
+      "date": "2026-05-08",
+      "id": "2605.08077v1",
+      "abstract": "Knowledge Graph Question Answering (KGQA) has shown promise for grounded and interpretable reasoning, yet existing approaches often fail to provide reliable coverage guarantees over retrieved answers.",
+      "url": "https://arxiv.org/abs/2605.08077v1"
+    },
+    {
+      "title": "Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping",
+      "date": "2026-05-08",
+      "id": "2605.08075v1",
+      "abstract": "Decoding imagined speech from non-invasive brain recordings is challenging because imagined datasets are scarce and difficult to align temporally across subjects and sessions In this work, we propose ",
+      "url": "https://arxiv.org/abs/2605.08075v1"
+    },
+    {
+      "title": "GRAPHLCP: Structure-Aware Localized Conformal Prediction on Graphs",
+      "date": "2026-05-08",
+      "id": "2605.08074v1",
+      "abstract": "Conformal prediction (CP) provides a distribution-free approach to uncertainty quantification with finite-sample guarantees. However, applying CP to graph neural networks (GNNs) remains challenging as",
+      "url": "https://arxiv.org/abs/2605.08074v1"
     }
   ]
 }
