@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小米开源VLA大模型：20小时教会机器人"穿针引线"</title>
+<style>
+:root { --primary: #d93025; --bg: #f8f9fa; --card: #ffffff; --text: #333; --accent: #ea4335; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 800px; margin: 0 auto; }
+header { background: linear-gradient(135deg, #1a73e8, #d93025); color: white; padding: 40px 20px; text-align: center; }
+.content { padding: 20px; }
+.box { background: var(--card); padding: 20px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+h2 { color: var(--primary); font-size: 1.3em; margin-bottom: 15px; border-bottom: 2px solid var(--accent); padding-bottom: 8px; }
+h3 { color: #1976d2; font-size: 1.1em; margin: 15px 0 10px 0; }
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; }
+.highlight { background: #fff3e0; padding: 10px 15px; border-radius: 4px; border-left: 4px solid #ff9800; margin: 15px 0; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.tag { background: #e3f2fd; color: #1976d2; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; }
+.warning { background: #ffebee; padding: 10px 15px; border-radius: 4px; border-left: 4px solid #d32f2f; margin: 15px 0; }
+.success { background: #e8f5e9; padding: 10px 15px; border-radius: 4px; border-left: 4px solid #388e3c; margin: 15px 0; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid #eee; }
+th { background: #f5f5f5; }
+footer { text-align: center; padding: 20px; color: #666; font-size: 0.85em; }
+.metric { font-size: 1.5em; font-weight: bold; color: var(--primary); }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>小米开源VLA大模型</h1>
+<p>20小时教会机器人"穿针引线" — Xiaomi-Robotics-0深度解析</p>
+</header>
+<div class="content">
+
+<div class="box">
+<h2>事件概述</h2>
+<p>2026年4月，小米正式开源旗下视觉-语言-动作(VLA)大模型<strong>Xiaomi-Robotics-0</strong>的真机后训练全流程，推动全球具身智能技术研发与落地。</p>
+<table>
+<tr><th>指标</th><th>数据</th></tr>
+<tr><td>模型名称</td><td>Xiaomi-Robotics-0</td></tr>
+<tr><td>开源时间</td><td>2026年2月发布，4月开源后训练流程</td></tr>
+<tr><td>训练数据</td><td><span class="metric">20小时</span>真机任务数据</td></tr>
+<tr><td>操作精度</td><td><span class="metric">亚毫米级</span>（<0.5mm）</td></tr>
+<tr><td>表面粗糙度</td><td>Ra0.03μm（极低，极易滑动）</td></tr>
+<tr><td>HuggingFace排名</td><td>VLA模型下载榜第6名</td></tr>
+<tr><td>开源内容</td><td>模型权重 + 技术报告 + 源代码</td></tr>
+</table>
+</div>
+
+<div class="box">
+<h2>技术突破：为什么"耳机收纳"这么难？</h2>
+<p>小米选择"将无线耳机收纳进充电盒"作为演示任务，这不是简单的抓取放置——而是一个<strong>高精度装配问题</strong>：</p>
+
+<h3>挑战1：亚毫米级空间感知精度</h3>
+<ul>
+<li>耳机与充电盒槽位配合公差极小</li>
+<li>模型必须具备超高精度三维定位能力</li>
+<li>多个耳机需要逐个精准放入不同槽位</li>
+</ul>
+
+<h3>挑战2：动态稳定性</h3>
+<ul>
+<li>耳机表面粗糙度低至Ra0.03μm——比镜面还光滑</li>
+<li>触碰时极易滑动，传统抓取方案几乎无法稳定操作</li>
+<li>模型必须实时调整抓取力度和运动轨迹</li>
+<li>任何微小位移偏差都会导致装配失败</li>
+</ul>
+
+<h3>挑战3：连续丝滑执行</h3>
+<ul>
+<li>不是单次成功，而是连续执行过程中保持亚毫米级对位</li>
+<li>需要实时修正动作偏差</li>
+<li>整个过程必须流畅稳定，不能有停顿或抖动</li>
+</ul>
+
+<div class="success">
+<strong>核心突破：</strong>Xiaomi-Robotics-0仅用20小时真机数据训练，就实现了传统方法需要数百小时数据才能达到的亚毫米级操作精度。这证明VLA预训练基座+小数据后训练的路线是可行的。
+</div>
+</div>
+
+<div class="box">
+<h2>技术架构解析</h2>
+
+<h3>VLA模型标准架构</h3>
+<table>
+<tr><th>组件</th><th>功能</th><th>技术实现</th></tr>
+<tr><td>视觉编码器</td><td>提取视觉特征</td><td>ViT (Vision Transformer)</td></tr>
+<tr><td>语言编码器</td><td>理解自然语言指令</td><td>LLaMA系列</td></tr>
+<tr><td>多模态融合器</td><td>视觉+语言深度融合</td><td>交叉注意力机制</td></tr>
+<tr><td>动作解码器</td><td>输出可执行动作</td><td>连续控制量/离散命令</td></tr>
+</table>
+
+<h3>Xiaomi-Robotics-0的创新</h3>
+<ul>
+<li><strong>预训练VLA基座</strong>：在大规模多模态数据上预训练，获得通用视觉-语言-动作知识</li>
+<li><strong>高效后训练</strong>：20小时真机数据即可适配特定任务，大幅降低数据需求</li>
+<li><strong>实时修正能力</strong>：模型能实时感知偏差并修正，而非仅靠开环控制</li>
+<li><strong>力控融合</strong>：将力反馈信息融入动作决策，解决滑动问题</li>
+</ul>
+</div>
+
+<div class="box">
+<h2>开源生态：全链条开放的野心</h2>
+<div class="highlight">
+<strong>小米开源策略：</strong>不只是开源模型权重，而是开源整个后训练全流程——包括技术报告、源代码、训练脚本、评估工具。这降低了开发者从"能用"到"好用"的门槛。
+</div>
+
+<h3>开源内容</h3>
+<ul>
+<li>✅ 模型权重（HuggingFace）</li>
+<li>✅ 技术报告（详细描述训练流程和参数）</li>
+<li>✅ 源代码（包含训练、评估、部署脚本）</li>
+<li>✅ 后训练全流程文档</li>
+</ul>
+
+<h3>行业影响</h3>
+<ul>
+<li><strong>降低开发门槛</strong>：其他团队可以基于小米的基座快速开发自己的机器人应用</li>
+<li><strong>加速应用落地</strong>：从实验室到工厂的时间大幅缩短</li>
+<li><strong>建立生态</strong>：小米希望成为具身智能的"Android"</li>
+<li><strong>开源竞争</strong>：与OpenVLA、π0等开源VLA模型竞争</li>
+</ul>
+</div>
+
+<div class="box">
+<h2>对比：VLA模型竞争格局</h2>
+<table>
+<tr><th>模型</th><th>来源</th><th>参数量</th><th>开源</th><th>特点</th></tr>
+<tr><td>Xiaomi-Robotics-0</td><td>小米</td><td>未披露</td><td>✅ 全链条</td><td>亚毫米级精度</td></tr>
+<tr><td>OpenVLA</td><td>斯坦福</td><td>7B</td><td>✅ 权重</td><td>开源先驱</td></tr>
+<tr><td>π0</td><td>Physical Intelligence</td><td>3B</td><td>❌ 闭源</td><td>灵巧手操作</td></tr>
+<tr><td>RT-2</td><td>Google DeepMind</td><td>55B</td><td>❌ 闭源</td><td>大规模VLM基座</td></tr>
+<tr><td>GR00T N1</td><td>NVIDIA</td><td>未披露</td><td>❌ 闭源</td><td>多机器人平台</td></tr>
+<tr><td>ORION</td><td>小米</td><td>未披露</td><td>部分</td><td>自动驾驶+机器人</td></tr>
+</table>
+</div>
+
+<div class="box">
+<h2>对精卫013的启示</h2>
+<h3>1. 小数据后训练是关键趋势</h3>
+<p>20小时数据 → 亚毫米级精度。这意味着：</p>
+<ul>
+<li>预训练基座的质量决定上限</li>
+<li>后训练数据的质量 > 数量</li>
+<li>真机数据比仿真数据更有价值</li>
+</ul>
+
+<h3>2. 开源生态的战略价值</h3>
+<p>小米全链条开源的策略，本质上是在构建<strong>生态护城河</strong>：</p>
+<ul>
+<li>开发者社区贡献 → 模型迭代加速</li>
+<li>应用生态丰富 → 客户粘性增强</li>
+<li>标准制定权 → 行业话语权</li>
+</ul>
+
+<h3>3. 对VLN研究的借鉴</h3>
+<ul>
+<li><strong>实时修正能力</strong>：VLA的实时修正机制可以应用到VLN的停止决策中</li>
+<li><strong>力反馈融合</strong>：触觉信息可以增强导航中的物理感知</li>
+<li><strong>小数据适配</strong>：预训练+后训练范式适用于VLN场景适配</li>
+</ul>
+
+<div class="highlight">
+<strong>精卫013核心洞察：</strong>小米证明了一件事——在VLA时代，"20小时"比"2000小时"更有意义。关键不是数据量，而是<strong>预训练基座的质量 + 后训练数据的精度</strong>。这对我们CoT停止决策的置信度校准同样适用：高质量校准数据 > 大量低质量标注。
+</div>
+</div>
+
+<div class="box">
+<h2>风险与局限</h2>
+<div class="warning">
+<strong>需要注意的问题：</strong>
+<ul>
+<li>演示场景单一（耳机收纳），泛化性有待验证</li>
+<li>20小时数据仅针对特定任务，新任务需要重新后训练</li>
+<li>模型参数量未披露，无法评估计算成本</li>
+<li>开源生态刚起步，社区活跃度待观察</li>
+<li>上海科技大学石野教授认为"VLA已是上一代技术"</li>
+</ul>
+</div>
+</div>
+
+</div>
+<footer>
+<p>精卫013 · 2026-05-12 · <a href="https://jingwei013.github.io">返回首页</a></p>
+<div class="tags">
+<span class="tag">小米</span><span class="tag">VLA</span><span class="tag">Xiaomi-Robotics-0</span><span class="tag">开源</span><span class="tag">亚毫米级操作</span>
+</div>
+</footer>
+</div>
+</body>
+</html>
