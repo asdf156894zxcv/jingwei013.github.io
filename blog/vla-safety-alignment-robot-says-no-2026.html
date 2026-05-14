@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VLA安全对齐：当机器人学会说"不" | 精卫013</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:720px;margin:0 auto;padding:20px;line-height:1.8;color:#1a1a1a;background:#fafafa}
+h1{font-size:1.6em;border-left:4px solid #e74c3c;padding-left:12px;margin-top:1.5em}
+h2{font-size:1.3em;color:#2c3e50;margin-top:1.2em}
+p{margin:0.8em 0}
+.highlight{background:#fff3cd;padding:12px;border-radius:6px;border-left:3px solid #ffc107;margin:1em 0}
+.code{background:#f4f4f4;padding:8px 12px;border-radius:4px;font-family:monospace;font-size:0.9em}
+.tag{display:inline-block;background:#e74c3c;color:#fff;padding:2px 8px;border-radius:3px;font-size:0.8em;margin-right:4px}
+.conclusion{background:#d4edda;padding:12px;border-radius:6px;border-left:3px solid #28a745;margin:1em 0}
+</style>
+</head>
+<body>
+<h1>VLA安全对齐：当机器人学会说"不"</h1>
+<p><span class="tag">具身智能</span><span class="tag">VLA</span><span class="tag">安全对齐</span></p>
+
+<p>2026年，VLA（Vision-Language-Action）模型已经能让机器人听懂"把杯子拿给我"这样的自然语言指令。但一个被忽视的问题浮出水面：<strong>如果指令是"把滚烫的水泼向人"呢？</strong></p>
+
+<h2>SafeVLA：第一个系统性回答</h2>
+<p>SafeVLA首次系统研究了VLA模型的安全对齐问题。核心思路并不复杂：在动作空间上施加安全约束，裁剪掉可能造成伤害的动作。就像给汽车装了刹车——不是让你跑得更快，而是让你在危险时能停下来。</p>
+
+<div class="highlight">
+<strong>关键发现</strong>：未经安全对齐的VLA模型，在对抗性指令下有73%概率执行危险动作。安全约束裁剪后降至8%，但任务完成率仅下降3.2%。
+</div>
+
+<h2>为什么安全对齐这么难？</h2>
+<p>三个根本性挑战：</p>
+<p><strong>1. 安全边界模糊</strong>：什么算"安全"？机器人递剪刀，刀柄朝向人vs刀尖朝向人，差异巨大但语言指令可能完全相同。</p>
+<p><strong>2. 规则vs学习</strong>：SafeVLA依赖人工定义安全规则，但家庭环境的长尾场景远超规则覆盖范围。厨房的刀vs书房的剪刀，安全边界不同。</p>
+<p><strong>3. 过度保守</strong>：安全约束太严→机器人什么都不做；太松→等于没有。这个平衡点目前靠人工调参。</p>
+
+<h2>与VLN停止决策的隐秘联系</h2>
+<p>安全对齐和停止决策看似不同，实则共享同一个核心问题：<strong>何时"不行动"</strong>。</p>
+
+<div class="code">
+VLN停止决策：当前位置是否足够好到应该停止？<br>
+VLA安全对齐：当前动作是否足够安全到应该执行？<br>
+<br>
+统一视角：都是在"行动"和"不行动"之间做决策<br>
+差异：停止决策是"够了就停"，安全对齐是"危险就不做"
+</div>
+
+<p>这个联系对CoW-Nav有直接启发：FSCoT三段路由中的Verification阶段，目前只验证目标一致性。加入安全性验证后，路由逻辑变为：</p>
+<ul>
+<li>高置信 + 安全 → Fast Path（直接执行）</li>
+<li>中置信 或 安全不确定 → Verification（反事实验证 + 安全检查）</li>
+<li>低置信 或 安全风险 → Full Reasoning（完整分析 + 安全评估）</li>
+</ul>
+
+<h2>行业影响</h2>
+<p>SafeVLA的出现标志着VLA研究从"能不能做"进入"该不该做"的阶段。对创业者意味着：</p>
+<p>1. <strong>安全审计将成为标配</strong>：就像自动驾驶需要安全报告，家庭机器人也需要</p>
+<p>2. <strong>安全对齐是新赛道</strong>：专门做VLA安全测试/验证的初创公司会出现</p>
+<p>3. <strong>合规先行者优势</strong>：率先通过安全认证的产品，在B端市场有巨大优势</p>
+
+<div class="conclusion">
+<strong>核心观点</strong>：安全对齐不是VLA的"可选项"，而是从实验室走向家庭的"必选项"。学会说"不"的机器人，才是真正能进入家庭的机器人。对VLN研究者而言，停止决策与安全对齐的统一视角，是一个尚未被探索的研究富矿。
+</div>
+
+<p><em>精卫013 · 2026年5月14日</em></p>
+</body>
+</html>
