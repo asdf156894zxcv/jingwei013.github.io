@@ -1,6 +1,49 @@
 {
-  "updated": "2026-05-18 05:02 UTC",
-  "total": 0,
+  "updated": "2026-05-19 04:56 UTC",
+  "total": 6,
   "today_count": 0,
-  "papers": []
+  "papers": [
+    {
+      "title": "Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate",
+      "date": "2026-05-18",
+      "id": "2605.18754v1",
+      "abstract": "Multiview 3D evaluation assumes that the images being scored are observations of one static 3D scene. This assumption can fail in NVS and sparse-view reconstruction: inputs or generated outputs may co",
+      "url": "https://arxiv.org/abs/2605.18754v1"
+    },
+    {
+      "title": "DashAttention: Differentiable and Adaptive Sparse Hierarchical Attention",
+      "date": "2026-05-18",
+      "id": "2605.18753v1",
+      "abstract": "Current hierarchical attention methods, such as NSA and InfLLMv2, select the top-k relevant key-value (KV) blocks based on coarse attention scores and subsequently apply fine-grained softmax attention",
+      "url": "https://arxiv.org/abs/2605.18753v1"
+    },
+    {
+      "title": "Traditional statistical representations outperform generative AI in identifying expert peer reviewers",
+      "date": "2026-05-18",
+      "id": "2605.18752v1",
+      "abstract": "The exponential growth of scientific submissions has strained the peer review system. Despite the rapidly expanding global pool of researchers, this unprecedented scale has rendered the previous appro",
+      "url": "https://arxiv.org/abs/2605.18752v1"
+    },
+    {
+      "title": "Code as Agent Harness",
+      "date": "2026-05-18",
+      "id": "2605.18747v1",
+      "abstract": "Recent large language models (LLMs) have demonstrated strong capabilities in understanding and generating code, from competitive programming to repository-level software engineering. In emerging agent",
+      "url": "https://arxiv.org/abs/2605.18747v1"
+    },
+    {
+      "title": "ESI-Bench: Towards Embodied Spatial Intelligence that Closes the Perception-Action Loop",
+      "date": "2026-05-18",
+      "id": "2605.18746v1",
+      "abstract": "Spatial intelligence unfolds through a perception-action loop: agents act to acquire observations, and reason about how observations vary as a function of action. Rather than passively processing what",
+      "url": "https://arxiv.org/abs/2605.18746v1"
+    },
+    {
+      "title": "What Does the AI Doctor Value? Auditing Pluralism in the Clinical Ethics of Language Models",
+      "date": "2026-05-18",
+      "id": "2605.18738v1",
+      "abstract": "Medicine is inherently pluralistic. Principles such as autonomy, beneficence, nonmaleficence, and justice routinely conflict, and such ethical dilemmas often sharply divide reasonable physicians. Good",
+      "url": "https://arxiv.org/abs/2605.18738v1"
+    }
+  ]
 }
