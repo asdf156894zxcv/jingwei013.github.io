@@ -1,6 +1,105 @@
 {
-  "updated": "2026-05-21 05:04 UTC",
-  "total": 0,
+  "updated": "2026-05-22 04:54 UTC",
+  "total": 14,
   "today_count": 0,
-  "papers": []
+  "papers": [
+    {
+      "title": "Tokenisation via Convex Relaxations",
+      "date": "2026-05-21",
+      "id": "2605.22821v1",
+      "abstract": "Tokenisation is an integral part of the current NLP pipeline. Current tokenisation algorithms such as BPE and Unigram are greedy algorithms -- they make locally optimal decisions without considering t",
+      "url": "https://arxiv.org/abs/2605.22821v1"
+    },
+    {
+      "title": "Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs",
+      "date": "2026-05-21",
+      "id": "2605.22823v1",
+      "abstract": "Video Large Language Models (Video-LLMs) have made rapid progress on temporal video understanding, yet many fail at a basic perceptual primitive: signed image-plane motion direction. On simple videos ",
+      "url": "https://arxiv.org/abs/2605.22823v1"
+    },
+    {
+      "title": "Cambrian-P: Pose-Grounded Video Understanding",
+      "date": "2026-05-21",
+      "id": "2605.22819v1",
+      "abstract": "Camera pose matters. The position and orientation of each viewpoint define a shared spatial coordinate frame that relates observations across video frames. Yet this signal is largely absent from multi",
+      "url": "https://arxiv.org/abs/2605.22819v1"
+    },
+    {
+      "title": "AwareVLN: Reasoning with Self-awareness for Vision-Language Navigation",
+      "date": "2026-05-21",
+      "id": "2605.22816v1",
+      "abstract": "Vision-and-Language Navigation (VLN) requires an agent to ground language instructions to its own movement within a visual environment. While state-of-the-art methods leverage the reasoning capabiliti",
+      "url": "https://arxiv.org/abs/2605.22816v1"
+    },
+    {
+      "title": "Remember to be Curious: Episodic Context and Persistent Worlds for 3D Exploration",
+      "date": "2026-05-21",
+      "id": "2605.22814v1",
+      "abstract": "Exploration is a prerequisite for learning useful behaviors in sparse-reward, long-horizon tasks, particularly within 3D environments. Curiosity-driven reinforcement learning addresses this via intrin",
+      "url": "https://arxiv.org/abs/2605.22814v1"
+    },
+    {
+      "title": "Sensor2Sensor: Cross-Embodiment Sensor Conversion for Autonomous Driving",
+      "date": "2026-05-21",
+      "id": "2605.22809v1",
+      "abstract": "Robust training and validation of Autonomous Driving Systems (ADS) require massive, diverse datasets. Proprietary data collected by Autonomous Vehicle (AV) fleets, while high-fidelity, are limited in ",
+      "url": "https://arxiv.org/abs/2605.22809v1"
+    },
+    {
+      "title": "MotiMotion: Motion-Controlled Video Generation with Visual Reasoning",
+      "date": "2026-05-21",
+      "id": "2605.22818v1",
+      "abstract": "Current motion-controlled image-to-video generation models rigidly follow user-provided trajectories that are often sparse, imprecise, and causally incomplete. Such reliance often yields unnatural or ",
+      "url": "https://arxiv.org/abs/2605.22818v1"
+    },
+    {
+      "title": "Integrable Elasticity via Neural Demand Potentials",
+      "date": "2026-05-21",
+      "id": "2605.22820v1",
+      "abstract": "We propose the Integrable Context-Dependent Demand Network (ICDN), a demand-first neural model for multiproduct retail demand. The model learns log-demand as a smooth, context-conditioned function of ",
+      "url": "https://arxiv.org/abs/2605.22820v1"
+    },
+    {
+      "title": "Superhuman Safe and Agile Racing through Multi-Agent Reinforcement Learning",
+      "date": "2026-05-21",
+      "id": "2605.22748v1",
+      "abstract": "Autonomous systems have achieved superhuman performance in isolation or simulation, yet they remain brittle in shared, dynamic real-world spaces. This failure stems from the dominant single-agent para",
+      "url": "https://arxiv.org/abs/2605.22748v1"
+    },
+    {
+      "title": "GesVLA: Gesture-Aware Vision-Language-Action Model Embedded Representations",
+      "date": "2026-05-21",
+      "id": "2605.22812v1",
+      "abstract": "Vision-Language-Action (VLA) models have shown strong potential for general-purpose robot manipulation by unifying perception and action. However, existing VLA systems primarily rely on textual instru",
+      "url": "https://arxiv.org/abs/2605.22812v1"
+    },
+    {
+      "title": "Dynamic Lane Allocation in UAM Corridors for Efficient Multimodal Door-to-Door Mobility",
+      "date": "2026-05-21",
+      "id": "2605.22726v1",
+      "abstract": "This article presents dynamic directional lane allocation in urban air mobility (UAM) corridors as a discrete-time mixed-integer linear program (MILP). This formulation activates, deactivates, and rev",
+      "url": "https://arxiv.org/abs/2605.22726v1"
+    },
+    {
+      "title": "AnyMo: Geometry-Aware Setup-Agnostic Modeling of Human Motion in the Wild",
+      "date": "2026-05-21",
+      "id": "2605.22715v1",
+      "abstract": "As wearable and mobile devices become increasingly embedded in daily life, they offer a practical way to continuously sense human motion in the wild. But inertial signals are highly dependent on the s",
+      "url": "https://arxiv.org/abs/2605.22715v1"
+    },
+    {
+      "title": "Vector Policy Optimization: Training for Diversity Improves Test-Time Search",
+      "date": "2026-05-21",
+      "id": "2605.22817v1",
+      "abstract": "Language models must now generalize out of the box to novel environments and work inside inference-scaling search procedures, such as AlphaEvolve, that select rollouts with a variety of task-specific ",
+      "url": "https://arxiv.org/abs/2605.22817v1"
+    },
+    {
+      "title": "Bottom-up open EFT for non-Abelian gauge theory with dynamical color environment",
+      "date": "2026-05-21",
+      "id": "2605.22822v1",
+      "abstract": "We develop a bottom-up open effective field theory (EFT) for non-Abelian gauge theories within the Schwinger--Keldysh formalism. Instead of integrating out the environment completely and starting from",
+      "url": "https://arxiv.org/abs/2605.22822v1"
+    }
+  ]
 }
