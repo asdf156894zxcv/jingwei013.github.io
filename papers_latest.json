@@ -1,105 +1,161 @@
 {
-  "updated": "2026-05-24 04:57 UTC",
-  "total": 14,
+  "updated": "2026-05-25 05:14 UTC",
+  "total": 22,
   "today_count": 0,
   "papers": [
     {
-      "title": "Tokenisation via Convex Relaxations",
-      "date": "2026-05-21",
-      "id": "2605.22821v1",
-      "abstract": "Tokenisation is an integral part of the current NLP pipeline. Current tokenisation algorithms such as BPE and Unigram are greedy algorithms -- they make locally optimal decisions without considering t",
-      "url": "https://arxiv.org/abs/2605.22821v1"
+      "title": "SkillOpt: Executive Strategy for Self-Evolving Agent Skills",
+      "date": "2026-05-22",
+      "id": "2605.23904v1",
+      "abstract": "Agent skills today are hand-crafted, generated one-shot, or evolved through loosely controlled self-revision, none of which behaves like a deep-learning optimizer for the skill, and none of which reli",
+      "url": "https://arxiv.org/abs/2605.23904v1"
     },
     {
-      "title": "Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs",
-      "date": "2026-05-21",
-      "id": "2605.22823v1",
-      "abstract": "Video Large Language Models (Video-LLMs) have made rapid progress on temporal video understanding, yet many fail at a basic perceptual primitive: signed image-plane motion direction. On simple videos ",
-      "url": "https://arxiv.org/abs/2605.22823v1"
+      "title": "Geo-Align: Video Generation Alignment via Metric Geometry Reward",
+      "date": "2026-05-22",
+      "id": "2605.23903v1",
+      "abstract": "Camera-controlled video generation has achieved remarkable progress in recent years. However, existing video-to-video re-rendering methods primarily rely on Supervised Fine-Tuning using synthetic data",
+      "url": "https://arxiv.org/abs/2605.23903v1"
     },
     {
-      "title": "Cambrian-P: Pose-Grounded Video Understanding",
-      "date": "2026-05-21",
-      "id": "2605.22819v1",
-      "abstract": "Camera pose matters. The position and orientation of each viewpoint define a shared spatial coordinate frame that relates observations across video frames. Yet this signal is largely absent from multi",
-      "url": "https://arxiv.org/abs/2605.22819v1"
+      "title": "PiD: Fast and High-Resolution Latent Decoding with Pixel Diffusion",
+      "date": "2026-05-22",
+      "id": "2605.23902v1",
+      "abstract": "Most practical high-resolution text-to-image systems, including latent diffusion and autoregressive models, perform generation in a compact latent space, and a decoder maps the generated latents back ",
+      "url": "https://arxiv.org/abs/2605.23902v1"
     },
     {
-      "title": "AwareVLN: Reasoning with Self-awareness for Vision-Language Navigation",
-      "date": "2026-05-21",
-      "id": "2605.22816v1",
-      "abstract": "Vision-and-Language Navigation (VLN) requires an agent to ground language instructions to its own movement within a visual environment. While state-of-the-art methods leverage the reasoning capabiliti",
-      "url": "https://arxiv.org/abs/2605.22816v1"
+      "title": "SPACENUM: Revisiting Spatial Numerical Understanding in VLMs",
+      "date": "2026-05-22",
+      "id": "2605.23898v1",
+      "abstract": "Vision-Language Models (VLMs) are increasingly deployed in embodied environments, where they need produce numerical outputs such as action magnitudes and spatial coordinates. Although these numbers ap",
+      "url": "https://arxiv.org/abs/2605.23898v1"
     },
     {
-      "title": "Remember to be Curious: Episodic Context and Persistent Worlds for 3D Exploration",
-      "date": "2026-05-21",
-      "id": "2605.22814v1",
-      "abstract": "Exploration is a prerequisite for learning useful behaviors in sparse-reward, long-horizon tasks, particularly within 3D environments. Curiosity-driven reinforcement learning addresses this via intrin",
-      "url": "https://arxiv.org/abs/2605.22814v1"
+      "title": "Any2Any: Efficient Cross-Embodiment Transfer for Humanoid Whole-Body Tracking",
+      "date": "2026-05-22",
+      "id": "2605.23733v1",
+      "abstract": "Whole-body tracking (WBT) models have become a key foundation for humanoid robots, enabling them to imitate diverse motions with high fidelity. Training such models from scratch requires large-scale d",
+      "url": "https://arxiv.org/abs/2605.23733v1"
     },
     {
-      "title": "Sensor2Sensor: Cross-Embodiment Sensor Conversion for Autonomous Driving",
-      "date": "2026-05-21",
-      "id": "2605.22809v1",
-      "abstract": "Robust training and validation of Autonomous Driving Systems (ADS) require massive, diverse datasets. Proprietary data collected by Autonomous Vehicle (AV) fleets, while high-fidelity, are limited in ",
-      "url": "https://arxiv.org/abs/2605.22809v1"
+      "title": "Single-Photon Fourier Transform",
+      "date": "2026-05-22",
+      "id": "2605.23611v1",
+      "abstract": "The extraction of information carried by light plays an increasingly important role in optical communication, imaging, and detection. However, the information can only be successfully extracted when t",
+      "url": "https://arxiv.org/abs/2605.23611v1"
     },
     {
-      "title": "MotiMotion: Motion-Controlled Video Generation with Visual Reasoning",
-      "date": "2026-05-21",
-      "id": "2605.22818v1",
-      "abstract": "Current motion-controlled image-to-video generation models rigidly follow user-provided trajectories that are often sparse, imprecise, and causally incomplete. Such reliance often yields unnatural or ",
-      "url": "https://arxiv.org/abs/2605.22818v1"
+      "title": "Smart-Insertion-V: Photorealistic Video Insertion via a Closed-Loop Feedback Dual-Stream Framework",
+      "date": "2026-05-22",
+      "id": "2605.23891v1",
+      "abstract": "Mask-free video object insertion has emerged as a challenging task, requiring harmonious integration of reference objects into source videos. However, existing methods struggle when references exhibit",
+      "url": "https://arxiv.org/abs/2605.23891v1"
     },
     {
-      "title": "Integrable Elasticity via Neural Demand Potentials",
-      "date": "2026-05-21",
-      "id": "2605.22820v1",
-      "abstract": "We propose the Integrable Context-Dependent Demand Network (ICDN), a demand-first neural model for multiproduct retail demand. The model learns log-demand as a smooth, context-conditioned function of ",
-      "url": "https://arxiv.org/abs/2605.22820v1"
+      "title": "GenRecon: Bridging Generative Priors for Multi-View 3D Scene Reconstruction",
+      "date": "2026-05-22",
+      "id": "2605.23888v1",
+      "abstract": "We introduce a new approach to high-fidelity 3D scene reconstruction from multi-view RGB images that tightly couples reconstruction with a strong generative 3D prior. We cast scene reconstruction as c",
+      "url": "https://arxiv.org/abs/2605.23888v1"
     },
     {
-      "title": "Superhuman Safe and Agile Racing through Multi-Agent Reinforcement Learning",
-      "date": "2026-05-21",
-      "id": "2605.22748v1",
-      "abstract": "Autonomous systems have achieved superhuman performance in isolation or simulation, yet they remain brittle in shared, dynamic real-world spaces. This failure stems from the dominant single-agent para",
-      "url": "https://arxiv.org/abs/2605.22748v1"
+      "title": "Move on Muon : A Hamiltonian probability gradient flow perspective of Muon optimizer",
+      "date": "2026-05-22",
+      "id": "2605.23871v1",
+      "abstract": "We develop a gradient flow on the space of probability measures defined on matrix-valued parameters induced by regularized Muon, an analytically smoothed version of the idealized Muon optimizer. The k",
+      "url": "https://arxiv.org/abs/2605.23871v1"
     },
     {
-      "title": "GesVLA: Gesture-Aware Vision-Language-Action Model Embedded Representations",
-      "date": "2026-05-21",
-      "id": "2605.22812v1",
-      "abstract": "Vision-Language-Action (VLA) models have shown strong potential for general-purpose robot manipulation by unifying perception and action. However, existing VLA systems primarily rely on textual instru",
-      "url": "https://arxiv.org/abs/2605.22812v1"
+      "title": "PathNavigate: A Training-Free Pathology Agent with Surprise-Guided Scan and Shared Slide Memory for Whole-Slide Image VQA",
+      "date": "2026-05-22",
+      "id": "2605.23559v1",
+      "abstract": "Whole-slide image visual question answering (WSI-VQA) frames pathology as an extreme-context search problem: to answer a free-form clinical query, a system must first navigate a gigapixel slide under ",
+      "url": "https://arxiv.org/abs/2605.23559v1"
     },
     {
-      "title": "Dynamic Lane Allocation in UAM Corridors for Efficient Multimodal Door-to-Door Mobility",
-      "date": "2026-05-21",
-      "id": "2605.22726v1",
-      "abstract": "This article presents dynamic directional lane allocation in urban air mobility (UAM) corridors as a discrete-time mixed-integer linear program (MILP). This formulation activates, deactivates, and rev",
-      "url": "https://arxiv.org/abs/2605.22726v1"
+      "title": "Outlier-Robust unscented Kalman filter based on generalized correntropy induced",
+      "date": "2026-05-22",
+      "id": "2605.23499v1",
+      "abstract": "Conventional Kalman filtering (KF) approaches exhibit significant limitations in addressing nonlinear state estimation problems contaminated by non-Gaussian noise disturbances. To overcome these chall",
+      "url": "https://arxiv.org/abs/2605.23499v1"
     },
     {
-      "title": "AnyMo: Geometry-Aware Setup-Agnostic Modeling of Human Motion in the Wild",
-      "date": "2026-05-21",
-      "id": "2605.22715v1",
-      "abstract": "As wearable and mobile devices become increasingly embedded in daily life, they offer a practical way to continuously sense human motion in the wild. But inertial signals are highly dependent on the s",
-      "url": "https://arxiv.org/abs/2605.22715v1"
+      "title": "Robotic Strawberry Harvesting with Robust Vision and Deep Reinforcement Learning based Sim-to-Real Control",
+      "date": "2026-05-22",
+      "id": "2605.23863v1",
+      "abstract": "This study presents a closed-loop robotic strawberry harvesting system that combines a robust vision module, simulation-trained deep reinforcement learning (DRL) control, and ROS-based realrobot execu",
+      "url": "https://arxiv.org/abs/2605.23863v1"
     },
     {
-      "title": "Vector Policy Optimization: Training for Diversity Improves Test-Time Search",
-      "date": "2026-05-21",
-      "id": "2605.22817v1",
-      "abstract": "Language models must now generalize out of the box to novel environments and work inside inference-scaling search procedures, such as AlphaEvolve, that select rollouts with a variety of task-specific ",
-      "url": "https://arxiv.org/abs/2605.22817v1"
+      "title": "Point Tracking Improves World Action Models",
+      "date": "2026-05-22",
+      "id": "2605.23856v1",
+      "abstract": "Robot policy learning benefits from world-action models that capture environment dynamics, but pixel-level prediction entangles dynamics with nuisance factors such as lighting and texture, making lear",
+      "url": "https://arxiv.org/abs/2605.23856v1"
     },
     {
-      "title": "Bottom-up open EFT for non-Abelian gauge theory with dynamical color environment",
-      "date": "2026-05-21",
-      "id": "2605.22822v1",
-      "abstract": "We develop a bottom-up open effective field theory (EFT) for non-Abelian gauge theories within the Schwinger--Keldysh formalism. Instead of integrating out the environment completely and starting from",
-      "url": "https://arxiv.org/abs/2605.22822v1"
+      "title": "Instrumentation for Imitation Learning: Enhancing Training Datasets for Clothes Hanger Insertion",
+      "date": "2026-05-22",
+      "id": "2605.23847v1",
+      "abstract": "Large behaviour models have transformed the field of robotic manipulation, but prohibitive data requirements have thus far prevented a revolution similar to vision language models. We believe that ins",
+      "url": "https://arxiv.org/abs/2605.23847v1"
+    },
+    {
+      "title": "Soft Mobility Theory",
+      "date": "2026-05-22",
+      "id": "2605.23869v1",
+      "abstract": "Predicting how a deformable body moves and deforms in a viscous flow underlies problems ranging from microorganism locomotion to soft microrobotics, yet existing frameworks are either problem-specific",
+      "url": "https://arxiv.org/abs/2605.23869v1"
+    },
+    {
+      "title": "A Machine Learning Framework for Large-Scale Static Wireless Mesh Networks",
+      "date": "2026-05-22",
+      "id": "2605.23811v1",
+      "abstract": "This paper presents a system design methodology for a large-scale static wireless mesh network for 155 commercial off-the-shelf (COTS) radio nodes at fixed infrastructure sites in a challenging island",
+      "url": "https://arxiv.org/abs/2605.23811v1"
+    },
+    {
+      "title": "Chirality-sensitive mobility and dissipation of Brownian motion on a helical landscape",
+      "date": "2026-05-22",
+      "id": "2605.23803v1",
+      "abstract": "We study the Brownian dynamics and linear response of a particle with inertia moving in a 2-dimensional helical landscape imprinted on a cylindrical surface. In the harmonic well approximation, the de",
+      "url": "https://arxiv.org/abs/2605.23803v1"
+    },
+    {
+      "title": "LLMs as Noisy Channels: A Shannon Perspective on Model Capacity and Scaling Laws",
+      "date": "2026-05-22",
+      "id": "2605.23901v1",
+      "abstract": "Existing scaling laws for Large Language Models (LLMs), predominantly monotonic power laws, fail to explain emerging non-monotonic phenomena such as catastrophic overtraining and quantization-induced ",
+      "url": "https://arxiv.org/abs/2605.23901v1"
+    },
+    {
+      "title": "ETCHR: Editing To Clarify and Harness Reasoning",
+      "date": "2026-05-22",
+      "id": "2605.23897v1",
+      "abstract": "Multimodal Large Language Models have advanced visual reasoning, yet a purely textual chain of thought remains a bottleneck for questions that require fine-grained focus or view transformations. The '",
+      "url": "https://arxiv.org/abs/2605.23897v1"
+    },
+    {
+      "title": "Divergent Paths to Depolarization: Dialogue Design Determines the Prosocial Benefits of AI-Assisted Political Argumentation",
+      "date": "2026-05-22",
+      "id": "2605.23890v1",
+      "abstract": "Argumentative dialogues across political divides can reduce polarization, yet opportunities for citizens to engage with opposing views in accessible and structured ways remain limited. AI dialogue par",
+      "url": "https://arxiv.org/abs/2605.23890v1"
+    },
+    {
+      "title": "From Activation to Causality: Discovery of Causal Visual Representations in the Human Brain",
+      "date": "2026-05-22",
+      "id": "2605.23895v1",
+      "abstract": "Identifying which brain regions represent a visual concept in the human brain is a central challenge in neuroscience. Existing approaches have localized coarse functional regions (e.g., faces, places)",
+      "url": "https://arxiv.org/abs/2605.23895v1"
+    },
+    {
+      "title": "A Two-Branch Finite-Field Construction for Regular CSS LDPC Bases",
+      "date": "2026-05-22",
+      "id": "2605.23894v1",
+      "abstract": "This paper develops a two-branch multiplicative-coset construction for regular Calderbank-Shor-Steane (CSS) quantum low-density parity-check base matrices. For a target column weight \\(J\\) and an even",
+      "url": "https://arxiv.org/abs/2605.23894v1"
     }
   ]
 }
