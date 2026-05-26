@@ -1,161 +1,140 @@
 {
-  "updated": "2026-05-25 05:14 UTC",
-  "total": 22,
+  "updated": "2026-05-26 04:56 UTC",
+  "total": 19,
   "today_count": 0,
   "papers": [
     {
-      "title": "SkillOpt: Executive Strategy for Self-Evolving Agent Skills",
-      "date": "2026-05-22",
-      "id": "2605.23904v1",
-      "abstract": "Agent skills today are hand-crafted, generated one-shot, or evolved through loosely controlled self-revision, none of which behaves like a deep-learning optimizer for the skill, and none of which reli",
-      "url": "https://arxiv.org/abs/2605.23904v1"
+      "title": "TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction",
+      "date": "2026-05-25",
+      "id": "2605.26115v1",
+      "abstract": "Sparse-view 3D reconstruction is increasingly addressed with feed-forward splatting networks that predict explicit primitives directly from images. Yet most existing methods remain centered on Gaussia",
+      "url": "https://arxiv.org/abs/2605.26115v1"
     },
     {
-      "title": "Geo-Align: Video Generation Alignment via Metric Geometry Reward",
-      "date": "2026-05-22",
-      "id": "2605.23903v1",
-      "abstract": "Camera-controlled video generation has achieved remarkable progress in recent years. However, existing video-to-video re-rendering methods primarily rely on Supervised Fine-Tuning using synthetic data",
-      "url": "https://arxiv.org/abs/2605.23903v1"
+      "title": "MobileGym: A Verifiable and Highly Parallel Simulation Platform for Mobile GUI Agent Research",
+      "date": "2026-05-25",
+      "id": "2605.26114v1",
+      "abstract": "We present MobileGym, a browser-hosted, lightweight, fully controllable environment for everyday mobile use, targeting interaction fidelity without replicating proprietary backends. It enables two cap",
+      "url": "https://arxiv.org/abs/2605.26114v1"
     },
     {
-      "title": "PiD: Fast and High-Resolution Latent Decoding with Pixel Diffusion",
-      "date": "2026-05-22",
-      "id": "2605.23902v1",
-      "abstract": "Most practical high-resolution text-to-image systems, including latent diffusion and autoregressive models, perform generation in a compact latent space, and a decoder maps the generated latents back ",
-      "url": "https://arxiv.org/abs/2605.23902v1"
+      "title": "AnyScene: Towards Highly Controllable Driving Scene Generation at Anywhere and Beyond",
+      "date": "2026-05-25",
+      "id": "2605.26113v1",
+      "abstract": "Generating high-fidelity and controllable synthetic data is critical for advancing end-to-end autonomous driving, particularly for addressing the long tail of rare safety-critical scenarios. Existing ",
+      "url": "https://arxiv.org/abs/2605.26113v1"
     },
     {
-      "title": "SPACENUM: Revisiting Spatial Numerical Understanding in VLMs",
-      "date": "2026-05-22",
-      "id": "2605.23898v1",
-      "abstract": "Vision-Language Models (VLMs) are increasingly deployed in embodied environments, where they need produce numerical outputs such as action magnitudes and spatial coordinates. Although these numbers ap",
-      "url": "https://arxiv.org/abs/2605.23898v1"
+      "title": "Peak-Then-Collapse and the Four Interface Channels of Knowledge-Graph Tool Use",
+      "date": "2026-05-25",
+      "id": "2605.26037v1",
+      "abstract": "We test the standard RLVR tool-use recipe -- GRPO on Qwen2.5-7B-Instruct -- on a deliberately minimal knowledge-graph tool API: four Freebase navigation verbs over Complex WebQuestions. Under a self-v",
+      "url": "https://arxiv.org/abs/2605.26037v1"
     },
     {
-      "title": "Any2Any: Efficient Cross-Embodiment Transfer for Humanoid Whole-Body Tracking",
-      "date": "2026-05-22",
-      "id": "2605.23733v1",
-      "abstract": "Whole-body tracking (WBT) models have become a key foundation for humanoid robots, enabling them to imitate diverse motions with high fidelity. Training such models from scratch requires large-scale d",
-      "url": "https://arxiv.org/abs/2605.23733v1"
+      "title": "STaT: Resolving Shape Distortion in Non-Stationary Time Series via Tri-Modal Synergy",
+      "date": "2026-05-25",
+      "id": "2605.25943v1",
+      "abstract": "Recent research in time series forecasting frequently investigates the integration of textual and visual modalities with numerical models to better navigate non-stationary environments. Despite delive",
+      "url": "https://arxiv.org/abs/2605.25943v1"
     },
     {
-      "title": "Single-Photon Fourier Transform",
-      "date": "2026-05-22",
-      "id": "2605.23611v1",
-      "abstract": "The extraction of information carried by light plays an increasingly important role in optical communication, imaging, and detection. However, the information can only be successfully extracted when t",
-      "url": "https://arxiv.org/abs/2605.23611v1"
+      "title": "From Model Scaling to System Scaling: Scaling the Harness in Agentic AI",
+      "date": "2026-05-25",
+      "id": "2605.26112v1",
+      "abstract": "This paper studies the next major bottleneck in agentic AI as system scaling, not only model scaling: the design of auditable, persistent, modular, and verifiable architectures around foundation model",
+      "url": "https://arxiv.org/abs/2605.26112v1"
     },
     {
-      "title": "Smart-Insertion-V: Photorealistic Video Insertion via a Closed-Loop Feedback Dual-Stream Framework",
-      "date": "2026-05-22",
-      "id": "2605.23891v1",
-      "abstract": "Mask-free video object insertion has emerged as a challenging task, requiring harmonious integration of reference objects into source videos. However, existing methods struggle when references exhibit",
-      "url": "https://arxiv.org/abs/2605.23891v1"
+      "title": "Helix4D: Complex 4D Mesh Generation",
+      "date": "2026-05-25",
+      "id": "2605.26109v1",
+      "abstract": "Current video-to-4D methods struggle with complex topology changes, transparent materials, thin structures, and inner surfaces. We present Helix4D, a dynamic mesh generation framework by inheriting th",
+      "url": "https://arxiv.org/abs/2605.26109v1"
     },
     {
-      "title": "GenRecon: Bridging Generative Priors for Multi-View 3D Scene Reconstruction",
-      "date": "2026-05-22",
-      "id": "2605.23888v1",
-      "abstract": "We introduce a new approach to high-fidelity 3D scene reconstruction from multi-view RGB images that tightly couples reconstruction with a strong generative 3D prior. We cast scene reconstruction as c",
-      "url": "https://arxiv.org/abs/2605.23888v1"
+      "title": "Reinforcing Few-step Generators via Reward-Tilted Distribution Matching",
+      "date": "2026-05-25",
+      "id": "2605.26108v1",
+      "abstract": "Recent advances in few-step diffusion distillation have enabled efficient image generation, yet aligning these models with human preferences remains challenging. We propose Reward-Tilted Distribution ",
+      "url": "https://arxiv.org/abs/2605.26108v1"
     },
     {
-      "title": "Move on Muon : A Hamiltonian probability gradient flow perspective of Muon optimizer",
-      "date": "2026-05-22",
-      "id": "2605.23871v1",
-      "abstract": "We develop a gradient flow on the space of probability measures defined on matrix-valued parameters induced by regularized Muon, an analytically smoothed version of the idealized Muon optimizer. The k",
-      "url": "https://arxiv.org/abs/2605.23871v1"
+      "title": "Unifying Early and Late Dark Energy: Dynamical Requirements and Obstructions",
+      "date": "2026-05-25",
+      "id": "2605.26116v1",
+      "abstract": "We investigate whether early- and late-time dark energy could arise from a single scalar field. Adopting a bottom-up perspective, we first identify the sequence of dynamical regimes that any unified s",
+      "url": "https://arxiv.org/abs/2605.26116v1"
     },
     {
-      "title": "PathNavigate: A Training-Free Pathology Agent with Surprise-Guided Scan and Shared Slide Memory for Whole-Slide Image VQA",
-      "date": "2026-05-22",
-      "id": "2605.23559v1",
-      "abstract": "Whole-slide image visual question answering (WSI-VQA) frames pathology as an extreme-context search problem: to answer a free-form clinical query, a system must first navigate a gigapixel slide under ",
-      "url": "https://arxiv.org/abs/2605.23559v1"
+      "title": "WBench: A Comprehensive Multi-turn Benchmark for Interactive Video World Model Evaluation",
+      "date": "2026-05-25",
+      "id": "2605.25874v1",
+      "abstract": "Interactive world models are advancing rapidly, yet existing benchmarks cover only part of the required competencies, leaving no unified standard for systematic evaluation. To fill this gap, we introd",
+      "url": "https://arxiv.org/abs/2605.25874v1"
     },
     {
-      "title": "Outlier-Robust unscented Kalman filter based on generalized correntropy induced",
-      "date": "2026-05-22",
-      "id": "2605.23499v1",
-      "abstract": "Conventional Kalman filtering (KF) approaches exhibit significant limitations in addressing nonlinear state estimation problems contaminated by non-Gaussian noise disturbances. To overcome these chall",
-      "url": "https://arxiv.org/abs/2605.23499v1"
+      "title": "Active Query Synthesis for Preference Learning",
+      "date": "2026-05-25",
+      "id": "2605.26072v1",
+      "abstract": "Efficient learning of user preferences is crucial for many modern decision making systems but typically requires costly labeled data. Active learning reduces this cost, yet standard methods are comput",
+      "url": "https://arxiv.org/abs/2605.26072v1"
     },
     {
-      "title": "Robotic Strawberry Harvesting with Robust Vision and Deep Reinforcement Learning based Sim-to-Real Control",
-      "date": "2026-05-22",
-      "id": "2605.23863v1",
-      "abstract": "This study presents a closed-loop robotic strawberry harvesting system that combines a robust vision module, simulation-trained deep reinforcement learning (DRL) control, and ROS-based realrobot execu",
-      "url": "https://arxiv.org/abs/2605.23863v1"
+      "title": "Robust Tracking of Curvature-Constrained Paths for Uncertain Dubins Systems",
+      "date": "2026-05-25",
+      "id": "2605.26043v1",
+      "abstract": "This paper presents a robust tracking controller for tracking curvature-constrained paths by vehicles/robots with uncertain Dubins dynamics. Although Dubins paths have been widely used in vehicular an",
+      "url": "https://arxiv.org/abs/2605.26043v1"
     },
     {
-      "title": "Point Tracking Improves World Action Models",
-      "date": "2026-05-22",
-      "id": "2605.23856v1",
-      "abstract": "Robot policy learning benefits from world-action models that capture environment dynamics, but pixel-level prediction entangles dynamics with nuisance factors such as lighting and texture, making lear",
-      "url": "https://arxiv.org/abs/2605.23856v1"
+      "title": "Capability and Robustness Cannot Both Be Free: An Information-Theoretic Bound for Vision-Language-Action Models",
+      "date": "2026-05-25",
+      "id": "2605.25889v1",
+      "abstract": "Vision-Language-Action (VLA) models are increasingly deployed on real robots, where each predicted action is executed and each failure carries a safety cost. They reach high success rates on clean inp",
+      "url": "https://arxiv.org/abs/2605.25889v1"
     },
     {
-      "title": "Instrumentation for Imitation Learning: Enhancing Training Datasets for Clothes Hanger Insertion",
-      "date": "2026-05-22",
-      "id": "2605.23847v1",
-      "abstract": "Large behaviour models have transformed the field of robotic manipulation, but prohibitive data requirements have thus far prevented a revolution similar to vision language models. We believe that ins",
-      "url": "https://arxiv.org/abs/2605.23847v1"
+      "title": "InstructSAM: Segment Any Instance with Any Instructions",
+      "date": "2026-05-25",
+      "id": "2605.26102v1",
+      "abstract": "In this paper, we introduce InstructSAM, a unified and streamlined framework designed for multi-instance segmentation under arbitrary instructions. We formulates instruction-driven instance segmentati",
+      "url": "https://arxiv.org/abs/2605.26102v1"
     },
     {
-      "title": "Soft Mobility Theory",
-      "date": "2026-05-22",
-      "id": "2605.23869v1",
-      "abstract": "Predicting how a deformable body moves and deforms in a viscous flow underlies problems ranging from microorganism locomotion to soft microrobotics, yet existing frameworks are either problem-specific",
-      "url": "https://arxiv.org/abs/2605.23869v1"
+      "title": "Beyond Summaries: Structure-Aware Labeling of Code Changes with Large Language Models",
+      "date": "2026-05-25",
+      "id": "2605.26100v1",
+      "abstract": "Code review is a critical practice in software engineering, yet the growing scale and frequency of code patches in modern projects, together with the widespread adoption of AI code assistants, make ma",
+      "url": "https://arxiv.org/abs/2605.26100v1"
     },
     {
-      "title": "A Machine Learning Framework for Large-Scale Static Wireless Mesh Networks",
-      "date": "2026-05-22",
-      "id": "2605.23811v1",
-      "abstract": "This paper presents a system design methodology for a large-scale static wireless mesh network for 155 commercial off-the-shelf (COTS) radio nodes at fixed infrastructure sites in a challenging island",
-      "url": "https://arxiv.org/abs/2605.23811v1"
+      "title": "Global Structure-from-Motion Meets Feedforward Reconstruction",
+      "date": "2026-05-25",
+      "id": "2605.26103v1",
+      "abstract": "Structure-from-Motion -- the process of simultaneously estimating camera poses and 3D scene structure from a collection of images -- remains a central challenge in computer vision, with many open prob",
+      "url": "https://arxiv.org/abs/2605.26103v1"
     },
     {
-      "title": "Chirality-sensitive mobility and dissipation of Brownian motion on a helical landscape",
-      "date": "2026-05-22",
-      "id": "2605.23803v1",
-      "abstract": "We study the Brownian dynamics and linear response of a particle with inertia moving in a 2-dimensional helical landscape imprinted on a cylindrical surface. In the harmonic well approximation, the de",
-      "url": "https://arxiv.org/abs/2605.23803v1"
+      "title": "Pixel-Level Pavement Distress Assessment Using Instance Segmentation",
+      "date": "2026-05-25",
+      "id": "2605.26095v1",
+      "abstract": "Automated pavement distress assessment requires more than image-level classification or coarse bounding box detection, demanding precise localization of thin, branching, and irregular cracks to achiev",
+      "url": "https://arxiv.org/abs/2605.26095v1"
     },
     {
-      "title": "LLMs as Noisy Channels: A Shannon Perspective on Model Capacity and Scaling Laws",
-      "date": "2026-05-22",
-      "id": "2605.23901v1",
-      "abstract": "Existing scaling laws for Large Language Models (LLMs), predominantly monotonic power laws, fail to explain emerging non-monotonic phenomena such as catastrophic overtraining and quantization-induced ",
-      "url": "https://arxiv.org/abs/2605.23901v1"
+      "title": "Response of a dipolar BEC to Laguerre-Gaussian beam driven STIRAP",
+      "date": "2026-05-25",
+      "id": "2605.26094v1",
+      "abstract": "Coherent light-matter coupling via STIRAP can offer a versatile route to nucleate quantized vortices in Bose-Einstein condensates, yet its efficacy in dipolar condensates remains an open question. Can",
+      "url": "https://arxiv.org/abs/2605.26094v1"
     },
     {
-      "title": "ETCHR: Editing To Clarify and Harness Reasoning",
-      "date": "2026-05-22",
-      "id": "2605.23897v1",
-      "abstract": "Multimodal Large Language Models have advanced visual reasoning, yet a purely textual chain of thought remains a bottleneck for questions that require fine-grained focus or view transformations. The '",
-      "url": "https://arxiv.org/abs/2605.23897v1"
-    },
-    {
-      "title": "Divergent Paths to Depolarization: Dialogue Design Determines the Prosocial Benefits of AI-Assisted Political Argumentation",
-      "date": "2026-05-22",
-      "id": "2605.23890v1",
-      "abstract": "Argumentative dialogues across political divides can reduce polarization, yet opportunities for citizens to engage with opposing views in accessible and structured ways remain limited. AI dialogue par",
-      "url": "https://arxiv.org/abs/2605.23890v1"
-    },
-    {
-      "title": "From Activation to Causality: Discovery of Causal Visual Representations in the Human Brain",
-      "date": "2026-05-22",
-      "id": "2605.23895v1",
-      "abstract": "Identifying which brain regions represent a visual concept in the human brain is a central challenge in neuroscience. Existing approaches have localized coarse functional regions (e.g., faces, places)",
-      "url": "https://arxiv.org/abs/2605.23895v1"
-    },
-    {
-      "title": "A Two-Branch Finite-Field Construction for Regular CSS LDPC Bases",
-      "date": "2026-05-22",
-      "id": "2605.23894v1",
-      "abstract": "This paper develops a two-branch multiplicative-coset construction for regular Calderbank-Shor-Steane (CSS) quantum low-density parity-check base matrices. For a target column weight \\(J\\) and an even",
-      "url": "https://arxiv.org/abs/2605.23894v1"
+      "title": "Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation",
+      "date": "2026-05-25",
+      "id": "2605.26111v1",
+      "abstract": "Subject-driven image generation aims to synthesize new images that preserve the identity of the given subject while following textual instructions. Existing approaches often encode text and reference ",
+      "url": "https://arxiv.org/abs/2605.26111v1"
     }
   ]
 }
