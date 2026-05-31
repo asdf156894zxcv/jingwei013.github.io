@@ -1,8 +1,15 @@
 {
-  "updated": "2026-05-30 04:43 UTC",
+  "updated": "2026-05-31 05:14 UTC",
   "total": 16,
   "today_count": 0,
   "papers": [
+    {
+      "title": "Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software",
+      "date": "2026-05-28",
+      "id": "2605.30353v1",
+      "abstract": "Are AI agents tools, co-authors, or researchers? We present a quantified case study ($N=1$): a physicist supervising an AI coding agent (Claude Code, Sonnet and Opus models) over 12 work days and 57 s",
+      "url": "https://arxiv.org/abs/2605.30353v1"
+    },
     {
       "title": "GMOS: Grounding Moving Object Segmentation in 3D Space and Time",
       "date": "2026-05-28",
@@ -16,20 +23,6 @@
       "id": "2605.30351v1",
       "abstract": "Long-rollout causal video diffusion has converged on a fixed-size sliding-window KV cache, with recent progress innovating within this layout by changing which tokens occupy the window or how their po",
       "url": "https://arxiv.org/abs/2605.30351v1"
-    },
-    {
-      "title": "DynaFLIP: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation",
-      "date": "2026-05-28",
-      "id": "2605.30350v1",
-      "abstract": "Robot manipulation critically depends on perception that preserves the action-relevant aspects of a scene. Yet most robot learning pipelines are built upon visual encoders pre-trained for static recog",
-      "url": "https://arxiv.org/abs/2605.30350v1"
-    },
-    {
-      "title": "RoboWits: Unexpected Challenges for Robotic Creative Problem Solving",
-      "date": "2026-05-28",
-      "id": "2605.30326v1",
-      "abstract": "The ability to reason, adapt, and creatively solve problems under unexpected challenges is essential for robots operating in real-world environments. However, current robotic benchmarks primarily emph",
-      "url": "https://arxiv.org/abs/2605.30326v1"
     },
     {
       "title": "Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments",
@@ -46,20 +39,6 @@
       "url": "https://arxiv.org/abs/2605.30158v1"
     },
     {
-      "title": "NeuROK: Generative 4D Neural Object Kinematics",
-      "date": "2026-05-28",
-      "id": "2605.30347v1",
-      "abstract": "Data-driven approaches have revolutionized 3D vision, enabling transformers to effectively reconstruct and generate static 3D objects. However, generating simulative 4D dynamics -- realistic temporal ",
-      "url": "https://arxiv.org/abs/2605.30347v1"
-    },
-    {
-      "title": "Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software",
-      "date": "2026-05-28",
-      "id": "2605.30353v1",
-      "abstract": "Are AI agents tools, co-authors, or researchers? We present a quantified case study ($N=1$): a physicist supervising an AI coding agent (Claude Code, Sonnet and Opus models) over 12 work days and 57 s",
-      "url": "https://arxiv.org/abs/2605.30353v1"
-    },
-    {
       "title": "Replicable Simulation-Based Robot Validation through Provenance",
       "date": "2026-05-28",
       "id": "2605.29973v1",
@@ -67,11 +46,25 @@
       "url": "https://arxiv.org/abs/2605.29973v1"
     },
     {
+      "title": "DynaFLIP: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation",
+      "date": "2026-05-28",
+      "id": "2605.30350v1",
+      "abstract": "Robot manipulation critically depends on perception that preserves the action-relevant aspects of a scene. Yet most robot learning pipelines are built upon visual encoders pre-trained for static recog",
+      "url": "https://arxiv.org/abs/2605.30350v1"
+    },
+    {
       "title": "Supercharging Thermal Gaussian Splatting with Depth Estimation",
       "date": "2026-05-28",
       "id": "2605.30328v1",
       "abstract": "Efficient and robust 3D scene representation is crucial in autonomous driving, robotics, and related fields. While RGB images provide valuable content for 3D reconstruction, other modalities like ther",
       "url": "https://arxiv.org/abs/2605.30328v1"
+    },
+    {
+      "title": "RoboWits: Unexpected Challenges for Robotic Creative Problem Solving",
+      "date": "2026-05-28",
+      "id": "2605.30326v1",
+      "abstract": "The ability to reason, adapt, and creatively solve problems under unexpected challenges is essential for robots operating in real-world environments. However, current robotic benchmarks primarily emph",
+      "url": "https://arxiv.org/abs/2605.30326v1"
     },
     {
       "title": "Gaze2Act: Gaze-Conditioned Vision-Language-Action Policies for Interactive Robot Manipulation",
@@ -100,6 +93,13 @@
       "id": "2605.30337v1",
       "abstract": "Test-time finetuning (TTFT) is a rapidly evolving paradigm that adapts a language model to each prompt by retrieving related sequences, updating the model on them, and then evaluating the prompt. Howe",
       "url": "https://arxiv.org/abs/2605.30337v1"
+    },
+    {
+      "title": "NeuROK: Generative 4D Neural Object Kinematics",
+      "date": "2026-05-28",
+      "id": "2605.30347v1",
+      "abstract": "Data-driven approaches have revolutionized 3D vision, enabling transformers to effectively reconstruct and generate static 3D objects. However, generating simulative 4D dynamics -- realistic temporal ",
+      "url": "https://arxiv.org/abs/2605.30347v1"
     },
     {
       "title": "Before the Shutter: Aesthetic and Actionable Portrait Photography Planning in 3D Scenes",
